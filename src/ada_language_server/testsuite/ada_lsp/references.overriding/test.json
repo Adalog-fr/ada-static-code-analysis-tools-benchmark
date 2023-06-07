@@ -1,0 +1,253 @@
+[
+   {
+      "comment": [
+         "Basic test for the 'overriding' reference kind"
+      ]
+   },
+   {
+      "start": {
+         "cmd": [
+            "${ALS}"
+         ]
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "id": 1,
+            "method": "initialize",
+            "params": {
+               "processId": 277648,
+               "rootUri": "$URI{.}",
+               "capabilities": {
+                  "workspace": {
+                     "applyEdit": true,
+                     "workspaceEdit": {}
+                  },
+                  "textDocument": {
+                     "synchronization": {},
+                     "completion": {
+                        "dynamicRegistration": true,
+                        "completionItem": {
+                           "snippetSupport": false,
+                           "documentationFormat": [
+                              "plaintext",
+                              "markdown"
+                           ],
+                           "resolveSupport": {
+                              "properties": [
+                                 "detail",
+                                 "documentation"
+                              ]
+                           }
+                        }
+                     },
+                     "hover": {},
+                     "signatureHelp": {},
+                     "declaration": {},
+                     "definition": {},
+                     "typeDefinition": {},
+                     "implementation": {},
+                     "documentSymbol": {
+                        "hierarchicalDocumentSymbolSupport": true
+                     },
+                     "formatting": {
+                        "dynamicRegistration": false
+                     },
+                     "rangeFormatting": {
+                        "dynamicRegistration": false
+                     },
+                     "onTypeFormatting": {
+                        "dynamicRegistration": false
+                     },
+                     "foldingRange": {
+                        "lineFoldingOnly": true
+                     }
+                  }
+               }
+            }
+         },
+         "wait": [
+            {
+               "id": 1,
+               "result": {
+                  "capabilities": {
+                     "textDocumentSync": 2,
+                     "completionProvider": {
+                        "triggerCharacters": [
+                           ".",
+                           ",",
+                           "'",
+                           "("
+                        ],
+                        "resolveProvider": true
+                     },
+                     "hoverProvider": true,
+                     "signatureHelpProvider": {
+                        "triggerCharacters": [
+                           ",",
+                           "("
+                        ],
+                        "retriggerCharacters": [
+                           "\b"
+                        ]
+                     },
+                     "declarationProvider": true,
+                     "definitionProvider": true,
+                     "typeDefinitionProvider": true,
+                     "implementationProvider": true,
+                     "referencesProvider": true,
+                     "documentHighlightProvider": true,
+                     "documentSymbolProvider": true,
+                     "codeActionProvider": {},
+                     "documentFormattingProvider": true,
+                     "renameProvider": {},
+                     "foldingRangeProvider": true,
+                     "workspaceSymbolProvider": true,
+                     "callHierarchyProvider": {},
+                     "alsShowDepsProvider": true,
+                     "alsReferenceKinds": [
+                        "reference",
+                        "access",
+                        "write",
+                        "call",
+                        "dispatching call",
+                        "parent",
+                        "child",
+                        "overriding"
+                     ],
+                     "alsCheckSyntaxProvider": true
+                  }
+               }
+            }
+         ]
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "method": "initialized"
+         },
+         "wait": []
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "method": "workspace/didChangeConfiguration",
+            "params": {
+               "settings": {
+                  "ada": {
+                     "scenarioVariables": {},
+                     "defaultCharset": "ISO-8859-1",
+                     "enableDiagnostics": true,
+                     "followSymlinks": false
+                  }
+               }
+            }
+         },
+         "wait": []
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "method": "textDocument/didOpen",
+            "params": {
+               "textDocument": {
+                  "uri": "$URI{parents.ads}",
+                  "languageId": "Ada",
+                  "version": 0,
+                  "text": "package Parents is\n\n   type Parent_Type is tagged null record;\n   \n   procedure Primitive (A : Parent_Type) is null;\n\nend Parents;\n"
+               }
+            }
+         },
+         "wait": []
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "method": "textDocument/didOpen",
+            "params": {
+               "textDocument": {
+                  "uri": "$URI{children.ads}",
+                  "languageId": "Ada",
+                  "version": 0,
+                  "text": "with Parents; use Parents;\n\npackage Children is\n\n   type Child_Type is new Parent_Type with null record;\n   \n   overriding procedure Primitive (A : Child_Type) is null;\n\nend Children;\n"
+               }
+            }
+         },
+         "wait": []
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "id": 9,
+            "method": "textDocument/references",
+            "params": {
+               "textDocument": {
+                  "uri": "$URI{parents.ads}"
+               },
+               "position": {
+                  "line": 4,
+                  "character": 13
+               },
+               "context": {
+                  "includeDeclaration": false
+               }
+            }
+         },
+         "wait": [
+            {
+               "id": 9,
+               "result": [
+                  {
+                     "uri": "$URI{children.ads}",
+                     "range": {
+                        "start": {
+                           "line": 6,
+                           "character": 24
+                        },
+                        "end": {
+                           "line": 6,
+                           "character": 33
+                        }
+                     },
+                     "alsKind": [
+                        "overriding"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   },
+   {
+      "send": {
+         "request": {
+            "jsonrpc": "2.0",
+            "id": 11,
+            "method": "shutdown"
+         },
+         "wait": [
+            {
+               "id": 11,
+               "result": null
+            }
+         ]
+      }
+   },
+   {
+      "stop": {
+         "exit_code": 0
+      }
+   }
+]

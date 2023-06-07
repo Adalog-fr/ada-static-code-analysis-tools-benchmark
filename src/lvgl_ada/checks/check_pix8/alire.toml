@@ -1,0 +1,21 @@
+name = "check_pix8"
+description = ""
+version = "0.1.0-dev"
+executables = ["check_pix8"]
+
+[[depends-on]]
+lvgl_ada = "*"
+
+[[pins]]
+
+[pins.lvgl_ada]
+path = "../.."
+
+[configuration.values.lvgl_ada]
+Pixel_Bit_Depth = "Pix_8bit"
+Horizontal_Resolution = 800
+Vertical_Resolution = 480
+Density_Per_Inch = 100
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,177 @@
+
+
+
+
+
+with "gnatcoll";
+with "gnatcoll_gmp";
+with "gnatcoll_iconv";
+
+
+
+
+
+
+
+
+library project Gpr_Parser is
+
+   type Build_Mode_Type is ("dev", "prod", "prof");
+   Build_Mode : Build_Mode_Type := external ("BUILD_MODE", "dev");
+
+   type Library_Kind_Type is ("static", "relocatable", "static-pic");
+   Library_Kind_Param : Library_Kind_Type := external
+     ("LIBRARY_TYPE", external ("GPR_PARSER_LIBRARY_TYPE", "static"));
+
+   type Boolean is ("false", "true");
+
+   Externally_Built : Boolean := external
+     ("GPR_PARSER_EXTERNALLY_BUILT", "false");
+   for Externally_Built use Externally_Built;
+
+      Enable_Warnings : Boolean :=
+        external ("GPR_PARSER_WARNINGS", "false");
+
+   Primary_Source_Dirs := ("/home/chouteau/src/gpr/.build/lkparser/src");
+
+      for Source_Dirs use Primary_Source_Dirs;
+
+   for Languages use 
+   ("Ada", "C")
+;
+   for Library_Name use "gpr_parser";
+   for Library_Kind use Library_Kind_Param;
+
+      for Interfaces use 
+   ("gpr_parser-analysis.adb", "gpr_parser-analysis.ads", "gpr_parser-c.adb", "gpr_parser-c.ads", "gpr_parser-common.adb", "gpr_parser-common.ads", "gpr_parser-debug.adb", "gpr_parser-debug.ads", "gpr_parser-generic_api-introspection.ads", "gpr_parser-generic_api.adb", "gpr_parser-generic_api.ads", "gpr_parser-implementation-c.adb", "gpr_parser-implementation-c.ads", "gpr_parser-implementation.adb", "gpr_parser-implementation.ads", "gpr_parser-introspection.adb", "gpr_parser-introspection.ads", "gpr_parser-introspection_implementation.adb", "gpr_parser-introspection_implementation.ads", "gpr_parser-iterators.adb", "gpr_parser-iterators.ads", "gpr_parser-lexer.adb", "gpr_parser-lexer.ads", "gpr_parser-lexer_implementation.adb", "gpr_parser-lexer_implementation.ads", "gpr_parser-lexer_state_machine.adb", "gpr_parser-lexer_state_machine.ads", "gpr_parser-parsers.adb", "gpr_parser-parsers.ads", "gpr_parser-private_converters.ads", "gpr_parser-public_converters.adb", "gpr_parser-public_converters.ads", "gpr_parser-rewriting.adb", "gpr_parser-rewriting.ads", "gpr_parser-unparsing.adb", "gpr_parser-unparsing.ads", "gpr_parser.ads", "gpr_parser_support-adalog-debug.adb", "gpr_parser_support-adalog-debug.ads", "gpr_parser_support-adalog-generic_main_support.adb", "gpr_parser_support-adalog-generic_main_support.ads", "gpr_parser_support-adalog-logic_var.adb", "gpr_parser_support-adalog-logic_var.ads", "gpr_parser_support-adalog-main_support.ads", "gpr_parser_support-adalog-solver.adb", "gpr_parser_support-adalog-solver.ads", "gpr_parser_support-adalog-solver_interface.adb", "gpr_parser_support-adalog-solver_interface.ads", "gpr_parser_support-adalog.ads", "gpr_parser_support-array_utils.adb", "gpr_parser_support-array_utils.ads", "gpr_parser_support-boxes.adb", "gpr_parser_support-boxes.ads", "gpr_parser_support-bump_ptr.ads", "gpr_parser_support-bump_ptr_vectors.adb", "gpr_parser_support-bump_ptr_vectors.ads", "gpr_parser_support-cheap_sets.adb", "gpr_parser_support-cheap_sets.ads", "gpr_parser_support-diagnostics-output.adb", "gpr_parser_support-diagnostics-output.ads", "gpr_parser_support-diagnostics.adb", "gpr_parser_support-diagnostics.ads", "gpr_parser_support-errors.ads", "gpr_parser_support-file_readers.adb", "gpr_parser_support-file_readers.ads", "gpr_parser_support-generic_api-analysis.adb", "gpr_parser_support-generic_api-analysis.ads", "gpr_parser_support-generic_api-introspection.adb", "gpr_parser_support-generic_api-introspection.ads", "gpr_parser_support-generic_api.adb", "gpr_parser_support-generic_api.ads", "gpr_parser_support-generic_bump_ptr.adb", "gpr_parser_support-generic_bump_ptr.ads", "gpr_parser_support-hashes.adb", "gpr_parser_support-hashes.ads", "gpr_parser_support-images.adb", "gpr_parser_support-images.ads", "gpr_parser_support-internal-analysis.adb", "gpr_parser_support-internal-analysis.ads", "gpr_parser_support-internal-conversions.ads", "gpr_parser_support-internal-descriptor.ads", "gpr_parser_support-internal-introspection.adb", "gpr_parser_support-internal-introspection.ads", "gpr_parser_support-internal.ads", "gpr_parser_support-iterators.adb", "gpr_parser_support-iterators.ads", "gpr_parser_support-lexical_envs.ads", "gpr_parser_support-lexical_envs_impl.adb", "gpr_parser_support-lexical_envs_impl.ads", "gpr_parser_support-names-maps.adb", "gpr_parser_support-names-maps.ads", "gpr_parser_support-names.adb", "gpr_parser_support-names.ads", "gpr_parser_support-packrat.adb", "gpr_parser_support-packrat.ads", "gpr_parser_support-relative_get.adb", "gpr_parser_support-relative_get.ads", "gpr_parser_support-slocs.adb", "gpr_parser_support-slocs.ads", "gpr_parser_support-symbols-precomputed.adb", "gpr_parser_support-symbols-precomputed.ads", "gpr_parser_support-symbols.adb", "gpr_parser_support-symbols.ads", "gpr_parser_support-text.adb", "gpr_parser_support-text.ads", "gpr_parser_support-token_data_handlers.adb", "gpr_parser_support-token_data_handlers.ads", "gpr_parser_support-tree_traversal_iterator.adb", "gpr_parser_support-tree_traversal_iterator.ads", "gpr_parser_support-types.ads", "gpr_parser_support-vectors.adb", "gpr_parser_support-vectors.ads", "gpr_parser_support.ads")
+;
+
+   for Library_Dir use "lib/" & Library_Kind_Param & "/" & Build_Mode;
+   for Object_Dir use "obj/" & Build_Mode;
+
+   Target := Gpr_Parser'Target;
+
+   package Compiler is
+
+      For_All_Cargs := ("-fPIC");
+
+      ----------------------
+      -- Common_Ada_Cargs --
+      ----------------------
+
+      --  Compilation switches to use for Ada that do not depend on the build
+      --  mode.
+      --
+      --  For generated sources, enable all warnings and treat them as errors,
+      --  except:
+      --    * conditional expressions used in tests that are known to be True
+      --      or False at compile time (C), as this is very common in generated
+      --      properties code;
+      --    * variables that could be turned into constants (K), as this is
+      --      very common in generated parsers code;
+      --    * variables that are assigned and never read (M), as this is also
+      --      common in generated parsers code;
+      --    * redundant constructs (R), as we do have redundant conversions for
+      --      AST nodes (A'Class and B'Class are not compatible even though B
+      --      derives from A).
+      --
+      --  As for style diagnostics:
+      --    * check the casing of attributes (a);
+      --    * check double spaces before comments (c);
+      --    * check the casing of keywords (k);
+      --    * check the casing of entities in Standard (n);
+      --    * check the casing of pragmas (p);
+      --    * check the casing of references is the same as the casing of the
+      --      corresponding defining identifiers (r);
+      --    * check the token spacing (t).
+
+      Manual_Ada_Cargs := ();
+      Generated_Ada_Cargs := ();
+      case Enable_Warnings is
+         when "true" =>
+            Manual_Ada_Cargs := ("-gnatwa", "-gnatyg");
+            Generated_Ada_Cargs := ("-gnatwaCKMR", "-gnatyacknprt");
+         when others =>
+            null;
+      end case;
+
+      ---------------
+      -- Mode_Args --
+      ---------------
+
+      --  Compilation switches for all languages that depend on the build mode
+
+      Mode_Args := ();
+      case Build_Mode is
+         when "dev" =>
+            Mode_Args := ("-g", "-O0");
+
+         when "prof" =>
+            --  Ensure that we have a relatively fast build but with all
+            --  possible stack info & debug info, for profiling.
+            Mode_Args := ("-Og", "-ggdb", "-g3", "-fno-omit-frame-pointer");
+
+         when "prod" =>
+            --  Debug information is useful even with optimization for
+            --  profiling, for instance.
+            Mode_Args := ("-g", "-Ofast");
+      end case;
+
+      -------------------
+      -- Ada_Mode_Args --
+      -------------------
+
+      --  Compilation switches for Ada that depend on the build mode
+
+      Ada_Mode_Args := ();
+      case Build_Mode is
+         when "dev" =>
+            Ada_Mode_Args := ( "-gnata");
+
+         when "prof" =>
+            null;
+
+         when "prod" =>
+            --  Enable aggressive inlining
+            Ada_Mode_Args := ("-gnatn2");
+      end case;
+
+      -----------------
+      -- C_Mode_Args --
+      -----------------
+
+      --  Compilation switches for C that depend on the build mode
+
+      C_Mode_Args := ();
+      case Build_Mode is
+         when "dev" =>
+            C_Mode_Args := ("-DDEBUG=1");
+
+         when "prof" =>
+            null;
+
+         when "prod" =>
+            null;
+      end case;
+
+      Common_Ada_Cargs := For_All_Cargs & Mode_Args & Ada_Mode_Args;
+      Common_C_Cargs := For_All_Cargs & Mode_Args & C_Mode_Args;
+
+      for Default_Switches ("Ada") use Common_Ada_Cargs & Generated_Ada_Cargs;
+      for Default_Switches ("C") use Common_C_Cargs;
+
+
+      case Build_Mode is
+         when "dev" =>
+            null;
+
+         when "prof" =>
+            null;
+
+         when "prod" =>
+            
+
+      end case;
+   end Compiler;
+
+end Gpr_Parser;

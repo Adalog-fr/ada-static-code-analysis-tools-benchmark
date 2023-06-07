@@ -1,0 +1,7 @@
+name = "ada_static_code_analysis_benchmark"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Quentin Dauprat"]
+maintainers = ["Quentin Dauprat <example@example.com>"]
+maintainers-logins = ["Heziode"]

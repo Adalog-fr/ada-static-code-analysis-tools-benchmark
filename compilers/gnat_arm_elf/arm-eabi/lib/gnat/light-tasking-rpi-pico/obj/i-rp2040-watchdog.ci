@@ -1,0 +1,15 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-watchdog.ads"
+node: { title: "interfaces__rp2040__watchdog__Tctrl_pause_dbg_field_arrayBIP" label: "Tctrl_pause_dbg_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__ctrl_pause_dbg_fieldEQ" label: "ctrl_pause_dbg_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__ctrl_pause_dbg_fieldIP" label: "ctrl_pause_dbg_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__ctrl_registerEQ" label: "ctrl_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__watchdog__ctrl_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-watchdog.ads:60:9" }
+node: { title: "interfaces__rp2040__watchdog__ctrl_registerIP" label: "ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__load_registerIP" label: "load_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__reason_registerIP" label: "reason_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__tick_registerIP" label: "tick_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__watchdog__watchdog_peripheralEQ" label: "watchdog_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__watchdog__watchdog_peripheralEQ" targetname: "__gnat_last_chance_handler" }
+node: { title: "interfaces__rp2040__watchdog__watchdog_peripheralIP" label: "watchdog_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

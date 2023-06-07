@@ -1,0 +1,49 @@
+--------------------------------------------------------------- {{{1 ----------
+--  Copyright © 2023 … 2023 Martin Krischik «krischik@users.sourceforge.net»
+-------------------------------------------------------------------------------
+--  This library is free software; you can redistribute it and/or modify it
+--  under the terms of the GNU Library General Public License as published by
+--  the Free Software Foundation; either version 2 of the License, or (at your
+--  option) any later version.
+--
+--  This library is distributed in the hope that it will be useful, but
+--  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+--  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Library General Public
+--  License for more details.
+--
+--  You should have received a copy of the GNU Library General Public License
+--  along with this library; if not, write to the Free Software Foundation,
+--  Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+--------------------------------------------------------------- }}}1 ----------
+
+with "config/atari_atr_tools_config.gpr";
+
+project Atari_Atr_Tools is
+
+   for Source_Dirs         use ("src/", "config/");
+   for Object_Dir          use "obj/" & Atari_Atr_Tools_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Exec_Dir            use "bin";
+   for Main                use ("atr_tools-main.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use Atari_Atr_Tools_Config.Ada_Compiler_Switches & (
+         "-gnatef" ,    -- Display full source path name in brief error messages.
+         "-gnaty-I",    -- check mode IN keywords.
+         "-gnatyM120"); -- Set line lenght to 120 character
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+end Atari_Atr_Tools;
+
+---------------------------------------------------------------- {{{ ----------
+--  vim: set textwidth=0 nowrap tabstop=8 shiftwidth=3 softtabstop=3 expandtab :
+--  vim: set filetype=ada fileencoding=utf-8 fileformat=unix foldmethod=marker :
+--  vim: set spell spelllang=en_gb

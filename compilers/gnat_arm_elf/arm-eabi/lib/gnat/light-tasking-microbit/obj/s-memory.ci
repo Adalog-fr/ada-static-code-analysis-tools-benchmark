@@ -1,0 +1,16 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb"
+node: { title: "__gnat_malloc" label: "Alloc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:76:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "__gnat_malloc" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:110:13" }
+edge: { sourcename: "__gnat_malloc" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:125:13" }
+node: { title: "__atomic_compare_exchange_4" label: "atomic_compare_exchange_4\n<built-in>" shape : ellipse }
+edge: { sourcename: "__gnat_malloc" targetname: "__atomic_compare_exchange_4" }
+node: { title: "malloc" label: "Malloc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:144:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "malloc" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:110:13" }
+edge: { sourcename: "malloc" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:125:13" }
+edge: { sourcename: "malloc" targetname: "__atomic_compare_exchange_4" }
+node: { title: "calloc" label: "Calloc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:153:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "calloc" targetname: "__gnat_malloc" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:146:14" }
+node: { title: "__gnat_free" label: "Free\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:164:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "free" label: "C_Free\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-memory.adb:174:4\n0 bytes (static)\n0 dynamic objects" }
+}

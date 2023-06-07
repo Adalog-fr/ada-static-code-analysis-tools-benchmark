@@ -1,0 +1,44 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb"
+edge: { sourcename: "system__pool_global__Tunbounded_no_reclaim_poolCFD"
+  targetname: "-9:system__pool_global__unbounded_no_reclaim_pool,system__pool_global__unbounded_no_reclaim_pool"
+  label: "s-pooglo.ads:52:9"
+}
+class {
+  classname: "system__pool_global__unbounded_no_reclaim_pool"
+  label: "system__pool_global__unbounded_no_reclaim_pool\s-pooglo.ads:52:9"
+  parent: "system__storage_pools__root_storage_pool"
+  virtuals: "-1:system__pool_global___size,-1:system__storage_pools__root_storage_pool\n
+             -10:system__pool_global__unbounded_no_reclaim_poolPI,-10:system__storage_pools__root_storage_pool\n
+             -9:system__pool_global__unbounded_no_reclaim_poolDF,-9:system__storage_pools__root_storage_pool\n
+             4:system__pool_global__allocate,4:system__storage_pools__root_storage_pool\n
+             5:system__pool_global__deallocate,5:system__storage_pools__root_storage_pool\n
+             6:system__pool_global__storage_size,6:system__storage_pools__root_storage_pool"
+}
+node: { title: "system__pool_global___size" label: "pool_global\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pool_global__unbounded_no_reclaim_poolDF" label: "unbounded_no_reclaim_poolDF\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pool_global__storage_size" label: "Storage_Size\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:142:15\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pool_global__unbounded_no_reclaim_poolPI" label: "unbounded_no_reclaim_poolPI\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__put_images__put_image_unknown" label: "Put_Image_Unknown\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-putima.ads:106:14" shape : ellipse }
+edge: { sourcename: "system__pool_global__unbounded_no_reclaim_poolPI" targetname: "system__put_images__put_image_unknown" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.ads:52:9" }
+node: { title: "system__pool_global__allocate" label: "Allocate\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:43:15\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_malloc" label: "gnat_malloc\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__pool_global__allocate" targetname: "__gnat_malloc" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:61:26" }
+node: { title: "__gnat_rcheck_SE_Explicit_Raise" label: "gnat_rcheck_SE_Explicit_Raise\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__pool_global__allocate" targetname: "__gnat_rcheck_SE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:68:10" }
+edge: { sourcename: "system__pool_global__allocate" targetname: "__gnat_malloc" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:61:26" }
+node: { title: "system__pool_global__deallocate" label: "Deallocate\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:105:15\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_free" label: "Free\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-memory.ads:66:14" shape : ellipse }
+edge: { sourcename: "system__pool_global__deallocate" targetname: "__gnat_free" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:130:19" }
+edge: { sourcename: "system__pool_global__deallocate" targetname: "__gnat_free" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.adb:134:16" }
+node: { title: "system__pool_global__unbounded_no_reclaim_poolIP" label: "unbounded_no_reclaim_poolIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pool_global__unbounded_no_reclaim_poolFD" label: "unbounded_no_reclaim_poolFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pool_global__Tunbounded_no_reclaim_poolCFD" label: "Tunbounded_no_reclaim_poolCFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "system__pool_global__Tunbounded_no_reclaim_poolCFD" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.ads:52:9" }
+node: { title: "system__pool_global__finalize_spec" label: "finalize_spec\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__tags__unregister_tag" label: "Unregister_Tag\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/a-tags.ads:589:14" shape : ellipse }
+edge: { sourcename: "system__pool_global__finalize_spec" targetname: "ada__tags__unregister_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.ads:38:1" }
+node: { title: "system__pool_global___elabs" label: "Pool_Global\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.ads:38:1\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__tags__register_tag" label: "Register_Tag\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/a-tags.ads:553:14" shape : ellipse }
+edge: { sourcename: "system__pool_global___elabs" targetname: "ada__tags__register_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/s-pooglo.ads:52:9" }
+}

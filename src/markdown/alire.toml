@@ -1,0 +1,29 @@
+authors = ["AdaCore"]
+description = "Markdown parser (draft)"
+licenses = "Apache-2.0"
+long-description = "The markdown parser is an early stage of development. Just a few element is implemented and API will change in the future."
+maintainers = ["Max Reznik <reznik@adacore.com>"]
+maintainers-logins = ["reznikmm"]
+name = "markdown"
+project-files = ["gnat/markdown.gpr"]
+tags = ["markdown","gfm","commonmark"]
+version = "23.0.0"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[[depends-on]]
+vss = "*"
+
+[[pins]]
+
+[pins.vss]
+path = "../vss"
+
+[build-switches."*"]
+Compile_Checks = "none"

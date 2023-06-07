@@ -1,0 +1,119 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads"
+node: { title: "interfaces__sam__pmc__ckgr_mor_key_fieldRP" label: "ckgr_mor_key_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_mckr_css_fieldH" label: "pmc_mckr_css_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_mckr_pres_fieldH" label: "pmc_mckr_pres_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pck_css_fieldH" label: "pmc_pck_css_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_scer_pck_field_arrayBIP" label: "Tpmc_scer_pck_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scer_pck_fieldEQ" label: "pmc_scer_pck_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scer_pck_fieldIP" label: "pmc_scer_pck_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scer_registerEQ" label: "pmc_scer_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__sam__pmc__pmc_scer_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:46:9" }
+node: { title: "interfaces__sam__pmc__pmc_scer_registerIP" label: "pmc_scer_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_scdr_pck_field_arrayBIP" label: "Tpmc_scdr_pck_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scdr_pck_fieldEQ" label: "pmc_scdr_pck_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scdr_pck_fieldIP" label: "pmc_scdr_pck_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scdr_registerEQ" label: "pmc_scdr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_scdr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:92:9" }
+node: { title: "interfaces__sam__pmc__pmc_scdr_registerIP" label: "pmc_scdr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_scsr_pck_field_arrayBIP" label: "Tpmc_scsr_pck_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scsr_pck_fieldEQ" label: "pmc_scsr_pck_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scsr_pck_fieldIP" label: "pmc_scsr_pck_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_scsr_registerEQ" label: "pmc_scsr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_scsr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:138:9" }
+node: { title: "interfaces__sam__pmc__pmc_scsr_registerIP" label: "pmc_scsr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pcer0_pid_field_arrayBIP" label: "Tpmc_pcer0_pid_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcer0_pid_fieldEQ" label: "pmc_pcer0_pid_fieldEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcer0_pid_fieldIP" label: "pmc_pcer0_pid_fieldIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcer0_registerEQ" label: "pmc_pcer0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_pcer0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:183:9" }
+node: { title: "interfaces__sam__pmc__pmc_pcer0_registerIP" label: "pmc_pcer0_registerIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pcdr0_pid_field_arrayBIP" label: "Tpmc_pcdr0_pid_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr0_pid_fieldEQ" label: "pmc_pcdr0_pid_fieldEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr0_pid_fieldIP" label: "pmc_pcdr0_pid_fieldIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr0_registerEQ" label: "pmc_pcdr0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_pcdr0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:222:9" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr0_registerIP" label: "pmc_pcdr0_registerIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pcsr0_pid_field_arrayBIP" label: "Tpmc_pcsr0_pid_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr0_pid_fieldEQ" label: "pmc_pcsr0_pid_fieldEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr0_pid_fieldIP" label: "pmc_pcsr0_pid_fieldIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr0_registerEQ" label: "pmc_pcsr0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_pcsr0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:261:9" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr0_registerIP" label: "pmc_pcsr0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__ckgr_mor_registerIP" label: "ckgr_mor_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__ckgr_mcfr_registerIP" label: "ckgr_mcfr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__ckgr_pllar_registerIP" label: "ckgr_pllar_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__ckgr_pllbr_registerIP" label: "ckgr_pllbr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_mckr_registerIP" label: "pmc_mckr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_usb_registerIP" label: "pmc_usb_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pck_registerIP" label: "pmc_pck_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pck_registersBIP" label: "Tpmc_pck_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_ier_pckrdy_field_arrayBIP" label: "Tpmc_ier_pckrdy_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_ier_pckrdy_fieldEQ" label: "pmc_ier_pckrdy_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_ier_pckrdy_fieldIP" label: "pmc_ier_pckrdy_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_ier_registerEQ" label: "pmc_ier_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_ier_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:610:9" }
+node: { title: "interfaces__sam__pmc__pmc_ier_registerIP" label: "pmc_ier_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_idr_pckrdy_field_arrayBIP" label: "Tpmc_idr_pckrdy_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_idr_pckrdy_fieldEQ" label: "pmc_idr_pckrdy_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_idr_pckrdy_fieldIP" label: "pmc_idr_pckrdy_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_idr_registerEQ" label: "pmc_idr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_idr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:677:9" }
+node: { title: "interfaces__sam__pmc__pmc_idr_registerIP" label: "pmc_idr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_sr_pckrdy_field_arrayBIP" label: "Tpmc_sr_pckrdy_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_sr_pckrdy_fieldEQ" label: "pmc_sr_pckrdy_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_sr_pckrdy_fieldIP" label: "pmc_sr_pckrdy_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_sr_registerEQ" label: "pmc_sr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_sr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:744:9" }
+node: { title: "interfaces__sam__pmc__pmc_sr_registerIP" label: "pmc_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_imr_pckrdy_field_arrayBIP" label: "Tpmc_imr_pckrdy_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_imr_pckrdy_fieldEQ" label: "pmc_imr_pckrdy_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_imr_pckrdy_fieldIP" label: "pmc_imr_pckrdy_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_imr_registerEQ" label: "pmc_imr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_imr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:819:9" }
+node: { title: "interfaces__sam__pmc__pmc_imr_registerIP" label: "pmc_imr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_fsmr_fstt_field_arrayBIP" label: "Tpmc_fsmr_fstt_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_fsmr_fstt_fieldEQ" label: "pmc_fsmr_fstt_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_fsmr_fstt_fieldIP" label: "pmc_fsmr_fstt_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_fsmr_registerEQ" label: "pmc_fsmr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_fsmr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:887:9" }
+node: { title: "interfaces__sam__pmc__pmc_fsmr_registerIP" label: "pmc_fsmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_fspr_fstp_field_arrayBIP" label: "Tpmc_fspr_fstp_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_fspr_fstp_fieldEQ" label: "pmc_fspr_fstp_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_fspr_fstp_fieldIP" label: "pmc_fspr_fstp_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_fspr_registerEQ" label: "pmc_fspr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_fspr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:942:9" }
+node: { title: "interfaces__sam__pmc__pmc_fspr_registerIP" label: "pmc_fspr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_focr_registerIP" label: "pmc_focr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_wpmr_registerIP" label: "pmc_wpmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_wpsr_registerIP" label: "pmc_wpsr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pcer1_pid_field_arrayBIP" label: "Tpmc_pcer1_pid_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcer1_pid_fieldEQ" label: "pmc_pcer1_pid_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcer1_pid_fieldIP" label: "pmc_pcer1_pid_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcer1_registerEQ" label: "pmc_pcer1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_pcer1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1040:9" }
+node: { title: "interfaces__sam__pmc__pmc_pcer1_registerIP" label: "pmc_pcer1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pcdr1_pid_field_arrayBIP" label: "Tpmc_pcdr1_pid_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr1_pid_fieldEQ" label: "pmc_pcdr1_pid_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr1_pid_fieldIP" label: "pmc_pcdr1_pid_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr1_registerEQ" label: "pmc_pcdr1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_pcdr1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1080:9" }
+node: { title: "interfaces__sam__pmc__pmc_pcdr1_registerIP" label: "pmc_pcdr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__Tpmc_pcsr1_pid_field_arrayBIP" label: "Tpmc_pcsr1_pid_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr1_pid_fieldEQ" label: "pmc_pcsr1_pid_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr1_pid_fieldIP" label: "pmc_pcsr1_pid_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr1_registerEQ" label: "pmc_pcsr1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_pcsr1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1120:9" }
+node: { title: "interfaces__sam__pmc__pmc_pcsr1_registerIP" label: "pmc_pcsr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_ocr_registerIP" label: "pmc_ocr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__pmc_peripheralEQ" label: "pmc_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralEQ" targetname: "__gnat_last_chance_handler" }
+node: { title: "interfaces__sam__pmc__pmc_peripheralIP" label: "pmc_peripheralIP\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__ckgr_mor_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1187:7" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__ckgr_pllar_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1191:7" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__pmc_mckr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1195:7" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__pmc_ier_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1201:7" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__pmc_idr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1203:7" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__pmc_fsmr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1209:7" }
+edge: { sourcename: "interfaces__sam__pmc__pmc_peripheralIP" targetname: "interfaces__sam__pmc__pmc_ocr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-pmc.ads:1225:7" }
+}

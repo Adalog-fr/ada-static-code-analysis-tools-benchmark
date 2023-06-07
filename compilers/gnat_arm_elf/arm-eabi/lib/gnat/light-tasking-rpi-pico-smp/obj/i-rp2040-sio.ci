@@ -1,0 +1,48 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads"
+node: { title: "interfaces__rp2040__sio__gpio_in_registerIP" label: "gpio_in_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_in_registerIP" label: "gpio_hi_in_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_out_registerIP" label: "gpio_out_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_out_set_registerIP" label: "gpio_out_set_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_out_clr_registerIP" label: "gpio_out_clr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_out_xor_registerIP" label: "gpio_out_xor_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_oe_registerIP" label: "gpio_oe_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_oe_set_registerIP" label: "gpio_oe_set_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_oe_clr_registerIP" label: "gpio_oe_clr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_oe_xor_registerIP" label: "gpio_oe_xor_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_out_registerIP" label: "gpio_hi_out_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_out_set_registerIP" label: "gpio_hi_out_set_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_out_clr_registerIP" label: "gpio_hi_out_clr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_out_xor_registerIP" label: "gpio_hi_out_xor_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_oe_registerIP" label: "gpio_hi_oe_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_oe_set_registerIP" label: "gpio_hi_oe_set_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_oe_clr_registerIP" label: "gpio_hi_oe_clr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__gpio_hi_oe_xor_registerIP" label: "gpio_hi_oe_xor_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__fifo_st_registerIP" label: "fifo_st_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__div_csr_registerIP" label: "div_csr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__Tinterp0_ctrl_lane0_overf_field_arrayBIP" label: "Tinterp0_ctrl_lane0_overf_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp0_ctrl_lane0_overf_fieldEQ" label: "interp0_ctrl_lane0_overf_fieldEQ\n<built-in>\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp0_ctrl_lane0_overf_fieldIP" label: "interp0_ctrl_lane0_overf_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp0_ctrl_lane0_registerEQ" label: "interp0_ctrl_lane0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__sio__interp0_ctrl_lane0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:464:9" }
+node: { title: "interfaces__rp2040__sio__interp0_ctrl_lane0_registerIP" label: "interp0_ctrl_lane0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp0_ctrl_lane1_registerIP" label: "interp0_ctrl_lane1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp0_accum0_add_registerIP" label: "interp0_accum0_add_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp0_accum1_add_registerIP" label: "interp0_accum1_add_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__Tinterp1_ctrl_lane0_overf_field_arrayBIP" label: "Tinterp1_ctrl_lane0_overf_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp1_ctrl_lane0_overf_fieldEQ" label: "interp1_ctrl_lane0_overf_fieldEQ\n<built-in>\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp1_ctrl_lane0_overf_fieldIP" label: "interp1_ctrl_lane0_overf_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp1_ctrl_lane0_registerEQ" label: "interp1_ctrl_lane0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__sio__interp1_ctrl_lane0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:655:9" }
+node: { title: "interfaces__rp2040__sio__interp1_ctrl_lane0_registerIP" label: "interp1_ctrl_lane0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp1_ctrl_lane1_registerIP" label: "interp1_ctrl_lane1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp1_accum0_add_registerIP" label: "interp1_accum0_add_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__interp1_accum1_add_registerIP" label: "interp1_accum1_add_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__sio__sio_peripheralEQ" label: "sio_peripheralEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__sio__sio_peripheralEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:810:9" }
+node: { title: "interfaces__rp2040__sio__sio_peripheralIP" label: "sio_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__sio__sio_peripheralIP" targetname: "interfaces__rp2040__sio__interp0_ctrl_lane0_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:929:7" }
+edge: { sourcename: "interfaces__rp2040__sio__sio_peripheralIP" targetname: "interfaces__rp2040__sio__interp0_ctrl_lane1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:931:7" }
+edge: { sourcename: "interfaces__rp2040__sio__sio_peripheralIP" targetname: "interfaces__rp2040__sio__interp1_ctrl_lane0_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:968:7" }
+edge: { sourcename: "interfaces__rp2040__sio__sio_peripheralIP" targetname: "interfaces__rp2040__sio__interp1_ctrl_lane1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-sio.ads:970:7" }
+}

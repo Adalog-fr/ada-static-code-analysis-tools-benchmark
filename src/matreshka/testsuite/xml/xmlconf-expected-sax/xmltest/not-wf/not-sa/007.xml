@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>xmltest/not-wf/not-sa</baseURI>
+    <systemID>007.ent</systemID>
+  </resolveEntity>
+  <fatalError>unexpected&#x20;character</fatalError>
+  <endDocument/>
+</SAXEvents>

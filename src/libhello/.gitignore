@@ -1,0 +1,11 @@
+# Object files
+lib
+obj
+*.o
+
+# Ada Library Information
+*.ali
+/obj/
+/lib/
+/alire/
+/config/

@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnarl/s-bcpcst.adb"
+node: { title: "system__bb__cpu_primitives__context_switch_trigger__initialize_context_switch" label: "Initialize_Context_Switch\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnarl/s-bcpcst.adb:65:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__cpu_primitives__context_switch_trigger__trigger_context_switch" label: "Trigger_Context_Switch\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnarl/s-bcpcst.adb:72:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_pend_sv_trap" label: "Pend_Sv_Handler\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnarl/s-bcpcst.adb:91:4\n0 bytes (static)\n0 dynamic objects" }
+}

@@ -1,0 +1,22 @@
+authors = ["Lev Kujawski"]
+description = "BLAKE2s file hash utility"
+executables = ["b2ssum"]
+licenses = "MIT-0"
+maintainers = ["Lev Kujawski <int21h@mailbox.org>"]
+maintainers-logins = ["lkujaw"]
+name = "b2ssum"
+project-files = ["b2ssum.gpr"]
+tags = ["ada1995","hash","blake2","blake2s"]
+version = "0.1.3"
+website = "https://github.com/lkujaw/blake2s"
+
+[[depends-on]]
+blake2s = "*"
+
+[[pins]]
+
+[pins.blake2s]
+path = "../blake2s"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,15 @@
+*.ali
+*.o
+*~
+.libs
+.objs
+/alire
+bcm_cyclic_writer
+bcm_filtered_reader
+bcm_simple_writer
+filtered_reader
+simple_reader
+simple_writer
+simple_writer_2
+stream_reader
+stream_writer

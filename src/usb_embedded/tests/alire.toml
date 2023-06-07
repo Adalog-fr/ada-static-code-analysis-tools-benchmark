@@ -1,0 +1,26 @@
+name = "tests"
+description = "usb_embedded tests"
+version = "0.0.0"
+executables = ["run_tests"]
+
+[[depends-on]]
+aunit = "*"
+aaa = "*"
+usb_embedded = "*"
+
+[[pins]]
+
+[pins.usb_embedded]
+path = ".."
+
+[pins.aunit]
+path = "../../aunit"
+
+[pins.aaa]
+path = "../../aaa"
+
+[build-profiles]
+usb_embedded = "validation"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,44 @@
+name: Build
+
+on:
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Building on ${{matrix.os}} using ${{matrix.compiler}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        compiler: [fsf, community]
+        exclude:
+          - os: macos-latest
+            compiler: fsf
+          - os: ubuntu-latest
+            compiler: community
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install toolchain
+      uses: ada-actions/toolchain@ce2020
+      with:
+        distrib: ${{matrix.compiler}}
+        target: native
+
+    - name: Install Alire
+      uses: alire-project/setup-alire@v1
+      with:
+        branch: "master"
+        toolchain: "gnat_external"
+
+    - name: Build crate
+      run: alr build

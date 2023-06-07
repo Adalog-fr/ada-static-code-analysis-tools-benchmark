@@ -1,0 +1,162 @@
+--
+--  Copyright (C) 2018-2022, AdaCore
+--
+--  SPDX-License-Identifier: Apache-2.0
+--
+
+library project Spawn is
+
+   type OS_API_Kind is ("unix", "osx", "Windows_NT");
+   OS_API : OS_API_Kind := external ("OS", "unix");
+
+   type Library_Kind is ("static", "static-pic", "relocatable");
+   Library_Type : Library_Kind := external ("LIBRARY_TYPE", "static");
+
+   type Spawn_Build_Kind is ("dev", "prod", "coverage", "AddressSanitizer");
+   Build_Mode : Spawn_Build_Kind :=
+     external ("SPAWN_BUILD_MODE", external ("BUILD_MODE", "prod"));
+
+   Superproject := external ("SUPERPROJECT", "");
+
+   --  By default, treat warnings as errors in dev mode, but not in prod
+   --  mode. Let users override this default using the SPAWN_WARN_ERRORS
+   --  environment variable.
+
+   type Any_Boolean is ("false", "true");
+   Warnings_As_Errors : Any_Boolean := external ("SPAWN_WARN_ERRORS", "true");
+
+   for Library_Kind use Library_Type;
+   for Object_Dir   use "../.obj/" & Superproject & "/spawn/" & Library_Type;
+   for Library_Dir  use "../.libs/" & Superproject & "/spawn/" & Library_Type;
+   for Library_Name use "spawn";
+   for Source_Dirs use ("../source/spawn");
+   for Languages use ("Ada", "c");
+
+   Common_Excluded := ("spawn-channels.ads", "spawn-channels.adb");
+
+   case OS_API is
+      when "unix" =>
+         for Excluded_Source_Files use Common_Excluded &
+           ("pipe2.c",
+            "spawn-windows_api.ads",
+            "spawn-processes-windows.ads",
+            "spawn-processes-windows.adb");
+
+      when "Windows_NT" =>
+         for Excluded_Source_Files use Common_Excluded &
+           ("pipe2.c",
+            "posix_const.c");
+
+      when "osx" =>
+         for Excluded_Source_Files use Common_Excluded &
+           ("spawn-windows_api.ads",
+            "spawn-processes-windows.ads",
+            "spawn-processes-windows.adb");
+   end case;
+
+   Ada_Switches := ();
+   Linker_Options := ();
+   case Warnings_As_Errors is
+      when "true"  => Ada_Switches := Ada_Switches & ();
+      when "false" => null;
+   end case;
+
+   case Build_Mode is
+      when "prod" =>
+         Ada_Switches := Ada_Switches & (
+            --  Compile with optimizations
+            "-O2",
+
+            --  Generate debug information: this is useful to get meaningful
+            --  tracebacks.
+            "-g"
+         );
+
+      when "dev" =>
+         Ada_Switches := Ada_Switches & (
+            --  Compile with no optimization and with debug information to ease
+            --  investigation in debuggers.
+            "-O0", "-g",
+
+            --  Enable all warnings and GNAT stylechecks (plus O: check for
+            --  overriding indicators).
+            "-gnatwa", "-gnatygO",
+
+            --  Enable assertions and all validity checking options
+            "-gnata", "-gnatVa",
+
+            --  Enable stack overflow checks
+            "-fstack-check"
+         );
+
+      when "coverage" =>
+         Ada_Switches := Ada_Switches & (
+            --  Compile with no optimization and with debug information to ease
+            --  investigation in debuggers.
+            "-O0", "-g",
+
+            --  Enable coverage code instrumentation.
+            "--coverage");
+
+         Linker_Options := Linker_Options & ("--coverage");
+
+       when "AddressSanitizer" =>
+	    Ada_Switches := Ada_Switches & (
+            --  Standard development flags
+            "-O0", "-g",
+            --  Enable the AddressSanitizer
+            "-fsanitize=address");
+
+         Linker_Options := Linker_Options & ("-fsanitize=address");
+   end case;
+
+   package Compiler is
+      for Switches ("ada") use Ada_Switches;
+   end Compiler;
+
+   package Linker is
+      for Linker_Options use Linker_Options;
+   end Linker;
+
+   package Naming is
+      case OS_API is
+         when "unix" | "osx" =>
+            for Spec ("Spawn.Internal")
+               use "spawn-internal__posix.ads";
+            for Body ("Spawn.Internal")
+               use "spawn-internal__posix.adb";
+            for Body ("Spawn.Environments.Initialize_Default")
+               use "spawn-environments-initialize_default__posix.adb";
+            for Spec ("Spawn.Environments.Internal")
+               use "spawn-environments-internal__posix.ads";
+            for Body ("Spawn.Environments.Internal")
+               use "spawn-environments-internal__posix.adb";
+            for Body ("Spawn.Processes.Platform")
+               use "spawn-processes-platform__posix.adb";
+            for Body ("Spawn.Environments.Search_In_Path")
+               use "spawn-environments-search_in_path__posix.adb";
+            for Body ("Spawn.Processes.Monitor")
+               use "spawn-processes-monitor__posix.adb";
+            for Body ("Spawn.Processes.Monitor.Initialize")
+               use "spawn-processes-monitor-" & OS_API & "_initialize.adb";
+         when "Windows_NT" =>
+            for Spec ("Spawn.Internal")
+               use "spawn-internal__windows.ads";
+            for Body ("Spawn.Internal")
+               use "spawn-internal__windows.adb";
+            for Body ("Spawn.Environments.Initialize_Default")
+               use "spawn-environments-initialize_default__windows.adb";
+            for Spec ("Spawn.Environments.Internal")
+               use "spawn-environments-internal__windows.ads";
+            for Body ("Spawn.Environments.Internal")
+               use "spawn-environments-internal__windows.adb";
+            for Body ("Spawn.Processes.Platform")
+               use "spawn-processes-platform__windows.adb";
+            for Body ("Spawn.Environments.Search_In_Path")
+               use "spawn-environments-search_in_path__windows.adb";
+            for Body ("Spawn.Processes.Monitor")
+               use "spawn-processes-monitor__windows.adb";
+      end case;
+   end Naming;
+
+end Spawn;

@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-pack27.adb"
+node: { title: "system__pack_27__clusterIP" label: "clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_27__rev_clusterIP" label: "rev_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_27__get_27" label: "Get_27\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-pack27.adb:83:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_27__set_27" label: "Set_27\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-pack27.adb:122:4\n12 bytes (static)\n0 dynamic objects" }
+}

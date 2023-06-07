@@ -1,0 +1,45 @@
+authors = [
+"Philip Munts",
+]
+description = "MCP2221 USB Raw HID I/O Expander Library for GNAT Ada"
+licenses = "BSD-1-Clause"
+maintainers = [
+"Philip Munts <phil@munts.net>",
+]
+maintainers-logins = [
+"pmunts",
+]
+name = "mcp2221"
+project-files = [
+"mcp2221.gpr",
+]
+tags = [
+"embedded",
+"linux",
+"mcp2221",
+"adc",
+"dac",
+"gpio",
+"i2c",
+"motor",
+"pwm",
+"sensor",
+"serial",
+"servo",
+"spi",
+"stepper",
+]
+version = "1.21121.1"
+website = "https://github.com/pmunts/libsimpleio"
+[[actions]]
+command = [
+"sh",
+"-c",
+"./src/scripts/postfetch.linux",
+]
+directory = "."
+type = "post-fetch"
+[[depends-on]]
+libhidapi = "*"
+libusb = "*"
+

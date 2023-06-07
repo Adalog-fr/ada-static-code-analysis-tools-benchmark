@@ -1,0 +1,26 @@
+name = "code_reviewer"
+description = "Automatic Code Reviewer of Ada Code"
+version = "23.0.0"
+authors = ["Pierre van de Laar"]
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+executables = ["code_reviewer"]
+
+[[depends-on]]
+libadalang = "*"
+rejuvenation = "*"
+rewriters = "^23.0.0"
+
+[[pins]]
+
+[pins.rewriters]
+path = ".."
+
+[pins.libadalang]
+path = "../../libadalang"
+
+[pins.rejuvenation]
+path = "../../rejuvenation"
+
+[build-switches."*"]
+Compile_Checks = "none"

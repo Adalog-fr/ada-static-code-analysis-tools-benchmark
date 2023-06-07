@@ -1,0 +1,4 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/a-coprnu.adb"
+node: { title: "ada__containers__prime_numbers__primes_typeIP" label: "primes_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__containers__prime_numbers__to_prime" label: "To_Prime\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nucleo_f401re/gnat/a-coprnu.adb:36:4\n12 bytes (static)\n0 dynamic objects" }
+}

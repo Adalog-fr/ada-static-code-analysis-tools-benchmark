@@ -1,0 +1,4 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi2/gnat/i-cache.adb"
+node: { title: "interfaces__cache__dcache_invalidate_by_range" label: "Dcache_Invalidate_By_Range\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi2/gnat/i-cache.adb:38:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__cache__dcache_flush_by_range" label: "Dcache_Flush_By_Range\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi2/gnat/i-cache.adb:58:4\n0 bytes (static)\n0 dynamic objects" }
+}

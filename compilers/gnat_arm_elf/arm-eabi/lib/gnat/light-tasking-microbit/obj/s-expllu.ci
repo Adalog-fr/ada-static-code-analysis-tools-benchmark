@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-expllu.ads"
+node: { title: "system__exp_llu__exp_long_long_unsigned" label: "Exp_Long_Long_Unsigned\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-exponu.adb:32:1\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_lmul" label: "aeabi_lmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__exp_llu__exp_long_long_unsigned" targetname: "__aeabi_lmul" }
+edge: { sourcename: "system__exp_llu__exp_long_long_unsigned" targetname: "__aeabi_lmul" }
+}

@@ -1,0 +1,15 @@
+image: debian/stable
+packages:
+  - gnat
+  - gprbuild
+  - libgnatcoll19-dev
+sources:
+  - https://git.sr.ht/~nytpu/lmdb-ada
+tasks:
+  - build: |
+      cd lmdb-ada
+      make
+  - example: |
+      cd lmdb-ada
+      make example
+      bin/example

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <startCDATA/>
+  <characters>&lt;</characters>
+  <characters>/</characters>
+  <characters>d</characters>
+  <characters>o</characters>
+  <characters>c</characters>
+  <characters>&gt;</characters>
+  <characters>&#xA;</characters>
+  <fatalError>syntax&#x20;error</fatalError>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,16 @@
+authors = ["Francesc Rocher"]
+description = "Assortment of mathematical functions to solve Project Euler problems."
+licenses = "MIT"
+maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
+maintainers-logins = ["rocher"]
+name = "euler_tools"
+tags = ["project-euler","mathematics"]
+version = "1.1.1"
+website = "https://github.com/rocher/euler_tools"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

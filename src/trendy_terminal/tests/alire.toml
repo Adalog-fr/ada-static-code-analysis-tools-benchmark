@@ -1,0 +1,22 @@
+name = "trendy_terminal_tests"
+description = "Trendy Terminal Testing"
+version = "0.0.1"
+authors = ["Paul Jarrett"]
+maintainers = ["Paul Jarrett <jarrett.paul.young@gmail.com>"]
+maintainers-logins = ["pyjarrett"]
+executables = ["trendy_terminal_tests"]
+
+[[depends-on]]
+trendy_terminal = "~0.0.4"
+trendy_test = "~0.0.3"
+
+[[pins]]
+
+[pins.trendy_terminal]
+path = "../../trendy_terminal"
+
+[pins.trendy_test]
+path = "../../trendy_test"
+
+[build-switches."*"]
+Compile_Checks = "none"

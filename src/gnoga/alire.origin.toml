@@ -1,0 +1,33 @@
+authors = [
+"David Botton",
+]
+description = "gnoga - The GNU Omnificent GUI for Ada"
+licenses = "GPL-3.0-only WITH GCC-exception-3.1"
+maintainers = [
+"Pascal Pignard <blady.net@orange.fr>",
+]
+maintainers-logins = [
+"Blady-Com",
+]
+name = "gnoga"
+project-files = [
+"lib_gnoga.gpr",
+]
+tags = [
+"gui",
+"web",
+"server",
+"http",
+"https",
+"ssl",
+]
+version = "2.1.2"
+website = "https://github.com/Blady-Com/gnoga"
+[gpr-set-externals]
+PRJ_TARGET = "Linux"
+Target_OS = "Linux"
+[[depends-on]]
+gnat = ">=2021 | (>=12 & <2000)"
+simple_components = "^4.62.0"
+uxstrings = "~0.4.0+alpha-20220803"
+

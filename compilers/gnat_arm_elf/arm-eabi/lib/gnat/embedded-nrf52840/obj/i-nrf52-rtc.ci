@@ -1,0 +1,48 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads"
+node: { title: "interfaces__nrf52__rtc__tasks_start_registerIP" label: "tasks_start_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__tasks_stop_registerIP" label: "tasks_stop_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__tasks_clear_registerIP" label: "tasks_clear_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__tasks_trigovrflw_registerIP" label: "tasks_trigovrflw_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__events_tick_registerIP" label: "events_tick_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__events_ovrflw_registerIP" label: "events_ovrflw_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__events_compare_registerIP" label: "events_compare_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tevents_compare_registersBIP" label: "Tevents_compare_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tintenset_compare_field_arrayBIP" label: "Tintenset_compare_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__intenset_compare_fieldEQ" label: "intenset_compare_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__intenset_compare_fieldIP" label: "intenset_compare_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__intenset_registerEQ" label: "intenset_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "gnat_rcheck_PE_Unchecked_Union_Restriction\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__nrf52__rtc__intenset_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads:270:9" }
+node: { title: "interfaces__nrf52__rtc__intenset_registerIP" label: "intenset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tintenclr_compare_field_arrayBIP" label: "Tintenclr_compare_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__intenclr_compare_fieldEQ" label: "intenclr_compare_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__intenclr_compare_fieldIP" label: "intenclr_compare_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__intenclr_registerEQ" label: "intenclr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__rtc__intenclr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads:386:9" }
+node: { title: "interfaces__nrf52__rtc__intenclr_registerIP" label: "intenclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tevten_compare_field_arrayBIP" label: "Tevten_compare_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evten_compare_fieldEQ" label: "evten_compare_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evten_compare_fieldIP" label: "evten_compare_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evten_registerEQ" label: "evten_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__rtc__evten_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads:468:9" }
+node: { title: "interfaces__nrf52__rtc__evten_registerIP" label: "evten_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tevtenset_compare_field_arrayBIP" label: "Tevtenset_compare_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evtenset_compare_fieldEQ" label: "evtenset_compare_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evtenset_compare_fieldIP" label: "evtenset_compare_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evtenset_registerEQ" label: "evtenset_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__rtc__evtenset_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads:584:9" }
+node: { title: "interfaces__nrf52__rtc__evtenset_registerIP" label: "evtenset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tevtenclr_compare_field_arrayBIP" label: "Tevtenclr_compare_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evtenclr_compare_fieldEQ" label: "evtenclr_compare_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evtenclr_compare_fieldIP" label: "evtenclr_compare_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__evtenclr_registerEQ" label: "evtenclr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__rtc__evtenclr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads:700:9" }
+node: { title: "interfaces__nrf52__rtc__evtenclr_registerIP" label: "evtenclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__counter_registerIP" label: "counter_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__prescaler_registerIP" label: "prescaler_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__cc_registerIP" label: "cc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__Tcc_registersBIP" label: "Tcc_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__rtc__rtc_peripheralEQ" label: "rtc_peripheralEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__rtc__rtc_peripheralEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/i-nrf52-rtc.ads:784:9" }
+node: { title: "interfaces__nrf52__rtc__rtc_peripheralIP" label: "rtc_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

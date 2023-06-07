@@ -1,0 +1,13 @@
+authors = ["Gautier de Montmollin"]
+description = "Manage Zip Archives and raw LZMA streams"
+executables = ["comp_zip","find_zip","lzma_dec","lzma_enc","rezip","unzipada","zipada","zip_dir_list"]
+licenses = "MIT"
+maintainers = ["alejandro@mosteo.com"]
+maintainers-logins = ["mosteo","zertovitch"]
+name = "zipada"
+project-files = ["zipada.gpr"]
+tags = ["zip","archive","compression","deflate","lzma","bzip2","lzw"]
+version = "58.0.0"
+
+[build-switches."*"]
+Compile_Checks = "none"

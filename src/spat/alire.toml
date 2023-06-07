@@ -1,0 +1,23 @@
+authors = ["Vinzent \"Jellix\" Saranen"]
+description = "SPAT - SPARK Proof Analysis Tool"
+executables = ["run_spat"]
+licenses = "WTFPL"
+long-description = "SPAT - SPARK Proof Analysis Tools\n\nHelper tool to obtain, analyse, sort, and filter timing information about\n`gnatprove` runs (`SPARK` tools).\n"
+maintainers = ["vinzent@heisenbug.eu"]
+maintainers-logins = ["Jellix"]
+name = "spat"
+project-files = ["spat.gpr"]
+tags = ["spark"]
+version = "1.3.0"
+website = "https://github.heisenbug.eu/spat"
+
+[[depends-on]]
+si_units = "*"
+
+[[pins]]
+
+[pins.si_units]
+path = "../si_units"
+
+[build-switches."*"]
+Compile_Checks = "none"

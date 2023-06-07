@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <resolveEntity>
+    <name>e</name>
+    <baseURI>xmltest/valid/ext-sa</baseURI>
+    <systemID>009.ent</systemID>
+  </resolveEntity>
+  <characters>&#xA;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,34 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads"
+node: { title: "interfaces__stm32__usart__Tcr1_dedt_field_arrayBIP" label: "Tcr1_dedt_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr1_dedt_fieldEQ" label: "cr1_dedt_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr1_dedt_fieldIP" label: "cr1_dedt_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__Tcr1_deat_field_arrayBIP" label: "Tcr1_deat_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr1_deat_fieldEQ" label: "cr1_deat_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr1_deat_fieldIP" label: "cr1_deat_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr1_registerEQ" label: "cr1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__stm32__usart__cr1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads:95:9" }
+node: { title: "interfaces__stm32__usart__cr1_registerIP" label: "cr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__Tcr2_abrmod_field_arrayBIP" label: "Tcr2_abrmod_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr2_abrmod_fieldEQ" label: "cr2_abrmod_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr2_abrmod_fieldIP" label: "cr2_abrmod_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr2_registerEQ" label: "cr2_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__usart__cr2_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads:216:9" }
+node: { title: "interfaces__stm32__usart__cr2_registerIP" label: "cr2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr3_registerIP" label: "cr3_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__brr_registerIP" label: "brr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__gtpr_registerIP" label: "gtpr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__rtor_registerIP" label: "rtor_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__rqr_registerIP" label: "rqr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__isr_registerIP" label: "isr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__icr_registerIP" label: "icr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__rdr_registerIP" label: "rdr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__tdr_registerIP" label: "tdr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__usart_peripheralEQ" label: "usart_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralEQ" targetname: "__gnat_last_chance_handler" }
+node: { title: "interfaces__stm32__usart__usart_peripheralIP" label: "usart_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__cr1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads:693:7" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__cr2_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads:695:7" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__cr3_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads:697:7" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__icr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/i-stm32-usart.ads:709:7" }
+}

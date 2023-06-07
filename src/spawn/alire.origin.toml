@@ -1,0 +1,41 @@
+authors = [
+"AdaCore",
+]
+description = "A simple library to spawn processes and communicate with them."
+licenses = "Apache-2.0"
+long-description = "This is Glib indepentent implementation of a spawn processes interface."
+maintainers = [
+"Vadim Godunko <vgodunko@gmail.com>",
+"Max Reznik <reznikmm@gmail.com>",
+]
+maintainers-logins = [
+"godunko",
+"reznikmm",
+]
+name = "spawn"
+project-files = [
+"gnat/spawn.gpr",
+]
+tags = [
+"process",
+"launch",
+"pipe",
+]
+version = "23.0.0"
+website = "https://github.com/AdaCore/spawn"
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[gpr-externals]
+OS = [
+"unix",
+"osx",
+"Windows_NT",
+]
+[gpr-set-externals]
+OS = "unix"
+

@@ -1,0 +1,181 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads"
+node: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__finite_succ" label: "Finite_Succ\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:296:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dcmpge" label: "aeabi_dcmpge\n<built-in>" shape : ellipse }
+edge: { sourcename: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__finite_succ" targetname: "__aeabi_dcmpge" }
+node: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__pred.part.0" label: "Part\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:581:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__exceptions__call_last_chance_handler_with_message" label: "Call_Last_Chance_Handler_With_Message\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/a-except.adb:40:14" shape : ellipse }
+edge: { sourcename: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__pred.part.0" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/a-except.adb:95:10" }
+node: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__succ.part.0" label: "Part\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:832:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__succ.part.0" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/a-except.adb:95:10" }
+node: { title: "system__fat_llf__attr_long_long_float__adjacent" label: "Adjacent\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:163:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dcmpeq" label: "aeabi_dcmpeq\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmpeq" }
+node: { title: "__aeabi_dcmpgt" label: "aeabi_dcmpgt\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__succ.part.0" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmpge" }
+node: { title: "__aeabi_dcmplt" label: "aeabi_dcmplt\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__finite_succ" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:846:17" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__pred.part.0" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmpgt" }
+node: { title: "__aeabi_dcmple" label: "aeabi_dcmple\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__adjacent" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__finite_succ" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:595:18" }
+node: { title: "system__fat_llf__attr_long_long_float__ceiling" label: "Ceiling\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:178:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dcmpge" }
+node: { title: "__aeabi_dadd" label: "aeabi_dadd\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dadd" }
+node: { title: "__aeabi_dsub" label: "aeabi_dsub\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__ceiling" targetname: "__aeabi_dadd" }
+node: { title: "system__fat_llf__attr_long_long_float__copy_sign" label: "Copy_Sign\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:206:4\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_llf__attr_long_long_float__decompose" label: "Decompose\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:229:4\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__decompose" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__decompose" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:262:10" }
+node: { title: "__aeabi_dmul" label: "aeabi_dmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__decompose" targetname: "__aeabi_dmul" }
+node: { title: "system__fat_llf__attr_long_long_float__exponent" label: "Exponent\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:284:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__exponent" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__exponent" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:262:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__exponent" targetname: "__aeabi_dmul" }
+node: { title: "system__fat_llf__attr_long_long_float__floor" label: "Floor\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:469:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__floor" targetname: "__aeabi_dsub" }
+node: { title: "system__fat_llf__attr_long_long_float__fraction" label: "Fraction\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:485:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__fraction" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__fraction" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:262:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__fraction" targetname: "__aeabi_dmul" }
+node: { title: "system__fat_llf__attr_long_long_float__machine" label: "Machine\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:525:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_llf__attr_long_long_float__machine_rounding" label: "Machine_Rounding\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:540:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__machine_rounding" targetname: "__aeabi_dcmplt" }
+node: { title: "system__fat_llf__attr_long_long_float__model" label: "Model\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:572:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_llf__attr_long_long_float__pred" label: "Pred\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:581:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__pred" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__pred" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__pred.part.0" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__pred" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__pred" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__pred" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__finite_succ" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:595:18" }
+node: { title: "system__fat_llf__attr_long_long_float__rounding" label: "Rounding\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:691:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__rounding" targetname: "__aeabi_dcmplt" }
+node: { title: "system__fat_llf__attr_long_long_float__scaling" label: "Scaling\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:720:4\n64 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__scaling" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__scaling" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__scaling" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__scaling" targetname: "__aeabi_dmul" }
+node: { title: "__aeabi_ul2d" label: "aeabi_ul2d\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__scaling" targetname: "__aeabi_ul2d" }
+node: { title: "__aeabi_ddiv" label: "aeabi_ddiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__scaling" targetname: "__aeabi_ddiv" }
+node: { title: "system__fat_llf__attr_long_long_float__compose" label: "Compose\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:194:4\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__compose" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__compose" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:262:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__compose" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__compose" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:199:14" }
+node: { title: "system__fat_llf__attr_long_long_float__leading_part" label: "Leading_Part\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:497:4\n48 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:506:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:288:7" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:510:15" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__leading_part" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:511:15" }
+node: { title: "system__fat_llf__attr_long_long_float__remainder" label: "Remainder\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:610:4\n72 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:627:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:288:7" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:646:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:647:10" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:198:7" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:199:14" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__remainder" targetname: "__aeabi_dmul" }
+node: { title: "system__fat_llf__attr_long_long_float__succ" label: "Succ\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:832:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__succ" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__succ" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__succ.part.0" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__succ" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__succ" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__succ" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatllf.ads:system__fat_llf__attr_long_long_float__finite_succ" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:846:17" }
+node: { title: "system__fat_llf__attr_long_long_float__truncation" label: "Truncation\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:876:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__truncation" targetname: "__aeabi_dcmplt" }
+node: { title: "system__fat_llf__attr_long_long_float__unbiased_rounding" label: "Unbiased_Rounding\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:910:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__fat_llf__attr_long_long_float__unbiased_rounding" targetname: "__aeabi_dcmplt" }
+node: { title: "system__fat_llf__attr_long_long_float__valid" label: "Valid\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m23/gnat/s-fatgen.adb:943:4\n0 bytes (static)\n0 dynamic objects" }
+}

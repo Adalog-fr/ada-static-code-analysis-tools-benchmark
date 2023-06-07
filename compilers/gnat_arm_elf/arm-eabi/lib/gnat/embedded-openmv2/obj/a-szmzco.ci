@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/a-szmzco.ads"
+node: { title: "ada__strings__wide_wide_maps__wide_wide_constants___elabs" label: "Wide_Wide_Constants\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/a-szmzco.ads:38:1\n8 bytes (static)\n0 dynamic objects" }
+}

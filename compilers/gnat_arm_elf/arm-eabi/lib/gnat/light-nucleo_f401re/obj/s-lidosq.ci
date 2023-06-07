@@ -1,0 +1,42 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-nucleo_f401re/gnat/s-lidosq.adb"
+node: { title: "sqrt" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-nucleo_f401re/gnat/s-lidosq.adb:149:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dcmple" label: "aeabi_dcmple\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dcmple" }
+node: { title: "__aeabi_dcmpeq" label: "aeabi_dcmpeq\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dcmpeq" }
+node: { title: "__aeabi_dcmpgt" label: "aeabi_dcmpgt\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dcmpeq" }
+node: { title: "__aeabi_dmul" label: "aeabi_dmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+node: { title: "__aeabi_dsub" label: "aeabi_dsub\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sqrt" targetname: "__aeabi_dmul" }
+}

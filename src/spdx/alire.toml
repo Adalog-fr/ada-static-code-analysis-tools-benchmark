@@ -1,0 +1,12 @@
+authors = ["Fabien Chouteau"]
+description = "SPDX License Expression Validator"
+licenses = "MIT"
+maintainers = ["Fabien Chouteau <chouteau@adacore.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "spdx"
+tags = ["spdx","license"]
+version = "0.2.0"
+website = "https://github.com/Fabien-Chouteau/spdx_ada"
+
+[build-switches."*"]
+Compile_Checks = "none"

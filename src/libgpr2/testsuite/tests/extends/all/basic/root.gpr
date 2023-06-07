@@ -1,0 +1,8 @@
+with "a.gpr";
+with "b.gpr";
+
+project Root is
+   A_Variable1 := A.Variable1;
+   A_Variable2 := A.Variable2;
+   B_Variable2 := B.Variable2;
+end Root;

@@ -1,0 +1,191 @@
+--  This is a GNAT, GCC or GNAT Studio project file
+--  for the Zip-Ada project:
+--
+--      home page:     http://unzip-ada.sf.net/
+--      project page:  http://sf.net/projects/unzip-ada/
+--      mirror:        https://github.com/zertovitch/zip-ada
+--
+--  Build me with "gprbuild -P zipada", or "gnatmake -P zipada",
+--  or open me with GNAT Studio.
+--
+--  Important:
+--      For building tests, see the zipada_test.gpr project file.
+--      For building a shared library, see the zipada_lib.gpr project file.
+--
+project ZipAda is
+
+   type Zip_Build_Mode_Type is
+      ("Debug", 
+       "Fast", 
+       "Small",
+       "Profiling",
+       "Coverage");
+
+   Zip_Build_Mode : Zip_Build_Mode_Type := external ("Zip_Build_Mode", "Fast");
+
+   for Create_Missing_Dirs use "True";  --  Flips by default the "-p" switch
+   
+   for Main use (
+     --  Tools
+     "zipada.adb", 
+     "unzipada.adb",
+     "comp_zip.adb", 
+     "find_zip.adb", 
+     "rezip.adb",
+     "touch2.adb",
+     "zip_dir_list.adb",
+     --  Miscellaneous
+     "lzma_dec", --  LZMA decoder
+     "lzma_enc"  --  LZMA encoder
+   );
+
+   for Source_Dirs use ("zip_lib", "extras", "tools", "demo");
+   for Exec_Dir use ".";
+
+   case Zip_Build_Mode is
+      when "Fast"      => for Object_Dir use "obj_opt";
+      when "Small"     => for Object_Dir use "obj_small";
+      when "Profiling" => for Object_Dir use "obj_pro";
+      when "Coverage"  => for Object_Dir use "obj_cov";
+      when others      => for Object_Dir use "obj_dbg";
+   end case;
+
+   Common_Compiler_Options :=
+    ("-gnatwa",                        --  Warnings switches (a:turn on all info/warnings marked with +)
+     "-gnatwh",                        --  Warnings switches (h:turn on warnings for hiding declarations)
+     "-gnatwcijkmopruvz.c.n.p.t.w.x",  --  Warnings switches (run "gnatmake" for full list)
+     "-gnatf",  --  Full errors. Verbose details, all undefined references
+     "-gnatq",  --  Don't quit, try semantics, even if parse errors
+     "-gnatQ",  --  Don't quit, write ali/tree file even if compile errors
+     "-g"       --  Generate debugging information
+    )
+   &
+    ("-gnatyaknpr",  --  Style: check all casings: a:attribute, k:keywords, n:package Standard identifiers, p:pragma, r:identifier references
+     "-gnatybfhiu",  --  Style: check b:no blanks at end of lines, f:no ff/vtabs, h: no htabs, i:if-then layout, u:no unnecessary blank lines
+     "-gnatyO",      --  Style: check that overriding subprograms are explicitly marked as such.
+     "-gnatyx",      --  Style: check x:no extra parens
+     "-gnatye",      --  Style: check e:end/exit labels present
+     "-gnatytc"      --  Style: check t:token separation rules, c:comment format (two spaces)
+    );
+
+   Debug_Compiler_Options  :=
+     Common_Compiler_Options & (
+       "-gnatVa",  --  Turn on all validity checking options
+       "-gnato",   --  Enable overflow checking in STRICT (-gnato1) mode
+       "-gnata",   --  Assertions enabled. Pragma Assert and pragma Debug to be activated.
+       "-fno-inline", "-fstack-check"
+       );
+
+   Fast_Compiler_Options_Inlining_Neutral :=
+     Common_Compiler_Options & (
+       "-O2",
+       "-gnatp",
+       "-funroll-loops", "-fpeel-loops", "-funswitch-loops",
+       "-ftracer", "-fweb", "-frename-registers", 
+       "-fpredictive-commoning", "-fgcse-after-reload",
+       "-ftree-vectorize", "-fipa-cp-clone",
+       "-ffunction-sections"
+     );
+
+   Fast_Compiler_Options :=
+     Fast_Compiler_Options_Inlining_Neutral & (
+       "-gnatn"  --  Cross-unit inlining
+     );
+
+   type Zip_OS_Kind is
+      ("Win32", "Win64", "Linux", "MacOSX", "Any");
+
+   Zip_OS : Zip_OS_Kind := external ("Zip_OS", "Any");
+
+   package Compiler is
+
+      case Zip_Build_Mode is
+
+         when "Debug" =>
+            for Local_Configuration_Pragmas use project'Project_Dir & "debug.pra";
+            for Default_Switches ("ada") use Debug_Compiler_Options ;
+
+         when "Fast" =>
+            for Local_Configuration_Pragmas use project'Project_Dir & "za_elim.pra";
+            case Zip_OS is
+              when "Win32" | "Win64" =>
+                for Default_Switches ("ada") use
+                  Fast_Compiler_Options & ("-mfpmath=sse", "-msse3");
+              when others =>
+                for Default_Switches ("ada") use Fast_Compiler_Options;
+            end case;
+
+         when "Small" =>
+            for Local_Configuration_Pragmas use project'Project_Dir & "za_elim.pra";
+            for Default_Switches ("ada") use
+              Common_Compiler_Options & (
+                "-Os", "-gnatp",
+                "-ffunction-sections"
+              );
+
+         when "Profiling" =>
+            for Local_Configuration_Pragmas use project'Project_Dir & "za_elim.pra";
+            for Default_Switches ("ada") use
+              Fast_Compiler_Options_Inlining_Neutral & ("-fno-inline", "-pg");
+
+         when "Coverage" =>
+            for Default_Switches ("ada") use
+              Common_Compiler_Options & ("-fprofile-arcs", "-ftest-coverage");
+      end case;
+   end Compiler;
+
+   package Binder is
+      --  -Es: Store tracebacks in exception occurrences, and enable symbolic tracebacks
+      for Default_Switches ("ada") use ("-Es");
+   end Binder;
+
+   Common_Linker_Options := ("-g");
+
+   case Zip_OS is
+     when "Win32" | "Win64" =>
+       Common_Linker_Options :=
+         Common_Linker_Options & ("-Xlinker", "--stack=0x2000000,0x20000");
+     when others =>
+       null;
+   end case;
+
+   package Linker is
+      case Zip_Build_Mode is
+         when "Fast"      =>
+            case Zip_OS is
+               when "MacOSX" =>
+                  for Default_Switches ("ada") use ("-Wl,-dead_strip")   & Common_Linker_Options;
+               when others =>
+                  for Default_Switches ("ada") use ("-Wl,--gc-sections") & Common_Linker_Options;
+            end case;
+         when "Small"     =>
+            case Zip_OS is
+               when "MacOSX" =>
+                  for Default_Switches ("ada") use ("-s", "-Wl,-dead_strip")   & Common_Linker_Options;
+               when others =>
+                  for Default_Switches ("ada") use ("-s", "-Wl,--gc-sections") & Common_Linker_Options;
+            end case;
+         when "Profiling" => for Default_Switches ("ada") use ("-pg")                     & Common_Linker_Options;
+         when "Coverage"  => for Default_Switches ("ada") use ("-fprofile-arcs")          & Common_Linker_Options;
+         when others      => for Default_Switches ("ada") use                               Common_Linker_Options;
+      end case;
+   end Linker;
+
+   package Builder is
+      --   "If -j0 is used, then the maximum number of simultaneous compilation
+      --    jobs is the number of core processors on the platform."
+      for Default_Switches ("ada") use ("-j0");
+   end Builder;
+
+   package Ide is
+      for Default_Switches ("adacontrol") use ("-f", "tools/verif.aru", "-r");
+      for Vcs_Kind use "Subversion";
+   end Ide;
+   
+   package Pretty_Printer is
+      for Default_Switches ("Ada") use (
+           "--indentation=2"
+      );
+   end Pretty_Printer;
+
+end ZipAda;

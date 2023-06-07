@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>ibm/invalid/P32</baseURI>
+    <systemID>ibm32i01.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>color</localName>
+        <qualifiedName>color</qualifiedName>
+        <value>yellow</value>
+        <type>CDATA</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>false</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

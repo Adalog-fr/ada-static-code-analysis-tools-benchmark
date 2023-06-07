@@ -1,0 +1,33 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/i-stm32-syscfg.ads"
+node: { title: "interfaces__stm32__syscfg__memrm_registerIP" label: "memrm_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__pmc_registerIP" label: "pmc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__Texticr1_exti_field_arrayBIP" label: "Texticr1_exti_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr1_exti_fieldEQ" label: "exticr1_exti_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr1_exti_fieldIP" label: "exticr1_exti_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr1_registerEQ" label: "exticr1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "gnat_rcheck_PE_Unchecked_Union_Restriction\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__stm32__syscfg__exticr1_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/i-stm32-syscfg.ads:85:9" }
+node: { title: "interfaces__stm32__syscfg__exticr1_registerIP" label: "exticr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__Texticr2_exti_field_arrayBIP" label: "Texticr2_exti_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr2_exti_fieldEQ" label: "exticr2_exti_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr2_exti_fieldIP" label: "exticr2_exti_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr2_registerEQ" label: "exticr2_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__syscfg__exticr2_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/i-stm32-syscfg.ads:128:9" }
+node: { title: "interfaces__stm32__syscfg__exticr2_registerIP" label: "exticr2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__Texticr3_exti_field_arrayBIP" label: "Texticr3_exti_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr3_exti_fieldEQ" label: "exticr3_exti_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr3_exti_fieldIP" label: "exticr3_exti_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr3_registerEQ" label: "exticr3_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__syscfg__exticr3_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/i-stm32-syscfg.ads:171:9" }
+node: { title: "interfaces__stm32__syscfg__exticr3_registerIP" label: "exticr3_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__Texticr4_exti_field_arrayBIP" label: "Texticr4_exti_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr4_exti_fieldEQ" label: "exticr4_exti_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr4_exti_fieldIP" label: "exticr4_exti_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__exticr4_registerEQ" label: "exticr4_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__syscfg__exticr4_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/i-stm32-syscfg.ads:214:9" }
+node: { title: "interfaces__stm32__syscfg__exticr4_registerIP" label: "exticr4_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__cmpcr_registerIP" label: "cmpcr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__syscfg__syscfg_peripheralEQ" label: "syscfg_peripheralEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__syscfg__syscfg_peripheralEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/i-stm32-syscfg.ads:258:9" }
+node: { title: "interfaces__stm32__syscfg__syscfg_peripheralIP" label: "syscfg_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

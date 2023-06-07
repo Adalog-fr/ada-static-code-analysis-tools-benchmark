@@ -1,0 +1,22 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-excmac.adb"
+node: { title: "system__exceptions__machine__Texception_classBIP" label: "Texception_classBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__unwind_reason_codeH" label: "unwind_reason_codeH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uidivmod" label: "aeabi_uidivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__exceptions__machine__unwind_reason_codeH" targetname: "__aeabi_uidivmod" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__exceptions__machine__unwind_reason_codeH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "system__exceptions__machine__unwind_reason_codeH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "system__exceptions__machine__unwind_reason_codeH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "system__exceptions__machine__unwind_reason_codeH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "system__exceptions__machine__unwind_reason_codeH" targetname: "__aeabi_idivmod" }
+node: { title: "system__exceptions__machine__uint32_t_arrayIP" label: "uint32_t_arrayIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__unwinder_cache_typeIP" label: "unwinder_cache_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__barrier_cache_typeIP" label: "barrier_cache_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__cleanup_cache_typeIP" label: "cleanup_cache_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__pr_cache_typeIP" label: "pr_cache_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__unwind_control_blockIP" label: "unwind_control_blockIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__gnat_gcc_exceptionIP" label: "gnat_gcc_exceptionIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exceptions__machine__new_occurrence" label: "New_Occurrence\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-excmac.adb:33:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_malloc" label: "gnat_malloc\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__exceptions__machine__new_occurrence" targetname: "__gnat_malloc" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-excmac.adb:36:14" }
+}

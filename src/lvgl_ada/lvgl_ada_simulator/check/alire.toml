@@ -1,0 +1,21 @@
+name = "check"
+description = ""
+version = "0.1.0-dev"
+executables = ["check"]
+
+[[depends-on]]
+lvgl_ada_simulator = "*"
+
+[[pins]]
+
+[pins.lvgl_ada_simulator]
+path = ".."
+
+[configuration.values.lvgl_ada]
+Pixel_Bit_Depth = "Pix_32bit"
+Horizontal_Resolution = 800
+Vertical_Resolution = 480
+Density_Per_Inch = 100
+
+[build-switches."*"]
+Compile_Checks = "none"

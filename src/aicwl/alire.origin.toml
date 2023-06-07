@@ -1,0 +1,40 @@
+authors = [
+"Dmitry A. Kazakov <mailbox@dmitry-kazakov.de>",
+]
+description = "Ada Industrial Control Widgets Library"
+licenses = "GPL-2.0-or-later WITH GCC-exception-2.0"
+long-description = "This crate provides a library for designing high-quality industrial control\nwidgets for Ada applications. The software is based on\n[GtkAda](https://docs.adacore.com/live/wave/gtkada/html/gtkada_rm/index.html),\nAda bindings to [Gtk+](https://www.gtk.org/), and\n[cairo](https://www.cairographics.org/manual/index.html).\n\nThe key features of the library are:\n\n* Widgets composed of transparent layers drawn by cairo\n* Fully scalable graphics\n* Support of time controlled refresh policy for real-time and heavy-duty applications\n* Caching graphical operations\n* Stream I/O support for serialization and deserialization\n* Ready-to-use gauge, meter, oscilloscope widgets\n* Editor widget for WYSIWYG design of complex dashboards\n\nFor further information, visit the\n[AICWL website](http://www.dmitry-kazakov.de/ada/aicwl.htm).\n\nMaintainer's note:\n\nThis Alire crate is packaged in a rather minimalistic way to keep dependencies\non external libraries at a minimum. The crate's definition covers the core\nfunctionality of AICWL, though, so it should be sufficient for most needs.\n\nFor example, the original distribution has references to\n[Simple Components](http://www.dmitry-kazakov.de/ada/components.htm) which are\nnot strictly necessary for the core functionality of the library.\n"
+maintainers = [
+"Vinzent \"Jellix\" Saranen <vinzent@heisenbug.eu>",
+]
+maintainers-logins = [
+"Jellix",
+]
+name = "aicwl"
+project-files = [
+"sources/aicwl.gpr",
+"sources/aicwl-editor.gpr",
+]
+tags = [
+"widgets",
+"gauge",
+"graphics",
+"ui",
+"gtk",
+]
+version = "3.24.1"
+website = "http://www.dmitry-kazakov.de/ada/aicwl.htm"
+[gpr-externals]
+Development = [
+"Debug",
+"Release",
+"Profile",
+]
+Legacy = [
+"Ada95",
+"Ada2005",
+"Ada2012",
+]
+[[depends-on]]
+gtkada = ">=17"
+

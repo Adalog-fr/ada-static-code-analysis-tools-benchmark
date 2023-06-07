@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7df/gnat/s-semiho.adb"
+node: { title: "system__semihosting__TbufferBIP" label: "TbufferBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__semihosting__put" label: "Put\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7df/gnat/s-semiho.adb:115:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "system__semihosting__put__2" label: "Put\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7df/gnat/s-semiho.adb:156:4\n48 bytes (static)\n0 dynamic objects" }
+node: { title: "system__semihosting__get" label: "Get\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7df/gnat/s-semiho.adb:167:4\n0 bytes (static)\n0 dynamic objects" }
+}

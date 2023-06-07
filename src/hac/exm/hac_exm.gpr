@@ -1,0 +1,165 @@
+--  This is a GNAT, GCC or GNAT Studio project file
+--  for the examples of the HAC project ( https://sf.net/projects/hacadacompiler/ ).
+--
+--  These examples give (or should give...) the same output on a real
+--  Ada compiler as when compiled and run by HAC.
+--
+--  Build me with "gprbuild -P hac_exm", or open me with GNAT Studio.
+--  
+
+project HAC_Exm is
+
+   type HAC_Build_Mode_Type is ("Debug", "Fast");
+   HAC_Build_Mode : HAC_Build_Mode_Type := external ("HAC_Build_Mode", "Debug");
+
+   for Main use (
+     --
+     --  1) HAC and GNAT OK (correct Ada, same output)
+     --
+     "ackermann.adb",
+     "arguments.adb",
+     "anti_primes.adb",
+     "attributes.adb",
+     "barnes.adb",                 --  John Barnes' Ada-Europe 2022 puzzle
+     "bwt.adb",
+     "console_io.adb",
+     "covid_19_s.adb",
+     "days_1901.adb",
+     "doors.adb",
+     "echo.adb",
+     "einmaleins.adb",
+     "env.adb",
+     "existence.adb",
+     "file_append.adb",
+     "file_copy.adb",
+     "file_read.adb",
+     "fill_drive.adb",
+     "hello.adb",
+     "hello_big.adb",
+     "gallery.adb",
+     "hofstadter.adb",
+     "koch_curve.adb",             --  PDF demo
+     "mandelbrot.adb",
+     "maze_gen.adb",
+     "merge_sort.adb",
+     "names_in_boxes.adb",
+     "pdf_hello.adb",              --  PDF demo
+     "prc.adb",
+     "random.adb",
+     "series.adb",
+     "shell_sort.adb",
+     "shell.adb",
+     "strings_demo.adb",
+     "tasks_01.adb",
+     "tasks_02.adb",
+     "three_lakes_s.adb",
+     "timing.adb",
+     "unit_a.adb",
+     --
+     --  2) * GNAT OK
+     --     * HAC KO (feature not yet supported)
+     --  
+     "overloading.adb"
+     --
+     --  3) * GNAT OK
+     --     * HAC KO (crash)
+     --
+     --  4) * GNAT OK (detects correctly incorrect Ada code)
+     --     * HAC KO (compiles instead of outputting a compilation error; likely a Pascal-ism)
+     --     See places with "!!" in the parser code.
+     --  
+     --
+     --  5) Code wrong, incomplete, HAC showing wrong output, or whatever - to be sorted...
+     --
+     --  "dinersmo.adb",
+     --  "din_sm.adb",
+     --  "din_ws.adb",
+     --  "newrace.adb",
+     --  "pgm0.adb",
+     --  "pgm1.adb",
+     --  "pgm2.adb",
+     --  "race.adb",
+     --  "racedead.adb"
+   );
+   case HAC_Build_Mode is
+      when "Debug" =>
+         for Object_Dir use "../obj/debug";
+      when "Fast" =>
+         for Object_Dir use "../obj/fast";
+   end case;
+
+   for Source_Dirs use (".", "../src", "pdf", "tasking", "not_working");
+   for Exec_Dir use ".";
+   for Create_Missing_Dirs use "True";  --  Flips by default the "-p" switch
+
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("-i2");
+   end Pretty_Printer;
+
+   Common_Compiler_Options := (
+     "-gnatwa",                        --  Warnings switches (a:turn on all info/warnings marked with +)
+     "-gnatwh",                        --  Warnings switches (h:turn on warnings for hiding declarations)
+     "-gnatwcijkmopruvz.c.p.t.w.x",  --  Warnings switches (run "gnatmake" for full list)
+     "-gnatwUVM",   --  Disable some warnings
+     "-gnatf",  --  Full errors. Verbose details, all undefined references
+     "-gnatq",  --  Don't quit, try semantics, even if parse errors
+     "-gnatQ",  --  Don't quit, write ali/tree file even if compile errors
+     --
+     "-gnatyaknpr",   --  Style: check all casings: a:attribute, k:keywords, n:package Standard identifiers, p:pragma, r:identifier references
+     "-gnatybfhiu",   --  Style: check b:no blanks at end of lines, f:no ff/vtabs, h: no htabs, i:if-then layout, u:no unnecessary blank lines
+     "-gnatyx",       --  Style: check x:no extra parens
+     "-gnatye",       --  Style: check e:end/exit labels present
+     "-gnatytc"       --  Style: check t:token separation rules, c:comment format (two spaces)
+   );
+
+   Debug_Options := (
+     "-gnata",         --  Assertions enabled
+     "-gnato",         --  Enable overflow checking in STRICT mode
+     "-gnatVa",        --  Enable all validity checking options
+     "-fstack-check",
+     "-fno-inline",
+     --
+     "-g"              --  Generate debugging information
+   );
+
+   Fast_Options := (
+     "-O2",
+     "-gnatpn", 
+     "-fipa-cp-clone", "-fgcse-after-reload", 
+     "-funroll-loops", "-fpeel-loops", "-funswitch-loops", 
+     "-ftracer", "-fweb", "-ftree-vectorize",
+     "-frename-registers", "-ffunction-sections",
+     "-g"     
+   );
+   
+   package Compiler is
+      case HAC_Build_Mode is
+         when "Debug" => for Default_Switches ("ada") use Common_Compiler_Options & Debug_Options;
+         when "Fast"  => for Default_Switches ("ada") use Common_Compiler_Options & Fast_Options;
+      end case;
+   end Compiler;
+
+   package Binder is
+      case HAC_Build_Mode is
+         when "Debug" =>
+            for Default_Switches ("ada") use ("-Es");
+         when "Fast" =>
+      end case;
+   end Binder;
+
+   package Linker is
+      case HAC_Build_Mode is
+         when "Debug" =>
+            for Default_Switches ("ada") use ("-g");
+         when "Fast" =>
+            for Default_Switches ("ada") use ("-s", "-Wl,--gc-sections");
+      end case;
+   end Linker;
+
+   package Builder is
+      --   "If -j0 is used, then the maximum number of simultaneous compilation
+      --    jobs is the number of core processors on the platform."
+      for Default_Switches ("ada") use ("-g", "-j0");
+   end Builder;
+
+end HAC_Exm;

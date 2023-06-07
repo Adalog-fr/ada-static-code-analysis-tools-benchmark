@@ -1,0 +1,152 @@
+/* CSS Menu. See
+http://medialoot.com/blog/how-to-create-a-responsive-navigation-menu-using-only-css/
+*/
+
+/*Strip the ul of padding and list styling*/
+ul.menu-bar, ul.menu {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    position: absolute;
+}
+
+/*Create a horizontal list with spacing*/
+ul.menu-bar li {
+    display:inline-block;
+    float: left;
+    margin-right: 1px;
+}
+
+/*Style for menu links*/
+ul.menu-bar li a, ul.menu li a {
+    display:block;
+    min-width:140px;
+    text-align: left;
+    padding-left: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #fff;
+    background: #2f3036;
+    text-decoration: none;
+}
+
+/*Hover state for top level links*/
+ul.menu-bar li:hover a {
+    background: #19c589;
+}
+
+/*Style for dropdown links*/
+li:hover ul.menu li a {
+    background: #f3f3f3;
+    color: #2f3036;
+}
+
+/*Hover state for dropdown links*/
+li:hover ul.menu li a:hover {
+    background: #19c589;
+    color: #fff;
+}
+
+/*Hide dropdown links until they are needed*/
+ul.menu {
+    display: none;
+}
+
+/*Make dropdown links vertical*/
+ul.menu li {
+    display: block;
+    float: none;
+}
+
+/*Prevent text wrapping*/
+ul.menu li a {
+    width: auto;
+    min-width: 100px;
+    padding: 0 20px;
+}
+
+/*Display the dropdown on hover*/
+ul.menu-bar li a:hover + ul.menu, ul.menu:hover {
+    display: block;
+}
+
+
+/* Window */
+div.window {
+    box-sizing: border-box;
+    border: 1px solid black;
+    position: absolute;
+    top: 200px;
+    width: 400px;
+    height: 200px;
+}
+
+div.window-title {
+    border-bottom: 1px solid black;
+    background: grey;
+    text-align: center;
+    cursor:move;
+/* row */
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    height: 24px;
+}
+
+div.window-body {
+/* row */
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 24px;
+    bottom: 0px;
+}
+
+div.window-corner {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    bottom: 0px;
+    right: 0px;
+    background: grey;
+    border-bottom: 1px solid black;
+    cursor:se-resize;
+}
+
+/*
+http://blog.stevensanderson.com/2011/10/05/full-height-app-layouts-a-css-trick-to-make-it-easier/
+*/
+body { margin: 0px }
+.row, .col { overflow: hidden; position: absolute; }
+.row { left: 0px; right: 0px; }
+.col { top: 0px; bottom: 0px; }
+.scroll-x { overflow-x: auto; }
+.scroll-y { overflow-y: auto; }
+
+
+.grid.row {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.grid.row { top: 26px; bottom: 0px; }
+.grid-header.row { height: 30px; top: 0px; }
+.grid-data.row { top: 30px; bottom: 0px; }
+
+.grid-head table, .grid-data table {
+    border-spacing: 0px;
+}
+
+.grid-head th, .grid-data td {
+    border-left: solid 1px;
+    border-bottom: solid 1px;
+}
+
+.grid-data :focus {
+    background: green;
+}

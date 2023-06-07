@@ -1,0 +1,26 @@
+authors = ["Manuel Hatzl"]
+description = "Verified Ascii To Number conversion written in Ada/SPARK"
+licenses = "MIT"
+long-description = "This library offers formally verified functions to convert character streams into the smallest standard type representation the resulting number may fit in.\nThe allowed formats are based on the [JSON-Number format](https://www.json.org/json-en.html), with the addition to allow single underscores between digits.\n\n**Note:** Only decimal based numbers are supported!\n\n**Examples:**\n\n```\n-10_000 -> Standard.Integer\n1.0 -> Standard.Float\n1e4 -> Standard.Float\n```\n"
+maintainers = ["Manuel Hatzl <hatzlmanuel@outlook.com>"]
+maintainers-logins = ["mhatzl"]
+name = "vaton"
+tags = ["spark"]
+version = "0.1.0"
+website = "https://github.com/mhatzl/vaton"
+
+[build-switches."*"]
+ada_version = "Ada2022"
+style_checks = "No"
+Compile_Checks = "none"
+
+[build-switches.validation]
+compile_checks = "Warnings"
+
+[[depends-on]]
+spark_unbound = "*"
+
+[[pins]]
+
+[pins.spark_unbound]
+path = "../spark_unbound"

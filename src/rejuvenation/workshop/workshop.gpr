@@ -1,0 +1,31 @@
+with "../settings/rejuvenation_settings.gpr";
+
+--  with alire
+with "config/workshop_config.gpr";
+
+--  without alire
+--  with "libadalang.gpr";
+--  with "../rejuvenation.gpr";
+
+project Workshop is
+
+   for Library_Name use "Workshop";
+   for Library_Version use Project'Library_Name & ".so." & Workshop_Config.Crate_Version;
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Library_Dir use "lib";
+
+   Library_Type : Rejuvenation_Settings.Library_Type_Type :=
+     external ("WORKSHOP_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+   for Library_Kind use Library_Type;
+
+   package Builder renames Rejuvenation_Settings.Builder;
+   package Compiler renames Rejuvenation_Settings.Compiler;
+   package Binder renames Rejuvenation_Settings.Binder;
+   package Linker renames Rejuvenation_Settings.Linker;
+   package Check renames Rejuvenation_Settings.Check;
+   package CodePeer renames Rejuvenation_Settings.CodePeer;
+   package Pretty_Printer renames Rejuvenation_Settings.Pretty_Printer;
+   
+end Workshop;

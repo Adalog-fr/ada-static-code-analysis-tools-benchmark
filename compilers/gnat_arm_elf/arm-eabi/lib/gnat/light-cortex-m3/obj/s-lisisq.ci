@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m3/gnat/s-lisisq.adb"
+node: { title: "sqrtf" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m3/gnat/s-lisisq.adb:48:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "sqrtf" label: "builtin_sqrtf\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrtf" targetname: "sqrtf" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m3/gnat/s-lisisq.adb:50:14" }
+}

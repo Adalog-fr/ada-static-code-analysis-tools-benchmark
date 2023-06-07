@@ -1,0 +1,42 @@
+authors = [
+"AdaCore",
+]
+description = "Parser for GPR  Project File"
+licenses = "Apache-2.0"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "libgpr2"
+project-files = [
+"gpr2.gpr",
+]
+version = "23.0.0"
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[gpr-externals]
+GPR2_BUILD = [
+"debug",
+"release",
+"release_checks",
+"gnatcov",
+]
+LIBRARY_TYPE = [
+"static",
+"relocatable",
+"static-pic",
+]
+[gpr-set-externals]
+GPR2_BUILD = "release"
+[[depends-on]]
+gnatcoll = "~23.0.0"
+gnatcoll_gmp = "~23.0.0"
+gnatcoll_iconv = "~23.0.0"
+

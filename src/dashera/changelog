@@ -1,0 +1,52 @@
+dashera (0.14.0) stable; urgency=low
+
+  [SMerrony]
+  * Usability: Implement key auto-repeat (Issue #8)
+  * Usability: Make the Backspace key work the same as DEL
+  * Usability: Increase history to 2000 lines
+  * Issue:     Remove template title labels when collapsing template
+
+ -- SMerrony <merrony@gmail.com>  Sun, 04 Dec 2022 10:00:00 +0200
+
+dashera (0.13.2) stable; urgency=low
+
+  [SMerrony]
+  * Build: Remove call to Set_Monospace in Gui so GtkAda v21 still works
+  * Build: Reintroduce non-Alire build config
+  * Docs:  Update README.md to include non-Alire build
+  * Usability: Add more info to message when Telnet fails to connect
+
+ -- SMerrony <merrony@gmail.com>  Sun, 20 Nov 2022 10:00:00 +0200
+
+dashera (0.13.1) stable; urgency=low
+
+  [SMerrony]
+  * Issue: Fix File|Send (Text) File not sending new-lines
+  * Issue: Fix #7 (Hold not working) by sending Ctrl-S/Q
+  * Usability: Move terminal Resize menu item back to Emulation menu
+  * Usability: Move Load F-Key Template to View menu
+  * Usability: Add new Hide F-Key Template menu item
+  * Performance: Small improvements in Crt.Draw_Crt
+
+ -- SMerrony <merrony@gmail.com>  Wed, 16 Nov 2022 10:00:00 +0200
+
+dashera (0.13.0) stable; urgency=low
+
+  [SMerrony]
+  * Fix issue with Edit|Paste not actually pasting into data stream
+  * Fix issue with cursor sometimes leaving trail on screen
+  * Add View menu
+  * Add View|History to display terminal history, remove scrollback
+  * Move Edit|Resize to View|Resize Terminal
+  * Upgrade Gtkada to v.23
+  * Embed font and icon resources in code using 'are'
+  * Add `-amber` and `-white` options to emulate different phosphor colours
+
+ -- SMerrony <merrony@gmail.com>  Fri, 11 Nov 2022 10:00:00 +0200
+
+dashera (0.12.1) stable; urgency=low
+
+  [SMerrony]
+  * Package up release 0.12.1 for Debian
+
+ -- SMerrony <merrony@gmail.com>  Fri, 28 Oct 2022 10:00:00 +0200

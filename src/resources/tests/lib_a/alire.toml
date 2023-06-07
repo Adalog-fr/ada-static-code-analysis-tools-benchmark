@@ -1,0 +1,17 @@
+name = "lib_a"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Fabien Chouteau"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+
+[[depends-on]]
+resources = "~0.0.0"
+
+[[pins]]
+
+[pins.resources]
+path = "../../../resources"
+
+[build-switches."*"]
+Compile_Checks = "none"

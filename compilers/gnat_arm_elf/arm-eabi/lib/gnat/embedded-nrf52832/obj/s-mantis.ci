@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-mantis.adb"
+node: { title: "system__mantissa__mantissa_value" label: "Mantissa_Value\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-mantis.adb:38:4\n0 bytes (static)\n0 dynamic objects" }
+}

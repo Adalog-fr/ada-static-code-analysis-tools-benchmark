@@ -1,0 +1,64 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "freetypeada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../freetypeada"
+[[solution.state]]
+crate = "libfreetype"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2"
+[solution.state.release]
+description = "A freely available software library to render fonts"
+maintainers = [
+"contact@flyx.org",
+]
+maintainers-logins = [
+"flyx",
+]
+name = "libfreetype"
+notes = "Provided by system package: libfreetype6-dev"
+version = "2.10.4"
+[solution.state.release.origin]
+url = "system:libfreetype6-dev"
+[[solution.state]]
+crate = "libx11"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^1"
+[solution.state.release]
+description = "X11 client-side library"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libx11"
+notes = "Provided by system package: libx11-dev"
+version = "1.7.2"
+[solution.state.release.origin]
+url = "system:libx11-dev"
+[[solution.state]]
+crate = "openglada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = ".."
+

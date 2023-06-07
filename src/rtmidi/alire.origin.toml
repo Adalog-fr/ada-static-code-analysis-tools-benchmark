@@ -1,0 +1,22 @@
+authors = [
+"Fabien Chouteau",
+]
+description = "Ada \"middleweight\" binding for the rtMIDI library"
+licenses = "MIT"
+maintainers = [
+"Fabien Chouteau <fabien.chouteau@gmail.com>",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "rtmidi"
+tags = [
+"midi",
+"rtmidi",
+"music",
+]
+version = "0.1.0"
+website = "https://github.com/Fabien-Chouteau/rtmidi_ada"
+[[depends-on]]
+librtmidi = "*"
+

@@ -1,0 +1,201 @@
+--  This is a HAC script *and* an Ada program.
+--  How to run it is your choice.
+--
+--  Usage with the HAC command-line tool :
+--
+--    hac test_za.hac [option]
+--
+--  The HAC (HAC Ada Compiler) command-line tool can be found @
+--    https://hacadacompiler.sourceforge.io/ ,
+--    https://github.com/zertovitch/hac
+
+with HAT;
+--  NB: in case you want to build this program into an executable with a
+--      "full Ada" compiler, the files for HAT (hat.ads, hat*.adb)
+--      is located in the /src directory, in the HAC project.
+
+with Test_Common;
+
+procedure Test_ZA is
+
+  type Action_Type is (Create, Compare);
+
+  fails, successes, zipada_used : Natural := 0;
+
+  use HAT, Test_Common;
+
+  procedure Process_Archive (command, archive : VString; action : Action_Type) is
+    full_name : constant VString := archive & ".zip";
+    ref_archive : constant VString := +"$mth_zash";
+    r : Integer;
+  begin
+    case action is
+      when Create =>
+        if Exists (full_name) then
+          Delete_File (full_name);
+        end if;
+        Shell_Execute (command & ' ' & full_name & ' ' & test_files);
+        if Index (command, "zipada") > 0 then
+          zipada_used := zipada_used + 1;
+        end if;
+      when Compare =>
+        if archive /= ref_archive and then Exists (full_name) then
+          Shell_Execute (+".." & Directory_Separator &
+                         "comp_zip " & ref_archive & " " & archive & " -q3", r);
+          if r = 0 then
+            successes := successes + 1;
+          else
+            fails := fails + 1;
+          end if;
+        end if;
+    end case;
+  end Process_Archive;
+
+  procedure Smuggle (other_dir, file_name: VString) is
+    copy_name : constant VString := test_dir & "$_" & file_name;
+    other_path : constant VString := +".." & Directory_Separator & other_dir & Directory_Separator & file_name;
+  begin
+    if not Exists (copy_name) then
+      Copy_File (other_path, copy_name);
+    end if;
+  end Smuggle;
+
+  function Nice_Date (with_intraday : Boolean) return VString is
+    t1 : constant Time := Clock;
+    day_secs, day_mins : Integer;
+    just_day : VString;
+    --
+    function Two_Digits (x : Integer) return VString is
+    begin
+      if x < 10 then
+        return "0" & Image (x);
+      else
+        return Image (x);
+      end if;
+    end Two_Digits;
+    --
+  begin
+    day_secs := Integer (Seconds (t1));
+    day_mins := day_secs / 60;
+    just_day := +"" &  --  VString concatenation
+      Year (t1)  & '-' &
+      Two_Digits (Month (t1)) & '-' &
+      Two_Digits (Day (t1));
+    if with_intraday then
+      return just_day & "--" &
+      Two_Digits (day_mins / 60) & '-' &
+      Two_Digits (day_mins mod 60) & '-' &
+      Two_Digits (day_secs mod 60);
+    else
+      return just_day;
+    end if;
+  end Nice_Date;
+
+  procedure Create_List is
+    log_name : constant VString := "test_za_" & Nice_Date (True) & ".log";
+    all_zips : constant VString := +"$mth_*";
+  begin
+    if Index (Get_Env ("OS"), "Windows") > 0 then
+      Shell_Execute (+"dir /OS " & all_zips & " |find ""$mth"" >" & log_name);
+    else
+      Shell_Execute (+"ls -lrS " & all_zips & '>' & log_name);
+    end if;
+  end Create_List;
+
+  slow, full : Boolean := False;
+
+begin
+  Put_Line ("Testing the ZipAda tool.");
+  New_Line;
+  Put_Line ("Calls to Comp_Zip are done to compare archives.");
+  New_Line;
+  Put_Line ("Usage:  hac test_za.hac [option]");
+  New_Line;
+  Put_Line ("  Options: slow : test some exotic / slow formats in Zip-Ada");
+  Put_Line ("           full : all zippers, including very slow ones");
+  New_Line;
+  if Argument_Count > 0 then
+    full := Argument (1) = "full";
+    slow := full or (Argument (1) = "slow");
+  end if;
+  --  Have badly compressible files
+  if not Exists (test_dir & "$rnd_0.bin") then
+    for i in 0 .. 10 loop
+      Shell_Execute (+".." & Directory_Separator & "random_data " & i*10 & ' ' & test_dir & "$rnd_" & i*10 & ".bin");
+    end loop;
+    for i in 1 .. 9 loop
+      Shell_Execute (+".." & Directory_Separator & "random_data " & i & ' ' & test_dir & "$rnd_" & i & ".bin");
+    end loop;
+  end if;
+  --  We generate a "large" random file with restricted literal range ('A' .. 'Z').
+  if not Exists (test_dir & "$rand_alpha.txt") then
+    Shell_Execute (+".." & Directory_Separator & "random_data 77777 " & test_dir & "$rand_alpha.txt 65 90");
+  end if;
+  --  We generate a "large" random file (will take more than 1 Deflate block in random_and_text.mix)
+  if not Exists (test_dir & "$random.bin") then
+    Shell_Execute (+".." & Directory_Separator & "random_data 66666 " & test_dir & "$random.bin");
+  end if;
+  --
+  --  Smuggle some files from the project as test files
+  --
+  Smuggle (+"doc",     +"za_work.xls");
+  Smuggle (+"doc",     +"appnote.txt");
+  Smuggle (+"doc",     +"lzma-specification.txt");
+  Smuggle (+"doc",     +"za_history.txt");
+  Smuggle (+"doc",     +"za_todo.txt");
+  Smuggle (+"doc",     +"za_fosdem_2019.pdf");
+  Smuggle (+"zip_lib", +"lz77.adb");
+  Smuggle (+"zip_lib", +"unzip-decompress.adb");
+  Smuggle (+"zip_lib", +"zip-compress-deflate.adb");
+  Smuggle (+"zip_lib", +"lzma-encoding.adb");
+  --
+  for action in Action_Type loop
+    if slow then
+      --  If you need a coffee now, it's the right time to have one or two...
+      Process_Archive (+".." & Directory_Separator & "zipada -er1", +"$mth_zar1", action);
+      Process_Archive (+".." & Directory_Separator & "zipada -er2", +"$mth_zar2", action);
+      Process_Archive (+".." & Directory_Separator & "zipada -er3", +"$mth_zar3", action);
+      Process_Archive (+".." & Directory_Separator & "zipada -er4", +"$mth_zar4", action);
+    end if;
+    Process_Archive   (+".." & Directory_Separator & "zipada -esh", +"$mth_zash", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -edf", +"$mth_zadf", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -ed1", +"$mth_zad1", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -ed2", +"$mth_zad2", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -ed3", +"$mth_zad3", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -el1", +"$mth_zal1", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -el2", +"$mth_zal2", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -el3", +"$mth_zal3", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -ep1", +"$mth_zap1", action);
+    Process_Archive   (+".." & Directory_Separator & "zipada -ep2", +"$mth_zap2", action);
+    Process_Archive   (+"zip           -1              ",           +"$mth_izd1", action);
+    Process_Archive   (+"zip           -6              ",           +"$mth_izd6", action);
+    Process_Archive   (+"zip           -9              ",           +"$mth_izd9", action);
+    Process_Archive   (+"zip           -9 -Z bzip2     ",           +"$mth_izb9", action);
+    Process_Archive   (+"7z a -tzip -mx=9 -mm=deflate  ",           +"$mth_7z_d", action);
+    Process_Archive   (+"7z a -tzip -mx=9 -mm=LZMA     ",           +"$mth_7z_l", action);
+    if full then
+      --  Now, a good lunch is recommended...
+      Process_Archive (+"kzip",                                     +"$mth_kzip", action);
+      Process_Archive (+"advzip -a -4",                             +"$mth_zopf", action);
+    end if;
+    if action = Create then
+      --  LZMA, with a "solid" (=files not compressed individually)
+      --  archive container, the .7z archive format.
+      if Exists ("$mth_7z_l.7z") then
+        Delete_File ("$mth_7z_l.7z");
+      end if;
+      Shell_Execute  (+"7z a -mx=9 $mth_7z_l.7z " & test_files);
+    end if;
+    New_Line;
+  end loop;
+  Create_List;
+  Put_Line ("Archive comparisons:");
+  Put_Line (+"   " & successes & " successes");
+  Put_Line (+"   " & fails & " failures");
+  New_Line;
+  Put_Line (+"" & zipada_used & " different methods of the Zip-Ada library tested.");
+
+  Put ("Press Return ");
+  Skip_Line;
+
+end Test_ZA;

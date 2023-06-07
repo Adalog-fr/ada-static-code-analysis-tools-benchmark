@@ -1,0 +1,4 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/s-bbarat.adb"
+node: { title: "__sync_lock_test_and_set_1" label: "Sync_Lock_Test_And_Set_1\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/s-bbarat.adb:82:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__sync_bool_compare_and_swap_4" label: "Sync_Bool_Compare_And_Swap_4\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/s-bbarat.adb:114:4\n0 bytes (static)\n0 dynamic objects" }
+}

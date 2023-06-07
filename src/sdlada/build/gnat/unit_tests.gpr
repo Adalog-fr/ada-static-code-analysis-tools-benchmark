@@ -1,0 +1,20 @@
+with "sdlada";
+with "aunit";
+
+project Unit_Tests is
+   for Languages   use ("Ada", "C");
+   for Source_Dirs use ("../../unit_tests");
+   for Object_Dir  use "gen/" & SDLAda.Mode & "/unit_tests/.obj";
+   for Exec_Dir    use "gen/" & SDLAda.Mode & "/unit_tests";
+   for Main        use ("unit_tests.adb");
+
+   -- package Ide is
+   --    for Gnat use "/home/laguest/opt/tinyada/bin/gnat";
+   --    for Gnatlist use "/home/laguest/opt/tinyada/bin/gnatls";
+   --    for Debugger_Command use "";
+   --    for Compiler_Command ("ada") use "/home/laguest/opt/tinyada/bin/gnatmake";
+   --    for Compiler_Command ("c") use "/home/laguest/opt/tinyada/bin/c++";
+   -- end Ide;
+
+   package Compiler renames SDLAda.Compiler;
+end Unit_Tests;

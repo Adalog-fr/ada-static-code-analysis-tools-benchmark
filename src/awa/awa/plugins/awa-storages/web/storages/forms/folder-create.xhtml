@@ -1,0 +1,33 @@
+<!-- Folder creation form
+  -  Copyright (C) 2012, 2019 Stephane Carrez
+  -  Written by Stephane Carrez (Stephane.Carrez@gmail.com)
+  -
+  -  Licensed under the Apache License, Version 2.0 (the "License");
+  -  you may not use this file except in compliance with the License.
+  -  You may obtain a copy of the License at
+  -
+  -      http://www.apache.org/licenses/LICENSE-2.0
+  -
+  -  Unless required by applicable law or agreed to in writing, software
+  -  distributed under the License is distributed on an "AS IS" BASIS,
+  -  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  -  See the License for the specific language governing permissions and
+  -  limitations under the License.
+  -->
+<h:form id='storage-folder-create-form' styleClass='awa-columns'
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:util="http://code.google.com/p/ada-asf/util">
+    <div id='storage-folder-create' class='asf-editable'>
+        <div class='awa-editable-message'
+             title="#{storageMsg.message_create_folder_tooltip}">
+            <span>#{storageMsg.message_create_folder}</span>
+        </div>
+        <div class='asf-editable-input'>
+            <h:inputText id='folder-name' styleClass='asf-editable-text' value='#{storageFolder.name}'/>
+            <h:commandButton id='storage-folder-create-button' value='#{storageMsg.button_create_folder_label}'
+                             styleClass="ui-button ui-state-default ui-corner-all"
+                             action="#{storageFolder.save}" title="#{storageMsg.button_create_folder_tooltip}"/>
+        </div>
+    </div>
+    <util:script>$('#storage-folder-create').editable();</util:script>
+</h:form>

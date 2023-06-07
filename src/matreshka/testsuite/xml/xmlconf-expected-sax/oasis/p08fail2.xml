@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <ignorableWhitespace>&#xA;</ignorableWhitespace>
+  <startElement>
+    <namespaceURI/>
+    <localName>A</localName>
+    <qualifiedName>A</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>att</localName>
+        <qualifiedName>att</qualifiedName>
+        <value>abc&#x20;/&#x20;def</value>
+        <type>NMTOKENS</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>true</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>A</localName>
+    <qualifiedName>A</qualifiedName>
+  </endElement>
+  <ignorableWhitespace>&#xA;</ignorableWhitespace>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

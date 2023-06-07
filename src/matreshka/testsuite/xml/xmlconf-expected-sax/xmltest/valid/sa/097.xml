@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>%e</name>
+    <baseURI>xmltest/valid/sa</baseURI>
+    <systemID>097.ent</systemID>
+  </resolveEntity>
+  <warning/>
+  <warning/>
+  <warning/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>a1</localName>
+        <qualifiedName>a1</qualifiedName>
+        <value>v1</value>
+        <type>CDATA</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>false</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,52 @@
+authors = ["AdaCore"]
+description = "An implementation of the Microsoft's Language Server Protocol for Ada"
+licenses = "GPL-3.0-only"
+maintainers = ["Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["reznikmm"]
+name = "ada_language_server"
+project-files = ["gnat/lsp_server.gpr"]
+tags = ["lsp","vscode"]
+version = "23.0.0"
+website = "https://github.com/AdaCore/ada_language_server"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[environment.ADA_PROJECT_PATH]
+set = "${CRATE_ROOT}/subprojects/stubs"
+
+[[depends-on]]
+gnatcoll = "*"
+libadalang = "*"
+libadalang_tools = "*"
+libgnatdoc = "*"
+vss = "*"
+libgpr2 = "*"
+
+[[pins]]
+
+[pins.gnatcoll]
+path = "../gnatcoll-core"
+
+[pins.libadalang]
+path = "../libadalang"
+
+[pins.libadalang_tools]
+path = "../libadalang_tools"
+
+[pins.libgnatdoc]
+path = "../libgnatdoc"
+
+[pins.vss]
+path = "../vss"
+
+[pins.libgpr2]
+path = "../libgpr2"
+
+[build-switches."*"]
+Compile_Checks = "none"

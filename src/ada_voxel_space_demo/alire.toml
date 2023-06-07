@@ -1,0 +1,19 @@
+description = "Voxel Space render engine demo in Ada"
+executables = ["main"]
+licenses = "MIT"
+maintainers = ["fabien.chouteau@gmail.com"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "ada_voxel_space_demo"
+project-files = ["ada_voxel_space_demo.gpr"]
+version = "1.0.1"
+
+[[depends-on]]
+sdlada = "*"
+
+[[pins]]
+
+[pins.sdlada]
+path = "../sdlada"
+
+[build-switches."*"]
+Compile_Checks = "none"

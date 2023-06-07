@@ -1,0 +1,23 @@
+authors = [
+"Nicolas Roche <roche@adacore.com>",
+]
+description = "An Ada binding for lua"
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = [
+"Nicolas Roche <roche@adacore.com>",
+]
+maintainers-logins = [
+"Nikokrock",
+"Fabien-Chouteau",
+]
+name = "ada_lua"
+tags = [
+"lua",
+"binding",
+"script",
+]
+version = "0.1.0"
+website = "https://github.com/adacore/ada-lua"
+[[depends-on]]
+liblua = "~5.3"
+

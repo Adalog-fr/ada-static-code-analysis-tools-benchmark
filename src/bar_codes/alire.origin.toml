@@ -1,0 +1,30 @@
+authors = [
+"Gautier de Montmollin",
+]
+description = "Generate various types of bar codes on different output formats"
+licenses = "MIT"
+maintainers = [
+"fabien.chouteau@gmail.com",
+]
+maintainers-logins = [
+"zertovitch",
+"Fabien-Chouteau",
+]
+name = "bar_codes"
+project-files = [
+"bar_codes_gnat.gpr",
+]
+tags = [
+"bar",
+"code",
+"qr",
+]
+version = "2.0.0"
+[gpr-externals]
+Build_Mode = [
+"Debug",
+"Fast",
+"Check_2005",
+"Check_Style",
+]
+

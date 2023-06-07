@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-widenu.adb"
+node: { title: "system__wid_enum__width_enumeration_8" label: "Width_Enumeration_8\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-widenu.adb:40:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__wid_enum__width_enumeration_16" label: "Width_Enumeration_16\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-widenu.adb:73:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "system__wid_enum__width_enumeration_32" label: "Width_Enumeration_32\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-widenu.adb:106:4\n12 bytes (static)\n0 dynamic objects" }
+}

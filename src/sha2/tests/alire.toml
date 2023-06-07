@@ -1,0 +1,25 @@
+name = "sha2_tests"
+description = "Test suite for SHA2"
+version = "0.0.0"
+authors = ["Anton Fediushin"]
+maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
+maintainers-logins = ["AntonMeep"]
+executables = ["sha2_tests"]
+
+[configuration]
+disabled = true
+
+[[depends-on]]
+aunit = "*"
+sha2 = "*"
+
+[[pins]]
+
+[pins.sha2]
+path = "../"
+
+[pins.aunit]
+path = "../../aunit"
+
+[build-switches."*"]
+Compile_Checks = "none"

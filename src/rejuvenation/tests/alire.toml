@@ -1,0 +1,26 @@
+name = "tests"
+description = "tests for rejuvenation"
+version = "23.0.0"
+authors = ["Pierre van de Laar"]
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+executables = ["tests"]
+
+[[depends-on]]
+aunit = "*"
+libadalang = "*"
+rejuvenation = "^23.0.0"
+
+[[pins]]
+
+[pins.rejuvenation]
+path = ".."
+
+[pins.aunit]
+path = "../../aunit"
+
+[pins.libadalang]
+path = "../../libadalang"
+
+[build-switches."*"]
+Compile_Checks = "none"

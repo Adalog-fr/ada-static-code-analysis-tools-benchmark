@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/i-sam-efc.ads"
+node: { title: "interfaces__sam__efc__fcr_fcmd_fieldH" label: "fcr_fcmd_fieldH\n<built-in>\n36 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__fcr_fcmd_fieldRP" label: "fcr_fcmd_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__fcr_fkey_fieldRP" label: "fcr_fkey_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc0_fmr_registerIP" label: "efc0_fmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc0_fcr_registerIP" label: "efc0_fcr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc0_fsr_registerIP" label: "efc0_fsr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_peripheralIP" label: "efc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__efc__efc_peripheralIP" targetname: "interfaces__sam__efc__efc0_fmr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/i-sam-efc.ads:195:7" }
+}

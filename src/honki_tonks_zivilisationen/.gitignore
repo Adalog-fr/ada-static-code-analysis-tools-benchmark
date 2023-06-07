@@ -1,0 +1,20 @@
+Notizen/
+Neu/
+Honki Tonks Zivilisationen/Datenbanken/
+Honki Tonks Zivilisationen/Spielstand/
+Honki Tonks Zivilisationen/Audio/Test/
+Honki Tonks Zivilisationen/Audio/Temp/
+Honki Tonks Zivilisationen/Einstellungen/
+Honki Tonks Zivilisationen/Meldungen
+Honki Tonks Zivilisationen/HonkiTonksZivilisationen
+Honki Tonks Zivilisationen/Start
+Honki Tonks Zivilisationen/LICENSE
+obj_windows/
+GNAT*
+alire/
+config/
+share/
+obj/
+obj_alire/
+obj_dynamic/
+obj_static_dynamic/

@@ -1,0 +1,12 @@
+authors = ["Anton Fediushin"]
+description = "Secure Hash Algorithm 2 implemented in Ada"
+licenses = "ISC"
+maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
+maintainers-logins = ["AntonMeep"]
+name = "sha2"
+tags = ["cryptography","security","sha2"]
+version = "2.0.0"
+website = "https://github.com/AntonMeep/sha2"
+
+[build-switches."*"]
+Compile_Checks = "none"

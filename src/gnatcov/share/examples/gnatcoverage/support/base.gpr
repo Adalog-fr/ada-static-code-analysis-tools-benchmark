@@ -1,0 +1,29 @@
+-- ==================================================
+-- == Base GPR file to be extended by example GPRs ==
+-- ==================================================
+
+with "common", "libsupport";
+
+abstract project Base is
+
+   --  Style checks options to compile Ada sources.
+
+   Style_Checks := external ("STYLE_CHECKS", "-gnaty");
+
+   for Languages use ("Ada");
+   for Source_Files use ();
+
+   package Compiler is
+      for Default_Switches ("Ada") use (Style_Checks);
+   end Compiler;
+
+   --  Force inclusion of the first last_chance_handler available.  The
+   --  intent is to favor the one from our libsupport when used, expected
+   --  to appear before the RTS library on the command line.
+
+   package Linker is
+     for Leading_Switches ("Ada") use ("-Wl,-u,__gnat_last_chance_handler");
+   end Linker;
+
+end Base;
+

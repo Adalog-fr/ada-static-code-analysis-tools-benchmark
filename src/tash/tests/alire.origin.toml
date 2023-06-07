@@ -1,0 +1,17 @@
+description = "Tcl Ada Shell tests"
+name = "tash_tests"
+licenses = "GPL-2.0-or-later WITH GCC-exception-2.0"
+version = "8"
+
+authors = ["Simon Wright"]
+maintainers = ["Simon Wright <simon@pushface.org>"]
+maintainers-logins = ["simonjwright"]
+
+project-files = ["tash_tests.gpr"]
+executables = ["compare", "tashtest"]
+
+[[depends-on]]
+tash = "*"
+
+[[pins]]
+tash = { path='..' }

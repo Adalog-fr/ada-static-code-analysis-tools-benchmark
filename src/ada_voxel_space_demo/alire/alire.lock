@@ -1,0 +1,95 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "libsdl2"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2.0.0"
+[solution.state.release]
+description = "Simple DirectMedia Layer development files"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libsdl2"
+notes = "Provided by system package: libsdl2-dev"
+version = "2.0.14"
+[solution.state.release.origin]
+url = "system:libsdl2-dev"
+[[solution.state]]
+crate = "libsdl2_image"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2.0.0"
+[solution.state.release]
+description = "Simple DirectMedia Layer development files - Image"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libsdl2_image"
+notes = "Provided by system package: libsdl2-image-dev"
+version = "2.0.5"
+[solution.state.release.origin]
+url = "system:libsdl2-image-dev"
+[[solution.state]]
+crate = "libsdl2_ttf"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2.0.0"
+[solution.state.release]
+description = "Simple DirectMedia Layer development files - TTF"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libsdl2_ttf"
+notes = "Provided by system package: libsdl2-ttf-dev"
+version = "2.0.15"
+[solution.state.release.origin]
+url = "system:libsdl2-ttf-dev"
+[[solution.state]]
+crate = "make"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "*"
+[solution.state.release]
+description = "Utility for directing compilation"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "make"
+notes = "Provided by system package: make"
+version = "4.3.0"
+[solution.state.release.origin]
+url = "system:make"
+[[solution.state]]
+crate = "sdlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../sdlada"
+

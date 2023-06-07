@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <unparsedEntity>
+    <name>applydsssl</name>
+    <systemID>applydsssl.gif</systemID>
+    <notation>GIF</notation>
+  </unparsedEntity>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>sun/valid</baseURI>
+    <systemID>notation01.dtd</systemID>
+  </resolveEntity>
+  <notation>
+    <name>GIF</name>
+    <publicID>+//ISBN&#x20;0-7923-9432-1::Graphic&#x20;Notation//NOTATION&#x20;CompuServe&#x20;Graphic&#x20;Interchange&#x20;Format//EN</publicID>
+  </notation>
+  <startElement>
+    <namespaceURI/>
+    <localName>test</localName>
+    <qualifiedName>test</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>t</characters>
+  <characters>e</characters>
+  <characters>s</characters>
+  <characters>t</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>test</localName>
+    <qualifiedName>test</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

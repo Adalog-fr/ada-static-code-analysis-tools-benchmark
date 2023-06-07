@@ -1,0 +1,3 @@
+aggregate library project agg2 is
+   for project_files use ("e.gpr");
+end agg2;

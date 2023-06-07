@@ -1,0 +1,34 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads"
+node: { title: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" label: "ctrl_freq_range_fieldH\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uidivmod" label: "aeabi_uidivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__rosc__ctrl_freq_range_fieldRP" label: "ctrl_freq_range_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_CE_Invalid_Data" label: "gnat_rcheck_CE_Invalid_Data\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_freq_range_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:31:9" }
+node: { title: "interfaces__rp2040__rosc__ctrl_enable_fieldRP" label: "ctrl_enable_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__rosc__ctrl_enable_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:51:9" }
+node: { title: "interfaces__rp2040__rosc__freqa_passwd_fieldRP" label: "freqa_passwd_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__rosc__freqa_passwd_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:97:9" }
+node: { title: "interfaces__rp2040__rosc__freqb_passwd_fieldRP" label: "freqb_passwd_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__rosc__freqb_passwd_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:156:9" }
+node: { title: "interfaces__rp2040__rosc__div_div_fieldRP" label: "div_div_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__rosc__div_div_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:205:9" }
+node: { title: "interfaces__rp2040__rosc__ctrl_registerIP" label: "ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__freqa_registerIP" label: "freqa_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__freqb_registerIP" label: "freqb_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__div_registerIP" label: "div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__phase_registerIP" label: "phase_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__status_registerIP" label: "status_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__randombit_registerIP" label: "randombit_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__count_registerIP" label: "count_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__rosc__rosc_peripheralIP" label: "rosc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__rosc__rosc_peripheralIP" targetname: "interfaces__rp2040__rosc__freqa_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:354:7" }
+edge: { sourcename: "interfaces__rp2040__rosc__rosc_peripheralIP" targetname: "interfaces__rp2040__rosc__freqb_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:356:7" }
+edge: { sourcename: "interfaces__rp2040__rosc__rosc_peripheralIP" targetname: "interfaces__rp2040__rosc__status_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-rp2040-rosc.ads:367:7" }
+}

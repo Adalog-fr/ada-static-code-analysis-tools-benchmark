@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-excdeb.adb"
+node: { title: "__gnat_debug_raise_exception" label: "Debug_Raise_Exception\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-excdeb.adb:38:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_unhandled_exception" label: "Debug_Unhandled_Exception\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-excdeb.adb:50:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_debug_raise_assert_failure" label: "Debug_Raise_Assert_Failure\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-excdeb.adb:60:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "local_raise" label: "Local_Raise\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-excdeb.adb:69:4\n16 bytes (static)\n0 dynamic objects" }
+}

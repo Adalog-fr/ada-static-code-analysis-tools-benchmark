@@ -1,0 +1,9 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c"
+node: { title: "setupPLL" label: "setupPLL\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:262:6\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "trimLPO" label: "trimLPO\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:328:6\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "setupFlash" label: "setupFlash\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:348:6\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "periphInit" label: "periphInit\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:371:6\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "mapClocks" label: "mapClocks\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:388:6\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_system_init" label: "__gnat_system_init\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:472:6\n4 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "__gnat_system_init" targetname: "mapClocks" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/system_tms570ls31.c:497:5" }
+}

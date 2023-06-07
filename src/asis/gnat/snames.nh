@@ -1,0 +1,1571 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+/****************************************************************************
+ *                                                                          *
+ *                         GNAT COMPILER COMPONENTS                         *
+ *                                                                          *
+ *                               S N A M E S                                *
+ *                                                                          *
+ *                              C Header File                               *
+ *                                                                          *
+ *          Copyright (C) 1992-2008, Free Software Foundation, Inc.         *
+ *                                                                          *
+ * GNAT is free software;  you can  redistribute it  and/or modify it under *
+ * terms of the  GNU General Public License as published  by the Free Soft- *
+ * ware  Foundation;  either version 3,  or (at your option) any later ver- *
+ * sion.  GNAT is distributed in the hope that it will be useful, but WITH- *
+ * OUT ANY WARRANTY;  without even the  implied warranty of MERCHANTABILITY *
+ * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License *
+ * for  more details.  You should have  received  a copy of the GNU General *
+ * Public License  distributed with GNAT; see file COPYING3.  If not, go to *
+ * http://www.gnu.org/licenses for a complete copy of the license.          *
+ *                                                                          *
+ * GNAT was originally developed  by the GNAT team at  New York University. *
+ * Extensive contributions were provided by Ada Core Technologies Inc.      *
+ *                                                                          *
+ ****************************************************************************/
+
+/* This is the C file that corresponds to the Ada package specification
+   Snames. It was created automatically from the file snames.ads. */
+
+/* Name_Id values */
+
+#define  Name_uParent                       (First_Name_Id + 256 + 0)
+#define  Name_uTag                          (First_Name_Id + 256 + 1)
+#define  Name_Off                           (First_Name_Id + 256 + 2)
+#define  Name_Space                         (First_Name_Id + 256 + 3)
+#define  Name_Time                          (First_Name_Id + 256 + 4)
+#define  Name_Default_Value                 (First_Name_Id + 256 + 5)
+#define  Name_Default_Component_Value       (First_Name_Id + 256 + 6)
+#define  Name_Dimension                     (First_Name_Id + 256 + 7)
+#define  Name_Dimension_System              (First_Name_Id + 256 + 8)
+#define  Name_Disable_Controlled            (First_Name_Id + 256 + 9)
+#define  Name_Dynamic_Predicate             (First_Name_Id + 256 + 10)
+#define  Name_Static_Predicate              (First_Name_Id + 256 + 11)
+#define  Name_Synchronization               (First_Name_Id + 256 + 12)
+#define  Name_Unimplemented                 (First_Name_Id + 256 + 13)
+#define  Name_uAbort_Signal                 (First_Name_Id + 256 + 14)
+#define  Name_uAlignment                    (First_Name_Id + 256 + 15)
+#define  Name_uAssign                       (First_Name_Id + 256 + 16)
+#define  Name_uATCB                         (First_Name_Id + 256 + 17)
+#define  Name_uChain                        (First_Name_Id + 256 + 18)
+#define  Name_uController                   (First_Name_Id + 256 + 19)
+#define  Name_uCPU                          (First_Name_Id + 256 + 20)
+#define  Name_uDispatching_Domain           (First_Name_Id + 256 + 21)
+#define  Name_uEntry_Bodies                 (First_Name_Id + 256 + 22)
+#define  Name_uExpunge                      (First_Name_Id + 256 + 23)
+#define  Name_uFinalizer                    (First_Name_Id + 256 + 24)
+#define  Name_uIdepth                       (First_Name_Id + 256 + 25)
+#define  Name_uInit                         (First_Name_Id + 256 + 26)
+#define  Name_uInvariant                    (First_Name_Id + 256 + 27)
+#define  Name_uMaster                       (First_Name_Id + 256 + 28)
+#define  Name_uObject                       (First_Name_Id + 256 + 29)
+#define  Name_uPost                         (First_Name_Id + 256 + 30)
+#define  Name_uPostconditions               (First_Name_Id + 256 + 31)
+#define  Name_uPre                          (First_Name_Id + 256 + 32)
+#define  Name_uPriority                     (First_Name_Id + 256 + 33)
+#define  Name_uProcess_ATSD                 (First_Name_Id + 256 + 34)
+#define  Name_uRelative_Deadline            (First_Name_Id + 256 + 35)
+#define  Name_uResult                       (First_Name_Id + 256 + 36)
+#define  Name_uSecondary_Stack              (First_Name_Id + 256 + 37)
+#define  Name_uSecondary_Stack_Size         (First_Name_Id + 256 + 38)
+#define  Name_uService                      (First_Name_Id + 256 + 39)
+#define  Name_uSize                         (First_Name_Id + 256 + 40)
+#define  Name_uStack                        (First_Name_Id + 256 + 41)
+#define  Name_uTags                         (First_Name_Id + 256 + 42)
+#define  Name_uTask                         (First_Name_Id + 256 + 43)
+#define  Name_uTask_Id                      (First_Name_Id + 256 + 44)
+#define  Name_uTask_Info                    (First_Name_Id + 256 + 45)
+#define  Name_uTask_Name                    (First_Name_Id + 256 + 46)
+#define  Name_uTrace_Sp                     (First_Name_Id + 256 + 47)
+#define  Name_uType_Invariant               (First_Name_Id + 256 + 48)
+#define  Name_uDisp_Asynchronous_Select     (First_Name_Id + 256 + 49)
+#define  Name_uDisp_Conditional_Select      (First_Name_Id + 256 + 50)
+#define  Name_uDisp_Get_Prim_Op_Kind        (First_Name_Id + 256 + 51)
+#define  Name_uDisp_Get_Task_Id             (First_Name_Id + 256 + 52)
+#define  Name_uDisp_Requeue                 (First_Name_Id + 256 + 53)
+#define  Name_uDisp_Timed_Select            (First_Name_Id + 256 + 54)
+#define  Name_Initialize                    (First_Name_Id + 256 + 55)
+#define  Name_Adjust                        (First_Name_Id + 256 + 56)
+#define  Name_Finalize                      (First_Name_Id + 256 + 57)
+#define  Name_Finalize_Address              (First_Name_Id + 256 + 58)
+#define  Name_Next                          (First_Name_Id + 256 + 59)
+#define  Name_Prev                          (First_Name_Id + 256 + 60)
+#define  Name_Allocate                      (First_Name_Id + 256 + 61)
+#define  Name_Deallocate                    (First_Name_Id + 256 + 62)
+#define  Name_Dereference                   (First_Name_Id + 256 + 63)
+#define  Name_Decimal_IO                    (First_Name_Id + 256 + 64)
+#define  Name_Enumeration_IO                (First_Name_Id + 256 + 65)
+#define  Name_Fixed_IO                      (First_Name_Id + 256 + 66)
+#define  Name_Float_IO                      (First_Name_Id + 256 + 67)
+#define  Name_Integer_IO                    (First_Name_Id + 256 + 68)
+#define  Name_Modular_IO                    (First_Name_Id + 256 + 69)
+#define  Name_Dim_Symbol                    (First_Name_Id + 256 + 70)
+#define  Name_Item                          (First_Name_Id + 256 + 71)
+#define  Name_Put_Dim_Of                    (First_Name_Id + 256 + 72)
+#define  Name_Sqrt                          (First_Name_Id + 256 + 73)
+#define  Name_Symbol                        (First_Name_Id + 256 + 74)
+#define  Name_Unit_Symbol                   (First_Name_Id + 256 + 75)
+#define  Name_Const                         (First_Name_Id + 256 + 76)
+#define  Name_Error                         (First_Name_Id + 256 + 77)
+#define  Name_False                         (First_Name_Id + 256 + 78)
+#define  Name_Go                            (First_Name_Id + 256 + 79)
+#define  Name_Put                           (First_Name_Id + 256 + 80)
+#define  Name_Put_Line                      (First_Name_Id + 256 + 81)
+#define  Name_To                            (First_Name_Id + 256 + 82)
+#define  Name_Defined                       (First_Name_Id + 256 + 83)
+#define  Name_Exception_Traces              (First_Name_Id + 256 + 84)
+#define  Name_Finalization                  (First_Name_Id + 256 + 85)
+#define  Name_Interfaces                    (First_Name_Id + 256 + 86)
+#define  Name_Most_Recent_Exception         (First_Name_Id + 256 + 87)
+#define  Name_Standard                      (First_Name_Id + 256 + 88)
+#define  Name_System                        (First_Name_Id + 256 + 89)
+#define  Name_Text_IO                       (First_Name_Id + 256 + 90)
+#define  Name_Wide_Text_IO                  (First_Name_Id + 256 + 91)
+#define  Name_Wide_Wide_Text_IO             (First_Name_Id + 256 + 92)
+#define  Name_Abort_Task                    (First_Name_Id + 256 + 93)
+#define  Name_Bounded_IO                    (First_Name_Id + 256 + 94)
+#define  Name_C_Streams                     (First_Name_Id + 256 + 95)
+#define  Name_Complex_IO                    (First_Name_Id + 256 + 96)
+#define  Name_Directories                   (First_Name_Id + 256 + 97)
+#define  Name_Direct_IO                     (First_Name_Id + 256 + 98)
+#define  Name_Dispatching                   (First_Name_Id + 256 + 99)
+#define  Name_Editing                       (First_Name_Id + 256 + 100)
+#define  Name_EDF                           (First_Name_Id + 256 + 101)
+#define  Name_Reset_Standard_Files          (First_Name_Id + 256 + 102)
+#define  Name_Sequential_IO                 (First_Name_Id + 256 + 103)
+#define  Name_Strings                       (First_Name_Id + 256 + 104)
+#define  Name_Streams                       (First_Name_Id + 256 + 105)
+#define  Name_Suspend_Until_True            (First_Name_Id + 256 + 106)
+#define  Name_Suspend_Until_True_And_Set_Deadline (First_Name_Id + 256 + 107)
+#define  Name_Synchronous_Barriers          (First_Name_Id + 256 + 108)
+#define  Name_Task_Identification           (First_Name_Id + 256 + 109)
+#define  Name_Text_Streams                  (First_Name_Id + 256 + 110)
+#define  Name_Unbounded                     (First_Name_Id + 256 + 111)
+#define  Name_Unbounded_IO                  (First_Name_Id + 256 + 112)
+#define  Name_Wait_For_Release              (First_Name_Id + 256 + 113)
+#define  Name_Wide_Unbounded                (First_Name_Id + 256 + 114)
+#define  Name_Wide_Wide_Unbounded           (First_Name_Id + 256 + 115)
+#define  Name_Yield                         (First_Name_Id + 256 + 116)
+#define  Name_No_DSA                        (First_Name_Id + 256 + 117)
+#define  Name_GARLIC_DSA                    (First_Name_Id + 256 + 118)
+#define  Name_PolyORB_DSA                   (First_Name_Id + 256 + 119)
+#define  Name_Addr                          (First_Name_Id + 256 + 120)
+#define  Name_Async                         (First_Name_Id + 256 + 121)
+#define  Name_Get_Active_Partition_ID       (First_Name_Id + 256 + 122)
+#define  Name_Get_RCI_Package_Receiver      (First_Name_Id + 256 + 123)
+#define  Name_Get_RCI_Package_Ref           (First_Name_Id + 256 + 124)
+#define  Name_Origin                        (First_Name_Id + 256 + 125)
+#define  Name_Params                        (First_Name_Id + 256 + 126)
+#define  Name_Partition                     (First_Name_Id + 256 + 127)
+#define  Name_Partition_Interface           (First_Name_Id + 256 + 128)
+#define  Name_Ras                           (First_Name_Id + 256 + 129)
+#define  Name_uCall                         (First_Name_Id + 256 + 130)
+#define  Name_RCI_Name                      (First_Name_Id + 256 + 131)
+#define  Name_Receiver                      (First_Name_Id + 256 + 132)
+#define  Name_Rpc                           (First_Name_Id + 256 + 133)
+#define  Name_Subp_Id                       (First_Name_Id + 256 + 134)
+#define  Name_Operation                     (First_Name_Id + 256 + 135)
+#define  Name_Argument                      (First_Name_Id + 256 + 136)
+#define  Name_Arg_Modes                     (First_Name_Id + 256 + 137)
+#define  Name_Handler                       (First_Name_Id + 256 + 138)
+#define  Name_Target                        (First_Name_Id + 256 + 139)
+#define  Name_Req                           (First_Name_Id + 256 + 140)
+#define  Name_Obj_TypeCode                  (First_Name_Id + 256 + 141)
+#define  Name_Stub                          (First_Name_Id + 256 + 142)
+#define  Name_Op_Abs                        (First_Name_Id + 256 + 143)
+#define  Name_Op_And                        (First_Name_Id + 256 + 144)
+#define  Name_Op_Mod                        (First_Name_Id + 256 + 145)
+#define  Name_Op_Not                        (First_Name_Id + 256 + 146)
+#define  Name_Op_Or                         (First_Name_Id + 256 + 147)
+#define  Name_Op_Rem                        (First_Name_Id + 256 + 148)
+#define  Name_Op_Xor                        (First_Name_Id + 256 + 149)
+#define  Name_Op_Eq                         (First_Name_Id + 256 + 150)
+#define  Name_Op_Ne                         (First_Name_Id + 256 + 151)
+#define  Name_Op_Lt                         (First_Name_Id + 256 + 152)
+#define  Name_Op_Le                         (First_Name_Id + 256 + 153)
+#define  Name_Op_Gt                         (First_Name_Id + 256 + 154)
+#define  Name_Op_Ge                         (First_Name_Id + 256 + 155)
+#define  Name_Op_Add                        (First_Name_Id + 256 + 156)
+#define  Name_Op_Subtract                   (First_Name_Id + 256 + 157)
+#define  Name_Op_Concat                     (First_Name_Id + 256 + 158)
+#define  Name_Op_Multiply                   (First_Name_Id + 256 + 159)
+#define  Name_Op_Divide                     (First_Name_Id + 256 + 160)
+#define  Name_Op_Expon                      (First_Name_Id + 256 + 161)
+#define  Name_Ada_83                        (First_Name_Id + 256 + 162)
+#define  Name_Ada_95                        (First_Name_Id + 256 + 163)
+#define  Name_Ada_05                        (First_Name_Id + 256 + 164)
+#define  Name_Ada_2005                      (First_Name_Id + 256 + 165)
+#define  Name_Ada_12                        (First_Name_Id + 256 + 166)
+#define  Name_Ada_2012                      (First_Name_Id + 256 + 167)
+#define  Name_Ada_2020                      (First_Name_Id + 256 + 168)
+#define  Name_Allow_Integer_Address         (First_Name_Id + 256 + 169)
+#define  Name_Annotate                      (First_Name_Id + 256 + 170)
+#define  Name_Assertion_Policy              (First_Name_Id + 256 + 171)
+#define  Name_Assume_No_Invalid_Values      (First_Name_Id + 256 + 172)
+#define  Name_C_Pass_By_Copy                (First_Name_Id + 256 + 173)
+#define  Name_Check_Float_Overflow          (First_Name_Id + 256 + 174)
+#define  Name_Check_Name                    (First_Name_Id + 256 + 175)
+#define  Name_Check_Policy                  (First_Name_Id + 256 + 176)
+#define  Name_Compile_Time_Error            (First_Name_Id + 256 + 177)
+#define  Name_Compile_Time_Warning          (First_Name_Id + 256 + 178)
+#define  Name_Compiler_Unit                 (First_Name_Id + 256 + 179)
+#define  Name_Compiler_Unit_Warning         (First_Name_Id + 256 + 180)
+#define  Name_Component_Alignment           (First_Name_Id + 256 + 181)
+#define  Name_Convention_Identifier         (First_Name_Id + 256 + 182)
+#define  Name_Debug_Policy                  (First_Name_Id + 256 + 183)
+#define  Name_Detect_Blocking               (First_Name_Id + 256 + 184)
+#define  Name_Default_Storage_Pool          (First_Name_Id + 256 + 185)
+#define  Name_Disable_Atomic_Synchronization (First_Name_Id + 256 + 186)
+#define  Name_Discard_Names                 (First_Name_Id + 256 + 187)
+#define  Name_Elaboration_Checks            (First_Name_Id + 256 + 188)
+#define  Name_Eliminate                     (First_Name_Id + 256 + 189)
+#define  Name_Enable_Atomic_Synchronization (First_Name_Id + 256 + 190)
+#define  Name_Extend_System                 (First_Name_Id + 256 + 191)
+#define  Name_Extensions_Allowed            (First_Name_Id + 256 + 192)
+#define  Name_External_Name_Casing          (First_Name_Id + 256 + 193)
+#define  Name_Favor_Top_Level               (First_Name_Id + 256 + 194)
+#define  Name_Ignore_Pragma                 (First_Name_Id + 256 + 195)
+#define  Name_Implicit_Packing              (First_Name_Id + 256 + 196)
+#define  Name_Initialize_Scalars            (First_Name_Id + 256 + 197)
+#define  Name_Interrupt_State               (First_Name_Id + 256 + 198)
+#define  Name_License                       (First_Name_Id + 256 + 199)
+#define  Name_Locking_Policy                (First_Name_Id + 256 + 200)
+#define  Name_No_Component_Reordering       (First_Name_Id + 256 + 201)
+#define  Name_No_Heap_Finalization          (First_Name_Id + 256 + 202)
+#define  Name_No_Run_Time                   (First_Name_Id + 256 + 203)
+#define  Name_No_Strict_Aliasing            (First_Name_Id + 256 + 204)
+#define  Name_Normalize_Scalars             (First_Name_Id + 256 + 205)
+#define  Name_Optimize_Alignment            (First_Name_Id + 256 + 206)
+#define  Name_Overflow_Mode                 (First_Name_Id + 256 + 207)
+#define  Name_Overriding_Renamings          (First_Name_Id + 256 + 208)
+#define  Name_Partition_Elaboration_Policy  (First_Name_Id + 256 + 209)
+#define  Name_Persistent_BSS                (First_Name_Id + 256 + 210)
+#define  Name_Polling                       (First_Name_Id + 256 + 211)
+#define  Name_Prefix_Exception_Messages     (First_Name_Id + 256 + 212)
+#define  Name_Priority_Specific_Dispatching (First_Name_Id + 256 + 213)
+#define  Name_Profile                       (First_Name_Id + 256 + 214)
+#define  Name_Profile_Warnings              (First_Name_Id + 256 + 215)
+#define  Name_Propagate_Exceptions          (First_Name_Id + 256 + 216)
+#define  Name_Queuing_Policy                (First_Name_Id + 256 + 217)
+#define  Name_Rational                      (First_Name_Id + 256 + 218)
+#define  Name_Ravenscar                     (First_Name_Id + 256 + 219)
+#define  Name_Rename_Pragma                 (First_Name_Id + 256 + 220)
+#define  Name_Restricted_Run_Time           (First_Name_Id + 256 + 221)
+#define  Name_Restrictions                  (First_Name_Id + 256 + 222)
+#define  Name_Restriction_Warnings          (First_Name_Id + 256 + 223)
+#define  Name_Reviewable                    (First_Name_Id + 256 + 224)
+#define  Name_Short_Circuit_And_Or          (First_Name_Id + 256 + 225)
+#define  Name_Short_Descriptors             (First_Name_Id + 256 + 226)
+#define  Name_Source_File_Name              (First_Name_Id + 256 + 227)
+#define  Name_Source_File_Name_Project      (First_Name_Id + 256 + 228)
+#define  Name_SPARK_Mode                    (First_Name_Id + 256 + 229)
+#define  Name_Style_Checks                  (First_Name_Id + 256 + 230)
+#define  Name_Suppress                      (First_Name_Id + 256 + 231)
+#define  Name_Suppress_Exception_Locations  (First_Name_Id + 256 + 232)
+#define  Name_Task_Dispatching_Policy       (First_Name_Id + 256 + 233)
+#define  Name_Unevaluated_Use_Of_Old        (First_Name_Id + 256 + 234)
+#define  Name_Universal_Data                (First_Name_Id + 256 + 235)
+#define  Name_Unsuppress                    (First_Name_Id + 256 + 236)
+#define  Name_Use_VADS_Size                 (First_Name_Id + 256 + 237)
+#define  Name_Validity_Checks               (First_Name_Id + 256 + 238)
+#define  Name_Warning_As_Error              (First_Name_Id + 256 + 239)
+#define  Name_Warnings                      (First_Name_Id + 256 + 240)
+#define  Name_Wide_Character_Encoding       (First_Name_Id + 256 + 241)
+#define  Name_Abort_Defer                   (First_Name_Id + 256 + 242)
+#define  Name_Abstract_State                (First_Name_Id + 256 + 243)
+#define  Name_Acc_Data                      (First_Name_Id + 256 + 244)
+#define  Name_Acc_Kernels                   (First_Name_Id + 256 + 245)
+#define  Name_Acc_Loop                      (First_Name_Id + 256 + 246)
+#define  Name_Acc_Parallel                  (First_Name_Id + 256 + 247)
+#define  Name_All_Calls_Remote              (First_Name_Id + 256 + 248)
+#define  Name_Assert                        (First_Name_Id + 256 + 249)
+#define  Name_Assert_And_Cut                (First_Name_Id + 256 + 250)
+#define  Name_Assume                        (First_Name_Id + 256 + 251)
+#define  Name_Async_Readers                 (First_Name_Id + 256 + 252)
+#define  Name_Async_Writers                 (First_Name_Id + 256 + 253)
+#define  Name_Asynchronous                  (First_Name_Id + 256 + 254)
+#define  Name_Atomic                        (First_Name_Id + 256 + 255)
+#define  Name_Atomic_Components             (First_Name_Id + 256 + 256)
+#define  Name_Attach_Handler                (First_Name_Id + 256 + 257)
+#define  Name_Attribute_Definition          (First_Name_Id + 256 + 258)
+#define  Name_Check                         (First_Name_Id + 256 + 259)
+#define  Name_Comment                       (First_Name_Id + 256 + 260)
+#define  Name_Common_Object                 (First_Name_Id + 256 + 261)
+#define  Name_Complete_Representation       (First_Name_Id + 256 + 262)
+#define  Name_Complex_Representation        (First_Name_Id + 256 + 263)
+#define  Name_Constant_After_Elaboration    (First_Name_Id + 256 + 264)
+#define  Name_Contract_Cases                (First_Name_Id + 256 + 265)
+#define  Name_Controlled                    (First_Name_Id + 256 + 266)
+#define  Name_Convention                    (First_Name_Id + 256 + 267)
+#define  Name_CPP_Class                     (First_Name_Id + 256 + 268)
+#define  Name_CPP_Constructor               (First_Name_Id + 256 + 269)
+#define  Name_CPP_Virtual                   (First_Name_Id + 256 + 270)
+#define  Name_CPP_Vtable                    (First_Name_Id + 256 + 271)
+#define  Name_Deadline_Floor                (First_Name_Id + 256 + 272)
+#define  Name_Debug                         (First_Name_Id + 256 + 273)
+#define  Name_Default_Initial_Condition     (First_Name_Id + 256 + 274)
+#define  Name_Depends                       (First_Name_Id + 256 + 275)
+#define  Name_Effective_Reads               (First_Name_Id + 256 + 276)
+#define  Name_Effective_Writes              (First_Name_Id + 256 + 277)
+#define  Name_Elaborate                     (First_Name_Id + 256 + 278)
+#define  Name_Elaborate_All                 (First_Name_Id + 256 + 279)
+#define  Name_Elaborate_Body                (First_Name_Id + 256 + 280)
+#define  Name_Export                        (First_Name_Id + 256 + 281)
+#define  Name_Export_Function               (First_Name_Id + 256 + 282)
+#define  Name_Export_Object                 (First_Name_Id + 256 + 283)
+#define  Name_Export_Procedure              (First_Name_Id + 256 + 284)
+#define  Name_Export_Value                  (First_Name_Id + 256 + 285)
+#define  Name_Export_Valued_Procedure       (First_Name_Id + 256 + 286)
+#define  Name_Extensions_Visible            (First_Name_Id + 256 + 287)
+#define  Name_External                      (First_Name_Id + 256 + 288)
+#define  Name_Finalize_Storage_Only         (First_Name_Id + 256 + 289)
+#define  Name_Ghost                         (First_Name_Id + 256 + 290)
+#define  Name_Global                        (First_Name_Id + 256 + 291)
+#define  Name_Ident                         (First_Name_Id + 256 + 292)
+#define  Name_Implementation_Defined        (First_Name_Id + 256 + 293)
+#define  Name_Implemented                   (First_Name_Id + 256 + 294)
+#define  Name_Import                        (First_Name_Id + 256 + 295)
+#define  Name_Import_Function               (First_Name_Id + 256 + 296)
+#define  Name_Import_Object                 (First_Name_Id + 256 + 297)
+#define  Name_Import_Procedure              (First_Name_Id + 256 + 298)
+#define  Name_Import_Valued_Procedure       (First_Name_Id + 256 + 299)
+#define  Name_Independent                   (First_Name_Id + 256 + 300)
+#define  Name_Independent_Components        (First_Name_Id + 256 + 301)
+#define  Name_Initial_Condition             (First_Name_Id + 256 + 302)
+#define  Name_Initializes                   (First_Name_Id + 256 + 303)
+#define  Name_Inline                        (First_Name_Id + 256 + 304)
+#define  Name_Inline_Always                 (First_Name_Id + 256 + 305)
+#define  Name_Inline_Generic                (First_Name_Id + 256 + 306)
+#define  Name_Inspection_Point              (First_Name_Id + 256 + 307)
+#define  Name_Interface_Name                (First_Name_Id + 256 + 308)
+#define  Name_Interrupt_Handler             (First_Name_Id + 256 + 309)
+#define  Name_Invariant                     (First_Name_Id + 256 + 310)
+#define  Name_Keep_Names                    (First_Name_Id + 256 + 311)
+#define  Name_Link_With                     (First_Name_Id + 256 + 312)
+#define  Name_Linker_Alias                  (First_Name_Id + 256 + 313)
+#define  Name_Linker_Constructor            (First_Name_Id + 256 + 314)
+#define  Name_Linker_Destructor             (First_Name_Id + 256 + 315)
+#define  Name_Linker_Options                (First_Name_Id + 256 + 316)
+#define  Name_Linker_Section                (First_Name_Id + 256 + 317)
+#define  Name_List                          (First_Name_Id + 256 + 318)
+#define  Name_Loop_Invariant                (First_Name_Id + 256 + 319)
+#define  Name_Loop_Optimize                 (First_Name_Id + 256 + 320)
+#define  Name_Loop_Variant                  (First_Name_Id + 256 + 321)
+#define  Name_Machine_Attribute             (First_Name_Id + 256 + 322)
+#define  Name_Main                          (First_Name_Id + 256 + 323)
+#define  Name_Main_Storage                  (First_Name_Id + 256 + 324)
+#define  Name_Max_Entry_Queue_Depth         (First_Name_Id + 256 + 325)
+#define  Name_Max_Queue_Length              (First_Name_Id + 256 + 326)
+#define  Name_Memory_Size                   (First_Name_Id + 256 + 327)
+#define  Name_No_Body                       (First_Name_Id + 256 + 328)
+#define  Name_No_Elaboration_Code_All       (First_Name_Id + 256 + 329)
+#define  Name_No_Inline                     (First_Name_Id + 256 + 330)
+#define  Name_No_Return                     (First_Name_Id + 256 + 331)
+#define  Name_No_Tagged_Streams             (First_Name_Id + 256 + 332)
+#define  Name_Obsolescent                   (First_Name_Id + 256 + 333)
+#define  Name_Optimize                      (First_Name_Id + 256 + 334)
+#define  Name_Ordered                       (First_Name_Id + 256 + 335)
+#define  Name_Pack                          (First_Name_Id + 256 + 336)
+#define  Name_Page                          (First_Name_Id + 256 + 337)
+#define  Name_Part_Of                       (First_Name_Id + 256 + 338)
+#define  Name_Passive                       (First_Name_Id + 256 + 339)
+#define  Name_Post                          (First_Name_Id + 256 + 340)
+#define  Name_Postcondition                 (First_Name_Id + 256 + 341)
+#define  Name_Post_Class                    (First_Name_Id + 256 + 342)
+#define  Name_Pre                           (First_Name_Id + 256 + 343)
+#define  Name_Precondition                  (First_Name_Id + 256 + 344)
+#define  Name_Predicate                     (First_Name_Id + 256 + 345)
+#define  Name_Predicate_Failure             (First_Name_Id + 256 + 346)
+#define  Name_Preelaborable_Initialization  (First_Name_Id + 256 + 347)
+#define  Name_Preelaborate                  (First_Name_Id + 256 + 348)
+#define  Name_Pre_Class                     (First_Name_Id + 256 + 349)
+#define  Name_Provide_Shift_Operators       (First_Name_Id + 256 + 350)
+#define  Name_Psect_Object                  (First_Name_Id + 256 + 351)
+#define  Name_Pure                          (First_Name_Id + 256 + 352)
+#define  Name_Pure_Function                 (First_Name_Id + 256 + 353)
+#define  Name_Refined_Depends               (First_Name_Id + 256 + 354)
+#define  Name_Refined_Global                (First_Name_Id + 256 + 355)
+#define  Name_Refined_Post                  (First_Name_Id + 256 + 356)
+#define  Name_Refined_State                 (First_Name_Id + 256 + 357)
+#define  Name_Relative_Deadline             (First_Name_Id + 256 + 358)
+#define  Name_Remote_Access_Type            (First_Name_Id + 256 + 359)
+#define  Name_Remote_Call_Interface         (First_Name_Id + 256 + 360)
+#define  Name_Remote_Types                  (First_Name_Id + 256 + 361)
+#define  Name_Share_Generic                 (First_Name_Id + 256 + 362)
+#define  Name_Shared                        (First_Name_Id + 256 + 363)
+#define  Name_Shared_Passive                (First_Name_Id + 256 + 364)
+#define  Name_Simple_Storage_Pool_Type      (First_Name_Id + 256 + 365)
+#define  Name_Source_Reference              (First_Name_Id + 256 + 366)
+#define  Name_Static_Elaboration_Desired    (First_Name_Id + 256 + 367)
+#define  Name_Stream_Convert                (First_Name_Id + 256 + 368)
+#define  Name_Subtitle                      (First_Name_Id + 256 + 369)
+#define  Name_Suppress_All                  (First_Name_Id + 256 + 370)
+#define  Name_Suppress_Debug_Info           (First_Name_Id + 256 + 371)
+#define  Name_Suppress_Initialization       (First_Name_Id + 256 + 372)
+#define  Name_System_Name                   (First_Name_Id + 256 + 373)
+#define  Name_Test_Case                     (First_Name_Id + 256 + 374)
+#define  Name_Task_Info                     (First_Name_Id + 256 + 375)
+#define  Name_Task_Name                     (First_Name_Id + 256 + 376)
+#define  Name_Task_Storage                  (First_Name_Id + 256 + 377)
+#define  Name_Thread_Local_Storage          (First_Name_Id + 256 + 378)
+#define  Name_Time_Slice                    (First_Name_Id + 256 + 379)
+#define  Name_Title                         (First_Name_Id + 256 + 380)
+#define  Name_Type_Invariant                (First_Name_Id + 256 + 381)
+#define  Name_Type_Invariant_Class          (First_Name_Id + 256 + 382)
+#define  Name_Unchecked_Union               (First_Name_Id + 256 + 383)
+#define  Name_Unimplemented_Unit            (First_Name_Id + 256 + 384)
+#define  Name_Universal_Aliasing            (First_Name_Id + 256 + 385)
+#define  Name_Unmodified                    (First_Name_Id + 256 + 386)
+#define  Name_Unreferenced                  (First_Name_Id + 256 + 387)
+#define  Name_Unreferenced_Objects          (First_Name_Id + 256 + 388)
+#define  Name_Unreserve_All_Interrupts      (First_Name_Id + 256 + 389)
+#define  Name_Unused                        (First_Name_Id + 256 + 390)
+#define  Name_Volatile                      (First_Name_Id + 256 + 391)
+#define  Name_Volatile_Components           (First_Name_Id + 256 + 392)
+#define  Name_Volatile_Full_Access          (First_Name_Id + 256 + 393)
+#define  Name_Volatile_Function             (First_Name_Id + 256 + 394)
+#define  Name_Weak_External                 (First_Name_Id + 256 + 395)
+#define  Name_Ada                           (First_Name_Id + 256 + 396)
+#define  Name_Ada_Pass_By_Copy              (First_Name_Id + 256 + 397)
+#define  Name_Ada_Pass_By_Reference         (First_Name_Id + 256 + 398)
+#define  Name_Assembler                     (First_Name_Id + 256 + 399)
+#define  Name_COBOL                         (First_Name_Id + 256 + 400)
+#define  Name_CPP                           (First_Name_Id + 256 + 401)
+#define  Name_Fortran                       (First_Name_Id + 256 + 402)
+#define  Name_Intrinsic                     (First_Name_Id + 256 + 403)
+#define  Name_Stdcall                       (First_Name_Id + 256 + 404)
+#define  Name_Stubbed                       (First_Name_Id + 256 + 405)
+#define  Name_Asm                           (First_Name_Id + 256 + 406)
+#define  Name_Assembly                      (First_Name_Id + 256 + 407)
+#define  Name_Default                       (First_Name_Id + 256 + 408)
+#define  Name_C_Plus_Plus                   (First_Name_Id + 256 + 409)
+#define  Name_DLL                           (First_Name_Id + 256 + 410)
+#define  Name_Win32                         (First_Name_Id + 256 + 411)
+#define  Name_Allow                         (First_Name_Id + 256 + 412)
+#define  Name_Amount                        (First_Name_Id + 256 + 413)
+#define  Name_As_Is                         (First_Name_Id + 256 + 414)
+#define  Name_Attr_Long_Float               (First_Name_Id + 256 + 415)
+#define  Name_Assertion                     (First_Name_Id + 256 + 416)
+#define  Name_Assertions                    (First_Name_Id + 256 + 417)
+#define  Name_Attribute_Name                (First_Name_Id + 256 + 418)
+#define  Name_Body_File_Name                (First_Name_Id + 256 + 419)
+#define  Name_Boolean_Entry_Barriers        (First_Name_Id + 256 + 420)
+#define  Name_By_Any                        (First_Name_Id + 256 + 421)
+#define  Name_By_Entry                      (First_Name_Id + 256 + 422)
+#define  Name_By_Protected_Procedure        (First_Name_Id + 256 + 423)
+#define  Name_Casing                        (First_Name_Id + 256 + 424)
+#define  Name_Check_All                     (First_Name_Id + 256 + 425)
+#define  Name_Code                          (First_Name_Id + 256 + 426)
+#define  Name_Component                     (First_Name_Id + 256 + 427)
+#define  Name_Component_Size_4              (First_Name_Id + 256 + 428)
+#define  Name_Copy                          (First_Name_Id + 256 + 429)
+#define  Name_D_Float                       (First_Name_Id + 256 + 430)
+#define  Name_Decreases                     (First_Name_Id + 256 + 431)
+#define  Name_Disable                       (First_Name_Id + 256 + 432)
+#define  Name_Dot_Replacement               (First_Name_Id + 256 + 433)
+#define  Name_Dynamic                       (First_Name_Id + 256 + 434)
+#define  Name_Eliminated                    (First_Name_Id + 256 + 435)
+#define  Name_Ensures                       (First_Name_Id + 256 + 436)
+#define  Name_Entity                        (First_Name_Id + 256 + 437)
+#define  Name_Entry_Count                   (First_Name_Id + 256 + 438)
+#define  Name_External_Name                 (First_Name_Id + 256 + 439)
+#define  Name_First_Optional_Parameter      (First_Name_Id + 256 + 440)
+#define  Name_Force                         (First_Name_Id + 256 + 441)
+#define  Name_Form                          (First_Name_Id + 256 + 442)
+#define  Name_G_Float                       (First_Name_Id + 256 + 443)
+#define  Name_Gcc                           (First_Name_Id + 256 + 444)
+#define  Name_General                       (First_Name_Id + 256 + 445)
+#define  Name_Gnat                          (First_Name_Id + 256 + 446)
+#define  Name_Gnat_Annotate                 (First_Name_Id + 256 + 447)
+#define  Name_Gnat_Extended_Ravenscar       (First_Name_Id + 256 + 448)
+#define  Name_Gnat_Ravenscar_EDF            (First_Name_Id + 256 + 449)
+#define  Name_Gnatprove                     (First_Name_Id + 256 + 450)
+#define  Name_GPL                           (First_Name_Id + 256 + 451)
+#define  Name_High_Order_First              (First_Name_Id + 256 + 452)
+#define  Name_IEEE_Float                    (First_Name_Id + 256 + 453)
+#define  Name_Ignore                        (First_Name_Id + 256 + 454)
+#define  Name_In_Out                        (First_Name_Id + 256 + 455)
+#define  Name_Increases                     (First_Name_Id + 256 + 456)
+#define  Name_Info                          (First_Name_Id + 256 + 457)
+#define  Name_Internal                      (First_Name_Id + 256 + 458)
+#define  Name_Ivdep                         (First_Name_Id + 256 + 459)
+#define  Name_Link_Name                     (First_Name_Id + 256 + 460)
+#define  Name_Low_Order_First               (First_Name_Id + 256 + 461)
+#define  Name_Lowercase                     (First_Name_Id + 256 + 462)
+#define  Name_Max_Entry_Queue_Length        (First_Name_Id + 256 + 463)
+#define  Name_Max_Size                      (First_Name_Id + 256 + 464)
+#define  Name_Mechanism                     (First_Name_Id + 256 + 465)
+#define  Name_Message                       (First_Name_Id + 256 + 466)
+#define  Name_Minimized                     (First_Name_Id + 256 + 467)
+#define  Name_Mixedcase                     (First_Name_Id + 256 + 468)
+#define  Name_Mode                          (First_Name_Id + 256 + 469)
+#define  Name_Modified_GPL                  (First_Name_Id + 256 + 470)
+#define  Name_Name                          (First_Name_Id + 256 + 471)
+#define  Name_NCA                           (First_Name_Id + 256 + 472)
+#define  Name_New_Name                      (First_Name_Id + 256 + 473)
+#define  Name_No                            (First_Name_Id + 256 + 474)
+#define  Name_No_Access_Parameter_Allocators (First_Name_Id + 256 + 475)
+#define  Name_No_Coextensions               (First_Name_Id + 256 + 476)
+#define  Name_No_Dependence                 (First_Name_Id + 256 + 477)
+#define  Name_No_Dynamic_Attachment         (First_Name_Id + 256 + 478)
+#define  Name_No_Dynamic_Interrupts         (First_Name_Id + 256 + 479)
+#define  Name_No_Elaboration_Code           (First_Name_Id + 256 + 480)
+#define  Name_No_Implementation_Extensions  (First_Name_Id + 256 + 481)
+#define  Name_No_Obsolescent_Features       (First_Name_Id + 256 + 482)
+#define  Name_No_Requeue                    (First_Name_Id + 256 + 483)
+#define  Name_No_Requeue_Statements         (First_Name_Id + 256 + 484)
+#define  Name_No_Specification_Of_Aspect    (First_Name_Id + 256 + 485)
+#define  Name_No_Standard_Allocators_After_Elaboration (First_Name_Id + 256 + 486)
+#define  Name_No_Task_Attributes            (First_Name_Id + 256 + 487)
+#define  Name_No_Task_Attributes_Package    (First_Name_Id + 256 + 488)
+#define  Name_No_Use_Of_Attribute           (First_Name_Id + 256 + 489)
+#define  Name_No_Use_Of_Entity              (First_Name_Id + 256 + 490)
+#define  Name_No_Use_Of_Pragma              (First_Name_Id + 256 + 491)
+#define  Name_No_Unroll                     (First_Name_Id + 256 + 492)
+#define  Name_No_Vector                     (First_Name_Id + 256 + 493)
+#define  Name_Nominal                       (First_Name_Id + 256 + 494)
+#define  Name_Non_Volatile                  (First_Name_Id + 256 + 495)
+#define  Name_On                            (First_Name_Id + 256 + 496)
+#define  Name_Optional                      (First_Name_Id + 256 + 497)
+#define  Name_Policy                        (First_Name_Id + 256 + 498)
+#define  Name_Parameter_Types               (First_Name_Id + 256 + 499)
+#define  Name_Proof_In                      (First_Name_Id + 256 + 500)
+#define  Name_Reason                        (First_Name_Id + 256 + 501)
+#define  Name_Reference                     (First_Name_Id + 256 + 502)
+#define  Name_Renamed                       (First_Name_Id + 256 + 503)
+#define  Name_Requires                      (First_Name_Id + 256 + 504)
+#define  Name_Restricted                    (First_Name_Id + 256 + 505)
+#define  Name_Result_Mechanism              (First_Name_Id + 256 + 506)
+#define  Name_Result_Type                   (First_Name_Id + 256 + 507)
+#define  Name_Robustness                    (First_Name_Id + 256 + 508)
+#define  Name_Runtime                       (First_Name_Id + 256 + 509)
+#define  Name_SB                            (First_Name_Id + 256 + 510)
+#define  Name_Section                       (First_Name_Id + 256 + 511)
+#define  Name_Semaphore                     (First_Name_Id + 256 + 512)
+#define  Name_Simple_Barriers               (First_Name_Id + 256 + 513)
+#define  Name_SPARK                         (First_Name_Id + 256 + 514)
+#define  Name_SPARK_05                      (First_Name_Id + 256 + 515)
+#define  Name_Spec_File_Name                (First_Name_Id + 256 + 516)
+#define  Name_State                         (First_Name_Id + 256 + 517)
+#define  Name_Statement_Assertions          (First_Name_Id + 256 + 518)
+#define  Name_Static                        (First_Name_Id + 256 + 519)
+#define  Name_Stack_Size                    (First_Name_Id + 256 + 520)
+#define  Name_Strict                        (First_Name_Id + 256 + 521)
+#define  Name_Subunit_File_Name             (First_Name_Id + 256 + 522)
+#define  Name_Suppressed                    (First_Name_Id + 256 + 523)
+#define  Name_Suppressible                  (First_Name_Id + 256 + 524)
+#define  Name_Synchronous                   (First_Name_Id + 256 + 525)
+#define  Name_Task_Stack_Size_Default       (First_Name_Id + 256 + 526)
+#define  Name_Task_Type                     (First_Name_Id + 256 + 527)
+#define  Name_Time_Slicing_Enabled          (First_Name_Id + 256 + 528)
+#define  Name_Top_Guard                     (First_Name_Id + 256 + 529)
+#define  Name_UBA                           (First_Name_Id + 256 + 530)
+#define  Name_UBS                           (First_Name_Id + 256 + 531)
+#define  Name_UBSB                          (First_Name_Id + 256 + 532)
+#define  Name_Unit_Name                     (First_Name_Id + 256 + 533)
+#define  Name_Unknown                       (First_Name_Id + 256 + 534)
+#define  Name_Unrestricted                  (First_Name_Id + 256 + 535)
+#define  Name_Unroll                        (First_Name_Id + 256 + 536)
+#define  Name_Uppercase                     (First_Name_Id + 256 + 537)
+#define  Name_User                          (First_Name_Id + 256 + 538)
+#define  Name_Variant                       (First_Name_Id + 256 + 539)
+#define  Name_VAX_Float                     (First_Name_Id + 256 + 540)
+#define  Name_Vector                        (First_Name_Id + 256 + 541)
+#define  Name_Vtable_Ptr                    (First_Name_Id + 256 + 542)
+#define  Name_Warn                          (First_Name_Id + 256 + 543)
+#define  Name_Working_Storage               (First_Name_Id + 256 + 544)
+#define  Name_Acc_If                        (First_Name_Id + 256 + 545)
+#define  Name_Acc_Private                   (First_Name_Id + 256 + 546)
+#define  Name_Attach                        (First_Name_Id + 256 + 547)
+#define  Name_Copy_In                       (First_Name_Id + 256 + 548)
+#define  Name_Copy_Out                      (First_Name_Id + 256 + 549)
+#define  Name_Create                        (First_Name_Id + 256 + 550)
+#define  Name_Delete                        (First_Name_Id + 256 + 551)
+#define  Name_Detach                        (First_Name_Id + 256 + 552)
+#define  Name_Device_Ptr                    (First_Name_Id + 256 + 553)
+#define  Name_Device_Type                   (First_Name_Id + 256 + 554)
+#define  Name_First_Private                 (First_Name_Id + 256 + 555)
+#define  Name_No_Create                     (First_Name_Id + 256 + 556)
+#define  Name_Num_Gangs                     (First_Name_Id + 256 + 557)
+#define  Name_Num_Workers                   (First_Name_Id + 256 + 558)
+#define  Name_Present                       (First_Name_Id + 256 + 559)
+#define  Name_Reduction                     (First_Name_Id + 256 + 560)
+#define  Name_Vector_Length                 (First_Name_Id + 256 + 561)
+#define  Name_Wait                          (First_Name_Id + 256 + 562)
+#define  Name_Auto                          (First_Name_Id + 256 + 563)
+#define  Name_Collapse                      (First_Name_Id + 256 + 564)
+#define  Name_Gang                          (First_Name_Id + 256 + 565)
+#define  Name_Seq                           (First_Name_Id + 256 + 566)
+#define  Name_Tile                          (First_Name_Id + 256 + 567)
+#define  Name_Worker                        (First_Name_Id + 256 + 568)
+#define  Name_Abort_Signal                  (First_Name_Id + 256 + 569)
+#define  Name_Access                        (First_Name_Id + 256 + 570)
+#define  Name_Address                       (First_Name_Id + 256 + 571)
+#define  Name_Address_Size                  (First_Name_Id + 256 + 572)
+#define  Name_Aft                           (First_Name_Id + 256 + 573)
+#define  Name_Alignment                     (First_Name_Id + 256 + 574)
+#define  Name_Asm_Input                     (First_Name_Id + 256 + 575)
+#define  Name_Asm_Output                    (First_Name_Id + 256 + 576)
+#define  Name_Atomic_Always_Lock_Free       (First_Name_Id + 256 + 577)
+#define  Name_Bit                           (First_Name_Id + 256 + 578)
+#define  Name_Bit_Order                     (First_Name_Id + 256 + 579)
+#define  Name_Bit_Position                  (First_Name_Id + 256 + 580)
+#define  Name_Body_Version                  (First_Name_Id + 256 + 581)
+#define  Name_Callable                      (First_Name_Id + 256 + 582)
+#define  Name_Caller                        (First_Name_Id + 256 + 583)
+#define  Name_Code_Address                  (First_Name_Id + 256 + 584)
+#define  Name_Compiler_Version              (First_Name_Id + 256 + 585)
+#define  Name_Component_Size                (First_Name_Id + 256 + 586)
+#define  Name_Compose                       (First_Name_Id + 256 + 587)
+#define  Name_Constant_Indexing             (First_Name_Id + 256 + 588)
+#define  Name_Constrained                   (First_Name_Id + 256 + 589)
+#define  Name_Count                         (First_Name_Id + 256 + 590)
+#define  Name_Default_Bit_Order             (First_Name_Id + 256 + 591)
+#define  Name_Default_Scalar_Storage_Order  (First_Name_Id + 256 + 592)
+#define  Name_Default_Iterator              (First_Name_Id + 256 + 593)
+#define  Name_Definite                      (First_Name_Id + 256 + 594)
+#define  Name_Delta                         (First_Name_Id + 256 + 595)
+#define  Name_Denorm                        (First_Name_Id + 256 + 596)
+#define  Name_Deref                         (First_Name_Id + 256 + 597)
+#define  Name_Descriptor_Size               (First_Name_Id + 256 + 598)
+#define  Name_Digits                        (First_Name_Id + 256 + 599)
+#define  Name_Elaborated                    (First_Name_Id + 256 + 600)
+#define  Name_Emax                          (First_Name_Id + 256 + 601)
+#define  Name_Enabled                       (First_Name_Id + 256 + 602)
+#define  Name_Enum_Rep                      (First_Name_Id + 256 + 603)
+#define  Name_Enum_Val                      (First_Name_Id + 256 + 604)
+#define  Name_Epsilon                       (First_Name_Id + 256 + 605)
+#define  Name_Exponent                      (First_Name_Id + 256 + 606)
+#define  Name_External_Tag                  (First_Name_Id + 256 + 607)
+#define  Name_Fast_Math                     (First_Name_Id + 256 + 608)
+#define  Name_Finalization_Size             (First_Name_Id + 256 + 609)
+#define  Name_First                         (First_Name_Id + 256 + 610)
+#define  Name_First_Bit                     (First_Name_Id + 256 + 611)
+#define  Name_First_Valid                   (First_Name_Id + 256 + 612)
+#define  Name_Fixed_Value                   (First_Name_Id + 256 + 613)
+#define  Name_Fore                          (First_Name_Id + 256 + 614)
+#define  Name_Has_Access_Values             (First_Name_Id + 256 + 615)
+#define  Name_Has_Discriminants             (First_Name_Id + 256 + 616)
+#define  Name_Has_Same_Storage              (First_Name_Id + 256 + 617)
+#define  Name_Has_Tagged_Values             (First_Name_Id + 256 + 618)
+#define  Name_Identity                      (First_Name_Id + 256 + 619)
+#define  Name_Img                           (First_Name_Id + 256 + 620)
+#define  Name_Implicit_Dereference          (First_Name_Id + 256 + 621)
+#define  Name_Integer_Value                 (First_Name_Id + 256 + 622)
+#define  Name_Invalid_Value                 (First_Name_Id + 256 + 623)
+#define  Name_Iterator_Element              (First_Name_Id + 256 + 624)
+#define  Name_Iterable                      (First_Name_Id + 256 + 625)
+#define  Name_Large                         (First_Name_Id + 256 + 626)
+#define  Name_Last                          (First_Name_Id + 256 + 627)
+#define  Name_Last_Bit                      (First_Name_Id + 256 + 628)
+#define  Name_Last_Valid                    (First_Name_Id + 256 + 629)
+#define  Name_Leading_Part                  (First_Name_Id + 256 + 630)
+#define  Name_Length                        (First_Name_Id + 256 + 631)
+#define  Name_Library_Level                 (First_Name_Id + 256 + 632)
+#define  Name_Lock_Free                     (First_Name_Id + 256 + 633)
+#define  Name_Loop_Entry                    (First_Name_Id + 256 + 634)
+#define  Name_Machine_Emax                  (First_Name_Id + 256 + 635)
+#define  Name_Machine_Emin                  (First_Name_Id + 256 + 636)
+#define  Name_Machine_Mantissa              (First_Name_Id + 256 + 637)
+#define  Name_Machine_Overflows             (First_Name_Id + 256 + 638)
+#define  Name_Machine_Radix                 (First_Name_Id + 256 + 639)
+#define  Name_Machine_Rounding              (First_Name_Id + 256 + 640)
+#define  Name_Machine_Rounds                (First_Name_Id + 256 + 641)
+#define  Name_Machine_Size                  (First_Name_Id + 256 + 642)
+#define  Name_Mantissa                      (First_Name_Id + 256 + 643)
+#define  Name_Max_Alignment_For_Allocation  (First_Name_Id + 256 + 644)
+#define  Name_Max_Size_In_Storage_Elements  (First_Name_Id + 256 + 645)
+#define  Name_Maximum_Alignment             (First_Name_Id + 256 + 646)
+#define  Name_Mechanism_Code                (First_Name_Id + 256 + 647)
+#define  Name_Mod                           (First_Name_Id + 256 + 648)
+#define  Name_Model_Emin                    (First_Name_Id + 256 + 649)
+#define  Name_Model_Epsilon                 (First_Name_Id + 256 + 650)
+#define  Name_Model_Mantissa                (First_Name_Id + 256 + 651)
+#define  Name_Model_Small                   (First_Name_Id + 256 + 652)
+#define  Name_Modulus                       (First_Name_Id + 256 + 653)
+#define  Name_Null_Parameter                (First_Name_Id + 256 + 654)
+#define  Name_Object_Size                   (First_Name_Id + 256 + 655)
+#define  Name_Old                           (First_Name_Id + 256 + 656)
+#define  Name_Overlaps_Storage              (First_Name_Id + 256 + 657)
+#define  Name_Partition_ID                  (First_Name_Id + 256 + 658)
+#define  Name_Passed_By_Reference           (First_Name_Id + 256 + 659)
+#define  Name_Pool_Address                  (First_Name_Id + 256 + 660)
+#define  Name_Pos                           (First_Name_Id + 256 + 661)
+#define  Name_Position                      (First_Name_Id + 256 + 662)
+#define  Name_Priority                      (First_Name_Id + 256 + 663)
+#define  Name_Range                         (First_Name_Id + 256 + 664)
+#define  Name_Range_Length                  (First_Name_Id + 256 + 665)
+#define  Name_Ref                           (First_Name_Id + 256 + 666)
+#define  Name_Restriction_Set               (First_Name_Id + 256 + 667)
+#define  Name_Result                        (First_Name_Id + 256 + 668)
+#define  Name_Round                         (First_Name_Id + 256 + 669)
+#define  Name_Safe_Emax                     (First_Name_Id + 256 + 670)
+#define  Name_Safe_First                    (First_Name_Id + 256 + 671)
+#define  Name_Safe_Large                    (First_Name_Id + 256 + 672)
+#define  Name_Safe_Last                     (First_Name_Id + 256 + 673)
+#define  Name_Safe_Small                    (First_Name_Id + 256 + 674)
+#define  Name_Scalar_Storage_Order          (First_Name_Id + 256 + 675)
+#define  Name_Scale                         (First_Name_Id + 256 + 676)
+#define  Name_Scaling                       (First_Name_Id + 256 + 677)
+#define  Name_Signed_Zeros                  (First_Name_Id + 256 + 678)
+#define  Name_Size                          (First_Name_Id + 256 + 679)
+#define  Name_Small                         (First_Name_Id + 256 + 680)
+#define  Name_Storage_Size                  (First_Name_Id + 256 + 681)
+#define  Name_Storage_Unit                  (First_Name_Id + 256 + 682)
+#define  Name_Stream_Size                   (First_Name_Id + 256 + 683)
+#define  Name_System_Allocator_Alignment    (First_Name_Id + 256 + 684)
+#define  Name_Tag                           (First_Name_Id + 256 + 685)
+#define  Name_Target_Name                   (First_Name_Id + 256 + 686)
+#define  Name_Terminated                    (First_Name_Id + 256 + 687)
+#define  Name_To_Address                    (First_Name_Id + 256 + 688)
+#define  Name_Type_Class                    (First_Name_Id + 256 + 689)
+#define  Name_Type_Key                      (First_Name_Id + 256 + 690)
+#define  Name_Unbiased_Rounding             (First_Name_Id + 256 + 691)
+#define  Name_Unchecked_Access              (First_Name_Id + 256 + 692)
+#define  Name_Unconstrained_Array           (First_Name_Id + 256 + 693)
+#define  Name_Universal_Literal_String      (First_Name_Id + 256 + 694)
+#define  Name_Unrestricted_Access           (First_Name_Id + 256 + 695)
+#define  Name_Update                        (First_Name_Id + 256 + 696)
+#define  Name_VADS_Size                     (First_Name_Id + 256 + 697)
+#define  Name_Val                           (First_Name_Id + 256 + 698)
+#define  Name_Valid                         (First_Name_Id + 256 + 699)
+#define  Name_Valid_Scalars                 (First_Name_Id + 256 + 700)
+#define  Name_Value_Size                    (First_Name_Id + 256 + 701)
+#define  Name_Variable_Indexing             (First_Name_Id + 256 + 702)
+#define  Name_Version                       (First_Name_Id + 256 + 703)
+#define  Name_Wchar_T_Size                  (First_Name_Id + 256 + 704)
+#define  Name_Wide_Wide_Width               (First_Name_Id + 256 + 705)
+#define  Name_Wide_Width                    (First_Name_Id + 256 + 706)
+#define  Name_Width                         (First_Name_Id + 256 + 707)
+#define  Name_Word_Size                     (First_Name_Id + 256 + 708)
+#define  Name_Adjacent                      (First_Name_Id + 256 + 709)
+#define  Name_Ceiling                       (First_Name_Id + 256 + 710)
+#define  Name_Copy_Sign                     (First_Name_Id + 256 + 711)
+#define  Name_Floor                         (First_Name_Id + 256 + 712)
+#define  Name_Fraction                      (First_Name_Id + 256 + 713)
+#define  Name_From_Any                      (First_Name_Id + 256 + 714)
+#define  Name_Image                         (First_Name_Id + 256 + 715)
+#define  Name_Input                         (First_Name_Id + 256 + 716)
+#define  Name_Machine                       (First_Name_Id + 256 + 717)
+#define  Name_Max                           (First_Name_Id + 256 + 718)
+#define  Name_Min                           (First_Name_Id + 256 + 719)
+#define  Name_Model                         (First_Name_Id + 256 + 720)
+#define  Name_Pred                          (First_Name_Id + 256 + 721)
+#define  Name_Remainder                     (First_Name_Id + 256 + 722)
+#define  Name_Rounding                      (First_Name_Id + 256 + 723)
+#define  Name_Succ                          (First_Name_Id + 256 + 724)
+#define  Name_To_Any                        (First_Name_Id + 256 + 725)
+#define  Name_Truncation                    (First_Name_Id + 256 + 726)
+#define  Name_TypeCode                      (First_Name_Id + 256 + 727)
+#define  Name_Value                         (First_Name_Id + 256 + 728)
+#define  Name_Wide_Image                    (First_Name_Id + 256 + 729)
+#define  Name_Wide_Wide_Image               (First_Name_Id + 256 + 730)
+#define  Name_Wide_Value                    (First_Name_Id + 256 + 731)
+#define  Name_Wide_Wide_Value               (First_Name_Id + 256 + 732)
+#define  Name_Output                        (First_Name_Id + 256 + 733)
+#define  Name_Read                          (First_Name_Id + 256 + 734)
+#define  Name_Write                         (First_Name_Id + 256 + 735)
+#define  Name_Elab_Body                     (First_Name_Id + 256 + 736)
+#define  Name_Elab_Spec                     (First_Name_Id + 256 + 737)
+#define  Name_Elab_Subp_Body                (First_Name_Id + 256 + 738)
+#define  Name_Simple_Storage_Pool           (First_Name_Id + 256 + 739)
+#define  Name_Storage_Pool                  (First_Name_Id + 256 + 740)
+#define  Name_Base                          (First_Name_Id + 256 + 741)
+#define  Name_Class                         (First_Name_Id + 256 + 742)
+#define  Name_Stub_Type                     (First_Name_Id + 256 + 743)
+#define  Name_CPU                           (First_Name_Id + 256 + 744)
+#define  Name_Dispatching_Domain            (First_Name_Id + 256 + 745)
+#define  Name_Interrupt_Priority            (First_Name_Id + 256 + 746)
+#define  Name_Secondary_Stack_Size          (First_Name_Id + 256 + 747)
+#define  Name_Ceiling_Locking               (First_Name_Id + 256 + 748)
+#define  Name_Inheritance_Locking           (First_Name_Id + 256 + 749)
+#define  Name_Concurrent_Readers_Locking    (First_Name_Id + 256 + 750)
+#define  Name_FIFO_Queuing                  (First_Name_Id + 256 + 751)
+#define  Name_Priority_Queuing              (First_Name_Id + 256 + 752)
+#define  Name_EDF_Across_Priorities         (First_Name_Id + 256 + 753)
+#define  Name_FIFO_Within_Priorities        (First_Name_Id + 256 + 754)
+#define  Name_Non_Preemptive_FIFO_Within_Priorities (First_Name_Id + 256 + 755)
+#define  Name_Round_Robin_Within_Priorities (First_Name_Id + 256 + 756)
+#define  Name_Concurrent                    (First_Name_Id + 256 + 757)
+#define  Name_Sequential                    (First_Name_Id + 256 + 758)
+#define  Name_Short_Float                   (First_Name_Id + 256 + 759)
+#define  Name_Float                         (First_Name_Id + 256 + 760)
+#define  Name_Long_Float                    (First_Name_Id + 256 + 761)
+#define  Name_Long_Long_Float               (First_Name_Id + 256 + 762)
+#define  Name_Signed_8                      (First_Name_Id + 256 + 763)
+#define  Name_Signed_16                     (First_Name_Id + 256 + 764)
+#define  Name_Signed_32                     (First_Name_Id + 256 + 765)
+#define  Name_Signed_64                     (First_Name_Id + 256 + 766)
+#define  Name_Unsigned_8                    (First_Name_Id + 256 + 767)
+#define  Name_Unsigned_16                   (First_Name_Id + 256 + 768)
+#define  Name_Unsigned_32                   (First_Name_Id + 256 + 769)
+#define  Name_Unsigned_64                   (First_Name_Id + 256 + 770)
+#define  Name_Access_Check                  (First_Name_Id + 256 + 771)
+#define  Name_Accessibility_Check           (First_Name_Id + 256 + 772)
+#define  Name_Alignment_Check               (First_Name_Id + 256 + 773)
+#define  Name_Allocation_Check              (First_Name_Id + 256 + 774)
+#define  Name_Atomic_Synchronization        (First_Name_Id + 256 + 775)
+#define  Name_Discriminant_Check            (First_Name_Id + 256 + 776)
+#define  Name_Division_Check                (First_Name_Id + 256 + 777)
+#define  Name_Duplicated_Tag_Check          (First_Name_Id + 256 + 778)
+#define  Name_Elaboration_Check             (First_Name_Id + 256 + 779)
+#define  Name_Index_Check                   (First_Name_Id + 256 + 780)
+#define  Name_Length_Check                  (First_Name_Id + 256 + 781)
+#define  Name_Overflow_Check                (First_Name_Id + 256 + 782)
+#define  Name_Predicate_Check               (First_Name_Id + 256 + 783)
+#define  Name_Range_Check                   (First_Name_Id + 256 + 784)
+#define  Name_Storage_Check                 (First_Name_Id + 256 + 785)
+#define  Name_Tag_Check                     (First_Name_Id + 256 + 786)
+#define  Name_Validity_Check                (First_Name_Id + 256 + 787)
+#define  Name_Container_Checks              (First_Name_Id + 256 + 788)
+#define  Name_Tampering_Check               (First_Name_Id + 256 + 789)
+#define  Name_All_Checks                    (First_Name_Id + 256 + 790)
+#define  Name_Abort                         (First_Name_Id + 256 + 791)
+#define  Name_Abs                           (First_Name_Id + 256 + 792)
+#define  Name_Accept                        (First_Name_Id + 256 + 793)
+#define  Name_And                           (First_Name_Id + 256 + 794)
+#define  Name_All                           (First_Name_Id + 256 + 795)
+#define  Name_Array                         (First_Name_Id + 256 + 796)
+#define  Name_At                            (First_Name_Id + 256 + 797)
+#define  Name_Begin                         (First_Name_Id + 256 + 798)
+#define  Name_Body                          (First_Name_Id + 256 + 799)
+#define  Name_Case                          (First_Name_Id + 256 + 800)
+#define  Name_Constant                      (First_Name_Id + 256 + 801)
+#define  Name_Declare                       (First_Name_Id + 256 + 802)
+#define  Name_Delay                         (First_Name_Id + 256 + 803)
+#define  Name_Do                            (First_Name_Id + 256 + 804)
+#define  Name_Else                          (First_Name_Id + 256 + 805)
+#define  Name_Elsif                         (First_Name_Id + 256 + 806)
+#define  Name_End                           (First_Name_Id + 256 + 807)
+#define  Name_Entry                         (First_Name_Id + 256 + 808)
+#define  Name_Exception                     (First_Name_Id + 256 + 809)
+#define  Name_Exit                          (First_Name_Id + 256 + 810)
+#define  Name_For                           (First_Name_Id + 256 + 811)
+#define  Name_Function                      (First_Name_Id + 256 + 812)
+#define  Name_Generic                       (First_Name_Id + 256 + 813)
+#define  Name_Goto                          (First_Name_Id + 256 + 814)
+#define  Name_If                            (First_Name_Id + 256 + 815)
+#define  Name_In                            (First_Name_Id + 256 + 816)
+#define  Name_Is                            (First_Name_Id + 256 + 817)
+#define  Name_Limited                       (First_Name_Id + 256 + 818)
+#define  Name_Loop                          (First_Name_Id + 256 + 819)
+#define  Name_New                           (First_Name_Id + 256 + 820)
+#define  Name_Not                           (First_Name_Id + 256 + 821)
+#define  Name_Null                          (First_Name_Id + 256 + 822)
+#define  Name_Of                            (First_Name_Id + 256 + 823)
+#define  Name_Or                            (First_Name_Id + 256 + 824)
+#define  Name_Others                        (First_Name_Id + 256 + 825)
+#define  Name_Out                           (First_Name_Id + 256 + 826)
+#define  Name_Package                       (First_Name_Id + 256 + 827)
+#define  Name_Pragma                        (First_Name_Id + 256 + 828)
+#define  Name_Private                       (First_Name_Id + 256 + 829)
+#define  Name_Procedure                     (First_Name_Id + 256 + 830)
+#define  Name_Raise                         (First_Name_Id + 256 + 831)
+#define  Name_Record                        (First_Name_Id + 256 + 832)
+#define  Name_Rem                           (First_Name_Id + 256 + 833)
+#define  Name_Renames                       (First_Name_Id + 256 + 834)
+#define  Name_Return                        (First_Name_Id + 256 + 835)
+#define  Name_Reverse                       (First_Name_Id + 256 + 836)
+#define  Name_Select                        (First_Name_Id + 256 + 837)
+#define  Name_Separate                      (First_Name_Id + 256 + 838)
+#define  Name_Subtype                       (First_Name_Id + 256 + 839)
+#define  Name_Task                          (First_Name_Id + 256 + 840)
+#define  Name_Terminate                     (First_Name_Id + 256 + 841)
+#define  Name_Then                          (First_Name_Id + 256 + 842)
+#define  Name_Type                          (First_Name_Id + 256 + 843)
+#define  Name_Use                           (First_Name_Id + 256 + 844)
+#define  Name_When                          (First_Name_Id + 256 + 845)
+#define  Name_While                         (First_Name_Id + 256 + 846)
+#define  Name_With                          (First_Name_Id + 256 + 847)
+#define  Name_Xor                           (First_Name_Id + 256 + 848)
+#define  Name_Compilation_ISO_Date          (First_Name_Id + 256 + 849)
+#define  Name_Compilation_Date              (First_Name_Id + 256 + 850)
+#define  Name_Compilation_Time              (First_Name_Id + 256 + 851)
+#define  Name_Divide                        (First_Name_Id + 256 + 852)
+#define  Name_Enclosing_Entity              (First_Name_Id + 256 + 853)
+#define  Name_Exception_Information         (First_Name_Id + 256 + 854)
+#define  Name_Exception_Message             (First_Name_Id + 256 + 855)
+#define  Name_Exception_Name                (First_Name_Id + 256 + 856)
+#define  Name_File                          (First_Name_Id + 256 + 857)
+#define  Name_Generic_Dispatching_Constructor (First_Name_Id + 256 + 858)
+#define  Name_Import_Address                (First_Name_Id + 256 + 859)
+#define  Name_Import_Largest_Value          (First_Name_Id + 256 + 860)
+#define  Name_Import_Value                  (First_Name_Id + 256 + 861)
+#define  Name_Is_Negative                   (First_Name_Id + 256 + 862)
+#define  Name_Line                          (First_Name_Id + 256 + 863)
+#define  Name_Rotate_Left                   (First_Name_Id + 256 + 864)
+#define  Name_Rotate_Right                  (First_Name_Id + 256 + 865)
+#define  Name_Shift_Left                    (First_Name_Id + 256 + 866)
+#define  Name_Shift_Right                   (First_Name_Id + 256 + 867)
+#define  Name_Shift_Right_Arithmetic        (First_Name_Id + 256 + 868)
+#define  Name_Source_Location               (First_Name_Id + 256 + 869)
+#define  Name_Unchecked_Conversion          (First_Name_Id + 256 + 870)
+#define  Name_Unchecked_Deallocation        (First_Name_Id + 256 + 871)
+#define  Name_To_Pointer                    (First_Name_Id + 256 + 872)
+#define  Name_Free                          (First_Name_Id + 256 + 873)
+#define  Name_Abstract                      (First_Name_Id + 256 + 874)
+#define  Name_Aliased                       (First_Name_Id + 256 + 875)
+#define  Name_Protected                     (First_Name_Id + 256 + 876)
+#define  Name_Until                         (First_Name_Id + 256 + 877)
+#define  Name_Requeue                       (First_Name_Id + 256 + 878)
+#define  Name_Tagged                        (First_Name_Id + 256 + 879)
+#define  Name_Raise_Exception               (First_Name_Id + 256 + 880)
+#define  Name_Active                        (First_Name_Id + 256 + 881)
+#define  Name_Aggregate                     (First_Name_Id + 256 + 882)
+#define  Name_Archive_Builder               (First_Name_Id + 256 + 883)
+#define  Name_Archive_Builder_Append_Option (First_Name_Id + 256 + 884)
+#define  Name_Archive_Indexer               (First_Name_Id + 256 + 885)
+#define  Name_Archive_Suffix                (First_Name_Id + 256 + 886)
+#define  Name_Artifacts                     (First_Name_Id + 256 + 887)
+#define  Name_Artifacts_In_Exec_Dir         (First_Name_Id + 256 + 888)
+#define  Name_Artifacts_In_Object_Dir       (First_Name_Id + 256 + 889)
+#define  Name_Binder                        (First_Name_Id + 256 + 890)
+#define  Name_Body_Suffix                   (First_Name_Id + 256 + 891)
+#define  Name_Builder                       (First_Name_Id + 256 + 892)
+#define  Name_Clean                         (First_Name_Id + 256 + 893)
+#define  Name_Compiler                      (First_Name_Id + 256 + 894)
+#define  Name_Compiler_Command              (First_Name_Id + 256 + 895)
+#define  Name_Config_Body_File_Name         (First_Name_Id + 256 + 896)
+#define  Name_Config_Body_File_Name_Index   (First_Name_Id + 256 + 897)
+#define  Name_Config_Body_File_Name_Pattern (First_Name_Id + 256 + 898)
+#define  Name_Config_File_Switches          (First_Name_Id + 256 + 899)
+#define  Name_Config_File_Unique            (First_Name_Id + 256 + 900)
+#define  Name_Config_Spec_File_Name         (First_Name_Id + 256 + 901)
+#define  Name_Config_Spec_File_Name_Index   (First_Name_Id + 256 + 902)
+#define  Name_Config_Spec_File_Name_Pattern (First_Name_Id + 256 + 903)
+#define  Name_Configuration                 (First_Name_Id + 256 + 904)
+#define  Name_Cross_Reference               (First_Name_Id + 256 + 905)
+#define  Name_Default_Language              (First_Name_Id + 256 + 906)
+#define  Name_Default_Switches              (First_Name_Id + 256 + 907)
+#define  Name_Dependency_Driver             (First_Name_Id + 256 + 908)
+#define  Name_Dependency_Kind               (First_Name_Id + 256 + 909)
+#define  Name_Dependency_Switches           (First_Name_Id + 256 + 910)
+#define  Name_Driver                        (First_Name_Id + 256 + 911)
+#define  Name_Excluded_Source_Dirs          (First_Name_Id + 256 + 912)
+#define  Name_Excluded_Source_Files         (First_Name_Id + 256 + 913)
+#define  Name_Excluded_Source_List_File     (First_Name_Id + 256 + 914)
+#define  Name_Exec_Dir                      (First_Name_Id + 256 + 915)
+#define  Name_Exec_Subdir                   (First_Name_Id + 256 + 916)
+#define  Name_Excluded_Patterns             (First_Name_Id + 256 + 917)
+#define  Name_Executable                    (First_Name_Id + 256 + 918)
+#define  Name_Executable_Suffix             (First_Name_Id + 256 + 919)
+#define  Name_Extends                       (First_Name_Id + 256 + 920)
+#define  Name_External_As_List              (First_Name_Id + 256 + 921)
+#define  Name_Externally_Built              (First_Name_Id + 256 + 922)
+#define  Name_Finder                        (First_Name_Id + 256 + 923)
+#define  Name_Global_Compilation_Switches   (First_Name_Id + 256 + 924)
+#define  Name_Global_Configuration_Pragmas  (First_Name_Id + 256 + 925)
+#define  Name_Global_Config_File            (First_Name_Id + 256 + 926)
+#define  Name_Gnatls                        (First_Name_Id + 256 + 927)
+#define  Name_Gnatstub                      (First_Name_Id + 256 + 928)
+#define  Name_Gnu                           (First_Name_Id + 256 + 929)
+#define  Name_Ide                           (First_Name_Id + 256 + 930)
+#define  Name_Ignore_Source_Sub_Dirs        (First_Name_Id + 256 + 931)
+#define  Name_Implementation                (First_Name_Id + 256 + 932)
+#define  Name_Implementation_Exceptions     (First_Name_Id + 256 + 933)
+#define  Name_Implementation_Suffix         (First_Name_Id + 256 + 934)
+#define  Name_Included_Artifact_Patterns    (First_Name_Id + 256 + 935)
+#define  Name_Included_Patterns             (First_Name_Id + 256 + 936)
+#define  Name_Include_Switches              (First_Name_Id + 256 + 937)
+#define  Name_Include_Path                  (First_Name_Id + 256 + 938)
+#define  Name_Include_Path_File             (First_Name_Id + 256 + 939)
+#define  Name_Inherit_Source_Path           (First_Name_Id + 256 + 940)
+#define  Name_Install                       (First_Name_Id + 256 + 941)
+#define  Name_Install_Name                  (First_Name_Id + 256 + 942)
+#define  Name_Languages                     (First_Name_Id + 256 + 943)
+#define  Name_Language_Kind                 (First_Name_Id + 256 + 944)
+#define  Name_Leading_Library_Options       (First_Name_Id + 256 + 945)
+#define  Name_Leading_Required_Switches     (First_Name_Id + 256 + 946)
+#define  Name_Leading_Switches              (First_Name_Id + 256 + 947)
+#define  Name_Lib_Subdir                    (First_Name_Id + 256 + 948)
+#define  Name_Link_Lib_Subdir               (First_Name_Id + 256 + 949)
+#define  Name_Library                       (First_Name_Id + 256 + 950)
+#define  Name_Library_Ali_Dir               (First_Name_Id + 256 + 951)
+#define  Name_Library_Auto_Init             (First_Name_Id + 256 + 952)
+#define  Name_Library_Auto_Init_Supported   (First_Name_Id + 256 + 953)
+#define  Name_Library_Builder               (First_Name_Id + 256 + 954)
+#define  Name_Library_Dir                   (First_Name_Id + 256 + 955)
+#define  Name_Library_GCC                   (First_Name_Id + 256 + 956)
+#define  Name_Library_Install_Name_Option   (First_Name_Id + 256 + 957)
+#define  Name_Library_Interface             (First_Name_Id + 256 + 958)
+#define  Name_Library_Kind                  (First_Name_Id + 256 + 959)
+#define  Name_Library_Name                  (First_Name_Id + 256 + 960)
+#define  Name_Library_Major_Minor_Id_Supported (First_Name_Id + 256 + 961)
+#define  Name_Library_Options               (First_Name_Id + 256 + 962)
+#define  Name_Library_Partial_Linker        (First_Name_Id + 256 + 963)
+#define  Name_Library_Reference_Symbol_File (First_Name_Id + 256 + 964)
+#define  Name_Library_Rpath_Options         (First_Name_Id + 256 + 965)
+#define  Name_Library_Standalone            (First_Name_Id + 256 + 966)
+#define  Name_Library_Encapsulated_Options  (First_Name_Id + 256 + 967)
+#define  Name_Library_Encapsulated_Supported (First_Name_Id + 256 + 968)
+#define  Name_Library_Src_Dir               (First_Name_Id + 256 + 969)
+#define  Name_Library_Support               (First_Name_Id + 256 + 970)
+#define  Name_Library_Symbol_File           (First_Name_Id + 256 + 971)
+#define  Name_Library_Symbol_Policy         (First_Name_Id + 256 + 972)
+#define  Name_Library_Version               (First_Name_Id + 256 + 973)
+#define  Name_Library_Version_Switches      (First_Name_Id + 256 + 974)
+#define  Name_Linker                        (First_Name_Id + 256 + 975)
+#define  Name_Linker_Executable_Option      (First_Name_Id + 256 + 976)
+#define  Name_Linker_Lib_Dir_Option         (First_Name_Id + 256 + 977)
+#define  Name_Linker_Lib_Name_Option        (First_Name_Id + 256 + 978)
+#define  Name_Local_Config_File             (First_Name_Id + 256 + 979)
+#define  Name_Local_Configuration_Pragmas   (First_Name_Id + 256 + 980)
+#define  Name_Locally_Removed_Files         (First_Name_Id + 256 + 981)
+#define  Name_Map_File_Option               (First_Name_Id + 256 + 982)
+#define  Name_Mapping_File_Switches         (First_Name_Id + 256 + 983)
+#define  Name_Mapping_Spec_Suffix           (First_Name_Id + 256 + 984)
+#define  Name_Mapping_Body_Suffix           (First_Name_Id + 256 + 985)
+#define  Name_Max_Command_Line_Length       (First_Name_Id + 256 + 986)
+#define  Name_Metrics                       (First_Name_Id + 256 + 987)
+#define  Name_Multi_Unit_Object_Separator   (First_Name_Id + 256 + 988)
+#define  Name_Multi_Unit_Switches           (First_Name_Id + 256 + 989)
+#define  Name_Naming                        (First_Name_Id + 256 + 990)
+#define  Name_None                          (First_Name_Id + 256 + 991)
+#define  Name_Object_Artifact_Extensions    (First_Name_Id + 256 + 992)
+#define  Name_Object_File_Suffix            (First_Name_Id + 256 + 993)
+#define  Name_Object_File_Switches          (First_Name_Id + 256 + 994)
+#define  Name_Object_Generated              (First_Name_Id + 256 + 995)
+#define  Name_Object_List                   (First_Name_Id + 256 + 996)
+#define  Name_Object_Path_Switches          (First_Name_Id + 256 + 997)
+#define  Name_Objects_Linked                (First_Name_Id + 256 + 998)
+#define  Name_Objects_Path                  (First_Name_Id + 256 + 999)
+#define  Name_Objects_Path_File             (First_Name_Id + 256 + 1000)
+#define  Name_Object_Dir                    (First_Name_Id + 256 + 1001)
+#define  Name_Option_List                   (First_Name_Id + 256 + 1002)
+#define  Name_Path_Syntax                   (First_Name_Id + 256 + 1003)
+#define  Name_Pic_Option                    (First_Name_Id + 256 + 1004)
+#define  Name_Pretty_Printer                (First_Name_Id + 256 + 1005)
+#define  Name_Prefix                        (First_Name_Id + 256 + 1006)
+#define  Name_Project                       (First_Name_Id + 256 + 1007)
+#define  Name_Project_Dir                   (First_Name_Id + 256 + 1008)
+#define  Name_Project_Files                 (First_Name_Id + 256 + 1009)
+#define  Name_Project_Path                  (First_Name_Id + 256 + 1010)
+#define  Name_Project_Subdir                (First_Name_Id + 256 + 1011)
+#define  Name_Remote                        (First_Name_Id + 256 + 1012)
+#define  Name_Required_Artifacts            (First_Name_Id + 256 + 1013)
+#define  Name_Response_File_Format          (First_Name_Id + 256 + 1014)
+#define  Name_Response_File_Switches        (First_Name_Id + 256 + 1015)
+#define  Name_Root_Dir                      (First_Name_Id + 256 + 1016)
+#define  Name_Roots                         (First_Name_Id + 256 + 1017)
+#define  Name_Required_Switches             (First_Name_Id + 256 + 1018)
+#define  Name_Run_Path_Option               (First_Name_Id + 256 + 1019)
+#define  Name_Run_Path_Origin               (First_Name_Id + 256 + 1020)
+#define  Name_Separate_Run_Path_Options     (First_Name_Id + 256 + 1021)
+#define  Name_Shared_Library_Minimum_Switches (First_Name_Id + 256 + 1022)
+#define  Name_Shared_Library_Prefix         (First_Name_Id + 256 + 1023)
+#define  Name_Shared_Library_Suffix         (First_Name_Id + 256 + 1024)
+#define  Name_Separate_Suffix               (First_Name_Id + 256 + 1025)
+#define  Name_Source_Artifact_Extensions    (First_Name_Id + 256 + 1026)
+#define  Name_Source_Dirs                   (First_Name_Id + 256 + 1027)
+#define  Name_Source_File_Switches          (First_Name_Id + 256 + 1028)
+#define  Name_Source_Files                  (First_Name_Id + 256 + 1029)
+#define  Name_Source_List_File              (First_Name_Id + 256 + 1030)
+#define  Name_Sources_Subdir                (First_Name_Id + 256 + 1031)
+#define  Name_Spec                          (First_Name_Id + 256 + 1032)
+#define  Name_Spec_Suffix                   (First_Name_Id + 256 + 1033)
+#define  Name_Specification                 (First_Name_Id + 256 + 1034)
+#define  Name_Specification_Exceptions      (First_Name_Id + 256 + 1035)
+#define  Name_Specification_Suffix          (First_Name_Id + 256 + 1036)
+#define  Name_Stack                         (First_Name_Id + 256 + 1037)
+#define  Name_Switches                      (First_Name_Id + 256 + 1038)
+#define  Name_Symbolic_Link_Supported       (First_Name_Id + 256 + 1039)
+#define  Name_Synchronize                   (First_Name_Id + 256 + 1040)
+#define  Name_Toolchain_Description         (First_Name_Id + 256 + 1041)
+#define  Name_Toolchain_Version             (First_Name_Id + 256 + 1042)
+#define  Name_Trailing_Required_Switches    (First_Name_Id + 256 + 1043)
+#define  Name_Trailing_Switches             (First_Name_Id + 256 + 1044)
+#define  Name_Runtime_Library_Dir           (First_Name_Id + 256 + 1045)
+#define  Name_Runtime_Source_Dir            (First_Name_Id + 256 + 1046)
+#define  Name_Discriminant                  (First_Name_Id + 256 + 1047)
+#define  Name_Operands                      (First_Name_Id + 256 + 1048)
+#define  Name_Unaligned_Valid               (First_Name_Id + 256 + 1049)
+#define  Name_Suspension_Object             (First_Name_Id + 256 + 1050)
+#define  Name_Synchronous_Task_Control      (First_Name_Id + 256 + 1051)
+#define  Name_Cursor                        (First_Name_Id + 256 + 1052)
+#define  Name_Element                       (First_Name_Id + 256 + 1053)
+#define  Name_Element_Type                  (First_Name_Id + 256 + 1054)
+#define  Name_Has_Element                   (First_Name_Id + 256 + 1055)
+#define  Name_No_Element                    (First_Name_Id + 256 + 1056)
+#define  Name_Forward_Iterator              (First_Name_Id + 256 + 1057)
+#define  Name_Reversible_Iterator           (First_Name_Id + 256 + 1058)
+#define  Name_Previous                      (First_Name_Id + 256 + 1059)
+#define  Name_Pseudo_Reference              (First_Name_Id + 256 + 1060)
+#define  Name_Reference_Control_Type        (First_Name_Id + 256 + 1061)
+#define  Name_Get_Element_Access            (First_Name_Id + 256 + 1062)
+#define  Name_Interface                     (First_Name_Id + 256 + 1063)
+#define  Name_Overriding                    (First_Name_Id + 256 + 1064)
+#define  Name_Synchronized                  (First_Name_Id + 256 + 1065)
+#define  Name_Some                          (First_Name_Id + 256 + 1066)
+
+/* Define the function to return one of the numeric values below. Note
+   that it actually returns a char since an enumeration value of less
+   than 256 entries is represented that way in Ada.  The operand is a Chars
+   field value.  */
+
+#define Get_Attribute_Id snames__get_attribute_id
+extern unsigned char Get_Attribute_Id (int);
+
+/* Define the numeric values for attributes.  */
+
+#define  Attr_Abort_Signal                  0
+#define  Attr_Access                        1
+#define  Attr_Address                       2
+#define  Attr_Address_Size                  3
+#define  Attr_Aft                           4
+#define  Attr_Alignment                     5
+#define  Attr_Asm_Input                     6
+#define  Attr_Asm_Output                    7
+#define  Attr_Atomic_Always_Lock_Free       8
+#define  Attr_Bit                           9
+#define  Attr_Bit_Order                     10
+#define  Attr_Bit_Position                  11
+#define  Attr_Body_Version                  12
+#define  Attr_Callable                      13
+#define  Attr_Caller                        14
+#define  Attr_Code_Address                  15
+#define  Attr_Compiler_Version              16
+#define  Attr_Component_Size                17
+#define  Attr_Compose                       18
+#define  Attr_Constant_Indexing             19
+#define  Attr_Constrained                   20
+#define  Attr_Count                         21
+#define  Attr_Default_Bit_Order             22
+#define  Attr_Default_Scalar_Storage_Order  23
+#define  Attr_Default_Iterator              24
+#define  Attr_Definite                      25
+#define  Attr_Delta                         26
+#define  Attr_Denorm                        27
+#define  Attr_Deref                         28
+#define  Attr_Descriptor_Size               29
+#define  Attr_Digits                        30
+#define  Attr_Elaborated                    31
+#define  Attr_Emax                          32
+#define  Attr_Enabled                       33
+#define  Attr_Enum_Rep                      34
+#define  Attr_Enum_Val                      35
+#define  Attr_Epsilon                       36
+#define  Attr_Exponent                      37
+#define  Attr_External_Tag                  38
+#define  Attr_Fast_Math                     39
+#define  Attr_Finalization_Size             40
+#define  Attr_First                         41
+#define  Attr_First_Bit                     42
+#define  Attr_First_Valid                   43
+#define  Attr_Fixed_Value                   44
+#define  Attr_Fore                          45
+#define  Attr_Has_Access_Values             46
+#define  Attr_Has_Discriminants             47
+#define  Attr_Has_Same_Storage              48
+#define  Attr_Has_Tagged_Values             49
+#define  Attr_Identity                      50
+#define  Attr_Img                           51
+#define  Attr_Implicit_Dereference          52
+#define  Attr_Integer_Value                 53
+#define  Attr_Invalid_Value                 54
+#define  Attr_Iterator_Element              55
+#define  Attr_Iterable                      56
+#define  Attr_Large                         57
+#define  Attr_Last                          58
+#define  Attr_Last_Bit                      59
+#define  Attr_Last_Valid                    60
+#define  Attr_Leading_Part                  61
+#define  Attr_Length                        62
+#define  Attr_Library_Level                 63
+#define  Attr_Lock_Free                     64
+#define  Attr_Loop_Entry                    65
+#define  Attr_Machine_Emax                  66
+#define  Attr_Machine_Emin                  67
+#define  Attr_Machine_Mantissa              68
+#define  Attr_Machine_Overflows             69
+#define  Attr_Machine_Radix                 70
+#define  Attr_Machine_Rounding              71
+#define  Attr_Machine_Rounds                72
+#define  Attr_Machine_Size                  73
+#define  Attr_Mantissa                      74
+#define  Attr_Max_Alignment_For_Allocation  75
+#define  Attr_Max_Size_In_Storage_Elements  76
+#define  Attr_Maximum_Alignment             77
+#define  Attr_Mechanism_Code                78
+#define  Attr_Mod                           79
+#define  Attr_Model_Emin                    80
+#define  Attr_Model_Epsilon                 81
+#define  Attr_Model_Mantissa                82
+#define  Attr_Model_Small                   83
+#define  Attr_Modulus                       84
+#define  Attr_Null_Parameter                85
+#define  Attr_Object_Size                   86
+#define  Attr_Old                           87
+#define  Attr_Overlaps_Storage              88
+#define  Attr_Partition_ID                  89
+#define  Attr_Passed_By_Reference           90
+#define  Attr_Pool_Address                  91
+#define  Attr_Pos                           92
+#define  Attr_Position                      93
+#define  Attr_Priority                      94
+#define  Attr_Range                         95
+#define  Attr_Range_Length                  96
+#define  Attr_Ref                           97
+#define  Attr_Restriction_Set               98
+#define  Attr_Result                        99
+#define  Attr_Round                         100
+#define  Attr_Safe_Emax                     101
+#define  Attr_Safe_First                    102
+#define  Attr_Safe_Large                    103
+#define  Attr_Safe_Last                     104
+#define  Attr_Safe_Small                    105
+#define  Attr_Scalar_Storage_Order          106
+#define  Attr_Scale                         107
+#define  Attr_Scaling                       108
+#define  Attr_Signed_Zeros                  109
+#define  Attr_Size                          110
+#define  Attr_Small                         111
+#define  Attr_Storage_Size                  112
+#define  Attr_Storage_Unit                  113
+#define  Attr_Stream_Size                   114
+#define  Attr_System_Allocator_Alignment    115
+#define  Attr_Tag                           116
+#define  Attr_Target_Name                   117
+#define  Attr_Terminated                    118
+#define  Attr_To_Address                    119
+#define  Attr_Type_Class                    120
+#define  Attr_Type_Key                      121
+#define  Attr_Unbiased_Rounding             122
+#define  Attr_Unchecked_Access              123
+#define  Attr_Unconstrained_Array           124
+#define  Attr_Universal_Literal_String      125
+#define  Attr_Unrestricted_Access           126
+#define  Attr_Update                        127
+#define  Attr_VADS_Size                     128
+#define  Attr_Val                           129
+#define  Attr_Valid                         130
+#define  Attr_Valid_Scalars                 131
+#define  Attr_Value_Size                    132
+#define  Attr_Variable_Indexing             133
+#define  Attr_Version                       134
+#define  Attr_Wchar_T_Size                  135
+#define  Attr_Wide_Wide_Width               136
+#define  Attr_Wide_Width                    137
+#define  Attr_Width                         138
+#define  Attr_Word_Size                     139
+#define  Attr_Adjacent                      140
+#define  Attr_Ceiling                       141
+#define  Attr_Copy_Sign                     142
+#define  Attr_Floor                         143
+#define  Attr_Fraction                      144
+#define  Attr_From_Any                      145
+#define  Attr_Image                         146
+#define  Attr_Input                         147
+#define  Attr_Machine                       148
+#define  Attr_Max                           149
+#define  Attr_Min                           150
+#define  Attr_Model                         151
+#define  Attr_Pred                          152
+#define  Attr_Remainder                     153
+#define  Attr_Rounding                      154
+#define  Attr_Succ                          155
+#define  Attr_To_Any                        156
+#define  Attr_Truncation                    157
+#define  Attr_TypeCode                      158
+#define  Attr_Value                         159
+#define  Attr_Wide_Image                    160
+#define  Attr_Wide_Wide_Image               161
+#define  Attr_Wide_Value                    162
+#define  Attr_Wide_Wide_Value               163
+#define  Attr_Output                        164
+#define  Attr_Read                          165
+#define  Attr_Write                         166
+#define  Attr_Elab_Body                     167
+#define  Attr_Elab_Spec                     168
+#define  Attr_Elab_Subp_Body                169
+#define  Attr_Simple_Storage_Pool           170
+#define  Attr_Storage_Pool                  171
+#define  Attr_Base                          172
+#define  Attr_Class                         173
+#define  Attr_Stub_Type                     174
+#define  Attr_CPU                           175
+#define  Attr_Dispatching_Domain            176
+#define  Attr_Interrupt_Priority            177
+
+/* Define the numeric values for the conventions.  */
+
+#define  Convention_Ada                           0
+#define  Convention_Intrinsic                     1
+#define  Convention_Entry                         2
+#define  Convention_Protected                     3
+#define  Convention_Stubbed                       4
+#define  Convention_Ada_Pass_By_Copy              5
+#define  Convention_Ada_Pass_By_Reference         6
+#define  Convention_Assembler                     7
+#define  Convention_C                             8
+#define  Convention_COBOL                         9
+#define  Convention_CPP                           10
+#define  Convention_Fortran                       11
+#define  Convention_Stdcall                       12
+
+/* Define the function to check if a Name_Id value is a valid pragma */
+
+#define Is_Pragma_Name snames__is_pragma_name
+extern Boolean Is_Pragma_Name (Name_Id);
+
+/* Define the function to return one of the numeric values below.  Note
+   that it actually returns a char since an enumeration value of less
+   than 256 entries is represented that way in Ada.  The operand is a Chars
+   field value.  */
+
+#define Get_Pragma_Id snames__get_pragma_id
+extern unsigned char Get_Pragma_Id (int);
+
+/* Define the numeric values for the pragmas. */
+
+#define  Pragma_Ada_83                        0
+#define  Pragma_Ada_95                        1
+#define  Pragma_Ada_05                        2
+#define  Pragma_Ada_2005                      3
+#define  Pragma_Ada_12                        4
+#define  Pragma_Ada_2012                      5
+#define  Pragma_Ada_2020                      6
+#define  Pragma_Allow_Integer_Address         7
+#define  Pragma_Annotate                      8
+#define  Pragma_Assertion_Policy              9
+#define  Pragma_Assume_No_Invalid_Values      10
+#define  Pragma_C_Pass_By_Copy                11
+#define  Pragma_Check_Float_Overflow          12
+#define  Pragma_Check_Name                    13
+#define  Pragma_Check_Policy                  14
+#define  Pragma_Compile_Time_Error            15
+#define  Pragma_Compile_Time_Warning          16
+#define  Pragma_Compiler_Unit                 17
+#define  Pragma_Compiler_Unit_Warning         18
+#define  Pragma_Component_Alignment           19
+#define  Pragma_Convention_Identifier         20
+#define  Pragma_Debug_Policy                  21
+#define  Pragma_Detect_Blocking               22
+#define  Pragma_Default_Storage_Pool          23
+#define  Pragma_Disable_Atomic_Synchronization 24
+#define  Pragma_Discard_Names                 25
+#define  Pragma_Elaboration_Checks            26
+#define  Pragma_Eliminate                     27
+#define  Pragma_Enable_Atomic_Synchronization 28
+#define  Pragma_Extend_System                 29
+#define  Pragma_Extensions_Allowed            30
+#define  Pragma_External_Name_Casing          31
+#define  Pragma_Favor_Top_Level               32
+#define  Pragma_Ignore_Pragma                 33
+#define  Pragma_Implicit_Packing              34
+#define  Pragma_Initialize_Scalars            35
+#define  Pragma_Interrupt_State               36
+#define  Pragma_License                       37
+#define  Pragma_Locking_Policy                38
+#define  Pragma_No_Component_Reordering       39
+#define  Pragma_No_Heap_Finalization          40
+#define  Pragma_No_Run_Time                   41
+#define  Pragma_No_Strict_Aliasing            42
+#define  Pragma_Normalize_Scalars             43
+#define  Pragma_Optimize_Alignment            44
+#define  Pragma_Overflow_Mode                 45
+#define  Pragma_Overriding_Renamings          46
+#define  Pragma_Partition_Elaboration_Policy  47
+#define  Pragma_Persistent_BSS                48
+#define  Pragma_Polling                       49
+#define  Pragma_Prefix_Exception_Messages     50
+#define  Pragma_Priority_Specific_Dispatching 51
+#define  Pragma_Profile                       52
+#define  Pragma_Profile_Warnings              53
+#define  Pragma_Propagate_Exceptions          54
+#define  Pragma_Queuing_Policy                55
+#define  Pragma_Rational                      56
+#define  Pragma_Ravenscar                     57
+#define  Pragma_Rename_Pragma                 58
+#define  Pragma_Restricted_Run_Time           59
+#define  Pragma_Restrictions                  60
+#define  Pragma_Restriction_Warnings          61
+#define  Pragma_Reviewable                    62
+#define  Pragma_Short_Circuit_And_Or          63
+#define  Pragma_Short_Descriptors             64
+#define  Pragma_Source_File_Name              65
+#define  Pragma_Source_File_Name_Project      66
+#define  Pragma_SPARK_Mode                    67
+#define  Pragma_Style_Checks                  68
+#define  Pragma_Suppress                      69
+#define  Pragma_Suppress_Exception_Locations  70
+#define  Pragma_Task_Dispatching_Policy       71
+#define  Pragma_Unevaluated_Use_Of_Old        72
+#define  Pragma_Universal_Data                73
+#define  Pragma_Unsuppress                    74
+#define  Pragma_Use_VADS_Size                 75
+#define  Pragma_Validity_Checks               76
+#define  Pragma_Warning_As_Error              77
+#define  Pragma_Warnings                      78
+#define  Pragma_Wide_Character_Encoding       79
+#define  Pragma_Abort_Defer                   80
+#define  Pragma_Abstract_State                81
+#define  Pragma_Acc_Data                      82
+#define  Pragma_Acc_Kernels                   83
+#define  Pragma_Acc_Loop                      84
+#define  Pragma_Acc_Parallel                  85
+#define  Pragma_All_Calls_Remote              86
+#define  Pragma_Assert                        87
+#define  Pragma_Assert_And_Cut                88
+#define  Pragma_Assume                        89
+#define  Pragma_Async_Readers                 90
+#define  Pragma_Async_Writers                 91
+#define  Pragma_Asynchronous                  92
+#define  Pragma_Atomic                        93
+#define  Pragma_Atomic_Components             94
+#define  Pragma_Attach_Handler                95
+#define  Pragma_Attribute_Definition          96
+#define  Pragma_Check                         97
+#define  Pragma_Comment                       98
+#define  Pragma_Common_Object                 99
+#define  Pragma_Complete_Representation       100
+#define  Pragma_Complex_Representation        101
+#define  Pragma_Constant_After_Elaboration    102
+#define  Pragma_Contract_Cases                103
+#define  Pragma_Controlled                    104
+#define  Pragma_Convention                    105
+#define  Pragma_CPP_Class                     106
+#define  Pragma_CPP_Constructor               107
+#define  Pragma_CPP_Virtual                   108
+#define  Pragma_CPP_Vtable                    109
+#define  Pragma_Deadline_Floor                110
+#define  Pragma_Debug                         111
+#define  Pragma_Default_Initial_Condition     112
+#define  Pragma_Depends                       113
+#define  Pragma_Effective_Reads               114
+#define  Pragma_Effective_Writes              115
+#define  Pragma_Elaborate                     116
+#define  Pragma_Elaborate_All                 117
+#define  Pragma_Elaborate_Body                118
+#define  Pragma_Export                        119
+#define  Pragma_Export_Function               120
+#define  Pragma_Export_Object                 121
+#define  Pragma_Export_Procedure              122
+#define  Pragma_Export_Value                  123
+#define  Pragma_Export_Valued_Procedure       124
+#define  Pragma_Extensions_Visible            125
+#define  Pragma_External                      126
+#define  Pragma_Finalize_Storage_Only         127
+#define  Pragma_Ghost                         128
+#define  Pragma_Global                        129
+#define  Pragma_Ident                         130
+#define  Pragma_Implementation_Defined        131
+#define  Pragma_Implemented                   132
+#define  Pragma_Import                        133
+#define  Pragma_Import_Function               134
+#define  Pragma_Import_Object                 135
+#define  Pragma_Import_Procedure              136
+#define  Pragma_Import_Valued_Procedure       137
+#define  Pragma_Independent                   138
+#define  Pragma_Independent_Components        139
+#define  Pragma_Initial_Condition             140
+#define  Pragma_Initializes                   141
+#define  Pragma_Inline                        142
+#define  Pragma_Inline_Always                 143
+#define  Pragma_Inline_Generic                144
+#define  Pragma_Inspection_Point              145
+#define  Pragma_Interface_Name                146
+#define  Pragma_Interrupt_Handler             147
+#define  Pragma_Invariant                     148
+#define  Pragma_Keep_Names                    149
+#define  Pragma_Link_With                     150
+#define  Pragma_Linker_Alias                  151
+#define  Pragma_Linker_Constructor            152
+#define  Pragma_Linker_Destructor             153
+#define  Pragma_Linker_Options                154
+#define  Pragma_Linker_Section                155
+#define  Pragma_List                          156
+#define  Pragma_Loop_Invariant                157
+#define  Pragma_Loop_Optimize                 158
+#define  Pragma_Loop_Variant                  159
+#define  Pragma_Machine_Attribute             160
+#define  Pragma_Main                          161
+#define  Pragma_Main_Storage                  162
+#define  Pragma_Max_Entry_Queue_Depth         163
+#define  Pragma_Max_Queue_Length              164
+#define  Pragma_Memory_Size                   165
+#define  Pragma_No_Body                       166
+#define  Pragma_No_Elaboration_Code_All       167
+#define  Pragma_No_Inline                     168
+#define  Pragma_No_Return                     169
+#define  Pragma_No_Tagged_Streams             170
+#define  Pragma_Obsolescent                   171
+#define  Pragma_Optimize                      172
+#define  Pragma_Ordered                       173
+#define  Pragma_Pack                          174
+#define  Pragma_Page                          175
+#define  Pragma_Part_Of                       176
+#define  Pragma_Passive                       177
+#define  Pragma_Post                          178
+#define  Pragma_Postcondition                 179
+#define  Pragma_Post_Class                    180
+#define  Pragma_Pre                           181
+#define  Pragma_Precondition                  182
+#define  Pragma_Predicate                     183
+#define  Pragma_Predicate_Failure             184
+#define  Pragma_Preelaborable_Initialization  185
+#define  Pragma_Preelaborate                  186
+#define  Pragma_Pre_Class                     187
+#define  Pragma_Provide_Shift_Operators       188
+#define  Pragma_Psect_Object                  189
+#define  Pragma_Pure                          190
+#define  Pragma_Pure_Function                 191
+#define  Pragma_Refined_Depends               192
+#define  Pragma_Refined_Global                193
+#define  Pragma_Refined_Post                  194
+#define  Pragma_Refined_State                 195
+#define  Pragma_Relative_Deadline             196
+#define  Pragma_Remote_Access_Type            197
+#define  Pragma_Remote_Call_Interface         198
+#define  Pragma_Remote_Types                  199
+#define  Pragma_Share_Generic                 200
+#define  Pragma_Shared                        201
+#define  Pragma_Shared_Passive                202
+#define  Pragma_Simple_Storage_Pool_Type      203
+#define  Pragma_Source_Reference              204
+#define  Pragma_Static_Elaboration_Desired    205
+#define  Pragma_Stream_Convert                206
+#define  Pragma_Subtitle                      207
+#define  Pragma_Suppress_All                  208
+#define  Pragma_Suppress_Debug_Info           209
+#define  Pragma_Suppress_Initialization       210
+#define  Pragma_System_Name                   211
+#define  Pragma_Test_Case                     212
+#define  Pragma_Task_Info                     213
+#define  Pragma_Task_Name                     214
+#define  Pragma_Task_Storage                  215
+#define  Pragma_Thread_Local_Storage          216
+#define  Pragma_Time_Slice                    217
+#define  Pragma_Title                         218
+#define  Pragma_Type_Invariant                219
+#define  Pragma_Type_Invariant_Class          220
+#define  Pragma_Unchecked_Union               221
+#define  Pragma_Unimplemented_Unit            222
+#define  Pragma_Universal_Aliasing            223
+#define  Pragma_Unmodified                    224
+#define  Pragma_Unreferenced                  225
+#define  Pragma_Unreferenced_Objects          226
+#define  Pragma_Unreserve_All_Interrupts      227
+#define  Pragma_Unused                        228
+#define  Pragma_Volatile                      229
+#define  Pragma_Volatile_Components           230
+#define  Pragma_Volatile_Full_Access          231
+#define  Pragma_Volatile_Function             232
+#define  Pragma_Weak_External                 233
+#define  Pragma_CPU                           234
+#define  Pragma_Default_Scalar_Storage_Order  235
+#define  Pragma_Dispatching_Domain            236
+#define  Pragma_Fast_Math                     237
+#define  Pragma_Interface                     238
+#define  Pragma_Interrupt_Priority            239
+#define  Pragma_Lock_Free                     240
+#define  Pragma_Priority                      241
+#define  Pragma_Secondary_Stack_Size          242
+#define  Pragma_Storage_Size                  243
+#define  Pragma_Storage_Unit                  244
+
+/* End of snames.h (C version of Snames package spec) */
+#ifdef __cplusplus
+}
+#endif

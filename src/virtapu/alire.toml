@@ -1,0 +1,14 @@
+authors = ["Fabien Chouteau"]
+description = "A virtual Audio Processing Unit to simulate 8-bit era game sounds"
+licenses = "MIT"
+long-description = "# VirtAPU\n\nA virtual Audio Processing Unit to simulate 8-bit era game sounds\n\n - Arbitrary number of voice(s)\n - 4 sounds:\n   - Pulse\n   - Triangle\n   - Noise1 (LFSR 1)\n   - Noise2 (LFSR 6)\n - Pulse witdth modulation\n - Decay\n - Frequency sweep\n - Sequencer\n"
+maintainers = ["fabien.chouteau@gmail.com"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "virtapu"
+project-files = ["virtapu.gpr"]
+tags = ["nostd","audio","synth","game"]
+version = "0.2.0"
+website = "https://github.com/Fabien-Chouteau/virtapu"
+
+[build-switches."*"]
+Compile_Checks = "none"

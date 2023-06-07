@@ -1,0 +1,11 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-flash.ads"
+node: { title: "interfaces__stm32__flash__acr_registerIP" label: "acr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__sr_registerIP" label: "sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__cr_registerIP" label: "cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__optcr_registerIP" label: "optcr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__flash_peripheralIP" label: "flash_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__acr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-flash.ads:220:7" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__sr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-flash.ads:226:7" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__cr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-flash.ads:228:7" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__optcr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-flash.ads:230:7" }
+}

@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-pack48.adb"
+node: { title: "system__pack_48__clusterIP" label: "clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__rev_clusterIP" label: "rev_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__clusteruIP" label: "clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__rev_clusteruIP" label: "rev_clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__get_48" label: "Get_48\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-pack48.adb:98:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__getu_48" label: "Getu_48\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-pack48.adb:137:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__set_48" label: "Set_48\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-pack48.adb:176:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_48__setu_48" label: "Setu_48\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/s-pack48.adb:215:4\n8 bytes (static)\n0 dynamic objects" }
+}

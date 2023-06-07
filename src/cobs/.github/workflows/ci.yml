@@ -1,0 +1,56 @@
+on:                    # Run the workflow for each of the following event:
+  push:                # - A branch is pushed or updated.
+    branches:
+      - master
+  pull_request:        # - A pull-request is opened or updated.
+  workflow_dispatch:   # - A manual run of the workflow is requested from the GitHub web interface.
+  release:
+    types: [created]   # - A release is created.
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false # Don't stop all the workflows when one of them fails.
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v2
+
+      # Install and setup Alire package manager
+      - uses: alire-project/setup-alire@v1
+        with:
+          version: 1.2.0
+
+      - name: Build library
+        run: alr build --validation
+
+      - name: Build and run unit tests (instrumented)
+        run: |
+          cd tests
+          alr gnatcov instrument --level=stmt+mcdc --dump-trigger=atexit --projects cobs.gpr
+          alr build -- --src-subdirs=gnatcov-instr --implicit-with=gnatcov_rts_full
+          alr exec -- bin/unit_tests
+          alr gnatcov coverage --annotate=xcov --output-dir gnatcov_out --level=stmt+mcdc --projects cobs.gpr *.srctrace
+
+      - name: Build and run unit tests (non-instrumented)
+        run: |
+          cd tests
+          alr build --validation
+          alr exec -- bin/unit_tests
+
+      - uses: alire-project/gnatcov-to-codecovio-action@main
+        with:
+          fail_ci_if_error: false # Don't fail the workflow if codecov.io failed
+          verbose: true
+
+      - name: Proof
+        run: |
+          cd prove
+          alr exec -- gnatprove -P ../cobs.gpr
+        # Skip on Windows due to broken toolchain/environment which causes
+        # all proof checks to fail (except initialization and termination).
+        if: matrix.os != 'windows-latest'

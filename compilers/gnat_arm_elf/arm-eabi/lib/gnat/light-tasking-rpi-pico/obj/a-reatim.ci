@@ -1,0 +1,83 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb"
+node: { title: "ada__real_time__Oadd__2" label: "+\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.ads:78:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__real_time__Oadd__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:212:10" }
+node: { title: "ada__real_time__Omultiply" label: "*\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:136:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uldivmod" label: "aeabi_uldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__real_time__Omultiply" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "ada__real_time__Omultiply" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:172:10" }
+node: { title: "__aeabi_lmul" label: "aeabi_lmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__real_time__Omultiply" targetname: "__aeabi_lmul" }
+node: { title: "ada__real_time__Omultiply__2" label: "*\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:178:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Omultiply__2" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "ada__real_time__Omultiply__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:172:10" }
+edge: { sourcename: "ada__real_time__Omultiply__2" targetname: "__aeabi_lmul" }
+node: { title: "ada__real_time__Oadd" label: "+\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:187:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Oadd" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:212:10" }
+node: { title: "ada__real_time__Oadd__3" label: "+\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:216:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Oadd__3" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:219:36" }
+node: { title: "ada__real_time__Osubtract" label: "-\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:226:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Osubtract" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:251:10" }
+node: { title: "ada__real_time__Osubtract__2" label: "-\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:255:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Osubtract__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:273:10" }
+node: { title: "ada__real_time__Osubtract__3" label: "-\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:277:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Osubtract__3" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:280:36" }
+node: { title: "ada__real_time__Osubtract__4" label: "-\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:283:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Osubtract__4" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:286:25" }
+node: { title: "ada__real_time__Odivide" label: "/\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:293:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Odivide" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:297:34" }
+node: { title: "__aeabi_ldivmod" label: "aeabi_ldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__real_time__Odivide" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__real_time__Odivide__2" label: "/\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:300:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__Odivide__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:304:19" }
+edge: { sourcename: "ada__real_time__Odivide__2" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__real_time__clock" label: "Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:311:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__board_support__time__read_clock" label: "Read_Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/s-bbbosu.ads:70:16" shape : ellipse }
+edge: { sourcename: "ada__real_time__clock" targetname: "system__bb__board_support__time__read_clock" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/s-bbtime.adb:269:37" }
+node: { title: "ada__real_time__microseconds" label: "Microseconds\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:320:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__microseconds" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__microseconds" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__real_time__milliseconds" label: "Milliseconds\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:332:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__milliseconds" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__milliseconds" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__real_time__minutes" label: "Minutes\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:344:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__minutes" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__minutes" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:355:10" }
+edge: { sourcename: "ada__real_time__minutes" targetname: "__aeabi_lmul" }
+node: { title: "ada__real_time__mul_div" label: "Mul_Div\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:365:4\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__mul_div" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__mul_div" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__mul_div" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__mul_div" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__real_time__mul_div" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__real_time__mul_div" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:480:10" }
+node: { title: "ada__real_time__nanoseconds" label: "Nanoseconds\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:492:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__nanoseconds" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__nanoseconds" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__real_time__rounded_div" label: "Rounded_Div\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:504:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__rounded_div" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__real_time__seconds" label: "Seconds\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:520:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__seconds" targetname: "__aeabi_lmul" }
+node: { title: "ada__real_time__split" label: "Split\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:531:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__split" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "ada__real_time__split" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "ada__real_time__split" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__split" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:273:10" }
+node: { title: "ada__real_time__time_of" label: "Time_Of\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:542:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:219:36" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:212:10" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__aeabi_lmul" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:585:16" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:594:10" }
+edge: { sourcename: "ada__real_time__time_of" targetname: "__aeabi_lmul" }
+node: { title: "ada__real_time__to_duration" label: "To_Duration\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:610:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__to_duration" targetname: "ada__real_time__mul_div" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:614:12" }
+node: { title: "ada__real_time__to_time_span" label: "To_Time_Span\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:621:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__real_time__to_time_span" targetname: "ada__real_time__mul_div" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:625:12" }
+node: { title: "ada__real_time___elabb" label: "Real_Time\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:41:1\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__tasking__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/s-taskin.ads:390:14" shape : ellipse }
+edge: { sourcename: "ada__real_time___elabb" targetname: "system__tasking__initialize" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnarl/a-reatim.adb:633:18" }
+}

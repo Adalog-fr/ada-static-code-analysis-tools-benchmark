@@ -1,0 +1,28 @@
+description = "Web-application server. Implementation library"
+name = "matreshka_spikedog_core"
+version = "22.0.0"
+website = "https://forge.ada-ru.org/matreshka"
+authors = ["Vadim Godunko"]
+licenses = "BSD-3-Clause"
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>","Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["godunko","reznikmm"]
+project-files = ["../../../gnat/matreshka_spikedog_core.gpr"]
+tags = ["web","servlet"]
+
+[configuration]
+disabled = true
+
+[[depends-on]]
+matreshka_league = "*"
+matreshka_spikedog_api = "*"
+
+[[pins]]
+
+[pins.matreshka_league]
+path = "../matreshka_league"
+
+[pins.matreshka_spikedog_api]
+path = "../matreshka_spikedog_api"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,24 @@
+authors = ["Fabien Chouteau"]
+description = "Library to encode and decode MIDI messages"
+licenses = "MIT"
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "midi"
+tags = ["midi","embedded","nostd"]
+version = "0.2.0"
+website = "https://github.com/Fabien-Chouteau/MIDI"
+
+[[depends-on]]
+bbqueue = "*"
+hal = "*"
+
+[[pins]]
+
+[pins.bbqueue]
+path = "../bbqueue"
+
+[pins.hal]
+path = "../hal"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,25 @@
+authors = ["AdaCore"]
+description = "Advanced string and text manipulation with Unicode support"
+licenses = "Apache-2.0"
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>","Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["godunko","reznikmm"]
+name = "vss"
+project-files = ["gnat/vss_text.gpr","gnat/vss_json.gpr","gnat/vss_regexp.gpr","gnat/vss_xml.gpr","gnat/vss_xml_templates.gpr"]
+tags = ["unicode","json","text","xml","template"]
+version = "23.0.0"
+website = "https://github.com/AdaCore/VSS"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

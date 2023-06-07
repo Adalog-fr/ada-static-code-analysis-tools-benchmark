@@ -1,0 +1,34 @@
+description = "Ada Web Application (Testing framework)"
+name = "awa_unit"
+version = "2.4.0"
+tags = ["web","users","jobs","framework","testing"]
+website = "https://gitlab.com/stcarrez/ada-awa"
+licenses = "Apache-2.0"
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+long-description = "\n[![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Bionic-AWA.svg)](https://jenkins.vacs.fr/job/Bionic-AWA/)\n[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Bionic-AWA.svg)](https://jenkins.vacs.fr/job/Bionic-AWA/)\n[![codecov](https://codecov.io/gh/stcarrez/ada-awa/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-awa)\n[![Documentation Status](https://readthedocs.org/projects/ada-awa/badge/?version=latest)](https://ada-awa.readthedocs.io/en/latest/?badge=latest)\n\nAda Web Application is a framework to build a Web Application in Ada 2012.\nThe framework provides several ready to use and extendable modules that are common\nto many web application.  This includes the login, authentication, users, permissions,\nmanaging comments, tags, votes, documents, images.  It provides a complete blog,\nquestion and answers and a wiki module.\n\nThis library provides a testing framework on top of AWA top help implementing\nunit tests for AWA applications.\n\n"
+project-files = ["../.alire/unit/awa_unit.gpr"]
+
+[[depends-on]]
+awa = "*"
+serverfaces_unit = "*"
+servletada_unit = "*"
+
+[gpr-externals]
+AWA_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+AWA_BUILD = ["distrib","debug","optimize","profile","coverage"]
+
+[[pins]]
+
+[pins.awa]
+path = ".."
+
+[pins.serverfaces_unit]
+path = "../ada-asf/unit"
+
+[pins.servletada_unit]
+path = "../ada-servlet/unit"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,20 @@
+authors = [
+"Mateus de Lima Oliveira",
+]
+description = "ChaCha20 implementation in Ada."
+licenses = "MIT"
+maintainers = [
+"Mateus de Lima Oliveira <mateus@ativarsoft.com>",
+]
+maintainers-logins = [
+"m4t3uz",
+]
+name = "chacha20"
+tags = [
+"chacha20",
+"security",
+"cryptography",
+]
+version = "0.1.0"
+website = "https://ativarsoft.com"
+

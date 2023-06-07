@@ -1,0 +1,317 @@
+20220811 - Gnoga V2.1b (2.1.2):
+
+- Add Alire support: alire.toml, lib_gnoga.gpr and .gitignore.
+- Update plugins.gpr, README.md and HISTORY.
+
+
+20220306 - Gnoga V2.1a:
+
+- Update Makefile, TODO, README, TIPS and more.
+
+
+20211025 - Gnoga V1.7-alpha:
+- ...
+
+
+20211006 - Gnoga V2.1-beta:
+
+- Reduce the number of info compiler logs.
+- Fix path of settings.gpr.
+- Zanyblue: fix regeneration from scratch.
+
+
+20210506 - Gnoga V2.1-alpha:
+
+- Demo test program: avoid replacing of Main_Window.View by Collection_View to avoid finalization of Console and then exception when resizing.
+- Adapt Gnoga Secure programs to UXStrings.
+- Adapt Tools programs to UXStrings.
+- Adapt Demo programs to UXStrings.
+- Storage test program: fix life time of View to avoid exception when resizing.
+- Adapt Test programs to UXStrings.
+- Zanyblue: fix Write_String empty buffer.
+- UXStrings: upgrade version 2 up to version 1.
+- Add log message and exception occurence.
+- Select UTF-8 or ASCII conversions for optimization with UXStrings version 2.
+    Switch to UTF-8 encoding when required by Unix like OS.
+    Likewise, set UTF-8 and LF as output encoding and line terminator.
+- UXStrings: upgrade to version 2 (UXS_20210405).
+- Fix "PROGRAM_ERROR : accessibility check failed" from previous wrong changes adapting to GNAT Community 2020.
+- Zanyblue: generate zbmcompile messages with zbmcompile.
+- Zanyblue: generate zbinfo messages with zbmcompile.
+- Zanyblue:
+    Fix line ending to LF.
+    Adapt zbmcompile properties to UXString and generate corresponding messages.
+- Zanyblue: adapt zbinfo to UXStrings.
+- Zanyblue: fix Raise_Exception call and Decompose_Name default values.
+- Zanyblue: adapt zbmcompile to UXStrings.
+- Zanyblue: add ZanyBlue.Text.Wide_Wide_Characters.
+- Zanyblue: reformat zbinfo, zbmcompile, zbtest source codes.
+- Zanyblue: suppress Wide_Wide_prefix.
+- Zanyblue: change Wide_String and Wide_Wide_String handling to UXStrings.
+- Zanyblue: reformat source codes.
+- Zanyblue: upgrade to version 1.4.0 (r3199).
+- Add UXStrings to makefile.
+- Fix some UTF-8 conversions from or to client.
+- Homogenize logs with ID.
+- Change to Image without space prefix and then suppress all Trim.
+- Use preferably Image instead of 'Img or 'Image and Value instead of 'Value.
+- Use First and Last for compatibility with correspondant String attributes.
+- Add new Image and value conversion functions. Integer Image has the same convention (space prefix) as Ada Image attribute.
+- Change String and Unbounded_String handling to UXStrings.
+- Reformat Gnoga source codes.
+
+
+20220810 - Gnoga V1.6b (1.6.2):
+
+- Add Alire support: alire.toml, lib_gnoga.gpr and .gitignore.
+- Update plugins.gpr, settings.gpr, README.md and HISTORY.
+
+
+20210501 - Gnoga V1.6a:
+
+- Update Makefile, settings.gpr and HISTORY.
+
+
+20210425 - Gnoga V1.6-beta:
+
+- Layout test SSL program: adaptation to GNAT Community 2020.
+- Demo test program: avoid replacing of Main_Window.View by Collection_View to avoid finalization of Console
+  and then exception when resizing.
+- Storage test program: fix life time of View to avoid exception when resizing.
+- Fix "PROGRAM_ERROR : accessibility check failed" from previous wrong changes adapting to GNAT Community 2020.
+
+
+20191222 - Gnoga V1.6-alpha:
+
+- Gnoga: adaptation to PIXI 5.3.0.
+- Upgrade to PIXI 5.3.0.
+- Upgrade to ACE 1.4.12.
+- Upgrade to Simple Components 4.50.
+- Update Jeff Carter's Pragmarc from Github.
+- Gnoga: adaptation to GNAT Community 2020.
+- JQuery Javascript source upgrade version 3.5.0.
+- Add experimental package UXStrings (see readme).
+- Demo: add a simple localization tool (Localize) to help edition of localization files.
+- Form: add additional support for file input with multiple files. Change some API.
+- Add support for files upload (implementing Javascript FileReader).
+- Form: add support for file and tel field types. Fix UTF8 character conversions in form names.
+
+
+20191222 - Gnoga V1.5a:
+
+- Update Makefile, TODO, README, TIPS and more.
+
+
+20191111 - Gnoga V1.5-beta:
+
+- Avoid some memory leaks.
+- Fix exception in CLI test
+- Check only specifications with AdaControl.
+
+
+20190824 - Gnoga V1.5-alpha:
+
+- Fix to avoid SYSTEM.ASSERTIONS.ASSERT_FAILURE : Position cursor of Next is bad
+- Add support for localhost in Initialize for singleton and multi-connect app according to code comments.
+- Upgrade to Simple Components 4.41
+- Update Jeff Carter's Pragmarc and demos from Github
+- Fix for GNAT Community 2019.
+- Upgrade to Simple Components 4.40
+- Canvas: add additional binding to drawImage
+- PIXI.Sprite: recursive rendering of sprite's children.
+- PIXI.Sprite: modification for finalizing children
+- Add log of user agent and platform client browser in case of suspicious connections
+- Make favicon customization available by the application.
+- Add an exception handler when a requested file is non existent on the server side
+- Support multi-part bodies for POST forms
+- Add Profile build mode and tidy some GPR project files.
+- Fix POST UTF-8 key, UTF-8 to Latin-1 translation, UTF8 incoming message.
+- Console_IO: improve responsiveness of Get_Line
+- Canvas_2D: add Polygon_To; Plotting_2D: use Polygon_To
+
+
+20181013 - Gnoga V1.4a:
+
+- Update TODO, HISTORY.
+
+
+20180816 - Gnoga V1.4-beta:
+
+- Miscellaneous changes on build files.
+
+
+20180812 - Gnoga V1.4-alpha:
+
+- Add detection for server port already in use, it raises the following exception and stop.
+- Upgrade to Simple Components 4.30.
+- Makefile: add gnoga-config target for standalone compilation without installation needed.
+- Improve on sane shutdown.
+- Log accessing and invalid path.
+- Added gnoga version status.
+- Add support to JSTree javascript library.
+- Fix issues reported by Jeremiah Breeden.
+- Enhancement from David Trudgett which adds a protected object in GnogaBoard from Gnoga user guide example.
+- PIXI: add new sprite effects for events:
+  . Inside_Event_Effect is sent when sprite is inside frame or angles limits and resets when fired.
+  . Outside_Event_Effect is sent when sprite is outside frame or angles limits and resets when fired.
+- PIXI: add Angle_Limit API for Sprites (it sets sprite angle limit for rotation with special effect: null, bounce or loop).
+- PIXI: add Frame_Limit API for Sprites (it sets sprite frame limit with special effect: null, bounce or loop).
+- New demo: Logo interpreter with with both ACE / Console_IO (for instruction) and PIXI (for the famous turtle).
+- Connect Four: make Title and HTML_On_Close to be localized at window creation time.
+- Upgrade to Zanyblue 1.4.0b-r3144.
+- Pixi: add Move_Rel for distance, Rotate_To and Rotate_Rel for rotation.
+- Add support to Console_IO, an emulation of Text_IO with ACE plugin.
+- Add an exception log in singleton applications for not handled exceptions.
+- All components may now install with a custom INSTALL_DIR.
+- Remove copy of plugins sources with help of new project plugins.gpr.
+- Remove copy of "gnoga-application.adb" with help of separate and naming scheme.
+
+
+20180711 - Gnoga V1.3a:
+
+- TIPS: updated.
+- INSTALL: rework the wording.
+- Makefile:
+  . Add gnoga-config target which creates a script with gnoga compilation options
+  . Add GPS launch command for Windows user.
+  . Fix some regression using XMLAda and SQLite3.
+  . Fix some issues with Zanyblue and Windows.
+  . Fix GPR_PROJECT_PATH separator issue for Windows users.
+  . Take care of spaces in paths.
+  . Set "inst_folder" for default installation directory.
+  . Fix issues reported by Jeremiah Breeden.
+- Fix Documentation_Dir obsolescence.
+- Update TODO, HISTORY and TIPS.
+
+
+20171022 - Gnoga V1.3-beta:
+
+- Add Ding test from Jeff Carter.
+- Fix some audio time types to float instead of integer and fix Ready_To_Play.
+- Enhancement from Miguel Ángel Oliván which changes this reassignation by using Ada.Strings.Unbounded.Append to solve the issue making time lag.
+- Upgrade and adapt to Simple Components 4.23.
+
+
+20170723 - Gnoga V1.2b:
+
+- AUTHORS, HISTORY and TIPS updated; miscellaneous fixes.
+- Update Jeff Carter's demos from Github. Turn off all style checks.
+- Update TIPS and TODO, JavaScript fix for Firefox.
+- Added Gnoga in JavaFX, a contribution from Jeremiah Breeden.
+- Added tutorial for forms.
+- Added TIPS.
+
+
+20170716 - Gnoga V1.3-alpha:
+
+- JQuery UI JavaScript source upgrade version 1.12.1.
+- Modal dialog support from a contribution of Jeremiah Breeden.
+- Enhancement from Miguel Ángel Oliván which bring automatic log file flushing if specified and date / time in log to file.
+- Fix multiple calls to EscapeQuotes issue see ticket #37.
+- Fix from Gautier to avoid some exception issues without checks (-gnatp).
+- Fix in Adablog demo: call Disable_Auto_Set_View to prevent elements taking all the window place.
+- JQuery JavaScript source upgrade version 3.2.0.
+- ACE JavaScript source (2016.12.03 Version 1.2.6) is now embedded in Gnoga.
+- Update Jeff Carter's Pragmarc from Github.
+- Update Jeff Carter's demos from Github.
+- Added the possibility to get the number of active connections.
+- Added TIPS.
+- Added DB_Maker with movies demo from Jeff Carter.
+- Add support to MNMenu JavaScript library (https://github.com/manusa/mnmenu).
+- First demo based on PIXI plugin: Leaves a GNOGA application with a "match-3"-style game from Gautier de Montmollin.
+- Add support to PIXI JavaScript library (https://github.com/pixijs/pixi.js).
+- Add coding rules checking with AdaControl (https://sourceforge.net/projects/adacontrol).
+- Add Sprite package to set some motion properties to an image on a canvas.
+- Add coding guidelines.
+- Demos Tic-Tac-Toe added.
+- AdaOthello improved game play.
+- Upgrade to Zanyblue 1.3.0b-r3059.
+- Building structure reworked (make easier debugging with GPS).
+- Upgrade to Simple Components 4.15.
+
+
+20160917 - Gnoga V1.2a:
+
+- Demos Tic-Tac-Toe added
+- AdaOthello improved game play
+- Various minor Gnoga fixes
+
+
+20160713 - Gnoga V1.2-beta:
+
+- Cleaning stuff such as withed units, unreferenced objects.
+- Fix ticket #36 (makefile issue)
+- Demos AdaOthello and RandomInt added
+- Zanyblue upgrade from SVN revision 2992
+- LinXtris fixes
+- Fix ticket #35 (Temporary suppress gnat option checking end line style making compilation
+  errors on Windows with Zanyblue generated files.)
+- Simple Components upgrade from 4.12
+
+
+20160505 - Gnoga V1.2-alpha:
+
+- Zanyblue upgrade from SVN revision 2958
+- Demos Password_Gen, LinXtris added
+- Plotting facilities added
+- PragmARC library added
+- Connect_Four localisation with Zanyblue
+- JLokalise tool added
+- Electron support added
+- Fix ticket #30 (Add SQLite support for UTF-8 encoding)
+- Fix ticket #29 (Add SQLite pragmas full_column_names and short_column_names support)
+- Simple Components upgrade from 4.10
+- Fix ticket #14 (Color sub-routines are proposed also directly for Gnoga.Types.Colors.Color_Enumeration type)
+- Fix ticket #3 (Use Exception_Information for exceptions extended to more exception handlers)
+- Fix ticket #26 (Add support for parsing URL form GET parameters with
+  encodings ISO-8859-1 (default) and UTF-8)
+- Fix ticket #27 (Install html docs and RM)
+- Fix ticket #23 (Add support to XPM parser)
+- Add Sqlite build on Windows
+- Fix ticket #21 (bug in connect four demo)
+- Gnatdoc support
+- Various demos updates and Gnoga fixes
+
+
+20150702 - Gnoga V1.1a:
+
+- Simple Components upgrade from 4.8
+
+
+20150701 - Gnoga V1.1:
+
+- Ticket #019 - Firefox issue with Ace Editor
+- Ticket #015 - Local storage fix
+- Ticket #008 - Mouse events local to element of event
+- Ticket #007 - Test case
+- Messages boxes facilities added
+- Ticket #013 - Resolved - Moved http and watchdog tasks to types created on initialize.
+- Ticket #020 - Fixed On_Drop in tutorial
+- Ticket #006 - Added X, Y support to On_Drop
+- Ticket #005 - Program blocked without issuing error
+- Ticket #001 - Program_Error with Window_Type in a package specification
+- Fix various typo
+- Demo Connect Four added
+- Ticket #014 - Change Gnoga.Types.Colors to enumeration
+- Keyboard handling change
+- Simple Components upgrade from 4.7
+- Ticket #002 - Grid not working in child popups
+- Chattanooga demo added
+- Color constants support added
+- Various demos updates and Gnoga fixes
+
+
+20141230 - Gnoga V1.0:
+- Add mouse and keyboard events
+- Remove Cairo
+- Switch to use Simple_Components instead of AWS
+- Remove PHP
+- Tutorials added
+- Demo Snake added
+- Various Gnoga facilities added
+
+
+20140808 - Gnoga V0.0:
+
+- Initial Gnoga code release
+

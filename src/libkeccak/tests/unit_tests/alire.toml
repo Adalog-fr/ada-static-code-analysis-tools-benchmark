@@ -1,0 +1,22 @@
+name = "unit_tests"
+description = "Unit Tests for libkeccak"
+version = "0.0.0"
+authors = ["Daniel King"]
+maintainers = ["Daniel King <damaki.gh@gmail.com>"]
+maintainers-logins = ["damaki"]
+executables = ["unit_tests"]
+
+[[depends-on]]
+libkeccak = "*"
+aunit = "*"
+
+[[pins]]
+
+[pins.libkeccak]
+path = "../.."
+
+[pins.aunit]
+path = "../../../aunit"
+
+[build-switches."*"]
+Compile_Checks = "none"

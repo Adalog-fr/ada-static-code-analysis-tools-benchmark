@@ -1,0 +1,44 @@
+authors = ["AdaCore"]
+description = "Ada Web Server"
+licenses = "GPL-3.0-only WITH GCC-exception-3.1"
+maintainers = ["chouteau@adacore.com"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "aws"
+project-files = ["aws.gpr"]
+tags = ["aws","web","server","http","https","soap","wsdl","ssl"]
+version = "23.0.0"
+website = "https://github.com/adacore/aws"
+
+[gpr-externals]
+LIBRARY_TYPE = ["static","relocatable"]
+PRJ_BUILD = ["Debug","Release"]
+PRJ_SOCKLIB = ["gnat","ipv6","ipv4"]
+PRJ_TARGET = ["Windows_NT","UNIX","Darwin","vxworks","freebsd"]
+
+[gpr-set-externals]
+PRJ_LAL = "Disabled"
+PRJ_LDAP = "Disabled"
+PRJ_TARGET = "UNIX"
+TARGET = "x86_64-pc-linux-gnu"
+
+[[actions]]
+command = ["make","setup","ZLIB=false","DEMOS=false","LAL=false","XMLADA=false","SOCKET=openssl","prefix=install_dir","PRJ_BUILD=Release"]
+directory = "."
+type = "post-fetch"
+
+[[depends-on]]
+gnatcoll = "*"
+make = "*"
+openssl = "*"
+xmlada = "*"
+
+[[pins]]
+
+[pins.gnatcoll]
+path = "../gnatcoll-core"
+
+[pins.xmlada]
+path = "../xmlada"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,22 @@
+name = "tests"
+description = ""
+version = "0.1.0-dev"
+executables = ["tests"]
+
+[[depends-on]]
+rtmidi = "*"
+aaa = "~0.2.6"
+
+[[pins]]
+
+[pins.rtmidi]
+path = ".."
+
+[pins.aaa]
+path = "../../aaa"
+
+[build-profiles]
+rtmidi = "Development"
+
+[build-switches."*"]
+Compile_Checks = "none"

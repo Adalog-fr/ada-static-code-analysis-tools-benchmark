@@ -1,0 +1,84 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb"
+node: { title: "ada__calendar__Oadd" label: "+\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:74:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_CE_Overflow_Check" label: "gnat_rcheck_CE_Overflow_Check\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__Oadd" targetname: "__gnat_rcheck_CE_Overflow_Check" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:78:22" }
+node: { title: "_Unwind_Resume" label: "builtin_unwind_resume\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__Oadd" targetname: "_Unwind_Resume" }
+node: { title: "__gnat_begin_handler_v1" label: "gnat_begin_handler_v1\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__Oadd" targetname: "__gnat_begin_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:81:7" }
+node: { title: "__gnat_raise_exception" label: "Raise_Exception_Always\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-except.ads:178:14" shape : ellipse }
+edge: { sourcename: "ada__calendar__Oadd" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:82:10" }
+node: { title: "__gnat_end_handler_v1" label: "gnat_end_handler_v1\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__Oadd" targetname: "__gnat_end_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:81:7" }
+edge: { sourcename: "ada__calendar__Oadd" targetname: "_Unwind_Resume" }
+node: { title: "ada__calendar__Oadd__2" label: "+\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:85:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__Oadd__2" targetname: "__gnat_rcheck_CE_Overflow_Check" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:89:44" }
+edge: { sourcename: "ada__calendar__Oadd__2" targetname: "_Unwind_Resume" }
+edge: { sourcename: "ada__calendar__Oadd__2" targetname: "__gnat_begin_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:92:7" }
+edge: { sourcename: "ada__calendar__Oadd__2" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:93:10" }
+edge: { sourcename: "ada__calendar__Oadd__2" targetname: "__gnat_end_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:92:7" }
+edge: { sourcename: "ada__calendar__Oadd__2" targetname: "_Unwind_Resume" }
+node: { title: "ada__calendar__Osubtract" label: "-\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:100:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__Osubtract" targetname: "__gnat_rcheck_CE_Overflow_Check" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:104:23" }
+edge: { sourcename: "ada__calendar__Osubtract" targetname: "_Unwind_Resume" }
+edge: { sourcename: "ada__calendar__Osubtract" targetname: "__gnat_begin_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:107:7" }
+edge: { sourcename: "ada__calendar__Osubtract" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:108:10" }
+edge: { sourcename: "ada__calendar__Osubtract" targetname: "__gnat_end_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:107:7" }
+edge: { sourcename: "ada__calendar__Osubtract" targetname: "_Unwind_Resume" }
+node: { title: "ada__calendar__Osubtract__2" label: "-\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:111:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__Osubtract__2" targetname: "__gnat_rcheck_CE_Overflow_Check" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:116:21" }
+edge: { sourcename: "ada__calendar__Osubtract__2" targetname: "_Unwind_Resume" }
+edge: { sourcename: "ada__calendar__Osubtract__2" targetname: "__gnat_begin_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:120:7" }
+edge: { sourcename: "ada__calendar__Osubtract__2" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:121:10" }
+edge: { sourcename: "ada__calendar__Osubtract__2" targetname: "__gnat_end_handler_v1" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:120:7" }
+edge: { sourcename: "ada__calendar__Osubtract__2" targetname: "_Unwind_Resume" }
+node: { title: "ada__calendar__Olt" label: "<\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:128:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__Ole" label: "<=\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:137:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__Ogt" label: ">\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:146:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__Oge" label: ">=\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:155:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__clock" label: "Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calclo.adb:43:1\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__board_support__time__read_clock" label: "Read_Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnarl/s-bbbosu.ads:70:16" shape : ellipse }
+edge: { sourcename: "ada__calendar__clock" targetname: "system__bb__board_support__time__read_clock" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnarl/s-bbtime.adb:269:37" }
+node: { title: "__aeabi_uldivmod" label: "aeabi_uldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__clock" targetname: "__aeabi_uldivmod" }
+node: { title: "ada__calendar__split" label: "Split\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:212:4\n88 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_ldivmod" label: "aeabi_ldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+node: { title: "system__arith_64__scaled_divide64" label: "Scaled_Divide64\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/s-arit64.ads:117:14" shape : ellipse }
+edge: { sourcename: "ada__calendar__split" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:245:50" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__calendar__split" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:255:22" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__calendar__split" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:257:46" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__calendar__split" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:258:46" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__calendar__split" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:264:49" }
+edge: { sourcename: "ada__calendar__split" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__calendar__day" label: "Day\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:170:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__day" targetname: "ada__calendar__split" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:176:7" }
+node: { title: "ada__calendar__month" label: "Month\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:184:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__month" targetname: "ada__calendar__split" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:190:7" }
+node: { title: "ada__calendar__seconds" label: "Seconds\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:198:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__seconds" targetname: "ada__calendar__split" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:204:7" }
+node: { title: "ada__calendar__trunc" label: "Trunc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:327:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__trunc" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__calendar__trunc__2" label: "Trunc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:338:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__trunc__2" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__calendar__trunc__3" label: "Trunc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:348:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__trunc__3" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__calendar__valid_date" label: "Valid_Date\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:362:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__time_of" label: "Time_Of\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:275:4\n80 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__time_of" targetname: "ada__calendar__valid_date" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:300:14" }
+edge: { sourcename: "ada__calendar__time_of" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:301:10" }
+edge: { sourcename: "ada__calendar__time_of" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:317:39" }
+edge: { sourcename: "ada__calendar__time_of" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:319:33" }
+edge: { sourcename: "ada__calendar__time_of" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "ada__calendar__time_of" targetname: "__aeabi_ldivmod" }
+node: { title: "ada__calendar__year" label: "Year\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:417:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar__year" targetname: "ada__calendar__split" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:423:7" }
+node: { title: "ada__calendar___elabb" label: "Calendar\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:34:1\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__calendar___elabb" targetname: "ada__calendar__time_of" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/a-calend.adb:429:18" }
+}

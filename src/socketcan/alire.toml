@@ -1,0 +1,10 @@
+description = "An Ada language binding to SocketCAN for GNU/Linux systems"
+licenses = "LGPL-3.0-only"
+maintainers = ["glen.m.cornell@gmail.com"]
+maintainers-logins = ["glencornell"]
+name = "socketcan"
+project-files = ["src/socketcan.gpr"]
+version = "1.0.0"
+
+[build-switches."*"]
+Compile_Checks = "none"

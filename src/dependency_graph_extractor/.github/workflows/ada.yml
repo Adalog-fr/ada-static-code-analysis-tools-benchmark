@@ -1,0 +1,32 @@
+name: Ada (GNAT)
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: alire-project/setup-alire@v1
+    - name: Build
+      run: alr build
+
+  example:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: alire-project/setup-alire@v1
+    - name: Example project to analyze
+      run: cd tests/syntax_examples && alr build

@@ -1,0 +1,11 @@
+AppDir
+src/*~
+obj
+adalib
+*~
+.#*
+*.ali
+*.a
+obj/
+bin/
+alire/

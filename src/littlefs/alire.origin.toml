@@ -1,0 +1,62 @@
+authors = [
+"Fabien Chouteau",
+]
+description = "Ada/SPARK binding for the LittleFS flash embedded filesystem"
+licenses = "BSD-3-Clause"
+maintainers = [
+"Fabien Chouteau <chouteau@adacore.com>",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "littlefs"
+tags = [
+"embedded",
+"filesystem",
+"nostd",
+"flash",
+]
+version = "0.3.1"
+website = "https://github.com/Fabien-Chouteau/littlefs-ada"
+[configuration]
+auto_gpr_with = true
+disabled = false
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[configuration.variables]
+[configuration.variables.Assert]
+default = false
+type = "Boolean"
+[configuration.variables.Debug]
+default = false
+type = "Boolean"
+[configuration.variables.Error]
+default = false
+type = "Boolean"
+[configuration.variables.Max_Attr_Size]
+default = 1022
+first = 1
+last = 1022
+type = "Integer"
+[configuration.variables.Max_File_Size]
+default = 2147483647
+first = 1
+last = 2147483647
+type = "Integer"
+[configuration.variables.Max_Name_Size]
+default = 255
+first = 1
+last = 1022
+type = "Integer"
+[configuration.variables.No_Malloc]
+default = true
+type = "Boolean"
+[configuration.variables.Trace]
+default = false
+type = "Boolean"
+[configuration.variables.Warn]
+default = false
+type = "Boolean"
+

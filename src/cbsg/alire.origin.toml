@@ -1,0 +1,19 @@
+authors = [
+"Gautier de Montmollin",
+]
+description = "Corporate Bullshit Generator library"
+licenses = "Apache-2.0"
+maintainers = [
+"Frédéric Praca <frederic.praca@free.fr>",
+]
+maintainers-logins = [
+"FredPraca",
+]
+name = "cbsg"
+tags = [
+"text",
+"console",
+]
+version = "0.0.1"
+website = "http://cbsg.sf.net/"
+

@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/g-crc32.adb"
+node: { title: "gnat__crc32__update__2" label: "UPDATE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/g-crc32.adb:40:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "gnat__crc32__update__3" label: "UPDATE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/g-crc32.adb:47:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "gnat__crc32__update__4" label: "UPDATE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/g-crc32.adb:55:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "gnat__crc32__wide_update" label: "WIDE_UPDATE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/g-crc32.adb:69:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "gnat__crc32__wide_update__2" label: "WIDE_UPDATE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/g-crc32.adb:78:4\n24 bytes (static)\n0 dynamic objects" }
+}

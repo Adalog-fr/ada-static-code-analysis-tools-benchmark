@@ -1,0 +1,32 @@
+authors = [
+"Maxim Reznik",
+]
+description = "Google Protocol Buffers implementation in Ada"
+executables = [
+"protoc-gen-ada",
+]
+licenses = "MIT"
+maintainers = [
+"Maxim Reznik <reznikmm@gmail.com>",
+]
+maintainers-logins = [
+"reznikmm",
+]
+name = "protobuf"
+project-files = [
+"gnat/protoc_gen_ada.gpr",
+]
+tags = [
+"protocol",
+"rpc",
+"generator",
+]
+version = "1.0.0"
+website = "https://github.com/reznikmm/protobuf"
+[environment]
+[environment.PATH]
+prepend = "${CRATE_ROOT}/.objs/compiler"
+[[depends-on]]
+ada_pretty = "*"
+matreshka_league = "*"
+

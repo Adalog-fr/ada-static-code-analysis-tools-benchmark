@@ -1,0 +1,231 @@
+
+
+
+
+
+with "gnatcoll";
+with "gnatcoll_gmp";
+with "gnatcoll_iconv";
+
+   with "langkit_support";
+
+
+
+
+
+
+
+library project Libadalang is
+
+   type Build_Mode_Type is ("dev", "prod", "prof");
+   Build_Mode : Build_Mode_Type := external ("BUILD_MODE", "dev");
+
+   type Library_Kind_Type is ("static", "relocatable", "static-pic");
+   Library_Kind_Param : Library_Kind_Type := external
+     ("LIBRARY_TYPE", external ("LIBADALANG_LIBRARY_TYPE", "static"));
+
+   type Boolean is ("false", "true");
+
+   Externally_Built : Boolean := external
+     ("LIBADALANG_EXTERNALLY_BUILT", "false");
+   for Externally_Built use Externally_Built;
+
+      Enable_Warnings : Boolean :=
+        external ("LIBADALANG_WARNINGS", "false");
+
+   Primary_Source_Dirs := ("/tmp/libadalang-23.0.0/src", "/tmp/lal-23.0.0/extensions/src");
+
+      for Source_Dirs use Primary_Source_Dirs;
+
+   for Languages use 
+   ("Ada", "C")
+;
+   for Library_Name use "adalang";
+   for Library_Kind use Library_Kind_Param;
+
+      for Interfaces use 
+   ("libadalang-analysis.adb", "libadalang-analysis.ads", "libadalang-auto_provider.adb", "libadalang-auto_provider.ads", "libadalang-c.adb", "libadalang-c.ads", "libadalang-common.adb", "libadalang-common.ads", "libadalang-config_pragmas.adb", "libadalang-config_pragmas.ads", "libadalang-config_pragmas_impl.adb", "libadalang-config_pragmas_impl.ads", "libadalang-debug.adb", "libadalang-debug.ads", "libadalang-doc_utils.adb", "libadalang-doc_utils.ads", "libadalang-env_hooks.adb", "libadalang-env_hooks.ads", "libadalang-expr_eval.adb", "libadalang-expr_eval.ads", "libadalang-generic_api-introspection.ads", "libadalang-generic_api.adb", "libadalang-generic_api.ads", "libadalang-helpers.adb", "libadalang-helpers.ads", "libadalang-implementation-c-extensions.adb", "libadalang-implementation-c-extensions.ads", "libadalang-implementation-c.adb", "libadalang-implementation-c.ads", "libadalang-implementation-extensions.adb", "libadalang-implementation-extensions.ads", "libadalang-implementation.adb", "libadalang-implementation.ads", "libadalang-internal_default_provider.adb", "libadalang-internal_default_provider.ads", "libadalang-introspection.adb", "libadalang-introspection.ads", "libadalang-introspection_implementation.adb", "libadalang-introspection_implementation.ads", "libadalang-iterators-extensions.adb", "libadalang-iterators-extensions.ads", "libadalang-iterators.adb", "libadalang-iterators.ads", "libadalang-lexer.adb", "libadalang-lexer.ads", "libadalang-lexer_implementation.adb", "libadalang-lexer_implementation.ads", "libadalang-lexer_state_machine.adb", "libadalang-lexer_state_machine.ads", "libadalang-parsers.adb", "libadalang-parsers.ads", "libadalang-pp_impl.adb", "libadalang-pp_impl.ads", "libadalang-pp_lexer.adb", "libadalang-pp_lexer.ads", "libadalang-preprocessing.adb", "libadalang-preprocessing.ads", "libadalang-private_converters.ads", "libadalang-project_provider.adb", "libadalang-project_provider.ads", "libadalang-public_converters.adb", "libadalang-public_converters.ads", "libadalang-rewriting.adb", "libadalang-rewriting.ads", "libadalang-sources.adb", "libadalang-sources.ads", "libadalang-unit_files.adb", "libadalang-unit_files.ads", "libadalang-unparsing.adb", "libadalang-unparsing.ads", "libadalang.ads")
+;
+
+   for Library_Dir use "lib/" & Library_Kind_Param & "/" & Build_Mode;
+   for Object_Dir use "obj/" & Build_Mode;
+
+   Target := Libadalang'Target;
+
+   package Compiler is
+
+      For_All_Cargs := ("-fPIC");
+
+      ----------------------
+      -- Common_Ada_Cargs --
+      ----------------------
+
+      --  Compilation switches to use for Ada that do not depend on the build
+      --  mode.
+      --
+      --  For generated sources, enable all warnings and treat them as errors,
+      --  except:
+      --    * conditional expressions used in tests that are known to be True
+      --      or False at compile time (C), as this is very common in generated
+      --      properties code;
+      --    * variables that could be turned into constants (K), as this is
+      --      very common in generated parsers code;
+      --    * variables that are assigned and never read (M), as this is also
+      --      common in generated parsers code;
+      --    * redundant constructs (R), as we do have redundant conversions for
+      --      AST nodes (A'Class and B'Class are not compatible even though B
+      --      derives from A).
+      --
+      --  As for style diagnostics:
+      --    * check the casing of attributes (a);
+      --    * check double spaces before comments (c);
+      --    * check the casing of keywords (k);
+      --    * check the casing of entities in Standard (n);
+      --    * check the casing of pragmas (p);
+      --    * check the casing of references is the same as the casing of the
+      --      corresponding defining identifiers (r);
+      --    * check the token spacing (t).
+
+      Manual_Ada_Cargs := ();
+      Generated_Ada_Cargs := ();
+      case Enable_Warnings is
+         when "true" =>
+            Manual_Ada_Cargs := ("-gnatwa", "-gnatyg");
+            Generated_Ada_Cargs := ("-gnatwaCKMR", "-gnatyacknprt");
+         when others =>
+            null;
+      end case;
+
+      ---------------
+      -- Mode_Args --
+      ---------------
+
+      --  Compilation switches for all languages that depend on the build mode
+
+      Mode_Args := ();
+      case Build_Mode is
+         when "dev" =>
+            Mode_Args := ("-g", "-O0");
+
+         when "prof" =>
+            --  Ensure that we have a relatively fast build but with all
+            --  possible stack info & debug info, for profiling.
+            Mode_Args := ("-Og", "-ggdb", "-g3", "-fno-omit-frame-pointer");
+
+         when "prod" =>
+            --  Debug information is useful even with optimization for
+            --  profiling, for instance.
+            Mode_Args := ("-g", "-Ofast");
+      end case;
+
+      -------------------
+      -- Ada_Mode_Args --
+      -------------------
+
+      --  Compilation switches for Ada that depend on the build mode
+
+      Ada_Mode_Args := ();
+      case Build_Mode is
+         when "dev" =>
+            Ada_Mode_Args := ("-gnatwe", "-gnata");
+
+         when "prof" =>
+            null;
+
+         when "prod" =>
+            --  Enable aggressive inlining
+            Ada_Mode_Args := ("-gnatn2");
+      end case;
+
+      -----------------
+      -- C_Mode_Args --
+      -----------------
+
+      --  Compilation switches for C that depend on the build mode
+
+      C_Mode_Args := ();
+      case Build_Mode is
+         when "dev" =>
+            C_Mode_Args := ("-DDEBUG=1");
+
+         when "prof" =>
+            null;
+
+         when "prod" =>
+            null;
+      end case;
+
+      Common_Ada_Cargs := For_All_Cargs & Mode_Args & Ada_Mode_Args;
+      Common_C_Cargs := For_All_Cargs & Mode_Args & C_Mode_Args;
+
+      for Default_Switches ("Ada") use Common_Ada_Cargs & Generated_Ada_Cargs;
+      for Default_Switches ("C") use Common_C_Cargs;
+
+      for Switches ("libadalang-auto_provider.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-auto_provider.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-config_pragmas.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-config_pragmas.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-config_pragmas_impl.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-config_pragmas_impl.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-doc_utils.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-doc_utils.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-env_hooks.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-env_hooks.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-expr_eval.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-expr_eval.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-helpers.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-helpers.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-implementation-c-extensions.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-implementation-c-extensions.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-implementation-extensions.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-implementation-extensions.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-internal_default_provider.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-internal_default_provider.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-iterators-extensions.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-iterators-extensions.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-pp_impl.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-pp_impl.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-pp_lexer.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-pp_lexer.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-preprocessing.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-preprocessing.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-project_provider.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-project_provider.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-sources.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-sources.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-unit_files.adb") use Common_Ada_Cargs & Manual_Ada_Cargs;
+      for Switches ("libadalang-unit_files.ads") use Common_Ada_Cargs & Manual_Ada_Cargs;
+
+      case Build_Mode is
+         when "dev" =>
+            null;
+
+         when "prof" =>
+            null;
+
+         when "prod" =>
+            
+      --  vim: filetype=ada
+
+for Switches ("libadalang-unit_files.adb") use
+   Common_Ada_Cargs & Manual_Ada_Cargs & ("-O1");
+
+--  Code for properties are just too big, which leads GCC to print:
+--
+--  libadalang-implementation.adb:[...] note: variable tracking size limit
+--     exceeded with '-fvar-tracking-assignments', retrying without
+--
+--  Disabling var-tracking from the start saves compilation time (2min50 down
+--  to 2min30 on a standard development machine). Likewise for
+--  libadalang-introspection_implementation.adb.
+
+for Switches ("libadalang-implementation.adb") use
+   Common_Ada_Cargs & Generated_Ada_Cargs & ("-fno-var-tracking-assignments");
+for Switches ("libadalang-introspection_implementation.adb") use
+   Common_Ada_Cargs & Generated_Ada_Cargs & ("-fno-var-tracking-assignments");
+
+
+      end case;
+   end Compiler;
+
+end Libadalang;

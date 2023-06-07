@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ZanyBlue Formatting Implementation &mdash; ZanyBlue 1.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZanyBlue 1.4.0 documentation" href="../index.html" />
+    <link rel="up" title="The Text Package" href="index.html" />
+    <link rel="next" title="Locale Type" href="locale-type.html" />
+    <link rel="prev" title="Stub Implementations" href="stubs.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="zanyblue-formatting-implementation">
+<h1>ZanyBlue Formatting Implementation<a class="headerlink" href="#zanyblue-formatting-implementation" title="Permalink to this headline">¶</a></h1>
+<p>The primary formatting method is the <tt class="docutils literal"><span class="pre">Format</span></tt> set of functions
+which format a message given a facility name, a key within that
+facility and a set of arguments (either as an <tt class="docutils literal"><span class="pre">Argument_List</span></tt>
+or as individual &#8220;boxed&#8221; arguments).  The final two arguments for
+both this set of <tt class="docutils literal"><span class="pre">Format</span></tt> functions or the <tt class="docutils literal"><span class="pre">Print</span></tt> and
+<tt class="docutils literal"><span class="pre">Print_Line</span></tt> procedures (explained later) is the locale
+and the catalog.  All the functions and procedures defined in
+this section are defined in the package <tt class="docutils literal"><span class="pre">ZanyBlue.Text.Formatting</span></tt>
+which is generally the only ZanyBlue package needed by applications.</p>
+<p>The locale defaults to the current locale and generally need not be
+specified.  A possible example of where a locale would need to be
+specified would be a client/server application where the client sends
+a locale name defining their preferred locale for messages.</p>
+<p>The use of the catalog argument is even rarer and allows messages
+to be defined/loaded into separate catalogs.  The ZanyBlue library
+maintains a global common catalog which is used as the default for
+all functions and procedures that take catalog arguments.</p>
+<div class="section" id="format-functions">
+<h2>Format Functions<a class="headerlink" href="#format-functions" title="Permalink to this headline">¶</a></h2>
+<p>The specification of the <tt class="docutils literal"><span class="pre">Format</span></tt> function is</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nf">Format</span> <span class="p">(</span><span class="nv">Facility</span>  <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Key</span>       <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Arguments</span> <span class="p">: </span><span class="nv">Argument_List</span><span class="p">;</span>
+                 <span class="nv">Locale</span>    <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">;</span>
+                 <span class="nv">Catalog</span>   <span class="p">: </span><span class="nv">Catalog_Type</span> <span class="p">:=</span> <span class="nv">Standard_Catalog</span><span class="p">)</span>
+   <span class="kr">return</span> <span class="kt">Wide_String</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>along with the in-line boxed argument version:</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nf">Format</span> <span class="p">(</span><span class="nv">Facility</span>  <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Key</span>       <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Argument0</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument1</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument2</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument3</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument4</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Locale</span>    <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">;</span>
+                 <span class="nv">Catalog</span>   <span class="p">: </span><span class="nv">Catalog_Type</span> <span class="p">:=</span> <span class="nv">Standard_Catalog</span><span class="p">)</span>
+   <span class="kr">return</span> <span class="kt">Wide_String</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="print-procedures">
+<h2>Print Procedures<a class="headerlink" href="#print-procedures" title="Permalink to this headline">¶</a></h2>
+<p>Corresponding to the formatting functions, a set of <tt class="docutils literal"><span class="pre">Print</span></tt> and
+<tt class="docutils literal"><span class="pre">Print_Line</span></tt> procedures are available which print to the formatted
+message to the standard output file or the given file argument.  These
+procedures have versions that take both an argument list, i.e.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">procedure</span> <span class="nf">Print</span> <span class="p">(</span><span class="nv">Facility</span>  <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Key</span>       <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Arguments</span> <span class="p">: </span><span class="nv">Argument_List</span><span class="p">;</span>
+                 <span class="nv">Locale</span>    <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">;</span>
+                 <span class="nv">Catalog</span>   <span class="p">: </span><span class="nv">Catalog_Type</span> <span class="p">:=</span> <span class="nv">Standard_Catalog</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>and the in-line &#8220;boxed&#8221; arguments, e.g.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">procedure</span> <span class="nf">Print</span> <span class="p">(</span><span class="nv">Facility</span>  <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Key</span>       <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Argument0</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument1</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument2</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument3</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Argument4</span> <span class="p">: </span><span class="nv">Argument_Type</span><span class="p">&#39;</span><span class="na">Class</span> <span class="p">:=</span> <span class="nv">Null_Argument</span><span class="p">;</span>
+                 <span class="nv">Locale</span>    <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">;</span>
+                 <span class="nv">Catalog</span>   <span class="p">: </span><span class="nv">Catalog_Type</span> <span class="p">:=</span> <span class="nv">Standard_Catalog</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>There are two options available when printing output to the <tt class="docutils literal"><span class="pre">Current_Output</span></tt>:
+use the <tt class="docutils literal"><span class="pre">Text_IO.Current_Output</span></tt> or <tt class="docutils literal"><span class="pre">Wide_Text_IO.Current_Output</span></tt>.  The
+default uses the <tt class="docutils literal"><span class="pre">Wide_Text_IO</span></tt> version which defers any encoding to the
+Ada run-time (e.g., the GNAT <tt class="docutils literal"><span class="pre">-gnatW8</span></tt> command line option, etc).  To use
+the <tt class="docutils literal"><span class="pre">Text_IO</span></tt> version, the <tt class="docutils literal"><span class="pre">Formatting</span></tt> routing <tt class="docutils literal"><span class="pre">Disable_Wide_IO</span></tt>
+should be used.  This allows the ZanyBlue library to honour the encoding
+specified via the environment and is recommended, e.g.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Disable_Wide_IO</span><span class="p">;</span>
+<span class="n">Print_Line</span> <span class="p">(</span><span class="s">&quot;xmpl&quot;</span><span class="p">,</span> <span class="s">&quot;0001&quot;</span><span class="p">,</span> <span class="o">+</span><span class="n">My_Var</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The routine <tt class="docutils literal"><span class="pre">Enable_Wide_IO</span></tt> is available to re-enable the use of the
+<tt class="docutils literal"><span class="pre">Wide_Text_IO</span></tt> destination.</p>
+<p>The signature for the <tt class="docutils literal"><span class="pre">Print_Line</span></tt> versions are similar.  Both the
+<tt class="docutils literal"><span class="pre">Print</span></tt> and <tt class="docutils literal"><span class="pre">Print_Line</span></tt> procedure sets have corresponding
+versions that take a first argument giving the destination file, e.g.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">procedure</span> <span class="nf">Print</span> <span class="p">(</span><span class="nv">Destination</span> <span class="p">: </span><span class="nv">Ada</span><span class="p">.</span><span class="nv">Wide_Text_IO</span><span class="p">.</span><span class="nv">File_Type</span><span class="p">;</span>
+                 <span class="nv">Facility</span>    <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Key</span>         <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Arguments</span>   <span class="p">: </span><span class="nv">Argument_List</span><span class="p">;</span>
+                 <span class="nv">Locale</span>      <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">;</span>
+                 <span class="nv">Catalog</span>     <span class="p">: </span><span class="nv">Catalog_Type</span> <span class="p">:=</span> <span class="nv">Standard_Catalog</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plain-formatting-versions">
+<h2>Plain Formatting Versions<a class="headerlink" href="#plain-formatting-versions" title="Permalink to this headline">¶</a></h2>
+<p>Both the <tt class="docutils literal"><span class="pre">Format</span></tt> functions and <tt class="docutils literal"><span class="pre">Print</span></tt> procedure have versions
+that take a message format instead and arguments (either as an argument
+list or as in-line &#8220;boxed&#8221; arguments), e.g.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nf">Format</span> <span class="p">(</span><span class="nv">Text</span>      <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                 <span class="nv">Arguments</span> <span class="p">: </span><span class="nv">Argument_List</span><span class="p">;</span>
+                 <span class="nv">Locale</span>    <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">)</span>
+   <span class="kr">return</span> <span class="kt">Wide_String</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The locale argument is still required in this context as arguments are
+still formatted within the context of a locale.</p>
+<p>Usage of these functions and procedures do not externalize the message
+text and, as such, do little to help internationalize applications.</p>
+</div>
+<div class="section" id="localized-exceptions">
+<h2>Localized Exceptions<a class="headerlink" href="#localized-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Ada allows exceptions to be raised with a message string, e.g.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">raise</span> <span class="n">My_Exception</span> <span class="kn">with</span> <span class="s">&quot;Something is wrong here&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The ZanyBlue library includes <tt class="docutils literal"><span class="pre">Raise_Exception</span></tt> procedures with
+signatures paralleling the <tt class="docutils literal"><span class="pre">Format</span></tt> methods.  The procedures
+raise the identified exception with a localized formatted messages.
+Since the Ada standard defines exception message to be a <tt class="docutils literal"><span class="pre">String</span></tt>,
+the formatted <tt class="docutils literal"><span class="pre">Wide_String</span></tt> is converted to a <tt class="docutils literal"><span class="pre">String</span></tt> by
+UTF-8 encoding the <tt class="docutils literal"><span class="pre">Wide_String</span></tt>.  The specification of the
+argument list version of this procedure is</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kd">procedure</span> <span class="nf">Raise_Exception</span> <span class="p">(</span><span class="nv">E</span>         <span class="p">: </span><span class="nv">Ada</span><span class="p">.</span><span class="nv">Exceptions</span><span class="p">.</span><span class="nv">Exception_Id</span><span class="p">;</span>
+                           <span class="nv">Facility</span>  <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                           <span class="nv">Key</span>       <span class="p">: </span><span class="nv">Wide_String</span><span class="p">;</span>
+                           <span class="nv">Arguments</span> <span class="p">: </span><span class="nv">Argument_List</span><span class="p">;</span>
+                           <span class="nv">Locale</span>    <span class="p">: </span><span class="nv">Locale_Type</span> <span class="p">:=</span> <span class="nv">Current_Locale</span><span class="p">;</span>
+                           <span class="nv">Catalog</span>   <span class="p">: </span><span class="nv">Catalog_Type</span> <span class="p">:=</span> <span class="nv">Standard_Catalog</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The conversion of <tt class="docutils literal"><span class="pre">Wide_String</span></tt> to an UTF-8 encoded <tt class="docutils literal"><span class="pre">String</span></tt> uses
+the GNAT specific Unicode functions.</p>
+</div>
+<div class="section" id="missing-arguments-and-exceptions">
+<h2>Missing Arguments and Exceptions<a class="headerlink" href="#missing-arguments-and-exceptions" title="Permalink to this headline">¶</a></h2>
+<p>Format strings refer to arguments by index, e.g.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>moons=There are {0} moons orbiting &quot;{1}&quot;.
+</pre></div>
+</div>
+<p>expects two &#8220;boxed&#8221; arguments.  If supplied with less than expected, e.g.,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Print_Line</span> <span class="p">(</span><span class="s">&quot;myapp&quot;</span><span class="p">,</span> <span class="s">&quot;moons&quot;</span><span class="p">,</span> <span class="o">+</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>where the planet name is not supplied, is, by default, considered an error
+and the exception <tt class="docutils literal"><span class="pre">No_Such_Argument_Error</span></tt> is raised.  This behavior
+can be adjusted by calling the catalogs routine <tt class="docutils literal"><span class="pre">Disable_Exceptions</span></tt>.
+When exceptions are disabled, missing arguments are replaced in the formatted
+string with the format information enclosed in vertical bars rather than
+braces.</p>
+<p>The <tt class="docutils literal"><span class="pre">Disable_Exceptions</span></tt> has an inverse routine <tt class="docutils literal"><span class="pre">Enable_Exceptions</span></tt>
+which re-enables exceptions.  This is either on the default standard catalog
+or a user supplied argument catalog.  The status of exceptions for a catalog
+can be queried using the function <tt class="docutils literal"><span class="pre">Exceptions_Enabled</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/zb-logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ZanyBlue Formatting Implementation</a><ul>
+<li><a class="reference internal" href="#format-functions">Format Functions</a></li>
+<li><a class="reference internal" href="#print-procedures">Print Procedures</a></li>
+<li><a class="reference internal" href="#plain-formatting-versions">Plain Formatting Versions</a></li>
+<li><a class="reference internal" href="#localized-exceptions">Localized Exceptions</a></li>
+<li><a class="reference internal" href="#missing-arguments-and-exceptions">Missing Arguments and Exceptions</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">The Text Package</a><ul>
+      <li>Previous: <a href="stubs.html" title="previous chapter">Stub Implementations</a></li>
+      <li>Next: <a href="locale-type.html" title="next chapter">Locale Type</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/text/format-impl.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Michael Rohan <mrohan@zanyblue.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/text/format-impl.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

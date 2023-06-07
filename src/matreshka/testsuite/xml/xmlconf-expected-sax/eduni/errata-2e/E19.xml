@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>eduni/errata-2e</baseURI>
+    <systemID>E19.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>foo</localName>
+    <qualifiedName>foo</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>h</characters>
+  <characters>e</characters>
+  <characters>l</characters>
+  <characters>l</characters>
+  <characters>o</characters>
+  <characters>&#x20;</characters>
+  <characters>!</characters>
+  <characters>&#x20;</characters>
+  <characters>g</characters>
+  <characters>o</characters>
+  <characters>o</characters>
+  <characters>d</characters>
+  <characters>b</characters>
+  <characters>y</characters>
+  <characters>e</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>foo</localName>
+    <qualifiedName>foo</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

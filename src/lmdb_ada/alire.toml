@@ -1,0 +1,33 @@
+authors = ["nytpu"]
+description = "Bindings to the Lightning Memory-Mapped Database"
+licenses = "BSD-2-Clause AND OLDAP-2.8+"
+maintainers = ["nytpu <alex@nytpu.com>"]
+maintainers-logins = ["nytpu"]
+name = "lmdb_ada"
+project-files = ["lmdb.gpr"]
+tags = ["database","key-value"]
+version = "1.1.0"
+website = "https://git.sr.ht/~nytpu/lmdb-ada"
+
+[gpr-externals]
+LMDB_BUILD_MODE = ["debug","optimize"]
+LMDB_COMPILE_CHECKS = ["enabled","disabled"]
+LMDB_CONTRACTS = ["enabled","disabled"]
+LMDB_LIBRARY_TYPE = ["dynamic","relocatable","static","static-pic"]
+LMDB_PLATFORM = ["unix","windows"]
+LMDB_RUNTIME_CHECKS = ["enabled","disabled"]
+LMDB_STYLE_CHECKS = ["enabled","disabled"]
+
+[gpr-set-externals]
+LMDB_PLATFORM = "unix"
+
+[[depends-on]]
+gnatcoll = "*"
+
+[[pins]]
+
+[pins.gnatcoll]
+path = "../gnatcoll-core"
+
+[build-switches."*"]
+Compile_Checks = "none"

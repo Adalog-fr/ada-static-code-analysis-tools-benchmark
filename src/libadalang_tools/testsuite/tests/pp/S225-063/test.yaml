@@ -1,0 +1,4 @@
+description:
+    gnatpp test
+
+driver: python_script

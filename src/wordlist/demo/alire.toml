@@ -1,0 +1,24 @@
+name = "demo"
+description = "Shiny new project"
+version = "0.1.0-dev"
+authors = ["Alejandro R. Mosteo"]
+maintainers = ["Alejandro R. Mosteo <alejandro@mosteo.com>"]
+maintainers-logins = ["mosteo"]
+executables = ["demo"]
+
+[[depends-on]]
+wordlist = "*"
+
+[[pins]]
+
+[pins.wordlist]
+path = ".."
+
+[build-profiles]
+"*" = "development"
+
+[configuration.values.wordlist]
+Logging = true
+
+[build-switches."*"]
+Compile_Checks = "none"

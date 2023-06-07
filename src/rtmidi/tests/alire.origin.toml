@@ -1,0 +1,14 @@
+name = "tests"
+description = ""
+version = "0.1.0-dev"
+executables = ["tests"]
+
+[[depends-on]]
+rtmidi = "*"
+aaa = "~0.2.6"
+
+[[pins]]
+rtmidi = { path = ".."}
+
+[build-profiles]
+rtmidi = "Development"

@@ -1,0 +1,19 @@
+authors = [
+"Alejandro R. Mosteo",
+]
+description = "Keep track of elapsed time"
+licenses = "MIT"
+maintainers = [
+"Alejandro R. Mosteo <alejandro@mosteo.com>",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "stopwatch"
+tags = [
+"timer",
+"stopwatch",
+"chronometer",
+]
+version = "0.1.0"
+

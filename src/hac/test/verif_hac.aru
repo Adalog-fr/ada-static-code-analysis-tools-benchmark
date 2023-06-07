@@ -1,0 +1,20 @@
+------------------------------------------------
+--  AdaControl verification rules             --
+--  https://www.adalog.fr/en/adacontrol.html  --
+------------------------------------------------
+
+-- Set for HAC (HAC Ada Compiler).
+
+--------------------------------------
+--  (1) Required ("check" command)  --
+--------------------------------------
+
+check style (no_closing_name);
+check style (negative_condition);
+check style (casing_keyword, lowercase);
+
+------------------------------------------------------------------
+--  (2) Acceptable, but should be looked at ("search" command)  --
+------------------------------------------------------------------
+
+search simplifiable_statements;

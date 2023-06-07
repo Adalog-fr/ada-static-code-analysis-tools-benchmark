@@ -1,0 +1,24 @@
+name = "hello"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Jeremy Grosser"]
+maintainers = ["Jeremy Grosser <jeremy@synack.me>"]
+maintainers-logins = ["JeremyGrosser"]
+executables = ["hello"]
+
+[[depends-on]]
+epoll = "*"
+
+[[pins]]
+
+[pins.epoll]
+path = ".."
+
+[gpr-set-externals]
+EPOLL_COMPILE_CHECKS = "enabled"
+EPOLL_STYLE_CHECKS = "enabled"
+EPOLL_RUNTIME_CHECKS = "enabled"
+EPOLL_BUILD_MODE = "debug"
+
+[build-switches."*"]
+Compile_Checks = "none"

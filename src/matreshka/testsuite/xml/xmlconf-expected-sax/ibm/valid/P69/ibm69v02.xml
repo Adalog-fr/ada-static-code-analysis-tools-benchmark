@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>%pe1</name>
+    <baseURI>ibm/valid/P69</baseURI>
+    <systemID>ibm69v02.ent</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>&#xA;</characters>
+  <characters>&#x20;</characters>
+  <characters>&#x20;</characters>
+  <characters>p</characters>
+  <characters>c</characters>
+  <characters>d</characters>
+  <characters>a</characters>
+  <characters>t</characters>
+  <characters>a</characters>
+  <characters>&#x20;</characters>
+  <characters>c</characters>
+  <characters>o</characters>
+  <characters>n</characters>
+  <characters>t</characters>
+  <characters>e</characters>
+  <characters>n</characters>
+  <characters>t</characters>
+  <characters>&#xA;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

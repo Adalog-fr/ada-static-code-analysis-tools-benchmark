@@ -1,0 +1,41 @@
+authors = ["Simon Wright <simon@pushface.org>"]
+description = "Embedded Web Server"
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+long-description = "EWS is a web server construction kit, designed for embedded\napplications using the GNAT Ada compiler.\n\nThe project is hosted at https://github.com/simonjwright/ews.\n\n"
+maintainers = ["Simon Wright <simon@pushface.org>"]
+maintainers-logins = ["simonjwright"]
+name = "ews"
+project-files = ["ews.gpr"]
+tags = ["web","server"]
+version = "1.11.0"
+website = "https://github.com/simonjwright/ews"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[environment.PATH]
+append = "${CRATE_ROOT}/bin"
+
+[gpr-externals]
+LIBRARY_TYPE = ["relocatable","static"]
+
+[[actions]]
+command = ["gprbuild","-P","generator/ews_generator.gpr"]
+directory = "."
+type = "post-build"
+
+[[depends-on]]
+xmlada = "*"
+
+[[pins]]
+
+[pins.xmlada]
+path = "../xmlada"
+
+[build-switches."*"]
+Compile_Checks = "none"

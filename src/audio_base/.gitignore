@@ -1,0 +1,14 @@
+# Object file
+*.o
+
+# Ada Library Information
+*.ali
+
+# Alire
+alire
+alire.lock
+
+# Directories
+bin
+lib
+obj

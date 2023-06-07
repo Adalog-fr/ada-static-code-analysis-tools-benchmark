@@ -1,0 +1,10 @@
+declaration
+  : IDENTIFIER COLON IDENTIFIER SEMICOLON
+  ;
+
+;;EMACSCMD:(progn (end-of-line 4)(insert "\n  | declarations declarations"))
+declarations
+  : declaration
+  | declarations declarations
+  ;
+;;EMACSCMD:(delete-region (line-beginning-position -2)(line-beginning-position -1))

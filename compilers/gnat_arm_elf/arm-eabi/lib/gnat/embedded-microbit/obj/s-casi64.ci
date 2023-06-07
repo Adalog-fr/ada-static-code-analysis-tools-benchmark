@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-casi64.adb"
+node: { title: "system__compare_array_signed_64__compare_array_s64" label: "Compare_Array_S64\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-casi64.adb:56:4\n36 bytes (static)\n0 dynamic objects" }
+}

@@ -1,0 +1,28 @@
+#bingada-de.po
+
+msgid "exit_message"
+msgstr "Auf Wiedersehen!"
+
+msgid "menu_new_game"
+msgstr "_Neues Spiel"
+
+msgid "menu_auto_spin"
+msgstr "_Automatische Drehung"
+
+msgid "menu_pause"
+msgstr "_Pausieren"
+
+msgid "menu_check_cards"
+msgstr "_Karten prüfen"
+
+msgid "menu_toggle_style"
+msgstr "_Stil schalten"
+
+msgid "menu_exit"
+msgstr "_Beenden"
+
+msgid "menu_help"
+msgstr "_Hilfe"
+
+msgid "main_menu"
+msgstr "S_piel"

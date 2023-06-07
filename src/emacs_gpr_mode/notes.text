@@ -1,0 +1,90 @@
+General notes on Emacs gpr mode
+
+build/Makefile   wisi
+Alire.make       Alire
+ELPA.make        elpa
+(load-file "build/prj-eglot.el")
+
+o.e.g-m: release, in use
+o.e.g-m.stephe-1 (o.e.w.stephe-1/o.w.s-1/o.s_l.sal.s-1): work
+o.e.g-m.stephe-2 (o.e.w.stephe-2/o.w.s-3/o.s_l.sal.s-2): available
+o.e.g-m.stephe-3 (o.s_l.sal.s_1, o.w.s_1, o.e.w.s_4): available
+
+(dvc-state-multiple
+'((xgit . "/Projects/org.stephe_leake.makerules")
+  (xgit . "/Projects/org.stephe_leake.sal")
+  (xgit . "/Projects/org.stephe_leake.aunit_ext")
+  (xgit . "/Projects/org.wisitoken")
+  (xgit . "/Projects/org.emacs.wisi/")
+  (xgit . "/Projects/org.emacs.gpr-mode/")))
+
+(dvc-propagate-multiple
+ '(("../org.stephe_leake.sal"  . "../org.stephe_leake.sal.stephe-1")
+   ("../org.wisitoken"         . "../org.wisitoken.stephe-1")
+   ("../org.emacs.wisi"        . "../org.emacs.wisi.stephe-1")
+   ("../org.emacs.gpr-mode"    . "../org.emacs.ada-mode.stephe-2")))
+
+(dvc-state-multiple
+'((xgit . "/Projects/org.stephe_leake.makerules")
+  (xgit . "/Projects/org.stephe_leake.aunit_ext")
+  (xgit . "/Projects/org.stephe_leake.sal.stephe-1")
+  (xgit . "/Projects/org.wisitoken.stephe-1")
+  (xgit . "/Projects/org.emacs.wisi.stephe-1")
+  (xgit . "/Projects/org.emacs.gpr-mode.stephe-2")))
+
+(dvc-propagate-multiple
+ '(("../org.stephe_leake.sal.stephe-1" . "../org.stephe_leake.sal")
+   ("../org.wisitoken.stephe-1"        . "../org.wisitoken")
+   ("../org.emacs.wisi.stephe-1"       . "../org.emacs.wisi")
+   ("../org.emacs.gpr-mode.stephe-2"   . "../org.emacs.gpr-mode")))
+
+ current work
+create d:/Web/savannah/gpr-mode/index.html
+
+There is a gpr_lsp, bundled with ada_lsp
+
+ release process
+keep status in ~/projects.text
+see ada-mode notes for full process; only gpr-specific notes here
+do sal, wisitoken, wisi
+
+(dvc-status "/Projects/elpa/packages/gpr-mode")
+(dvc-pull "/Projects/elpa/packages/gpr-mode")
+(dvc-sync-review "/Projects/elpa/packages/gpr-mode")
+
+https://debbugs.gnu.org/cgi/pkgreport.cgi?package=gpr-mode
+
+(ediff-directories "/Projects/elpa_release/gpr-mode" "/Projects/org.emacs.gpr-mode" nil)
+
+c:/Projects/elpa/GNUMakefile check/gpr-mode
+
+bump versions
+    wisi-gpr.ads
+    gpr-mode.el
+    NEWS
+    gpr-mode.texi
+    README
+    build.sh
+    alire.toml
+
+-------------------
+Gnu Emacs gpr mode 1.0.0 released.
+-------------------
+
+Gnu Emacs gpr mode 1.0.0 is now available in GNU ELPA.
+
+This is the first release as a separate ELPA package; used to be
+bundled with ada-mode.
+
+See the NEWS file in ~/.emacs.d/elpa/gpr-mode-1.0.0
+or at https://www.nongnu.org/ada-mode/, for more details.
+
+The required Ada code requires a manual compile step, after the normal
+list-packages installation ('install.sh' is new in this release):
+
+cd ~/.emacs.d/elpa/gpr-mode-1.0.0
+./build.sh
+./install.sh
+-------------------
+
+-- end of file

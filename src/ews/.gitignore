@@ -1,0 +1,20 @@
+syntax: glob
+
+# general
+*~
+*.ali
+*.exe
+*.o
+*.orig
+*-stamp
+
+# Alire stuff
+alire/
+config/
+
+# Ada build stuff
+.build*
+bin
+include
+lib-relocatable
+lib-static

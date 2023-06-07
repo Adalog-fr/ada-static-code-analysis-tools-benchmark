@@ -1,0 +1,25 @@
+authors = [
+"onox",
+]
+description = "XDG Base Directory Specification"
+licenses = "Apache-2.0"
+maintainers = [
+"onox <denkpadje@gmail.com>",
+]
+maintainers-logins = [
+"onox",
+]
+name = "xdg_base_dir"
+tags = [
+"xdg",
+]
+version = "1.0.0"
+website = "https://github.com/onox/xdg-base-dir"
+[build-switches]
+[build-switches."*"]
+style_checks = [
+"-gnatygAOM99-Is",
+]
+[build-switches.validation]
+compile_checks = "warnings"
+

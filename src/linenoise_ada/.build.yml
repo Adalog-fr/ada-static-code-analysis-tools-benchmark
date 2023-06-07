@@ -1,0 +1,15 @@
+image: debian/stable
+packages:
+  - gnat
+  - gprbuild
+  - libahven9-dev
+  - libahven30
+sources:
+  - https://git.sr.ht/~nytpu/linenoise-ada
+tasks:
+  - build: |
+      cd linenoise-ada
+      make
+  - example: |
+      cd linenoise-ada
+      make example

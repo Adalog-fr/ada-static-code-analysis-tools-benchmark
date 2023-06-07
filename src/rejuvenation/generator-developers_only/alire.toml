@@ -1,0 +1,22 @@
+name = "generator"
+description = "match generator for libadalang - developers only"
+version = "23.0.0"
+authors = ["Pierre van de Laar"]
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+executables = ["main_generator"]
+
+[[depends-on]]
+libadalang = "*"
+rejuvenation = "^23.0.0"
+
+[[pins]]
+
+[pins.rejuvenation]
+path = ".."
+
+[pins.libadalang]
+path = "../../libadalang"
+
+[build-switches."*"]
+Compile_Checks = "none"

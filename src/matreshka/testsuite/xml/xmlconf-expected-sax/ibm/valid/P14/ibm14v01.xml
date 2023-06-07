@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>student</localName>
+    <qualifiedName>student</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>first</localName>
+        <qualifiedName>first</qualifiedName>
+        <value>Snow</value>
+        <type>CDATA</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>true</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>student</localName>
+    <qualifiedName>student</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

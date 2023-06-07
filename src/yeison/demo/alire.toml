@@ -1,0 +1,18 @@
+name = "demo"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Alejandro R. Mosteo"]
+maintainers = ["Alejandro R. Mosteo <alejandro@mosteo.com>"]
+maintainers-logins = ["mosteo"]
+executables = ["demo"]
+
+[[depends-on]]
+yeison = "*"
+
+[[pins]]
+
+[pins.yeison]
+path = "../../yeison"
+
+[build-switches."*"]
+Compile_Checks = "none"

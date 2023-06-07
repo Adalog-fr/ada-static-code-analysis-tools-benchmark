@@ -1,0 +1,3 @@
+package Ada_Static_Code_Analysis_Benchmark is
+
+end Ada_Static_Code_Analysis_Benchmark;

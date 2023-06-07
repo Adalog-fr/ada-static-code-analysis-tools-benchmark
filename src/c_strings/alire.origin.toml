@@ -1,0 +1,14 @@
+authors = [
+"Alejandro R. Mosteo",
+]
+description = "Convenience subprograms to interact with C strings"
+licenses = "LGPL-3.0-only"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "c_strings"
+version = "1.0.0"
+

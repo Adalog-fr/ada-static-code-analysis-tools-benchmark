@@ -1,0 +1,265 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "lace"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = ".."
+[[solution.state]]
+crate = "lace_box2d"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_box2d"
+[[solution.state]]
+crate = "lace_bullet"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_bullet"
+[[solution.state]]
+crate = "lace_c_math"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_c_math"
+[[solution.state]]
+crate = "lace_collada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../lace_collada"
+[[solution.state]]
+crate = "lace_math"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../lace_math"
+[[solution.state]]
+crate = "lace_opengl"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../lace_opengl"
+[[solution.state]]
+crate = "lace_physics"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../lace_physics"
+[[solution.state]]
+crate = "lace_shared"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_shared"
+[[solution.state]]
+crate = "lace_swig"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../lace_swig"
+[[solution.state]]
+crate = "lace_xml"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../lace_xml"
+[[solution.state]]
+crate = "libbullet"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "*"
+[solution.state.release]
+authors = [
+"Erwin Coumans",
+]
+description = "Bullet physics library."
+licenses = "Zlib"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "libbullet"
+notes = "Provided by system package: libbullet-dev"
+tags = [
+"physics",
+"game",
+"simulation",
+"robotics",
+]
+version = "3.6.0"
+website = "https://pybullet.org"
+[solution.state.release.origin]
+url = "system:libbullet-dev"
+[[solution.state]]
+crate = "libexpat"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "*"
+[solution.state.release]
+description = "Expat is a stream-oriented XML 1.0 parser library"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "libexpat"
+notes = "Provided by system package: libexpat1-dev"
+version = "2.2.10"
+[solution.state.release.origin]
+url = "system:libexpat1-dev"
+[[solution.state]]
+crate = "libfreetype"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2"
+[solution.state.release]
+description = "A freely available software library to render fonts"
+maintainers = [
+"contact@flyx.org",
+]
+maintainers-logins = [
+"flyx",
+]
+name = "libfreetype"
+notes = "Provided by system package: libfreetype6-dev"
+version = "2.10.4"
+[solution.state.release.origin]
+url = "system:libfreetype6-dev"
+[[solution.state]]
+crate = "libsdl2"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2.0.0"
+[solution.state.release]
+description = "Simple DirectMedia Layer development files"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libsdl2"
+notes = "Provided by system package: libsdl2-dev"
+version = "2.0.14"
+[solution.state.release.origin]
+url = "system:libsdl2-dev"
+[[solution.state]]
+crate = "libsdl2_image"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2.0.0"
+[solution.state.release]
+description = "Simple DirectMedia Layer development files - Image"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libsdl2_image"
+notes = "Provided by system package: libsdl2-image-dev"
+version = "2.0.5"
+[solution.state.release.origin]
+url = "system:libsdl2-image-dev"
+[[solution.state]]
+crate = "libsdl2_ttf"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^2.0.0"
+[solution.state.release]
+description = "Simple DirectMedia Layer development files - TTF"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libsdl2_ttf"
+notes = "Provided by system package: libsdl2-ttf-dev"
+version = "2.0.15"
+[solution.state.release.origin]
+url = "system:libsdl2-ttf-dev"
+[[solution.state]]
+crate = "make"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "*"
+[solution.state.release]
+description = "Utility for directing compilation"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "make"
+notes = "Provided by system package: make"
+version = "4.3.0"
+[solution.state.release.origin]
+url = "system:make"
+[[solution.state]]
+crate = "sdlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../sdlada"
+

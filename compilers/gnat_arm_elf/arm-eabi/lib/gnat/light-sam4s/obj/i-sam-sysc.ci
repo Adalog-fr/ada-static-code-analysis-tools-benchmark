@@ -1,0 +1,74 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads"
+node: { title: "interfaces__sam__sysc__cr_timevsel_fieldH" label: "cr_timevsel_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__mr_out0_fieldH" label: "mr_out0_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__mr_out1_fieldH" label: "mr_out1_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__mr_thigh_fieldH" label: "mr_thigh_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__mr_tperiod_fieldH" label: "mr_tperiod_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__smmr_smsmpl_fieldH" label: "smmr_smsmpl_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__wumr_wkupdbc_fieldH" label: "wumr_wkupdbc_fieldH\n<built-in>\n28 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__wumr_lpdbc_fieldH" label: "wumr_lpdbc_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__Tgpbr_gpbr_registersBIP" label: "Tgpbr_gpbr_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__gpbr_peripheralIP" label: "gpbr_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rstc_cr_registerIP" label: "rstc_cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rstc_sr_registerIP" label: "rstc_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rstc_mr_registerIP" label: "rstc_mr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rstc_peripheralIP" label: "rstc_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__rstc_peripheralIP" targetname: "interfaces__sam__sysc__rstc_mr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1590:7" }
+node: { title: "interfaces__sam__sysc__rtc_cr_registerIP" label: "rtc_cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_mr_registerIP" label: "rtc_mr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_timr_registerIP" label: "rtc_timr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_calr_registerIP" label: "rtc_calr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_timalr_registerIP" label: "rtc_timalr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_calalr_registerIP" label: "rtc_calalr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_sr_registerIP" label: "rtc_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_sccr_registerIP" label: "rtc_sccr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_ier_registerIP" label: "rtc_ier_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_idr_registerIP" label: "rtc_idr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_imr_registerIP" label: "rtc_imr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_ver_registerIP" label: "rtc_ver_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtc_peripheralIP" label: "rtc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_cr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1607:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_mr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1609:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_timr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1611:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_calr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1613:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_timalr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1615:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_calalr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1617:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_sccr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1621:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_ier_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1623:7" }
+edge: { sourcename: "interfaces__sam__sysc__rtc_peripheralIP" targetname: "interfaces__sam__sysc__rtc_idr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1625:7" }
+node: { title: "interfaces__sam__sysc__rtt_mr_registerIP" label: "rtt_mr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtt_sr_registerIP" label: "rtt_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__rtt_peripheralIP" label: "rtt_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__rtt_peripheralIP" targetname: "interfaces__sam__sysc__rtt_mr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1655:7" }
+node: { title: "interfaces__sam__sysc__supc_cr_registerIP" label: "supc_cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_smmr_registerIP" label: "supc_smmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_mr_registerIP" label: "supc_mr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_wumr_registerIP" label: "supc_wumr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__Tsupc_wuir_wkupen_field_arrayBIP" label: "Tsupc_wuir_wkupen_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_wuir_wkupen_fieldEQ" label: "supc_wuir_wkupen_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_wuir_wkupen_fieldIP" label: "supc_wuir_wkupen_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__Tsupc_wuir_wkupt_field_arrayBIP" label: "Tsupc_wuir_wkupt_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_wuir_wkupt_fieldEQ" label: "supc_wuir_wkupt_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_wuir_wkupt_fieldIP" label: "supc_wuir_wkupt_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_wuir_registerEQ" label: "supc_wuir_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__sam__sysc__supc_wuir_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1264:9" }
+node: { title: "interfaces__sam__sysc__supc_wuir_registerIP" label: "supc_wuir_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__Tsupc_sr_wkupis_field_arrayBIP" label: "Tsupc_sr_wkupis_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_sr_wkupis_fieldEQ" label: "supc_sr_wkupis_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_sr_wkupis_fieldIP" label: "supc_sr_wkupis_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_sr_registerEQ" label: "supc_sr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__supc_sr_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1440:9" }
+node: { title: "interfaces__sam__sysc__supc_sr_registerIP" label: "supc_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__supc_peripheralEQ" label: "supc_peripheralEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__supc_peripheralEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1677:9" }
+node: { title: "interfaces__sam__sysc__supc_peripheralIP" label: "supc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__supc_peripheralIP" targetname: "interfaces__sam__sysc__supc_smmr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1681:7" }
+edge: { sourcename: "interfaces__sam__sysc__supc_peripheralIP" targetname: "interfaces__sam__sysc__supc_mr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1683:7" }
+edge: { sourcename: "interfaces__sam__sysc__supc_peripheralIP" targetname: "interfaces__sam__sysc__supc_wumr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1685:7" }
+node: { title: "interfaces__sam__sysc__wdt_cr_registerIP" label: "wdt_cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__wdt_mr_registerIP" label: "wdt_mr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__wdt_sr_registerIP" label: "wdt_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__sysc__wdt_peripheralIP" label: "wdt_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__sysc__wdt_peripheralIP" targetname: "interfaces__sam__sysc__wdt_mr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/i-sam-sysc.ads:1711:7" }
+}

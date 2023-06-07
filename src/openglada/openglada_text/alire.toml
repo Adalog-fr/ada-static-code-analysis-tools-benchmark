@@ -1,0 +1,25 @@
+authors = ["Felix Krause"]
+description = "Text rendering library for OpenGLAda"
+licenses = "MIT"
+maintainers = ["Felix Krause <contact@flyx.org>"]
+maintainers-logins = ["flyx"]
+name = "openglada_text"
+project-files = ["opengl-text.gpr"]
+tags = ["opengl","rendering","fonts"]
+version = "0.9.0"
+website = "http://flyx.github.io/OpenGLAda/"
+
+[[depends-on]]
+freetypeada = "*"
+openglada = "*"
+
+[[pins]]
+
+[pins.freetypeada]
+path = "../../freetypeada"
+
+[pins.openglada]
+path = ".."
+
+[build-switches."*"]
+Compile_Checks = "none"

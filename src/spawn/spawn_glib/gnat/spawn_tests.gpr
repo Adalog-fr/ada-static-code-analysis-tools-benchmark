@@ -1,0 +1,31 @@
+--
+--  Copyright (C) 2018-2021, AdaCore
+--
+--  SPDX-License-Identifier: Apache-2.0
+--
+
+with "spawn";
+
+project Spawn_Tests is
+
+   Main := ("spawn_test.adb", "spawn_unexpected.adb");
+
+   case Spawn.OS_API is
+      when "unix" | "osx" =>
+         Main := Main & ("spawn_kill.adb");
+
+      when "Windows_NT" =>
+         null;
+   end case;
+
+   for Source_Dirs use ("../testsuite/spawn");
+   for Object_Dir use "../.obj/spawn_test";
+   for Main use Main;
+
+   package Compiler renames Spawn.Compiler;
+
+   package Binder is
+      for Switches ("ada") use ("-E");
+   end Binder;
+
+end Spawn_Tests;

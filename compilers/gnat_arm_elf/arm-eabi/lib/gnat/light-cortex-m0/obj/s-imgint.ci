@@ -1,0 +1,13 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0/gnat/s-imgint.ads"
+node: { title: "system__img_int__impl__set_image_integer" label: "Set_Image_Integer\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0/gnat/s-imagei.adb:109:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_idiv" label: "aeabi_idiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__img_int__impl__set_image_integer" targetname: "__aeabi_idiv" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__img_int__impl__set_image_integer" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "system__img_int__impl__set_image_integer" targetname: "__aeabi_idiv" }
+edge: { sourcename: "system__img_int__impl__set_image_integer" targetname: "__aeabi_idiv" }
+edge: { sourcename: "system__img_int__impl__set_image_integer" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "system__img_int__impl__set_image_integer" targetname: "__aeabi_idiv" }
+node: { title: "system__img_int__impl__image_integer" label: "Image_Integer\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0/gnat/s-imagei.adb:48:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__img_int__impl__image_integer" targetname: "system__img_int__impl__set_image_integer" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0/gnat/s-imagei.adb:66:7" }
+}

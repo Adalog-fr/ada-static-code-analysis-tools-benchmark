@@ -1,0 +1,16 @@
+
+   --------------------------------------
+   -- Create_@GROUP@_@ELEMENT@_Element --
+   --------------------------------------
+
+   overriding function Create_@GROUP@_@ELEMENT@_Element
+    (Self : not null access Document_Node)
+       return not null ODF.DOM.@GROUP@_@ELEMENT@_Elements.ODF_@GROUP@_@ELEMENT@_Access is
+   begin
+      return
+        ODF.DOM.@GROUP@_@ELEMENT@_Elements.ODF_@GROUP@_@ELEMENT@_Access
+         (Self.Create_Element
+           (Matreshka.ODF_String_Constants.@GROUP@_URI,
+            Matreshka.ODF_String_Constants.@GROUP@_Prefix,
+            Matreshka.ODF_String_Constants.@ELEMENT@_Element));
+   end Create_@GROUP@_@ELEMENT@_Element;

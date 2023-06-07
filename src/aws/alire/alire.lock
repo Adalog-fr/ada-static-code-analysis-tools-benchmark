@@ -1,0 +1,82 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnatcoll"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../gnatcoll-core"
+[[solution.state]]
+crate = "libgpr"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../gprbuild"
+[[solution.state]]
+crate = "make"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "Utility for directing compilation"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "make"
+notes = "Provided by system package: make"
+version = "4.3.0"
+[solution.state.release.origin]
+url = "system:make"
+[[solution.state]]
+crate = "openssl"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "The Open Source toolkit for SSL and TLS"
+licenses = "OpenSSL"
+maintainers = [
+"Anton Fediushin <imantonmeep@gmail.com>",
+]
+maintainers-logins = [
+"AntonMeep",
+]
+name = "openssl"
+notes = "Provided by system package: libssl-dev"
+tags = [
+"openssl",
+"cryptography",
+"security",
+"ssl",
+"tls",
+]
+version = "1.1.1"
+website = "https://www.openssl.org"
+[solution.state.release.origin]
+url = "system:libssl-dev"
+[[solution.state]]
+crate = "xmlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../xmlada"
+

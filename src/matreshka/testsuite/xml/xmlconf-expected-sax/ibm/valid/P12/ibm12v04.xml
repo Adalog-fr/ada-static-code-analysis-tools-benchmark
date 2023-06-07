@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <publicID>The&#x20;latest&#x20;version</publicID>
+    <baseURI>ibm/valid/P12</baseURI>
+    <systemID>student.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>student</localName>
+    <qualifiedName>student</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>M</characters>
+  <characters>y</characters>
+  <characters>&#x20;</characters>
+  <characters>N</characters>
+  <characters>a</characters>
+  <characters>m</characters>
+  <characters>e</characters>
+  <characters>&#x20;</characters>
+  <characters>i</characters>
+  <characters>s</characters>
+  <characters>&#x20;</characters>
+  <characters>S</characters>
+  <characters>n</characters>
+  <characters>o</characters>
+  <characters>w</characters>
+  <characters>M</characters>
+  <characters>a</characters>
+  <characters>n</characters>
+  <characters>.</characters>
+  <characters>&#x20;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>student</localName>
+    <qualifiedName>student</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

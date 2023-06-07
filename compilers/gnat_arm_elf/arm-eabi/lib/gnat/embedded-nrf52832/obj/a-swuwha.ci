@@ -1,0 +1,12 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-swuwha.adb"
+node: { title: "_ada_ada__strings__wide_unbounded__wide_hash" label: "Wide_Hash\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-swuwha.adb:32:1\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "system__secondary_stack__ss_mark" label: "Ss_Mark\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-secsta.ads:67:13" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__wide_unbounded__wide_hash" targetname: "system__secondary_stack__ss_mark" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-swuwha.adb:39:4" }
+node: { title: "ada__strings__wide_unbounded__to_wide_string" label: "To_Wide_String\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-stwiun.ads:63:13" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__wide_unbounded__wide_hash" targetname: "ada__strings__wide_unbounded__to_wide_string" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-swuwha.adb:39:17" }
+node: { title: "system__secondary_stack__ss_release" label: "Ss_Release\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-secsta.ads:70:14" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__wide_unbounded__wide_hash" targetname: "system__secondary_stack__ss_release" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-swuwha.adb:39:0" }
+edge: { sourcename: "_ada_ada__strings__wide_unbounded__wide_hash" targetname: "system__secondary_stack__ss_release" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/a-swuwha.adb:39:0" }
+node: { title: "_Unwind_Resume" label: "builtin_unwind_resume\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__wide_unbounded__wide_hash" targetname: "_Unwind_Resume" }
+}

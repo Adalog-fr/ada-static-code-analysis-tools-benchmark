@@ -1,0 +1,11 @@
+authors = ["Alejandro R. Mosteo"]
+description = "Simple logging to console"
+licenses = "LGPL-3.0-only"
+maintainers = ["alejandro@mosteo.com"]
+maintainers-logins = ["mosteo"]
+name = "simple_logging"
+tags = ["logging","utility"]
+version = "1.2.0"
+
+[build-switches."*"]
+Compile_Checks = "none"

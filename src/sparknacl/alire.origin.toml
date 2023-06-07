@@ -1,0 +1,66 @@
+authors = [
+"Rod Chapman",
+]
+description = "Verified SPARK 2014 re-implementation of TweetNaCl cryptographic library"
+licenses = "BSD-3-Clause"
+long-description = "SPARK 2014 re-implementation of TweetNaCl cryptographic library, with fully automated proofs of type safety and some correctness properties"
+maintainers = [
+"Rod Chapman <rod@proteancode.com>",
+]
+maintainers-logins = [
+"rod-chapman",
+]
+name = "sparknacl"
+tags = [
+"spark",
+"cryptography",
+"security",
+"nacl",
+"curve25519",
+"ed25519",
+"tweetnacl",
+]
+version = "3.0.0"
+website = "https://github.com/rod-chapman/SPARKNaCl"
+[gpr-externals]
+SPARKNACL_BUILD_MODE = [
+"debug",
+"O1",
+"O2",
+"O3",
+"Os",
+]
+SPARKNACL_COMPILE_CHECKS = [
+"enabled",
+"disabled",
+]
+SPARKNACL_CONTRACTS = [
+"enabled",
+"disabled",
+]
+SPARKNACL_LIBRARY_TYPE = [
+"relocatable",
+"static",
+"static-pic",
+]
+SPARKNACL_RUNTIME_CHECKS = [
+"enabled",
+"disabled",
+]
+SPARKNACL_RUNTIME_MODE = [
+"full",
+"zfp",
+]
+SPARKNACL_STYLE_CHECKS = [
+"enabled",
+"disabled",
+]
+SPARKNACL_TARGET_ARCH = [
+"unspecified",
+"rv32im",
+"rv32imc",
+"rv32imc_a4",
+]
+[[depends-on]]
+gnat = ">=11.2.1"
+

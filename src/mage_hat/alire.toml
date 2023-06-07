@@ -1,0 +1,21 @@
+authors = ["Léo Germond"]
+description = "A hat that jumps around and behaves magically"
+executables = ["mage_hat"]
+licenses = "Apache-2.0"
+maintainers = ["Léo Germond <germond@adacore.com>"]
+maintainers-logins = ["leogermond"]
+name = "mage_hat"
+tags = ["game","demo","magic"]
+version = "0.2.0"
+website = "https://gitlab.com/leogermond/mage_hat"
+
+[[depends-on]]
+mage = "*"
+
+[[pins]]
+
+[pins.mage]
+path = "../mage"
+
+[build-switches."*"]
+Compile_Checks = "none"

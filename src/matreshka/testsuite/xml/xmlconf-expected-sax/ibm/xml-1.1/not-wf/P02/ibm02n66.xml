@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes/>
+  </startElement>
+  <resolveEntity>
+    <name>e</name>
+    <baseURI>ibm/xml-1.1/not-wf/P02</baseURI>
+    <systemID>ibm02n66.ent</systemID>
+  </resolveEntity>
+  <characters>&#xA;</characters>
+  <characters>!</characters>
+  <characters>[</characters>
+  <characters>C</characters>
+  <characters>D</characters>
+  <characters>A</characters>
+  <characters>T</characters>
+  <characters>A</characters>
+  <characters>[</characters>
+  <characters>&#x20;</characters>
+  <characters>0</characters>
+  <characters>x</characters>
+  <characters>0</characters>
+  <characters>x</characters>
+  <characters>1</characters>
+  <characters>:</characters>
+  <characters>&#x20;</characters>
+  <fatalError>unexpected&#x20;character</fatalError>
+  <endDocument/>
+</SAXEvents>

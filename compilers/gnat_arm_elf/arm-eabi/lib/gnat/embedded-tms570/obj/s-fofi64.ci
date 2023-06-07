@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-fofi64.ads"
+node: { title: "system__fore_fixed_64__impl__fore_fixed" label: "Fore_Fixed\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-fore_f.adb:56:4\n72 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arith_64__scaled_divide64" label: "Scaled_Divide64\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-arit64.ads:117:14" shape : ellipse }
+edge: { sourcename: "system__fore_fixed_64__impl__fore_fixed" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-fore_f.adb:80:10" }
+node: { title: "system__exn_lli__exponn_integer__expon" label: "Expon\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-exponn.ads:66:13" shape : ellipse }
+edge: { sourcename: "system__fore_fixed_64__impl__fore_fixed" targetname: "system__exn_lli__exponn_integer__expon" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-fore_f.adb:115:44" }
+edge: { sourcename: "system__fore_fixed_64__impl__fore_fixed" targetname: "system__arith_64__scaled_divide64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-fore_f.adb:115:13" }
+node: { title: "__aeabi_ldivmod" label: "aeabi_ldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fore_fixed_64__impl__fore_fixed" targetname: "__aeabi_ldivmod" }
+}

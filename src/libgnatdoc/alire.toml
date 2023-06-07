@@ -1,0 +1,37 @@
+authors = ["AdaCore"]
+description = "GNAT Documentation Generation Tool (as a library)"
+licenses = "GPL-3.0-only WITH GCC-exception-3.1"
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>","Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["godunko","reznikmm"]
+name = "libgnatdoc"
+project-files = ["gnat/libgnatdoc.gpr"]
+tags = ["documentation","tools"]
+version = "23.0.0"
+website = "https://github.com/AdaCore/gnatdoc"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[[depends-on]]
+libadalang = "*"
+markdown = "*"
+vss = "*"
+
+[[pins]]
+
+[pins.libadalang]
+path = "../libadalang"
+
+[pins.markdown]
+path = "../markdown"
+
+[pins.vss]
+path = "../vss"
+
+[build-switches."*"]
+Compile_Checks = "none"

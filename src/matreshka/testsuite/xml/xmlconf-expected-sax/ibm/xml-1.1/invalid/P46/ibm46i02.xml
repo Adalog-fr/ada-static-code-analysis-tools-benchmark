@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters> </characters>
+  <ignorableWhitespace>&#xA;</ignorableWhitespace>
+  <ignorableWhitespace>&#x20;</ignorableWhitespace>
+  <ignorableWhitespace>&#x20;</ignorableWhitespace>
+  <ignorableWhitespace>&#x20;</ignorableWhitespace>
+  <ignorableWhitespace>&#x20;</ignorableWhitespace>
+  <startElement>
+    <namespaceURI/>
+    <localName>a</localName>
+    <qualifiedName>a</qualifiedName>
+    <attributes/>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>a</localName>
+    <qualifiedName>a</qualifiedName>
+  </endElement>
+  <ignorableWhitespace>&#xA;</ignorableWhitespace>
+  <endElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

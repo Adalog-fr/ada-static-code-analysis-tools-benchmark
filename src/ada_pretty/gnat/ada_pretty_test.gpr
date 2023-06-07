@@ -1,0 +1,25 @@
+--  Copyright (c) 2017 Maxim Reznik <reznikmm@gmail.com>
+--
+--  SPDX-License-Identifier: MIT
+--  License-Filename: LICENSE
+-------------------------------------------------------------
+
+with "matreshka_league";
+
+with "ada_pretty";
+
+project Ada_Pretty_Test is
+
+   for Source_Dirs use ("../tests");
+   for Object_Dir use "../.objs";
+   for Main use ("ada_output_test.adb");
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-E");
+   end Binder;
+
+   package Compiler is
+      for Switches ("Ada") use ("-g", "-gnatyyo", "");
+   end Compiler;
+
+end Ada_Pretty_Test;

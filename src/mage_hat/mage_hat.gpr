@@ -1,0 +1,28 @@
+with "config/mage_hat_config.gpr";
+with "mage.gpr";
+
+project Mage_Hat is
+
+   for Source_Dirs use ("src/", "config/");
+   for Object_Dir use "obj/" & Mage_Hat_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Exec_Dir use "bin";
+   for Main use ("mage_hat.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use Mage_Hat_Config.Ada_Compiler_Switches;
+   end Compiler;
+
+   package Linker is
+      for Switches ("Ada") use Mage.Linker_Ada_Switches;
+   end Linker;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+end Mage_Hat;

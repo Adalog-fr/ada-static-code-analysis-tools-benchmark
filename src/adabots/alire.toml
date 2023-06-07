@@ -1,0 +1,24 @@
+authors = ["Tama McGlinn"]
+description = "Learn Ada by programming Minecraft robots"
+licenses = "MIT"
+maintainers = ["Tama McGlinn <t.mcglinn@gmail.com>"]
+maintainers-logins = ["TamaMcGlinn"]
+name = "adabots"
+project-files = ["adabots.gpr"]
+tags = ["learn","ada","minecraft","computercraft","robots","teach","children"]
+version = "1.5.0"
+
+[[depends-on]]
+aaa = "*"
+aws = "*"
+
+[[pins]]
+
+[pins.aaa]
+path = "../aaa"
+
+[pins.aws]
+path = "../aws"
+
+[build-switches."*"]
+Compile_Checks = "none"

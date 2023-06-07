@@ -1,0 +1,13 @@
+.build/
+.DS_Store
+*~
+*.gcov
+*.orig
+test/*.exe
+test/*.o
+test/demo_extensions
+test/tests
+test/[cs]geev_generator
+test/[csz]ggev_generator
+alire
+lib

@@ -1,0 +1,27 @@
+authors = [
+"onox",
+]
+description = "Ada 2012 library for WeeChat plug-ins"
+licenses = "Apache-2.0"
+maintainers = [
+"onox <denkpadje@gmail.com>",
+]
+maintainers-logins = [
+"onox",
+]
+name = "weechat_ada"
+tags = [
+"chat",
+"irc",
+"weechat",
+]
+version = "3.0.1"
+website = "https://github.com/onox/weechat-ada"
+[build-switches]
+[build-switches."*"]
+style_checks = [
+"-gnatygAO-Is",
+]
+[build-switches.validation]
+compile_checks = "warnings"
+

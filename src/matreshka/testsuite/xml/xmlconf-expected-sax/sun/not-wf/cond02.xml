@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>sun/not-wf</baseURI>
+    <systemID>cond.dtd</systemID>
+  </resolveEntity>
+  <warning/>
+  <fatalError>conditional&#x20;directive&#x20;is&#x20;missing</fatalError>
+  <endDocument/>
+</SAXEvents>

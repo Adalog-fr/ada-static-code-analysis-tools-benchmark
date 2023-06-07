@@ -1,0 +1,29 @@
+authors = [
+"AdaCore",
+]
+description = "Simple code highlighters based on Libadalang"
+executables = [
+"highlight",
+"ada2web",
+]
+licenses = "GPL-3.0-only WITH GCC-exception-3.1"
+maintainers = [
+"Pierre-Marie de Rodat <pmderodat@kawie.fr>",
+]
+maintainers-logins = [
+"pmderodat",
+]
+name = "lal_highlight"
+project-files = [
+"highlight.gpr",
+]
+tags = [
+"libadalang",
+"static-analysis",
+]
+version = "21.0.0"
+website = "https://github.com/AdaCore/libadalang"
+[[depends-on]]
+gnatcoll_iconv = "^21"
+libadalang = "^21"
+

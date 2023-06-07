@@ -1,0 +1,31 @@
+authors = [
+"Paul Jarrett",
+]
+description = "Terminal options, setup, tab completion and hinting."
+licenses = "Apache-2.0"
+maintainers = [
+"Paul Jarrett <jarrett.paul.young@gmail.com>",
+]
+maintainers-logins = [
+"pyjarrett",
+]
+name = "trendy_terminal"
+project-files = [
+"trendy_terminal.gpr",
+]
+tags = [
+"terminal",
+"command-line",
+"console",
+"vt100",
+]
+version = "0.0.5"
+website = "https://github.com/pyjarrett/trendy_terminal"
+[gpr-externals]
+Mode = [
+"debug",
+"optimize",
+]
+[gpr-set-externals]
+Trendy_Terminal_Platform = "linux"
+

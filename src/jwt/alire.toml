@@ -1,0 +1,21 @@
+authors = ["Maxim Reznik"]
+description = "JSON Web Token (JWT) implementation in Ada"
+licenses = "MIT"
+maintainers = ["Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["reznikmm"]
+name = "jwt"
+project-files = ["gnat/jwt.gpr"]
+tags = ["web","token","jws","json","jwt"]
+version = "1.0.0"
+website = "https://github.com/reznikmm/jwt"
+
+[[depends-on]]
+matreshka_league = "*"
+
+[[pins]]
+
+[pins.matreshka_league]
+path = "../matreshka/packages/alire/matreshka_league"
+
+[build-switches."*"]
+Compile_Checks = "none"

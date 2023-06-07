@@ -1,0 +1,22 @@
+name = "test_chests"
+description = "Shiny new project"
+version = "0.0.0"
+
+authors = ["Jeremy Grosser"]
+maintainers = ["Jeremy Grosser <jeremy@synack.me>"]
+maintainers-logins = ["JeremyGrosser"]
+
+executables = ["test_chests"]
+
+[[depends-on]]
+chests = "~0.1.0"
+
+[[pins]]
+chests = { path='../' }
+
+[gpr-set-externals]
+CHESTS_BUILD_MODE = "debug"
+CHESTS_COMPILE_CHECKS = "enabled"
+CHESTS_RUNTIME_CHECKS = "enabled"
+CHESTS_STYLE_CHECKS = "enabled"
+CHESTS_CONTRACTS = "enabled"

@@ -1,0 +1,26 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "libgsl"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "The GNU Scientific Library (GSL)"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libgsl"
+notes = "Provided by system package: libgsl-dev"
+version = "2.6.0"
+[solution.state.release.origin]
+url = "system:libgsl-dev"
+

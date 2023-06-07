@@ -1,0 +1,24 @@
+auto-gpr-with = false
+description = "Coverage Analysis Tool"
+maintainers = ["chouteau@adacore.com"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "gnatcov"
+tags = ["coverage","analysis","test"]
+version = "22.0.1"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[environment.GPR_PROJECT_PATH]
+append = "${CRATE_ROOT}/share/gnatcoverage/gnatcov_rts/"
+
+[environment.PATH]
+prepend = "${CRATE_ROOT}/bin"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-scaval.adb"
+node: { title: "system__scalar_values__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-scaval.adb:42:4\n80 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_getenv" label: "Get_Env_Value_Ptr\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-scaval.adb:46:17" shape : ellipse }
+edge: { sourcename: "system__scalar_values__initialize" targetname: "__gnat_getenv" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-scaval.adb:110:10" }
+}

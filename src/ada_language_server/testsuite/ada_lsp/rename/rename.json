@@ -1,0 +1,223 @@
+[
+    {
+        "comment":[
+            "This test checks textDocument/rename request."
+        ]
+    },  {
+        "start": {
+            "cmd": ["${ALS}"]
+        }
+    },  {
+        "send": {
+            "request": {"jsonrpc":"2.0","id":0,"method":"initialize","params":{
+                "processId":1,
+                "rootUri":"$URI{.}",
+                "capabilities":{}}
+            },
+            "wait":[{
+                "id": 0,
+                "result":{
+                    "capabilities":{
+                        "textDocumentSync": 2,
+                        "renameProvider":{}
+                    }
+                }
+            }]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "method":"workspace/didChangeConfiguration",
+                "params":{
+                    "settings":{
+                    }
+                }
+            },
+            "wait":[]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "method":"textDocument/didOpen",
+                "params":{
+                    "textDocument": {
+                        "uri": "$URI{aaa.ads}",
+                        "languageId": "ada",
+                        "version": 1,
+                        "text": "package Aaa is\n   procedure Proc (X : in out Integer);\nend Aaa;\n"
+                    }
+                }
+            },
+            "wait":[]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "id":"rename-1",
+                "method":"textDocument/rename",
+                "params":{
+                    "textDocument": {
+                        "uri": "$URI{aaa.ads}"
+                    },
+                    "position": {
+                        "line": 1,
+                        "character": 19
+                    },
+                    "newName":"YY"
+                }
+            },
+            "wait":[{
+                "id": "rename-1",
+                "result":{
+                    "changes":{
+                        "$URI{aaa.ads}":[{
+                            "range":{
+                                "start":{"line":1,"character":19},
+                                "end":{"line":1,"character":20}
+                            },
+                            "newText":"YY"
+                        }],
+                        "$URI{aaa.adb}":[{
+                            "range":{
+                                "start":{"line":1,"character":19},
+                                "end":{"line":1,"character":20}
+                            },
+                            "newText":"YY"
+                        },{
+                            "range":{
+                                "start":{"line":3,"character":6},
+                                "end":{"line":3,"character":7}
+                            },
+                            "newText":"YY"
+                        },{
+                            "range":{
+                                "start":{"line":3,"character":11},
+                                "end":{"line":3,"character":12}
+                            },
+                            "newText":"YY"
+                        },{
+                            "range":{
+                                "start":{"line":3,"character":19},
+                                "end":{"line":3,"character":20}
+                            },
+                            "newText":"YY"
+                        },{
+                            "range":{
+                                "start":{"line":5,"character":12},
+                                "end":{"line":5,"character":13}
+                            },
+                            "newText":"YY"
+                        },{
+                            "range":{
+                                "start":{"line":5,"character":17},
+                                "end":{"line":5,"character":18}
+                            },
+                            "newText":"YY"
+                        }]
+                    }
+                }
+            }]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "id":"rename-2",
+                "method":"textDocument/rename",
+                "params":{
+                    "textDocument": {
+                        "uri": "$URI{aaa.ads}"
+                    },
+                    "position": {
+                        "line": 0,
+                        "character": 1
+                    },
+                    "newName":"ZZ"
+                }
+            },
+            "wait":[{
+                "id": "rename-2",
+                "result":{
+                    "changes":{
+                    }
+                }
+            }]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "method":"textDocument/didOpen",
+                "params":{
+                    "textDocument": {
+                        "uri": "$URI{main.adb}",
+                        "languageId": "ada",
+                        "version": 1,
+                        "text": "with Ada.Text_IO;\n\nprocedure Main is\n   A : Integer := 10;\nbegin\n   --  Check that A_letter is not renamed\n   Ada.Text_IO.Put_Line (Integer'Image (A));\nend Main;\n"
+                    }
+                }
+            },
+            "wait":[]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "id":"rename-3",
+                "method":"textDocument/rename",
+                "params":{
+                    "textDocument": {
+                        "uri": "$URI{main.adb}"
+                    },
+                    "position": {
+                        "line": 3,
+                        "character": 3
+                    },
+                    "newName":"BB"
+                }
+            },
+            "wait":[{
+                "id": "rename-3",
+                "result":{
+                    "changes":{
+                        "$URI{main.adb}":[{
+                            "range":{
+                                "start":{"line":3,"character":3},
+                                "end":{"line":3,"character":4}
+                            },
+                            "newText":"BB"
+                        },{
+                            "range":{
+                                "start":{"line":6,"character":40},
+                                "end":{"line":6,"character":41}
+                            },
+                            "newText":"BB"
+                        }]
+                    }
+                }
+            }]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "id": "shutdown",
+                "method":"shutdown",
+                "params":null
+            },
+            "wait":[{ "id": "shutdown", "result": null }]
+        }
+    },  {
+        "send": {
+            "request": {"jsonrpc":"2.0", "method":"exit", "params":{}},
+            "wait":[]
+        }
+    }, {
+        "stop": {
+            "exit_code": 0
+        }
+    }
+]

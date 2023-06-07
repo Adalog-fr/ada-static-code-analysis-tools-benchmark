@@ -1,0 +1,13 @@
+*.ali
+*.db
+*.o
+*-loc.xml
+
+alire/
+alire.lock
+bin
+lib
+obj
+/obj/
+/lib/
+/alire/

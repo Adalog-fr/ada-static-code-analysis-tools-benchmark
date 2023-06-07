@@ -1,0 +1,50 @@
+with "config/mage_config.gpr";
+
+project Mage is
+
+   type Choice is ("Yes", "No");
+   -- FIXME: Disabled by default due to line drawing bug on some hardware
+   Hardware_Rendering : Choice := external ("MAGE_HARDWARE_RENDERING", "No");
+
+   -- Exported switched: use in the executable GPR
+   Linker_Ada_Switches := ();
+   case Mage_Config.Alire_Host_OS is 
+   when "windows" =>
+      Linker_Ada_Switches := ("-mwindows", "-lSDL2");
+   when others =>
+      Linker_Ada_Switches := ("-lSDL2-2.0");
+   end case;
+
+   for Library_Name use "Mage";
+   for Library_Version use Project'Library_Name & ".so." & Mage_Config.Crate_Version;
+
+   for Source_Dirs use ("src",
+                        "config/");
+
+   package Naming is
+      for Specification ("Mage_Config.Hardware")
+         use "mage_config-hardware." & Hardware_Rendering & ".ads";
+   end Naming;
+
+   for Object_Dir use "obj/" & Mage_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Library_Dir use "lib";
+
+   type Library_Type_Type is ("relocatable", "static", "static-pic");
+   Library_Type : Library_Type_Type :=
+     external ("MAGE_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+   for Library_Kind use Library_Type;
+
+   package Compiler is
+      for Default_Switches ("Ada") use Mage_Config.Ada_Compiler_Switches;
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+end Mage;

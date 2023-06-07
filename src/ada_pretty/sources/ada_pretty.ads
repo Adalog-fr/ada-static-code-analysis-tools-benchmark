@@ -1,0 +1,381 @@
+--  Copyright (c) 2017 Maxim Reznik <reznikmm@gmail.com>
+--
+--  SPDX-License-Identifier: MIT
+--  License-Filename: LICENSE
+-------------------------------------------------------------
+
+with League.String_Vectors;
+with League.Strings;
+private with League.Pretty_Printers;
+
+package Ada_Pretty is
+
+   type Node is abstract tagged private;
+   type Node_Access is access constant Node'Class;
+   type Node_Access_Array is array (Positive range <>) of not null Node_Access;
+
+   type Factory is tagged private;
+
+   not overriding function To_Text
+     (Self : access Factory;
+      Unit : not null Node_Access)
+      return League.String_Vectors.Universal_String_Vector;
+
+   --  Compilation units
+
+   not overriding function New_Compilation_Unit
+     (Self    : access Factory;
+      Root    : not null Node_Access;
+      Clauses : Node_Access := null;
+      License : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Subunit
+     (Self        : access Factory;
+      Parent_Name : not null Node_Access;
+      Proper_Body : not null Node_Access) return not null Node_Access;
+
+   --  Node lists
+
+   not overriding function New_List
+     (Self : access Factory;
+      List : Node_Access_Array) return not null Node_Access;
+
+   not overriding function New_List
+     (Self : access Factory;
+      Head : Node_Access;
+      Tail : not null Node_Access) return not null Node_Access;
+   --  Add a Tail item to a Head list. Head could be
+   --   * a null value, that means an empty list. Result is Tail then.
+   --   * a non-list node, that means a list with single node inside.
+   --   * a list of items.
+
+   --  Clauses, Pragmas and Aspects
+
+   not overriding function New_Aspect
+     (Self  : access Factory;
+      Name  : not null Node_Access;
+      Value : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Pragma
+     (Self      : access Factory;
+      Name      : not null Node_Access;
+      Arguments : Node_Access := null;
+      Comment   : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Use
+     (Self       : access Factory;
+      Name       : not null Node_Access;
+      Use_Type   : Boolean := False) return not null Node_Access;
+
+   not overriding function New_With
+     (Self       : access Factory;
+      Name       : not null Node_Access;
+      Is_Limited : Boolean := False;
+      Is_Private : Boolean := False) return not null Node_Access;
+
+   --  Declarations
+
+   not overriding function New_Package
+     (Self         : access Factory;
+      Name         : not null Node_Access;
+      Public_Part  : Node_Access := null;
+      Private_Part : Node_Access := null;
+      Comment      : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Package_Body
+     (Self : access Factory;
+      Name : not null Node_Access;
+      List : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Package_Instantiation
+     (Self        : access Factory;
+      Name        : not null Node_Access;
+      Template    : not null Node_Access;
+      Actual_Part : Node_Access := null;
+      Comment     : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Parameter
+     (Self            : access Factory;
+      Name            : not null Node_Access;
+      Type_Definition : not null Node_Access;
+      Initialization  : Node_Access := null;
+      Is_In           : Boolean := False;
+      Is_Out          : Boolean := False;
+      Is_Aliased      : Boolean := False;
+      Comment         : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Subprogram_Body
+     (Self          : access Factory;
+      Specification : not null Node_Access;
+      Declarations  : Node_Access := null;
+      Statements    : Node_Access := null;
+      Exceptions    : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Subprogram_Declaration
+     (Self          : access Factory;
+      Specification : not null Node_Access;
+      Aspects       : Node_Access := null;
+      Is_Abstract   : Boolean := False;
+      Is_Null       : Boolean := False;
+      Expression    : Node_Access := null;
+      Renamed       : Node_Access := null;
+      Comment       : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Subtype
+     (Self          : access Factory;
+      Name          : not null Node_Access;
+      Definition    : not null Node_Access;
+      Constrain     : Node_Access := null;
+      Comment       : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Type
+     (Self          : access Factory;
+      Name          : not null Node_Access;
+      Discriminants : Node_Access := null;
+      Definition    : Node_Access := null;
+      Aspects       : Node_Access := null;
+      Comment       : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   not overriding function New_Variable
+     (Self            : access Factory;
+      Name            : not null Node_Access;
+      Type_Definition : Node_Access := null;
+      Initialization  : Node_Access := null;
+      Rename          : Node_Access := null;
+      Is_Constant     : Boolean := False;
+      Is_Aliased      : Boolean := False;
+      Aspects         : Node_Access := null;
+      Comment         : League.Strings.Universal_String :=
+        League.Strings.Empty_Universal_String) return not null Node_Access;
+
+   --  Definitions
+
+   type Access_Modifier is (Access_All, Access_Constant, Unspecified);
+
+   not overriding function New_Access
+     (Self     : access Factory;
+      Modifier : Access_Modifier := Unspecified;
+      Target   : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Derived
+     (Self   : access Factory;
+      Parent : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Null_Exclusion
+     (Self       : access Factory;
+      Definition : not null Node_Access;
+      Exclude    : Boolean := True) return not null Node_Access;
+
+   not overriding function New_Interface
+     (Self       : access Factory;
+      Is_Limited : Boolean := False;
+      Parents    : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Private_Record
+     (Self       : access Factory;
+      Is_Tagged  : Boolean := False;
+      Is_Limited : Boolean := False;
+      Parents    : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Record
+     (Self        : access Factory;
+      Parent      : Node_Access := null;
+      Components  : Node_Access := null;
+      Is_Abstract : Boolean := False;
+      Is_Tagged   : Boolean := False;
+      Is_Limited  : Boolean := False) return not null Node_Access;
+
+   not overriding function New_Array
+     (Self      : access Factory;
+      Indexes   : not null Node_Access;
+      Component : not null Node_Access) return not null Node_Access;
+
+   type Trilean is (False, True, Unspecified);
+
+   not overriding function New_Subprogram_Specification
+     (Self          : access Factory;
+      Is_Overriding : Trilean := Unspecified;
+      Name          : Node_Access := null;
+      Parameters    : Node_Access := null;
+      Result        : Node_Access := null) return not null Node_Access;
+
+   --  Expressions and Names
+
+   not overriding function New_Apply
+     (Self      : access Factory;
+      Prefix    : not null Node_Access;
+      Arguments : not null Node_Access) return not null Node_Access;
+   --  This node represent construction in form 'prefix (arguments)'
+   --  This includes function_call, indexed_component, slice,
+   --  subtype_indication, etc
+
+   not overriding function New_Qualified_Expession
+     (Self     : access Factory;
+      Prefix   : not null Node_Access;
+      Argument : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Infix
+     (Self     : access Factory;
+      Operator : League.Strings.Universal_String;
+      Left     : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Literal
+     (Self  : access Factory;
+      Value : Natural;
+      Base  : Positive := 10) return not null Node_Access;
+
+   not overriding function New_Name
+     (Self : access Factory;
+      Name : League.Strings.Universal_String) return not null Node_Access;
+   --  Identifier, character literal ('X'), operator ("<")
+
+   not overriding function New_Selected_Name
+     (Self : access Factory;
+      Name : League.Strings.Universal_String) return not null Node_Access;
+
+   not overriding function New_Selected_Name
+     (Self     : access Factory;
+      Prefix   : not null Node_Access;
+      Selector : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_String_Literal
+     (Self : access Factory;
+      Text : League.Strings.Universal_String) return not null Node_Access;
+
+   not overriding function New_Parentheses
+     (Self  : access Factory;
+      Child : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Argument_Association
+     (Self   : access Factory;
+      Value  : not null Node_Access;
+      Choice : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Component_Association
+     (Self    : access Factory;
+      Value   : not null Node_Access;
+      Choices : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_If_Expression
+     (Self       : access Factory;
+      Condition  : not null Node_Access;
+      Then_Path  : not null Node_Access;
+      Elsif_List : Node_Access := null;
+      Else_Path  : Node_Access := null) return not null Node_Access;
+
+   --  Statements and Paths
+
+   not overriding function New_Assignment
+     (Self  : access Factory;
+      Left  : not null Node_Access;
+      Right : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Case
+     (Self       : access Factory;
+      Expression : not null Node_Access;
+      List       : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Case_Path
+     (Self   : access Factory;
+      Choice : not null Node_Access;
+      List   : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Elsif
+     (Self       : access Factory;
+      Condition  : not null Node_Access;
+      List       : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_If
+     (Self       : access Factory;
+      Condition  : not null Node_Access;
+      Then_Path  : not null Node_Access;
+      Elsif_List : Node_Access := null;
+      Else_Path  : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_For
+     (Self       : access Factory;
+      Name       : not null Node_Access;
+      Iterator   : not null Node_Access;
+      Statements : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Loop
+     (Self       : access Factory;
+      Condition  : Node_Access;
+      Statements : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Return
+     (Self       : access Factory;
+      Expression : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Extended_Return
+     (Self            : access Factory;
+      Name            : not null Node_Access;
+      Type_Definition : not null Node_Access;
+      Initialization  : Node_Access := null;
+      Statements      : not null Node_Access) return not null Node_Access;
+
+   not overriding function New_Statement
+     (Self       : access Factory;
+      Expression : Node_Access := null) return not null Node_Access;
+
+   not overriding function New_Block
+     (Self         : access Factory;
+      Declarations : Node_Access := null;
+      Statements   : Node_Access := null;
+      Exceptions   : Node_Access := null) return not null Node_Access;
+
+private
+   type Node is abstract tagged null record;
+
+   not overriding function Document
+    (Self    : Node;
+     Printer : not null access League.Pretty_Printers.Printer'Class;
+     Pad     : Natural)
+      return League.Pretty_Printers.Document;
+
+   not overriding function Max_Pad (Self : Node) return Natural is (0);
+   --  Return maximum lengh of name in Node
+
+   not overriding function Join
+    (Self    : Node;
+     List    : Node_Access_Array;
+     Pad     : Natural;
+     Printer : not null access League.Pretty_Printers.Printer'Class)
+      return League.Pretty_Printers.Document;
+   --  Join documents of several nodes in a list
+
+   type Expression is abstract new Node with null record;
+
+   overriding function Join
+    (Self    : Expression;
+     List    : Node_Access_Array;
+     Pad     : Natural;
+     Printer : not null access League.Pretty_Printers.Printer'Class)
+      return League.Pretty_Printers.Document;
+
+   type Declaration is abstract new Node with null record;
+
+   overriding function Join
+    (Self    : Declaration;
+     List    : Node_Access_Array;
+     Pad     : Natural;
+     Printer : not null access League.Pretty_Printers.Printer'Class)
+      return League.Pretty_Printers.Document;
+   --  Declarations are separated by an extra new line
+
+   type Factory is tagged null record;
+
+   function Print_Aspect
+    (Aspect  : Node_Access;
+     Printer : not null access League.Pretty_Printers.Printer'Class)
+      return League.Pretty_Printers.Document;
+
+end Ada_Pretty;

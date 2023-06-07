@@ -1,0 +1,33 @@
+description = "Ada Database Objects (Core library)"
+tags = ["database","uml","sql"]
+name = "ado"
+version = "2.3.0"
+licenses = "Apache-2.0"
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+project-files = [".alire/ado.gpr"]
+website = "https://gitlab.com/stcarrez/ada-ado"
+long-description = "\n[![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Ada-ADO.svg)](https://jenkins.vacs.fr/job/Ada-ADO/)\n[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Ada-ADO.svg)](https://jenkins.vacs.fr/job/Ada-ADO/)\n[![codecov](https://codecov.io/gh/stcarrez/ada-ado/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-ado)\n[![Documentation Status](https://readthedocs.org/projects/ada-ado/badge/?version=latest)](https://ada-ado.readthedocs.io/en/latest/?badge=latest)\n\nAda Database Objects is an Ada05 library that provides\nobject relational mapping to access a database in Ada05.\nThe library supports Postgresql, MySQL, SQLite as databases.\nMost of the concepts developped for ADO come from the Java Hibernate ORM.\n\nThe ORM uses an YAML, XML mapping file or an UML model, a code generator and a runtime library\nfor the implementation.  It provides a database driver for [Postgresql](https://www.postgresql.org/),\n[MySQL](https://www.mysql.com/) and [SQLite](https://www.sqlite.org/).  The ORM helps your\napplication by providing a mapping of your database tables directly in the target programming\nlanguage: Ada05 in our case.  The development process is the following:\n\n  * You design your database model either using a UML tool or by writing a YAML or XML description,\n  * You generate the Ada05 mapping files by using the [Dynamo](https://github.com/stcarrez/dynamo) code generator,\n  * You generate the SQL database tables by using the same tool,\n  * You write your application on top of the generated code that gives you direct and simplified access to your database.\n\n![ADO Development model](https://github.com/stcarrez/ada-ado/wiki/images/ado-orm.png)\n\nYou need at least one of these databases (or all of then).  The configure script will now\nfail if no supported database was found.  Check the [Database Drivers](#database-drivers)\nsection to install them and run the configure again after the installation.\n\n# Documentation\n\n  * [Ada Database Objects Programmer's Guide](https://ada-ado.readthedocs.io/en/latest/)\n  * [Persistence with Ada Database Objects](https://fr.slideshare.net/StephaneCarrez1/persistence-with-ada-database-objects-ado) FOSDEM 2019\n\n"
+
+[[depends-on]]
+utilada = "*"
+utilada_xml = "*"
+
+[gpr-externals]
+ADO_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+ADO_BUILD = ["distrib","debug","optimize","profile","coverage"]
+
+[configuration]
+disabled = true
+
+[[pins]]
+
+[pins.utilada]
+path = "../ada-util"
+
+[pins.utilada_xml]
+path = "../ada-util/xml"
+
+[build-switches."*"]
+Compile_Checks = "none"

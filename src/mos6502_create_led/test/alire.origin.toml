@@ -1,0 +1,57 @@
+name                        = "mos6502_create_led_test"
+description                 = "Create NOP ROM - AUnit test"
+long-description            = """AUnit tests for mos6502_create_led
+
+Testsuite for MOS-6502 Create NOP.
+
+Development versions and testsuite available using the follwowing index:
+
+```sh
+alr index --add "git+https://github.com/krischik/alire-index.git#develop" --name krischik
+```
+
+Source code including AUnit tests available on [SourceForge](https://git.code.sf.net/p/tutorial-6502/git)
+"""
+version                     = "1.1.2"
+licenses                    = "GPL-3.0-or-later"
+authors                     = ["Martin Krischik"]
+maintainers                 = ["Martin Krischik <krischik@users.sourceforge.net>"]
+maintainers-logins          = ["krischik"]
+website                     = "https://sourceforge.net/projects/tutorial-6502/"
+tags                        = ["aunit", "unit-test", "ada2022"]
+executables                 = ["create_led_test-main"]
+
+[build-switches]
+development.runtime_checks  = "Everything"
+release.runtime_checks      = "Everything"
+validation.runtime_checks   = "Everything"
+development.contracts       = "Yes"
+release.contracts           = "Yes"
+validation.contracts        = "Yes"
+
+[[depends-on]]
+adacl                       = ">5.11.0"
+aunit                       = "23.0.0"
+gnat                        = ">=12 & <2000"
+mos6502_create_led          = "1.1.2"
+
+[[pins]]
+# adacl                       = { path = "../../../../AdaCL/adacl" } 
+mos6502_create_led          = { path = ".." } 
+
+[build-profiles]
+adacl                       = "validation"
+
+# [[actions.'case(os)'.windows]]
+# type                        = "post-build"
+# command                     = ["mos6502_create_led_test-main.exe"]
+# directory                   = "bin"
+# 
+# [[actions.'case(os)'.'...']]
+# type                        = "post-build"
+# command                     = ["mos6502_create_led_test-main"]
+# directory                   = "bin"
+
+# vim: set textwidth=0 nowrap tabstop=8 shiftwidth=4 softtabstop=4 expandtab :
+# vim: set filetype=toml fileencoding=utf-8 fileformat=unix foldmethod=diff :
+# vim: set spell spelllang=en_gb :

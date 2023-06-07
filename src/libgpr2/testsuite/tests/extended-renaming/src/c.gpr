@@ -1,0 +1,5 @@
+project c is
+   package compiler is
+      for driver ("Ada") use "toto";
+   end compiler;
+end c;

@@ -1,0 +1,28 @@
+authors = [
+"Vinzent \"Jellix\" Saranen",
+]
+description = "Pretty print physical values in properly scaled metric (SI) units."
+licenses = "WTFPL"
+long-description = "Provides generic conversion (`Image`) functions that convert values into human\nreadable strings with appropriate SI prefixes. This is especially convenient\nwhen you have to deal with printing values from a potentially large interval,\nand you need to represent such values as something an average human will\neasily be able to read. Then you can use `SI_Units` to take care of the\nconversion into an appropriate string representation for you.\n\nConverting values into a string is supported with all SI prefixes which are a\npower of 1000 (yocto .. Yotta), additionally there is a generic that can deal\nwith binary prefixes (i.e. prefixes that denote powers of 1024).\n\nScaling (i.e. conversion between different prefixes, like from kilo(meter) to\ncenti(meter)) between all defined SI prefixes is also supported, similar for\nbinary prefixes.\n\nSee the project's [website](https://github.heisenbug.eu/si_units) for more\ndetails.\n\nVersion 0.2.0 is source code identical to the previous 0.1.3 release, but adds\nfull support for Alire integration. In the process, the provided `gnat` project\nfiles have been streamlined, so if you upgrade to this version from a previous\nrelease, you will need to adjust your own project files accordingly.\n"
+maintainers = [
+"vinzent@heisenbug.eu",
+]
+maintainers-logins = [
+"Jellix",
+]
+name = "si_units"
+project-files = [
+"si_units.gpr",
+]
+tags = [
+"utilities",
+"formatting",
+]
+version = "0.2.0"
+website = "https://github.heisenbug.eu/si_units"
+[gpr-externals]
+SI_UNITS_BUILD_MODE = [
+"debug",
+"release",
+]
+
