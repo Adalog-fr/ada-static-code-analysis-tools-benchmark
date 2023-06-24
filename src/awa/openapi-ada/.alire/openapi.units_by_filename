@@ -1,0 +1,12 @@
+openapi-clients.adb
+openapi-clients.ads
+openapi-credentials-oauth.adb
+openapi-credentials-oauth.ads
+openapi-credentials.ads
+openapi-streams-forms.adb
+openapi-streams-forms.ads
+openapi-streams.adb
+openapi-streams.ads
+openapi.adb
+openapi.ads
+swagger.ads

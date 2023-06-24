@@ -1,0 +1,11 @@
+/workspaces/bench-source/src/ada_fuse/src/fuse-aux.adb
+/workspaces/bench-source/src/ada_fuse/src/fuse-aux.ads
+/workspaces/bench-source/src/ada_fuse/src/fuse-general.adb
+/workspaces/bench-source/src/ada_fuse/src/fuse-general.ads
+/workspaces/bench-source/src/ada_fuse/src/fuse-main.adb
+/workspaces/bench-source/src/ada_fuse/src/fuse-main.ads
+/workspaces/bench-source/src/ada_fuse/src/fuse-operations.ads
+/workspaces/bench-source/src/ada_fuse/src/fuse.adb
+/workspaces/bench-source/src/ada_fuse/src/fuse.ads
+/workspaces/bench-source/src/ada_fuse/src/system/linux64/fuse-system.adb
+/workspaces/bench-source/src/ada_fuse/src/system/linux64/fuse-system.ads

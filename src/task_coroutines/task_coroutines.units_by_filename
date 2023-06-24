@@ -1,0 +1,6 @@
+task_coroutines_config.ads
+task_coroutines-coroutine.adb
+task_coroutines-coroutine.ads
+task_coroutines-generator.adb
+task_coroutines-generator.ads
+task_coroutines.ads

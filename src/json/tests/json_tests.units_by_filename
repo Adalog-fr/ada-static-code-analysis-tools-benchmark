@@ -1,0 +1,9 @@
+test_bindings.adb
+test_images.adb
+test_images.ads
+test_parsers.adb
+test_parsers.ads
+test_streams.adb
+test_streams.ads
+test_tokenizers.adb
+test_tokenizers.ads

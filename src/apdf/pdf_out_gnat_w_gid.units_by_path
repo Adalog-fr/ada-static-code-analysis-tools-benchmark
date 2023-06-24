@@ -1,0 +1,15 @@
+/workspaces/bench-source/src/apdf/demo/bar_code.ads
+/workspaces/bench-source/src/apdf/demo/fancy_page.adb
+/workspaces/bench-source/src/apdf/demo/fancy_page.ads
+/workspaces/bench-source/src/apdf/demo/insert_mascot.adb
+/workspaces/bench-source/src/apdf/demo/pdf_out_demo.adb
+/workspaces/bench-source/src/apdf/demo/qr_code.ads
+/workspaces/bench-source/src/apdf/pdf_out-fonts.adb
+/workspaces/bench-source/src/apdf/pdf_out-fonts.ads
+/workspaces/bench-source/src/apdf/pdf_out-images.adb
+/workspaces/bench-source/src/apdf/pdf_out-images.ads
+/workspaces/bench-source/src/apdf/pdf_out.adb
+/workspaces/bench-source/src/apdf/pdf_out.ads
+/workspaces/bench-source/src/apdf/test/page_test.adb
+/workspaces/bench-source/src/apdf/test/validation_test.adb
+/workspaces/bench-source/src/apdf/tools/img2pdf.adb

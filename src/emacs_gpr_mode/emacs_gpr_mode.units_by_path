@@ -1,0 +1,12 @@
+/workspaces/bench-source/src/emacs_gpr_mode/config/emacs_gpr_mode_config.ads
+/workspaces/bench-source/src/emacs_gpr_mode/config/emacs_gpr_mode_config.h
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_mode_wisi_parse.ads
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_process_actions.adb
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_process_actions.ads
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_process_main.adb
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_process_main.ads
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_re2c_c.ads
+/workspaces/bench-source/src/emacs_gpr_mode/gpr_re2c.c
+/workspaces/bench-source/src/emacs_gpr_mode/run_gpr_parse.ads
+/workspaces/bench-source/src/emacs_gpr_mode/wisi-gpr.adb
+/workspaces/bench-source/src/emacs_gpr_mode/wisi-gpr.ads

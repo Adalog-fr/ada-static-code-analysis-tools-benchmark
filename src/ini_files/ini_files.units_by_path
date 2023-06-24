@@ -1,0 +1,6 @@
+/workspaces/bench-source/src/ini_files/config.adb
+/workspaces/bench-source/src/ini_files/config.ads
+/workspaces/bench-source/src/ini_files/tests/rosetta_read_cfg.adb
+/workspaces/bench-source/src/ini_files/tests/rosetta_updt_cfg_reset.adb
+/workspaces/bench-source/src/ini_files/tests/rosetta_updt_cfg.adb
+/workspaces/bench-source/src/ini_files/tests/test_config.adb

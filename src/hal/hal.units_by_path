@@ -1,0 +1,16 @@
+/workspaces/bench-source/src/hal/src/hal-audio.ads
+/workspaces/bench-source/src/hal/src/hal-bitmap.ads
+/workspaces/bench-source/src/hal/src/hal-block_drivers.ads
+/workspaces/bench-source/src/hal/src/hal-dsi.ads
+/workspaces/bench-source/src/hal/src/hal-filesystem.ads
+/workspaces/bench-source/src/hal/src/hal-framebuffer.ads
+/workspaces/bench-source/src/hal/src/hal-gpio.ads
+/workspaces/bench-source/src/hal/src/hal-i2c.ads
+/workspaces/bench-source/src/hal/src/hal-real_time_clock.ads
+/workspaces/bench-source/src/hal/src/hal-sdmmc.adb
+/workspaces/bench-source/src/hal/src/hal-sdmmc.ads
+/workspaces/bench-source/src/hal/src/hal-spi.ads
+/workspaces/bench-source/src/hal/src/hal-time.ads
+/workspaces/bench-source/src/hal/src/hal-touch_panel.ads
+/workspaces/bench-source/src/hal/src/hal-uart.ads
+/workspaces/bench-source/src/hal/src/hal.ads

@@ -1,0 +1,15 @@
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-events-context.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-events-context.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation_processor.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-identity.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-identity.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-inject.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-inject.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-vars.adb
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation-vars.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/implementation/yaml-transformator-annotation.ads
+/workspaces/bench-source/src/adayaml/src/annotation_processor/interface/yaml-transformator-annotation_processor.ads

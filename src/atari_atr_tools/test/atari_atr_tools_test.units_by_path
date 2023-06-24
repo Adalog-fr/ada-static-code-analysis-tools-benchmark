@@ -1,0 +1,9 @@
+/workspaces/bench-source/src/atari_atr_tools/test/config/atari_atr_tools_test_config.ads
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools_test-create_floppy.adb
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools_test-create_floppy.ads
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools_test-main.adb
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools_test-suite.adb
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools_test-suite.ads
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools_test.ads
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools-file_header-test.adb
+/workspaces/bench-source/src/atari_atr_tools/test/src/atr_tools-file_header-test.ads

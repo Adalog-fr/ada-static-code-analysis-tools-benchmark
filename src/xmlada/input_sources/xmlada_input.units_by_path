@@ -1,0 +1,10 @@
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-file.adb
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-file.ads
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-http.adb
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-http.ads
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-socket.adb
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-socket.ads
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-strings.adb
+/workspaces/bench-source/src/xmlada/input_sources/input_sources-strings.ads
+/workspaces/bench-source/src/xmlada/input_sources/input_sources.adb
+/workspaces/bench-source/src/xmlada/input_sources/input_sources.ads

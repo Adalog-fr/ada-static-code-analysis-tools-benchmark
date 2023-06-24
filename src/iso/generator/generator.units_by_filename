@@ -1,0 +1,8 @@
+common.adb
+common.ads
+countries.adb
+countries.ads
+currencies.adb
+currencies.ads
+generator_config.ads
+generator.adb

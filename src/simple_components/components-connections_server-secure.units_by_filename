@@ -1,0 +1,6 @@
+gnat-sockets-server-secure-anonymous.adb
+gnat-sockets-server-secure-anonymous.ads
+gnat-sockets-server-secure-x509.adb
+gnat-sockets-server-secure-x509.ads
+gnat-sockets-server-secure.adb
+gnat-sockets-server-secure.ads

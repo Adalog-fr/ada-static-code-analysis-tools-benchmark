@@ -1,0 +1,16 @@
+/workspaces/bench-source/src/lace/lace_collada/source/collada-asset.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-document.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada-document.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-libraries.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-animations.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-animations.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-controllers.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-controllers.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-geometries.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-geometries.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-visual_scenes.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library-visual_scenes.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada-library.ads
+/workspaces/bench-source/src/lace/lace_collada/source/collada.adb
+/workspaces/bench-source/src/lace/lace_collada/source/collada.ads

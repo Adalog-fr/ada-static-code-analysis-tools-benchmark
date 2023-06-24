@@ -1,0 +1,6 @@
+/workspaces/bench-source/src/iso/tests/config/iso_tests_config.ads
+/workspaces/bench-source/src/iso/tests/src/iso_countries_tests.adb
+/workspaces/bench-source/src/iso/tests/src/iso_countries_tests.ads
+/workspaces/bench-source/src/iso/tests/src/iso_currencies_tests.adb
+/workspaces/bench-source/src/iso/tests/src/iso_currencies_tests.ads
+/workspaces/bench-source/src/iso/tests/src/iso_tests.adb

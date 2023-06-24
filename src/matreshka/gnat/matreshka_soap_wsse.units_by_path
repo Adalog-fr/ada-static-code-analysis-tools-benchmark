@@ -1,0 +1,13 @@
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-constants.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-headers-decoders.adb
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-headers-decoders.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-headers-encoders.adb
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-headers-encoders.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-headers.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-modules.adb
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-modules.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-password_digest_utilities.adb
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-password_digest_utilities.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-setup.adb
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security-setup.ads
+/workspaces/bench-source/src/matreshka/source/web/wsse/web_services-soap-security.ads

@@ -1,0 +1,11 @@
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/ada_kernel.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/ada_kernels-config__linux.ads
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/ada_kernels.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/ada_kernels.ads
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/magics-gprbuild_options.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/magics-ls_magic.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/magics-output.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/magics-write_file.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/magics.ads
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/processes.adb
+/workspaces/bench-source/src/jupyter_kernel/sources/ada/processes.ads
