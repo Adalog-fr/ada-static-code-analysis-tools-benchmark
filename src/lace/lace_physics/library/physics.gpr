@@ -1,9 +1,9 @@
 with
-     "bullet_thin", 
-     "box2d_thin", 
+     "lace_shared",
+     "bullet_thin",
+     "box2d_thin",
      "c_math_thin",
-     "lace",
-     "lace_shared";
+     "lace";
 
 --library
 project Physics
@@ -14,7 +14,7 @@ is
    for Library_Dir  use "lib";
 --   for Library_Name use "lace_physics";
 
-   for Source_Dirs  use ("../source", 
+   for Source_Dirs  use ("../source",
                          "../source/private/box2d",
                          "../source/private/bullet");
 

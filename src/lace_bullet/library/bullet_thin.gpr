@@ -1,9 +1,9 @@
 with
+     "lace_shared",
      "bullet_thin_cxx",
      "c_math_thin",
      "swig",
-     "math",
-     "lace_shared";
+     "math";
 
 --library
 project Bullet_thin

@@ -1,6 +1,6 @@
 with
-     "gel",
-     "lace_shared";
+     "lace_shared",
+     "gel";
 
 
 project full_Demo

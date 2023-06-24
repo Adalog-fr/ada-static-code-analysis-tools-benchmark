@@ -1,7 +1,7 @@
 with
+     "lace_shared",
      "c_math_thin_c",
-     "box2d_contrib",
-     "lace_shared";
+     "box2d_contrib";
 
 --library
 project Box2d_Thin_C
@@ -23,7 +23,7 @@ is
    package Binder  renames Lace_shared.Binder;
 
    package Compiler is
-      for Default_Switches ("c++") use ("-g", 
+      for Default_Switches ("c++") use ("-g",
                                         "-Wno-return-type-c-linkage",
                                         "-I../../contrib/include");
    end Compiler;

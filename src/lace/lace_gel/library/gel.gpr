@@ -1,10 +1,11 @@
-with 
-     "lace", 
+with
+
+     "lace_shared",
+     "lace",
      "opengl",
      "collada",
      "physics",
-     "sdlada",
-     "lace_shared";
+     "sdlada";
 
 --library
 project GEL
@@ -22,7 +23,7 @@ is
                             "../source/concrete",
                             "../source/dolly",
                             "../source/forge",
-                            "../source/joint", 
+                            "../source/joint",
                             "../source/applet",
                             "../source/applet/distributed",
                             "../source/platform/sdl",

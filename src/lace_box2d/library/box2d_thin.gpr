@@ -1,9 +1,9 @@
-with 
+with
+     "lace_shared",
      "box2d_thin_cxx",
      "c_math_thin",
      "swig",
-     "math",
-     "lace_shared";
+     "math";
 
 --library
 project Box2d_thin

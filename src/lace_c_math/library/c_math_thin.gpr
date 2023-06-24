@@ -1,11 +1,11 @@
 with
+     "lace_shared",
      "c_math_thin_cxx",
      "swig",
-     "math",
-     "lace_shared";
+     "math";
 
 --library
-project c_Math_thin 
+project c_Math_thin
 is
    for Languages       use ("Ada");
    for Source_Dirs     use ("../source", "../source/thin");

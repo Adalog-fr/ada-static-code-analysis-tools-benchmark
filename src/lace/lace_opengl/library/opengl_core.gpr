@@ -1,9 +1,9 @@
-with 
-     "../private/gl/library/gl",
-     "../private/gid/gid",
+with
      "math",
-     "lace_shared";
-     
+     "lace_shared",
+     "../private/gl/library/gl",
+     "../private/gid/gid";
+
 --library
 project Opengl_Core
 is
@@ -17,20 +17,20 @@ is
 --   for Library_Name use "opengl_core";
 
 
-   case The_Platform is 
+   case The_Platform is
       when "egl"    =>   for Languages    use ("Ada");
       when "glx"    =>   for Languages    use ("Ada", "C");
       when "osmesa" =>   for Languages    use ("Ada", "C");
-   end case; 
+   end case;
 
-   
+
    for Source_Dirs use ("../source",
-                        "../source/profile/"  & external ("opengl_profile",  "lean"), 
-                        "../source/platform/" & external ("opengl_platform", "egl"), 
-                        "../source/platform/" & external ("opengl_platform", "egl") & "/private", 
+                        "../source/profile/"  & external ("opengl_profile",  "lean"),
+                        "../source/platform/" & external ("opengl_platform", "egl"),
+                        "../source/platform/" & external ("opengl_platform", "egl") & "/private",
                         "../source/platform/" & external ("opengl_platform", "egl") & "/private/thin");
 
-   
+
    package Builder renames Lace_shared.Builder;
 
 

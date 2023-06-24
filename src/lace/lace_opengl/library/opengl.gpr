@@ -1,8 +1,8 @@
 with
+      "lace_shared",
      "opengl_core",
-     "../private/freetype/library/freetype", 
      "collada",
-     "lace_shared";
+     "../private/freetype/library/freetype";
 
 --library
 project Opengl
@@ -21,26 +21,26 @@ is
          for Source_Dirs use ("../source/safe");
 
       when "lean" =>
-         for Source_Dirs use ("../source/lean", 
+         for Source_Dirs use ("../source/lean",
                               "../source/lean/buffer",
                               "../source/lean/geometry/**",
                               "../source/lean/light",
                               "../source/lean/model",
                               "../source/lean/renderer",
                               "../source/lean/shader",
-                              "../source/lean/support", 
+                              "../source/lean/support",
                               "../source/lean/text",
                               "../source/lean/io",
                               "../source/lean/text/private");
       when "desk" =>
-         for Source_Dirs use ("../source/lean", 
+         for Source_Dirs use ("../source/lean",
                               "../source/lean/buffer",
                               "../source/lean/geometry/**",
                               "../source/lean/light",
                               "../source/lean/model",
                               "../source/lean/renderer",
                               "../source/lean/shader",
-                              "../source/lean/support", 
+                              "../source/lean/support",
                               "../source/lean/text",
                               "../source/lean/io",
                               "../source/lean/text/private",
@@ -55,10 +55,10 @@ is
       for Default_Switches ("ada")           use Lace_shared.Compiler_Options;
       for         Switches ("opengl-io.adb") use ("-O0");
    end Compiler;
-   
+
    package Linker
    is
-      for Linker_Options use ("-g", "-lEGL", "-lGLESv2", "-lSDL2");   
+      for Linker_Options use ("-g", "-lEGL", "-lGLESv2", "-lSDL2");
    end Linker;
 
 end Opengl;
