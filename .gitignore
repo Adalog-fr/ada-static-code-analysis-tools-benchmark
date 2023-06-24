@@ -182,3 +182,5 @@ rootfs/home/.gitconfig
 rootfs/home/omp.cache
 rootfs/home/bin
 *.log
+.atgdb/
+.cogralys/
