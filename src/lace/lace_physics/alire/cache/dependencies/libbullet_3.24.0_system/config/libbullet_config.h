@@ -2,7 +2,7 @@
 #ifndef LIBBULLET_CONFIG_H
 #define LIBBULLET_CONFIG_H
 
-#define CRATE_VERSION "3.6.0"
+#define CRATE_VERSION "3.24.0"
 #define CRATE_NAME "libbullet"
 
 #define ALIRE_HOST_OS "linux"

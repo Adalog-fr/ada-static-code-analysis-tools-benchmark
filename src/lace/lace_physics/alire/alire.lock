@@ -93,7 +93,7 @@ tags = [
 "simulation",
 "robotics",
 ]
-version = "3.6.0"
+version = "3.24.0"
 website = "https://pybullet.org"
 [solution.state.release.origin]
 url = "system:libbullet-dev"

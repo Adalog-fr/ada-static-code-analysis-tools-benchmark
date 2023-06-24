@@ -5,7 +5,7 @@ pragma Style_Checks (Off);
 package Libbullet_Config is
    pragma Pure;
 
-   Crate_Version : constant String := "3.6.0";
+   Crate_Version : constant String := "3.24.0";
    Crate_Name : constant String := "libbullet";
 
    Alire_Host_OS : constant String := "linux";
