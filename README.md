@@ -13,6 +13,8 @@ Benchmark tools used:
 - AdaControl
 - Cogralys (our solution)
 
+The base code represent 3_548_930 lines of codes (counted using [Tokei](https://github.com/XAMPPRocky/tokei); so blank lines and comment lines are not included) in 15_753 files in 408 projects (gpr files).
+
 ### Result
 
 The current benchmark results are yet to be added. Stay tuned for updates!
