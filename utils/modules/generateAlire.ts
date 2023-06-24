@@ -1,5 +1,4 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { exists } from "https://deno.land/std/fs/mod.ts";
 import { join, relative } from "https://deno.land/std/path/mod.ts";
 import { parse, stringify } from "https://deno.land/std/toml/mod.ts";
 
@@ -38,7 +37,7 @@ export function initializeModule(program: Command): void {
                     if (e.code !== "EISDIR") {
                         throw e;
                     }
-                    
+
                     alireTomlPath.push(options.alireTomlPath)
                 }
 
@@ -86,7 +85,7 @@ export function initializeModule(program: Command): void {
                                 delete data["depends-on"][index][dependency];
                                 continue;
                             }
-    
+
                             const value = data["depends-on"][index][dependency];
                             if (dependency in cratesPath) {
                                 if (canReplace(value) && !(dependency in pins)) {

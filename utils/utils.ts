@@ -5,7 +5,8 @@ export function collectOptionList(value, previous) {
 export function exec(
   command: string | URL,
   args?: string[] | undefined,
-  options?: Deno.CommandOptions | undefined
+  options?: Deno.CommandOptions | undefined,
+  surroundEnvWithEnvFile?: boolean,
 ) {
   const process = new Deno.Command(command, {
       args,

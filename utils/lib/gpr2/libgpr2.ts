@@ -35,7 +35,7 @@ switch (Deno.build.os) {
     break;
 }
 
-const libName = `/workspaces/bench-source/src//libgpr2/bindings/c/build/release/lib/libgpr2c.${libSuffix}`;
+const libName = `/workspaces/bench-source/src/libgpr2/bindings/c/build/release/lib/libgpr2c.${libSuffix}`;
 
 const lib = Deno.dlopen(libName, {
   gpr2_request: {
@@ -77,7 +77,7 @@ function gpr2RequestWrapper(
     new Deno.UnsafePointerView(Deno.UnsafePointer.create(ptr[0])).getCString()
   );
 
-  if (result != 0) {    
+  if (result != 0) {
     throw new GPR2Error(answer.error_name, answer.error_msg);
   }
 

@@ -5,6 +5,7 @@ import * as GetAlireDependencies from "./modules/get_alire_dependencies.ts";
 import * as GenerateBuildPath from "./modules/generateBuildPath.ts";
 import * as GenerateAlire from "./modules/generateAlire.ts";
 import * as CreateRunCommand from "./modules/runCommandFactory.ts";
+import * as GenerateEnv from "./modules/generate_env.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -18,16 +19,17 @@ GetAlireDependencies.initializeModule(program);
 ExtractDependenciesInGPR2.initializeModule(program);
 GenerateBuildPath.initializeModule(program);
 GenerateAlire.initializeModule(program);
-CreateRunCommand.initializeModule(program, { 
-    commandName: "update-project", 
-    description: "Run `alr -n update` in all directories listed into `alireTomlPath`.", 
+CreateRunCommand.initializeModule(program, {
+    commandName: "update-project",
+    description: "Run `alr -n update` in all directories listed into `alireTomlPath`.",
     command: ["alr", ["-n", "update"]],
     concurrency: 10
 });
-CreateRunCommand.initializeModule(program, { 
-    commandName: "build", 
-    description: "Run `alr -n build` in all directories listed into `alireTomlPath`.", 
-    command: ["alr", ["-n", "build"]] 
+CreateRunCommand.initializeModule(program, {
+    commandName: "build",
+    description: "Run `alr -n build` in all directories listed into `alireTomlPath`.",
+    command: ["alr", ["-n", "build"]]
 });
+GenerateEnv.initializeModule(program);
 
 program.parse(Deno.args);
