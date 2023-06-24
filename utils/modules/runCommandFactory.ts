@@ -2,11 +2,21 @@ import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join } from "https://deno.land/std/path/mod.ts";
 import { parse } from "https://deno.land/std/toml/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
-import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
+import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
 import { formatDuration } from "../utils.ts";
 
 type commandType = [string, string[]];
-export function initializeModule(program: Command, settings: { commandName: string, description: string, command: commandType, concurrency?: number }): void {
+type taskDataType = { path: string, command: commandType };
+export function initializeModule(program: Command, settings: {
+    commandName: string,
+    description: string,
+    command: commandType,
+    concurrency?: number,
+    logAppendMode?: boolean,
+    preTaskCb?: preTaskCbType<taskDataType> | undefined,
+    postTaskCb?: postTaskCbType<taskDataType, string> | undefined,
+    beforeRun?: (params: { taskRunner: TaskRunner<taskDataType, string>, alireTomlPath: string[]}) => void
+ }): void {
     program
         .command(settings.commandName)
         .description(
@@ -27,10 +37,15 @@ export function initializeModule(program: Command, settings: { commandName: stri
             "File path to a json file that contains a list of all directories that contains a `alire.origin.toml`.",
             "/workspaces/bench-source/alireTomlPath.json"
         )
-        .action((options: { cratesPath: string, ignoreCratesPath: string, alireTomlPath: string }) => {
+        .option(
+            "-a, --logAppendMode <path>",
+            "If true, log files will be in append mode, otherwise is will overwrite the file.",
+            false
+        )
+        .action((options: { cratesPath: string, ignoreCratesPath: string, alireTomlPath: string, logAppendMode: boolean }) => {
             const cratesPath = JSON.parse(Deno.readTextFileSync(options.cratesPath));
             const ignoreCrate = Deno.readTextFileSync(options.ignoreCratesPath).split(/\r?\n/g).map(elt => elt.trim());
-            const alireTomlPath = JSON.parse(Deno.readTextFileSync(options.alireTomlPath));
+            const alireTomlPath: string[] = JSON.parse(Deno.readTextFileSync(options.alireTomlPath));
             const knowCrates = Object.keys(cratesPath);
 
             // Configure logs
@@ -41,7 +56,7 @@ export function initializeModule(program: Command, settings: { commandName: stri
                     file: new log.handlers.FileHandler("WARNING", {
                         filename: `/workspaces/bench-source/cogralysRunCommand-${settings.commandName}.log`,
                         formatter: "[{levelName}] {msg}",
-                        mode: "w"
+                        mode: options.logAppendMode ? "a" : settings.logAppendMode ? "a" : "w"
                     }),
                 },
 
@@ -60,15 +75,16 @@ export function initializeModule(program: Command, settings: { commandName: stri
 
             const logger = log.getLogger();
 
-            type taskDataType = { path: string, command: commandType };
             const taskRunner = new TaskRunner<taskDataType, string>(settings.concurrency || 1, "./workerRunCmd.ts");
             taskRunner.preTaskCb = (task, index) => {
                 logger.debug(`[${settings.commandName}] [${index}/${alireTomlPath.length}] Building project '${task.id}' in: ${task.data.path}`);
+                settings.preTaskCb?.(task, index);
             }
             taskRunner.postTaskCb = (task, index) => {
                 if (task.status === "failure") {
                     logger.error(`[${settings.commandName}] [${index}/${alireTomlPath.length}] '${task.id}' in '${task.task.data.path}' error: ${task.result.output || task.result}`);
                 }
+                settings.postTaskCb?.(task, index)
             }
 
             for (const alireDir of alireTomlPath) {
@@ -84,6 +100,8 @@ export function initializeModule(program: Command, settings: { commandName: stri
 
                 taskRunner.addTask(<string>data.name, dependencies, { path: alireDir, command: settings.command });
             }
+
+            settings.beforeRun?.({taskRunner, alireTomlPath});
 
             performance.mark('buildStart');
             taskRunner.run().then(() => {

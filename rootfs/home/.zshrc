@@ -29,3 +29,5 @@ source ~/.aliases
 
 # Load cargo deps
 . "$HOME/.cargo/env"
+
+export PATH="$HOME/bin:$PATH"
