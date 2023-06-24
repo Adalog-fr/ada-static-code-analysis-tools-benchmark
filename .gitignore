@@ -180,4 +180,5 @@ rootfs/home/.bash_history
 rootfs/home/.histfile
 rootfs/home/.gitconfig
 rootfs/home/omp.cache
+rootfs/home/bin
 *.log
