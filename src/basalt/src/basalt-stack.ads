@@ -25,29 +25,29 @@ is
    --
    --  @param S  Stack
    --  @return   Size of stack S
-   function Size (S : Context) return Positive with
-     Annotate => (GNATprove, Inline_For_Proof);
+   function Size (S : Context) return Positive;-- with
+   --    Annotate => (GNATprove, Inline_For_Proof);
 
    --  Number of elements on stack
    --
    --  @param S  Stack
    --  @return   Current elements in stack S
-   function Count (S : Context) return Natural with
-     Annotate => (GNATprove, Inline_For_Proof);
+   function Count (S : Context) return Natural;-- with
+   --    Annotate => (GNATprove, Inline_For_Proof);
 
    --  Stack is empty
    --
    --  @param S  Stack
    --  @return   Stack is empty
-   function Is_Empty (S : Context) return Boolean is (Count (S) = 0) with
-     Annotate => (GNATprove, Inline_For_Proof);
+   function Is_Empty (S : Context) return Boolean is (Count (S) = 0);-- with
+   --    Annotate => (GNATprove, Inline_For_Proof);
 
    --  Stack is full
    --
    --  @param S  Stack
    --  @return   Stack is valid
-   function Is_Full (S : Context) return Boolean is (Count (S) >= Size (S)) with
-     Annotate => (GNATprove, Inline_For_Proof);
+   function Is_Full (S : Context) return Boolean is (Count (S) >= Size (S));-- with
+   --    Annotate => (GNATprove, Inline_For_Proof);
 
    --  Push element onto stack
    --
@@ -122,7 +122,7 @@ private
    type Context (Size : Positive) is record
       Index : Natural := 0;
       List  : Simple_List (1 .. Size);
-   end record with
-     Predicate => Index <= List'Last;
+   end record;-- with
+   --    Predicate => Index <= List'Last;
 
 end Basalt.Stack;
