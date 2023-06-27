@@ -6,6 +6,7 @@ import * as GenerateBuildPath from "./modules/generateBuildPath.ts";
 import * as GenerateAlire from "./modules/generateAlire.ts";
 import * as CreateRunCommand from "./modules/runCommandFactory.ts";
 import * as GenerateEnv from "./modules/generate_env.ts";
+import * as Run from "./modules/run.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -31,5 +32,6 @@ CreateRunCommand.initializeModule(program, {
     command: ["alr", ["-n", "build"]]
 });
 GenerateEnv.initializeModule(program);
+Run.initializeModule(program);
 
 program.parse(Deno.args);
