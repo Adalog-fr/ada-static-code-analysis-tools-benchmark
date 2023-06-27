@@ -61,6 +61,7 @@ export class TaskRunner<T, U> {
     private workerPool: AsyncQueue<ExtendedWorker> = new AsyncQueue<ExtendedWorker>();
     private taskQueue: Task<T>[] = [];
     private completedTaskIds = new Set<string>();
+    private incompletedTaskIds = new Set<string>();
     private results: taskResultType<T,U>[] = [];
     private activeTasks = 0; // Track the number of active tasks
 
@@ -87,7 +88,11 @@ export class TaskRunner<T, U> {
             worker.onmessage = async (ev: MessageEvent) => {
                 const { taskId, result, status, path }: { taskId: string, result: any, status: "success" | "failure", path: string } = ev.data;
                 this.results.push({ id: taskId, result, status, task: this.assocMap.get(worker.index)! });
-                this.completedTaskIds.add(taskId);
+                if (status === "success") {
+                    this.completedTaskIds.add(taskId);
+                } else {
+                    this.incompletedTaskIds.add(taskId);
+                }
                 if (this._postTaskCb) {
                     await this._postTaskCb(this.results[this.results.length - 1], worker.index);
                 }
@@ -97,6 +102,7 @@ export class TaskRunner<T, U> {
 
             worker.onerror = async (error) => {
                 this.results.push({ id: worker.taskId, result: error, status: "failure", task: this.assocMap.get(worker.index)! });
+                this.incompletedTaskIds.add(worker.taskId);
                 if (this._postTaskCb) {
                     await this._postTaskCb(this.results[this.results.length - 1], worker.index);
                 }
@@ -105,6 +111,7 @@ export class TaskRunner<T, U> {
 
             worker.onmessageerror = async (error) => {
                 this.results.push({ id: worker.taskId, result: error, status: "failure", task: this.assocMap.get(worker.index)! });
+                this.incompletedTaskIds.add(worker.taskId);
                 if (this._postTaskCb) {
                     await this._postTaskCb(this.results[this.results.length - 1], worker.index);
                 }
@@ -159,6 +166,7 @@ export class TaskRunner<T, U> {
 
         while (this.taskQueue.length > 0 || this.activeTasks > 0) {
             const task = findReadyTask(this.taskQueue, this.completedTaskIds);
+            const notRunableTask = findReadyTask(this.taskQueue, this.incompletedTaskIds);
 
             if (task) {
                 // If there are no idle workers, wait for one to become available
@@ -178,6 +186,20 @@ export class TaskRunner<T, U> {
 
                 worker.postMessage({ taskId: task.id, data: task.data });
                 this.activeTasks++;
+            } else if (notRunableTask) {
+                this.taskQueue = this.taskQueue.filter(t => t !== notRunableTask);
+                if (this._preTaskCb) {
+                    await this._preTaskCb(notRunableTask, -1);
+                }
+                const result = { output: `This task is not running due to failure on the following tasks: ${
+                    notRunableTask.dependencies.filter(dep => this.incompletedTaskIds.has(dep)).join(",")}` };
+                const status = "failure";
+                const resultObject = { id: notRunableTask.id, result, status, task: notRunableTask };
+                this.results.push(resultObject);
+                this.incompletedTaskIds.add(notRunableTask.id);
+                if (this._postTaskCb) {
+                    await this._postTaskCb(resultObject, -1);
+                }
             } else {
                 await new Promise(resolve => setTimeout(resolve, 0));
             }
