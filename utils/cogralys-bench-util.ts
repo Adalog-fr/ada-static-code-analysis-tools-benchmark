@@ -7,6 +7,7 @@ import * as GenerateAlire from "./modules/generateAlire.ts";
 import * as CreateRunCommand from "./modules/runCommandFactory.ts";
 import * as GenerateEnv from "./modules/generate_env.ts";
 import * as Run from "./modules/run.ts";
+import * as ExploreNeo4jDirs from "./modules/explore-neo4j-dirs.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -33,5 +34,6 @@ CreateRunCommand.initializeModule(program, {
 });
 GenerateEnv.initializeModule(program);
 Run.initializeModule(program);
+ExploreNeo4jDirs.initializeModule(program);
 
 program.parse(Deno.args);

@@ -1,0 +1,1233 @@
+[
+  {
+    "workDir": "/workspaces/bench-source/src/aaa",
+    "gprPath": [
+      "/workspaces/bench-source/src/aaa/aaa.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ada_fuse",
+    "gprPath": [
+      "/workspaces/bench-source/src/ada_fuse/ada_fuse.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ada_lua",
+    "gprPath": [
+      "/workspaces/bench-source/src/ada_lua/ada_lua.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ada_pretty",
+    "gprPath": [
+      "/workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ada_toml",
+    "gprPath": [
+      "/workspaces/bench-source/src/ada_toml/ada_toml.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/adl_middleware",
+    "gprPath": [
+      "/workspaces/bench-source/src/adl_middleware/adl_middleware.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/aflex",
+    "gprPath": [
+      "/workspaces/bench-source/src/aflex/aflex.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/agpl",
+    "gprPath": [
+      "/workspaces/bench-source/src/agpl/agpl.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ajunitgen",
+    "gprPath": [
+      "/workspaces/bench-source/src/ajunitgen/ajunitgen.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/anagram",
+    "gprPath": [
+      "/workspaces/bench-source/src/anagram/gnat/anagram.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ansiada",
+    "gprPath": [
+      "/workspaces/bench-source/src/ansiada/ansiada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/apdf",
+    "gprPath": [
+      "/workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/asfml",
+    "gprPath": [
+      "/workspaces/bench-source/src/asfml/asfml.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/atomic",
+    "gprPath": [
+      "/workspaces/bench-source/src/atomic/atomic.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/audio_base",
+    "gprPath": [
+      "/workspaces/bench-source/src/audio_base/audio_base.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/audio_wavefiles",
+    "gprPath": [
+      "/workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/aunit",
+    "gprPath": [
+      "/workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/automate",
+    "gprPath": [
+      "/workspaces/bench-source/src/automate/automate.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/avltrees",
+    "gprPath": [
+      "/workspaces/bench-source/src/avltrees/avltrees.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/avrada_examples/avrada_rts",
+    "gprPath": [
+      "/workspaces/bench-source/src/avrada_examples/avrada_rts/avrada_rts.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/awa/ada-lzma",
+    "gprPath": [
+      "/workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/awa/ada-util",
+    "gprPath": [
+      "/workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr",
+      "/workspaces/bench-source/src/awa/ada-util/utilada_base.gpr",
+      "/workspaces/bench-source/src/awa/ada-util/utilada_core.gpr",
+      "/workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/awa/ada-util/curl",
+    "gprPath": [
+      "/workspaces/bench-source/src/awa/ada-util/utilada_curl.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/axmpp",
+    "gprPath": [
+      "/workspaces/bench-source/src/axmpp/gnat/axmpp.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ayacc",
+    "gprPath": [
+      "/workspaces/bench-source/src/ayacc/ayacc.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/b2ssum",
+    "gprPath": [
+      "/workspaces/bench-source/src/b2ssum/b2ssum.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/bar_codes",
+    "gprPath": [
+      "/workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/basalt",
+    "gprPath": [
+      "/workspaces/bench-source/src/basalt/basalt.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/bbqueue",
+    "gprPath": [
+      "/workspaces/bench-source/src/bbqueue/bbqueue.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/bingada",
+    "gprPath": [
+      "/workspaces/bench-source/src/bingada/bingada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/blake2s",
+    "gprPath": [
+      "/workspaces/bench-source/src/blake2s/blake2s.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/brackelib",
+    "gprPath": [
+      "/workspaces/bench-source/src/brackelib/brackelib.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/c_strings",
+    "gprPath": [
+      "/workspaces/bench-source/src/c_strings/c_strings.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/canberra_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/canberra_ada/canberra_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/cbsg",
+    "gprPath": [
+      "/workspaces/bench-source/src/cbsg/cbsg.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/chacha20",
+    "gprPath": [
+      "/workspaces/bench-source/src/chacha20/chacha20.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/chests",
+    "gprPath": [
+      "/workspaces/bench-source/src/chests/chests.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/clic",
+    "gprPath": [
+      "/workspaces/bench-source/src/clic/clic.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/cmd_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/cmd_ada/cmd_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/cobs",
+    "gprPath": [
+      "/workspaces/bench-source/src/cobs/cobs.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/dashera",
+    "gprPath": [
+      "/workspaces/bench-source/src/dashera/dashera.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/dcf",
+    "gprPath": [
+      "/workspaces/bench-source/src/dcf/dcf/dcf.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/dg_loada",
+    "gprPath": [
+      "/workspaces/bench-source/src/dg_loada/dg_loada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/dir_iterators",
+    "gprPath": [
+      "/workspaces/bench-source/src/dir_iterators/dir_iterators.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/dotenv",
+    "gprPath": [
+      "/workspaces/bench-source/src/dotenv/dotenv.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/dummyserver",
+    "gprPath": [
+      "/workspaces/bench-source/src/dummyserver/dummyserver.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/eagle_lander",
+    "gprPath": [
+      "/workspaces/bench-source/src/eagle_lander/eagle_lander.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/edc_client",
+    "gprPath": [
+      "/workspaces/bench-source/src/edc_client/edc_client.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/eeprom_i2c",
+    "gprPath": [
+      "/workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/elevator",
+    "gprPath": [
+      "/workspaces/bench-source/src/elevator/elevator.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/embedded_components",
+    "gprPath": [
+      "/workspaces/bench-source/src/embedded_components/embedded_components.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/emojis",
+    "gprPath": [
+      "/workspaces/bench-source/src/emojis/emojis.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/endianness",
+    "gprPath": [
+      "/workspaces/bench-source/src/endianness/endianness.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/epoll",
+    "gprPath": [
+      "/workspaces/bench-source/src/epoll/epoll.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/esp_idf",
+    "gprPath": [
+      "/workspaces/bench-source/src/esp_idf/esp_idf.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/euler_tools",
+    "gprPath": [
+      "/workspaces/bench-source/src/euler_tools/euler_tools.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/evdev",
+    "gprPath": [
+      "/workspaces/bench-source/src/evdev/evdev_info.gpr",
+      "/workspaces/bench-source/src/evdev/evdev.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ews",
+    "gprPath": [
+      "/workspaces/bench-source/src/ews/ews.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/excel_writer",
+    "gprPath": [
+      "/workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/fastpbkdf2_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/felix",
+    "gprPath": [
+      "/workspaces/bench-source/src/felix/felix.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/florist_blady",
+    "gprPath": [
+      "/workspaces/bench-source/src/florist_blady/lib_florist.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/freetypeada",
+    "gprPath": [
+      "/workspaces/bench-source/src/freetypeada/freetype.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/garlic",
+    "gprPath": [
+      "/workspaces/bench-source/src/garlic/gnat/garlic.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/garlic/Dist",
+    "gprPath": [
+      "/workspaces/bench-source/src/garlic/gnat/gnatdist.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/geo_coords",
+    "gprPath": [
+      "/workspaces/bench-source/src/geo_coords/geo_coords.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/get_password",
+    "gprPath": [
+      "/workspaces/bench-source/src/get_password/get_password.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/getopt",
+    "gprPath": [
+      "/workspaces/bench-source/src/getopt/getopt.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/gid",
+    "gprPath": [
+      "/workspaces/bench-source/src/gid/gid.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/gnat_math_extensions",
+    "gprPath": [
+      "/workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/gprbuild",
+    "gprPath": [
+      "/workspaces/bench-source/src/gprbuild/gpr/gpr.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/gtkada",
+    "gprPath": [
+      "/workspaces/bench-source/src/gtkada/src/gtkada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/hac",
+    "gprPath": [
+      "/workspaces/bench-source/src/hac/hac.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/hal",
+    "gprPath": [
+      "/workspaces/bench-source/src/hal/hal.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/hangman",
+    "gprPath": [
+      "/workspaces/bench-source/src/hangman/hangman.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/hello",
+    "gprPath": [
+      "/workspaces/bench-source/src/hello/hello.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/hmac",
+    "gprPath": [
+      "/workspaces/bench-source/src/hmac/hmac.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/honki_tonks_zivilisationen",
+    "gprPath": [
+      "/workspaces/bench-source/src/honki_tonks_zivilisationen/honki_tonks_zivilisationen.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/hungarian",
+    "gprPath": [
+      "/workspaces/bench-source/src/hungarian/hungarian.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ini_files",
+    "gprPath": [
+      "/workspaces/bench-source/src/ini_files/ini_files.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/inotify",
+    "gprPath": [
+      "/workspaces/bench-source/src/inotify/inotify.gpr",
+      "/workspaces/bench-source/src/inotify/monitor.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/j2ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/j2ada/j2ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/json/json",
+    "gprPath": [
+      "/workspaces/bench-source/src/json/json/json_pretty_print.gpr",
+      "/workspaces/bench-source/src/json/json/json.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/jupyter_kernel",
+    "gprPath": [
+      "/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr",
+      "/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/jwt",
+    "gprPath": [
+      "/workspaces/bench-source/src/jwt/gnat/jwt.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/labs_radar",
+    "gprPath": [
+      "/workspaces/bench-source/src/labs_radar/labs_radar.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/labs_radar/labs_standalone",
+    "gprPath": [
+      "/workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/library/lace.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace_box2d",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace_bullet",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace_c_math",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace_gel_animation_demo",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace_gel_full_demo",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace_shared",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace_shared/lace_shared.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_collada",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_collada/library/collada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_gel",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_gel/library/gel.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_math",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_math/library/math.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_opengl",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_opengl/library/opengl.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_physics",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_physics/library/physics.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_swig",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_swig/library/swig.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lace/lace_xml",
+    "gprPath": [
+      "/workspaces/bench-source/src/lace/lace_xml/library/xml.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/libhello",
+    "gprPath": [
+      "/workspaces/bench-source/src/libhello/libhello.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/libkeccak",
+    "gprPath": [
+      "/workspaces/bench-source/src/libkeccak/libkeccak.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/libsimpleio",
+    "gprPath": [
+      "/workspaces/bench-source/src/libsimpleio/libsimpleio.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/linenoise_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/linenoise_ada/linenoise.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/littlefs",
+    "gprPath": [
+      "/workspaces/bench-source/src/littlefs/littlefs.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/loga",
+    "gprPath": [
+      "/workspaces/bench-source/src/loga/loga.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lvgl_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator",
+    "gprPath": [
+      "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/mage",
+    "gprPath": [
+      "/workspaces/bench-source/src/mage/mage.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/mage_hat",
+    "gprPath": [
+      "/workspaces/bench-source/src/mage_hat/mage_hat.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/mandelbrot_ascii",
+    "gprPath": [
+      "/workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/markdown",
+    "gprPath": [
+      "/workspaces/bench-source/src/markdown/gnat/markdown.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/mathpaqs",
+    "gprPath": [
+      "/workspaces/bench-source/src/mathpaqs/mathpaqs.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml",
+    "gprPath": [
+      "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/mcp2221",
+    "gprPath": [
+      "/workspaces/bench-source/src/mcp2221/mcp2221.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/midi",
+    "gprPath": [
+      "/workspaces/bench-source/src/midi/midi.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/minirest",
+    "gprPath": [
+      "/workspaces/bench-source/src/minirest/minirest.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/ncursesada",
+    "gprPath": [
+      "/workspaces/bench-source/src/ncursesada/Ada95/lib_adacurses.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/openglada",
+    "gprPath": [
+      "/workspaces/bench-source/src/openglada/opengl.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/openglada_glfw",
+    "gprPath": [
+      "/workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/openglada_images",
+    "gprPath": [
+      "/workspaces/bench-source/src/openglada_images/opengl-images.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/openglada/openglada_text",
+    "gprPath": [
+      "/workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/optional",
+    "gprPath": [
+      "/workspaces/bench-source/src/optional/optional.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/parse_args",
+    "gprPath": [
+      "/workspaces/bench-source/src/parse_args/parse_args.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/partord",
+    "gprPath": [
+      "/workspaces/bench-source/src/partord/partord.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/pbkdf2",
+    "gprPath": [
+      "/workspaces/bench-source/src/pbkdf2/pbkdf2.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/play_2048",
+    "gprPath": [
+      "/workspaces/bench-source/src/play_2048/play_2048.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/powerjoular",
+    "gprPath": [
+      "/workspaces/bench-source/src/powerjoular/powerjoular.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/progress_indicators",
+    "gprPath": [
+      "/workspaces/bench-source/src/progress_indicators/progress_indicators.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/protobuf",
+    "gprPath": [
+      "/workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/qoi",
+    "gprPath": [
+      "/workspaces/bench-source/src/qoi/qoi.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/raspberry_bsp",
+    "gprPath": [
+      "/workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/remoteio",
+    "gprPath": [
+      "/workspaces/bench-source/src/remoteio/remoteio.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/resources",
+    "gprPath": [
+      "/workspaces/bench-source/src/resources/resources.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/rsfile",
+    "gprPath": [
+      "/workspaces/bench-source/src/rsfile/rsfile.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/rtmidi",
+    "gprPath": [
+      "/workspaces/bench-source/src/rtmidi/rtmidi.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/rxada",
+    "gprPath": [
+      "/workspaces/bench-source/src/rxada/rxada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/saatana",
+    "gprPath": [
+      "/workspaces/bench-source/src/saatana/saatana.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/scripted_testing",
+    "gprPath": [
+      "/workspaces/bench-source/src/scripted_testing/scripted_testing.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/sdlada",
+    "gprPath": [
+      "/workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/semantic_versioning",
+    "gprPath": [
+      "/workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/septum",
+    "gprPath": [
+      "/workspaces/bench-source/src/septum/septum.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/sha1",
+    "gprPath": [
+      "/workspaces/bench-source/src/sha1/sha1.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/sha2",
+    "gprPath": [
+      "/workspaces/bench-source/src/sha2/sha2.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/si_units",
+    "gprPath": [
+      "/workspaces/bench-source/src/si_units/si_units.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/simh_tapes",
+    "gprPath": [
+      "/workspaces/bench-source/src/simh_tapes/simh_tapes.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/simple_components",
+    "gprPath": [
+      "/workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr",
+      "/workspaces/bench-source/src/simple_components/components-connections_server.gpr",
+      "/workspaces/bench-source/src/simple_components/components-gnutls.gpr",
+      "/workspaces/bench-source/src/simple_components/components-ntp.gpr",
+      "/workspaces/bench-source/src/simple_components/components-sqlite.gpr",
+      "/workspaces/bench-source/src/simple_components/components.gpr",
+      "/workspaces/bench-source/src/simple_components/strings_edit.gpr",
+      "/workspaces/bench-source/src/simple_components/tables.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/simple_logging",
+    "gprPath": [
+      "/workspaces/bench-source/src/simple_logging/simple_logging.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/slip",
+    "gprPath": [
+      "/workspaces/bench-source/src/slip/slip.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/socketcan",
+    "gprPath": [
+      "/workspaces/bench-source/src/socketcan/src/socketcan.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/spark_unbound",
+    "gprPath": [
+      "/workspaces/bench-source/src/spark_unbound/spark_unbound.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/sparknacl",
+    "gprPath": [
+      "/workspaces/bench-source/src/sparknacl/sparknacl.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/spat",
+    "gprPath": [
+      "/workspaces/bench-source/src/spat/spat.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/spdx",
+    "gprPath": [
+      "/workspaces/bench-source/src/spdx/spdx.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/specfun",
+    "gprPath": [
+      "/workspaces/bench-source/src/specfun/specfun.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/spoon",
+    "gprPath": [
+      "/workspaces/bench-source/src/spoon/spoon.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/stephes_ada_library",
+    "gprPath": [
+      "/workspaces/bench-source/src/stephes_ada_library/build/stephes_ada_library.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/stopwatch",
+    "gprPath": [
+      "/workspaces/bench-source/src/stopwatch/stopwatch.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/svd2ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/svd2ada/svd2ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/system_random",
+    "gprPath": [
+      "/workspaces/bench-source/src/system_random/system_random.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/tash",
+    "gprPath": [
+      "/workspaces/bench-source/src/tash/tash.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/templates_parser",
+    "gprPath": [
+      "/workspaces/bench-source/src/templates_parser/templates_parser.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/tiny_text",
+    "gprPath": [
+      "/workspaces/bench-source/src/tiny_text/tiny_text.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/tlsada",
+    "gprPath": [
+      "/workspaces/bench-source/src/tlsada/tlsada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/toml_slicer",
+    "gprPath": [
+      "/workspaces/bench-source/src/toml_slicer/toml_slicer.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/trendy_terminal",
+    "gprPath": [
+      "/workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/trendy_test",
+    "gprPath": [
+      "/workspaces/bench-source/src/trendy_test/trendy_test.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/uri_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/uri_ada/uri_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/uri_mime",
+    "gprPath": [
+      "/workspaces/bench-source/src/uri_mime/uri_mime.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/usb_embedded",
+    "gprPath": [
+      "/workspaces/bench-source/src/usb_embedded/usb_embedded.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/utf8test",
+    "gprPath": [
+      "/workspaces/bench-source/src/utf8test/utf8test.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/vaton",
+    "gprPath": [
+      "/workspaces/bench-source/src/vaton/vaton.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/virtapu",
+    "gprPath": [
+      "/workspaces/bench-source/src/virtapu/virtapu.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/weechat_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/weechat_ada/weechat_ada.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/wordle",
+    "gprPath": [
+      "/workspaces/bench-source/src/wordle/wordle.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/wordlelib",
+    "gprPath": [
+      "/workspaces/bench-source/src/wordlelib/wordlelib.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/wordlist",
+    "gprPath": [
+      "/workspaces/bench-source/src/wordlist/wordlist.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/workers",
+    "gprPath": [
+      "/workspaces/bench-source/src/workers/workers.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/xdg_base_dir",
+    "gprPath": [
+      "/workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/xia",
+    "gprPath": [
+      "/workspaces/bench-source/src/xia/XIA.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/xml_ez_out",
+    "gprPath": [
+      "/workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/xmlada",
+    "gprPath": [
+      "/workspaces/bench-source/src/xmlada/distrib/xmlada.gpr",
+      "/workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr",
+      "/workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr",
+      "/workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr",
+      "/workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr",
+      "/workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/xoshiro",
+    "gprPath": [
+      "/workspaces/bench-source/src/xoshiro/xoshiro.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/yeison",
+    "gprPath": [
+      "/workspaces/bench-source/src/yeison/yeison.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/zeromq_ada",
+    "gprPath": [
+      "/workspaces/bench-source/src/zeromq_ada/zmq.gpr"
+    ]
+  },
+  {
+    "workDir": "/workspaces/bench-source/src/zipada",
+    "gprPath": [
+      "/workspaces/bench-source/src/zipada/zipada.gpr"
+    ]
+  }
+]
