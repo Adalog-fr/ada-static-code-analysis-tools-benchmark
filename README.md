@@ -2,30 +2,74 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This repository aims to provide a benchmark comparison between static code analysis tools available in Ada. The goal is to provide a large amount of valid Ada code, totaling more than 5.7 million lines.
+This repository aims to provide a benchmark comparison between static code analysis tools available in Ada. The goal is to provide a large amount of valid Ada code in order to process benchmark for analysis tools.
+
+Currently due to ASIS limit, the project with Ada version up to 2012 is supported. Therefore, we have filtered projects for the benchmark via a set of files.
 
 ## Current Result
 
-All present benchmarks are performed in a Docker container. You can find the Docker configuration in the [.devcontainer](./devcontainer) directory.
+<!-- All present benchmarks are performed in a Docker container. You can find the Docker configuration in the [.devcontainer](./devcontainer) directory. -->
 
 Benchmark tools used:
-- GNATCheck
-- AdaControl
-- Cogralys (our solution)
+- GNATCheck: 24.0w (20230301)
+- AdaControl: 1.23b4
+- Cogralys: 0.1.0 (our solution)
 
-The base code represent 3_548_930 lines of codes (counted using [Tokei](https://github.com/XAMPPRocky/tokei); so blank lines and comment lines are not included) in 15_753 files in 408 projects (gpr files).
+The base code represent 1,047,941 lines of codes (counted using [Tokei](https://github.com/XAMPPRocky/tokei); so blank lines and comment lines are not included) in 162 projects (gpr files).
+
+The benchmarking was performed on a computer with a Debian 12 operating system.
+
+The computer specification:
+
+- OS: Debian GNU/Linux 12 (bookworm) X86\_64
+- Host: MS-7E12 1.0
+- Kernel: 6.1.0-17-amd64
+- CPU: AMD Ryzen 9 7950X3D (32) @ 4.2 GHz
+- GPU 1: AMD ATI 19:00.0 Raphael
+- GPU 2: AMD ATI Radeon RX 7900 XTX
+- Memory: 64 GB
+- Storage: Crucial P5 Plus 1 TB SSD using M.2 PCIe Gen 4 connection, up to 6,600 MB/s in read operations and 5,000 MB/s in write operations
+
+Regarding the software, the setup are:
+
+- GNAT Pro 24.0w: Ada compiler.
+- AdaControl 1.23b4: static analysis tools.
+- GNAT Pro 21lts: for ASIS support.
+- Deno 1.38.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
+
+The Neo4J setup operates on Neo4J Desktop version 1.5.9.106. The database utilizes engine version 5.12.0, complemented by the APOC plugin.
 
 ### Result
-
-The current benchmark results are yet to be added. Stay tuned for updates!
+| Rule                                       | Our approach | AdaControl      | GNATcheck (monothread) | GNATcheck (multithread, 32 cores) |
+|--------------------------------------------|--------------|-----------------|------------------------|-----------------------------------|
+| Abort statements                           | 0,11 s       | 1 min 4,3 s     | 46,434 s               | 1 min 33,557 s                    |
+| Abstract type decl.                        | 0,47 s       | 1 min 5,1 s     | 1 min 25,576 s         | 1 min 52,851 s                    |
+| Blocks                                     | 0,12 s       | 1 min 3,9 s     | 46,508 s               | 1 min 33,563 s                    |
+| Constructors                               | 0,34 s       | 1 min 5,7 s     | 1 min 54,513 s         | 2 min 5,042 s                     |
+| Enum. repr. clauses                        | 0,03 s       | 1 min 3,1 s     | 46,683 s               | 1 min 33,487 s                    |
+| Renamings                                  | 0,13 s       | 1 min 3,9 s     | 47,347 s               | 1 min 33,126 s                    |
+| Slices                                     | 0,08 s       | 1 min 12,6 s    | 1 min 58,599 s         | 2 min 4,714 s                     |
+| Too many parents                           | 0,03 s       | 1 min 3,1 s     | 1 min 45,978 s         | 2 min 2,94 s                      |
+| **Total time analysing rule one by one**   | 1,35 s       | 9 min 49 s      | 10 min 11,638 s        | 14 min 19,28 s                    |
+| **Total time analysing rule in one batch** | 3,90 s       | 21 min 13,864 s | 9 min 40 s             | 3 min 46 s                        |
 
 ## How to Use
+
+### Requierements
+
+Software requirements:
+
+- GANT Community 2019 with ASIS or GNAT Pro >= 24 with ASIS.
+- AdaControl >= 1.23b4
+- Deno 1.38.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
 
 ### Running a Benchmark
 
 To run a benchmark, follow these steps:
 
-1. TODO
+1. Run `./Adactl_benchmark.sh` to get the reslt benchmark for AdaControl
+2. Run `./GNATcheck_benchmark.sh` to get the result benchmark for GNATcheck
+3. Run `deno run --allow-all ./utils/cogralys-cli/cogralys-cli.ts -t` to get the result of our approach
 
 ### Adding Sources
 
@@ -48,3 +92,5 @@ To regenerate all files used for the benchmark environment, follow these instruc
 3. Run `cogralys-bench-util generate-alire`. This will generate `alire.toml` from a list of directories (previously generated `alireTomlPath.json`) that contain an `alire.origin.toml` file. It will also delete the existing `alire` folder and generate an 'unknownCrates.json' file that contains a list of all unknown crate dependencies.
 4. Run `cogralys-bench-util update-project`. This will concurrently run `alr -n update` in all directories listed in `alireTomlPath.json`.
 5. (Optional but highly recommended for identifying future analysis problems) Run `cogralys-bench-util build`. This will run `alr -n build` in all directories listed in `alireTomlPath.json`.
+6. Run `cogralys-bench-util bench-adactl > /workspaces/bench-source/Adactl_benchmark.sh` to generate the benchmark experiment script for AdaControl.
+7. Run `cogralys-bench-util bench-adactl > /workspaces/bench-source/GNATcheck_benchmark.sh` to generate the benchmark experiment script for AdaControl.
