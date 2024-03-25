@@ -185,3 +185,5 @@ rootfs/home/bin
 .atgdb/
 .cogralys/
 cogralys.result
+*.report
+*.tree
