@@ -61,7 +61,6 @@ async function main() {
                     throw new Error(errorOutput || stdout);
                 } else {
                     console.log(stdout, errorOutput || "");
-
                 }
             } else {
                 console.log(stdout);

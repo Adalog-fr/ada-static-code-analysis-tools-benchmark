@@ -219,4 +219,8 @@ export class TaskRunner<T, U> {
         } while (worker);
         this.workerPool.terminate();
     }
+
+    getNbTasks() {
+        return this.taskQueue.length;
+    }
 }

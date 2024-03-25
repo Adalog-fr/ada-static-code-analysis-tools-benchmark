@@ -1,5 +1,5 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join, dirname } from "https://deno.land/std/path/mod.ts";
+import { join, dirname, basename } from "https://deno.land/std/path/mod.ts";
 import { parse as parseToml } from "https://deno.land/std/toml/mod.ts";
 import * as dotenv from "https://deno.land/std/dotenv/mod.ts";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
@@ -113,7 +113,8 @@ export function initializeModule(program: Command): void {
                                                         envPath: join(dirname(alireFilePath), ".env"),
                                                     }),
                                                     DRY_RUN: "True",
-                                                    LOGGER_CONFIG: options.log4jSettingsPath
+                                                    LOGGER_CONFIG: options.log4jSettingsPath,
+                                                    NEO4J_RESULT_DIR: join("." + basename(currentPath).replace(".gpr", "").trim(), ".atdgb")
                                                 }
                                             },
                                         ]})
@@ -162,7 +163,8 @@ export function initializeModule(program: Command): void {
                                                         envPath: join(dirname(alireFilePath), ".env"),
                                                     }),
                                                     DRY_RUN: "True",
-                                                    LOGGER_CONFIG: options.log4jSettingsPath
+                                                    LOGGER_CONFIG: options.log4jSettingsPath,
+                                                    NEO4J_RESULT_DIR: join("." + basename(currentPath).replace(".gpr", "").trim(), ".atdgb")
                                                 }
                                             },
                                         ]})

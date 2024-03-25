@@ -63,7 +63,7 @@ export function initializeModule(program: Command): void {
                 for (const path of paths) {
                     const tree = libgpr2.loadTree({ filename: path });
                     console.log("tree: ", tree);
-                    
+
                     // const sources = libgpr2.viewSources({
                     //     tree_id: tree.id,
                     //     view_id: tree.root_view,
@@ -88,10 +88,10 @@ export function initializeModule(program: Command): void {
                     // }
                     libgpr2.unloadTree({ tree_id: tree.id });
                 }
-                units = Array.from(unitSet);
+                // units = Array.from(unitSet);
 
-                const unitsList = units.sort((a, b) => a.localeCompare(b)).join("\n");
-                Deno.writeTextFileSync(options.output, unitsList);
+                // const unitsList = units.sort((a, b) => a.localeCompare(b)).join("\n");
+                // Deno.writeTextFileSync(options.output, unitsList);
             }
         );
 }
