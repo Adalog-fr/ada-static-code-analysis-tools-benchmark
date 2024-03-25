@@ -1,0 +1,3 @@
+MATCH (e:AN_ENUMERATION_REPRESENTATION_CLAUSE)
+RETURN e
+ ORDER BY e.filename, e.line, e.column

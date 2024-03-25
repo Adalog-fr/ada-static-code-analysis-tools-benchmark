@@ -1,0 +1,17 @@
+set verbose on;
+set timing global;
+set statistics 3;
+Abort_Statements : search statements (abort);
+Abstract_Type_Declarations : search declarations (abstract_type);
+Access_To_Local_Objects : search Local_Access;
+Anonymous_Subtypes: search declarations (anonymous_subtype_allocator,   anonymous_subtype_case,
+                       anonymous_subtype_declaration, anonymous_subtype_for,
+                       anonymous_subtype_indexing);
+Blocks : search statements (block);
+Constructors : search declarations (constructor);
+Deep_Inheritance_Hierarchies : search derivations (Max_Depth, tagged 2);
+Enumeration_Representation_Clauses : search Representation_Clauses (Enumeration);
+Renamings : search renaming_declarations (all);
+Slices : search expressions (slice);
+Too_Many_Parents : search derivations (max_parents, 2);
+Unconditional_Exits : search statements (unconditional_exit);

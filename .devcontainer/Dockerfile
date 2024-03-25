@@ -21,9 +21,9 @@ RUN apt-get install -y build-essential libssl-dev \
     libgmp-dev \
     libgsl-dev \
     libhidapi-dev \
-    libpython2-dev libpython3-dev \
+    libpython3-dev \
     librtmidi-dev \
-    libsdl-dev libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev \
+    libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev \
     libzmq5 libzmq3-dev \
     libx11-dev \
     re2c \
@@ -56,14 +56,14 @@ RUN $HOME/.cargo/bin/cargo install --git https://github.com/XAMPPRocky/tokei.git
 
 # Install sed version 4.9 to prevent `sed -i` issues
 RUN cd /tmp \
-&& wget ftp://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz \
-&& tar xf sed-4.9.tar.xz \
-&& rm sed-4.9.tar.xz \
-&& cd sed-4.9 \
-&& ./configure \
-&& make \
-&& sudo make install \
-&& cd ..\
-&& rm -rf sed-4.9
+    && wget ftp://ftp.gnu.org/gnu/sed/sed-4.9.tar.xz \
+    && tar xf sed-4.9.tar.xz \
+    && rm sed-4.9.tar.xz \
+    && cd sed-4.9 \
+    && ./configure \
+    && make \
+    && sudo make install \
+    && cd ..\
+    && rm -rf sed-4.9
 
 ENTRYPOINT ["/bin/zsh"]
