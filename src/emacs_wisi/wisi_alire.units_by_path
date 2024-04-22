@@ -1,0 +1,17 @@
+/workspaces/bench-source/src/emacs_wisi/config/emacs_wisi_config.ads
+/workspaces/bench-source/src/emacs_wisi/emacs_wisi_common_parse.adb
+/workspaces/bench-source/src/emacs_wisi/emacs_wisi_common_parse.ads
+/workspaces/bench-source/src/emacs_wisi/gen_emacs_wisi_lr_parse.adb
+/workspaces/bench-source/src/emacs_wisi/gen_emacs_wisi_lr_parse.ads
+/workspaces/bench-source/src/emacs_wisi/gen_emacs_wisi_lr_text_rep_parse.adb
+/workspaces/bench-source/src/emacs_wisi/gen_emacs_wisi_lr_text_rep_parse.ads
+/workspaces/bench-source/src/emacs_wisi/gen_run_wisi_lr_parse.adb
+/workspaces/bench-source/src/emacs_wisi/gen_run_wisi_lr_parse.ads
+/workspaces/bench-source/src/emacs_wisi/gen_run_wisi_lr_text_rep_parse.adb
+/workspaces/bench-source/src/emacs_wisi/gen_run_wisi_lr_text_rep_parse.ads
+/workspaces/bench-source/src/emacs_wisi/run_wisi_common_parse.adb
+/workspaces/bench-source/src/emacs_wisi/run_wisi_common_parse.ads
+/workspaces/bench-source/src/emacs_wisi/wisi-parse_context.adb
+/workspaces/bench-source/src/emacs_wisi/wisi-parse_context.ads
+/workspaces/bench-source/src/emacs_wisi/wisi.adb
+/workspaces/bench-source/src/emacs_wisi/wisi.ads

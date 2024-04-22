@@ -1,0 +1,36 @@
+on: [push, pull_request]
+name: Build
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    name: Build
+    steps:
+      - name: Initialize OS env and git autocrlf
+        shell: bash
+        run: |
+          git config --global core.autocrlf input
+          if [[ ${{ runner.os }} = macOS ]]; then
+              echo "OS=osx" >> $GITHUB_ENV
+          fi
+      - name: Get Spawn
+        uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ./cached_gnat
+          key: ${{ runner.os }}-alire-v1
+          restore-keys: ${{ runner.os }}-alire-v1
+      - name: Get GNAT toolchain with alire
+        uses: alire-project/setup-alire@v1
+        with:
+          toolchain: gnat_native^11 gprbuild^21
+          toolchain_dir: ./cached_gnat
+      - name: Build and test
+        shell: bash
+        run: |
+          export PATH=`ls -d $PWD/cached_gnat/*/bin |tr '\n' ':'`$PATH
+          echo PATH=$PATH
+          make all check

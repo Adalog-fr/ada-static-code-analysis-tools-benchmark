@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>ibm/valid/P32</baseURI>
+    <systemID>ibm32v02.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>T</characters>
+  <characters>h</characters>
+  <characters>i</characters>
+  <characters>s</characters>
+  <characters>&#x20;</characters>
+  <characters>i</characters>
+  <characters>s</characters>
+  <characters>&#x20;</characters>
+  <characters>a</characters>
+  <characters>&#x20;</characters>
+  <characters>y</characters>
+  <characters>e</characters>
+  <characters>l</characters>
+  <characters>l</characters>
+  <characters>o</characters>
+  <characters>w</characters>
+  <characters>&#x20;</characters>
+  <characters>t</characters>
+  <characters>i</characters>
+  <characters>g</characters>
+  <characters>e</characters>
+  <characters>r</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

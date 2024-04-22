@@ -1,0 +1,24 @@
+authors = ["Philip Munts"]
+description = "Remote I/O Protocol Client Library for GNAT Ada"
+licenses = "BSD-1-Clause"
+maintainers = ["Philip Munts <phil@munts.net>"]
+maintainers-logins = ["pmunts"]
+name = "remoteio"
+project-files = ["remoteio.gpr"]
+tags = ["embedded","linux","remoteio","adc","dac","gpio","i2c","motor","pwm","sensor","serial","servo","spi","stepper"]
+version = "1.21121.1"
+website = "https://github.com/pmunts/libsimpleio"
+
+[[actions]]
+command = ["sh","-c","./src/scripts/postfetch.linux"]
+directory = "."
+type = "post-fetch"
+
+[[depends-on]]
+libhidapi = "*"
+libusb = "*"
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

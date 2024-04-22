@@ -1,0 +1,10 @@
+description = "Collection of formally verified building blocks"
+licenses = "AGPL-3.0-only"
+maintainers = ["kliemann@adacore.com"]
+maintainers-logins = ["jklmnn"]
+name = "basalt"
+tags = ["embedded","nostd","queue","spark","stack","string","utils"]
+version = "0.3.0"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+
+<gprconfig>
+  <configuration>
+    <config><![CDATA[
+   type Loaders is ("LORAM", "FLASH", "HIRAM", "USER");
+   Loader : Loaders := external("LOADER", "LORAM");
+
+   package Compiler is
+      Common_Required_Switches := ("-mbig-endian", "-mfloat-abi=hard", "-mcpu=cortex-r5", "-mfpu=vfpv3-d16", "-marm", "-mbe32");
+
+      for Leading_Required_Switches ("Ada") use
+         Compiler'Leading_Required_Switches ("Ada") &
+         Common_Required_Switches;
+      for Leading_Required_Switches ("C") use
+         Compiler'Leading_Required_Switches ("C") &
+         Common_Required_Switches;
+      for Leading_Required_Switches ("Asm") use
+         Compiler'Leading_Required_Switches ("Asm") &
+         Common_Required_Switches;
+      for Leading_Required_Switches ("Asm2") use
+         Compiler'Leading_Required_Switches ("Asm2") &
+         Common_Required_Switches;
+      for Leading_Required_Switches ("Asm_Cpp") use
+         Compiler'Leading_Required_Switches ("Asm_Cpp") &
+         Common_Required_Switches;
+   end Compiler;
+
+   package Linker is
+      for Required_Switches use Linker'Required_Switches &
+        ("-Wl,-L${RUNTIME_DIR(Ada)}/adalib",
+         "-nostartfiles", "-nolibc", "-Wl,--start-group,-lgnarl,-lgnat,-lc,-lgcc,--end-group",
+         "-L${RUNTIME_DIR(ada)}/ld_user",
+         "-L${RUNTIME_DIR(ada)}/ld",
+         "-Wl,-z,max-page-size=0x1000") &
+         Compiler.Common_Required_Switches;
+
+      case Loader is
+         when "LORAM" =>
+            for Required_Switches use Linker'Required_Switches &
+              ("-T", "loram.ld");
+         when "FLASH" =>
+            for Required_Switches use Linker'Required_Switches &
+              ("-T", "flash.ld");
+         when "HIRAM" =>
+            for Required_Switches use Linker'Required_Switches &
+              ("-T", "hiram.ld");
+         when "USER" =>
+      end case;
+   end Linker;
+]]>
+   </config>
+  </configuration>
+</gprconfig>

@@ -1,0 +1,173 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads"
+node: { title: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" label: "clk_gpout0_ctrl_auxsrc_fieldH\n<built-in>\n48 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uidivmod" label: "aeabi_uidivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout0_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" label: "clk_gpout1_ctrl_auxsrc_fieldH\n<built-in>\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout1_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" label: "clk_gpout2_ctrl_auxsrc_fieldH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout2_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" label: "clk_gpout3_ctrl_auxsrc_fieldH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_gpout3_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_sys_ctrl_auxsrc_fieldH" label: "clk_sys_ctrl_auxsrc_fieldH\n<built-in>\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_sys_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_sys_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" label: "clk_peri_ctrl_auxsrc_fieldH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_peri_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" label: "clk_usb_ctrl_auxsrc_fieldH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_usb_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" label: "clk_adc_ctrl_auxsrc_fieldH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_adc_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" label: "clk_rtc_ctrl_auxsrc_fieldH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__clk_rtc_ctrl_auxsrc_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" label: "fc0_src_fc0_src_fieldH\n<built-in>\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__clocks__fc0_src_fc0_src_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout0_ctrl_registerIP" label: "clk_gpout0_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout0_div_registerIP" label: "clk_gpout0_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout1_ctrl_registerIP" label: "clk_gpout1_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout1_div_registerIP" label: "clk_gpout1_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout2_ctrl_registerIP" label: "clk_gpout2_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout2_div_registerIP" label: "clk_gpout2_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout3_ctrl_registerIP" label: "clk_gpout3_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_gpout3_div_registerIP" label: "clk_gpout3_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_ref_ctrl_registerIP" label: "clk_ref_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_ref_div_registerIP" label: "clk_ref_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_sys_ctrl_registerIP" label: "clk_sys_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_sys_div_registerIP" label: "clk_sys_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_peri_ctrl_registerIP" label: "clk_peri_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_usb_ctrl_registerIP" label: "clk_usb_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_usb_div_registerIP" label: "clk_usb_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_adc_ctrl_registerIP" label: "clk_adc_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_adc_div_registerIP" label: "clk_adc_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_rtc_ctrl_registerIP" label: "clk_rtc_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_rtc_div_registerIP" label: "clk_rtc_div_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_sys_resus_ctrl_registerIP" label: "clk_sys_resus_ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clk_sys_resus_status_registerIP" label: "clk_sys_resus_status_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_ref_khz_registerIP" label: "fc0_ref_khz_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_min_khz_registerIP" label: "fc0_min_khz_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_max_khz_registerIP" label: "fc0_max_khz_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_delay_registerIP" label: "fc0_delay_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_interval_registerIP" label: "fc0_interval_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_src_registerIP" label: "fc0_src_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_status_registerIP" label: "fc0_status_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__fc0_result_registerIP" label: "fc0_result_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Twake_en0_clk_sys_i2c_field_arrayBIP" label: "Twake_en0_clk_sys_i2c_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_clk_sys_i2c_fieldEQ" label: "wake_en0_clk_sys_i2c_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_clk_sys_i2c_fieldIP" label: "wake_en0_clk_sys_i2c_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Twake_en0_clk_sys_pio_field_arrayBIP" label: "Twake_en0_clk_sys_pio_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_clk_sys_pio_fieldEQ" label: "wake_en0_clk_sys_pio_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_clk_sys_pio_fieldIP" label: "wake_en0_clk_sys_pio_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Twake_en0_clk_sys_sram_field_arrayBIP" label: "Twake_en0_clk_sys_sram_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_clk_sys_sram_fieldEQ" label: "wake_en0_clk_sys_sram_fieldEQ\n<built-in>\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_clk_sys_sram_fieldIP" label: "wake_en0_clk_sys_sram_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_registerEQ" label: "wake_en0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__clocks__wake_en0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1223:9" }
+node: { title: "interfaces__rp2040__clocks__wake_en0_registerIP" label: "wake_en0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Twake_en1_clk_sys_sram_field_arrayBIP" label: "Twake_en1_clk_sys_sram_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en1_clk_sys_sram_fieldEQ" label: "wake_en1_clk_sys_sram_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en1_clk_sys_sram_fieldIP" label: "wake_en1_clk_sys_sram_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__wake_en1_registerEQ" label: "wake_en1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__wake_en1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1332:9" }
+node: { title: "interfaces__rp2040__clocks__wake_en1_registerIP" label: "wake_en1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tsleep_en0_clk_sys_i2c_field_arrayBIP" label: "Tsleep_en0_clk_sys_i2c_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_clk_sys_i2c_fieldEQ" label: "sleep_en0_clk_sys_i2c_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_clk_sys_i2c_fieldIP" label: "sleep_en0_clk_sys_i2c_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tsleep_en0_clk_sys_pio_field_arrayBIP" label: "Tsleep_en0_clk_sys_pio_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_clk_sys_pio_fieldEQ" label: "sleep_en0_clk_sys_pio_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_clk_sys_pio_fieldIP" label: "sleep_en0_clk_sys_pio_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tsleep_en0_clk_sys_sram_field_arrayBIP" label: "Tsleep_en0_clk_sys_sram_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_clk_sys_sram_fieldEQ" label: "sleep_en0_clk_sys_sram_fieldEQ\n<built-in>\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_clk_sys_sram_fieldIP" label: "sleep_en0_clk_sys_sram_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_registerEQ" label: "sleep_en0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__sleep_en0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1482:9" }
+node: { title: "interfaces__rp2040__clocks__sleep_en0_registerIP" label: "sleep_en0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tsleep_en1_clk_sys_sram_field_arrayBIP" label: "Tsleep_en1_clk_sys_sram_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en1_clk_sys_sram_fieldEQ" label: "sleep_en1_clk_sys_sram_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en1_clk_sys_sram_fieldIP" label: "sleep_en1_clk_sys_sram_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__sleep_en1_registerEQ" label: "sleep_en1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__sleep_en1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1592:9" }
+node: { title: "interfaces__rp2040__clocks__sleep_en1_registerIP" label: "sleep_en1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tenabled0_clk_sys_i2c_field_arrayBIP" label: "Tenabled0_clk_sys_i2c_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_clk_sys_i2c_fieldEQ" label: "enabled0_clk_sys_i2c_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_clk_sys_i2c_fieldIP" label: "enabled0_clk_sys_i2c_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tenabled0_clk_sys_pio_field_arrayBIP" label: "Tenabled0_clk_sys_pio_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_clk_sys_pio_fieldEQ" label: "enabled0_clk_sys_pio_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_clk_sys_pio_fieldIP" label: "enabled0_clk_sys_pio_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tenabled0_clk_sys_sram_field_arrayBIP" label: "Tenabled0_clk_sys_sram_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_clk_sys_sram_fieldEQ" label: "enabled0_clk_sys_sram_fieldEQ\n<built-in>\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_clk_sys_sram_fieldIP" label: "enabled0_clk_sys_sram_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled0_registerEQ" label: "enabled0_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__enabled0_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1741:9" }
+node: { title: "interfaces__rp2040__clocks__enabled0_registerIP" label: "enabled0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__Tenabled1_clk_sys_sram_field_arrayBIP" label: "Tenabled1_clk_sys_sram_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled1_clk_sys_sram_fieldEQ" label: "enabled1_clk_sys_sram_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled1_clk_sys_sram_fieldIP" label: "enabled1_clk_sys_sram_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__enabled1_registerEQ" label: "enabled1_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__enabled1_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1873:9" }
+node: { title: "interfaces__rp2040__clocks__enabled1_registerIP" label: "enabled1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__intr_registerIP" label: "intr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__inte_registerIP" label: "inte_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__intf_registerIP" label: "intf_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__ints_registerIP" label: "ints_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__clocks__clocks_peripheralEQ" label: "clocks_peripheralEQ\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1996:9" }
+node: { title: "interfaces__rp2040__clocks__clocks_peripheralIP" label: "clocks_peripheralIP\n<built-in>\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_gpout0_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:1998:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_gpout1_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2004:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_gpout2_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2010:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_gpout3_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2016:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_usb_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2038:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_adc_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2044:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_rtc_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2050:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__clk_sys_resus_ctrl_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2055:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__wake_en0_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2079:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__wake_en1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2081:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__sleep_en0_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2083:7" }
+edge: { sourcename: "interfaces__rp2040__clocks__clocks_peripheralIP" targetname: "interfaces__rp2040__clocks__sleep_en1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-clocks.ads:2085:7" }
+}

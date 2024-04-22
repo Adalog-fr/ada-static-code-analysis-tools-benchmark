@@ -1,0 +1,27 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "libmpfr"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "^4.1.0"
+[solution.state.release]
+description = "The GNU Multiple Precision Floating-Point Reliable Library"
+licenses = "LGPL-3.0-only"
+maintainers = [
+"Laurent Thévenoux <laurent@thevenoux.net>",
+]
+maintainers-logins = [
+"thvnx",
+]
+name = "libmpfr"
+notes = "Provided by system package: libmpfr-dev"
+version = "4.1.0"
+[solution.state.release.origin]
+url = "system:libmpfr-dev"
+

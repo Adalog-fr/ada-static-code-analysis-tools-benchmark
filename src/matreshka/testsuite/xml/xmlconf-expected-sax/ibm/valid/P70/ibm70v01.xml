@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <warning/>
+  <notation>
+    <name>JPGformat</name>
+    <systemID>JPGFormat</systemID>
+  </notation>
+  <unparsedEntity>
+    <name>ge2</name>
+    <systemID>image.jpg</systemID>
+    <notation>JPGformat</notation>
+  </unparsedEntity>
+  <resolveEntity>
+    <name>%pe2</name>
+    <publicID>-//w3c//any</publicID>
+    <baseURI>ibm/valid/P70</baseURI>
+    <systemID>ibm70v01.ent</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>att2</localName>
+        <qualifiedName>att2</qualifiedName>
+        <value>any</value>
+        <type>CDATA</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>true</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,28 @@
+authors = [
+"AdaCore",
+]
+description = "Ada Semantic Interface Specification or ASIS (library part)"
+licenses = "GPL-3.0-only"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "asis"
+project-files = [
+"asis.gpr",
+]
+version = "2019.0.0"
+website = "https://www.adacore.com/download/more"
+[[actions]]
+command = [
+"make",
+"setup-snames",
+]
+directory = "."
+type = "post-fetch"
+[[depends-on]]
+gnat = "=2019"
+make = "*"
+

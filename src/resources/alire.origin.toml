@@ -1,0 +1,19 @@
+authors = [
+"Alire Team",
+]
+description = "Utility library to handle project resources at run-time"
+licenses = "MIT"
+maintainers = [
+"Fabien Chouteau <fabien.chouteau@gmail.com>",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+"mosteo",
+]
+name = "resources"
+tags = [
+"utils",
+]
+version = "0.1.0"
+website = "https://github.com/alire-project/resources"
+

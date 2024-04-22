@@ -1,0 +1,12 @@
+authors = ["Anton Fediushin"]
+description = "Base64 encoding/decoding routines"
+licenses = "ISC"
+maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
+maintainers-logins = ["AntonMeep"]
+name = "base64"
+tags = ["base64"]
+version = "1.0.1"
+website = "https://github.com/AntonMeep/base64"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,13 @@
+/workspaces/bench-source/src/adacl/test/config/adacl_test_config.ads
+/workspaces/bench-source/src/adacl/test/src/adacl_test-main.adb
+/workspaces/bench-source/src/adacl/test/src/adacl_test-reference_holder.adb
+/workspaces/bench-source/src/adacl/test/src/adacl_test-reference_holder.ads
+/workspaces/bench-source/src/adacl/test/src/adacl_test-suite.adb
+/workspaces/bench-source/src/adacl/test/src/adacl_test-suite.ads
+/workspaces/bench-source/src/adacl/test/src/adacl_test.ads
+/workspaces/bench-source/src/adacl/test/src/adacl-reference-element-test.adb
+/workspaces/bench-source/src/adacl/test/src/adacl-reference-element-test.ads
+/workspaces/bench-source/src/adacl/test/src/adacl-strings-test.adb
+/workspaces/bench-source/src/adacl/test/src/adacl-strings-test.ads
+/workspaces/bench-source/src/adacl/test/src/adacl-trace-test.adb
+/workspaces/bench-source/src/adacl/test/src/adacl-trace-test.ads

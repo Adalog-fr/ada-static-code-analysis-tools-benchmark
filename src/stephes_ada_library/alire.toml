@@ -1,0 +1,17 @@
+authors = ["Stephen Leake"]
+description = "Stephe's Ada library; miscellaneous useful stuff."
+licenses = "GPL-3.0-or-later"
+maintainers = ["Stephen Leake <stephen_leake@stephe-leake.org>"]
+maintainers-logins = ["stephe-ada-guru"]
+name = "stephes_ada_library"
+project-files = ["build/stephes_ada_library.gpr"]
+tags = ["containers","trees"]
+version = "3.7.2"
+website = "https://stephe-leake.org/ada/sal.html"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

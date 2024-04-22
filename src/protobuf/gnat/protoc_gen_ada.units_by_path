@@ -1,0 +1,17 @@
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-context.adb
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-context.ads
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-descriptors.adb
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-descriptors.ads
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-enum_descriptors.adb
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-enum_descriptors.ads
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-field_descriptors.adb
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-field_descriptors.ads
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-file_descriptors.adb
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-file_descriptors.ads
+/workspaces/bench-source/src/protobuf/source/compiler/compiler-run.adb
+/workspaces/bench-source/src/protobuf/source/compiler/compiler.ads
+/workspaces/bench-source/src/protobuf/source/compiler/generated/google-protobuf-compiler-plugin.adb
+/workspaces/bench-source/src/protobuf/source/compiler/generated/google-protobuf-compiler-plugin.ads
+/workspaces/bench-source/src/protobuf/source/compiler/generated/google-protobuf-descriptor.adb
+/workspaces/bench-source/src/protobuf/source/compiler/generated/google-protobuf-descriptor.ads
+/workspaces/bench-source/src/protobuf/source/compiler/google-protobuf-compiler.ads

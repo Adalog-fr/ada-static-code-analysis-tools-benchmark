@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>ibm/xml-1.1/not-wf/P77</baseURI>
+    <systemID>ibm77n21.dtd</systemID>
+  </resolveEntity>
+  <resolveEntity>
+    <name>%e</name>
+    <baseURI>ibm/xml-1.1/not-wf/P77</baseURI>
+    <systemID>ibm77n21.ent</systemID>
+  </resolveEntity>
+  <fatalError>unexpected&#x20;character</fatalError>
+  <endDocument/>
+</SAXEvents>

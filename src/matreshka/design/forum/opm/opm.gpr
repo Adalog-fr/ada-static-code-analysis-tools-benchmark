@@ -1,0 +1,16 @@
+with "../../../gnat/matreshka_sql.gpr";
+
+library project OPM is
+
+   for Object_Dir use ".objs";
+   for Library_Name use "matreshka-opm";
+   for Library_Dir use "../.libs";
+   for Library_Kind use "relocatable";
+
+   package Compiler is
+
+      for Default_Switches ("Ada") use ("-g", "-gnatW8");
+
+   end Compiler;
+
+end OPM;

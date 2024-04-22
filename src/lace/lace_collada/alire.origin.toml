@@ -1,0 +1,20 @@
+authors = [
+"Rod Kay",
+]
+description = "A Collada parser."
+licenses = "ISC"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "lace_collada"
+project-files = [
+"library/collada.gpr",
+]
+version = "0.1.0"
+[[depends-on]]
+lace_math = "~0.1"
+lace_xml = "~0.1"
+

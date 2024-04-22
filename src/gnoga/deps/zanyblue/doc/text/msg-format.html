@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Message Formatting &mdash; ZanyBlue 1.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZanyBlue 1.4.0 documentation" href="../index.html" />
+    <link rel="up" title="The Text Package" href="index.html" />
+    <link rel="next" title="Formatting Syntax" href="format-syntax.html" />
+    <link rel="prev" title="Example Using Accessor Functions" href="accessor-xmpl.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="message-formatting">
+<h1>Message Formatting<a class="headerlink" href="#message-formatting" title="Permalink to this headline">¶</a></h1>
+<p>From the simple <tt class="docutils literal"><span class="pre">moons</span></tt> example above, it can be seen that simply
+externalizing just the text used to in an application without the argument
+formatting is not enough to fully support localization.  The messages
+externalized must be the complete messages, i.e., sentences, with embedded
+place holders for the arguments substituted at runtime.</p>
+<p>The ZanyBlue Text library currently uses a mixture of Java and Python styles
+for embedded arguments.  Arguments to the message are referenced by index
+(zero based) and enclosed in chain brackets.</p>
+<p>From the <tt class="docutils literal"><span class="pre">moons</span></tt> example, message <tt class="docutils literal"><span class="pre">0002</span></tt> has the definition:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span>0002=There are {0} known moons orbiting &quot;{1}&quot;.
+</pre></div>
+</div>
+<p>Here the first argument (argument 0) is an integer and second argument
+(argument 1) is an enumeration value giving the planet name (but this is
+not explicitly defined in this message, see <a class="reference internal" href="format-syntax.html#zb-text-format-type"><em>Specifying Argument Types</em></a> for
+information on giving explicit type information).</p>
+<p>At runtime, arguments to messages are &#8220;boxed&#8221; into a tagged type with
+dispatching methods that perform the formatting to strings.  Each type has
+it&#8217;s own implementation (see <a class="reference internal" href="argtypes.html#zb-text-argtypes"><em>Argument Types</em></a>).  Boxing occurs by
+creating a boxed object for the argument value and passed to the various
+message formatting or printing routines.  The boxing function has a standard
+<tt class="docutils literal"><span class="pre">Create</span></tt> function and a renaming <tt class="docutils literal"><span class="pre">+</span></tt> making formatting or printing calls
+look more natural.  For example, the message text above could be formatted
+with an integer argument, 2, and a string argument, <tt class="docutils literal"><span class="pre">Mars</span></tt>, as</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Message</span> <span class="p">:</span> <span class="kt">Wide_String</span> <span class="p">:=</span> <span class="n">Format</span> <span class="p">(</span><span class="s">&quot;moons&quot;</span><span class="p">,</span> <span class="s">&quot;0002&quot;</span><span class="p">,</span> <span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="o">+</span><span class="kt">String</span><span class="p">&#39;(</span><span class="s">&quot;Mars&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>or, if the accessor package is used,</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="n">Message</span> <span class="p">:</span> <span class="kt">Wide_String</span> <span class="p">:=</span> <span class="n">Format_0002</span> <span class="p">(</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="o">+</span><span class="kt">String</span><span class="p">&#39;(</span><span class="s">&quot;Mars&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p>The explicit type coercion to <tt class="docutils literal"><span class="pre">String</span></tt> is required as both standard
+<tt class="docutils literal"><span class="pre">String</span></tt> and <tt class="docutils literal"><span class="pre">Wide_String</span></tt> are supported.</p>
+<p>The formatting or printing routines accept up to 5 optional boxed arguments.
+The implementation gathers the supplied boxed arguments into an argument
+list and then calls the underlying formatting routine with the argument
+list.  For argument numbers beyond 5, the underlying argument list type must be
+used and the arguments must be explicitly appended, e.g., the above
+example could be rephrased in terms of the lower level argument list based
+formatting routine as</p>
+<div class="highlight-ada"><div class="highlight"><pre><span></span><span class="kr">declare</span>
+   <span class="n">Arguments</span> <span class="p">:</span> <span class="n">Argument_List</span><span class="p">;</span>
+<span class="kr">begin</span>
+   <span class="n">Arguments</span><span class="p">.</span><span class="n">Append</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+   <span class="n">Arguments</span><span class="p">.</span><span class="n">Append</span> <span class="p">(</span><span class="kt">String</span><span class="p">&#39;(</span><span class="s">&quot;Mars&quot;</span><span class="p">));</span>
+   <span class="n">Display_Message</span> <span class="p">(</span><span class="n">Format</span> <span class="p">(</span><span class="s">&quot;moons&quot;</span><span class="p">,</span> <span class="s">&quot;0002&quot;</span><span class="p">,</span> <span class="n">Arguments</span><span class="p">));</span>
+<span class="kr">end</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This 5 argument limit does <em>not</em> apply to the functions and procedures
+generated for accessor packages.  These routines have arguments lists that
+match the number of expected arguments without the 5 argument limit.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/zb-logo.png" alt="Logo"/>
+            </a></p><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">The Text Package</a><ul>
+      <li>Previous: <a href="accessor-xmpl.html" title="previous chapter">Example Using Accessor Functions</a></li>
+      <li>Next: <a href="format-syntax.html" title="next chapter">Formatting Syntax</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/text/msg-format.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Michael Rohan <mrohan@zanyblue.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/text/msg-format.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

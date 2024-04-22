@@ -1,0 +1,48 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "libhidapi"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "A simple library for communicating with USB and Bluetooth HID devices"
+licenses = "BSD-3-Clause OR GPL-3.0-only OR custom-hidapi"
+maintainers = [
+"Philip Munts <phil@munts.net>",
+]
+maintainers-logins = [
+"pmunts",
+]
+name = "libhidapi"
+notes = "Provided by system package: libhidapi-dev"
+version = "0.10.1"
+[solution.state.release.origin]
+url = "system:libhidapi-dev"
+[[solution.state]]
+crate = "libusb"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "A cross-platform library to access USB devices"
+licenses = "LGPL-2.1-or-later"
+maintainers = [
+"Philip Munts <phil@munts.net>",
+]
+maintainers-logins = [
+"pmunts",
+]
+name = "libusb"
+notes = "Provided by system package: libusb-1.0-0-dev"
+version = "1.0.24"
+[solution.state.release.origin]
+url = "system:libusb-1.0-0-dev"
+

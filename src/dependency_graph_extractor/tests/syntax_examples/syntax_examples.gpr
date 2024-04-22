@@ -1,0 +1,10 @@
+with "config/syntax_examples_config.gpr";
+
+project Syntax_Examples is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("main.adb");
+
+end Syntax_Examples;
+

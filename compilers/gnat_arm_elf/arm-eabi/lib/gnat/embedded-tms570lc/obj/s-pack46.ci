@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-pack46.adb"
+node: { title: "system__pack_46__clusterIP" label: "clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__rev_clusterIP" label: "rev_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__clusteruIP" label: "clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__rev_clusteruIP" label: "rev_clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__get_46" label: "Get_46\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-pack46.adb:98:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__getu_46" label: "Getu_46\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-pack46.adb:137:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__set_46" label: "Set_46\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-pack46.adb:176:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_46__setu_46" label: "Setu_46\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-pack46.adb:215:4\n8 bytes (static)\n0 dynamic objects" }
+}

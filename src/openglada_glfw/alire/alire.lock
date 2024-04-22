@@ -1,0 +1,55 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "libglfw3"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "^3"
+[solution.state.release]
+description = "Portable library for OpenGL, window and input"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libglfw3"
+notes = "Provided by system package: libglfw3-dev"
+version = "3.3.2"
+[solution.state.release.origin]
+url = "system:libglfw3-dev"
+[[solution.state]]
+crate = "libx11"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "^1"
+[solution.state.release]
+description = "X11 client-side library"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "libx11"
+notes = "Provided by system package: libx11-dev"
+version = "1.7.2"
+[solution.state.release.origin]
+url = "system:libx11-dev"
+[[solution.state]]
+crate = "openglada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../openglada"
+

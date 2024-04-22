@@ -1,0 +1,13 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-efc.ads"
+node: { title: "interfaces__sam__efc__eefc_fcr_fcmd_fieldH" label: "eefc_fcr_fcmd_fieldH\n<built-in>\n36 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__eefc_fcr_fcmd_fieldRP" label: "eefc_fcr_fcmd_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__eefc_fcr_fkey_fieldRP" label: "eefc_fcr_fkey_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__eefc_wpmr_wpkey_fieldRP" label: "eefc_wpmr_wpkey_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_eefc_fmr_registerIP" label: "efc_eefc_fmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_eefc_fcr_registerIP" label: "efc_eefc_fcr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_eefc_fsr_registerIP" label: "efc_eefc_fsr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_eefc_version_registerIP" label: "efc_eefc_version_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_eefc_wpmr_registerIP" label: "efc_eefc_wpmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__efc__efc_peripheralIP" label: "efc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__efc__efc_peripheralIP" targetname: "interfaces__sam__efc__efc_eefc_fmr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-efc.ads:279:7" }
+}

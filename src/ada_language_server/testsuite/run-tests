@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import testsuite
+import os
+import yaml
+import sys
+
+if __name__ == '__main__':
+    suite = testsuite.ALSTestsuite(os.path.dirname(__file__))
+    result = suite.testsuite_main()
+    index = suite.report_index
+    # Print the results that are not OK
+    all_ok = True
+    for k in suite.results:
+        entry = index.entries[k]
+        status = entry.status.name
+        if status not in ('PASS', 'XFAIL'):
+            all_ok = False
+            print("--- {} : {} ---".format(k, status))
+            print(entry.load().out)
+
+    if all_ok:
+        print("SUCCESS")
+
+    sys.exit(result)

@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samg55/gnat/s-parame.adb"
+node: { title: "system__parameters__adjust_storage_size" label: "Adjust_Storage_Size\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samg55/gnat/s-parame.adb:40:4\n0 bytes (static)\n0 dynamic objects" }
+}

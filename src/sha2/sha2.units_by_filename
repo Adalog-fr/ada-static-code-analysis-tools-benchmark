@@ -1,0 +1,6 @@
+sha2_generic_32.adb
+sha2_generic_32.ads
+sha2_generic_64.adb
+sha2_generic_64.ads
+sha2_generic.ads
+sha2.ads

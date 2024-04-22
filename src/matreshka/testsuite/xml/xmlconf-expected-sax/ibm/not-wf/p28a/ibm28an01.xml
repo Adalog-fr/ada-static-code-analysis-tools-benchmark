@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <notation>
+    <name>animal_class</name>
+    <systemID>ibm29v01.txt</systemID>
+  </notation>
+  <processingInstruction>
+    <target>sound</target>
+    <data>&quot;This&#x20;is&#x20;a&#x20;PI&quot;&#x20;</data>
+  </processingInstruction>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>ibm/not-wf/p28a</baseURI>
+    <systemID>ibm28an01.dtd</systemID>
+  </resolveEntity>
+  <fatalError>syntax&#x20;error</fatalError>
+  <endDocument/>
+</SAXEvents>

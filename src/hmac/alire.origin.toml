@@ -1,0 +1,23 @@
+authors = [
+"Anton Fediushin",
+]
+description = "HMAC implemented in Ada"
+licenses = "ISC"
+maintainers = [
+"Anton Fediushin <imantonmeep@gmail.com>",
+]
+maintainers-logins = [
+"AntonMeep",
+]
+name = "hmac"
+tags = [
+"cryptography",
+"security",
+"hmac",
+]
+version = "2.0.0"
+website = "https://github.com/AntonMeep/hmac"
+[[depends-on]]
+sha1 = "^2.0.0"
+sha2 = "^2.0.0"
+

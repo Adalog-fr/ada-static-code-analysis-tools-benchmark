@@ -1,0 +1,19 @@
+-- SPDX-License-Identifier: BSD-2-Clause
+-- For more license details, see LICENSE.
+
+with "lmdb.gpr";
+
+project LMDB_Example is
+
+	for Main use ("example.adb");
+
+	for Source_Dirs use ("src/example");
+
+	for Create_Missing_Dirs use LMDB'Create_Missing_Dirs;
+	for Object_Dir use LMDB'Object_Dir;
+	for Exec_Dir use "bin";
+
+	package Compiler renames LMDB.Compiler;
+	package Binder renames LMDB.Binder;
+
+end LMDB_Example;

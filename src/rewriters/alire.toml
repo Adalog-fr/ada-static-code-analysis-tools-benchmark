@@ -1,0 +1,24 @@
+authors = ["Pierre van de Laar"]
+description = "Easy, yet advanced manipulation of Ada code"
+licenses = "BSD-3-Clause"
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+name = "rewriters"
+tags = ["manipulation","transformation"]
+version = "23.0.0"
+website = "https://github.com/TNO/Rewriters-Ada"
+
+[[depends-on]]
+libadalang = "*"
+rejuvenation = "*"
+
+[[pins]]
+
+[pins.libadalang]
+path = "../libadalang"
+
+[pins.rejuvenation]
+path = "../rejuvenation"
+
+[build-switches."*"]
+Compile_Checks = "none"

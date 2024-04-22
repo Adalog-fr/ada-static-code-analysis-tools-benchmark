@@ -1,0 +1,381 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb"
+edge: { sourcename: "system__stream_attributes__xdr__i_as"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:314:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_c"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:350:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_f"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:384:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_i"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:453:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_i24"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:487:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_lf"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:533:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_li"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:605:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_llf"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:663:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_lli"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:740:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_llu"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:784:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_lu"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:822:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_sf"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:871:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_si"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:940:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_ssi"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:973:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_ssu"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1004:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_su"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1025:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_u"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1052:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_u24"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1079:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_wc"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1106:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__i_wwc"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1132:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_ad"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1163:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_ad"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1171:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_as"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1192:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_c"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1226:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_f"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1308:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_i"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1340:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_i24"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1372:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_lf"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1454:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_li"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1499:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_llf"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1595:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_lli"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1643:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_llu"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1683:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_lu"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1719:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_sf"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1801:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_si"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1833:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_ssi"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1861:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_ssu"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1877:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_su"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1903:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_u"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1929:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_u24"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1955:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_wc"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:1976:18"
+}
+edge: { sourcename: "system__stream_attributes__xdr__w_wwc"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "s-statxd.adb:2003:18"
+}
+node: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:system__stream_attributes__xdr__i_ssu.part.0" label: "Part\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:998:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_raise_exception" label: "Raise_Exception_Always\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/a-except.ads:178:14" shape : ellipse }
+edge: { sourcename: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:system__stream_attributes__xdr__i_ssu.part.0" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1007:10" }
+node: { title: "system__stream_attributes__xdr__field_typeIP" label: "field_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stream_attributes__xdr__i_as" label: "I_As\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:308:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_as" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:314:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_as" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:317:10" }
+node: { title: "system__stream_attributes__xdr__i_ad" label: "I_Ad\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:294:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_ad" targetname: "system__stream_attributes__xdr__i_as" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:298:16" }
+edge: { sourcename: "system__stream_attributes__xdr__i_ad" targetname: "system__stream_attributes__xdr__i_as" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:299:16" }
+node: { title: "system__stream_attributes__xdr__i_b" label: "I_B\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:332:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_b" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1004:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_b" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:system__stream_attributes__xdr__i_ssu.part.0" }
+edge: { sourcename: "system__stream_attributes__xdr__i_b" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:337:25" }
+node: { title: "system__stream_attributes__xdr__i_c" label: "I_C\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:345:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_c" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:350:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_c" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:353:10" }
+node: { title: "system__stream_attributes__xdr__i_f" label: "I_F\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:366:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_f" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:384:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_f" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:387:10" }
+node: { title: "system__fat_flt__attr_float__scaling" label: "Scaling\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.ads:81:13" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_f" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:396:22" }
+node: { title: "__gnat_rcheck_CE_Explicit_Raise" label: "gnat_rcheck_CE_Explicit_Raise\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_f" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:414:10" }
+edge: { sourcename: "system__stream_attributes__xdr__i_f" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:426:28" }
+edge: { sourcename: "system__stream_attributes__xdr__i_f" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:432:25" }
+node: { title: "system__stream_attributes__xdr__i_i" label: "I_I\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:447:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_i" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:453:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_i" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:456:10" }
+node: { title: "system__stream_attributes__xdr__i_i24" label: "I_I24\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:481:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_i24" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:487:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_i24" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:490:10" }
+node: { title: "system__stream_attributes__xdr__i_lf" label: "I_Lf\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:515:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:533:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:536:10" }
+node: { title: "system__fat_lflt__attr_long_float__scaling" label: "Scaling\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.ads:81:13" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:546:27" }
+node: { title: "__aeabi_ul2d" label: "aeabi_ul2d\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "__aeabi_ul2d" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:565:10" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:577:33" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:583:30" }
+node: { title: "__aeabi_dadd" label: "aeabi_dadd\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_lf" targetname: "__aeabi_dadd" }
+node: { title: "system__stream_attributes__xdr__i_li" label: "I_Li\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:598:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_li" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:605:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_li" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:608:10" }
+node: { title: "system__stream_attributes__xdr__i_llf" label: "I_Llf\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:644:4\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:663:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:666:10" }
+node: { title: "system__fat_llf__attr_long_long_float__scaling" label: "Scaling\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.ads:81:13" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:679:32" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__aeabi_ul2d" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:681:32" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__aeabi_ul2d" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:700:10" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:712:38" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:718:35" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llf" targetname: "__aeabi_dadd" }
+node: { title: "system__stream_attributes__xdr__i_lli" label: "I_Lli\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:733:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lli" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:740:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lli" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:743:10" }
+node: { title: "system__stream_attributes__xdr__i_llu" label: "I_Llu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:777:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llu" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:784:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_llu" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:787:10" }
+node: { title: "system__stream_attributes__xdr__i_lu" label: "I_Lu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:815:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lu" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:822:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_lu" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:825:10" }
+node: { title: "system__stream_attributes__xdr__i_sf" label: "I_Sf\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:853:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_sf" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:871:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_sf" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:874:10" }
+edge: { sourcename: "system__stream_attributes__xdr__i_sf" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:883:28" }
+edge: { sourcename: "system__stream_attributes__xdr__i_sf" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:901:10" }
+edge: { sourcename: "system__stream_attributes__xdr__i_sf" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:913:34" }
+edge: { sourcename: "system__stream_attributes__xdr__i_sf" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:919:31" }
+node: { title: "system__stream_attributes__xdr__i_si" label: "I_Si\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:934:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_si" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:940:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_si" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:943:10" }
+node: { title: "system__stream_attributes__xdr__i_ssi" label: "I_Ssi\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:967:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_ssi" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:973:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_ssi" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:976:10" }
+node: { title: "system__stream_attributes__xdr__i_ssu" label: "I_Ssu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:998:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_ssu" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1004:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_ssu" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:system__stream_attributes__xdr__i_ssu.part.0" }
+node: { title: "system__stream_attributes__xdr__i_su" label: "I_Su\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1019:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_su" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1025:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_su" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1028:10" }
+node: { title: "system__stream_attributes__xdr__i_u" label: "I_U\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1046:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_u" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1052:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_u" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1055:10" }
+node: { title: "system__stream_attributes__xdr__i_u24" label: "I_U24\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1073:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_u24" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1079:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_u24" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1082:10" }
+node: { title: "system__stream_attributes__xdr__i_wc" label: "I_Wc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1100:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_wc" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1106:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_wc" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1109:10" }
+node: { title: "system__stream_attributes__xdr__i_wwc" label: "I_Wwc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1126:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__i_wwc" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1132:18" }
+edge: { sourcename: "system__stream_attributes__xdr__i_wwc" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1135:10" }
+node: { title: "system__stream_attributes__xdr__w_ad" label: "W_Ad\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1152:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_ad" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1163:18" }
+edge: { sourcename: "system__stream_attributes__xdr__w_ad" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1171:18" }
+edge: { sourcename: "system__stream_attributes__xdr__w_ad" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1174:10" }
+node: { title: "system__stream_attributes__xdr__w_as" label: "W_As\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1182:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_as" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1192:18" }
+edge: { sourcename: "system__stream_attributes__xdr__w_as" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1195:10" }
+node: { title: "system__stream_attributes__xdr__w_b" label: "W_B\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1203:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_b" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1877:18" }
+edge: { sourcename: "system__stream_attributes__xdr__w_b" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1877:18" }
+node: { title: "system__stream_attributes__xdr__w_c" label: "W_C\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1216:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_c" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1226:18" }
+node: { title: "system__stream_attributes__xdr__w_f" label: "W_F\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1233:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_f" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1251:10" }
+node: { title: "system__fat_flt__attr_float__decompose" label: "Decompose\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.adb:150:14" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_f" targetname: "system__fat_flt__attr_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1266:20" }
+edge: { sourcename: "system__stream_attributes__xdr__w_f" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1271:23" }
+edge: { sourcename: "system__stream_attributes__xdr__w_f" targetname: "system__fat_flt__attr_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1274:23" }
+edge: { sourcename: "system__stream_attributes__xdr__w_f" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1274:23" }
+edge: { sourcename: "system__stream_attributes__xdr__w_f" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1308:18" }
+node: { title: "system__stream_attributes__xdr__w_i" label: "W_I\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1315:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_i" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1340:18" }
+node: { title: "system__stream_attributes__xdr__w_i24" label: "W_I24\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1347:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_i24" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1368:13" }
+edge: { sourcename: "system__stream_attributes__xdr__w_i24" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1372:18" }
+node: { title: "system__stream_attributes__xdr__w_lf" label: "W_Lf\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1379:4\n64 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1397:10" }
+node: { title: "__aeabi_dcmpeq" label: "aeabi_dcmpeq\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dcmpeq" }
+node: { title: "system__fat_lflt__attr_long_float__decompose" label: "Decompose\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.adb:150:14" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "system__fat_lflt__attr_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1412:25" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1418:28" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1420:28" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dadd" }
+node: { title: "__aeabi_dcmpge" label: "aeabi_dcmpge\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dadd" }
+node: { title: "__aeabi_d2ulz" label: "aeabi_d2ulz\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_d2ulz" }
+node: { title: "__aeabi_dsub" label: "aeabi_dsub\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_d2ulz" }
+node: { title: "__aeabi_dcmpun" label: "aeabi_dcmpun\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dcmpun" }
+node: { title: "__aeabi_dcmplt" label: "aeabi_dcmplt\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lf" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1454:18" }
+node: { title: "system__stream_attributes__xdr__w_li" label: "W_Li\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1461:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_li" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1499:18" }
+node: { title: "system__stream_attributes__xdr__w_llf" label: "W_Llf\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1506:4\n80 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1526:10" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dcmpeq" }
+node: { title: "system__fat_llf__attr_long_long_float__decompose" label: "Decompose\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.adb:150:14" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1545:30" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1550:33" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1553:33" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1553:33" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1560:39" }
+node: { title: "system__fat_llf__attr_long_long_float__floor" label: "Floor\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-fatgen.ads:63:13" shape : ellipse }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__floor" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1561:59" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1563:39" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_ul2d" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "system__fat_llf__attr_long_long_float__floor" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1564:59" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llf" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1595:18" }
+node: { title: "system__stream_attributes__xdr__w_lli" label: "W_Lli\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1602:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lli" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1639:13" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lli" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1643:18" }
+node: { title: "system__stream_attributes__xdr__w_llu" label: "W_Llu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1650:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llu" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1679:13" }
+edge: { sourcename: "system__stream_attributes__xdr__w_llu" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1683:18" }
+node: { title: "system__stream_attributes__xdr__w_lu" label: "W_Lu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1690:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_lu" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1719:18" }
+node: { title: "system__stream_attributes__xdr__w_sf" label: "W_Sf\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1726:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_sf" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1744:10" }
+edge: { sourcename: "system__stream_attributes__xdr__w_sf" targetname: "system__fat_flt__attr_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1759:26" }
+edge: { sourcename: "system__stream_attributes__xdr__w_sf" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1765:29" }
+edge: { sourcename: "system__stream_attributes__xdr__w_sf" targetname: "system__fat_flt__attr_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1767:29" }
+edge: { sourcename: "system__stream_attributes__xdr__w_sf" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1801:18" }
+node: { title: "system__stream_attributes__xdr__w_si" label: "W_Si\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1808:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_si" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1833:18" }
+node: { title: "system__stream_attributes__xdr__w_ssi" label: "W_Ssi\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1840:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_ssi" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1861:18" }
+node: { title: "system__stream_attributes__xdr__w_ssu" label: "W_Ssu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1868:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_ssu" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1877:18" }
+node: { title: "system__stream_attributes__xdr__w_su" label: "W_Su\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1884:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_su" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1903:18" }
+node: { title: "system__stream_attributes__xdr__w_u" label: "W_U\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1910:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_u" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1929:18" }
+node: { title: "system__stream_attributes__xdr__w_u24" label: "W_U24\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1936:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_u24" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1951:13" }
+edge: { sourcename: "system__stream_attributes__xdr__w_u24" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1955:18" }
+node: { title: "system__stream_attributes__xdr__w_wc" label: "W_Wc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1962:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_wc" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1976:18" }
+node: { title: "system__stream_attributes__xdr__w_wwc" label: "W_Wwc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:1987:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__stream_attributes__xdr__w_wwc" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:2003:18" }
+edge: { sourcename: "system__stream_attributes__xdr__w_wwc" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52840/gnat/s-statxd.adb:2006:10" }
+}

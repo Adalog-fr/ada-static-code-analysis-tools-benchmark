@@ -1,0 +1,8 @@
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c-mc24xx01.ads
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c-mc24xx02.ads
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c-mc24xx16.ads
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c-mc24xx256.ads
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c-mc24xx512.ads
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c-mc24xx64.ads
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c.adb
+/workspaces/bench-source/src/eeprom_i2c/src/eeprom_i2c.ads

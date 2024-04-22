@@ -1,0 +1,11 @@
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-connections-postgresql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-connections-postgresql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-postgresql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-postgresql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-schemas-postgresql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-schemas-postgresql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-statements-postgresql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/ado-statements-postgresql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/pq-perfect_hash.adb
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/pq-perfect_hash.ads
+/workspaces/bench-source/src/awa/ada-ado/src/postgresql/pq.ads

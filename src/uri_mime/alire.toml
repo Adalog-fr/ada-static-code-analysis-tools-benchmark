@@ -1,0 +1,20 @@
+authors = ["nytpu"]
+description = "URI & MIME Type Parsing and Manupulation"
+licenses = "MPL-2.0"
+maintainers = ["nytpu <alex@nytpu.com>"]
+maintainers-logins = ["nytpu"]
+name = "uri_mime"
+tags = ["uri","url","mime","media-type"]
+version = "1.4.0"
+website = "https://git.sr.ht/~nytpu/uri-mime-ada"
+
+[gpr-externals]
+URI_MIME_BUILD_MODE = ["debug","optimize"]
+URI_MIME_COMPILE_CHECKS = ["enabled","disabled"]
+URI_MIME_CONTRACTS = ["enabled","disabled"]
+URI_MIME_LIBRARY_TYPE = ["dynamic","relocatable","static","static-pic"]
+URI_MIME_RUNTIME_CHECKS = ["enabled","disabled"]
+URI_MIME_STYLE_CHECKS = ["enabled","disabled"]
+
+[build-switches."*"]
+Compile_Checks = "none"

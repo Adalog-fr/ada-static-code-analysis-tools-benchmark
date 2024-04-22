@@ -1,0 +1,43 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.adb"
+edge: { sourcename: "ada__strings__text_buffers__Troot_buffer_typeCFD"
+  targetname: "-9:ada__strings__text_buffers__root_buffer_type,ada__strings__text_buffers__root_buffer_type"
+  label: "a-sttebu.ads:26:9"
+}
+class {
+  classname: "ada__strings__text_buffers__root_buffer_type"
+  label: "ada__strings__text_buffers__root_buffer_type\a-sttebu.ads:26:9"
+  parent: "ada__strings__text_buffers__root_buffer_type"
+  virtuals: "1:ada__strings__text_buffers__put\n
+             2:ada__strings__text_buffers__wide_put\n
+             3:ada__strings__text_buffers__wide_wide_put\n
+             4:ada__strings__text_buffers__put_utf_8\n
+             5:ada__strings__text_buffers__wide_put_utf_16\n
+             6:ada__strings__text_buffers__new_line\n
+             7:ada__strings__text_buffers__current_indent\n
+             8:ada__strings__text_buffers__increase_indent\n
+             9:ada__strings__text_buffers__decrease_indent\n
+             -1:ada__strings__text_buffers___size\n
+             -10:ada__strings__text_buffers__root_buffer_typePI\n
+             -9:ada__strings__text_buffers__root_buffer_typeDF"
+}
+node: { title: "ada__strings__text_buffers___size" label: "text_buffers\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__root_buffer_typeDF" label: "root_buffer_typeDF\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__current_indent" label: "Current_Indent\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.adb:36:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__increase_indent" label: "Increase_Indent\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.adb:40:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__decrease_indent" label: "Decrease_Indent\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.adb:48:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__root_buffer_typePI" label: "root_buffer_typePI\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Explicit_Raise" label: "gnat_rcheck_PE_Explicit_Raise\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__strings__text_buffers__root_buffer_typePI" targetname: "__gnat_rcheck_PE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.ads:69:9" }
+node: { title: "ada__strings__text_buffers__root_buffer_typePartial_DIC" label: "root_buffer_typePartial_DIC\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__root_buffer_typeIP" label: "root_buffer_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__decrease_indentDP2500" label: "decrease_indentDP2500\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__decrease_indentSP2500" label: "decrease_indentSP2500\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__decrease_indentICW2500" label: "decrease_indentICW2500\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__root_buffer_typeDIC" label: "root_buffer_typeDIC\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__text_buffers__Troot_buffer_typeCFD" label: "Troot_buffer_typeCFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "ada__strings__text_buffers__Troot_buffer_typeCFD" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.ads:26:9" }
+node: { title: "ada__strings__text_buffers___elabs" label: "Text_Buffers\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.ads:17:1\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__tags__register_tag" label: "Register_Tag\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-tags.ads:553:14" shape : ellipse }
+edge: { sourcename: "ada__strings__text_buffers___elabs" targetname: "ada__tags__register_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/a-sttebu.ads:69:9" }
+}

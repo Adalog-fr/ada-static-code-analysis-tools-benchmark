@@ -1,0 +1,29 @@
+name = "tests"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Fabien Chouteau"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+executables = ["tests"]
+
+[[depends-on]]
+midi = "*"
+aunit = "*"
+aaa = "~0.2.4"
+
+[[pins]]
+
+[pins.midi]
+path = ".."
+
+[pins.aaa]
+path="../../aaa"
+
+[pins.aunit]
+path = "../../aunit"
+
+[build-profiles]
+midi = "validation"
+
+[build-switches."*"]
+Compile_Checks = "none"

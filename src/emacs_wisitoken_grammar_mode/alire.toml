@@ -1,0 +1,37 @@
+authors = ["Stephen Leake"]
+description = "parser for Emacs wisitoken-grammar mode"
+executables = ["wisitoken_grammar_mode_parse"]
+licenses = "GPL-3.0-or-later"
+long-description = "Generalized LR error-correcting parser for WisiToken grammar source\nfiles, generated using WisiToken, interfaced to Emacs via the wisi\npackage.\n\nProvides semantic highlighting, indent, single-file navigation. \n"
+maintainers = ["Stephen Leake <stephen_leake@stephe-leake.org>"]
+maintainers-logins = ["stephe-ada-guru"]
+name = "emacs_wisitoken_grammar_mode"
+project-files = ["emacs_wisitoken_grammar_mode.gpr"]
+tags = ["indent","highlight","parser","emacs"]
+version = "1.3.0"
+website = "https://elpa.gnu.org/packages/wisitoken-grammar-mode.html"
+
+[[actions]]
+command = ["make","-f","Alire.make","wisitoken_grammar_1_re2c.c"]
+directory = "."
+type = "pre-build"
+
+[[depends-on]]
+emacs_wisi = "*"
+re2c = ">=2.2"
+stephes_ada_library = "*"
+wisitoken = "*"
+
+[[pins]]
+
+[pins.emacs_wisi]
+path = "../emacs_wisi"
+
+[pins.stephes_ada_library]
+path = "../stephes_ada_library"
+
+[pins.wisitoken]
+path = "../wisitoken"
+
+[build-switches."*"]
+Compile_Checks = "none"

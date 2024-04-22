@@ -1,0 +1,21 @@
+authors = [
+"Rod Kay",
+]
+description = "A 2D/3D game engine library (GEL)."
+licenses = "ISC"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "lace_gel"
+project-files = [
+"library/gel.gpr",
+]
+version = "0.1.0"
+[[depends-on]]
+lace_opengl = "~0.1"
+lace_physics = "~0.1"
+sdlada = "2.5.4-1"
+

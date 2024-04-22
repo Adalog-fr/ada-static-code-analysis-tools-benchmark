@@ -1,0 +1,33 @@
+name: Build and test
+on: [pull_request, push]
+
+jobs:
+  build-n-test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout ada-toml
+      uses: actions/checkout@v1
+
+    - name: Install GNAT Community 2020
+      uses: ada-actions/toolchain@ce2020
+      with:
+        distrib: community
+
+    - name: Build ada-toml
+      run: gprbuild -Pada_toml -p -j0
+
+    - name: Build test programs
+      run: gprbuild -Pcheckers -p -j0
+
+    - name: Install Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install e3-testsuite
+      run: pip install e3-testsuite
+
+    - name: Run the testsuite
+      run: ./run-tests.py

@@ -1,0 +1,5 @@
+rewriters_suite.adb
+rewriters_suite.ads
+test_minimal_parenthesis.adb
+test_minimal_parenthesis.ads
+tests.adb

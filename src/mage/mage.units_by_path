@@ -1,0 +1,13 @@
+/workspaces/bench-source/src/mage/config/mage_config.ads
+/workspaces/bench-source/src/mage/src/mage_config-hardware.No.ads
+/workspaces/bench-source/src/mage/src/mage-draw.adb
+/workspaces/bench-source/src/mage/src/mage-draw.ads
+/workspaces/bench-source/src/mage/src/mage-event.adb
+/workspaces/bench-source/src/mage/src/mage-event.ads
+/workspaces/bench-source/src/mage/src/mage-input.adb
+/workspaces/bench-source/src/mage/src/mage-input.ads
+/workspaces/bench-source/src/mage/src/mage-log.adb
+/workspaces/bench-source/src/mage/src/mage-log.ads
+/workspaces/bench-source/src/mage/src/mage-model.ads
+/workspaces/bench-source/src/mage/src/mage.adb
+/workspaces/bench-source/src/mage/src/mage.ads

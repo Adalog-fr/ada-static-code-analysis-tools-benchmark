@@ -1,0 +1,76 @@
+description = "Ada Web Application"
+name = "awa"
+version = "2.4.0"
+tags = ["web","users","jobs","wiki","framework","storage","blog"]
+website = "https://gitlab.com/stcarrez/ada-awa"
+licenses = "Apache-2.0"
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+long-description = "\n[![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Bionic-AWA.svg)](https://jenkins.vacs.fr/job/Bionic-AWA/)\n[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Bionic-AWA.svg)](https://jenkins.vacs.fr/job/Bionic-AWA/)\n[![codecov](https://codecov.io/gh/stcarrez/ada-awa/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-awa)\n[![Documentation Status](https://readthedocs.org/projects/ada-awa/badge/?version=latest)](https://ada-awa.readthedocs.io/en/latest/?badge=latest)\n\nAda Web Application is a framework to build a Web Application in Ada 2012.\nThe framework provides several ready to use and extendable modules that are common\nto many web application.  This includes the login, authentication, users, permissions,\nmanaging comments, tags, votes, documents, images.  It provides a complete blog,\nquestion and answers and a wiki module.\n\nAWA simplifies the Web Application development by taking care of user management with\nGoogle+, Facebook authentication and by providing the foundations on top of which you\ncan construct your own application.  AWA provides a powerful permission management\nthat gives flexibility to applications to grant access and protect your user's resources.\n\n![AWA Features](https://github.com/stcarrez/ada-awa/wiki/images/awa-features.png)\n\n# Documentation\n\nThe Ada Web Application programmer's guide describes how to setup the framework,\nhow you can setup and design your first web application with it,\nand it provides detailed description of AWA components:\n\n  * [Ada Web Application programmer's guide](https://ada-awa.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-awa/blob/master/awa/docs/awa-book.pdf)\n  * [Ada Database Objects Programmer's Guide](https://ada-ado.readthedocs.io/en/latest/)\n  * [Ada Security Programmer's Guide](https://ada-security.readthedocs.io/en/latest/)\n  * [Ada Utility Library Programmer's Guide](https://ada-util.readthedocs.io/en/latest/)\n\n"
+project-files = [".alire/awa_blogs.gpr",".alire/awa.gpr",".alire/awa_settings.gpr",".alire/awa_wikis.gpr",".alire/awa_changelogs.gpr",".alire/awa_images.gpr",".alire/awa_setup.gpr",".alire/awa_workspaces.gpr",".alire/awa_comments.gpr",".alire/awa_jobs.gpr",".alire/awa_storages.gpr",".alire/awa_counters.gpr",".alire/awa_mail.gpr",".alire/awa_tags.gpr",".alire/awa_countries.gpr",".alire/awa_questions.gpr",".alire/awa_votes.gpr"]
+
+[[depends-on]]
+utilada = "*"
+utilada_xml = "*"
+utilada_aws = "*"
+ado = "*"
+wikiada = "*"
+elada = "*"
+security = "*"
+serverfaces = "*"
+servletada = "*"
+servletada_aws = "*"
+keystoreada = "*"
+
+[[actions]]
+type = "post-fetch"
+command = ["sh","./alire-setup.sh"]
+
+[gpr-externals]
+AWA_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+AWA_BUILD = ["distrib","debug","optimize","profile","coverage"]
+
+[environment.DYNAMO_SEARCH_PATH]
+prepend = "${CRATE_ROOT}/awa/plugins"
+
+[environment.DYNAMO_UML_PATH]
+prepend = "${CRATE_ROOT}/awa/uml"
+
+[[pins]]
+
+[pins.utilada]
+path = "ada-util"
+
+[pins.utilada_xml]
+path = "ada-util/xml"
+
+[pins.utilada_aws]
+path = "ada-util/aws"
+
+[pins.ado]
+path = "ada-ado"
+
+[pins.wikiada]
+path = "ada-wiki"
+
+[pins.elada]
+path = "ada-el"
+
+[pins.security]
+path = "ada-security"
+
+[pins.serverfaces]
+path = "ada-asf"
+
+[pins.servletada]
+path = "ada-servlet"
+
+[pins.servletada_aws]
+path = "ada-servlet/aws"
+
+[pins.keystoreada]
+path = "ada-keystore"
+
+[build-switches."*"]
+Compile_Checks = "none"

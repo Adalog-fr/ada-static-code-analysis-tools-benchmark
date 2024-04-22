@@ -1,0 +1,8 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samg55/gnat/s-sam4s.ads"
+node: { title: "system__sam4s__pmc_registersIP" label: "pmc_registersIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__sam4s__eefc_registersIP" label: "eefc_registersIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__sam4s__pio_registersIP" label: "pio_registersIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__sam4s__spi_registersIP" label: "spi_registersIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__sam4s__wdt_registersIP" label: "wdt_registersIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__sam4s__uart_registersIP" label: "uart_registersIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

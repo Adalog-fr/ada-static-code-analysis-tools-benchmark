@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-btstch.adb"
+node: { title: "_gnat_stack_check" label: "Stack_Check\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-btstch.adb:44:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__interrupts__current_interrupt" label: "Current_Interrupt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-bbinte.ads:77:13" shape : ellipse }
+edge: { sourcename: "_gnat_stack_check" targetname: "system__bb__interrupts__current_interrupt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-bbinte.adb:254:8" }
+node: { title: "__gnat_rcheck_SE_Explicit_Raise" label: "gnat_rcheck_SE_Explicit_Raise\n<built-in>" shape : ellipse }
+edge: { sourcename: "_gnat_stack_check" targetname: "__gnat_rcheck_SE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-btstch.adb:65:10" }
+}

@@ -1,0 +1,20 @@
+authors = ["Rod Kay"]
+description = "Provides an openGL engine."
+licenses = "ISC"
+maintainers = ["Rod Kay <rodakay5@gmail.com>"]
+maintainers-logins = ["charlie5"]
+name = "lace_opengl"
+project-files = ["library/opengl.gpr"]
+version = "0.1.0"
+
+[[depends-on]]
+lace_collada = "*"
+libfreetype = "^2"
+
+[[pins]]
+
+[pins.lace_collada]
+path = "../lace_collada"
+
+[build-switches."*"]
+Compile_Checks = "none"

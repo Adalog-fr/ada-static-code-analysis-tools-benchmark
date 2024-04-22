@@ -1,0 +1,8 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb"
+node: { title: "system__text_io__get" label: "Get\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb:59:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__text_io__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb:68:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "system__text_io__is_rx_ready" label: "Is_Rx_Ready\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb:153:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__text_io__is_tx_ready" label: "Is_Tx_Ready\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb:162:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__text_io__put" label: "Put\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb:171:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__text_io__use_cr_lf_for_new_line" label: "Use_Cr_Lf_For_New_Line\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-lm3s/gnat/s-textio.adb:182:4\n0 bytes (static)\n0 dynamic objects" }
+}

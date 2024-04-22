@@ -1,0 +1,11 @@
+* text eol=lf
+
+last-line-missing-crlf.ads binary
+crlf.ads text eol=crlf
+./src/libadalang_tools/testsuite/tests/**/test.out text eol=crlf
+crlf.* text eol=crlf
+lf.* text eol=lf
+
+*.ico binary
+*.pdf binary
+*.png binary

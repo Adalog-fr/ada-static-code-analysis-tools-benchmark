@@ -1,0 +1,20 @@
+authors = [
+"Jeremy Grosser",
+]
+description = "Linux epoll binding"
+licenses = "BSD-3-Clause"
+maintainers = [
+"Jeremy Grosser <jeremy@synack.me>",
+]
+maintainers-logins = [
+"JeremyGrosser",
+]
+name = "epoll"
+tags = [
+"linux",
+"epoll",
+"net",
+]
+version = "0.1.1"
+website = "https://github.com/JeremyGrosser/epoll-ada"
+

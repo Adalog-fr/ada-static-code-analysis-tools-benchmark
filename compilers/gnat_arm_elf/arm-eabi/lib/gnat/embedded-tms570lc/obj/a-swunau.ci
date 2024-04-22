@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-swunau.adb"
+node: { title: "ada__strings__wide_unbounded__aux__get_wide_string" label: "Get_Wide_String\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-swunau.adb:38:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__wide_unbounded__aux__set_wide_string__2" label: "Set_Wide_String\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-swunau.adb:55:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__wide_unbounded__finalize__2" label: "Finalize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-stwiun.ads:428:14" shape : ellipse }
+edge: { sourcename: "ada__strings__wide_unbounded__aux__set_wide_string__2" targetname: "ada__strings__wide_unbounded__finalize__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-swunau.adb:60:7" }
+}

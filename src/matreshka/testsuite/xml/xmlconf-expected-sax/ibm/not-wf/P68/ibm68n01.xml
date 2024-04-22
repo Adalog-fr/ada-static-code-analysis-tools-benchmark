@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>m</characters>
+  <characters>i</characters>
+  <characters>s</characters>
+  <characters>s</characters>
+  <characters>i</characters>
+  <characters>n</characters>
+  <characters>g</characters>
+  <characters>&#x20;</characters>
+  <characters>e</characters>
+  <characters>n</characters>
+  <characters>t</characters>
+  <characters>i</characters>
+  <characters>t</characters>
+  <characters>y</characters>
+  <characters>&#x20;</characters>
+  <characters>n</characters>
+  <characters>a</characters>
+  <characters>m</characters>
+  <characters>e</characters>
+  <characters>&#x20;</characters>
+  <fatalError>unexpected&#x20;character</fatalError>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,176 @@
+include Makefile.config
+
+GPRBUILD_FLAGS = -p $(SMP_MFLAGS)
+VALGRIND_FLAGS = --error-exitcode=7 --quiet --suppressions=testsuite/glibc.supp
+
+ALL_TARGETS = league soap
+
+ifdef HAS_VALGRIND
+    ALL_TARGETS += league-valgrind
+endif
+
+ifdef HAS_MYSQL
+    ifdef HAS_WORKING_MYSQL_SERVER
+        ALL_TARGETS += mysql
+
+        ifdef HAS_VALGRIND
+            ALL_TARGETS += mysql-valgrind
+        endif
+    endif
+endif
+
+ifdef HAS_SQLITE3
+    ALL_TARGETS += sqlite3
+
+    ifdef HAS_VALGRIND
+        ALL_TARGETS += sqlite3-valgrind
+    endif
+endif
+
+ifdef HAS_OCI
+    ifdef ORACLE_TEST_USER
+        ALL_TARGETS += oracle
+    endif
+endif
+
+ifdef ENABLE_AMF
+    ALL_TARGETS += amf
+endif
+
+ifdef HAS_ASIS
+    ALL_TARGETS += a2js
+endif
+
+all: $(ALL_TARGETS)
+
+league:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_league_tests.gpr
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_xml_tests.gpr
+ifeq ($(OPERATING_SYSTEM), Windows)
+	cp .libs/*.dll .objs
+endif
+	.objs/string_hash_test
+	.objs/string_operations_test
+	.objs/string_compare_test
+	.objs/character_cursor_test
+	.objs/grapheme_cluster_cursor_test $(UNIDATA)
+	.objs/case_conversion_test
+	.objs/case_folding_test
+	.objs/normalization_test $(UNIDATA)
+	.objs/additional_normalization_test
+	.objs/collation_test $(CLDRDATA)
+	.objs/regexp_ataresearch testsuite/league/ataresearch/basic.dat testsuite/league/ataresearch/matreshka/basic.dat
+	.objs/escape_test
+	.objs/simple_test
+	.objs/test_7
+	.objs/test_35
+	.objs/test_104
+	.objs/test_106
+	.objs/test_139
+	.objs/test_150
+	.objs/test_165
+	.objs/test_177
+	.objs/test_209
+	.objs/test_290
+	.objs/base64_test
+	.objs/test_308
+	.objs/test_315
+	.objs/test_322
+	.objs/test_324
+	.objs/test_333
+	.objs/test_368
+	.objs/test_379
+	.objs/test_388
+	.objs/test_390
+	echo Tests below is for XML module
+	.objs/test_20 testsuite/xml/TN-20/
+	.objs/test_26 testsuite/xml/TN-26/26-expected.xml
+	.objs/test_41
+	.objs/test_99
+	.objs/test_126 testsuite/xml/TN-126/
+	.objs/test_157
+	.objs/test_245
+	.objs/test_350
+	.objs/test_386
+	.objs/test_424
+	.objs/test_454
+	.objs/test_467
+	.objs/test_492
+	.objs/xmlconf_test testsuite/xml/xmlconf/xmlconf.xml --valid --not-wellformed --invalid
+	.objs/xmlconf_test testsuite/xml/xmlconf/xmlconf.xml --validating --valid --not-wellformed
+	.objs/xmlcatconf_test testsuite/xml/xmlcatconf/xmlcatconf.xml
+
+league-valgrind: league
+	$(VALGRIND) $(VALGRIND_FLAGS) .objs/library_level_test
+	$(VALGRIND) $(VALGRIND_FLAGS) --leak-check=full .objs/test_193
+	$(VALGRIND) $(VALGRIND_FLAGS) .objs/test_331
+
+soap:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_soap_tests.gpr
+	.objs/soapconf_test
+	.objs/test_248
+	.objs/test_292
+
+mysql:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_mysql_tests.gpr
+	mysql test < testsuite/sql/TN-284/cleanup.sql
+	.objs/test_284
+	.objs/test_286
+
+mysql-valgrind:
+	$(VALGRIND) $(VALGRIND_FLAGS) .objs/test_286
+
+sqlite3:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_sqlite3_tests.gpr
+	.objs/test_138
+	.objs/test_142
+	.objs/test_147
+	.objs/test_249
+	.objs/test_303
+
+sqlite3-valgrind: sqlite3
+	$(VALGRIND) $(VALGRIND_FLAGS) .objs/test_147
+	$(VALGRIND) $(VALGRIND_FLAGS) .objs/test_249
+
+oracle:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_oracle_tests.gpr
+	.objs/test_337
+	.objs/test_464
+
+export AMF_DATA_DIR
+amf: AMF_DATA_DIR = .objs/share
+
+amf: amf-setup
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf_tests.gpr
+	.objs/test_222
+	.objs/test_225
+	.objs/test_226 testsuite/amf/TN-226/test_226.xmi
+	.objs/test_227 testsuite/amf/TN-227/test_227.xmi
+	.objs/test_230
+	.objs/test_231
+
+amf-setup:
+	rm -rf .objs/share
+	$(INSTALL) -d .objs/share
+	$(INSTALL) -d .objs/share/metamodels/
+	$(INSTALL) -d .objs/share/models/
+	$(INSTALL) -d .objs/share/models/UML23/
+	$(INSTALL) -d .objs/share/models/UML24/
+	cp source/amf/mof/metamodels/mapping.xml .objs/share/metamodels
+	cp source/amf/mof/models/mapping.xml .objs/share/models
+	cp source/amf/uml/models/UML23/UML.xmi .objs/share/models/UML23
+	cp source/amf/uml/models/UML24/PrimitiveTypes.xmi .objs/share/models/UML24
+
+uaflex: UAFLEX=.objs/uaflex/uaflex \
+ --types AAA --scanner AAA.Scanners --handler AAA.Handlers \
+ --tokens Parser_Tokens
+
+uaflex:
+	cd .objs; ../$(UAFLEX) ../testsuite/uaflex/uaflex.TN167.just_read
+	cd .objs; ../$(UAFLEX) ../testsuite/uaflex/uaflex.TN171.just_read
+
+a2js:
+	${MAKE} -C testsuite/a2js
+
+# Disable parallel build, it is handled by gnatmake/gprbuild
+.NOTPARALLEL:

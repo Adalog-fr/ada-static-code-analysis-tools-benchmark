@@ -1,0 +1,6 @@
+/workspaces/bench-source/src/blake2s/common/blake2s.adb
+/workspaces/bench-source/src/blake2s/common/blake2s.ads
+/workspaces/bench-source/src/blake2s/common/octearra.ads
+/workspaces/bench-source/src/blake2s/common/octets.ads
+/workspaces/bench-source/src/blake2s/gnat/quadlets.adb
+/workspaces/bench-source/src/blake2s/gnat/quadlets.ads

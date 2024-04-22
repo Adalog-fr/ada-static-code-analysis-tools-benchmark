@@ -1,0 +1,27 @@
+authors = ["Rod Kay"]
+description = "Provides 2D/3D rigid body dynamics simulation."
+licenses = "ISC"
+maintainers = ["Rod Kay <rodakay5@gmail.com>"]
+maintainers-logins = ["charlie5"]
+name = "lace_physics"
+project-files = ["library/physics.gpr"]
+version = "0.1.0"
+
+[[depends-on]]
+lace = "*"
+lace_box2d = "*"
+lace_bullet = "*"
+
+[[pins]]
+
+[pins.lace]
+path = ".."
+
+[pins.lace_box2d]
+path = "../../lace_box2d"
+
+[pins.lace_bullet]
+path = "../../lace_bullet"
+
+[build-switches."*"]
+Compile_Checks = "none"

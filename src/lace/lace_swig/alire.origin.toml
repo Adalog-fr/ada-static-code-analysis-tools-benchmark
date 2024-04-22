@@ -1,0 +1,17 @@
+authors = [
+"Rod Kay",
+]
+description = "Provides packages required by bindings produced by the 'swig4ada' tool."
+licenses = "ISC"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "lace_swig"
+project-files = [
+"library/swig.gpr",
+]
+version = "0.1.0"
+

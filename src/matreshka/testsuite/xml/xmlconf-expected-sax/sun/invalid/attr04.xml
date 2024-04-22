@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <notation>
+    <name>fruit</name>
+    <publicID>-//International&#x20;Grocery&#x20;Consortium//Edible//Healthy//EN</publicID>
+  </notation>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>type</localName>
+        <qualifiedName>type</qualifiedName>
+        <value>fruit</value>
+        <type>NOTATION</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>true</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,534 @@
+{
+    "name": "ada",
+    "displayName": "Language Support for Ada",
+    "description": "A Language Server providing Ada and SPARK support in Visual Studio Code",
+    "version": "23.0.999",
+    "publisher": "AdaCore",
+    "license": "GPL-3.0",
+    "engines": {
+        "vscode": "^1.64.2"
+    },
+    "categories": [
+        "Programming Languages",
+        "Extension Packs"
+    ],
+    "extensionPack": [
+        "webfreak.debug"
+    ],
+    "activationEvents": [
+        "onLanguage:ada",
+        "onLanguage:gpr",
+        "onCommand:workbench.action.tasks.runTask",
+        "onCommand:ada.otherFile"
+    ],
+    "main": "./out/extension",
+    "icon": "icons/ada.png",
+    "bugs": "https://github.com/AdaCore/ada_language_server/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AdaCore/ada_language_server.git"
+    },
+    "os": [
+        "linux",
+        "win32",
+        "darwin"
+    ],
+    "cpu": [
+        "x64"
+    ],
+    "keywords": [
+        "Ada",
+        "ada",
+        "adb",
+        "adc",
+        "ads",
+        "gpr"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "ada",
+                "aliases": [
+                    "Ada",
+                    "ada"
+                ],
+                "extensions": [
+                    ".ada",
+                    ".adb",
+                    ".adc",
+                    ".ads"
+                ],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "ali",
+                "aliases": [
+                    "ALI",
+                    "Ali",
+                    "ali",
+                    "Ada Library Information"
+                ],
+                "extensions": [
+                    ".ali"
+                ]
+            },
+            {
+                "id": "gpr",
+                "aliases": [
+                    "GNAT Project",
+                    "gpr"
+                ],
+                "extensions": [
+                    ".gpr"
+                ],
+                "configuration": "./gpr-language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "ada",
+                "scopeName": "source.ada",
+                "path": "./syntaxes/ada.tmLanguage.json"
+            },
+            {
+                "language": "ali",
+                "scopeName": "source.ali",
+                "path": "./syntaxes/ali.tmLanguage.json"
+            },
+            {
+                "language": "gpr",
+                "scopeName": "source.gpr",
+                "path": "./syntaxes/gpr.tmLanguage.json"
+            }
+        ],
+        "semanticTokenScopes": [
+            {
+                "language": "ada",
+                "scopes": {
+                    "namespace": [
+                        "entity.name.label.ada"
+                    ],
+                    "type": [
+                        "entity.name.type.ada"
+                    ],
+                    "class": [
+                        "entity.name.type.class.ada"
+                    ],
+                    "enum": [
+                        "entity.name.type.enum.ada"
+                    ],
+                    "interface": [
+                        "entity.name.type.interface.ada"
+                    ],
+                    "struct": [
+                        "entity.name.type.struct.ada"
+                    ],
+                    "typeParameter": [
+                        "variable.other.constant.parameter.ada"
+                    ],
+                    "parameter": [
+                        "entity.name.variable.parameter.ada"
+                    ],
+                    "variable": [
+                        "entity.name.variable.ada"
+                    ],
+                    "property": [
+                        "entity.name.variable.property.ada"
+                    ],
+                    "enumMember": [
+                        "variable.other.enummember.ada"
+                    ],
+                    "function": [
+                        "entity.name.function.ada"
+                    ],
+                    "keyword": [
+                        "keyword.other.ada"
+                    ],
+                    "modifier": [
+                        "storage.modifier.ada"
+                    ],
+                    "comment": [
+                        "comment.line.ada"
+                    ],
+                    "string": [
+                        "string.quoted.double.ada"
+                    ],
+                    "number": [
+                        "constant.numeric.ada"
+                    ],
+                    "operator": [
+                        "entity.name.operator.ada"
+                    ],
+                    "parameter.readonly": [
+                        "variable.other.constant.parameter.ada"
+                    ],
+                    "variable.readonly": [
+                        "variable.other.constant.ada"
+                    ],
+                    "property.readonly": [
+                        "variable.other.constant.property.ada"
+                    ],
+                    "namespace.deprecated": [
+                        "markup.strikethrough.namespace.ada"
+                    ],
+                    "type.deprecated": [
+                        "markup.strikethrough.type.ada"
+                    ],
+                    "class.deprecated": [
+                        "markup.strikethrough.class.ada"
+                    ],
+                    "enum.deprecated": [
+                        "markup.strikethrough.enum.ada"
+                    ],
+                    "interface.deprecated": [
+                        "markup.strikethrough.interface.ada"
+                    ],
+                    "struct.deprecated": [
+                        "markup.strikethrough.struct.ada"
+                    ],
+                    "variable.deprecated": [
+                        "markup.strikethrough.variable.ada"
+                    ],
+                    "property.deprecated": [
+                        "markup.strikethrough.property.ada"
+                    ],
+                    "function.deprecated": [
+                        "markup.strikethrough.function.ada"
+                    ],
+                    "type.abstract": [
+                        "entity.name.type.abstract.ada"
+                    ],
+                    "class.abstract": [
+                        "entity.name.type.class.abstract.ada"
+                    ],
+                    "function.abstract": [
+                        "entity.name.function.abstract.ada"
+                    ],
+                    "operator.abstract": [
+                        "entity.name.operator.abstract.ada"
+                    ],
+                    "parameter.modification": [
+                        "variable.write.parameter.ada"
+                    ],
+                    "variable.modification": [
+                        "variable.write.ada"
+                    ],
+                    "property.modification": [
+                        "variable.write.property.ada"
+                    ],
+                    "namespace.defaultLibrary": [
+                        "support.namespace.ada"
+                    ],
+                    "type.defaultLibrary": [
+                        "support.type.ada"
+                    ],
+                    "class.defaultLibrary": [
+                        "support.class.ada"
+                    ],
+                    "enum.defaultLibrary": [
+                        "support.type.enum.ada"
+                    ],
+                    "interface.defaultLibrary": [
+                        "support.type.interface.ada"
+                    ],
+                    "struct.defaultLibrary": [
+                        "support.type.struct.ada"
+                    ],
+                    "typeParameter.defaultLibrary": [
+                        "support.variable.discriminant.ada"
+                    ],
+                    "parameter.defaultLibrary": [
+                        "support.variable.parameter.ada"
+                    ],
+                    "variable.defaultLibrary": [
+                        "support.variable.ada"
+                    ],
+                    "property.defaultLibrary": [
+                        "support.variable.property.ada"
+                    ],
+                    "enumMember.defaultLibrary": [
+                        "support.constant.enummember.ada"
+                    ],
+                    "function.defaultLibrary": [
+                        "support.function.ada"
+                    ],
+                    "operator.defaultLibrary": [
+                        "support.function.operator.ada"
+                    ]
+                }
+            }
+        ],
+        "snippets": [
+            {
+                "language": "ada",
+                "path": "./ada-snippets.json"
+            },
+            {
+                "language": "gpr",
+                "path": "./gpr-snippets.json"
+            }
+        ],
+        "configuration": [
+            {
+                "type": "object",
+                "title": "Ada",
+                "properties": {
+                    "ada.trace.server": {
+                        "scope": "window",
+                        "type": "string",
+                        "enum": [
+                            "off",
+                            "messages",
+                            "verbose"
+                        ],
+                        "default": "off",
+                        "description": "Traces the communication between VSCode and the Ada language server."
+                    },
+                    "gpr.trace.server": {
+                        "scope": "window",
+                        "type": "string",
+                        "enum": [
+                            "off",
+                            "messages",
+                            "verbose"
+                        ],
+                        "default": "off",
+                        "description": "Traces the communication between VSCode and the GPR language server."
+                    },
+                    "ada.projectFile": {
+                        "scope": "resource",
+                        "type": "string",
+                        "default": "",
+                        "description": "Project file (*.gpr) for given workspace."
+                    },
+                    "ada.scenarioVariables": {
+                        "scope": "resource",
+                        "type": "object",
+                        "default": {},
+                        "description": "Scenario variables."
+                    },
+                    "ada.defaultCharset": {
+                        "scope": "resource",
+                        "type": "string",
+                        "default": "iso-8859-1",
+                        "description": "The character set to use while reading files from disk."
+                    },
+                    "ada.displayMethodAncestryOnNavigation": {
+                        "scope": "resource",
+                        "type": "string",
+                        "enum": [
+                            "never",
+                            "usage_and_abstract_only",
+                            "definition_only",
+                            "always"
+                        ],
+                        "enumDescriptions": [
+                            "Never list overridding and/or overridden suprograms.",
+                            "List overridding and/or overridden suprograms on dispatching calls and on abstract subprogram declarations.",
+                            "List overridding and/or overridden suprograms on declarations only.",
+                            "Always list overridding and/or overridden suprograms when possible."
+                        ],
+                        "default": "usage_and_abstract_only",
+                        "description": "Controls the policy for displaying overriding and overridden subprograms on navigation requests such as 'Go To Definition' or 'Go To Implementations'."
+                    },
+                    "ada.enableDiagnostics": {
+                        "scope": "resource",
+                        "type": "boolean",
+                        "default": true,
+                        "description": "The emission of diagnostics."
+                    },
+                    "ada.useCompletionSnippets": {
+                        "scope": "resource",
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Enable snippets in completion results (e.g: subprogram calls)."
+                    },
+                    "ada.renameInComments": {
+                        "scope": "resource",
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Enable editing Ada comments while executing `textDocument/rename` reques."
+                    }
+                }
+            }
+        ],
+        "problemMatchers": [
+            {
+                "name": "ada",
+                "label": "Gnat Ada Problem Matcher",
+                "fileLocation": [
+                    "autoDetect",
+                    "${workspaceRoot}"
+                ],
+                "pattern": [
+                    {
+                        "regexp": "^([^:]:?[^:]*):(\\d+):(\\d+):\\s+(?:([a-z]+):\\s+)?(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                ]
+            }
+        ],
+        "taskDefinitions": [
+            {
+                "type": "gprbuild",
+                "required": [
+                    "projectFile"
+                ],
+                "properties": {
+                    "projectFile": {
+                        "type": "string",
+                        "description": "The project file"
+                    },
+                    "checkFile": {
+                        "type": "boolean",
+                        "description": "Just check the current file only"
+                    }
+                }
+            },
+            {
+                "type": "gprclean",
+                "required": [
+                    "projectFile"
+                ],
+                "properties": {
+                    "projectFile": {
+                        "type": "string",
+                        "description": "The project file"
+                    }
+                }
+            },
+            {
+                "type": "gnatprove",
+                "required": [
+                    "projectFile"
+                ],
+                "properties": {
+                    "projectFile": {
+                        "type": "string",
+                        "description": "The project file"
+                    },
+                    "taskKind": {
+                        "type": "integer",
+                        "description": "Check the current file only or whole project"
+                    }
+                }
+            }
+        ],
+        "commands": [
+            {
+                "command": "ada.otherFile",
+                "title": "Ada: Go to other file"
+            },
+            {
+                "command": "ada.subprogramBox",
+                "title": "Ada: Add subprogram box"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "ada.otherFile",
+                "key": "alt+O",
+                "when": "editorLangId == ada && editorTextFocus"
+            },
+            {
+                "command": "ada.subprogramBox",
+                "key": "alt+shift+B",
+                "when": "editorLangId == ada && editorTextFocus"
+            }
+        ],
+        "menus": {
+            "commandPalette": [
+                {
+                    "command": "ada.otherFile",
+                    "when": "editorLangId == ada"
+                },
+                {
+                    "command": "ada.subprogramBox",
+                    "when": "editorLangId == ada"
+                }
+            ]
+        },
+        "walkthroughs": [
+            {
+                "id": "als-get-stated",
+                "title": "Ada in VS Code",
+                "description": "Introduction to Ada in VS Code support",
+                "steps": [
+                    {
+                        "id": "als-get-stated-welcome",
+                        "title": "Welcome to Ada extension!",
+                        "description": "This short walkthrough introduces Ada extension.",
+                        "media": {
+                            "markdown": "media/welcome.md"
+                        }
+                    },
+                    {
+                        "id": "als-get-stated-setting",
+                        "title": "Set a project file",
+                        "description": "Set active project file in the `ada.projectFile` setting.\n [Open Settings](command:workbench.action.openSettings)",
+                        "media": {
+                            "markdown": "media/settings.md"
+                        }
+                    },
+                    {
+                        "id": "als-get-stated-debug",
+                        "title": "Launch and debug",
+                        "description": "Install **Native Debug** extension to run debugger.\n [Install extension](command:workbench.extensions.search)",
+                        "media": {
+                            "markdown": "media/launch-debug.md"
+                        },
+                        "completionEvents": [
+                            "extensionInstalled:webfreak.debug"
+                        ]
+                    },
+                    {
+                        "id": "als-get-stated-github",
+                        "title": "Report issues or contribute",
+                        "description": "This extension is an open source software. Feel free to [open an issue](https://github.com/AdaCore/ada_language_server/issues) or [contribute on GitHub](https://github.com/AdaCore/ada_language_server/pulls)!",
+                        "media": {
+                            "image": "media/github.jpg",
+                            "altText": "Github snapshot"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "devDependencies": {
+        "@types/glob": "7.2.0",
+        "@types/mocha": "9.1.1",
+        "@types/node": "14.17.6",
+        "@types/vscode": "1.64.0",
+        "@typescript-eslint/eslint-plugin": "5.21.0",
+        "@typescript-eslint/parser": "5.21.0",
+        "@vscode/test-electron": "2.1.3",
+        "eslint": "8.14.0",
+        "eslint-config-prettier": "8.5.0",
+        "eslint-plugin-prettier": "4.0.0",
+        "eslint-plugin-tsdoc": "0.2.16",
+        "glob": "7.2.0",
+        "mocha": "9.2.2",
+        "prettier": "2.6.2",
+        "typescript": "4.6.3",
+        "vscode-tmgrammar-test": "0.0.11"
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+        "compile": "node ./node_modules/typescript/bin/tsc",
+        "watch": "node ./node_modules/typescript/bin/tsc -watch",
+        "pretest": "npm run compile",
+        "lint": "eslint './src/**/*.{js,ts,tsx}' --quiet --fix",
+        "test": "node ./out/test/runTest.js"
+    },
+    "dependencies": {
+        "process": "0.11.10",
+        "fp-ts": "2.12.0",
+        "vscode-languageclient": "7.0.0",
+        "ws": "8.5.0"
+    }
+}

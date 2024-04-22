@@ -1,0 +1,7 @@
+/workspaces/bench-source/src/awa/openapi-ada/.alire/openapi-servers-config.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/server/openapi-servers-applications.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/server/openapi-servers-applications.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/server/openapi-servers-operation.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/server/openapi-servers-operation.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/server/openapi-servers.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/server/openapi-servers.ads

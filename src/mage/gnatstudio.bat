@@ -1,0 +1,1 @@
+start "Mage" C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoExit -Command "$env:Path += """;C:/Program Files/Alire\bin"""; "$host.UI.RawUI.BackgroundColor = """DarkBlue"""; clear-host; alr build; alr exec -- gnatstudio"

@@ -1,0 +1,27 @@
+name = "euler_tools_tests"
+description = "Euler Tools - Unit tests"
+version = "1.1.1"
+authors = ["Francesc Rocher"]
+maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
+maintainers-logins = ["rocher"]
+executables = ["euler_tools_tests"]
+
+[[depends-on]]
+aunit = "*"
+
+[[depends-on]]
+euler_tools = ">=1.1.1"
+
+[[depends-on]]
+gnat = ">=2021 | (>=12 & <2000)"
+
+[[pins]]
+
+[pins.euler_tools]
+path = ".."
+
+[pins.aunit]
+path = "../../aunit"
+
+[build-switches."*"]
+Compile_Checks = "none"

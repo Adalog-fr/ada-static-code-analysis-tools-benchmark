@@ -1,0 +1,9 @@
+Warning: You requested a suggested prover configuration.
+Warning: This feature is highly experimental.
+Warning: Please consult the documentation.
+
+package Prove is
+   for Proof_Switches ("rflx-arrays-tests.adb") use ("--prover=Z3", "--steps=1768", "--timeout=1");
+   for Proof_Switches ("rflx-rflx_types.ads") use ("--prover=altergo,CVC4,Z3", "--steps=99104", "--timeout=55");
+end Prove;
+

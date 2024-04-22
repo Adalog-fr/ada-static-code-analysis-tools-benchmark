@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-ransee.adb"
+node: { title: "system__random_seed__get_seed" label: "Get_Seed\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-ransee.adb:46:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__real_time__clock" label: "Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnarl/a-reatim.ads:67:13" shape : ellipse }
+edge: { sourcename: "system__random_seed__get_seed" targetname: "ada__real_time__clock" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-ransee.adb:48:22" }
+}

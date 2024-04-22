@@ -1,0 +1,14 @@
+vss-xml-implementation-template_evaluators.adb
+vss-xml-implementation-template_evaluators.ads
+vss-xml-implementation-template_namespaces.adb
+vss-xml-implementation-template_namespaces.ads
+vss-xml-implementation-template_parsers.adb
+vss-xml-implementation-template_parsers.ads
+vss-xml-implementation-template_programs.ads
+vss-xml-templates-processors.adb
+vss-xml-templates-processors.ads
+vss-xml-templates-proxies-strings.adb
+vss-xml-templates-proxies-strings.ads
+vss-xml-templates-proxies.ads
+vss-xml-templates-values.ads
+vss-xml-templates.ads

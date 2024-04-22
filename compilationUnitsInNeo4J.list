@@ -1,0 +1,6 @@
+{
+"servlet":"org.glassfish.jersey.servlet.ServletContainer-2dfb8de3",
+"message":"Unsupported Media Type",
+"url":"/db/neo4j/tx/commit",
+"status":"415"
+}

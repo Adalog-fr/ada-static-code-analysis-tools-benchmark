@@ -1,0 +1,16 @@
+*.log
+*.aux
+*.blg
+*.snm
+*.vrb
+*.nav
+*.out
+*.o
+*.ali
+*.app
+*.swp
+obj
+lib
+*_main
+ada-fuse/.git
+alire/*

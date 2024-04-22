@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-explli.ads"
+node: { title: "system__exp_lli__expont_integer__expon" label: "Expon\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-expont.adb:98:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_mulv64" label: "gnat_mulv64\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__exp_lli__expont_integer__expon" targetname: "__gnat_mulv64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-expont.adb:146:23" }
+edge: { sourcename: "system__exp_lli__expont_integer__expon" targetname: "__gnat_mulv64" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f469disco/gnat/s-expont.adb:167:20" }
+}

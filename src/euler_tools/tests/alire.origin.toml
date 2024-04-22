@@ -1,0 +1,17 @@
+name = "euler_tools_tests"
+description = "Euler Tools - Unit tests"
+version = "1.1.1"
+
+authors = ["Francesc Rocher"]
+maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
+maintainers-logins = ["rocher"]
+
+executables = ["euler_tools_tests"]
+[[depends-on]]
+aunit = "^23.0.0"
+[[depends-on]]
+euler_tools = ">=1.1.1"
+[[pins]]
+euler_tools = { path='..' }
+[[depends-on]]
+gnat = ">=2021 | (>=12 & <2000)"

@@ -1,0 +1,36 @@
+authors = ["Paul Jarrett"]
+description = "An interactive context-based text search tool for large codebases."
+executables = ["septum"]
+licenses = "Apache-2.0"
+maintainers = ["Paul Jarrett <jarrett.paul.young@gmail.com>"]
+maintainers-logins = ["pyjarrett"]
+name = "septum"
+tags = ["search","code","text"]
+version = "0.0.7"
+website = "https://github.com/pyjarrett/septum"
+
+[gpr-set-externals]
+Septum_Platform = "linux"
+
+[[depends-on]]
+atomic = "*"
+dir_iterators = "*"
+progress_indicators = "*"
+trendy_terminal = "*"
+
+[[pins]]
+
+[pins.atomic]
+path = "../atomic"
+
+[pins.dir_iterators]
+path = "../dir_iterators"
+
+[pins.progress_indicators]
+path = "../progress_indicators"
+
+[pins.trendy_terminal]
+path = "../trendy_terminal"
+
+[build-switches."*"]
+Compile_Checks = "none"

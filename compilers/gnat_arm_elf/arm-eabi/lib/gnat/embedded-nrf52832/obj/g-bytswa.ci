@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/g-bytswa.adb"
+node: { title: "gnat__byte_swapping__swap2" label: "SWAP2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/g-bytswa.adb:84:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "gnat__byte_swapping__swap4" label: "SWAP4\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/g-bytswa.adb:95:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "gnat__byte_swapping__swap8" label: "SWAP8\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/g-bytswa.adb:106:4\n8 bytes (static)\n0 dynamic objects" }
+}

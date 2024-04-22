@@ -1,0 +1,22 @@
+name = "tests"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Fabien Chouteau"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+executables = ["tests"]
+
+[[depends-on]]
+qoi = "*"
+aaa = "*"
+
+[[pins]]
+
+[pins.qoi]
+path = ".."
+
+[pins.aaa]
+path = "../../aaa"
+
+[build-switches."*"]
+Compile_Checks = "none"

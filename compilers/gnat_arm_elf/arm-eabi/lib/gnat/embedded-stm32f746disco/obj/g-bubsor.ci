@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/g-bubsor.adb"
+node: { title: "gnat__bubble_sort__sort" label: "SORT\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/g-bubsor.adb:38:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "gnat__bubble_sort__sort" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/g-bubsor.adb:46:16" }
+edge: { sourcename: "gnat__bubble_sort__sort" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f746disco/gnat/g-bubsor.adb:47:16" }
+}

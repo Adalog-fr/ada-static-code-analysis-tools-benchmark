@@ -1,0 +1,18 @@
+description = "SPARK/Ada Algorithms Targeting Advanced Network Applications"
+executables = ["test_phelix"]
+licenses = "WTFPL"
+long-description = "Saatana - SPARK/Ada Algorithms Targeting Advanced Network Applications\nA collection of cryptographic algorithms, proven for correctness in SPARK.\n\nCurrently contains [![Phelix](https://www.schneier.com/academic/archives/2005/01/phelix.html)](https://www.schneier.com/academic/archives/2005/01/phelix.html)\n"
+maintainers = ["vinzent@heisenbug.eu"]
+maintainers-logins = ["Jellix"]
+name = "saatana"
+project-files = ["saatana.gpr"]
+tags = ["cryptography","spark"]
+version = "2.0.2"
+website = "https://github.heisenbug.eu/Saatana"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,23 @@
+authors = ["Simon Wright"]
+description = "Implements XPath 1.0 in Ada"
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = ["Simon Wright <simon@pushface.org>"]
+maintainers-logins = ["simonjwright"]
+name = "xia"
+project-files = ["XIA.gpr"]
+tags = ["xml"]
+version = "1.4.0"
+
+[gpr-externals]
+LIBRARY_TYPE = ["static","relocatable"]
+
+[[depends-on]]
+xmlada = "*"
+
+[[pins]]
+
+[pins.xmlada]
+path = "../xmlada"
+
+[build-switches."*"]
+Compile_Checks = "none"

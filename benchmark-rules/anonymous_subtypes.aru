@@ -1,0 +1,3 @@
+Anonymous_Subtypes: search declarations (anonymous_subtype_allocator,   anonymous_subtype_case,
+                       anonymous_subtype_declaration, anonymous_subtype_for,
+                       anonymous_subtype_indexing);

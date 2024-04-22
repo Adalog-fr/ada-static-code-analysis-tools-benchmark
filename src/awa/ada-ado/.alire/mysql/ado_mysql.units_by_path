@@ -1,0 +1,16 @@
+/workspaces/bench-source/src/awa/ada-ado/.alire/mysql/mysql-lib.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-connections-mysql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-connections-mysql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-mysql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-mysql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-schemas-mysql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-schemas-mysql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-statements-mysql.adb
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/ado-statements-mysql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql-com.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql-my_list.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql-mysql.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql-perfect_hash.adb
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql-perfect_hash.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql-time.ads
+/workspaces/bench-source/src/awa/ada-ado/src/mysql/mysql.ads

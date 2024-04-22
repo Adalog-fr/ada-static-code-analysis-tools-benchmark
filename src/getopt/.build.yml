@@ -1,0 +1,13 @@
+image: debian/stable
+packages:
+  - gnat
+  - gprbuild
+sources:
+  - https://git.sr.ht/~nytpu/getopt-ada
+tasks:
+  - build: |
+      cd getopt-ada
+      make
+  - example: |
+      cd getopt-ada
+      make example

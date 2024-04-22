@@ -1,0 +1,54 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads"
+node: { title: "interfaces__stm32__gpio__Tmoder_field_arrayBIP" label: "Tmoder_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__moder_registerEQ" label: "moder_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__moder_registerIP" label: "moder_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Totyper_ot_field_arrayBIP" label: "Totyper_ot_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__otyper_ot_fieldEQ" label: "otyper_ot_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__otyper_ot_fieldIP" label: "otyper_ot_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__otyper_registerEQ" label: "otyper_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "gnat_rcheck_PE_Unchecked_Union_Restriction\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__stm32__gpio__otyper_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads:76:9" }
+node: { title: "interfaces__stm32__gpio__otyper_registerIP" label: "otyper_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tospeedr_field_arrayBIP" label: "Tospeedr_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__ospeedr_registerEQ" label: "ospeedr_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__ospeedr_registerIP" label: "ospeedr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tpupdr_field_arrayBIP" label: "Tpupdr_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__pupdr_registerEQ" label: "pupdr_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__pupdr_registerIP" label: "pupdr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tidr_field_arrayBIP" label: "Tidr_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__idr_fieldEQ" label: "idr_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__idr_fieldIP" label: "idr_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__idr_registerEQ" label: "idr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__gpio__idr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads:174:9" }
+node: { title: "interfaces__stm32__gpio__idr_registerIP" label: "idr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Todr_field_arrayBIP" label: "Todr_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__odr_fieldEQ" label: "odr_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__odr_fieldIP" label: "odr_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__odr_registerEQ" label: "odr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__gpio__odr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads:216:9" }
+node: { title: "interfaces__stm32__gpio__odr_registerIP" label: "odr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tbsrr_bs_field_arrayBIP" label: "Tbsrr_bs_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__bsrr_bs_fieldEQ" label: "bsrr_bs_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__bsrr_bs_fieldIP" label: "bsrr_bs_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tbsrr_br_field_arrayBIP" label: "Tbsrr_br_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__bsrr_br_fieldEQ" label: "bsrr_br_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__bsrr_br_fieldIP" label: "bsrr_br_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__bsrr_registerEQ" label: "bsrr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__gpio__bsrr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads:285:9" }
+node: { title: "interfaces__stm32__gpio__bsrr_registerIP" label: "bsrr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tlckr_lck_field_arrayBIP" label: "Tlckr_lck_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__lckr_lck_fieldEQ" label: "lckr_lck_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__lckr_lck_fieldIP" label: "lckr_lck_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__lckr_registerEQ" label: "lckr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__gpio__lckr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads:329:9" }
+node: { title: "interfaces__stm32__gpio__lckr_registerIP" label: "lckr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tafrl_field_arrayBIP" label: "Tafrl_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__afrl_registerEQ" label: "afrl_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__afrl_registerIP" label: "afrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__Tafrh_field_arrayBIP" label: "Tafrh_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__afrh_registerEQ" label: "afrh_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__afrh_registerIP" label: "afrh_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__gpio__gpio_peripheralEQ" label: "gpio_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__gpio__gpio_peripheralEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/i-stm32-gpio.ads:407:9" }
+node: { title: "interfaces__stm32__gpio__gpio_peripheralIP" label: "gpio_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

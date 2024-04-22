@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>&#xA;</characters>
+  <characters>A</characters>
+  <characters>&#x9;</characters>
+  <characters>A</characters>
+  <characters>O</characters>
+  <characters>O</characters>
+  <characters>&#x9;</characters>
+  <characters>&#xA;</characters>
+  <characters>􏋬</characters>
+  <characters>&#xA;</characters>
+  <characters>&#xA;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

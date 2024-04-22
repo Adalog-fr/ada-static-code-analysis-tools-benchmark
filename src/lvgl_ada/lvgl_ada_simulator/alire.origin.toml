@@ -1,0 +1,23 @@
+authors = [
+"Fabien Chouteau",
+]
+description = "Native simulator of an LVGL display"
+licenses = "MIT"
+maintainers = [
+"Fabien Chouteau <fabien.chouteau@gmail.com>",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "lvgl_ada_simulator"
+tags = [
+"gui",
+"lvgl",
+"simulator",
+]
+version = "1.0.0"
+website = "https://github.com/Fabien-Chouteau/lvgl-ada-simulator"
+[[depends-on]]
+asfml = "^2.5.3"
+lvgl_ada = "^1"
+

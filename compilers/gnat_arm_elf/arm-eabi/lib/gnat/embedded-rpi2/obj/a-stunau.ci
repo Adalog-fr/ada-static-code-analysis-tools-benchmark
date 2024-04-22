@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-stunau.adb"
+node: { title: "ada__strings__unbounded__aux__get_string" label: "Get_String\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-stunau.adb:38:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__strings__unbounded__aux__set_string" label: "Set_String\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-stunau.adb:55:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_malloc" label: "gnat_malloc\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__strings__unbounded__aux__set_string" targetname: "__gnat_malloc" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-stunau.adb:63:19" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "ada__strings__unbounded__aux__set_string" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-stunau.adb:64:7" }
+node: { title: "ada__strings__unbounded__free" label: "Free\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-strunb.ads:78:14" shape : ellipse }
+edge: { sourcename: "ada__strings__unbounded__aux__set_string" targetname: "ada__strings__unbounded__free" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-stunau.adb:65:7" }
+}

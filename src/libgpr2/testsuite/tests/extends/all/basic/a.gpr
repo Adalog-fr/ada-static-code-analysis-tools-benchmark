@@ -1,0 +1,8 @@
+with "extb.gpr";
+
+project A extends all "c" is
+
+   Variable1 := "A extall " & Variable1;
+   Variable2 := "A with " & ExtB.Variable2;
+
+end A;

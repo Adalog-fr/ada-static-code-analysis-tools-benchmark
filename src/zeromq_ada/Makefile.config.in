@@ -1,0 +1,5 @@
+PREFIX=%(prefix)s
+LIBDIR ?= %(libdir)s
+DESTDIR ?=
+GNATFLAGS ?=
+export PATH:=${PREFIX}/bin:%(PATH)s

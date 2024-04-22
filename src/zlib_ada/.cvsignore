@@ -1,0 +1,5 @@
+*.ali
+ZLIB_test.*
+zlib-1.1.4
+b~*.ad?
+*.bat

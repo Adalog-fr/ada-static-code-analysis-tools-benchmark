@@ -1,0 +1,28 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/i-stm32-pwr.ads"
+node: { title: "interfaces__stm32__pwr__cr1_registerIP" label: "cr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__csr1_registerIP" label: "csr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__Tcr2_cwupf_field_arrayBIP" label: "Tcr2_cwupf_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__cr2_cwupf_fieldEQ" label: "cr2_cwupf_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__cr2_cwupf_fieldIP" label: "cr2_cwupf_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__Tcr2_wupp_field_arrayBIP" label: "Tcr2_wupp_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__cr2_wupp_fieldEQ" label: "cr2_wupp_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__cr2_wupp_fieldIP" label: "cr2_wupp_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__cr2_registerEQ" label: "cr2_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__stm32__pwr__cr2_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/i-stm32-pwr.ads:208:9" }
+node: { title: "interfaces__stm32__pwr__cr2_registerIP" label: "cr2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__Tcsr2_wupf_field_arrayBIP" label: "Tcsr2_wupf_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__csr2_wupf_fieldEQ" label: "csr2_wupf_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__csr2_wupf_fieldIP" label: "csr2_wupf_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__Tcsr2_ewup_field_arrayBIP" label: "Tcsr2_ewup_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__csr2_ewup_fieldEQ" label: "csr2_ewup_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__csr2_ewup_fieldIP" label: "csr2_ewup_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__csr2_registerEQ" label: "csr2_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__pwr__csr2_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/i-stm32-pwr.ads:283:9" }
+node: { title: "interfaces__stm32__pwr__csr2_registerIP" label: "csr2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__pwr__pwr_peripheralEQ" label: "pwr_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__pwr__pwr_peripheralEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/i-stm32-pwr.ads:308:9" }
+node: { title: "interfaces__stm32__pwr__pwr_peripheralIP" label: "pwr_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__pwr__pwr_peripheralIP" targetname: "interfaces__stm32__pwr__cr1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/i-stm32-pwr.ads:310:7" }
+edge: { sourcename: "interfaces__stm32__pwr__pwr_peripheralIP" targetname: "interfaces__stm32__pwr__csr1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f769disco/gnat/i-stm32-pwr.ads:312:7" }
+}

@@ -1,0 +1,65 @@
+--  For use by other projects. Use sal_devel.gpr for writing tests.
+with "standard_common";
+project SAL is
+
+   for Source_Dirs use
+     ("../source",
+      "../src_x86_gnat"); -- sal.endianness
+
+   --  We assume only one of Profile or Mem_Check is On
+   case Standard_Common.Profile is
+   when "On" =>
+      for Object_Dir use "obj_pro";
+      for Exec_Dir use "exec_pro";
+
+   when "Off" =>
+      case Standard_Common.Mem_Check is
+      when "On" =>
+         for Object_Dir use "obj_mem";
+         for Exec_Dir use "exec_mem";
+
+      when "Off" =>
+         for Object_Dir use "obj";
+         for Exec_Dir use ".";
+      end case;
+   end case;
+
+   for Exec_Dir use ".";
+
+   package Compiler is
+      case Standard_Common.Build is
+      when "Debug" =>
+         for Default_Switches ("Ada") use
+           Standard_Common.Compiler.Debug_Switches &
+           Standard_Common.Compiler.Style_Checks &
+           Standard_Common.Compiler'Default_Switches ("Ada");
+
+         --  WORKAROUND: 'Image in GNAT Community 2020 with -gnat2020
+         --  returns integer; no source workaround for generic
+         --  parameter. AdaCore ticket T613-004. Fixed in GNAT
+         --  Community 2021, but keeping workarounds until we drop
+         --  support for 2020.
+         for Switches ("sal-config_files.adb") use
+           Standard_Common.Compiler.Base_Debug_Switches &
+           Standard_Common.Compiler.Style_Checks & ("-gnat2012");
+
+         --  FIXME: this setting is not applied; report bug
+         for Switches ("sal-config_files-boolean.ads") use
+           Standard_Common.Compiler.Base_Debug_Switches &
+           Standard_Common.Compiler.Style_Checks & ("-gnat2012");
+
+      when "Normal" =>
+         for Default_Switches ("Ada") use
+           Standard_Common.Compiler.Release_Switches &
+           Standard_Common.Compiler.Style_Checks &
+           Standard_Common.Compiler'Default_Switches ("Ada");
+
+         --  WORKAROUND: 'Image in GNAT Community 2020 with -gnat2020; see above.
+         for Switches ("sal-config_files.adb") use
+           Standard_Common.Compiler.Base_Release_Switches &
+           Standard_Common.Compiler.Style_Checks & ("-gnat2012");
+
+      end case;
+   end Compiler;
+
+end SAL;

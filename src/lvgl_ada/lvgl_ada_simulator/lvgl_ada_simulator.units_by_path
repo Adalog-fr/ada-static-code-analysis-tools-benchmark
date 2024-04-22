@@ -1,0 +1,5 @@
+/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/config/lvgl_ada_simulator_config.ads
+/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/config/lvgl_ada_simulator_config.h
+/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/src/lvgl_ada_simulator.adb
+/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/src/lvgl_ada_simulator.ads
+/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/src/mouse_cursor_icon.c

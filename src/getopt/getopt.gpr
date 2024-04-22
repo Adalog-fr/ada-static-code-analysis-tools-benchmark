@@ -1,0 +1,129 @@
+-- Copyright (c) 2022 nytpu <alex [at] nytpu.com>
+-- SPDX-License-Identifier: MPL-2.0
+-- For more license details, see LICENSE or <https://www.mozilla.org/en-US/MPL/2.0/>.
+
+library project Getopt is
+
+	for Library_Name use "getopt-ada";
+	Version := "2.0.0";
+	for Library_Version use "lib" & Project'Library_Name & ".so." & Version;
+
+	for Source_Dirs use ("src");
+
+	for Create_Missing_Dirs use "True";
+	for Object_Dir use "obj";
+	for Library_Dir use "lib";
+
+	type Library_Type_Type is ("dynamic", "relocatable", "static", "static-pic");
+	Library_Type : Library_Type_Type :=
+		External("GETOPT_LIBRARY_TYPE", External("LIBRARY_TYPE", "static"));
+	for Library_Kind use Library_Type;
+
+	type Enabled_Type is ("enabled", "disabled");
+	Compile_Checks : Enabled_Type :=
+		External("GETOPT_COMPILE_CHECKS", External("COMPILE_CHECKS", "enabled"));
+	Runtime_Checks : Enabled_Type :=
+		External("GETOPT_RUNTIME_CHECKS", External("RUNTIME_CHECKS", "enabled"));
+	Style_Checks : Enabled_Type :=
+		External("GETOPT_STYLE_CHECKS", External("STYLE_CHECKS", "enabled"));
+	Contracts_Checks : Enabled_Type :=
+		External("GETOPT_CONTRACTS", External("CONTRACTS", "enabled"));
+
+	type Build_Mode_Type is ("debug", "optimize");
+	Build_Mode : Build_Mode_Type :=
+		External("GETOPT_BUILD_MODE", External("BUILD_MODE", "optimize"));
+
+	Compile_Checks_Switches := ();
+	case Compile_Checks is
+		when "enabled" =>
+			Compile_Checks_Switches := (
+				--  -- Warnings as errors
+				-- "-gnatc", -- Compile all units to verify correctness
+				"-gnatwa" -- All warnings
+			);
+		when others => null;
+	end case;
+
+	Runtime_Checks_Switches := ();
+	case Runtime_Checks is
+		when "enabled" => null;
+		when others =>
+			-- Suppress all checks
+			Runtime_Checks_Switches := ("-gnatp");
+	end case;
+
+	Style_Checks_Switches := ();
+	case Style_Checks is
+		when "enabled" =>
+			Style_Checks_Switches := (
+				-- "-gnatyM80", -- 80 char lines
+				-- "-gnatyB", -- Check boolean operators
+				-- "-gnaty-D", -- Identifiers do *not* need proper casing
+				"-gnatya", -- Attributes need proper casing
+				"-gnatyb", -- No trailing whitespace
+				"-gnatyC", -- Check comments, but only require single space
+				"-gnatyd", -- Forbid CRLF
+				"-gnatye", -- Require labels for end and exit
+				"-gnatyf", -- No form feeds or vertical tabs
+				"-gnatyi", -- Enforce proper If-Then layout
+				"-gnatyI", -- Plain "in" mode not explicitly given
+				"-gnatyk", -- Keywords need proper casing
+				"-gnatyl", -- Enforce source code layout
+				"-gnatyn", -- Standard entities need proper casing
+				"-gnatyO", -- Overriding subprograms must be marked as such
+				"-gnatyp", -- Pragmas need proper casing
+				"-gnatyr", -- References to identifiers needs proper casing
+				"-gnatyS", -- No statements appear after "then" or "else"
+				"-gnatyx" -- No C-style parentheses in if statements
+			);
+			case Build_Mode is
+				when "debug" =>
+					-- All validity checks, can break optimization
+					Style_Checks_Switches := Style_Checks_Switches & "-gnatVa";
+				when others => null;
+			end case;
+		when others =>
+			Style_Checks_Switches := ("-gnatyN");
+	end case;
+
+	Contracts_Switches := ();
+	case Contracts_Checks is
+		when "enabled" =>
+			-- Enable assertions and contracts
+			Contracts_Switches := ("-gnata");
+		when others => null;
+	end case;
+
+	Build_Switches := ();
+	case Build_Mode is
+		when "optimize" =>
+			Build_Switches := (
+				"-O3", -- Full optimization
+				"-gnatn" -- Enable inlining
+			);
+		when "debug" =>
+			Build_Switches := (
+				"-g", -- Debug info
+				"-Og" -- Debug optimization passes only
+			);
+	end case;
+
+	package Compiler is
+		for Default_Switches("Ada") use
+			Compile_Checks_Switches &
+			Build_Switches &
+			Runtime_Checks_Switches &
+			Style_Checks_Switches &
+			Contracts_Switches &
+			(
+				"-gnatw.X", -- Disable warnings for No_Exception_Propagation
+				"-gnatQ" -- Don't quit. Generate ALI and tree files even if illegalities exist
+			);
+	end Compiler;
+
+	package Binder is
+		-- Symbolic traceback
+		for Default_Switches("Ada") use ("-Es");
+	end Binder;
+
+end Getopt;

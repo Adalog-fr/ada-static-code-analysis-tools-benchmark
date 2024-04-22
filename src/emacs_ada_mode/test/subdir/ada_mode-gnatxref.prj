@@ -1,0 +1,15 @@
+-- An Emacs Ada project file for use with gnatxref
+
+-- Test processing of xref_tool in prj file
+xref_backend=gnat
+
+src_dir=..
+src_dir=.
+
+obj_dir=.
+obj_dir=..
+
+casing=../case-exceptions-1
+casing=../case-exceptions-2
+
+-- end of file

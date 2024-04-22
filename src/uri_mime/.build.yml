@@ -1,0 +1,15 @@
+image: debian/stable
+packages:
+  - gnat
+  - gprbuild
+  - libahven9-dev
+  - libahven30
+sources:
+  - https://git.sr.ht/~nytpu/uri-mime-ada
+tasks:
+  - build: |
+      cd uri-mime-ada
+      make
+  - test: |
+      cd uri-mime-ada
+      make test

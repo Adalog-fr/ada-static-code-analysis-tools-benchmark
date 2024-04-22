@@ -1,0 +1,21 @@
+description = "Apollo 11 lunar lander simulator"
+licenses = "GPL-3.0-only"
+maintainers = [
+"fabien.choutea@gmail.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "eagle_lander"
+project-files = [
+"eagle_lander.gpr",
+]
+tags = [
+"simulator",
+"game",
+"gtk",
+]
+version = "1.2.0"
+[[depends-on]]
+gtkada = "^21"
+

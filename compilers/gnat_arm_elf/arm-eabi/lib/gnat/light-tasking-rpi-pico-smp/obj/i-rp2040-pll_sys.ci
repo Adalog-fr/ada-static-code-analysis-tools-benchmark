@@ -1,0 +1,8 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-pll_sys.ads"
+node: { title: "interfaces__rp2040__pll_sys__cs_registerIP" label: "cs_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__pll_sys__pwr_registerIP" label: "pwr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__pll_sys__fbdiv_int_registerIP" label: "fbdiv_int_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__pll_sys__prim_registerIP" label: "prim_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__pll_sys__pll_sys_peripheralIP" label: "pll_sys_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__pll_sys__pll_sys_peripheralIP" targetname: "interfaces__rp2040__pll_sys__pwr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-pll_sys.ads:151:7" }
+}

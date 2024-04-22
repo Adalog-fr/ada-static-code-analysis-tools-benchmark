@@ -1,0 +1,25 @@
+authors = ["Javier Fuica Fernández","Manuel Gómez"]
+description = "Bingo application in GTKAda with sound in ASFML"
+executables = ["bingada"]
+licenses = "MIT"
+maintainers = ["Manuel Gómez <mgrojo@gmail.com>"]
+maintainers-logins = ["mgrojo"]
+name = "bingada"
+tags = ["bingo","game","chance","family","sound","gtk","sfml"]
+version = "1.0.0"
+website = "https://github.com/jfuica/bingada"
+
+[[depends-on]]
+asfml = "*"
+gtkada = "*"
+
+[[pins]]
+
+[pins.asfml]
+path = "../asfml"
+
+[pins.gtkada]
+path = "../gtkada"
+
+[build-switches."*"]
+Compile_Checks = "none"

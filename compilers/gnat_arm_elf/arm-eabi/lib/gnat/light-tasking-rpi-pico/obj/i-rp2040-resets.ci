@@ -1,0 +1,53 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-resets.ads"
+node: { title: "interfaces__rp2040__resets__Treset_i2c_field_arrayBIP" label: "Treset_i2c_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_i2c_fieldEQ" label: "reset_i2c_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_i2c_fieldIP" label: "reset_i2c_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_pio_field_arrayBIP" label: "Treset_pio_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_pio_fieldEQ" label: "reset_pio_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_pio_fieldIP" label: "reset_pio_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_spi_field_arrayBIP" label: "Treset_spi_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_spi_fieldEQ" label: "reset_spi_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_spi_fieldIP" label: "reset_spi_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_uart_field_arrayBIP" label: "Treset_uart_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_uart_fieldEQ" label: "reset_uart_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_uart_fieldIP" label: "reset_uart_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_registerEQ" label: "reset_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__resets__reset_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-resets.ads:152:9" }
+node: { title: "interfaces__rp2040__resets__reset_registerIP" label: "reset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Twdsel_i2c_field_arrayBIP" label: "Twdsel_i2c_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_i2c_fieldEQ" label: "wdsel_i2c_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_i2c_fieldIP" label: "wdsel_i2c_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Twdsel_pio_field_arrayBIP" label: "Twdsel_pio_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_pio_fieldEQ" label: "wdsel_pio_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_pio_fieldIP" label: "wdsel_pio_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Twdsel_spi_field_arrayBIP" label: "Twdsel_spi_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_spi_fieldEQ" label: "wdsel_spi_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_spi_fieldIP" label: "wdsel_spi_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Twdsel_uart_field_arrayBIP" label: "Twdsel_uart_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_uart_fieldEQ" label: "wdsel_uart_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_uart_fieldIP" label: "wdsel_uart_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__wdsel_registerEQ" label: "wdsel_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__resets__wdsel_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-resets.ads:333:9" }
+node: { title: "interfaces__rp2040__resets__wdsel_registerIP" label: "wdsel_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_done_i2c_field_arrayBIP" label: "Treset_done_i2c_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_i2c_fieldEQ" label: "reset_done_i2c_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_i2c_fieldIP" label: "reset_done_i2c_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_done_pio_field_arrayBIP" label: "Treset_done_pio_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_pio_fieldEQ" label: "reset_done_pio_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_pio_fieldIP" label: "reset_done_pio_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_done_spi_field_arrayBIP" label: "Treset_done_spi_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_spi_fieldEQ" label: "reset_done_spi_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_spi_fieldIP" label: "reset_done_spi_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__Treset_done_uart_field_arrayBIP" label: "Treset_done_uart_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_uart_fieldEQ" label: "reset_done_uart_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_uart_fieldIP" label: "reset_done_uart_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__reset_done_registerEQ" label: "reset_done_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__resets__reset_done_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-resets.ads:519:9" }
+node: { title: "interfaces__rp2040__resets__reset_done_registerIP" label: "reset_done_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__resets__resets_peripheralEQ" label: "resets_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__resets__resets_peripheralEQ" targetname: "__gnat_last_chance_handler" }
+node: { title: "interfaces__rp2040__resets__resets_peripheralIP" label: "resets_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__resets__resets_peripheralIP" targetname: "interfaces__rp2040__resets__reset_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-resets.ads:600:7" }
+edge: { sourcename: "interfaces__rp2040__resets__resets_peripheralIP" targetname: "interfaces__rp2040__resets__wdsel_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/i-rp2040-resets.ads:603:7" }
+}

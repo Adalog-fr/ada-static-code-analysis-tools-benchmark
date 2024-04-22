@@ -1,0 +1,63 @@
+===================================================
+== INSTALL - binary distribution                 ==
+===================================================
+
+.exe with -bin in the name, for Windows environments only
+---------------------------------------------------------
+
+The .exe version holds an installshield helper. Just double-click on the
+.exe file and follow the instructions.
+
+.zip or tar.gz archive with -bin in the name
+--------------------------------------------
+
+If you have a bash command shell or alike available, just run the "doinstall"
+script and follow the instructions.
+
+The script will ask you for the location of a place (aka prefix) where it will
+transfer the contents of relevant subdirectories.
+
+A typical prefix is the root of your compilation toolchain install tree, where
+you can copy the subdirectory contents by other means if you don't have a bash
+like environment available.
+
+You can also install this package in non-interactive mode by specifying
+the installation directory as the parameter to doinstall:
+
+  ./doinstall /path/to/gnatcoverage/install
+
+=========================================================
+== INSTALL - source distribution                       ==
+== (repo, zip or tar.gz archive with -src in the name) ==
+=========================================================
+
+If you retrieved this README from a source distribution 
+
+  * Sources of the front-end straight at hand, together with this README
+    and a Makefile;
+
+  * Examples and the documentation in the "examples" and "doc" subdirectories
+    respectively.
+
+To build pdf and other versions of the documentation, invoke "make doc". This
+requires a working installation of the Sphinx framework.
+
+GNATcoverage depends on the GNATcoll components collection for project files
+processing. This needs to be built and installed in your target <prefix>
+first. Make sure to include --enable-projects when configuring.
+
+To build the gnatcov binary, just invoke "make". This requires an Ada 2012
+capable compiler and the Makefile resorts to GNAT for this purpose.
+
+Then, to install, "make install PREFIX=<your-prefix>"
+
+GNATcoverage relies on the production of execution traces by the
+environment. For cross configurations (gnatcov run --target=<target>), this is
+achieved by the corresponding GNATemulator companion (<target>-gnatemu) when
+available on PATH or by a suitable version of Qemu.
+
+For native configurations (typically, 32 or 64bit x86 linux, no --target
+passed to gnatcov run), this is achieved by a valgrind "trace adapter". This
+is built with "make adapters" and installed in an existing valgrind tree with
+"make install-adapters VALGRIND_PREFIX=<root-of-your-valgrind-install-tree>".
+

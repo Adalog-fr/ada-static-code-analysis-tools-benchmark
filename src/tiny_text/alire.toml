@@ -1,0 +1,20 @@
+authors = ["Jeremy Grosser"]
+description = "Low resolution bitmap font with a small memory footprint"
+licenses = "MIT"
+maintainers = ["Jeremy Grosser <jeremy@synack.me>"]
+maintainers-logins = ["JeremyGrosser"]
+name = "tiny_text"
+tags = ["font","hal","bitmap","text"]
+version = "1.0.0"
+website = "https://github.com/JeremyGrosser/tiny_text"
+
+[[depends-on]]
+hal = "*"
+
+[[pins]]
+
+[pins.hal]
+path = "../hal"
+
+[build-switches."*"]
+Compile_Checks = "none"

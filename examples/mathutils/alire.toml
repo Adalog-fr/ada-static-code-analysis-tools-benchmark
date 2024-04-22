@@ -1,0 +1,9 @@
+name = "mathutils"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Quentin Dauprat"]
+maintainers = ["Quentin Dauprat <dauprat@adalog.fr>"]
+maintainers-logins = ["Heziode"]
+
+executables = ["mathutils"]

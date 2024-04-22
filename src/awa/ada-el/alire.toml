@@ -1,0 +1,29 @@
+description = "Expression Language Library (JSR245)"
+name = "elada"
+version = "1.8.5"
+licenses = "Apache-2.0"
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+project-files = [".alire/elada.gpr"]
+tags = ["web","expression","expander","parser"]
+website = "https://gitlab.com/stcarrez/ada-el"
+long-description = "\n[![Build Status](https://img.shields.io/jenkins/s/https/jenkins.vacs.fr/Bionic-Ada-EL.svg)](https://jenkins.vacs.fr/job/Bionic-Ada-EL/)\n[![Test Status](https://img.shields.io/jenkins/t/https/jenkins.vacs.fr/Bionic-Ada-EL.svg)](https://jenkins.vacs.fr/job/Bionic-Ada-EL/)\n[![codecov](https://codecov.io/gh/stcarrez/ada-el/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-el)\n\nThis Ada05 library provides the support for a simple Expression Language\nclose to the Java Unified Expression Language (EL).\n\nThe API provided by the EL library is inspired from the Java\nUnified Expression Language shared by the JSP 2.1 and JSF 1.2 technologies.\nSee Expression Language specification in JSR245\n(https://jcp.org/en/jsr/summary?id=245)\n\nThe EL expression is intensively used in web development applications built\non top of various Java technologies but also on top of\n[Ada Web Application](https://github.com/stcarrez/ada-awa)\nand [Ada Server Faces](https://github.com/stcarrez/ada-asf).\n\n\n"
+
+[[depends-on]]
+utilada = "*"
+
+[gpr-externals]
+BUILD = ["distrib","debug","optimize","profile","coverage"]
+EL_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+
+[configuration]
+disabled = true
+
+[[pins]]
+
+[pins.utilada]
+path = "../ada-util"
+
+[build-switches."*"]
+Compile_Checks = "none"

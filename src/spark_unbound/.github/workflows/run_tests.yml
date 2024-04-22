@@ -1,0 +1,57 @@
+# Runs all tests for Spark_Unbound
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: tests
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      RESULT_FILE: results.txt
+      FAILURE_CNT: failures.txt
+      UNEXPECTED_CNT: unexpected.txt
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - uses: ada-actions/toolchain@ce2021
+        with:
+          distrib: community
+          
+      - uses: alire-project/setup-alire@latest-stable
+
+      - name: Set alr toolchain
+        run: |
+          alr toolchain --disable-assistant
+          alr toolchain --select gnat_external
+      
+      - name: Alire build
+        run: |
+          alr build
+      
+      # Run tests and write result to results.txt
+      - name: Run tests
+        run: |
+          alr run | tee $RESULT_FILE
+
+      # Needed analysis to fail action on failed tests
+      - name: Analyse results
+        run: |
+          cat $RESULT_FILE;
+          python test_validation.py $RESULT_FILE
+             

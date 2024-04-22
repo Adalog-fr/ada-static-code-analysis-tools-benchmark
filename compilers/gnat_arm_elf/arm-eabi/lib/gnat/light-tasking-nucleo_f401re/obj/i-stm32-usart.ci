@@ -1,0 +1,14 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-usart.ads"
+node: { title: "interfaces__stm32__usart__sr_registerIP" label: "sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__dr_registerIP" label: "dr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__brr_registerIP" label: "brr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr1_registerIP" label: "cr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr2_registerIP" label: "cr2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__cr3_registerIP" label: "cr3_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__gtpr_registerIP" label: "gtpr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__usart__usart_peripheralIP" label: "usart_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__sr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-usart.ads:331:7" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__cr1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-usart.ads:337:7" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__cr2_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-usart.ads:339:7" }
+edge: { sourcename: "interfaces__stm32__usart__usart_peripheralIP" targetname: "interfaces__stm32__usart__cr3_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnat/i-stm32-usart.ads:341:7" }
+}

@@ -1,0 +1,21 @@
+name = "check_pix1"
+description = ""
+version = "0.1.0-dev"
+executables = ["check_pix1"]
+
+[[depends-on]]
+lvgl_ada = "*"
+
+[[pins]]
+
+[pins.lvgl_ada]
+path = "../.."
+
+[configuration.values.lvgl_ada]
+Pixel_Bit_Depth = "Pix_1bit"
+Horizontal_Resolution = 800
+Vertical_Resolution = 480
+Density_Per_Inch = 100
+
+[build-switches."*"]
+Compile_Checks = "none"

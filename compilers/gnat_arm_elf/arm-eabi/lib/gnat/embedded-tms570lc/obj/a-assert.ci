@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-assert.adb"
+node: { title: "ada__assertions__assert" label: "Assert\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-assert.adb:39:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_raise_exception" label: "Raise_Exception_Always\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-except.ads:178:14" shape : ellipse }
+edge: { sourcename: "ada__assertions__assert" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-assert.adb:42:10" }
+node: { title: "ada__assertions__assert__2" label: "Assert\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-assert.adb:46:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__assertions__assert__2" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-assert.adb:49:10" }
+}

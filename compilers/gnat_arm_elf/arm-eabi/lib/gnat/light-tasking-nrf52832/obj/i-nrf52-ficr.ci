@@ -1,0 +1,41 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads"
+node: { title: "interfaces__nrf52__ficr__Tdeviceid_registersBIP" label: "Tdeviceid_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Ter_registersBIP" label: "Ter_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Tir_registersBIP" label: "Tir_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__deviceaddrtype_registerIP" label: "deviceaddrtype_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Tdeviceaddr_registersBIP" label: "Tdeviceaddr_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Tunused0_info_registersBIP" label: "Tunused0_info_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__info_clusterIP" label: "info_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__a_registerIP" label: "a_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__b_registerIP" label: "b_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__t_registerIP" label: "t_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__temp_clusterIP" label: "temp_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Ttagheader0_nfc_ud_field_arrayBIP" label: "Ttagheader0_nfc_ud_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader0_nfc_ud_fieldEQ" label: "tagheader0_nfc_ud_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader0_nfc_ud_fieldIP" label: "tagheader0_nfc_ud_fieldIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader0_nfc_registerEQ" label: "tagheader0_nfc_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__nrf52__ficr__tagheader0_nfc_registerEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:289:9" }
+node: { title: "interfaces__nrf52__ficr__tagheader0_nfc_registerIP" label: "tagheader0_nfc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Ttagheader1_nfc_ud_field_arrayBIP" label: "Ttagheader1_nfc_ud_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader1_nfc_registerEQ" label: "tagheader1_nfc_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader1_nfc_registerIP" label: "tagheader1_nfc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Ttagheader2_nfc_ud_field_arrayBIP" label: "Ttagheader2_nfc_ud_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader2_nfc_registerEQ" label: "tagheader2_nfc_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader2_nfc_registerIP" label: "tagheader2_nfc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__Ttagheader3_nfc_ud_field_arrayBIP" label: "Ttagheader3_nfc_ud_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader3_nfc_registerEQ" label: "tagheader3_nfc_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__tagheader3_nfc_registerIP" label: "tagheader3_nfc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__nfc_clusterEQ" label: "nfc_clusterEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__ficr__nfc_clusterEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:395:9" }
+node: { title: "interfaces__nrf52__ficr__nfc_clusterIP" label: "nfc_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ficr__ficr_peripheralEQ" label: "ficr_peripheralEQ\n<built-in>\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "memcmp" label: "builtin_memcmp\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__nrf52__ficr__ficr_peripheralEQ" targetname: "memcmp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:423:9" }
+edge: { sourcename: "interfaces__nrf52__ficr__ficr_peripheralEQ" targetname: "memcmp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:423:9" }
+edge: { sourcename: "interfaces__nrf52__ficr__ficr_peripheralEQ" targetname: "memcmp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:423:9" }
+edge: { sourcename: "interfaces__nrf52__ficr__ficr_peripheralEQ" targetname: "memcmp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:423:9" }
+edge: { sourcename: "interfaces__nrf52__ficr__ficr_peripheralEQ" targetname: "memcmp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:423:9" }
+edge: { sourcename: "interfaces__nrf52__ficr__ficr_peripheralEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-ficr.ads:423:9" }
+node: { title: "interfaces__nrf52__ficr__ficr_peripheralIP" label: "ficr_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

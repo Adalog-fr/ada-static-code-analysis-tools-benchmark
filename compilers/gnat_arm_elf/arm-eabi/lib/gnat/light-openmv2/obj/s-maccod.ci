@@ -1,0 +1,4 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-openmv2/gnat/s-maccod.ads"
+node: { title: "system__machine_code__asm_input_operand_listIP" label: "asm_input_operand_listIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__machine_code__asm_output_operand_listIP" label: "asm_output_operand_listIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

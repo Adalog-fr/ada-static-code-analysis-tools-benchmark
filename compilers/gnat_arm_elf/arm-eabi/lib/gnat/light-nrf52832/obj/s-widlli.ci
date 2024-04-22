@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-nrf52832/gnat/s-widlli.ads"
+node: { title: "system__wid_lli__width_long_long_integer" label: "Width_Long_Long_Integer\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-nrf52832/gnat/s-widthi.adb:35:1\n16 bytes (static)\n0 dynamic objects" }
+}

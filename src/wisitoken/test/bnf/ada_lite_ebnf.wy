@@ -1,0 +1,561 @@
+;;; WisiToken grammar for Ada-Lite using EBNF syntax; a subset of Ada used for testing EBNF parsing.
+
+;; This file was produced by copying ada_lite.wy, and changing it to
+;; use EBNF syntax, getting closer to Ada LRM Annex P.
+;;
+;; See ada_lite_ebnf_bnf.wy for translation to BNF for parser generator.
+
+%code copyright_license %{
+;;  Copyright (C) 2017 - 2022 Free Software Foundation, Inc.
+;;
+;;  Author: Stephen Leake <stephe-leake@stephe-leake.org>
+;;
+;;  This file is part of WisiToken.
+;;
+;;  WisiToken is free software: you can redistribute it and/or modify
+;;  it under the terms of the GNU General Public License as published by
+;;  the Free Software Foundation, either version 3 of the License, or
+;;  (at your option) any later version.
+;;
+;;  WisiToken is distributed in the hope that it will be useful,
+;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;;  GNU General Public License for more details.
+;;
+;;  You should have received a copy of the GNU General Public License
+;;  along with WisiToken.  If not, see <http://www.gnu.org/licenses/>.
+}%
+
+%code actions spec post %{
+   End_Name_Optional : Boolean := True;
+}%
+
+%code actions body context %{with SAL;}%
+
+%code actions body pre %{
+   procedure Handle_Aspect
+      (Aspect : in SAL.Base_Peek_Type)
+   is
+      pragma Unreferenced (Aspect);
+   begin
+      null;
+   end Handle_Aspect;
+}%
+
+;; We only need one LR variant to test LR EBNF
+%generate LALR Ada re2c
+;; %generate Tree_Sitter Ada tree_sitter FIXME: tree-sitter broke when change sequence_of_statements to statement+
+;; and more broke when changed wisitoken_grammar.wy declaration
+
+%meta_syntax EBNF
+
+;; All tokens that consist of characters with punctuation syntax; we
+;; need an Ada identifier compatible name.
+%token <punctuation> AMPERSAND "&"
+%token <punctuation> COLON ":"
+%token <punctuation> COLON_EQUAL ":="
+%token <punctuation> COMMA ","
+%token <punctuation> DOT "."
+%token <punctuation> DOT_DOT ".."
+%token <punctuation> EQUAL "="
+%token <punctuation> EQUAL_GREATER "=>"
+%token <punctuation> GREATER ">"
+%token <punctuation> GREATER_EQUAL ">="
+%token <punctuation> LEFT_PAREN "("
+%token <punctuation> LESS "<"
+%token <punctuation> LESS_EQUAL "<="
+%token <punctuation> MINUS "-"
+%token <punctuation> PLUS "+"
+%token <punctuation> RIGHT_PAREN ")"
+%token <punctuation> SEMICOLON ";"
+%token <punctuation> SLASH "/"
+%token <punctuation> SLASH_EQUAL "/="
+%token <punctuation> STAR "*"
+
+%if lexer = re2c
+%token <string-double> STRING_LITERAL %[ (["][\x20-\x21\x23-\U0010FFFF]*["])+ ]%
+%escape_delimiter_doubled STRING_LITERAL
+
+%token <symbol> IDENTIFIER %[ [a-zA-Z\x80-\U0010FFFF][0-9a-zA-Z_\x80-\U0010FFFF]* ]%
+%non_grammar <comment-new-line> COMMENT %[ "--" ]%
+
+%elsif lexer = tree_sitter
+;; The tree-sitter grammar file requires JavaScript regular expressions; see
+;; https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Cheatsheet
+;;
+;; FIXME tree-sitter: that only allows 16 bit code points, not 32 bit characters.
+;; And even then, it still complains about non-Unicode chars; limiting
+;; to ASCII + π (see ada_lite.input) for now. See tree-sitter github
+;; issue #621.
+
+%token <string-double> STRING_LITERAL %[ ("[π\x20-\x21\x23-\x7F]*")+ ]%
+%token <symbol> IDENTIFIER %[ [πa-zA-Z][π0-9a-zA-Z_]* ]%
+%non_grammar <comment-new-line> COMMENT '--'
+%end if
+
+%token <number> NUMERIC_LITERAL %[ [0-9]+ ]%
+
+%non_grammar <non-reporting> WHITESPACE %[ [ \t] ]%
+%non_grammar <new-line> NEW_LINE
+
+%start compilation_unit_list
+
+;; Set costs to take advantage of syntax to get to solution faster.
+
+%mckenzie_check_limit 3
+%mckenzie_zombie_limit 3
+
+;; Default cost for insert terminal, delete terminal, push back, ignore check fail.
+;;
+;; 'ignore check fail' cost is not zero here, so we can more easily
+;; test other strategies. Real languages may want 'ignore check fail'
+;; cost to be zero, to allow parse to succeed while changing a
+;; subprogram name
+%mckenzie_cost_default 4 4 4 4
+
+;; Prefer inserting keywords over identifiers and operators to take
+;; advantage of empty expressions.
+;;
+;; '(' is _not_ here, because inserting that turns a missing
+;; 'then' into a function call; not a likely error.
+;;
+;; IDENTIFIER is here, so if we are inserting an expression, it is
+;; prefered over "null".
+%mckenzie_cost_insert 'begin' 3
+%mckenzie_cost_insert 'case' 3
+%mckenzie_cost_insert 'declare' 3
+%mckenzie_cost_insert 'else' 3
+%mckenzie_cost_insert 'elsif' 3
+%mckenzie_cost_insert 'exit' 3
+%mckenzie_cost_insert 'function' 3
+%mckenzie_cost_insert 'is' 3
+%mckenzie_cost_insert IDENTIFIER 3
+%mckenzie_cost_insert 'new' 3
+%mckenzie_cost_insert 'procedure' 3
+%mckenzie_cost_insert 'return' 3
+%mckenzie_cost_insert ')' 3
+%mckenzie_cost_insert 'then' 3
+%mckenzie_cost_insert 'when' 3
+
+;; These can follow 'end', or start new statements
+%mckenzie_cost_insert 'if' 2
+%mckenzie_cost_insert 'loop' 2
+
+;; We often have an extra 'begin' while moving stuff around. Deleting
+;; that requires popping it and the corresponding nonterm off the
+;; parse stack. Similarly, we often have an extra 'end'; deleting that
+;; is simple.
+%mckenzie_cost_push_back 'begin' 1
+%mckenzie_cost_delete 'begin' 1
+%mckenzie_cost_push_back declarative_part 1
+%mckenzie_cost_push_back 'end' 1
+%mckenzie_cost_delete 'end' 1
+%mckenzie_cost_delete ';' 2
+
+;; Recovering from a missing quote yields a STRING_LITERAL, but the
+;; editing that lead to the missing quote may also lead to a grammar
+;; syntax error where part of the best solution is to delete that
+;; STRING_LITERAL, so make that cheaper than inserting operators and
+;; keywords.
+%mckenzie_cost_delete STRING_LITERAL 2
+
+;; Prefer insert these over everything; lets us finish a
+;; statement, or insert a minimal statement in an empty block.
+%mckenzie_cost_insert 'exit' 1
+%mckenzie_cost_insert 'end' 1
+%mckenzie_cost_insert ';' 1
+
+%conflict REDUCE primary | REDUCE subtype_indication on token ')'
+%conflict REDUCE discrete_subtype_definition | REDUCE range_list on token ')'
+
+;; These are from having pragma in both statement and declaration, as
+;; is required in ada_annex_p.
+%conflict REDUCE declaration | REDUCE statement on token PRAGMA
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'begin'      : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'case'       : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'declare'    : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'exit'       : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'for'        : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'function'   : declaration
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'if'         : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'loop'       : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'package'    : declaration
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'procedure'  : declaration
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'return'     : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token 'type'       : declaration
+%conflict_resolution REDUCE declaration | REDUCE statement on token IDENTIFIER : statement
+%conflict_resolution REDUCE declaration | REDUCE statement on token Wisi_EOI   : statement
+
+%if parser = LALR
+;; tree-sitter and wisitoken have different naming
+;; conventions for shift/reduce conflicts that reduce 0 tokens in LALR
+;; (because reduce 0 tokens is forbidden in tree-sitter).
+
+%conflict SHIFT generic_instantiation | REDUCE parameter_profile on token 'is'
+
+%elsif parser = Tree_Sitter
+%conflict SHIFT generic_instantiation | REDUCE procedure_specification on token 'is'
+%end if
+
+;;;; grammar rules
+
+actual_parameter_part
+  : '(' association_list ')'
+  ;
+
+aspect_specification
+  : 'with' association_list
+  ;
+
+assignment_statement
+  : name ':=' expression ';'
+  ;
+
+association
+  : [IDENTIFIER '=>'] expression
+  ;
+
+association_list
+  : association {',' association}
+  ;
+
+binary_adding_operator
+  : '+'
+  | '-'
+  | '&'
+  ;
+
+;; Explicit _opt for check
+block_label_opt
+  : IDENTIFIER ':'
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  | ;; empty
+  ;
+
+block_statement
+  : T1=block_label_opt ['declare' declarative_part] 'begin' handled_sequence_of_statements 'end' T7=identifier_opt ';'
+    %()%
+    %(return Match_Names (Tree, Tokens, T1, T7, End_Name_Optional);)%
+  ;
+
+body_g
+  : proper_body
+  | body_stub
+  ;
+
+body_stub
+  : subprogram_body_stub
+  ;
+
+case_statement
+  : 'case' expression 'is' {case_statement_alternative}- 'end' 'case' ';'
+  ;
+
+case_statement_alternative
+  : 'when' NUMERIC_LITERAL '=>' sequence_of_statements
+  ;
+
+;; Support partial parse test
+;;
+;; We don't allow an empty compilation unit; that causes too many
+;; ambiguities.
+compilation_unit
+  : declaration
+  | statement
+  ;
+
+compilation_unit_list
+  : compilation_unit
+    %( )%
+    %(return Terminate_Partial_Parse (Tree, Partial_Parse_Active, Partial_Parse_Byte_Goal, Recover_Active, Nonterm);)%
+  | compilation_unit_list compilation_unit
+  ;
+
+compound_statement
+  : if_statement
+  | case_statement
+  | loop_statement
+  | block_statement
+  | extended_return_statement
+  ;
+
+constraint
+  : 'range' range_g
+  | index_constraint
+  ;
+
+declaration
+  : body_g
+  | generic_instantiation
+  | object_declaration
+  | pragma_g
+  | subprogram_declaration
+  | type_declaration
+  ;
+
+declarative_part
+  : {declaration}
+  ;
+
+discrete_subtype_definition
+  : subtype_indication
+  | range_g
+  ;
+
+enumeration_type_definition
+  : '(' IDENTIFIER {',' IDENTIFIER} ')'
+  ;
+
+exception_choice
+  : name
+  ;
+
+exception_handler
+  : 'when' exception_choice '=>' sequence_of_statements
+  ;
+
+exit_statement
+  : 'exit' IDENTIFIER? ['when' expression] ';'
+  ;
+
+expression
+  : relation
+  | relation {'and' relation}-
+  | relation {'or' relation}-
+  | relation {'xor' relation}-
+  ;
+
+extended_return_object_declaration
+  : IDENTIFIER ':' subtype_indication
+  ;
+
+extended_return_statement
+  : 'return' extended_return_object_declaration ';'
+  ;
+
+factor
+  : primary
+  | 'not' primary
+  ;
+
+formal_part
+  : '(' parameter_specification {';' parameter_specification} ')'
+  ;
+
+full_type_declaration
+  : 'type' IDENTIFIER 'is' type_definition ';'
+  ;
+
+function_specification
+  : 'function' name parameter_and_result_profile
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 2);)%
+  ;
+
+generic_instantiation
+  : 'package' name 'is' 'new' name ';'
+  | 'procedure' name 'is' 'new' name ';'
+  ;
+
+handled_sequence_of_statements
+  : sequence_of_statements ['exception' exception_handler*]
+  ;
+
+;; explicit _opt for action, error recover language fixes.
+identifier_opt
+  : IDENTIFIER
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  | ;; empty
+  ;
+
+if_statement
+  : 'if' expression 'then' sequence_of_statements {'elsif' expression 'then' sequence_of_statements} ['else' sequence_of_statements] 'end' 'if' ';'
+  ;
+
+index_constraint
+  : '(' discrete_subtype_definition ')'
+  ;
+
+iteration_scheme
+  : 'for' IDENTIFIER 'in' discrete_subtype_definition
+  ;
+
+loop_statement
+  : iteration_scheme? 'loop' sequence_of_statements 'end' 'loop' identifier_opt ';'
+  ;
+
+multiplying_operator
+  : '*'
+  | '/'
+  ;
+
+name
+  : name '(' range_list ')' ;; slice or constraint
+  | name actual_parameter_part ;; function_call, procedure call.
+  | IDENTIFIER
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  | selected_component
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  ;
+
+;; Explicit _opt for action, error recover language fixes
+name_opt
+  : name
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  | ;; empty
+  ;
+
+object_declaration
+  : IDENTIFIER ':' subtype_indication [':=' expression] ';'
+  ;
+
+;; Test optional item with label.
+package_body
+  : 'package' 'body' name_1=name aspect_1=aspect_specification? 'is' declarative_part ['begin' handled_sequence_of_statements] 'end' name_2=name_opt ';'
+    %(Handle_Aspect (aspect_1);)%
+    %(return Match_Names (Tree, Tokens, name_1, name_2, End_Name_Optional);)%
+  ;
+
+parameter_and_result_profile
+  : formal_part 'return' IDENTIFIER
+  | 'return' IDENTIFIER
+  ;
+
+parameter_profile
+  : formal_part?
+  ;
+
+parameter_specification
+  : IDENTIFIER ':' IDENTIFIER [':=' expression]
+  ;
+
+paren_expression
+  : '(' expression ')'
+  ;
+
+pragma_g
+  : 'pragma' IDENTIFIER actual_parameter_part ';'
+  ;
+
+primary
+  : NUMERIC_LITERAL
+  | STRING_LITERAL
+  | name
+  | paren_expression
+  ;
+
+procedure_call_statement
+  : name ';'
+  ;
+
+procedure_specification
+  : 'procedure' name parameter_profile
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 2);)%
+  ;
+
+proper_body
+  : package_body
+  | subprogram_body
+  ;
+
+range_g
+  : simple_expression '..' simple_expression
+  ;
+
+range_list
+  : range_list ',' range_g
+  | range_g
+  ;
+
+relation
+  : simple_expression [relational_operator simple_expression]
+  ;
+
+relational_operator
+  : '=' | '/=' | '<' | '<=' | '>' | '>='
+  ;
+
+selected_component
+  : name '.' IDENTIFIER
+    %()%
+    %(return Merge_Names (Tree, Nonterm, Tokens, 1, 3);)%
+  ;
+
+sequence_of_statements
+  : statement+
+  ;
+
+simple_expression
+  : unary_adding_operator? term {binary_adding_operator term}
+  ;
+
+simple_return_statement
+  : 'return' expression ';'
+  ;
+
+simple_statement
+  : assignment_statement
+  | exit_statement
+  | procedure_call_statement
+  | simple_return_statement
+  ;
+
+statement
+  : simple_statement
+  | compound_statement
+  | pragma_g
+  ;
+
+subprogram_body
+  : Name_1=subprogram_specification aspect_specification? 'is' declarative_part 'begin'
+    handled_sequence_of_statements 'end' Name_2=name_opt ';'
+    %()%
+    %(return Match_Names (Tree, Tokens, Name_1, Name_2, End_Name_Optional);)%
+  ;
+
+subprogram_body_stub
+  : subprogram_specification 'is' 'separate' ';'
+  ;
+
+subprogram_declaration
+  : subprogram_specification ';'
+  ;
+
+subprogram_specification
+  : procedure_specification
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  | function_specification
+    %()%
+    %(return Propagate_Name (Tree, Nonterm, Tokens, 1);)%
+  ;
+
+subtype_indication
+  : name constraint
+  | name
+  ;
+
+term
+  : factor {multiplying_operator factor}
+  ;
+
+type_declaration
+  : full_type_declaration
+  ;
+
+type_definition
+  : enumeration_type_definition
+  ;
+
+unary_adding_operator
+  : '+'
+  | '-'
+  ;
+
+;;; end of file

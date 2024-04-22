@@ -1,0 +1,5 @@
+(library
+   (name gpr_parser)
+   (public_name gpr_parser)
+   (flags (-w -32-9))
+   (libraries ctypes ctypes.foreign camomile zarith))

@@ -1,0 +1,14 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f4/gnat/s-stm32.adb"
+node: { title: "system__stm32__ahb_prescaler_enumH" label: "ahb_prescaler_enumH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__ahb_prescalerIP" label: "ahb_prescalerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__mcu_id_registerIP" label: "mcu_id_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__rcc_system_clocksIP" label: "rcc_system_clocksIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__apb_prescaler_enumH" label: "apb_prescaler_enumH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__apb_prescalerIP" label: "apb_prescalerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__mco1_clock_selectionH" label: "mco1_clock_selectionH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__mco2_clock_selectionH" label: "mco2_clock_selectionH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__mcox_prescalerH" label: "mcox_prescalerH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__mcox_prescalerRP" label: "mcox_prescalerRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__pllp_rangePredicate" label: "pllp_rangePredicate\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__stm32__system_clocks" label: "System_Clocks\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f4/gnat/s-stm32.adb:50:4\n12 bytes (static)\n0 dynamic objects" }
+}

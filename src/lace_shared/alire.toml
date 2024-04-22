@@ -1,0 +1,10 @@
+authors = ["Rod Kay"]
+description = "Default settings for GPR files in the Lace project."
+licenses = "ISC"
+maintainers = ["Rod Kay <rodakay5@gmail.com>"]
+maintainers-logins = ["charlie5"]
+name = "lace_shared"
+version = "0.1.0"
+
+[build-switches."*"]
+Compile_Checks = "none"

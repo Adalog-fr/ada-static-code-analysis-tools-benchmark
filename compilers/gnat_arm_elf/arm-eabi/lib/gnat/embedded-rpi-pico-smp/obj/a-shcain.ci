@@ -1,0 +1,12 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/a-shcain.adb"
+node: { title: "_ada_ada__strings__hash_case_insensitive" label: "Hash_Case_Insensitive\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/a-shcain.adb:33:1\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__secondary_stack__ss_mark" label: "Ss_Mark\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-secsta.ads:67:13" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__hash_case_insensitive" targetname: "system__secondary_stack__ss_mark" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/a-shcain.adb:40:4" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__hash_case_insensitive" targetname: "system__secondary_stack__ss_allocate" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/a-chahan.adb:555:7" }
+node: { title: "system__secondary_stack__ss_release" label: "Ss_Release\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-secsta.ads:70:14" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__hash_case_insensitive" targetname: "system__secondary_stack__ss_release" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/a-shcain.adb:40:0" }
+edge: { sourcename: "_ada_ada__strings__hash_case_insensitive" targetname: "system__secondary_stack__ss_release" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/a-shcain.adb:40:0" }
+node: { title: "_Unwind_Resume" label: "builtin_unwind_resume\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__hash_case_insensitive" targetname: "_Unwind_Resume" }
+}

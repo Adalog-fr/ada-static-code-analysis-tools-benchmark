@@ -1,0 +1,48 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb"
+edge: { sourcename: "system__finalization_root__Troot_controlledCFD"
+  targetname: "-9:system__finalization_root__root_controlled,system__finalization_root__root_controlled"
+  label: "s-finroo.ads:40:9"
+}
+class {
+  classname: "system__finalization_root__root_controlled"
+  label: "system__finalization_root__root_controlled\s-finroo.ads:40:9"
+  virtuals: "1:system__finalization_root__adjust\n
+             2:system__finalization_root__finalize\n
+             3:system__finalization_root__initialize\n
+             -1:system__finalization_root___size\n
+             -10:system__finalization_root__root_controlledPI\n
+             -2:system__finalization_root__root_controlledSR\n
+             -3:system__finalization_root__root_controlledSW\n
+             -4:system__finalization_root__root_controlledSI\n
+             -5:system__finalization_root__root_controlledSO\n
+             -6:system__finalization_root__Oeq\n
+             -7:system__finalization_root___assign\n
+             -8:system__finalization_root__root_controlledDA\n
+             -9:system__finalization_root__root_controlledDF"
+}
+node: { title: "system__finalization_root___size" label: "finalization_root\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledSR" label: "root_controlledSR\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__Oeq" label: "=\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root___assign" label: "finalization_root\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledDA" label: "root_controlledDA\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledPI" label: "root_controlledPI\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__put_images__put_image_unknown" label: "Put_Image_Unknown\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-putima.ads:106:14" shape : ellipse }
+edge: { sourcename: "system__finalization_root__root_controlledPI" targetname: "system__put_images__put_image_unknown" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.ads:40:9" }
+node: { title: "system__finalization_root__adjust" label: "Adjust\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb:40:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Explicit_Raise" label: "gnat_rcheck_PE_Explicit_Raise\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__finalization_root__adjust" targetname: "__gnat_rcheck_PE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb:42:7" }
+node: { title: "system__finalization_root__finalize" label: "Finalize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb:49:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__finalization_root__finalize" targetname: "__gnat_rcheck_PE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb:51:7" }
+node: { title: "system__finalization_root__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb:58:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__finalization_root__initialize" targetname: "__gnat_rcheck_PE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.adb:60:7" }
+node: { title: "system__finalization_root__root_controlledSW" label: "root_controlledSW\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledSO" label: "root_controlledSO\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledDF" label: "root_controlledDF\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledIP" label: "root_controlledIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__Troot_controlledCFD" label: "Troot_controlledCFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "system__finalization_root__Troot_controlledCFD" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.ads:40:9" }
+node: { title: "system__finalization_root___elabs" label: "Finalization_Root\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.ads:34:1\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__tags__register_tag" label: "Register_Tag\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/a-tags.ads:553:14" shape : ellipse }
+edge: { sourcename: "system__finalization_root___elabs" targetname: "ada__tags__register_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-finroo.ads:40:9" }
+}

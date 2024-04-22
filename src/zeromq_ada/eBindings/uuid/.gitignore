@@ -1,0 +1,9 @@
+lib
+.obj
+*~
+*.pyc
+new\ file
+.temp
+gen
+
+

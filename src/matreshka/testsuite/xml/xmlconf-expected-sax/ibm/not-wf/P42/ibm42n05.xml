@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>&#x20;</characters>
+  <characters>A</characters>
+  <characters>t</characters>
+  <characters>t</characters>
+  <characters>r</characters>
+  <characters>i</characters>
+  <characters>b</characters>
+  <characters>u</characters>
+  <characters>t</characters>
+  <characters>e</characters>
+  <characters>&#x20;</characters>
+  <characters>i</characters>
+  <characters>n</characters>
+  <characters>&#x20;</characters>
+  <characters>E</characters>
+  <characters>T</characters>
+  <characters>a</characters>
+  <characters>g</characters>
+  <characters>&#x20;</characters>
+  <fatalError>syntax&#x20;error</fatalError>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,11 @@
+authors = ["Marc A. Criley"]
+description = "Creation of XML-formatted output from Ada programs"
+executables = ["tmeztf"]
+maintainers = ["alejandro@mosteo.com"]
+maintainers-logins = ["mosteo"]
+name = "xml_ez_out"
+version = "1.6.0"
+website = "http://www.mckae.com/xmlEz.html"
+
+[build-switches."*"]
+Compile_Checks = "none"

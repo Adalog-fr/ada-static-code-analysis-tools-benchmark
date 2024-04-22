@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-tasloc.adb"
+node: { title: "system__task_lock__lock" label: "Lock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-tasloc.adb:40:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "system__task_lock__lock" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-tasloc.adb:42:35" }
+node: { title: "system__task_lock__unlock" label: "Unlock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-tasloc.adb:49:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__task_lock__unlock" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnat/s-tasloc.adb:51:37" }
+}

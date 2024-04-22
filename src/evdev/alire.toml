@@ -1,0 +1,18 @@
+authors = ["onox"]
+description = "Library for input devices and force-feedback using Linux' evdev API"
+executables = ["evdev-ada"]
+licenses = "Apache-2.0"
+maintainers = ["onox <denkpadje@gmail.com>"]
+maintainers-logins = ["onox"]
+name = "evdev"
+project-files = ["evdev.gpr","evdev_info.gpr"]
+tags = ["evdev","force-feedback","linux","input"]
+version = "2.0.2"
+website = "https://github.com/onox/evdev-ada"
+
+[build-switches."*"]
+style_checks = ["-gnatygAO-Is"]
+Compile_Checks = "none"
+
+[build-switches.validation]
+compile_checks = "warnings"

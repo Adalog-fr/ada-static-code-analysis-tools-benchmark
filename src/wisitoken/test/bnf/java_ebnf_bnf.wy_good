@@ -1,0 +1,289 @@
+;;; generated from java_ebnf.wy -*- buffer-read-only:t -*-
+;;;
+;; Examples of EBNF syntax used in the Java grammar file
+;; https://github.com/antlr/grammars-v4/tree/master/java
+;;
+;; Also syntax that revealed bugs discovered during development.
+;;
+;; Note that the only *.*_good file is java_ebnf_bnf.wy_good, and that
+;; this file does not declare all used tokens; we are only testing the
+;; translation from EBNF to BNF.
+
+%meta_syntax BNF
+
+%keyword RETURN "return"
+%start compilationUnit
+%generate None
+%partial_recursion
+
+%token <punctuation> ADD_ASSIGN '+='
+%token <punctuation> AND_ASSIGN '&='
+%token <punctuation> ASSIGN '='
+%token <punctuation> COMMA ','
+%token <punctuation> DEC '--'
+%token <punctuation> DIV_ASSIGN '/='
+%token <punctuation> DOT '.'
+%token <punctuation> INC '++'
+%token <punctuation> LBRACE '{'
+%token <punctuation> LBRACK '['
+%token <punctuation> LSHIFT_ASSIGN '<<='
+%token <punctuation> MOD_ASSIGN '%='
+%token <punctuation> MUL_ASSIGN '*='
+%token <punctuation> OR_ASSIGN '|='
+%token <punctuation> RBRACE '}'
+%token <punctuation> RBRACK ']'
+%token <punctuation> RSHIFT_ASSIGN '>>='
+%token <punctuation> SEMI ';'
+%token <punctuation> SUB_ASSIGN '-='
+%token <punctuation> URSHIFT_ASSIGN '>>>='
+%token <punctuation> XOR_ASSIGN '^='
+
+;; IDENTIFIER QUESTION | IDENTIFIER STAR
+compilationUnit
+  : packageDeclaration importDeclaration_list typeDeclaration_list EOF
+  | packageDeclaration importDeclaration_list EOF
+  | packageDeclaration typeDeclaration_list EOF
+  | packageDeclaration EOF
+  | importDeclaration_list typeDeclaration_list EOF
+  | importDeclaration_list EOF
+  | typeDeclaration_list EOF
+  | EOF
+  ;
+
+statement
+  : blockLabel=block
+  | T1=TRY T2=block G1=nonterminal_054
+    %((wisi-statement-action [1 statement-start]))%
+  | SWITCH parExpression LBRACE switchBlockStatementGroup_list switchLabel_list RBRACE
+  | SWITCH parExpression LBRACE switchBlockStatementGroup_list RBRACE
+  | SWITCH parExpression LBRACE switchLabel_list RBRACE
+  | SWITCH parExpression LBRACE RBRACE
+  ;
+
+;; rhs_group_item QUESTION | STRING_LITERAL_2 QUESTION
+enumDeclaration
+  : ENUM IDENTIFIER IMPLEMENTS typeList LBRACE enumConstants COMMA enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE enumConstants COMMA RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE enumConstants enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE enumConstants RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE COMMA enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE COMMA RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER IMPLEMENTS typeList LBRACE RBRACE
+  | ENUM IDENTIFIER LBRACE enumConstants COMMA enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER LBRACE enumConstants COMMA RBRACE
+  | ENUM IDENTIFIER LBRACE enumConstants enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER LBRACE enumConstants RBRACE
+  | ENUM IDENTIFIER LBRACE COMMA enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER LBRACE COMMA RBRACE
+  | ENUM IDENTIFIER LBRACE enumBodyDeclarations RBRACE
+  | ENUM IDENTIFIER LBRACE RBRACE
+  ;
+
+;; Duplicate '(IMPLEMENTS typeList)?'
+classDeclaration
+  : CLASS IDENTIFIER typeParameters EXTENDS typeType IMPLEMENTS typeList classBody
+  | CLASS IDENTIFIER typeParameters EXTENDS typeType classBody
+  | CLASS IDENTIFIER typeParameters IMPLEMENTS typeList classBody
+  | CLASS IDENTIFIER typeParameters classBody
+  | CLASS IDENTIFIER EXTENDS typeType IMPLEMENTS typeList classBody
+  | CLASS IDENTIFIER EXTENDS typeType classBody
+  | CLASS IDENTIFIER IMPLEMENTS typeList classBody
+  | CLASS IDENTIFIER classBody
+  ;
+
+;; labeled rhs_optional_item
+forControl
+  : enhancedForControl
+  | forInit SEMI expression SEMI forUpdate=expressionList
+  | forInit SEMI expression SEMI
+  | forInit SEMI SEMI forUpdate=expressionList
+  | forInit SEMI SEMI
+  | SEMI expression SEMI forUpdate=expressionList
+  | SEMI expression SEMI
+  | SEMI SEMI forUpdate=expressionList
+  | SEMI SEMI
+  ;
+
+;; no labels in canonical list
+argumentList
+  : argument
+  | argumentList COMMA argument
+  ;
+
+;; labels in canonical list
+expressionList
+  : expression_COMMA_list
+    %((wisi-indent-action [(T1 . (wisi-indent-hanging 0 java-indent-broken))
+                           (T2 . 0)
+                           (T3 . [(wisi-indent-hanging 0 java-indent-broken)
+                                  (wisi-indent-hanging 0 java-indent-broken))]]))%
+  ;
+
+;; Start test of previous bug in searching for single-element list
+;; nonterm.
+PrimitiveType
+  : AnnotationList NumericType
+  | NumericType
+  | AnnotationList boolean
+  | boolean
+  ;
+
+;; This is not an AnnotationList.
+TypeParameterModifier
+  : Annotation
+  ;
+
+;; This is an AnnotationList
+AnnotationList
+  : Annotation
+  | AnnotationList Annotation
+  ;
+;; End test of previous bug in searching for list nonterm.
+
+;; Single-item optional brackets with label.
+ReturnStatement
+  : T1=RETURN T2=Expression T3=SEMI
+    %((wisi-indent-action [(T1 . 0) (T2 . java-indent-broken) (T3 . 0)]))%
+  | T1=RETURN T3=SEMI
+    %((wisi-indent-action [(T1 . 0) (T2 . java-indent-broken) (T3 . 0)]))%
+  ;
+
+;; labeled STRING_LITERAL_2, non-trivial rhs_alternative_list, labeled rhs_group_item, rhs_attribute
+expression
+  : primary
+  | expression bop=DOT nonterminal_059
+  | expression postfix=nonterminal_060
+
+;; attribute with more than one item following
+  | expression bop=nonterminal_061 expression
+
+;; attribute with one item following
+  | expression
+  ;
+
+;; non-trivial group item
+arrayCreatorRest
+  : LBRACK nonterminal_065
+  ;
+
+;; another non-trivial group item, and lots of copies
+interfaceMethodDeclaration
+  : interfaceMethodModifier_list nonterminal_068 IDENTIFIER formalParameters LBRACK_RBRACK_list THROWS qualifiedNameList methodBody
+  | interfaceMethodModifier_list nonterminal_068 IDENTIFIER formalParameters LBRACK_RBRACK_list methodBody
+  | interfaceMethodModifier_list nonterminal_068 IDENTIFIER formalParameters THROWS qualifiedNameList methodBody
+  | interfaceMethodModifier_list nonterminal_068 IDENTIFIER formalParameters methodBody
+  | nonterminal_068 IDENTIFIER formalParameters LBRACK_RBRACK_list THROWS qualifiedNameList methodBody
+  | nonterminal_068 IDENTIFIER formalParameters LBRACK_RBRACK_list methodBody
+  | nonterminal_068 IDENTIFIER formalParameters THROWS qualifiedNameList methodBody
+  | nonterminal_068 IDENTIFIER formalParameters methodBody
+  ;
+
+;; trailing optional with multiple tokens
+typeParameter
+  : annotation_list IDENTIFIER EXTENDS typeBound
+  | annotation_list IDENTIFIER
+  | IDENTIFIER EXTENDS typeBound
+  | IDENTIFIER
+  ;
+
+;; Recognize this as a canonical list
+SwitchLabels
+  : SwitchLabel
+  | SwitchLabels SwitchLabel
+  ;
+
+;; The first list was identified incorrectly
+BadList_1
+  : LBRACK_RBRACK_list arrayInitializer
+  | arrayInitializer
+  | expression LBRACK_RBRACK_list
+  | expression
+  ;
+
+;; end of file
+importDeclaration_list
+  : importDeclaration
+  | importDeclaration_list importDeclaration
+  ;
+typeDeclaration_list
+  : typeDeclaration
+  | typeDeclaration_list typeDeclaration
+  ;
+catchClause_list
+  : catchClause
+  | catchClause_list catchClause
+  ;
+nonterminal_054
+  : T3=catchClause_list T4=finallyBlock
+  | T3=catchClause_list
+  | T5=finallyBlock
+  ;
+switchBlockStatementGroup_list
+  : switchBlockStatementGroup
+  | switchBlockStatementGroup_list switchBlockStatementGroup
+  ;
+switchLabel_list
+  : switchLabel
+  | switchLabel_list switchLabel
+  ;
+expression_COMMA_list
+  : expression
+  | expression_COMMA_list COMMA expression
+  ;
+nonterminal_059
+  : THIS
+  | NEW nonWildcardTypeArguments innerCreator
+  | NEW innerCreator
+  | SUPER superSuffix
+  | explicitGenericInvocation
+  ;
+nonterminal_060
+  : INC
+  | DEC
+  ;
+nonterminal_061
+  : ASSIGN
+  | ADD_ASSIGN
+  | SUB_ASSIGN
+  | MUL_ASSIGN
+  | DIV_ASSIGN
+  | AND_ASSIGN
+  | OR_ASSIGN
+  | XOR_ASSIGN
+  | RSHIFT_ASSIGN
+  | URSHIFT_ASSIGN
+  | LSHIFT_ASSIGN
+  | MOD_ASSIGN
+  ;
+RBRACK_LBRACK_list
+  : RBRACK
+  | RBRACK_LBRACK_list LBRACK RBRACK
+  ;
+LBRACK_expression_list
+  : LBRACK expression RBRACK
+  | LBRACK_expression_list LBRACK expression RBRACK
+  ;
+LBRACK_RBRACK_list
+  : LBRACK RBRACK
+  | LBRACK_RBRACK_list LBRACK RBRACK
+  ;
+nonterminal_065
+  : RBRACK_LBRACK_list arrayInitializer
+  | expression RBRACK LBRACK_expression_list LBRACK_RBRACK_list
+  | expression RBRACK LBRACK_expression_list
+  | expression RBRACK_LBRACK_list
+  ;
+interfaceMethodModifier_list
+  : interfaceMethodModifier
+  | interfaceMethodModifier_list interfaceMethodModifier
+  ;
+annotation_list
+  : annotation
+  | annotation_list annotation
+  ;
+nonterminal_068
+  : typeTypeOrVoid
+  | typeParameters annotation_list typeTypeOrVoid
+  | typeParameters typeTypeOrVoid
+  ;

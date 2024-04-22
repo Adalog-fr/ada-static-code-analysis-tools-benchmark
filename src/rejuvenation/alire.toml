@@ -1,0 +1,20 @@
+authors = ["Pierre van de Laar","Arjan J. Mooij"]
+description = "Analysis and manipulation of Ada code based on concrete patterns"
+licenses = "BSD-3-Clause"
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+name = "rejuvenation"
+tags = ["analysis","manipulation","transformation"]
+version = "23.0.0"
+website = "https://github.com/TNO/Rejuvenation-Ada"
+
+[[depends-on]]
+libadalang = "*"
+
+[[pins]]
+
+[pins.libadalang]
+path = "../libadalang"
+
+[build-switches."*"]
+Compile_Checks = "none"

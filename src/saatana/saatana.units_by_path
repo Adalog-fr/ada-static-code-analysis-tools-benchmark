@@ -1,0 +1,11 @@
+/workspaces/bench-source/src/saatana/lemmas/saatana-crypto-lemmas.ads
+/workspaces/bench-source/src/saatana/src/phelix/saatana-crypto-phelix.adb
+/workspaces/bench-source/src/saatana/src/phelix/saatana-crypto-phelix.ads
+/workspaces/bench-source/src/saatana/src/saatana-crypto.adb
+/workspaces/bench-source/src/saatana/src/saatana-crypto.ads
+/workspaces/bench-source/src/saatana/src/saatana.ads
+/workspaces/bench-source/src/saatana/tests/phelix/saatana-crypto-phelix-test_vectors.ads
+/workspaces/bench-source/src/saatana/tests/phelix/test_phelix_api.adb
+/workspaces/bench-source/src/saatana/tests/phelix/test_phelix.adb
+/workspaces/bench-source/src/saatana/tests/saatana-crypto-stream_tools.adb
+/workspaces/bench-source/src/saatana/tests/saatana-crypto-stream_tools.ads

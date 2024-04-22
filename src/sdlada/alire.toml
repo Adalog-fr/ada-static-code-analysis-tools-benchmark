@@ -1,0 +1,34 @@
+authors = ["Luke A. Guest"]
+description = "Ada 2012 SDL 2.x bindings."
+licenses = "Zlib"
+maintainers = ["Luke A. Guest <laguest@archeia.com>"]
+maintainers-logins = ["Lucretia"]
+name = "sdlada"
+project-files = ["build/gnat/sdlada.gpr"]
+tags = ["gamedev","games","portable","cross-platform"]
+version = "2.5.5"
+website = "https://github.com/Lucretia/sdlada"
+
+[gpr-externals]
+SDL_MODE = ["debug","release"]
+SDL_PLATFORM = ["linux","bsd","windows","macosx","macos_homebrew","ios","android"]
+
+[gpr-set-externals]
+BUILD_MODE = "release"
+SDL_PLATFORM = "linux"
+
+[[actions]]
+command = ["make","-C","./build/gnat","tools"]
+directory = "."
+type = "pre-build"
+
+[[depends-on]]
+libsdl2 = "^2.0.0"
+libsdl2_image = "^2.0.0"
+libsdl2_ttf = "^2.0.0"
+make = "*"
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,17 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-stalib.adb"
+node: { title: "system__standard_library__exception_dataIP" label: "exception_dataIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__standard_library__exception_trace_kindH" label: "exception_trace_kindH\n<built-in>\n56 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uidivmod" label: "aeabi_uidivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__standard_library__exception_trace_kindH" targetname: "__aeabi_uidivmod" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__standard_library__exception_trace_kindH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "system__standard_library__exception_trace_kindH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "system__standard_library__exception_trace_kindH" targetname: "__aeabi_idivmod" }
+node: { title: "system__standard_library__abort_undefer_direct" label: "Abort_Undefer_Direct\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-stalib.adb:66:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__soft_links__abort_undefer_raven" label: "Abort_Undefer_Raven\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-soflin.ads:79:14" shape : ellipse }
+edge: { sourcename: "system__standard_library__abort_undefer_direct" targetname: "system__soft_links__abort_undefer_raven" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-stalib.adb:68:39" }
+node: { title: "system__standard_library__adafinal" label: "Adafinal\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-stalib.adb:75:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "system__standard_library__adafinal" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-stalib.adb:79:37" }
+node: { title: "__gnat_break_start" label: "Break_Start\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-stalib.adb:94:4\n0 bytes (static)\n0 dynamic objects" }
+}

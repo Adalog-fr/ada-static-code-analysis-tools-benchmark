@@ -1,0 +1,54 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnatcoll"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../gnatcoll-core"
+[[solution.state]]
+crate = "libgpr"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../../gprbuild"
+[[solution.state]]
+crate = "libpython2dev"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "^2"
+[solution.state.release]
+description = "Header files and a static library for Python2"
+licenses = "PSF-2.0"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "libpython2dev"
+notes = "Provided by system package: libpython2-dev"
+version = "2.7.18"
+[solution.state.release.origin]
+url = "system:libpython2-dev"
+[[solution.state]]
+crate = "xmlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../../xmlada"
+

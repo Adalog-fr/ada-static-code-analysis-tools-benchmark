@@ -1,0 +1,21 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/i-nrf52-ccm.ads"
+node: { title: "interfaces__nrf52__ccm__enable_enable_fieldRP" label: "enable_enable_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__mode_datarate_fieldH" label: "mode_datarate_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__rateoverride_rateoverride_fieldH" label: "rateoverride_rateoverride_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__tasks_ksgen_registerIP" label: "tasks_ksgen_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__tasks_crypt_registerIP" label: "tasks_crypt_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__tasks_stop_registerIP" label: "tasks_stop_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__tasks_rateoverride_registerIP" label: "tasks_rateoverride_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__events_endksgen_registerIP" label: "events_endksgen_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__events_endcrypt_registerIP" label: "events_endcrypt_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__events_error_registerIP" label: "events_error_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__shorts_registerIP" label: "shorts_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__intenset_registerIP" label: "intenset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__intenclr_registerIP" label: "intenclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__micstatus_registerIP" label: "micstatus_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__enable_registerIP" label: "enable_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__mode_registerIP" label: "mode_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__maxpacketsize_registerIP" label: "maxpacketsize_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__rateoverride_registerIP" label: "rateoverride_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__ccm__ccm_peripheralIP" label: "ccm_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

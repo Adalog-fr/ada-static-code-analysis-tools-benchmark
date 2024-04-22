@@ -1,0 +1,11 @@
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-connections-sqlite.adb
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-connections-sqlite.ads
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-schemas-sqlite.adb
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-schemas-sqlite.ads
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-sqlite.adb
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-sqlite.ads
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-statements-sqlite.adb
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/ado-statements-sqlite.ads
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/sqlite3_h-perfect_hash.adb
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/sqlite3_h-perfect_hash.ads
+/workspaces/bench-source/src/awa/ada-ado/src/sqlite/sqlite3_h.ads

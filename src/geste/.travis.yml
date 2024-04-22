@@ -1,0 +1,22 @@
+# We are using Python 2.7 to run the testsuite
+language: python
+python:
+  - "2.7"
+
+os:
+  - linux
+
+install:
+
+  # Install GNAT FSF
+  - sudo apt-get -y install gnat gprbuild
+
+  # Install lcov for coverage
+  - sudo apt-get -y install lcov
+
+script:
+  # Start the testsuite
+  - python $PWD/tests/run.py --coverage
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -f tests/coverage_results/coverage.info

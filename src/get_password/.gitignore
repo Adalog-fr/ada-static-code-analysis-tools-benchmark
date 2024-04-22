@@ -1,0 +1,13 @@
+obj/[a-z]*
+lib/[a-z]*
+test/obj/[a-z]*
+alire/
+config/
+test/src/.clang-format
+obj/.clangd/
+obj/get_password.adb.stderr obj/get_password.adb.stdout obj/get_password.ads.stderr obj/get_password.ads.stdout obj/get_password.ali obj/Get_Password.lexch obj/get_password-loc.xml obj/get_password.o obj/get_password-terminal_control.ads.stderr obj/get_password-terminal_control.ads.stdout obj/get_password-terminal_control.ali obj/get_password-terminal_control.o obj/gnatprove obj/gpsauto.cgpr obj/runs.yaml obj/saved_runs obj/term_control.c.stderr obj/term_control.c.stdout obj/term_control.d obj/term_control.o
+test/obj/b__main.adb test/obj/b__main.ads test/obj/b__main.ali test/obj/b__main.o test/obj/get_password_test-loc.xml test/obj/gpsauto.cgpr test/obj/main test/obj/main.adb.stderr test/obj/main.adb.stdout test/obj/main.ali test/obj/main.bexch test/obj/main.o
+obj/get_password.adb.stderr obj/get_password.adb.stdout obj/get_password.ads.stderr obj/get_password.ads.stdout obj/get_password.ali obj/Get_Password.lexch obj/get_password-loc.xml obj/get_password.o obj/get_password-terminal_control.ads.stderr obj/get_password-terminal_control.ads.stdout obj/get_password-terminal_control.ali obj/get_password-terminal_control.o obj/gnatprove obj/gpsauto.cgpr obj/runs.yaml obj/saved_runs obj/term_control.c.stderr obj/term_control.c.stdout obj/term_control.d obj/term_control.o
+obj/[A-Z]*
+src/.clang-format
+test/obj/.clangd

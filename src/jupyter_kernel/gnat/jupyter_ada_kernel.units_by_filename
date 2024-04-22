@@ -1,0 +1,11 @@
+ada_kernel.adb
+ada_kernels-config__linux.ads
+ada_kernels.adb
+ada_kernels.ads
+magics-gprbuild_options.adb
+magics-ls_magic.adb
+magics-output.adb
+magics-write_file.adb
+magics.ads
+processes.adb
+processes.ads

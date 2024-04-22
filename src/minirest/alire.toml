@@ -1,0 +1,21 @@
+authors = ["Alejandro R. Mosteo"]
+description = "Minimalist Ada REST client library"
+licenses = "MIT"
+maintainers = ["alejandro@mosteo.com"]
+maintainers-logins = ["mosteo"]
+name = "minirest"
+tags = ["rest"]
+version = "0.2.0"
+website = "https://github.com/mosteo/minirest"
+
+[[depends-on]]
+aaa = "*"
+curl = "*"
+
+[[pins]]
+
+[pins.aaa]
+path = "../aaa"
+
+[build-switches."*"]
+Compile_Checks = "none"

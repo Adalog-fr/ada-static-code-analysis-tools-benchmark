@@ -1,0 +1,22 @@
+name = "tests"
+description = ""
+version = "0.0.0"
+executables = ["tests"]
+
+[configuration]
+disabled = false
+
+[[depends-on]]
+aaa = "*"
+aunit = "*"
+
+[[pins]]
+
+[pins.aaa]
+path = "../../aaa"
+
+[pins.aunit]
+path = "../../aunit"
+
+[build-switches."*"]
+Compile_Checks = "none"

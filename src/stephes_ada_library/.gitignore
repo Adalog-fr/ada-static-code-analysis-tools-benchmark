@@ -1,0 +1,12 @@
+build/obj/
+build/*.csv
+build/*.config
+build/*.diff
+build/*.exe
+build/*.out
+build/*.bz2
+build/obj_pro/
+build/*.sig
+build/devel_obj/
+alire/
+config/

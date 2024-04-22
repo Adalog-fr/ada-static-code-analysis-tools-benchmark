@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>oasis</baseURI>
+    <systemID>p28pass5.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <startElement>
+    <namespaceURI/>
+    <localName>a</localName>
+    <qualifiedName>a</qualifiedName>
+    <attributes/>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>a</localName>
+    <qualifiedName>a</qualifiedName>
+  </endElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

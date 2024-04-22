@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-sam4s/gnat/board_config.ads"
+node: { title: "board_config__master_clock_sourcesH" label: "master_clock_sourcesH\n<built-in>\n36 bytes (static)\n0 dynamic objects" }
+}

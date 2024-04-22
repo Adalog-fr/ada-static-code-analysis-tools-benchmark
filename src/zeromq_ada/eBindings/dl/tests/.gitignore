@@ -1,0 +1,13 @@
+lib
+.obj
+*~
+*.pyc
+new\ file
+.temp
+make
+default.gpr
+*.out
+flags.c
+.#*#
+bin
+

@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# Copyright (C)2023, Philip Munts.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# * Redistributions of source code must retain the above copyright notice,
+#   this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+# Copy .dylib files from Homebrew installation to ./lib
+#   $1 is hardware type from uname -m
+#   $2 is the source directory
+#   $3 is the destination directory
+#   $4 is the list of files to copy
+
+copylibs()
+{
+  if [ "$1" = "`uname -m`" -a -d "$2" ]; then
+    mkdir -p "$3"
+
+    for F in $4 ; do
+      if [ -f "$2/$F" ]; then
+        cp "$2/$F" "$3"
+      fi
+    done
+  fi
+}
+
+LIBFILES="libhidapi.dylib libusb-1.0.dylib"
+
+# Apple silicon
+copylibs arm64  /opt/homebrew/lib ./lib "$LIBFILES"
+
+# Intel silicon
+copylibs x86_64 /usr/local/lib    ./lib "$LIBFILES"

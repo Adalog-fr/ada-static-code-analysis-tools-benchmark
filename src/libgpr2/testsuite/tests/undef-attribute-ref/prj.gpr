@@ -1,0 +1,18 @@
+with "child";
+project Prj is
+
+   B := Prj'Externally_Built & " B";
+
+   package Naming is
+      C := Naming'Casing & " C";
+   end Naming;
+
+   package Compiler is
+      E := Naming'Casing & " E";
+   end Compiler;
+
+   C := Naming.C;
+   E := Compiler.E;
+
+   G := Child.Naming'Casing & " G";
+end Prj;

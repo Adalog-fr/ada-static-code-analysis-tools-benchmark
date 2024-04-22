@@ -1,0 +1,9 @@
+/workspaces/bench-source/src/midi/tests/config/tests_config.ads
+/workspaces/bench-source/src/midi/tests/src/test_utils.adb
+/workspaces/bench-source/src/midi/tests/src/test_utils.ads
+/workspaces/bench-source/src/midi/tests/src/tests.adb
+/workspaces/bench-source/src/midi/tests/src/testsuite-decode.adb
+/workspaces/bench-source/src/midi/tests/src/testsuite-decode.ads
+/workspaces/bench-source/src/midi/tests/src/testsuite-encode.adb
+/workspaces/bench-source/src/midi/tests/src/testsuite-encode.ads
+/workspaces/bench-source/src/midi/tests/src/testsuite.ads

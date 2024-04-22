@@ -1,0 +1,21 @@
+authors = ["the progress_indicators authors"]
+description = "Ways of displaying progress in command line tools."
+licenses = "Apache-2.0"
+maintainers = ["Paul Jarrett <jarrett.paul.young@gmail.com>"]
+maintainers-logins = ["pyjarrett"]
+name = "progress_indicators"
+project-files = ["progress_indicators.gpr"]
+tags = ["command-line","console","terminal","progress"]
+version = "0.0.1"
+website = "https://github.com/pyjarrett/progress_indicators"
+
+[[depends-on]]
+ansiada = "*"
+
+[[pins]]
+
+[pins.ansiada]
+path = "../ansiada"
+
+[build-switches."*"]
+Compile_Checks = "none"

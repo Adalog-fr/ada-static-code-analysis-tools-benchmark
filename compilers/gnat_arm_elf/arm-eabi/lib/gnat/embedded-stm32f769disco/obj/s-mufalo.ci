@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb"
+node: { title: "system__multiprocessors__fair_locks__Tspinning_arrayBIP" label: "Tspinning_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__fair_lockIP" label: "fair_lockIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb:47:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__lock" label: "Lock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb:57:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__locked" label: "Locked\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb:96:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__next_spinning" label: "Next_Spinning\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb:105:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__try_lock" label: "Try_Lock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb:133:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__multiprocessors__fair_locks__unlock" label: "Unlock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnarl/s-mufalo.adb:142:4\n0 bytes (static)\n0 dynamic objects" }
+}

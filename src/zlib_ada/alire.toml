@@ -1,0 +1,17 @@
+authors = ["Dmitriy Anisimkov"]
+description = "ZLib for Ada thick binding"
+executables = ["buffer_demo","mtest","read","test"]
+maintainers = ["alejandro@mosteo.com"]
+maintainers-logins = ["mosteo"]
+name = "zlib_ada"
+project-files = ["zlib.gpr"]
+version = "1.3.0"
+website = "http://zlib-ada.sourceforge.net/"
+
+[[depends-on]]
+zlib = "^1.2"
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

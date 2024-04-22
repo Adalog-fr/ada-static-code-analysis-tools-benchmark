@@ -1,0 +1,63 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads"
+node: { title: "interfaces__stm32__rcc__cr_registerIP" label: "cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__pllcfgr_registerIP" label: "pllcfgr_registerIP\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__Tcfgr_ppre_field_arrayBIP" label: "Tcfgr_ppre_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__cfgr_ppre_fieldEQ" label: "cfgr_ppre_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__cfgr_ppre_fieldIP" label: "cfgr_ppre_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__cfgr_registerEQ" label: "cfgr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "gnat_rcheck_PE_Unchecked_Union_Restriction\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__stm32__rcc__cfgr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:177:9" }
+node: { title: "interfaces__stm32__rcc__cfgr_registerIP" label: "cfgr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__cir_registerIP" label: "cir_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb1rstr_registerIP" label: "ahb1rstr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb2rstr_registerIP" label: "ahb2rstr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb3rstr_registerIP" label: "ahb3rstr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__apb1rstr_registerIP" label: "apb1rstr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__apb2rstr_registerIP" label: "apb2rstr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb1enr_registerIP" label: "ahb1enr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb2enr_registerIP" label: "ahb2enr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb3enr_registerIP" label: "ahb3enr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__apb1enr_registerIP" label: "apb1enr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__apb2enr_registerIP" label: "apb2enr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb1lpenr_registerIP" label: "ahb1lpenr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb2lpenr_registerIP" label: "ahb2lpenr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__ahb3lpenr_registerIP" label: "ahb3lpenr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__apb1lpenr_registerIP" label: "apb1lpenr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__apb2lpenr_registerIP" label: "apb2lpenr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__Tbdcr_rtcsel_field_arrayBIP" label: "Tbdcr_rtcsel_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__bdcr_rtcsel_fieldEQ" label: "bdcr_rtcsel_fieldEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__bdcr_rtcsel_fieldIP" label: "bdcr_rtcsel_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__bdcr_registerEQ" label: "bdcr_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__rcc__bdcr_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1611:9" }
+node: { title: "interfaces__stm32__rcc__bdcr_registerIP" label: "bdcr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__csr_registerIP" label: "csr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__sscgr_registerIP" label: "sscgr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__plli2scfgr_registerIP" label: "plli2scfgr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__pllsaicfgr_registerIP" label: "pllsaicfgr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__dkcfgr1_registerIP" label: "dkcfgr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__dkcfgr2_registerIP" label: "dkcfgr2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__rcc__rcc_peripheralEQ" label: "rcc_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1929:9" }
+node: { title: "interfaces__stm32__rcc__rcc_peripheralIP" label: "rcc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__cr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1931:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__pllcfgr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1933:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__cfgr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1935:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__cir_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1937:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__ahb1rstr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1939:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__ahb2rstr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1941:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__apb1rstr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1945:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__apb2rstr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1947:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__ahb1enr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1949:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__ahb2enr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1951:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__apb1enr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1955:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__apb2enr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1957:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__ahb1lpenr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1959:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__ahb2lpenr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1961:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__apb1lpenr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1965:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__apb2lpenr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1967:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__bdcr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1969:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__csr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1971:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__pllsaicfgr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1977:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__dkcfgr1_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1979:7" }
+edge: { sourcename: "interfaces__stm32__rcc__rcc_peripheralIP" targetname: "interfaces__stm32__rcc__dkcfgr2_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f769disco/gnat/i-stm32-rcc.ads:1981:7" }
+}

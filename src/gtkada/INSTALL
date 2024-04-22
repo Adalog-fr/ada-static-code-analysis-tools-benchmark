@@ -1,0 +1,33 @@
+Installing and compiling your programs
+======================================
+
+If you have a previous version of GtkAda on your system, we recommend that
+you move/remove it using e.g. the following command:
+
+   $ mv <prefix>/include/gtkada <prefix/include/gtkada.old
+
+where <prefix> is the prefix you used to configure GtkAda the first time.
+The default prefix is /usr/local. If you don't have the rights to move
+these files, then you should at least make sure that your ADA_INCLUDE_PATH
+and your ADA_OBJECTS_PATH don't include this directory before building GtkAda.
+
+To install GtkAda, you will first need to install GNAT in order to compile
+it.
+
+On Unix systems, you'll then just need to run the following command once
+GNAT is installed and available in your PATH:
+
+   $ sudo env "PATH=$PATH" ./doinstall
+
+On Windows, just run the Gtkada installer and follow the displayed instructions.
+
+Note that you might have to be root to install GtkAda on your system.
+
+On Unix systems, you'll need to run the <prefix>/bin/gtkada-env.sh script
+to setup your environment for Gtkada.
+
+Then, to compile your application, simply add on top of your project file:
+
+   with "gtkada";
+
+And compile with GPRbuild.

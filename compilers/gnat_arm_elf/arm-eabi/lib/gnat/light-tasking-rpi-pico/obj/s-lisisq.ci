@@ -1,0 +1,38 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/s-lisisq.adb"
+node: { title: "sqrtf" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico/gnat/s-lisisq.adb:133:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_fcmple" label: "aeabi_fcmple\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fcmple" }
+node: { title: "__aeabi_fcmpeq" label: "aeabi_fcmpeq\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fcmpeq" }
+node: { title: "__aeabi_fcmpgt" label: "aeabi_fcmpgt\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fcmpgt" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fcmpeq" }
+node: { title: "__aeabi_fmul" label: "aeabi_fmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+node: { title: "__aeabi_fsub" label: "aeabi_fsub\n<built-in>" shape : ellipse }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fsub" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fsub" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fsub" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fcmpeq" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fsub" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fcmpeq" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fsub" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+edge: { sourcename: "sqrtf" targetname: "__aeabi_fmul" }
+}

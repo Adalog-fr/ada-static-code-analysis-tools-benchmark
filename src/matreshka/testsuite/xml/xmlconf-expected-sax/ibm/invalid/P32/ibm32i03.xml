@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>ibm/invalid/P32</baseURI>
+    <systemID>ibm32i03.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>class</localName>
+        <qualifiedName>class</qualifiedName>
+        <value>NMTOKEN_with_leading_and_trailing_space</value>
+        <type>NMTOKEN</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>true</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,43 @@
+with "Parser_Tools/parser_tools";
+
+library project Yaml is
+   for Languages use ("ada");
+
+   for Library_Name use "AdaYaml";
+
+   for Source_Dirs use ("src/interface",
+                        "src/implementation");
+   for Object_Dir use "obj";
+   for Library_Dir use "lib";
+
+   type Mode_Type is ("debug", "release");
+   Mode : Mode_Type := external ("Mode", "debug");
+
+   package Ide is
+      for Vcs_Kind use "Git";
+   end Ide;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-s", "-j0");
+      case Mode is
+      when "debug" =>
+         for Default_Switches ("ada") use Builder'Default_Switches ("ada") & ("-g");
+      when "release" =>
+         null;
+      end case;
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("ada") use
+        ("-gnat12", "-gnatwa", "-gnatwl", "-gnata",  "-gnaty3abcefhiklmNprt", "-fstack-check");
+
+      case Mode is
+      when "debug" =>
+         for Default_Switches ("ada") use Compiler'Default_Switches ("ada") &
+         ("-gnata", "-gnateE", "-E",  "-g");
+      when "release" =>
+         for Default_Switches ("ada") use
+           ("-O3" );
+      end case;
+   end Compiler;
+end Yaml;

@@ -1,0 +1,38 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/i-nrf52-gpio.ads"
+node: { title: "interfaces__nrf52__gpio__pin_cnf_pull_fieldRP" label: "pin_cnf_pull_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__pin_cnf_drive_fieldH" label: "pin_cnf_drive_fieldH\n<built-in>\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__pin_cnf_sense_fieldRP" label: "pin_cnf_sense_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tout_pin_field_arrayBIP" label: "Tout_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__out_registerEQ" label: "out_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__out_registerIP" label: "out_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Toutset_pin_field_arrayBIP" label: "Toutset_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__outset_registerEQ" label: "outset_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__outset_registerIP" label: "outset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Toutclr_pin_field_arrayBIP" label: "Toutclr_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__outclr_registerEQ" label: "outclr_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__outclr_registerIP" label: "outclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tin_pin_field_arrayBIP" label: "Tin_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__in_registerEQ" label: "in_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__in_registerIP" label: "in_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tdir_pin_field_arrayBIP" label: "Tdir_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__dir_registerEQ" label: "dir_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__dir_registerIP" label: "dir_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tdirset_pin_field_arrayBIP" label: "Tdirset_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__dirset_registerEQ" label: "dirset_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__dirset_registerIP" label: "dirset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tdirclr_pin_field_arrayBIP" label: "Tdirclr_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__dirclr_registerEQ" label: "dirclr_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__dirclr_registerIP" label: "dirclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tlatch_pin_field_arrayBIP" label: "Tlatch_pin_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__latch_registerEQ" label: "latch_registerEQ\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__latch_registerIP" label: "latch_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__detectmode_registerIP" label: "detectmode_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__pin_cnf_registerIP" label: "pin_cnf_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__gpio__Tpin_cnf_registersBIP" label: "Tpin_cnf_registersBIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__gpio__Tpin_cnf_registersBIP" targetname: "interfaces__nrf52__gpio__pin_cnf_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/i-nrf52-gpio.ads:534:4" }
+node: { title: "interfaces__nrf52__gpio__gpio_peripheralEQ" label: "gpio_peripheralEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__nrf52__gpio__gpio_peripheralEQ" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/i-nrf52-gpio.ads:541:9" }
+node: { title: "interfaces__nrf52__gpio__gpio_peripheralIP" label: "gpio_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf52__gpio__gpio_peripheralIP" targetname: "interfaces__nrf52__gpio__pin_cnf_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/i-nrf52-gpio.ads:562:7" }
+}

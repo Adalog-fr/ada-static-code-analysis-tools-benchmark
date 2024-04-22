@@ -1,0 +1,148 @@
+;;; generated from python_ebnf.wy -*- buffer-read-only:t -*-
+;;;
+;; Python ebnf constructs that were problematic.
+
+%meta_syntax BNF
+
+%keyword NONLOCAL "nonlocal"
+%keyword IN "in"
+%keyword FOR "for"
+%generate None
+
+%start dictorsetmaker
+
+%token <symbol> NAME %[ [$a-zA-Z\x80-\U0010FFFF][0-9a-zA-Z_\x80-\U0010FFFF]* ]%
+
+%token <number> NUMBER %[ ([0-9])|([0-9][0-9eE._-]*[0-9]) ]%
+
+%token <punctuation> COLON ":"
+%token <punctuation> COMMA ","
+%token <punctuation> EQUAL "="
+%token <punctuation> STAR "*"
+%token <punctuation> STAR_STAR "**"
+
+test
+  : expr
+  ;
+star_expr
+  : STAR expr
+  ;
+expr
+  : atom
+  ;
+atom
+  : NAME
+  | NUMBER
+
+;; This nonterminal matches part of dictorsetmaker
+  ;
+testlist_comp
+  : nonterminal_023 nonterminal_025
+  ;
+dictorsetmaker
+  : nonterminal_031
+
+  ;
+comp_for
+  : FOR expr IN test
+
+  ;
+expr_stmt
+  : testlist_star_expr nonterminal_035
+  | testlist_star_expr
+  ;
+
+;; Simplified has a similar problem
+expr_stmt_2
+  : testlist_star_expr nonterminal_037
+  | testlist_star_expr
+  ;
+
+;; This was recognized as a canonical list, and 'nonlocal' left out.
+nonlocal_stmt
+  : NONLOCAL NAME_COMMA_list
+  ;
+
+file_input
+  : NEWLINE_stmt_list
+  | ;; empty
+  ;
+decorators
+  : decorator
+  | decorators decorator
+  ;
+
+;; end of file
+nonterminal_023
+  : test
+  | star_expr
+  ;
+COMMA_nonterminal_023_list
+  : COMMA nonterminal_023
+  | COMMA_nonterminal_023_list COMMA nonterminal_023
+  ;
+nonterminal_025
+  : comp_for
+  | COMMA_nonterminal_023_list COMMA
+  | COMMA_nonterminal_023_list
+  | COMMA
+  | ;; empty
+  ;
+nonterminal_026
+  : test COLON test
+  | STAR_STAR expr
+  ;
+COMMA_nonterminal_026_list
+  : COMMA nonterminal_026
+  | COMMA_nonterminal_026_list COMMA nonterminal_026
+  ;
+nonterminal_028
+  : comp_for
+  | COMMA_nonterminal_026_list COMMA
+  | COMMA_nonterminal_026_list
+  | COMMA
+  | ;; empty
+  ;
+nonterminal_029
+  : nonterminal_026 nonterminal_028
+  ;
+nonterminal_031
+  : nonterminal_029
+  | testlist_comp
+  ;
+nonterminal_032
+  : yield_expr
+  | testlist
+  ;
+nonterminal_033
+  : yield_expr
+  | testlist_star_expr
+  ;
+EQUAL_nonterminal_033_list
+  : EQUAL nonterminal_033
+  | EQUAL_nonterminal_033_list EQUAL nonterminal_033
+  ;
+nonterminal_035
+  : annassign
+  | augassign nonterminal_032
+  | EQUAL_nonterminal_033_list
+  ;
+yield_expr_list
+  : yield_expr
+  | yield_expr_list yield_expr
+  ;
+nonterminal_037
+  : yield_expr_list
+  ;
+NAME_COMMA_list
+  : NAME
+  | NAME_COMMA_list COMMA NAME
+  ;
+NEWLINE_stmt
+  : NEWLINE
+  | stmt
+  ;
+NEWLINE_stmt_list
+  : NEWLINE_stmt
+  | NEWLINE_stmt_list NEWLINE_stmt
+  ;

@@ -1,0 +1,16 @@
+ 10 tokens lexed
+(declaration_1 <= ())
+(body_0, (49 . 57) <= (1:(IS, (49 . 50)), (declarations_1), 2:(BEGIN, (52 . 56)), 3:(SEMICOLON, (57 . 57))))
+(declaration_0, (49 . 57) <= ((body_0, (49 . 57))))
+(declarations_1, (49 . 57) <= ((declaration_0, (49 . 57))))
+(declaration_1 <= ())
+(body_0, (125 . 133) <= (5:(IS, (125 . 126)), (declarations_1), 6:(BEGIN, (128 . 132)), 7:(SEMICOLON, (133 . 133))))
+(declaration_0, (125 . 133) <= ((body_0, (125 . 133))))
+(declarations_1, (125 . 133) <= ((declaration_0, (125 . 133))))
+(declaration_1 <= ())
+(body_0, (118 . 140) <= (4:(IS, (118 . 119)), (declarations_1, (125 . 133)), 8:(BEGIN, (135 . 139)), 9:(SEMICOLON, (140 . 140))))
+(declaration_0, (118 . 140) <= ((body_0, (118 . 140))))
+(declarations_0, (49 . 140) <= ((declarations_1, (49 . 57)), (declaration_0, (118 . 140))))
+(declaration_1 <= ())
+(wisitoken_accept_0, (49 . 141) <= ((declarations_0, (49 . 140)), 10:(Wisi_EOI, (142 . 141))))
+packrat parse succeed

@@ -1,0 +1,101 @@
+--  Copyright (C) Simon Wright <simon@pushface.org>
+
+--  This package is free software; you can redistribute it and/or
+--  modify it under terms of the GNU General Public License as
+--  published by the Free Software Foundation; either version 2, or
+--  (at your option) any later version. This package is distributed in
+--  the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+--  even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+--  PARTICULAR PURPOSE. See the GNU General Public License for more
+--  details. You should have received a copy of the GNU General Public
+--  License distributed with this package; see file COPYING.  If not,
+--  write to the Free Software Foundation, 59 Temple Place - Suite
+--  330, Boston, MA 02111-1307, USA.
+
+with "tcl_tk_options.gpr";
+with "config/tash_config.gpr";
+
+project Tash is
+
+   type Library_T is ("static", "relocatable");
+   Library_Type : Library_T :=
+     external ("TASH_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+
+   for Library_Name use "tash";
+
+   for Languages use ("ada", "c");
+
+   --  type Answer is ("no", "yes");
+   --  Supports_Tash : Answer := "no";
+
+   for Source_Dirs use ("src");
+
+   Ada_Source_Files :=
+     (
+      "cargv.adb",
+      "cargv.ads",
+      "chelper.adb",
+      "chelper.ads",
+      "tcl-ada.adb",
+      "tcl-ada.ads",
+      "tcl-async.adb",
+      "tcl-async.ads",
+      "tcl-tk-ada.adb",
+      "tcl-tk-ada.ads",
+      "tcl-tk.adb",
+      "tcl-tk.ads",
+      "tcl.adb",
+      "tcl.ads",
+      "tcl_record_sizes.ads"
+     );
+
+   Source_Units :=
+     (
+      "Cargv",
+      "Chelper",
+      "Tcl.Ada",
+      "Tcl.Async",
+      "Tcl.Tk.Ada",
+      "Tcl.Tk",
+      "Tcl",
+      "Tcl_Record_Sizes"
+     );
+
+   C_Source_Files :=
+     (
+      "tclmacro.c",
+      "tkmacro.c"
+     );
+
+   for Source_Files use
+     Ada_Source_Files & C_Source_Files;
+
+   for Object_Dir use ".build_lib-" & Library_Type;
+   for Library_Kind use Library_Type;
+   for Library_Dir use "lib-" & Library_Type;
+   for Library_Src_Dir use "include-" & Library_Type;
+
+   case Library_Type is
+      when "relocatable" =>
+         for Library_Interface use Source_Units;
+         for Library_Options use Tcl_Tk_Options.Platform_Linker_Options;
+      when "static" =>
+         null;
+   end case;
+
+   package Compiler is
+      for Default_Switches ("ada") use Tash_Config.Ada_Compiler_Switches;
+      for Default_Switches ("c") use Tcl_Tk_Options.C_Compiler_Switches;
+   end Compiler;
+
+   package Linker is
+      for Linker_Options use Tcl_Tk_Options.Platform_Linker_Options;
+   end Linker;
+
+   --  Pretty printer (useful with GPS while reformatting the code to
+   --  avoid style & other warnings).
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("-l2", "-c3");
+   end Pretty_Printer;
+
+end Tash;

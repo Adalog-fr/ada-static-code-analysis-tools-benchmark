@@ -1,0 +1,90 @@
+------------------------------------------------------------------------------
+--               GtkAda - Ada95 binding for the Gimp Toolkit                --
+--                                                                          --
+--                      Copyright (C) 2015, AdaCore                         --
+--                                                                          --
+-- This library is free software;  you can redistribute it and/or modify it --
+-- under terms of the  GNU General Public License  as published by the Free --
+-- Software  Foundation;  either version 3,  or (at your  option) any later --
+-- version. This library is distributed in the hope that it will be useful, --
+-- but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHAN- --
+-- TABILITY or FITNESS FOR A PARTICULAR PURPOSE.                            --
+--                                                                          --
+-- As a special exception under Section 7 of GPL version 3, you are granted --
+-- additional permissions described in the GCC Runtime Library Exception,   --
+-- version 3.1, as published by the Free Software Foundation.               --
+--                                                                          --
+-- You should have received a copy of the GNU General Public License and    --
+-- a copy of the GCC Runtime Library Exception along with this program;     --
+-- see the files COPYING3 and COPYING.RUNTIME respectively.  If not, see    --
+-- <http://www.gnu.org/licenses/>.                                          --
+--                                                                          --
+------------------------------------------------------------------------------
+
+with "../shared";
+
+library project GtkAda is
+   case Shared.Need_Objective_C is
+      when "yes" => for Languages use ("C", "Ada", "Objective-C");
+      when "no"  => for Languages use ("C", "Ada");
+   end case;
+
+   Version := Shared.Version;
+
+   --  Put "generated" first, so that files are preferably taken from there
+   --  even if they still exist in "."
+   for Source_Dirs use ("generated", ".");
+
+   for Library_Kind use Shared.Library_Kind;
+   for Library_Name use "gtkada";
+   for Library_Version use
+      "lib" & Project'Library_Name & Shared.So_Ext & "." & Version;
+
+   case Shared.Library_Kind is
+      when "static-pic" | "relocatable" =>
+         --  Objects used for static-pic and relocatable are exactly the same
+         for Object_Dir use "obj/gtkada/relocatable";
+         for Library_Dir use "lib/gtkada/relocatable";
+      when "static" =>
+         case Shared.So_Ext is
+            when ".dll" | ".dylib" =>
+               --  On Windows and Darwin, objects are always position
+               --  independent.
+               for Object_Dir use "obj/gtkada/relocatable";
+               for Library_Dir use "lib/gtkada/relocatable";
+            when others =>
+               --  This is not the case in general for Unix systems such
+               --  as Linux.
+               for Object_Dir use "obj/gtkada/static";
+               for Library_Dir use "lib/gtkada/static";
+         end case;
+   end case;
+
+   case Shared.Library_Kind is
+      when "relocatable" =>
+         for Leading_Library_Options use Shared.Ldflags;
+         for Library_Options use Shared.Gtk_Libs;
+      when others =>
+         null;
+   end case;
+
+   package Builder  renames Shared.Builder;
+   package Naming   renames Shared.Naming;
+   package Compiler renames Shared.Compiler;
+   package Binder   renames Shared.Binder;
+   package IDE      renames Shared.IDE;
+
+   package Linker is
+      for Linker_Options use Shared.Gtk_Libs;
+   end Linker;
+
+   package Install is
+      for Artifacts ("share/gps/plug-ins") use ("../xml/gtkada.xml");
+      for Artifacts ("share/doc/gtkada/gtkada_ug") use
+        ("../docs/gtkada_ug/_build/html/*",
+         "../docs/gtkada_ug/_build/latex/GtkAda.pdf");
+      for Artifacts ("share/doc/gtkada") use
+        ("../docs/gtkada_rm/gtkada_rm");
+   end Install;
+
+end GtkAda;

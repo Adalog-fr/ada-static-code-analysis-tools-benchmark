@@ -1,0 +1,58 @@
+on:
+  push:
+    branches:
+      - master
+      - topic/gnatdoc
+name: Make Docs
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Docs
+    steps:
+      - name: Get VSS
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/cache@v2
+        with:
+          path: ./cached_gnat
+          key: ${{ runner.os }}-alire_v1
+          restore-keys: ${{ runner.os }}-alire_v1
+      - name: Get GNAT toolchain with alire
+        uses: alire-project/setup-alire@v1
+        with:
+          toolchain: gnat_native^11 gprbuild^21
+          toolchain_dir: ./cached_gnat
+      - name: Install gnatdoc
+        env:
+          AWS_ACCESS_KEY_ID: ${{secrets.GHA_CACHE_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secrets.GHA_CACHE_SECRET}}
+          AWS_DEFAULT_REGION: eu-west-1
+        run: |
+            aws s3 cp s3://adacore-gha-tray-eu-west-1/gnatdoc/gnatdoc-Linux.tar.gz .
+            tar xzvf gnatdoc-Linux.tar.gz
+      - name: install pandoc
+        run: sudo apt-get install -y pandoc
+      - name: Build project and docs
+        run: |
+            export PATH=$PWD/bin:`ls -d $PWD/cached_gnat/*/bin |tr '\n' ':'`$PATH
+            make docs
+      - name: Upload to gh-pages branch
+        run: |
+          # Set up .netrc file with GitHub credentials
+          cat << EOF > $HOME/.netrc
+          machine github.com
+          login sync_bot
+          password $GITHUB_ACCESS_TOKEN
+          EOF
+          chmod 600 $HOME/.netrc
+          git config user.email `git log -1 --pretty=format:'%ae'`
+          git config user.name  `git log -1 --pretty=format:'%an'`
+          git checkout gh-pages
+          git reset --hard HEAD^
+          cp -fr .docs/* .
+          git add index.html html
+          if git commit -m "" --allow-empty-message; then
+            git push -f
+          fi
+          git status

@@ -1,0 +1,20 @@
+authors = ["Rod Kay"]
+description = "Provides simple XML read/write support."
+licenses = "ISC"
+maintainers = ["Rod Kay <rodakay5@gmail.com>"]
+maintainers-logins = ["charlie5"]
+name = "lace_xml"
+project-files = ["library/xml.gpr"]
+version = "0.1.0"
+
+[[depends-on]]
+lace_shared = "*"
+libexpat = "*"
+
+[[pins]]
+
+[pins.lace_shared]
+path = "../../lace_shared"
+
+[build-switches."*"]
+Compile_Checks = "none"

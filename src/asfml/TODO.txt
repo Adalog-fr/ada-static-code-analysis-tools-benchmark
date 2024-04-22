@@ -1,0 +1,2 @@
+See open issues in 
+https://github.com/mgrojo/ASFML/issues

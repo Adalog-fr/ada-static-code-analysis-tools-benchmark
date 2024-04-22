@@ -1,0 +1,6 @@
+/workspaces/bench-source/src/task_coroutines/config/task_coroutines_config.ads
+/workspaces/bench-source/src/task_coroutines/src/task_coroutines-coroutine.adb
+/workspaces/bench-source/src/task_coroutines/src/task_coroutines-coroutine.ads
+/workspaces/bench-source/src/task_coroutines/src/task_coroutines-generator.adb
+/workspaces/bench-source/src/task_coroutines/src/task_coroutines-generator.ads
+/workspaces/bench-source/src/task_coroutines/src/task_coroutines.ads

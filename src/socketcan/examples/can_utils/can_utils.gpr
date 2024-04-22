@@ -1,0 +1,40 @@
+--  Copyright (C) 2020 Glen Cornell <glen.m.cornell@gmail.com>
+--  
+--  This program is free software: you can redistribute it and/or
+--  modify it under the terms of the GNU General Public License as
+--  published by the Free Software Foundation, either version 3 of the
+--  License, or (at your option) any later version.
+--
+--  This program is distributed in the hope that it will be useful,
+--  but WITHOUT ANY WARRANTY; without even the implied warranty of
+--  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+--  General Public License for more details.
+--
+--  You should have received a copy of the GNU General Public License
+--  along with this program.  If not, see
+--  <http://www.gnu.org/licenses/>.
+
+with "../../src/socketcan.gpr";
+
+project Can_Utils is
+   for Languages use ("Ada");
+
+   for Library_Name use "can_utils";
+   for Library_Kind use "static";
+   for Library_Dir use ".libs";
+
+   for Source_Dirs use (".");
+   for Object_Dir use ".objs";
+   for Exec_Dir use ".";
+   for Create_Missing_Dirs use "True";
+   
+   package Compiler is
+      for Default_Switches ("Ada") use Socketcan.Compiler'Default_Switches ("Ada") & (
+       "-gnat12"        -- Ada12
+      ,"-ggdb"          -- compile for debugging
+      ,"-gnatwa"        -- Enable almost all warnings.
+      ,"-gnatwE"        -- Treat all run-time exception warnings as errors.
+      ); 
+  end Compiler;
+
+end Can_Utils;

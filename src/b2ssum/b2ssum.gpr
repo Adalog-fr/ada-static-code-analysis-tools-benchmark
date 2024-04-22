@@ -1,0 +1,102 @@
+------------------------------------------------------------------------------
+--  Copyright (c) 2021, Lev Kujawski.
+--
+--  Permission is hereby granted, free of charge, to any person obtaining a
+--  copy of this software and associated documentation files (the "Software")
+--  to deal in the Software without restriction, including without limitation
+--  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+--  and sell copies of the Software, and to permit persons to whom the
+--  Software is furnished to do so.
+--
+--  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+--  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+--  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+--  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+--  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+--  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+--  DEALINGS IN THE SOFTWARE.
+--
+--  SPDX-License-Identifier: MIT-0
+------------------------------------------------------------------------------
+
+with "blake2s.gpr";
+
+project B2SSUM is
+
+   for Source_Dirs use ("bin");
+   for Object_Dir use "gnat/obj";
+   for Exec_Dir use "gnat/bin";
+   for Create_Missing_Dirs use "True";
+   for Main use ("b2ssum.adb");
+
+   type Enabled_Kind is ("enabled", "disabled");
+   Compile_Checks : Enabled_Kind :=
+      External ("B2SSUM_COMPILE_CHECKS", "disabled");
+   Runtime_Checks : Enabled_Kind :=
+      External ("B2SSUM_RUNTIME_CHECKS", "disabled");
+   Style_Checks : Enabled_Kind :=
+      External ("B2SSUM_STYLE_CHECKS", "disabled");
+   Contracts_Checks : Enabled_Kind :=
+      External ("B2SSUM_CONTRACTS", "disabled");
+
+   type Build_Kind is ("debug", "optimize");
+   Build_Mode : Build_Kind := External ("B2SSUM_BUILD_MODE", "optimize");
+
+   Compile_Checks_Switches := ();
+   case Compile_Checks is
+      when "enabled" =>
+         Compile_Checks_Switches :=
+           ("-gnatVa",   --  Enable all validity checks
+            "-gnatwaJ",  --  Enable warnings, minus obsolescent
+            "");  --  Set Warnings as errors
+      when others => null;
+   end case;
+
+   Runtime_Checks_Switches := ();
+   case Runtime_Checks is
+      when "enabled" => null;
+      when others =>
+         Runtime_Checks_Switches :=
+           ("-gnatp");  --  Suppress checks
+   end case;
+
+   Style_Checks_Switches := ();
+   case Style_Checks is
+      when "enabled" =>
+         Style_Checks_Switches :=
+           ("-gnaty3abcefhiklM78nprtux");
+      when others => null;
+   end case;
+
+   Contracts_Switches := ();
+   case Contracts_Checks is
+      when "enabled" =>
+         Contracts_Switches :=
+           ("-gnata");  --  Enable assertions and contracts
+      when others => null;
+   end case;
+
+   Build_Switches := ();
+   case Build_Mode is
+      when "optimize" =>
+         Build_Switches := ("-O3",      --  Optimization
+                            "-gnatN");  --  Enable front-end inlining
+      when "debug" =>
+         Build_Switches := ("-g",    --  Emit debugging data
+                            "-Og");  --  Disable optimization
+   end case;
+
+   package Compiler is
+      for Default_Switches ("Ada") use
+        Compile_Checks_Switches &
+        Build_Switches &
+        Runtime_Checks_Switches &
+        Style_Checks_Switches &
+        Contracts_Switches;
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es");  --  Enable symbolic tracebacks
+   end Binder;
+
+end B2SSUM;

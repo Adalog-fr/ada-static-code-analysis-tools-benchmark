@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:mtl="http://forge.ada-ru.org/matreshka/template">
+  <body class="${class}">
+    <p><![CDATA[${value}]]></p>
+    <p>${value}</p>
+    <ul>
+      <mtl:for object="item" in="items">
+        <li>This is ${item} item</li>
+      </mtl:for>
+<!--
+      <li mtl:for="item in items">${item}</li>
+-->
+    </ul>
+    ${fragment}
+  </body>
+</html>

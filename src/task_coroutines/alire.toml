@@ -1,0 +1,12 @@
+authors = ["Fabien Chouteau"]
+description = "Coroutines and generators using only standard tasking features"
+licenses = "MIT"
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "task_coroutines"
+tags = ["coroutine","generator"]
+version = "0.1.0"
+website = "https://github.com/Fabien-Chouteau/task_coroutines"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,40 @@
+description = "Web Server Faces JSR 252, JSR 314 and JSR 344"
+tags = ["web","servlet","http","json"]
+name = "serverfaces"
+version = "1.5.0"
+licenses = "Apache-2.0"
+authors = ["Stephane.Carrez@gmail.com"]
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+project-files = [".alire/asf.gpr"]
+website = "https://gitlab.com/stcarrez/ada-asf"
+long-description = "\n[![Build Status](https://img.shields.io/jenkins/s/http/jenkins.vacs.fr/Ada-Servlet.svg)](https://jenkins.vacs.fr/job/Ada-Servlet/)\n[![Test Status](https://img.shields.io/jenkins/t/http/jenkins.vacs.fr/Ada-Servlet.svg)](https://jenkins.vacs.fr/job/Ada-Servlet/)\n[![codecov](https://codecov.io/gh/stcarrez/ada-servlet/branch/master/graph/badge.svg)](https://codecov.io/gh/stcarrez/ada-servlet)\n\nAda Servlet allows to create web applications using the same pattern\nas the Java Servlet (See JSR 154, JSR 315). \n\nThe Ada Servlet library is used by the [Ada Server Faces](https://github.com/stcarrez/ada-asf)\nframework and [Ada Web Application](https://github.com/stcarrez/ada-awa)\nto provide server web requests.\n\n"
+
+[[depends-on]]
+security = "*"
+servletada = "*"
+utilada = "*"
+
+[gpr-externals]
+BUILD = ["distrib","debug","optimize","profile","coverage"]
+ASF_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+
+[configuration]
+disabled = true
+
+[environment.DYNAMO_BUNDLE_PATH]
+prepend = "${CRATE_ROOT}/bundles"
+
+[[pins]]
+
+[pins.security]
+path = "../ada-security"
+
+[pins.servletada]
+path = "../ada-servlet"
+
+[pins.utilada]
+path = "../ada-util"
+
+[build-switches."*"]
+Compile_Checks = "none"

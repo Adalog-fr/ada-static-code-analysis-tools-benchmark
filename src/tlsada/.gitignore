@@ -1,0 +1,9 @@
+/alire
+/config
+obj/
+lib/
+bin/
+
+# server example certificates
+cert.pem
+key.pem

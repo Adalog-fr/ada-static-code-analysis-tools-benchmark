@@ -1,0 +1,5 @@
+description:
+    gnatpp test
+
+driver: shell_script
+canonicalize_backslashes: True

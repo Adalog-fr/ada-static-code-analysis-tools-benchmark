@@ -1,0 +1,141 @@
+include Makefile.config
+
+ifdef HAS_GPRBUILD2014
+GNATMAKE = gnatmake
+endif
+GPRBUILD_FLAGS = -p $(SMP_MFLAGS)
+
+ALL_TARGETS = league xml fastcgi servlet spikedog-api spikedog-core soap wsse\
+               wsdl2ada sql uaflex
+
+ifdef HAS_ASIS
+ALL_TARGETS += a2js
+endif
+
+ifdef HAS_AWS
+ALL_TARGETS += spikedog-aws
+
+ifeq ($(OPERATING_SYSTEM), Windows)
+ALL_TARGETS += spikedog-service
+endif
+endif
+
+ifdef ENABLE_AMF
+ALL_TARGETS += amf dd uml mofext ocl utp
+endif
+
+ifdef HAS_FIREBIRD
+ALL_TARGETS += firebird
+endif
+
+ifdef HAS_MYSQL
+ALL_TARGETS += mysql
+endif
+
+ifdef HAS_OCI
+ALL_TARGETS += oci
+endif
+
+ifdef HAS_POSTGRESQL
+ALL_TARGETS += postgresql
+endif
+
+ifdef HAS_SQLITE3
+ALL_TARGETS += sqlite3
+endif
+
+all: $(ALL_TARGETS)
+
+league:
+ifdef HAS_GPRBUILD2014
+ifneq (, $(findstring x86,$(ARCHITECTURE)))
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-internals-strings-handlers-x86_utilities.adb
+ifeq ($(ARCHITECTURE), x86)
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-simd-intel-sse.adb
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-simd-intel-sse2.ads
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-internals-strings-handlers-generic_x86_sse2.adb
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-internals-strings-handlers-x86-sse2.ads
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-internals-strings-handlers-x86-sse2_popcnt.ads
+endif
+ifeq ($(ARCHITECTURE), x86_64)
+	$(GNATMAKE) -p -c -u -Pgnat/matreshka_league.gpr matreshka-internals-strings-handlers-x86_64_popcnt.ads
+endif
+endif
+endif
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_league.gpr
+
+xml: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_xml.gpr
+
+fastcgi: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_fastcgi.gpr
+
+servlet: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_servlet.gpr
+
+spikedog-api:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_spikedog_api.gpr
+
+spikedog-core:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_spikedog_core.gpr
+
+spikedog-aws:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_spikedog_aws.gpr -XAWS_BUILD=$(AWS_BUILD) -XXMLADA_BUILD=relocatable
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_spikedog_awsd.gpr -XAWS_BUILD=$(AWS_BUILD) -XXMLADA_BUILD=relocatable
+
+spikedog-service:
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_spikedog_service.gpr -XAWS_BUILD=relocatable -XXMLADA_BUILD=relocatable
+
+soap: league xml
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_soap.gpr
+
+wsse: soap
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_soap_wsse.gpr
+
+wsdl2ada: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_wsdl2ada.gpr
+
+a2js: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_a2js.gpr
+
+sql: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql.gpr
+
+firebird: league sql
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_firebird.gpr
+
+mysql: league sql
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_mysql.gpr
+
+oci: league sql
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_oracle.gpr
+
+postgresql: league sql
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_postgresql.gpr
+
+sqlite3: league sql
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_sql_sqlite3.gpr
+
+amf: league xml
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf.gpr
+
+dd: league xml amf
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf_dd.gpr
+
+uml: league xml amf
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf_uml.gpr
+
+mofext: league xml amf uml
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf_mofext.gpr
+
+ocl: league xml amf uml
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf_ocl.gpr
+
+utp: league xml amf uml
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_amf_utp.gpr
+
+uaflex: league
+	$(GPRBUILD) $(GPRBUILD_FLAGS) -Pgnat/matreshka_uaflex.gpr
+
+# Disable parallel build, it is handled by gnatmake/gprbuild
+.NOTPARALLEL:

@@ -1,0 +1,40 @@
+description = "Ada Keystore Tool"
+long-description = "\n[![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-keystore/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-keystore/summary)\n[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-keystore/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-keystore/xunits)\n[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-keystore/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-keystore/summary)\n\n# Overview\n\nAKT is a tool to store and protect your sensitive information and documents by\nencrypting them in secure keystore (AES-256, HMAC-256).\n\nCreate the keystore and protect it with a gpg public key:\n```\n   akt create secure.akt --gpg <keyid> ...\n```\n\nStore a small content:\n```\n   akt set secure.akt bank.password 012345\n```\n\nStore files, directory or a tar file:\n```\n   akt store secure.akt notes.txt\n   akt store secure.akt contract.doc\n   akt store secure.akt directory\n   tar czf - . | akt store secure.akt -- backup\n```\n\nEdit a content with your $EDITOR:\n```\n   akt edit secure.akt bank.password\n   akt edit secure.akt notes.txt\n```\n\nGet a content:\n```\n   akt get secure.akt bank.password\n   akt extract secure.akt contract.doc\n   akt extract secure.akt -- backup | tar xzf -\n```\n\n## Documents\n\n* [Ada Keystore Guide](https://ada-keystore.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-keystore/blob/master/docs/keystore-book.pdf)\n\n"
+name = "akt"
+version = "1.4.0"
+authors = ["Stephane.Carrez@gmail.com"]
+licenses = "Apache-2.0"
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+project-files = ["../.alire/keystoreada_tools.gpr"]
+tags = ["security","storage","nosql"]
+website = "https://gitlab.com/stcarrez/ada-keystore"
+executables = ["akt"]
+
+[[depends-on]]
+utilada = "*"
+keystoreada = "*"
+
+[gpr-externals]
+KEYSTORE_BUILD = ["distrib","debug","optimize","profile","coverage"]
+KEYSTORE_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+
+[configuration]
+disabled = true
+
+[environment.PATH]
+prepend = "${CRATE_ROOT}/../bin"
+
+[environment.MANPATH]
+prepend = "${CRATE_ROOT}/../man"
+
+[[pins]]
+
+[pins.utilada]
+path = "../../ada-util"
+
+[pins.keystoreada]
+path = ".."
+
+[build-switches."*"]
+Compile_Checks = "none"

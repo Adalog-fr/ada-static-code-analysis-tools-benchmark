@@ -1,0 +1,5 @@
+limited with "p.gpr";
+
+project A is
+   for Object_Dir use P'Object_Dir;
+end A;

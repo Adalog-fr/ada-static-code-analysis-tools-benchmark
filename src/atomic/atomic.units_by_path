@@ -1,0 +1,13 @@
+/workspaces/bench-source/src/atomic/config/atomic_config.ads
+/workspaces/bench-source/src/atomic/src/atomic-signed_16.ads
+/workspaces/bench-source/src/atomic/src/atomic-signed_32.ads
+/workspaces/bench-source/src/atomic/src/atomic-signed_8.ads
+/workspaces/bench-source/src/atomic/src/atomic-signed.ads
+/workspaces/bench-source/src/atomic/src/atomic-unsigned_16.ads
+/workspaces/bench-source/src/atomic/src/atomic-unsigned_32.ads
+/workspaces/bench-source/src/atomic/src/atomic-unsigned_8.ads
+/workspaces/bench-source/src/atomic/src/atomic-unsigned.ads
+/workspaces/bench-source/src/atomic/src/atomic.ads
+/workspaces/bench-source/src/atomic/src/intrinsic/atomic-signed.adb
+/workspaces/bench-source/src/atomic/src/intrinsic/atomic-unsigned.adb
+/workspaces/bench-source/src/atomic/src/intrinsic/atomic.adb

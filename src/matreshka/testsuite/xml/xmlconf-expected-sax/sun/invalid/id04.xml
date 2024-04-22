@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <warning/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>id2</localName>
+        <qualifiedName>id2</qualifiedName>
+        <value>x23</value>
+        <type>ID</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>false</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

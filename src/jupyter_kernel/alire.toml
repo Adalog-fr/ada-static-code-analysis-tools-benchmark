@@ -1,0 +1,33 @@
+authors = ["Max Reznik"]
+description = "Jupyter Kernel for Ada"
+licenses = "BSD-3-Clause"
+long-description = "# Jupyter Kernel for Ada\n\nTo run this kernel with Jupyter Notebook:\n    alr get --build jupyter_kernel\n    cd jupyter_kernel*\n    ln -s ./alire/build/.objs .\n    PATH=$PATH:$PWD/alire/build/.objs/driver JUPYTER_PATH=$PWD jupyter-notebook --debug\n"
+maintainers = ["Max Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["reznikmm"]
+name = "jupyter_kernel"
+project-files = ["gnat/jupyter_ada_kernel.gpr","gnat/jupyter_ada_driver.gpr"]
+tags = ["jupyter","notebook","kernel"]
+version = "1.0.0"
+website = "https://github.com/reznikmm/jupyter/"
+
+[gpr-set-externals]
+LIBRARY_TYPE = "relocatable"
+
+[[depends-on]]
+matreshka_league = "*"
+spawn = "*"
+zeromq_ada = "*"
+
+[[pins]]
+
+[pins.matreshka_league]
+path = "../matreshka/packages/alire/matreshka_league"
+
+[pins.spawn]
+path = "../spawn"
+
+[pins.zeromq_ada]
+path = "../zeromq_ada"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,31 @@
+with "config/resources_config.gpr";
+project Resources is
+
+   for Library_Name use "Resources";
+   for Library_Version use Project'Library_Name & ".so." & Resources_Config.Crate_Version;
+
+   for Languages use ("Ada", "C");
+   for Source_Dirs use ("src", "whereami/src/");
+   for Object_Dir use "obj";
+   for Create_Missing_Dirs use "True";
+   for Library_Dir use "lib";
+
+   type Library_Type_Type is ("relocatable", "static", "static-pic");
+   Library_Type : Library_Type_Type :=
+     external ("RESOURCES_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+   for Library_Kind use Library_Type;
+
+   package Compiler is
+      for Default_Switches ("Ada") use resources_Config.Ada_Compiler_Switches;
+      for Default_Switches ("C") use
+        ("-O3",
+
+         --  Define a different prefix to avoid namespace conflics
+         "-DWAI_PREFIX(function)=wai_alire_##function");
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+end Resources;

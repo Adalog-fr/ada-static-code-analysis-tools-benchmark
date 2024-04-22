@@ -1,0 +1,50 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb"
+edge: { sourcename: "ada__streams__Troot_stream_typeCFD"
+  targetname: "-9:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "a-stream.ads:39:9"
+}
+class {
+  classname: "ada__streams__root_stream_type"
+  label: "ada__streams__root_stream_type\a-stream.ads:39:9"
+  parent: "ada__streams__root_stream_type"
+  virtuals: "1:ada__streams__read\n
+             2:ada__streams__write\n
+             -1:ada__streams___size\n
+             -10:ada__streams__root_stream_typePI\n
+             -9:ada__streams__root_stream_typeDF"
+}
+edge: { sourcename: "ada__streams__read_sea"
+  targetname: "1:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "a-stream.adb:51:7"
+}
+edge: { sourcename: "ada__streams__write_sea"
+  targetname: "2:ada__streams__root_stream_type,ada__streams__root_stream_type"
+  label: "a-stream.adb:67:7"
+}
+node: { title: "ada__streams___size" label: "streams\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__streams__root_stream_typeDF" label: "root_stream_typeDF\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__streams__root_stream_typePI" label: "root_stream_typePI\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__put_images__put_image_unknown" label: "Put_Image_Unknown\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/s-putima.ads:106:14" shape : ellipse }
+edge: { sourcename: "ada__streams__root_stream_typePI" targetname: "system__put_images__put_image_unknown" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.ads:70:9" }
+node: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:ada__streams__read_sea.part.0" label: "Part\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:44:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_raise_exception" label: "Raise_Exception_Always\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-except.ads:178:14" shape : ellipse }
+edge: { sourcename: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:ada__streams__read_sea.part.0" targetname: "__gnat_raise_exception" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:54:10" }
+node: { title: "ada__streams__root_stream_typeIP" label: "root_stream_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__streams__Troot_stream_typeCFD" label: "Troot_stream_typeCFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "ada__streams__Troot_stream_typeCFD" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.ads:39:9" }
+node: { title: "ada__streams__stream_element_arrayIP" label: "stream_element_arrayIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__streams__stream_element_arraySR" label: "stream_element_arraySR\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__streams__stream_element_arraySR" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:51:7" }
+edge: { sourcename: "ada__streams__stream_element_arraySR" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:ada__streams__read_sea.part.0" }
+node: { title: "ada__streams__stream_element_arraySW" label: "stream_element_arraySW\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__streams__stream_element_arraySW" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:67:7" }
+node: { title: "ada__streams__read_sea" label: "Read_Sea\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:44:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__streams__read_sea" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:51:7" }
+edge: { sourcename: "ada__streams__read_sea" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:ada__streams__read_sea.part.0" }
+node: { title: "ada__streams__write_sea" label: "Write_Sea\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.adb:62:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__streams__write_sea" targetname: "__indirect_call" }
+node: { title: "ada__streams___elabs" label: "Streams\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.ads:36:1\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__tags__register_tag" label: "Register_Tag\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-tags.ads:553:14" shape : ellipse }
+edge: { sourcename: "ada__streams___elabs" targetname: "ada__tags__register_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/a-stream.ads:70:9" }
+}

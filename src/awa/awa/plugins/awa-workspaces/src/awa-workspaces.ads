@@ -1,0 +1,36 @@
+-----------------------------------------------------------------------
+--  awa-workspaces -- Module workspaces
+--  Copyright (C) 2011, 2012, 2015, 2017, 2018 Stephane Carrez
+--  Written by Stephane Carrez (Stephane.Carrez@gmail.com)
+--
+--  Licensed under the Apache License, Version 2.0 (the "License");
+--  you may not use this file except in compliance with the License.
+--  You may obtain a copy of the License at
+--
+--      http://www.apache.org/licenses/LICENSE-2.0
+--
+--  Unless required by applicable law or agreed to in writing, software
+--  distributed under the License is distributed on an "AS IS" BASIS,
+--  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+--  See the License for the specific language governing permissions and
+--  limitations under the License.
+-----------------------------------------------------------------------
+
+--  = Workspaces Module =
+--  The *workspaces* plugin defines a workspace area for other plugins.
+--  The workspace is intended to link together all the data objects that an application
+--  manages for a given user or group of users.  A workspace is a possible mechanism
+--  to provide and implement multi-tenancy in a web application.  By using the workspace plugin,
+--  application data from different customers can be kept separate from each other in the
+--  same database.
+--
+--  @include awa-workspaces-modules.ads
+--
+--  == Ada Beans ==
+--  @include workspaces.xml
+--
+--  == Data Model ==
+--  [images/awa_workspace_model.png]
+--
+package AWA.Workspaces is
+end AWA.Workspaces;

@@ -1,0 +1,7 @@
+/workspaces/bench-source/src/esp_idf/config/esp_idf_config.ads
+/workspaces/bench-source/src/esp_idf/src/esp-drivers-gpio.ads
+/workspaces/bench-source/src/esp_idf/src/esp-drivers-led_strip.ads
+/workspaces/bench-source/src/esp_idf/src/esp-drivers.ads
+/workspaces/bench-source/src/esp_idf/src/esp-error.ads
+/workspaces/bench-source/src/esp_idf/src/esp.adb
+/workspaces/bench-source/src/esp_idf/src/esp.ads

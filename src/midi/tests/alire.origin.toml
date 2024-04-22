@@ -1,0 +1,21 @@
+name = "tests"
+description = "Shiny new project"
+version = "0.0.0"
+
+authors = ["Fabien Chouteau"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+
+executables = ["tests"]
+
+[[depends-on]]
+midi = "*"
+aunit = "^22.0.0"
+aaa = "~0.2.4"
+
+[[pins]]
+midi = { path='..' }
+aaa = { path="../../aaa" }
+
+[build-profiles]
+midi = "validation"

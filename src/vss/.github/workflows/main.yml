@@ -1,0 +1,60 @@
+on: [push, pull_request]
+name: Build
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        build_mode: [dev, prod, coverage]
+    runs-on: ${{ matrix.os }}
+    name: Build
+    steps:
+      - name: Get VSS
+        uses: actions/checkout@v2
+        with:
+          path: ./vss
+      - uses: actions/cache@v2
+        with:
+          path: ./cached_gnat
+          key: ${{ runner.os }}-alire_v2
+          restore-keys: ${{ runner.os }}-alire_v2
+      - name: Get GNAT toolchain with alire
+        uses: alire-project/setup-alire@v1
+        with:
+          toolchain: gnat_native^12 gprbuild^22
+          toolchain_dir: ./cached_gnat
+      - name: Get XmlAda with alire
+        shell: bash
+        run: |
+          export PATH=`ls -d $PWD/cached_gnat/*/bin |tr '\n' ':'`$PATH
+          alr get xmlada --build
+          echo "XMLADA_CRATE_ROOT=`pwd`/`alr get xmlada --dirname`" >> $GITHUB_ENV
+      - name: Export OS=osx on macOS
+        if: runner.os == 'macOS'
+        run: echo "OS=osx" >> $GITHUB_ENV
+      - name: Get UCD.zip
+        run: |
+          curl -C - -o UCD-14.0.0.zip https://www.unicode.org/Public/14.0.0/ucd/UCD.zip
+          mkdir vss/data/ucd
+          unzip UCD-14.0.0.zip -d vss/data/ucd
+      - name: Get parse-number-fxx-test-data repository
+        uses: actions/checkout@v2
+        with:
+          repository: nigeltao/parse-number-fxx-test-data
+          path: ./vss/data/parse-number-fxx-test-data
+      - name: Build and test
+        shell: bash
+        run: |
+          export PATH=`ls -d $PWD/cached_gnat/*/bin |tr '\n' ':'`$PATH
+          export GPR_PROJECT_PATH=$XMLADA_CRATE_ROOT/input_sources:$GPR_PROJECT_PATH
+          export GPR_PROJECT_PATH=$XMLADA_CRATE_ROOT/sax:$GPR_PROJECT_PATH
+          export GPR_PROJECT_PATH=$XMLADA_CRATE_ROOT/unicode:$GPR_PROJECT_PATH
+          make -C vss all check coverage BUILD_MODE=${{ matrix.build_mode }}
+          make -C vss install check_install PREFIX=/tmp BUILD_MODE=${{ matrix.build_mode }}
+          make -C vss misc BUILD_MODE=${{ matrix.build_mode }}
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        if: ${{ matrix.build_mode == 'coverage' }}
+        with:
+          working-directory: vss

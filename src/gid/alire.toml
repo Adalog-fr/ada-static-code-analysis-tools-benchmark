@@ -1,0 +1,15 @@
+authors = ["Gautier de Montmollin"]
+description = "Decoding a broad variety of image formats"
+licenses = "MIT"
+maintainers = ["fabien.chouteau@gmail.com"]
+maintainers-logins = ["zertovitch","Fabien-Chouteau"]
+name = "gid"
+project-files = ["gid.gpr"]
+tags = ["image","decoder","bmp","gif","jpeg","jpg","png","qoi"]
+version = "10.0.0"
+
+[gpr-externals]
+GID_Build_Mode = ["Debug","Fast_but_checked","Fast","Small","Smallest","Profiling"]
+
+[build-switches."*"]
+Compile_Checks = "none"

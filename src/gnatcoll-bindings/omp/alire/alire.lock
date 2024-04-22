@@ -1,0 +1,53 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnatcoll"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../gnatcoll-core"
+[[solution.state]]
+crate = "libgomp"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "GNU OpenMP library"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "libgomp"
+notes = "Provided by system package: libgomp1"
+version = "10.2.1"
+[solution.state.release.origin]
+url = "system:libgomp1"
+[[solution.state]]
+crate = "libgpr"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../../gprbuild"
+[[solution.state]]
+crate = "xmlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../../xmlada"
+

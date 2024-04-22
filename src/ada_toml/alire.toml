@@ -1,0 +1,19 @@
+authors = ["AdaCore","Pierre-Marie de Rodat <pmderodat@kawie.fr>"]
+description = "TOML parser for Ada"
+licenses = "BSD-3-Clause"
+long-description = "ada-toml: TOML parser for Ada\n=============================\n\n`ada-toml` is a pure Ada library for parsing and creating\n[TOML](https://github.com/toml-lang/toml#toml) documents. It conforms to the\n[version 1.0.0](https://toml.io/en/v1.0.0) of the format standard.\n\n\nQuick tutorial\n--------------\n\nAll basic types and subprograms are in the `TOML` package. All \"nodes\" in a\nTOML documents are materialized using the `TOML.TOML_Value` type. Since TOML\nvalues make up a tree, this type has reference semantics. This means that\nmodifying a TOML node does not modify the corresponding `TOML_Value` value\nitself, but rather the TOML value that is referenced.\n\nParsing a TOML file is as easy as using the `TOML.File_IO.Load_File` function:\n\n```ada\ndeclare\n   Result : constant TOML.Read_Result :=\n      TOML.File_IO.Load_File (\"config.toml\");\nbegin\n   if Result.Success then\n      Ada.Text_IO.Put_Line (\"config.toml loaded with success!\");\n   else\n      Ada.Text_IO.Put_Line (\"error while loading config.toml:\");\n      Ada.Text_IO.Put_Line\n         (Ada.Strings.Unbounded.To_String (Result.Message));\n   end if;\nend;\n```\n\nEach TOML value has kind, defining which data it contains (a boolean, an\ninteger, a string, a table, ...). To each kind, one or several primitives are\nassociated to let one process the underlying data:\n\n```ada\ncase Result.Kind is\n   when TOML.TOML_Boolean =>\n      Ada.Text_IO.Put_Line (\"Boolean: \" & Result.As_Boolean'Image);\n\n   when TOML.TOML_Integer =>\n      Ada.Text_IO.Put_Line (\"Boolean: \" & Result.As_Integer'Image);\n\n   when TOML.TOML_String =>\n      Ada.Text_IO.Put_Line (\"Boolean: \" & Result.As_String);\n\n   when TOML.TOML_Array =>\n      Ada.Text_IO.Put_Line (\"Array of \" & Result.Length & \" elements\");\n\n   when others =>\n      null;\nend case;\n```\n\nThere are also primitives to build TOML values:\n\n```ada\ndeclare\n   Bool : constant TOML.TOML_Value := TOML.Create_Boolean (False);\n   Int  : constant TOML.TOML_Value := TOML.Create_Integer (10);\n   Str  : constant TOML.TOML_Value := TOML.Create_String (\"Hello, world\");\n\n   Table : constant TOML.TOML_Value := TOML.Create_Table;\nbegin\n   Table.Set (\"bool_field\", Bool);\n   Table.Set (\"int_field\", Int);\n   Table.Set (\"str_field\", Str);\nend;\n```\n\nAnd finally one can turn a tree of TOML nodes back in text form:\n\n```ada\nAda.Text_IO.Put_Line (\"TOML document:\");\nAda.Text_IO.Put_Line (Table.Dump_As_String);\n```\n\n\nContributing\n------------\n\nThe development of `ada-toml` happens on\n[GitHub](https://github.com/pmderodat/ada-toml).  Everyone is welcome to\ncontribute to this project: please read our [contribution\nrules](https://github.com/pmderodat/ada-toml/tree/master/CONTRIBUTING.rst) if\nyou consider doing so.\n"
+maintainers = ["pmderodat@kawie.fr"]
+maintainers-logins = ["pmderodat"]
+name = "ada_toml"
+project-files = ["ada_toml.gpr"]
+version = "0.3.0"
+
+[gpr-externals]
+ADA_TOML_BUILD_MODE = ["dev","prod"]
+LIBRARY_TYPE = ["static","relocatable","static-pic"]
+
+[gpr-set-externals]
+ADA_TOML_BUILD_MODE = "prod"
+
+[build-switches."*"]
+Compile_Checks = "none"

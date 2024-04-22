@@ -1,0 +1,26 @@
+authors = [
+"Stephen Merrony",
+]
+description = "DASHER Terminal Emulator"
+executables = [
+"dashera",
+]
+licenses = "MIT"
+maintainers = [
+"Stephen Merrony <merrony@gmail.com>",
+]
+maintainers-logins = [
+"SMerrony",
+]
+name = "dashera"
+tags = [
+"gtk",
+"terminal",
+"dasher",
+"emulator",
+]
+version = "0.14.0"
+website = "https://github.com/SMerrony/dashera"
+[[depends-on]]
+gtkada = "^23.0.0"
+

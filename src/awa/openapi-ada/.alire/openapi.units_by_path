@@ -1,0 +1,12 @@
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-clients.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-clients.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-credentials-oauth.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-credentials-oauth.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-credentials.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-streams-forms.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-streams-forms.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-streams.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi-streams.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi.adb
+/workspaces/bench-source/src/awa/openapi-ada/src/openapi.ads
+/workspaces/bench-source/src/awa/openapi-ada/src/swagger.ads

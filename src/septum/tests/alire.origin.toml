@@ -1,0 +1,22 @@
+name = "septum_tests"
+description = "Tests for septum"
+version = "0.0.4"
+
+authors = ["Paul Jarrett"]
+maintainers = ["Paul Jarrett <jarrett.paul.young@gmail.com>"]
+maintainers-logins = ["pyjarrett"]
+
+executables = ["septum_tests"]
+
+[[depends-on]]
+septum = "~0.0.1"
+trendy_test = "~0.0.3"
+dir_iterators = "~0.0.3"  # Added by alr
+progress_indicators = "~0.0.1"  # Added by alr
+trendy_terminal = "~0.0.4"  # Added by alr
+atomic = "~0.3.0"  # Added by alr
+
+[[pins]]
+septum = { path = ".." }
+#trendy_test = { url = "https://github.com/pyjarrett/trendy_test", branch="main" }
+#trendy_test = { path='../../trendy_test' }   # Added by alr

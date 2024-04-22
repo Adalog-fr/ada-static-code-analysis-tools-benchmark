@@ -1,0 +1,21 @@
+-- Copyright (c) 2022 nytpu <alex [at] nytpu.com>
+-- SPDX-License-Identifier: MPL-2.0
+-- For more license details, see LICENSE or <https://www.mozilla.org/en-US/MPL/2.0/>.
+
+with "ahven";
+with "uri_mime.gpr";
+
+project URI_MIME_Test is
+
+	for Main use ("run_tests.adb");
+
+	for Source_Dirs use ("src/tests");
+
+	for Create_Missing_Dirs use URI_MIME'Create_Missing_Dirs;
+	for Object_Dir use URI_MIME'Object_Dir;
+	for Exec_Dir use "bin";
+
+	package Compiler renames URI_MIME.Compiler;
+	package Binder renames URI_MIME.Binder;
+
+end URI_MIME_Test;

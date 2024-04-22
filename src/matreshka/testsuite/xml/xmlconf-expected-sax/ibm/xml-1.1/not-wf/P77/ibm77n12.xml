@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <resolveEntity>
+    <name>e</name>
+    <baseURI>ibm/xml-1.1/not-wf/P77</baseURI>
+    <systemID>ibm77n12.ent</systemID>
+  </resolveEntity>
+  <fatalError>unexpected&#x20;character</fatalError>
+  <endDocument/>
+</SAXEvents>

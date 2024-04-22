@@ -1,0 +1,29 @@
+name = "json_tests"
+description = "Unit tests for json-ada"
+version = "5.0.3"
+website = "https://github.com/onox/json-ada"
+licenses = "Apache-2.0"
+tags = ["json"]
+executables = ["test_bindings"]
+authors = ["onox"]
+maintainers = ["onox <denkpadje@gmail.com>"]
+maintainers-logins = ["onox"]
+
+[[depends-on]]
+aunit = "*"
+json = "^5.0.2"
+
+[[pins]]
+
+[pins.json]
+path = "../json"
+
+[pins.aunit]
+path = "../../aunit"
+
+[build-switches.validation]
+compile_checks = "warnings"
+
+[build-switches."*"]
+style_checks = ["-gnatygAO-Is"]
+Compile_Checks = "none"

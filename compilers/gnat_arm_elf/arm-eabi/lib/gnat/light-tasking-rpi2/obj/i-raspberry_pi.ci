@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi2/gnat/i-raspberry_pi.ads"
+node: { title: "interfaces__raspberry_pi__Tcore_unsigned_32BIP" label: "Tcore_unsigned_32BIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__Tcore_mailbox_unsigned_32BIP" label: "Tcore_mailbox_unsigned_32BIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__local_registers_typeIP" label: "local_registers_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__gpio_registers_typeIP" label: "gpio_registers_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__arm_interrupt_typeIP" label: "arm_interrupt_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__arm_timer_typeIP" label: "arm_timer_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__emmc_registers_typeIP" label: "emmc_registers_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__raspberry_pi__pl011_registers_typeIP" label: "pl011_registers_typeIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

@@ -1,0 +1,20 @@
+authors = ["Alejandro R. Mosteo"]
+description = "Randomly pick a file with probability proportional to its size"
+executables = ["rsfile"]
+licenses = "GPL-3.0-only"
+maintainers = ["Alejandro R. Mosteo <alejandro@mosteo.com>"]
+maintainers-logins = ["mosteo"]
+name = "rsfile"
+tags = ["command-line","tool","random","file-size"]
+version = "1.0.1"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[build-switches."*"]
+Compile_Checks = "none"

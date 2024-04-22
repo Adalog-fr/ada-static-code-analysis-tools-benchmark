@@ -1,0 +1,16 @@
+examples_main.adb
+examples-ast.adb
+examples-ast.ads
+examples-factory.adb
+examples-factory.ads
+examples-finder.adb
+examples-finder.ads
+examples-match_patterns.adb
+examples-match_patterns.ads
+examples-navigation.adb
+examples-navigation.ads
+examples-text_rewrites.adb
+examples-text_rewrites.ads
+examples-visitor.adb
+examples-visitor.ads
+examples.ads

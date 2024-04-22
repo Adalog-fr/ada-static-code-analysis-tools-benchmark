@@ -1,0 +1,42 @@
+authors = ["AdaCore"]
+description = "An Ada graphical toolkit based on Gtk+"
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+long-description = "This crate requires Gtk3+ >= 3.24.24"
+maintainers = ["chouteau@adacore.com","reznikmm@gmail.com"]
+maintainers-logins = ["Fabien-Chouteau","reznikmm"]
+name = "gtkada"
+project-files = ["src/gtkada.gpr"]
+tags = ["gtk","gui"]
+version = "23.0.0"
+website = "https://github.com/adacore/gtkada"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[gpr-externals]
+LIBRARY_TYPE = ["static","static-pic","relocatable"]
+
+[[actions]]
+command = ["bash","-c","PATH=${DISTRIB_ROOT}/mingw64/bin:${PATH} ./configure"]
+directory = "."
+type = "post-fetch"
+
+[[actions]]
+command = ["make","src/gtkada-intl.adb"]
+directory = "."
+type = "post-fetch"
+
+[[depends-on]]
+libgtk3 = ">=3.24.24"
+make = "*"
+pkg_config = "*"
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

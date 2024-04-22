@@ -1,0 +1,11 @@
+saatana-crypto-lemmas.ads
+saatana-crypto-phelix-test_vectors.ads
+saatana-crypto-phelix.adb
+saatana-crypto-phelix.ads
+saatana-crypto-stream_tools.adb
+saatana-crypto-stream_tools.ads
+saatana-crypto.adb
+saatana-crypto.ads
+saatana.ads
+test_phelix_api.adb
+test_phelix.adb

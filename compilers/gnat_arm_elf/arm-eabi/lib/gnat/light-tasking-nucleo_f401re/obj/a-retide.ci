@@ -1,0 +1,8 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnarl/a-retide.adb"
+node: { title: "ada__real_time__delays__delay_until" label: "Delay_Until\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnarl/a-retide.adb:44:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__real_time__delays__delay_until" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnarl/a-retide.adb:51:10" }
+node: { title: "system__bb__time__delay_until" label: "Delay_Until\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnarl/s-bbtime.ads:137:14" shape : ellipse }
+edge: { sourcename: "ada__real_time__delays__delay_until" targetname: "system__bb__time__delay_until" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnarl/s-taprop.adb:129:26" }
+node: { title: "ada__real_time__delays__to_duration" label: "To_Duration\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nucleo_f401re/gnarl/a-retide.adb:66:4\n0 bytes (static)\n0 dynamic objects" }
+}

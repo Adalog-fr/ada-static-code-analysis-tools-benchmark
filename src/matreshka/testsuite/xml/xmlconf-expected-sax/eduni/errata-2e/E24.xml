@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <warning/>
+  <startElement>
+    <namespaceURI/>
+    <localName>foo</localName>
+    <qualifiedName>foo</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>Y</characters>
+  <characters>o</characters>
+  <characters>u</characters>
+  <characters>&#x20;</characters>
+  <characters>c</characters>
+  <characters>a</characters>
+  <characters>n</characters>
+  <characters>&#x20;</characters>
+  <characters>u</characters>
+  <characters>s</characters>
+  <characters>e</characters>
+  <characters>&#x20;</characters>
+  <characters>]</characters>
+  <characters>]</characters>
+  <characters>&gt;</characters>
+  <characters>&#x20;</characters>
+  <characters>o</characters>
+  <characters>r</characters>
+  <characters>&#x20;</characters>
+  <characters>]</characters>
+  <characters>]</characters>
+  <characters>&gt;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>foo</localName>
+    <qualifiedName>foo</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

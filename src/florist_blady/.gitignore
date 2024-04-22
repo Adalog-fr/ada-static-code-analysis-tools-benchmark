@@ -1,0 +1,13 @@
+/obj/
+/lib/
+/gensrc/
+*.log
+/gnatsocks/obj/
+/gnatsocks/lib/
+/gnatsocks/bin/
+/tests/bin/
+/tests/obj/
+/tests/test.dir/
+/*.dSYM/
+/alire/
+/config/

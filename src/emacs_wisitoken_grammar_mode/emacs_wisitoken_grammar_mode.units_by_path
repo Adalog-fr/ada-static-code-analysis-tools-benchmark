@@ -1,0 +1,12 @@
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/config/emacs_wisitoken_grammar_mode_config.ads
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/config/emacs_wisitoken_grammar_mode_config.h
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/run_wisitoken_grammar_parse.ads
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisi-wisitoken_grammar.adb
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisi-wisitoken_grammar.ads
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_1_process_actions.adb
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_1_process_actions.ads
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_1_process_main.adb
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_1_process_main.ads
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_1_re2c_c.ads
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_1_re2c.c
+/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/wisitoken_grammar_mode_parse.ads

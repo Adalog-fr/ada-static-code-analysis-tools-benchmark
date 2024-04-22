@@ -1,0 +1,16 @@
+/workspaces/bench-source/src/rejuvenation/examples/src/examples_main.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-ast.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-ast.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-factory.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-factory.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-finder.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-finder.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-match_patterns.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-match_patterns.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-navigation.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-navigation.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-text_rewrites.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-text_rewrites.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-visitor.adb
+/workspaces/bench-source/src/rejuvenation/examples/src/examples-visitor.ads
+/workspaces/bench-source/src/rejuvenation/examples/src/examples.ads

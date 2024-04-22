@@ -1,0 +1,42 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnatcoll"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../gnatcoll-core"
+[[solution.state]]
+crate = "libgpr"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../gprbuild"
+[[solution.state]]
+crate = "templates_parser"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../templates_parser"
+[[solution.state]]
+crate = "xmlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../xmlada"
+

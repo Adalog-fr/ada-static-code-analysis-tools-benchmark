@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbcpsp.ads"
+node: { title: "system__bb__cpu_specific__Tvfpu_registers_typeBIP" label: "Tvfpu_registers_typeBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__cpu_specific__vfpu_context_bufferIP" label: "vfpu_context_bufferIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__cpu_specific__context_bufferIP" label: "context_bufferIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

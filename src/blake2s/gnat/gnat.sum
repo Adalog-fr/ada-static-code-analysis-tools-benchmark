@@ -1,0 +1,360 @@
+-------------------------------------------------------------------------------
+                          Semantic Analysis Summary                            
+                                POGS GPL 2012                                  
+            Copyright (C) 2012 Altran Praxis Limited, Bath, U.K.               
+-------------------------------------------------------------------------------
+
+Summary of:
+
+Verification Condition files (.vcg)
+Simplified Verification Condition files (.siv)
+Victor result files (.vct)
+Riposte result files (.rsm)
+Proof Logs (.plg)
+Dead Path Conjecture files (.dpc)
+Summary Dead Path files (.sdp)
+
+"status" column keys:
+    1st character:
+        '-' - No VC
+        'S' - No SIV
+        'U' - Undischarged
+        'E' - Proved by Examiner
+        'I' - Proved by Simplifier by Inference
+        'X' - Proved by Simplifier by Contradiction
+        'P' - Proved by Simplifier using User Defined Proof Rules
+        'V' - Proved by Victor
+        'O' - Proved by Riposte
+        'C' - Proved by Checker
+        'R' - Proved by Review
+        'F' - VC is False
+    2nd character:
+        '-' - No DPC
+        'S' - No SDP
+        'U' - Unchecked
+        'D' - Dead path
+        'L' - Live path
+
+in the directory:
+/home/lev/share/blake2s/gnat
+
+Summary produced: 23-JUN-2021 17:45:06.52
+
+File /home/lev/share/blake2s/gnat/quadlets/chained_modular_sum.vcg
+procedure Quadlets.Chained_Modular_Sum
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:16
+
+File /home/lev/share/blake2s/gnat/quadlets/chained_modular_sum.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for procedure_chained_modular_sum :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 128     | Inference          | Unchecked |   IU   |
+| 2   | start | rtc check @ 128     | Inference          | Unchecked |   IU   |
+| 3   | start | rtc check @ 132     | Inference          | Unchecked |   IU   |
+| 4   | start | rtc check @ 134     | Inference          | Unchecked |   IU   |
+| 5   | start |    assert @ finish  | Examiner           | Live      |   EL   |
+| 6   | start |    assert @ finish  | Examiner           | Live      |   EL   |
+| 7   | start |    assert @ finish  | Examiner           | Live      |   EL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/conjunction.vcg
+function Quadlets.Conjunction
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:18
+
+File /home/lev/share/blake2s/gnat/quadlets/conjunction.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_conjunction :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start |    assert @ finish  | Review             | Live      |   RL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/exclusive_disjunction.vcg
+function Quadlets.Exclusive_Disjunction
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:18
+
+File /home/lev/share/blake2s/gnat/quadlets/exclusive_disjunction.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_exclusive_disjunction :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start |    assert @ finish  | Review             | Live      |   RL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/inclusive_disjunction.vcg
+function Quadlets.Inclusive_Disjunction
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:16
+
+File /home/lev/share/blake2s/gnat/quadlets/inclusive_disjunction.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_inclusive_disjunction :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start |    assert @ finish  | Review             | Live      |   RL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/left_shift.vcg
+function Quadlets.Left_Shift
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:18
+
+File /home/lev/share/blake2s/gnat/quadlets/left_shift.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_left_shift :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 78      | Inference          | Unchecked |   IU   |
+| 2   | start | rtc check @ 78      | Inference          | Unchecked |   IU   |
+| 3   | start |    assert @ finish  | Review             | Live      |   RL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/modular_difference.vcg
+function Quadlets.Modular_Difference
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:16
+
+File /home/lev/share/blake2s/gnat/quadlets/modular_difference.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_modular_difference :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 145     | Inference          | Unchecked |   IU   |
+| 2   | start |    assert @ finish  | Inference          | Live      |   IL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/modular_product.vcg
+function Quadlets.Modular_Product
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:18
+
+File /home/lev/share/blake2s/gnat/quadlets/modular_product.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_modular_product :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 154     | Inference          | Unchecked |   IU   |
+| 2   | start |    assert @ finish  | Inference          | Live      |   IL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/modular_sum.vcg
+function Quadlets.Modular_Sum
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:15
+
+File /home/lev/share/blake2s/gnat/quadlets/modular_sum.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_modular_sum :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 117     | Inference          | Unchecked |   IU   |
+| 2   | start |    assert @ finish  | Inference          | Live      |   IL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/negation.vcg
+function Quadlets.Negation
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:17
+
+File /home/lev/share/blake2s/gnat/quadlets/negation.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_negation :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start |    assert @ 37      | Inference          | Live      |   IL   |
+| 2   | 37    |    assert @ finish  | Review             | Live      |   RL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/octet.vcg
+function Quadlets.Octet
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:17
+
+File /home/lev/share/blake2s/gnat/quadlets/octet.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_octet :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 108     | Inference          | Unchecked |   IU   |
+| 2   | start | rtc check @ 108     | Inference          | Unchecked |   IU   |
+| 3   | start | rtc check @ 108     | Review             | Unchecked |   RU   |
+| 4   | start |    assert @ finish  | Inference          | Live      |   IL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/right_rotation.vcg
+function Quadlets.Right_Rotation
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:15
+
+File /home/lev/share/blake2s/gnat/quadlets/right_rotation.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_right_rotation :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 98      | Inference          | Unchecked |   IU   |
+| 2   | start | rtc check @ 98      | Inference          | Unchecked |   IU   |
+| 3   | start |    assert @ finish  | Inference          | Live      |   IL   |
+ -----------------------------------------------------------------------------
+
+
+File /home/lev/share/blake2s/gnat/quadlets/right_shift.vcg
+function Quadlets.Right_Shift
+
+VCs generated 23-JUN-2021 17:44:15
+
+VCs simplified 23-JUN-2021 17:44:17
+
+File /home/lev/share/blake2s/gnat/quadlets/right_shift.dpc
+DPCs generated 23-JUN-2021 17:44:15
+
+DPC ZombieScoped 23-JUN-2021  17:44:1
+
+VCs for function_right_shift :
+ -----------------------------------------------------------------------------
+| #   | From  | To                  | Proved By          | Dead Path | Status |
+|-----------------------------------------------------------------------------
+| 1   | start | rtc check @ 88      | Inference          | Unchecked |   IU   |
+| 2   | start | rtc check @ 88      | Inference          | Unchecked |   IU   |
+| 3   | start |    assert @ finish  | Inference          | Live      |   IL   |
+ -----------------------------------------------------------------------------
+
+
+===============================================================================
+Summary:
+
+Proof strategies used by subprograms
+-------------------------------------------------------------------------
+Total subprograms with at least one VC proved by examiner:              1
+Total subprograms with at least one VC proved by simplifier:            9
+Total subprograms with at least one VC proved by contradiction:         0
+Total subprograms with at least one VC proved with user proof rule:     0
+Total subprograms with at least one VC proved by Victor:                0
+Total subprograms with at least one VC proved by Riposte:               0
+Total subprograms with at least one VC proved using checker:            0
+Total subprograms with at least one VC discharged by review:            6
+
+Maximum extent of strategies used for fully proved subprograms:
+-------------------------------------------------------------------------
+Total subprograms with proof completed by examiner:                     0
+Total subprograms with proof completed by simplifier:                   6
+Total subprograms with proof completed with user defined rules:         0
+Total subprograms with proof completed by Victor:                       0
+Total subprograms with proof completed by Riposte:                      0
+Total subprograms with proof completed by checker:                      0
+Total subprograms with VCs discharged by review:                        6
+
+Overall subprogram summary:
+-------------------------------------------------------------------------
+Total subprograms fully proved:                                        12
+Total subprograms with at least one undischarged VC:                    0
+Total subprograms with at least one false VC:                           0
+                                                                    -----
+Total subprograms for which VCs have been generated:                   12
+
+
+ZombieScope Summary:
+-------------------------------------------------------------------------
+Total subprograms for which DPCs have been generated:                  12
+Total number subprograms with dead paths found:                         0
+Total number of dead paths found:                                       0
+
+
+VC summary:
+-------------------------------------------------------------------------
+Note: (User) denotes where the Simplifier has proved VCs using one or
+      more user-defined proof rules.
+
+Total VCs by type:
+------------------
+                    Total   Examiner Simplifier Review
+Assert/Post            15          3          7      5
+Precondition            0          0          0      0
+Check stmnt.            0          0          0      0
+Runtime check          16          0         15      1
+Refinem. VCs            0          0          0      0
+Inherit. VCs            0          0          0      0
+======================================================
+Totals:                31          3         22      6
+%Totals:                         10%        71%    19%
+
+===================== End of Semantic Analysis Summary ========================

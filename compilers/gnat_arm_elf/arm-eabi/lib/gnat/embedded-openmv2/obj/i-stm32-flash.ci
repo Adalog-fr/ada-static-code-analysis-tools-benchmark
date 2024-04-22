@@ -1,0 +1,12 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/i-stm32-flash.ads"
+node: { title: "interfaces__stm32__flash__acr_registerIP" label: "acr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__sr_registerIP" label: "sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__cr_registerIP" label: "cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__optcr_registerIP" label: "optcr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__optcr1_registerIP" label: "optcr1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__stm32__flash__flash_peripheralIP" label: "flash_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__acr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/i-stm32-flash.ads:241:7" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__sr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/i-stm32-flash.ads:247:7" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__cr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/i-stm32-flash.ads:249:7" }
+edge: { sourcename: "interfaces__stm32__flash__flash_peripheralIP" targetname: "interfaces__stm32__flash__optcr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-openmv2/gnat/i-stm32-flash.ads:251:7" }
+}

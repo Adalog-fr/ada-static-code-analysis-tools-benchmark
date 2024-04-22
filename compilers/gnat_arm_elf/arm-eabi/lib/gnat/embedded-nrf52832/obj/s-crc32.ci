@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-crc32.adb"
+node: { title: "system__crc32__get_value" label: "Get_Value\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-crc32.adb:111:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__crc32__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-crc32.adb:120:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__crc32__update" label: "Update\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-nrf52832/gnat/s-crc32.adb:129:4\n0 bytes (static)\n0 dynamic objects" }
+}

@@ -1,0 +1,18 @@
+with "matreshka/league.gpr";
+with "asis";
+
+project Pp is
+
+   for Main use ("main_pp.adb", "print_ada");
+
+   package Compiler is
+      for Default_Switches ("ada") use
+       ("-g", "-gnat12", "-fstack-check");
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-E");
+   end Binder;
+
+end Pp;
+

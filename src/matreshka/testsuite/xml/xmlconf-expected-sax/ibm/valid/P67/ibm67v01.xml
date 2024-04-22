@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>attr</localName>
+        <qualifiedName>attr</qualifiedName>
+        <value>xyzA</value>
+        <type>CDATA</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>true</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <characters>&#xA;</characters>
+  <characters>x</characters>
+  <characters>y</characters>
+  <characters>z</characters>
+  <characters>&#x20;</characters>
+  <characters>B</characters>
+  <characters>&#xA;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>root</localName>
+    <qualifiedName>root</qualifiedName>
+    <attributes/>
+  </startElement>
+  <resolveEntity>
+    <name>e</name>
+    <baseURI>ibm/xml-1.1/not-wf/P02</baseURI>
+    <systemID>ibm02n65.ent</systemID>
+  </resolveEntity>
+  <characters>&#xA;</characters>
+  <fatalError>unexpected&#x20;character</fatalError>
+  <endDocument/>
+</SAXEvents>

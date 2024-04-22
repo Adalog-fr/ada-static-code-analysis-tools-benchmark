@@ -1,0 +1,25 @@
+auto-gpr-with = false
+description = "The GNAT Ada compiler - AVR cross-compiler"
+licenses = "GPL-3.0-or-later AND GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "gnat_avr_elf"
+provides = [
+"gnat=12.2.1",
+]
+version = "12.2.1"
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[environment]
+[environment.PATH]
+prepend = "${CRATE_ROOT}/bin"
+

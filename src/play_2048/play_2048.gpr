@@ -1,0 +1,25 @@
+-- begin auto-gpr-with --
+--  This section was automatically added by Alire
+with "ada_toml.gpr";
+with "asfml.gpr";
+-- end auto-gpr-with --
+
+project Play_2048 is
+
+   for Create_Missing_Dirs use "True";
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Main use ("play_2048.adb");
+   for Exec_Dir use ".";
+
+   package Compiler is
+      for Default_Switches ("Ada") use
+        ("-g",
+         "-gnatQ",
+         "-gnatwa",  -- All warnings
+         "-gnatVa",  -- All validity checks
+         "-O1");
+   end Compiler;
+
+end Play_2048;

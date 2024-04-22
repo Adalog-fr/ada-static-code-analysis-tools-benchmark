@@ -1,0 +1,13 @@
+authors = [
+"David Given",
+]
+description = "Mandelbrot renderer using Unicode glyphs"
+maintainers = [
+"Alejandro R. Mosteo <alejandro@mosteo.com>",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "mandelbrot_ascii"
+version = "1.0.0"
+

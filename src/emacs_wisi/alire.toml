@@ -1,0 +1,25 @@
+authors = ["Stephen Leake"]
+description = "Ada code for Emacs wisi ELPA package"
+licenses = "GPL-3.0-or-later"
+maintainers = ["Stephen Leake <stephen_leake@stephe-leake.org>"]
+maintainers-logins = ["stephe-ada-guru"]
+name = "emacs_wisi"
+project-files = ["wisi_alire.gpr"]
+tags = ["emacs","indent","project","compile","xref"]
+version = "4.2.0"
+website = "https://elpa.gnu.org/packages/wisi.html"
+
+[[depends-on]]
+stephes_ada_library = "*"
+wisitoken = "*"
+
+[[pins]]
+
+[pins.stephes_ada_library]
+path = "../stephes_ada_library"
+
+[pins.wisitoken]
+path = "../wisitoken"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,40 @@
+authors = [
+"AdaCore",
+]
+description = "GNAT Components Collection - python2 binding"
+licenses = "GPL-3.0-only WITH GCC-exception-3.1"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "gnatcoll_python"
+project-files = [
+"gnatcoll_python.gpr",
+]
+tags = [
+"gnatcoll",
+"bindings",
+"python",
+"python2",
+]
+version = "21.0.0"
+website = "https://github.com/adacore/gnatcoll-bindings"
+[environment]
+[environment.C_INCLUDE_PATH]
+append = "${DISTRIB_ROOT}/usr/include/python2.7/"
+[gpr-externals]
+GNATCOLL_BUILD_MODE = [
+"DEBUG",
+"PROD",
+]
+LIBRARY_TYPE = [
+"static",
+"relocatable",
+"static-pic",
+]
+[[depends-on]]
+gnatcoll = "~21.0.0"
+libpython2dev = "^2"
+

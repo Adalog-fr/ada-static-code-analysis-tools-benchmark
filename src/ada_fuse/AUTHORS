@@ -1,0 +1,21 @@
+List of Authors
+===============
+
+This is an overview of all the people who contributed to Ada-Fuse in
+alphabetical order.
+
+Authors
+------------
+
+Benjamin Burse (2013)
+    example file systems
+
+Alexander Herr (2015, 2016)
+    bug fixes
+
+Christopher Lübbemeier (2013)
+    initial version of all files in `src/`
+
+Nicolai Ruckel (2013, 2020)
+    initial version of all files `src/`
+    Alire configuration

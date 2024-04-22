@@ -1,0 +1,13 @@
+adacl_test_config.ads
+adacl_test-main.adb
+adacl_test-reference_holder.adb
+adacl_test-reference_holder.ads
+adacl_test-suite.adb
+adacl_test-suite.ads
+adacl_test.ads
+adacl-reference-element-test.adb
+adacl-reference-element-test.ads
+adacl-strings-test.adb
+adacl-strings-test.ads
+adacl-trace-test.adb
+adacl-trace-test.ads

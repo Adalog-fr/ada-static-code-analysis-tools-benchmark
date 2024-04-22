@@ -1,0 +1,2 @@
+pragma Initialize_Scalars;
+--  pragma Restrictions (No_Anonymous_Allocators);

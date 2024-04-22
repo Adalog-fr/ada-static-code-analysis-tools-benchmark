@@ -1,0 +1,25 @@
+name = "tests"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Fabien Chouteau"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+executables = ["tests"]
+
+[[depends-on]]
+resources = "*"
+lib_a = "*"
+
+[[pins]]
+
+[pins.resources]
+path = "../../resources"
+
+[pins.lib_a]
+path = "lib_a"
+
+[build-profiles]
+resources = "validation"
+
+[build-switches."*"]
+Compile_Checks = "none"

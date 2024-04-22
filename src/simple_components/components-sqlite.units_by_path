@@ -1,0 +1,14 @@
+/workspaces/bench-source/src/simple_components/persistent-sqlite_keys-arrays.ads
+/workspaces/bench-source/src/simple_components/persistent-sqlite_keys-sets.ads
+/workspaces/bench-source/src/simple_components/persistent-sqlite_keys.adb
+/workspaces/bench-source/src/simple_components/persistent-sqlite_keys.ads
+/workspaces/bench-source/src/simple_components/persistent-sqlite_links.adb
+/workspaces/bench-source/src/simple_components/persistent-sqlite_links.ads
+/workspaces/bench-source/src/simple_components/persistent-sqlite-text_io.adb
+/workspaces/bench-source/src/simple_components/persistent-sqlite-text_io.ads
+/workspaces/bench-source/src/simple_components/persistent-sqlite.adb
+/workspaces/bench-source/src/simple_components/persistent-sqlite.ads
+/workspaces/bench-source/src/simple_components/sqlite-sources/sqlite3.c
+/workspaces/bench-source/src/simple_components/sqlite-sources/sqlite3.h
+/workspaces/bench-source/src/simple_components/sqlite.adb
+/workspaces/bench-source/src/simple_components/sqlite.ads
