@@ -40,18 +40,21 @@ Regarding the software, the setup are:
 The Neo4J setup operates on Neo4J Desktop version 1.5.9.106. The database utilizes engine version 5.12.0, complemented by the APOC plugin.
 
 ### Result
-| Rule                                       | Our approach | AdaControl      | GNATcheck (monothread) | GNATcheck (multithread, 32 cores) |
-|--------------------------------------------|--------------|-----------------|------------------------|-----------------------------------|
-| Abort statements                           | 0,11 s       | 1 min 4,3 s     | 46,434 s               | 1 min 33,557 s                    |
-| Abstract type decl.                        | 0,47 s       | 1 min 5,1 s     | 1 min 25,576 s         | 1 min 52,851 s                    |
-| Blocks                                     | 0,12 s       | 1 min 3,9 s     | 46,508 s               | 1 min 33,563 s                    |
-| Constructors                               | 0,34 s       | 1 min 5,7 s     | 1 min 54,513 s         | 2 min 5,042 s                     |
-| Enum. repr. clauses                        | 0,03 s       | 1 min 3,1 s     | 46,683 s               | 1 min 33,487 s                    |
-| Renamings                                  | 0,13 s       | 1 min 3,9 s     | 47,347 s               | 1 min 33,126 s                    |
-| Slices                                     | 0,08 s       | 1 min 12,6 s    | 1 min 58,599 s         | 2 min 4,714 s                     |
-| Too many parents                           | 0,03 s       | 1 min 3,1 s     | 1 min 45,978 s         | 2 min 2,94 s                      |
-| **Total time analysing rule one by one**   | 1,35 s       | 9 min 49 s      | 10 min 11,638 s        | 14 min 19,28 s                    |
-| **Total time analysing rule in one batch** | 3,90 s       | 21 min 13,864 s | 9 min 40 s             | 3 min 46 s                        |
+| Rule                                     | Our approach      | AdaControl       | GNATcheck (monothread) | GNATcheck (multithread, 32 cores) |
+| ---------------------------------------- | ----------------- | ---------------- | ----------------------- | ---------------------------------- |
+| Constructors                             | 0.935s            | 1 min 5.7 s      | 1 min 54.513 s          | 2 min 5.042 s                      |
+| Too many parents                         | 0.2s              | 1 min 3.1 s      | 1 min 45.978 s          | 2 min 2.94 s                       |
+| Abort statements                         | 0.1s              | 1 min 4.3 s      | 46.434 s                | 1 min 33.557 s                     |
+| Abstract type declarations               | 1.452s            | 1 min 5.1 s      | 1 min 25.576 s          | 1 min 52.851 s                     |
+| Blocks                                   | 0.23s             | 1 min 3.9 s      | 46.508 s                | 1 min 33.563 s                     |
+| Renamings                                | 0.44s             | 1 min 3.9 s      | 47.347 s                | 1 min 33.126 s                     |
+| Slices                                   | 0.14s             | 1 min 12.6 s     | 1 min 58.599 s          | 2 min 4.714 s                      |
+| Enumerated representation clauses        | 0.41s             | 1 min 3.1 s      | 46.683 s                | 1 min 33.487 s                     |
+| **Analysis time (rule one by one)**      | **3.907 s**         | **9 min 49 s**    | **10 min 11.638 s**      | **14 min 19.28 s**                 |
+| **Analysis time (rule in one batch)**    | **3.907 s**         | **21 min 13.864 s** | **9 min 40 s**          | **3 min 46 s**                     |
+
+> [!NOTE]
+> The analysis time does not factor in the overhead (read files, creating DB, etc.). Only the time required to check rules is accounted for.
 
 ## How to Use
 
@@ -62,6 +65,7 @@ Software requirements:
 - GANT Community 2019 with ASIS or GNAT Pro >= 24 with ASIS.
 - AdaControl >= 1.23b4
 - Deno 1.38.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
+- [Cogralys Engine](https://github.com/Adalog-fr/cogralys-engine): core of our approach
 
 ### Running a Benchmark
 
