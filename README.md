@@ -2,9 +2,9 @@
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-This repository aims to provide a benchmark comparison between static code analysis tools available in Ada. The goal is to provide a large amount of valid Ada code in order to process benchmark for analysis tools.
+This repository aims to provide a benchmark comparison between static code analysis tools available in Ada. The goal is to provide a large amount of valid Ada code to process benchmark for analysis tools.
 
-Currently due to ASIS limit, the project with Ada version up to 2012 is supported. Therefore, we have filtered projects for the benchmark via a set of files.
+Currently, due to ASIS limit, the project with Ada version up to 2012 is supported. Therefore, we have filtered projects for the benchmark via a set of files.
 
 ## Current Result
 
@@ -15,7 +15,7 @@ Benchmark tools used:
 - AdaControl: 1.23b4
 - Cogralys: 0.1.0 (our solution)
 
-The base code represent 1,047,941 lines of codes (counted using [Tokei](https://github.com/XAMPPRocky/tokei); so blank lines and comment lines are not included) in 162 projects (gpr files).
+The base code represents 1,047,941 lines of codes (counted using [Tokei](https://github.com/XAMPPRocky/tokei); so blank lines and comment lines are not included) in 162 projects (gpr files).
 
 The benchmarking was performed on a computer with a Debian 12 operating system.
 
@@ -25,15 +25,15 @@ The computer specification:
 - Host: MS-7E12 1.0
 - Kernel: 6.1.0-17-amd64
 - CPU: AMD Ryzen 9 7950X3D (32) @ 4.2 GHz
-- GPU 1: AMD ATI 19:00.0 Raphael
-- GPU 2: AMD ATI Radeon RX 7900 XTX
+- GPU: AMD ATI Radeon RX 7900 XTX
 - Memory: 64 GB
 - Storage: Crucial P5 Plus 1 TB SSD using M.2 PCIe Gen 4 connection, up to 6,600 MB/s in read operations and 5,000 MB/s in write operations
 
 Regarding the software, the setup are:
 
 - GNAT Pro 24.0w: Ada compiler.
-- AdaControl 1.23b4: static analysis tools.
+- GNATcheck 24.0w: static analysis tools. libadalang version.
+- AdaControl 1.23b4: static analysis tools. ASIS version.
 - GNAT Pro 21lts: for ASIS support.
 - Deno 1.38.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
 
@@ -55,7 +55,7 @@ The Neo4J setup operates on Neo4J Desktop version 1.5.9.106. The database utiliz
 
 ## How to Use
 
-### Requierements
+### Requirements
 
 Software requirements:
 
@@ -73,15 +73,15 @@ To run a benchmark, follow these steps:
 
 ### Adding Sources
 
-In order to simplify dependency resolution, we use the [Alire](https://alire.ada.dev) package manager. To add new crates, please follow the instructions below:
+To simplify dependency resolution, we use the [Alire](https://alire.ada.dev) package manager. To add new crates, please follow the instructions below:
 
 1. Clone the project into the `src` directory or use `alr get -o CRATE_NAME`.
 2. Add the path to the new crate into the [cratesPath.json](./cratesPath.json) file:
    `"CRATENAME": "path/to/src/CRATE_DIR"`
-3. Add the path to `cratesPath.json`.
-4. In the root crate folder, rename `alire.toml` to `alire.origin.toml`.
-5. Run `cogralys-bench-util generate-alire -p .` to regenerate `alire.toml` with **pins** that point to crates located in the [src](./src) directory.
-6. Check if the project compiles with `alr build`.
+3. In the root crate folder, rename `alire.toml` to `alire.origin.toml`.
+4. Run `cogralys-bench-util generate-alire -p .` to regenerate `alire.toml` with **pins** that point to crates located in the [src](./src) directory.
+5. Check if the project compiles with `alr build`.
+6. In the root crate folder, run `copy_load-system_into_obj.sh` to resolve issues related to ASIS that raise a Storage_Error when it attempts to access of some system packages.
 
 ### Regenerating All Environment
 
