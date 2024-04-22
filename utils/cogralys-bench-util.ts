@@ -10,6 +10,7 @@ import * as GenerateEnv from "./modules/generate_env.ts";
 import * as Run from "./modules/run.ts";
 import * as ExploreNeo4jDirs from "./modules/explore-neo4j-dirs.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
+import * as CountResults from "./modules/countResults.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -69,6 +70,19 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "-rules",
         "-from=/workspaces/bench-source/benchmark-rules/all_rules_in_one_file/gnatcheck.rules"
     ]
+})
+
+CountResults.initializeModule(program, {
+    commandName: "count-results-gnatcheck",
+    description: "Count reported results analysis from GNATcheck",
+    filePattern: "gnatcheck.report"
+})
+
+
+CountResults.initializeModule(program, {
+    commandName: "count-results-adactl",
+    description: "Count reported results analysis from AdaControl",
+    filePattern: "adactl.report"
 })
 
 program.parse(Deno.args);
