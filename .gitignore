@@ -190,3 +190,6 @@ rootfs/home/bin
 cogralys.result
 *.report
 *.tree
+tmp
+#*benchmark.output
+#*benchmark.output.bak*
