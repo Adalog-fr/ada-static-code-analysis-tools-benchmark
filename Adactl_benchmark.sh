@@ -6,1356 +6,1377 @@
 # This file is generated with cogralys-bench-util bench-adactl > this file    #
 ###############################################################################
 
+# Initialize variables
 xpNum=0
+# Default number of maximum processes
+max_procs=0
 
-# Loop through arguments
+# Function to display help information
+function show_help() {
+    echo "Usage: $0 [-xpNum <number>] [-j <max_procs>] [-h|--help]"
+    echo "  -xpNum <number>    Set the experience number."
+    echo "  -j <max_procs>     Set the maximum number of processes."
+    echo "  -h, --help         Show help information."
+}
+
+# Loop through arguments and handle options
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -xpNum)
             xpNum="$2"
-            shift
+            shift 2  # Advance past the argument value
             ;;
-        *)
+        -j)
+            max_procs="$2"
+            shift 2  # Advance past the argument value
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)  # Handle unknown options
+            echo "Unknown option: $1"
+            show_help
+            exit 1
             ;;
     esac
-    shift
 done
 
 echo [1/223] START
 cd "/workspaces/bench-source/src/aaa"
-echo "[START] process /workspaces/bench-source/src/aaa: /workspaces/bench-source/src/aaa/aaa.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aaa/aaa.gpr @/workspaces/bench-source/src/aaa/aaa.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/aaa: /workspaces/bench-source/src/aaa/aaa.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/aaa: /workspaces/bench-source/src/aaa/aaa.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aaa/aaa.gpr @/workspaces/bench-source/src/aaa/aaa.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/aaa: /workspaces/bench-source/src/aaa/aaa.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [1/223] END
 echo [2/223] START
 cd "/workspaces/bench-source/src/ada_fuse"
-echo "[START] process /workspaces/bench-source/src/ada_fuse: /workspaces/bench-source/src/ada_fuse/ada_fuse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_fuse/ada_fuse.gpr @/workspaces/bench-source/src/ada_fuse/ada_fuse.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ada_fuse: /workspaces/bench-source/src/ada_fuse/ada_fuse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ada_fuse: /workspaces/bench-source/src/ada_fuse/ada_fuse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_fuse/ada_fuse.gpr @/workspaces/bench-source/src/ada_fuse/ada_fuse.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ada_fuse: /workspaces/bench-source/src/ada_fuse/ada_fuse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [2/223] END
 echo [3/223] START
 cd "/workspaces/bench-source/src/ada_lua"
-echo "[START] process /workspaces/bench-source/src/ada_lua: /workspaces/bench-source/src/ada_lua/ada_lua.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_lua/ada_lua.gpr @/workspaces/bench-source/src/ada_lua/ada_lua.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ada_lua: /workspaces/bench-source/src/ada_lua/ada_lua.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ada_lua: /workspaces/bench-source/src/ada_lua/ada_lua.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_lua/ada_lua.gpr @/workspaces/bench-source/src/ada_lua/ada_lua.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ada_lua: /workspaces/bench-source/src/ada_lua/ada_lua.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [3/223] END
 echo [4/223] START
 cd "/workspaces/bench-source/src/ada_pretty"
-echo "[START] process /workspaces/bench-source/src/ada_pretty: /workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr @/workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ada_pretty: /workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ada_pretty: /workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr @/workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ada_pretty: /workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [4/223] END
 echo [5/223] START
 cd "/workspaces/bench-source/src/ada_toml"
-echo "[START] process /workspaces/bench-source/src/ada_toml: /workspaces/bench-source/src/ada_toml/ada_toml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_toml/ada_toml.gpr @/workspaces/bench-source/src/ada_toml/ada_toml.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ada_toml: /workspaces/bench-source/src/ada_toml/ada_toml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ada_toml: /workspaces/bench-source/src/ada_toml/ada_toml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ada_toml/ada_toml.gpr @/workspaces/bench-source/src/ada_toml/ada_toml.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ada_toml: /workspaces/bench-source/src/ada_toml/ada_toml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [5/223] END
 echo [6/223] START
 cd "/workspaces/bench-source/src/adabots"
-echo "[START] process /workspaces/bench-source/src/adabots: /workspaces/bench-source/src/adabots/adabots.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/adabots/adabots.gpr @/workspaces/bench-source/src/adabots/adabots.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/adabots: /workspaces/bench-source/src/adabots/adabots.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/adabots: /workspaces/bench-source/src/adabots/adabots.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/adabots/adabots.gpr @/workspaces/bench-source/src/adabots/adabots.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/adabots: /workspaces/bench-source/src/adabots/adabots.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [6/223] END
 echo [7/223] START
 cd "/workspaces/bench-source/src/adl_middleware"
-echo "[START] process /workspaces/bench-source/src/adl_middleware: /workspaces/bench-source/src/adl_middleware/adl_middleware.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/adl_middleware/adl_middleware.gpr @/workspaces/bench-source/src/adl_middleware/adl_middleware.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/adl_middleware: /workspaces/bench-source/src/adl_middleware/adl_middleware.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/adl_middleware: /workspaces/bench-source/src/adl_middleware/adl_middleware.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/adl_middleware/adl_middleware.gpr @/workspaces/bench-source/src/adl_middleware/adl_middleware.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/adl_middleware: /workspaces/bench-source/src/adl_middleware/adl_middleware.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [7/223] END
 echo [8/223] START
 cd "/workspaces/bench-source/src/aicwl"
-echo "[START] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr @/workspaces/bench-source/src/aicwl/sources/aicwl-editor.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr @/workspaces/bench-source/src/aicwl/sources/aicwl-editor.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [8/223] END
 echo [9/223] START
 cd "/workspaces/bench-source/src/aicwl"
-echo "[START] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aicwl/sources/aicwl.gpr @/workspaces/bench-source/src/aicwl/sources/aicwl.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aicwl/sources/aicwl.gpr @/workspaces/bench-source/src/aicwl/sources/aicwl.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/aicwl: /workspaces/bench-source/src/aicwl/sources/aicwl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [9/223] END
 echo [10/223] START
 cd "/workspaces/bench-source/src/ajunitgen"
-echo "[START] process /workspaces/bench-source/src/ajunitgen: /workspaces/bench-source/src/ajunitgen/ajunitgen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ajunitgen/ajunitgen.gpr @/workspaces/bench-source/src/ajunitgen/ajunitgen.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ajunitgen: /workspaces/bench-source/src/ajunitgen/ajunitgen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ajunitgen: /workspaces/bench-source/src/ajunitgen/ajunitgen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ajunitgen/ajunitgen.gpr @/workspaces/bench-source/src/ajunitgen/ajunitgen.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ajunitgen: /workspaces/bench-source/src/ajunitgen/ajunitgen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [10/223] END
 echo [11/223] START
 cd "/workspaces/bench-source/src/anagram"
-echo "[START] process /workspaces/bench-source/src/anagram: /workspaces/bench-source/src/anagram/gnat/anagram.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/anagram/gnat/anagram.gpr @/workspaces/bench-source/src/anagram/gnat/anagram.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/anagram: /workspaces/bench-source/src/anagram/gnat/anagram.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/anagram: /workspaces/bench-source/src/anagram/gnat/anagram.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/anagram/gnat/anagram.gpr @/workspaces/bench-source/src/anagram/gnat/anagram.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/anagram: /workspaces/bench-source/src/anagram/gnat/anagram.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [11/223] END
 echo [12/223] START
 cd "/workspaces/bench-source/src/ansiada"
-echo "[START] process /workspaces/bench-source/src/ansiada: /workspaces/bench-source/src/ansiada/ansiada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ansiada/ansiada.gpr @/workspaces/bench-source/src/ansiada/ansiada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ansiada: /workspaces/bench-source/src/ansiada/ansiada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ansiada: /workspaces/bench-source/src/ansiada/ansiada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ansiada/ansiada.gpr @/workspaces/bench-source/src/ansiada/ansiada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ansiada: /workspaces/bench-source/src/ansiada/ansiada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [12/223] END
 echo [13/223] START
 cd "/workspaces/bench-source/src/apdf"
-echo "[START] process /workspaces/bench-source/src/apdf: /workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr @/workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/apdf: /workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/apdf: /workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr @/workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/apdf: /workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [13/223] END
 echo [14/223] START
 cd "/workspaces/bench-source/src/asfml"
-echo "[START] process /workspaces/bench-source/src/asfml: /workspaces/bench-source/src/asfml/asfml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/asfml/asfml.gpr @/workspaces/bench-source/src/asfml/asfml.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/asfml: /workspaces/bench-source/src/asfml/asfml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/asfml: /workspaces/bench-source/src/asfml/asfml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/asfml/asfml.gpr @/workspaces/bench-source/src/asfml/asfml.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/asfml: /workspaces/bench-source/src/asfml/asfml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [14/223] END
 echo [15/223] START
 cd "/workspaces/bench-source/src/atomic"
-echo "[START] process /workspaces/bench-source/src/atomic: /workspaces/bench-source/src/atomic/atomic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/atomic/atomic.gpr @/workspaces/bench-source/src/atomic/atomic.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/atomic: /workspaces/bench-source/src/atomic/atomic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/atomic: /workspaces/bench-source/src/atomic/atomic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/atomic/atomic.gpr @/workspaces/bench-source/src/atomic/atomic.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/atomic: /workspaces/bench-source/src/atomic/atomic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [15/223] END
 echo [16/223] START
 cd "/workspaces/bench-source/src/audio_base"
-echo "[START] process /workspaces/bench-source/src/audio_base: /workspaces/bench-source/src/audio_base/audio_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/audio_base/audio_base.gpr @/workspaces/bench-source/src/audio_base/audio_base.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/audio_base: /workspaces/bench-source/src/audio_base/audio_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/audio_base: /workspaces/bench-source/src/audio_base/audio_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/audio_base/audio_base.gpr @/workspaces/bench-source/src/audio_base/audio_base.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/audio_base: /workspaces/bench-source/src/audio_base/audio_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [16/223] END
 echo [17/223] START
 cd "/workspaces/bench-source/src/audio_wavefiles"
-echo "[START] process /workspaces/bench-source/src/audio_wavefiles: /workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr @/workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/audio_wavefiles: /workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/audio_wavefiles: /workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr @/workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/audio_wavefiles: /workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [17/223] END
 echo [18/223] START
 cd "/workspaces/bench-source/src/aunit"
-echo "[START] process /workspaces/bench-source/src/aunit: /workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr @/workspaces/bench-source/src/aunit/lib/gnat/aunit.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/aunit: /workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/aunit: /workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr @/workspaces/bench-source/src/aunit/lib/gnat/aunit.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/aunit: /workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [18/223] END
 echo [19/223] START
 cd "/workspaces/bench-source/src/automate"
-echo "[START] process /workspaces/bench-source/src/automate: /workspaces/bench-source/src/automate/automate.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/automate/automate.gpr @/workspaces/bench-source/src/automate/automate.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/automate: /workspaces/bench-source/src/automate/automate.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/automate: /workspaces/bench-source/src/automate/automate.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/automate/automate.gpr @/workspaces/bench-source/src/automate/automate.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/automate: /workspaces/bench-source/src/automate/automate.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [19/223] END
 echo [20/223] START
 cd "/workspaces/bench-source/src/avltrees"
-echo "[START] process /workspaces/bench-source/src/avltrees: /workspaces/bench-source/src/avltrees/avltrees.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/avltrees/avltrees.gpr @/workspaces/bench-source/src/avltrees/avltrees.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/avltrees: /workspaces/bench-source/src/avltrees/avltrees.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/avltrees: /workspaces/bench-source/src/avltrees/avltrees.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/avltrees/avltrees.gpr @/workspaces/bench-source/src/avltrees/avltrees.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/avltrees: /workspaces/bench-source/src/avltrees/avltrees.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [20/223] END
 echo [21/223] START
 cd "/workspaces/bench-source/src/awa/ada-lzma"
-echo "[START] process /workspaces/bench-source/src/awa/ada-lzma: /workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr @/workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/awa/ada-lzma: /workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/awa/ada-lzma: /workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr @/workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/awa/ada-lzma: /workspaces/bench-source/src/awa/ada-lzma/.alire/lzmada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [21/223] END
 echo [22/223] START
 cd "/workspaces/bench-source/src/awa/ada-util"
-echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr @/workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr @/workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/.alire/utilada_conf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [22/223] END
 echo [23/223] START
 cd "/workspaces/bench-source/src/awa/ada-util"
-echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/utilada_base.gpr @/workspaces/bench-source/src/awa/ada-util/utilada_base.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/utilada_base.gpr @/workspaces/bench-source/src/awa/ada-util/utilada_base.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_base.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [23/223] END
 echo [24/223] START
 cd "/workspaces/bench-source/src/awa/ada-util"
-echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/utilada_core.gpr @/workspaces/bench-source/src/awa/ada-util/utilada_core.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/utilada_core.gpr @/workspaces/bench-source/src/awa/ada-util/utilada_core.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [24/223] END
 echo [25/223] START
 cd "/workspaces/bench-source/src/awa/ada-util"
-echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr @/workspaces/bench-source/src/awa/ada-util/utilada_sys.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr @/workspaces/bench-source/src/awa/ada-util/utilada_sys.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/awa/ada-util: /workspaces/bench-source/src/awa/ada-util/utilada_sys.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [25/223] END
 echo [26/223] START
 cd "/workspaces/bench-source/src/axmpp"
-echo "[START] process /workspaces/bench-source/src/axmpp: /workspaces/bench-source/src/axmpp/gnat/axmpp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/axmpp/gnat/axmpp.gpr @/workspaces/bench-source/src/axmpp/gnat/axmpp.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/axmpp: /workspaces/bench-source/src/axmpp/gnat/axmpp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/axmpp: /workspaces/bench-source/src/axmpp/gnat/axmpp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/axmpp/gnat/axmpp.gpr @/workspaces/bench-source/src/axmpp/gnat/axmpp.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/axmpp: /workspaces/bench-source/src/axmpp/gnat/axmpp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [26/223] END
 echo [27/223] START
 cd "/workspaces/bench-source/src/ayacc"
-echo "[START] process /workspaces/bench-source/src/ayacc: /workspaces/bench-source/src/ayacc/ayacc.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ayacc/ayacc.gpr @/workspaces/bench-source/src/ayacc/ayacc.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ayacc: /workspaces/bench-source/src/ayacc/ayacc.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ayacc: /workspaces/bench-source/src/ayacc/ayacc.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ayacc/ayacc.gpr @/workspaces/bench-source/src/ayacc/ayacc.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ayacc: /workspaces/bench-source/src/ayacc/ayacc.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [27/223] END
 echo [28/223] START
 cd "/workspaces/bench-source/src/b2ssum"
-echo "[START] process /workspaces/bench-source/src/b2ssum: /workspaces/bench-source/src/b2ssum/b2ssum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/b2ssum/b2ssum.gpr @/workspaces/bench-source/src/b2ssum/b2ssum.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/b2ssum: /workspaces/bench-source/src/b2ssum/b2ssum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/b2ssum: /workspaces/bench-source/src/b2ssum/b2ssum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/b2ssum/b2ssum.gpr @/workspaces/bench-source/src/b2ssum/b2ssum.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/b2ssum: /workspaces/bench-source/src/b2ssum/b2ssum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [28/223] END
 echo [29/223] START
 cd "/workspaces/bench-source/src/bar_codes"
-echo "[START] process /workspaces/bench-source/src/bar_codes: /workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr @/workspaces/bench-source/src/bar_codes/bar_codes_gnat.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/bar_codes: /workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/bar_codes: /workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr @/workspaces/bench-source/src/bar_codes/bar_codes_gnat.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/bar_codes: /workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [29/223] END
 echo [30/223] START
 cd "/workspaces/bench-source/src/basalt"
-echo "[START] process /workspaces/bench-source/src/basalt: /workspaces/bench-source/src/basalt/basalt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/basalt/basalt.gpr @/workspaces/bench-source/src/basalt/basalt.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/basalt: /workspaces/bench-source/src/basalt/basalt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/basalt: /workspaces/bench-source/src/basalt/basalt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/basalt/basalt.gpr @/workspaces/bench-source/src/basalt/basalt.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/basalt: /workspaces/bench-source/src/basalt/basalt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [30/223] END
 echo [31/223] START
 cd "/workspaces/bench-source/src/bbqueue"
-echo "[START] process /workspaces/bench-source/src/bbqueue: /workspaces/bench-source/src/bbqueue/bbqueue.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/bbqueue/bbqueue.gpr @/workspaces/bench-source/src/bbqueue/bbqueue.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/bbqueue: /workspaces/bench-source/src/bbqueue/bbqueue.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/bbqueue: /workspaces/bench-source/src/bbqueue/bbqueue.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/bbqueue/bbqueue.gpr @/workspaces/bench-source/src/bbqueue/bbqueue.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/bbqueue: /workspaces/bench-source/src/bbqueue/bbqueue.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [31/223] END
 echo [32/223] START
 cd "/workspaces/bench-source/src/bingada"
-echo "[START] process /workspaces/bench-source/src/bingada: /workspaces/bench-source/src/bingada/bingada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/bingada/bingada.gpr @/workspaces/bench-source/src/bingada/bingada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/bingada: /workspaces/bench-source/src/bingada/bingada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/bingada: /workspaces/bench-source/src/bingada/bingada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/bingada/bingada.gpr @/workspaces/bench-source/src/bingada/bingada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/bingada: /workspaces/bench-source/src/bingada/bingada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [32/223] END
 echo [33/223] START
 cd "/workspaces/bench-source/src/blake2s"
-echo "[START] process /workspaces/bench-source/src/blake2s: /workspaces/bench-source/src/blake2s/blake2s.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/blake2s/blake2s.gpr @/workspaces/bench-source/src/blake2s/blake2s.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/blake2s: /workspaces/bench-source/src/blake2s/blake2s.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/blake2s: /workspaces/bench-source/src/blake2s/blake2s.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/blake2s/blake2s.gpr @/workspaces/bench-source/src/blake2s/blake2s.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/blake2s: /workspaces/bench-source/src/blake2s/blake2s.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [33/223] END
 echo [34/223] START
 cd "/workspaces/bench-source/src/brackelib"
-echo "[START] process /workspaces/bench-source/src/brackelib: /workspaces/bench-source/src/brackelib/brackelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/brackelib/brackelib.gpr @/workspaces/bench-source/src/brackelib/brackelib.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/brackelib: /workspaces/bench-source/src/brackelib/brackelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/brackelib: /workspaces/bench-source/src/brackelib/brackelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/brackelib/brackelib.gpr @/workspaces/bench-source/src/brackelib/brackelib.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/brackelib: /workspaces/bench-source/src/brackelib/brackelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [34/223] END
 echo [35/223] START
 cd "/workspaces/bench-source/src/c_strings"
-echo "[START] process /workspaces/bench-source/src/c_strings: /workspaces/bench-source/src/c_strings/c_strings.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/c_strings/c_strings.gpr @/workspaces/bench-source/src/c_strings/c_strings.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/c_strings: /workspaces/bench-source/src/c_strings/c_strings.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/c_strings: /workspaces/bench-source/src/c_strings/c_strings.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/c_strings/c_strings.gpr @/workspaces/bench-source/src/c_strings/c_strings.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/c_strings: /workspaces/bench-source/src/c_strings/c_strings.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [35/223] END
 echo [36/223] START
 cd "/workspaces/bench-source/src/canberra_ada"
-echo "[START] process /workspaces/bench-source/src/canberra_ada: /workspaces/bench-source/src/canberra_ada/canberra_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/canberra_ada/canberra_ada.gpr @/workspaces/bench-source/src/canberra_ada/canberra_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/canberra_ada: /workspaces/bench-source/src/canberra_ada/canberra_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/canberra_ada: /workspaces/bench-source/src/canberra_ada/canberra_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/canberra_ada/canberra_ada.gpr @/workspaces/bench-source/src/canberra_ada/canberra_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/canberra_ada: /workspaces/bench-source/src/canberra_ada/canberra_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [36/223] END
 echo [37/223] START
 cd "/workspaces/bench-source/src/cbsg"
-echo "[START] process /workspaces/bench-source/src/cbsg: /workspaces/bench-source/src/cbsg/cbsg.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/cbsg/cbsg.gpr @/workspaces/bench-source/src/cbsg/cbsg.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/cbsg: /workspaces/bench-source/src/cbsg/cbsg.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/cbsg: /workspaces/bench-source/src/cbsg/cbsg.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/cbsg/cbsg.gpr @/workspaces/bench-source/src/cbsg/cbsg.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/cbsg: /workspaces/bench-source/src/cbsg/cbsg.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [37/223] END
 echo [38/223] START
 cd "/workspaces/bench-source/src/chacha20"
-echo "[START] process /workspaces/bench-source/src/chacha20: /workspaces/bench-source/src/chacha20/chacha20.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/chacha20/chacha20.gpr @/workspaces/bench-source/src/chacha20/chacha20.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/chacha20: /workspaces/bench-source/src/chacha20/chacha20.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/chacha20: /workspaces/bench-source/src/chacha20/chacha20.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/chacha20/chacha20.gpr @/workspaces/bench-source/src/chacha20/chacha20.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/chacha20: /workspaces/bench-source/src/chacha20/chacha20.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [38/223] END
 echo [39/223] START
 cd "/workspaces/bench-source/src/chests"
-echo "[START] process /workspaces/bench-source/src/chests: /workspaces/bench-source/src/chests/chests.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/chests/chests.gpr @/workspaces/bench-source/src/chests/chests.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/chests: /workspaces/bench-source/src/chests/chests.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/chests: /workspaces/bench-source/src/chests/chests.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/chests/chests.gpr @/workspaces/bench-source/src/chests/chests.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/chests: /workspaces/bench-source/src/chests/chests.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [39/223] END
 echo [40/223] START
 cd "/workspaces/bench-source/src/clic"
-echo "[START] process /workspaces/bench-source/src/clic: /workspaces/bench-source/src/clic/clic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/clic/clic.gpr @/workspaces/bench-source/src/clic/clic.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/clic: /workspaces/bench-source/src/clic/clic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/clic: /workspaces/bench-source/src/clic/clic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/clic/clic.gpr @/workspaces/bench-source/src/clic/clic.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/clic: /workspaces/bench-source/src/clic/clic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [40/223] END
 echo [41/223] START
 cd "/workspaces/bench-source/src/cmd_ada"
-echo "[START] process /workspaces/bench-source/src/cmd_ada: /workspaces/bench-source/src/cmd_ada/cmd_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/cmd_ada/cmd_ada.gpr @/workspaces/bench-source/src/cmd_ada/cmd_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/cmd_ada: /workspaces/bench-source/src/cmd_ada/cmd_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/cmd_ada: /workspaces/bench-source/src/cmd_ada/cmd_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/cmd_ada/cmd_ada.gpr @/workspaces/bench-source/src/cmd_ada/cmd_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/cmd_ada: /workspaces/bench-source/src/cmd_ada/cmd_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [41/223] END
 echo [42/223] START
 cd "/workspaces/bench-source/src/cobs"
-echo "[START] process /workspaces/bench-source/src/cobs: /workspaces/bench-source/src/cobs/cobs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/cobs/cobs.gpr @/workspaces/bench-source/src/cobs/cobs.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/cobs: /workspaces/bench-source/src/cobs/cobs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/cobs: /workspaces/bench-source/src/cobs/cobs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/cobs/cobs.gpr @/workspaces/bench-source/src/cobs/cobs.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/cobs: /workspaces/bench-source/src/cobs/cobs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [42/223] END
 echo [43/223] START
 cd "/workspaces/bench-source/src/dashera"
-echo "[START] process /workspaces/bench-source/src/dashera: /workspaces/bench-source/src/dashera/dashera.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dashera/dashera.gpr @/workspaces/bench-source/src/dashera/dashera.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/dashera: /workspaces/bench-source/src/dashera/dashera.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/dashera: /workspaces/bench-source/src/dashera/dashera.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dashera/dashera.gpr @/workspaces/bench-source/src/dashera/dashera.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/dashera: /workspaces/bench-source/src/dashera/dashera.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [43/223] END
 echo [44/223] START
 cd "/workspaces/bench-source/src/dcf"
-echo "[START] process /workspaces/bench-source/src/dcf: /workspaces/bench-source/src/dcf/dcf/dcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dcf/dcf/dcf.gpr @/workspaces/bench-source/src/dcf/dcf/dcf.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/dcf: /workspaces/bench-source/src/dcf/dcf/dcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/dcf: /workspaces/bench-source/src/dcf/dcf/dcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dcf/dcf/dcf.gpr @/workspaces/bench-source/src/dcf/dcf/dcf.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/dcf: /workspaces/bench-source/src/dcf/dcf/dcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [44/223] END
 echo [45/223] START
 cd "/workspaces/bench-source/src/dcf/zipdcf"
-echo "[START] process /workspaces/bench-source/src/dcf/zipdcf: /workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr @/workspaces/bench-source/src/dcf/zipdcf/zipdcf.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/dcf/zipdcf: /workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/dcf/zipdcf: /workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr @/workspaces/bench-source/src/dcf/zipdcf/zipdcf.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/dcf/zipdcf: /workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [45/223] END
 echo [46/223] START
 cd "/workspaces/bench-source/src/dg_loada"
-echo "[START] process /workspaces/bench-source/src/dg_loada: /workspaces/bench-source/src/dg_loada/dg_loada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dg_loada/dg_loada.gpr @/workspaces/bench-source/src/dg_loada/dg_loada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/dg_loada: /workspaces/bench-source/src/dg_loada/dg_loada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/dg_loada: /workspaces/bench-source/src/dg_loada/dg_loada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dg_loada/dg_loada.gpr @/workspaces/bench-source/src/dg_loada/dg_loada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/dg_loada: /workspaces/bench-source/src/dg_loada/dg_loada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [46/223] END
 echo [47/223] START
 cd "/workspaces/bench-source/src/dir_iterators"
-echo "[START] process /workspaces/bench-source/src/dir_iterators: /workspaces/bench-source/src/dir_iterators/dir_iterators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dir_iterators/dir_iterators.gpr @/workspaces/bench-source/src/dir_iterators/dir_iterators.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/dir_iterators: /workspaces/bench-source/src/dir_iterators/dir_iterators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/dir_iterators: /workspaces/bench-source/src/dir_iterators/dir_iterators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dir_iterators/dir_iterators.gpr @/workspaces/bench-source/src/dir_iterators/dir_iterators.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/dir_iterators: /workspaces/bench-source/src/dir_iterators/dir_iterators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [47/223] END
 echo [48/223] START
 cd "/workspaces/bench-source/src/dotenv"
-echo "[START] process /workspaces/bench-source/src/dotenv: /workspaces/bench-source/src/dotenv/dotenv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dotenv/dotenv.gpr @/workspaces/bench-source/src/dotenv/dotenv.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/dotenv: /workspaces/bench-source/src/dotenv/dotenv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/dotenv: /workspaces/bench-source/src/dotenv/dotenv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/dotenv/dotenv.gpr @/workspaces/bench-source/src/dotenv/dotenv.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/dotenv: /workspaces/bench-source/src/dotenv/dotenv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [48/223] END
 echo [49/223] START
 cd "/workspaces/bench-source/src/eagle_lander"
-echo "[START] process /workspaces/bench-source/src/eagle_lander: /workspaces/bench-source/src/eagle_lander/eagle_lander.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/eagle_lander/eagle_lander.gpr @/workspaces/bench-source/src/eagle_lander/eagle_lander.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/eagle_lander: /workspaces/bench-source/src/eagle_lander/eagle_lander.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/eagle_lander: /workspaces/bench-source/src/eagle_lander/eagle_lander.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/eagle_lander/eagle_lander.gpr @/workspaces/bench-source/src/eagle_lander/eagle_lander.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/eagle_lander: /workspaces/bench-source/src/eagle_lander/eagle_lander.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [49/223] END
 echo [50/223] START
 cd "/workspaces/bench-source/src/edc_client"
-echo "[START] process /workspaces/bench-source/src/edc_client: /workspaces/bench-source/src/edc_client/edc_client.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/edc_client/edc_client.gpr @/workspaces/bench-source/src/edc_client/edc_client.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/edc_client: /workspaces/bench-source/src/edc_client/edc_client.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/edc_client: /workspaces/bench-source/src/edc_client/edc_client.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/edc_client/edc_client.gpr @/workspaces/bench-source/src/edc_client/edc_client.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/edc_client: /workspaces/bench-source/src/edc_client/edc_client.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [50/223] END
 echo [51/223] START
 cd "/workspaces/bench-source/src/eeprom_i2c"
-echo "[START] process /workspaces/bench-source/src/eeprom_i2c: /workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr @/workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/eeprom_i2c: /workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/eeprom_i2c: /workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr @/workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/eeprom_i2c: /workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [51/223] END
 echo [52/223] START
 cd "/workspaces/bench-source/src/elevator"
-echo "[START] process /workspaces/bench-source/src/elevator: /workspaces/bench-source/src/elevator/elevator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/elevator/elevator.gpr @/workspaces/bench-source/src/elevator/elevator.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/elevator: /workspaces/bench-source/src/elevator/elevator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/elevator: /workspaces/bench-source/src/elevator/elevator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/elevator/elevator.gpr @/workspaces/bench-source/src/elevator/elevator.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/elevator: /workspaces/bench-source/src/elevator/elevator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [52/223] END
 echo [53/223] START
 cd "/workspaces/bench-source/src/emacs_gpr_query"
-echo "[START] process /workspaces/bench-source/src/emacs_gpr_query: /workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr @/workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/emacs_gpr_query: /workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/emacs_gpr_query: /workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr @/workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/emacs_gpr_query: /workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [53/223] END
 echo [54/223] START
 cd "/workspaces/bench-source/src/emojis"
-echo "[START] process /workspaces/bench-source/src/emojis: /workspaces/bench-source/src/emojis/emojis.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/emojis/emojis.gpr @/workspaces/bench-source/src/emojis/emojis.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/emojis: /workspaces/bench-source/src/emojis/emojis.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/emojis: /workspaces/bench-source/src/emojis/emojis.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/emojis/emojis.gpr @/workspaces/bench-source/src/emojis/emojis.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/emojis: /workspaces/bench-source/src/emojis/emojis.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [54/223] END
 echo [55/223] START
 cd "/workspaces/bench-source/src/endianness"
-echo "[START] process /workspaces/bench-source/src/endianness: /workspaces/bench-source/src/endianness/endianness.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/endianness/endianness.gpr @/workspaces/bench-source/src/endianness/endianness.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/endianness: /workspaces/bench-source/src/endianness/endianness.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/endianness: /workspaces/bench-source/src/endianness/endianness.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/endianness/endianness.gpr @/workspaces/bench-source/src/endianness/endianness.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/endianness: /workspaces/bench-source/src/endianness/endianness.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [55/223] END
 echo [56/223] START
 cd "/workspaces/bench-source/src/epoll"
-echo "[START] process /workspaces/bench-source/src/epoll: /workspaces/bench-source/src/epoll/epoll.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/epoll/epoll.gpr @/workspaces/bench-source/src/epoll/epoll.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/epoll: /workspaces/bench-source/src/epoll/epoll.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/epoll: /workspaces/bench-source/src/epoll/epoll.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/epoll/epoll.gpr @/workspaces/bench-source/src/epoll/epoll.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/epoll: /workspaces/bench-source/src/epoll/epoll.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [56/223] END
 echo [57/223] START
 cd "/workspaces/bench-source/src/esp_idf"
-echo "[START] process /workspaces/bench-source/src/esp_idf: /workspaces/bench-source/src/esp_idf/esp_idf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/esp_idf/esp_idf.gpr @/workspaces/bench-source/src/esp_idf/esp_idf.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/esp_idf: /workspaces/bench-source/src/esp_idf/esp_idf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/esp_idf: /workspaces/bench-source/src/esp_idf/esp_idf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/esp_idf/esp_idf.gpr @/workspaces/bench-source/src/esp_idf/esp_idf.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/esp_idf: /workspaces/bench-source/src/esp_idf/esp_idf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [57/223] END
 echo [58/223] START
 cd "/workspaces/bench-source/src/euler_tools"
-echo "[START] process /workspaces/bench-source/src/euler_tools: /workspaces/bench-source/src/euler_tools/euler_tools.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/euler_tools/euler_tools.gpr @/workspaces/bench-source/src/euler_tools/euler_tools.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/euler_tools: /workspaces/bench-source/src/euler_tools/euler_tools.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/euler_tools: /workspaces/bench-source/src/euler_tools/euler_tools.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/euler_tools/euler_tools.gpr @/workspaces/bench-source/src/euler_tools/euler_tools.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/euler_tools: /workspaces/bench-source/src/euler_tools/euler_tools.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [58/223] END
 echo [59/223] START
 cd "/workspaces/bench-source/src/ews"
-echo "[START] process /workspaces/bench-source/src/ews: /workspaces/bench-source/src/ews/ews.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ews/ews.gpr @/workspaces/bench-source/src/ews/ews.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ews: /workspaces/bench-source/src/ews/ews.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ews: /workspaces/bench-source/src/ews/ews.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ews/ews.gpr @/workspaces/bench-source/src/ews/ews.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ews: /workspaces/bench-source/src/ews/ews.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [59/223] END
 echo [60/223] START
 cd "/workspaces/bench-source/src/excel_writer"
-echo "[START] process /workspaces/bench-source/src/excel_writer: /workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr @/workspaces/bench-source/src/excel_writer/excel_out_gnat.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/excel_writer: /workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/excel_writer: /workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr @/workspaces/bench-source/src/excel_writer/excel_out_gnat.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/excel_writer: /workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [60/223] END
 echo [61/223] START
 cd "/workspaces/bench-source/src/fastpbkdf2_ada"
-echo "[START] process /workspaces/bench-source/src/fastpbkdf2_ada: /workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr @/workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/fastpbkdf2_ada: /workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/fastpbkdf2_ada: /workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr @/workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/fastpbkdf2_ada: /workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [61/223] END
 echo [62/223] START
 cd "/workspaces/bench-source/src/felix"
-echo "[START] process /workspaces/bench-source/src/felix: /workspaces/bench-source/src/felix/felix.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/felix/felix.gpr @/workspaces/bench-source/src/felix/felix.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/felix: /workspaces/bench-source/src/felix/felix.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/felix: /workspaces/bench-source/src/felix/felix.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/felix/felix.gpr @/workspaces/bench-source/src/felix/felix.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/felix: /workspaces/bench-source/src/felix/felix.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [62/223] END
 echo [63/223] START
 cd "/workspaces/bench-source/src/freetypeada"
-echo "[START] process /workspaces/bench-source/src/freetypeada: /workspaces/bench-source/src/freetypeada/freetype.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/freetypeada/freetype.gpr @/workspaces/bench-source/src/freetypeada/freetype.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/freetypeada: /workspaces/bench-source/src/freetypeada/freetype.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/freetypeada: /workspaces/bench-source/src/freetypeada/freetype.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/freetypeada/freetype.gpr @/workspaces/bench-source/src/freetypeada/freetype.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/freetypeada: /workspaces/bench-source/src/freetypeada/freetype.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [63/223] END
 echo [64/223] START
 cd "/workspaces/bench-source/src/garlic"
-echo "[START] process /workspaces/bench-source/src/garlic: /workspaces/bench-source/src/garlic/gnat/garlic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/garlic/gnat/garlic.gpr @/workspaces/bench-source/src/garlic/gnat/garlic.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/garlic: /workspaces/bench-source/src/garlic/gnat/garlic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/garlic: /workspaces/bench-source/src/garlic/gnat/garlic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/garlic/gnat/garlic.gpr @/workspaces/bench-source/src/garlic/gnat/garlic.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/garlic: /workspaces/bench-source/src/garlic/gnat/garlic.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [64/223] END
 echo [65/223] START
 cd "/workspaces/bench-source/src/garlic/Dist"
-echo "[START] process /workspaces/bench-source/src/garlic/Dist: /workspaces/bench-source/src/garlic/gnat/gnatdist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/garlic/gnat/gnatdist.gpr @/workspaces/bench-source/src/garlic/gnat/gnatdist.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/garlic/Dist: /workspaces/bench-source/src/garlic/gnat/gnatdist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/garlic/Dist: /workspaces/bench-source/src/garlic/gnat/gnatdist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/garlic/gnat/gnatdist.gpr @/workspaces/bench-source/src/garlic/gnat/gnatdist.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/garlic/Dist: /workspaces/bench-source/src/garlic/gnat/gnatdist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [65/223] END
 echo [66/223] START
 cd "/workspaces/bench-source/src/geo_coords"
-echo "[START] process /workspaces/bench-source/src/geo_coords: /workspaces/bench-source/src/geo_coords/geo_coords.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/geo_coords/geo_coords.gpr @/workspaces/bench-source/src/geo_coords/geo_coords.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/geo_coords: /workspaces/bench-source/src/geo_coords/geo_coords.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/geo_coords: /workspaces/bench-source/src/geo_coords/geo_coords.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/geo_coords/geo_coords.gpr @/workspaces/bench-source/src/geo_coords/geo_coords.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/geo_coords: /workspaces/bench-source/src/geo_coords/geo_coords.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [66/223] END
 echo [67/223] START
 cd "/workspaces/bench-source/src/get_password"
-echo "[START] process /workspaces/bench-source/src/get_password: /workspaces/bench-source/src/get_password/get_password.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/get_password/get_password.gpr @/workspaces/bench-source/src/get_password/get_password.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/get_password: /workspaces/bench-source/src/get_password/get_password.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/get_password: /workspaces/bench-source/src/get_password/get_password.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/get_password/get_password.gpr @/workspaces/bench-source/src/get_password/get_password.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/get_password: /workspaces/bench-source/src/get_password/get_password.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [67/223] END
 echo [68/223] START
 cd "/workspaces/bench-source/src/getopt"
-echo "[START] process /workspaces/bench-source/src/getopt: /workspaces/bench-source/src/getopt/getopt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/getopt/getopt.gpr @/workspaces/bench-source/src/getopt/getopt.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/getopt: /workspaces/bench-source/src/getopt/getopt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/getopt: /workspaces/bench-source/src/getopt/getopt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/getopt/getopt.gpr @/workspaces/bench-source/src/getopt/getopt.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/getopt: /workspaces/bench-source/src/getopt/getopt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [68/223] END
 echo [69/223] START
 cd "/workspaces/bench-source/src/gid"
-echo "[START] process /workspaces/bench-source/src/gid: /workspaces/bench-source/src/gid/gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gid/gid.gpr @/workspaces/bench-source/src/gid/gid.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gid: /workspaces/bench-source/src/gid/gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gid: /workspaces/bench-source/src/gid/gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gid/gid.gpr @/workspaces/bench-source/src/gid/gid.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gid: /workspaces/bench-source/src/gid/gid.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [69/223] END
 echo [70/223] START
 cd "/workspaces/bench-source/src/gnat_math_extensions"
-echo "[START] process /workspaces/bench-source/src/gnat_math_extensions: /workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr @/workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnat_math_extensions: /workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnat_math_extensions: /workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr @/workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnat_math_extensions: /workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [70/223] END
 echo [71/223] START
 cd "/workspaces/bench-source/src/gnatcoll-bindings/iconv"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/iconv: /workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr @/workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/iconv: /workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/iconv: /workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr @/workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/iconv: /workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [71/223] END
 echo [72/223] START
 cd "/workspaces/bench-source/src/gnatcoll-bindings/lzma"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/lzma: /workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr @/workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/lzma: /workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/lzma: /workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr @/workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/lzma: /workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [72/223] END
 echo [73/223] START
 cd "/workspaces/bench-source/src/gnatcoll-bindings/omp"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/omp: /workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr @/workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/omp: /workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/omp: /workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr @/workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/omp: /workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [73/223] END
 echo [74/223] START
 cd "/workspaces/bench-source/src/gnatcoll-bindings/python"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/python: /workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr @/workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/python: /workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/python: /workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr @/workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/python: /workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [74/223] END
 echo [75/223] START
 cd "/workspaces/bench-source/src/gnatcoll-bindings/readline"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/readline: /workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr @/workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/readline: /workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/readline: /workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr @/workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/readline: /workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [75/223] END
 echo [76/223] START
 cd "/workspaces/bench-source/src/gnatcoll-bindings/zlib"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/zlib: /workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr @/workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/zlib: /workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-bindings/zlib: /workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr @/workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-bindings/zlib: /workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [76/223] END
 echo [77/223] START
 cd "/workspaces/bench-source/src/gnatcoll-db/postgres"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-db/postgres: /workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr @/workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-db/postgres: /workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-db/postgres: /workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr @/workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-db/postgres: /workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [77/223] END
 echo [78/223] START
 cd "/workspaces/bench-source/src/gnatcoll-db/sqlite"
-echo "[START] process /workspaces/bench-source/src/gnatcoll-db/sqlite: /workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr @/workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gnatcoll-db/sqlite: /workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gnatcoll-db/sqlite: /workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr @/workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gnatcoll-db/sqlite: /workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [78/223] END
 echo [79/223] START
 cd "/workspaces/bench-source/src/gpr_unit_provider"
-echo "[START] process /workspaces/bench-source/src/gpr_unit_provider: /workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr @/workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gpr_unit_provider: /workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gpr_unit_provider: /workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr @/workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gpr_unit_provider: /workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [79/223] END
 echo [80/223] START
 cd "/workspaces/bench-source/src/gprbuild"
-echo "[START] process /workspaces/bench-source/src/gprbuild: /workspaces/bench-source/src/gprbuild/gpr/gpr.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gprbuild/gpr/gpr.gpr @/workspaces/bench-source/src/gprbuild/gpr/gpr.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gprbuild: /workspaces/bench-source/src/gprbuild/gpr/gpr.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gprbuild: /workspaces/bench-source/src/gprbuild/gpr/gpr.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gprbuild/gpr/gpr.gpr @/workspaces/bench-source/src/gprbuild/gpr/gpr.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gprbuild: /workspaces/bench-source/src/gprbuild/gpr/gpr.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [80/223] END
 echo [81/223] START
 cd "/workspaces/bench-source/src/gtkada"
-echo "[START] process /workspaces/bench-source/src/gtkada: /workspaces/bench-source/src/gtkada/src/gtkada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gtkada/src/gtkada.gpr @/workspaces/bench-source/src/gtkada/src/gtkada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/gtkada: /workspaces/bench-source/src/gtkada/src/gtkada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/gtkada: /workspaces/bench-source/src/gtkada/src/gtkada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/gtkada/src/gtkada.gpr @/workspaces/bench-source/src/gtkada/src/gtkada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/gtkada: /workspaces/bench-source/src/gtkada/src/gtkada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [81/223] END
 echo [82/223] START
 cd "/workspaces/bench-source/src/hac"
-echo "[START] process /workspaces/bench-source/src/hac: /workspaces/bench-source/src/hac/hac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hac/hac.gpr @/workspaces/bench-source/src/hac/hac.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/hac: /workspaces/bench-source/src/hac/hac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/hac: /workspaces/bench-source/src/hac/hac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hac/hac.gpr @/workspaces/bench-source/src/hac/hac.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/hac: /workspaces/bench-source/src/hac/hac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [82/223] END
 echo [83/223] START
 cd "/workspaces/bench-source/src/hal"
-echo "[START] process /workspaces/bench-source/src/hal: /workspaces/bench-source/src/hal/hal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hal/hal.gpr @/workspaces/bench-source/src/hal/hal.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/hal: /workspaces/bench-source/src/hal/hal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/hal: /workspaces/bench-source/src/hal/hal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hal/hal.gpr @/workspaces/bench-source/src/hal/hal.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/hal: /workspaces/bench-source/src/hal/hal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [83/223] END
 echo [84/223] START
 cd "/workspaces/bench-source/src/hangman"
-echo "[START] process /workspaces/bench-source/src/hangman: /workspaces/bench-source/src/hangman/hangman.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hangman/hangman.gpr @/workspaces/bench-source/src/hangman/hangman.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/hangman: /workspaces/bench-source/src/hangman/hangman.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/hangman: /workspaces/bench-source/src/hangman/hangman.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hangman/hangman.gpr @/workspaces/bench-source/src/hangman/hangman.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/hangman: /workspaces/bench-source/src/hangman/hangman.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [84/223] END
 echo [85/223] START
 cd "/workspaces/bench-source/src/hello"
-echo "[START] process /workspaces/bench-source/src/hello: /workspaces/bench-source/src/hello/hello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hello/hello.gpr @/workspaces/bench-source/src/hello/hello.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/hello: /workspaces/bench-source/src/hello/hello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/hello: /workspaces/bench-source/src/hello/hello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hello/hello.gpr @/workspaces/bench-source/src/hello/hello.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/hello: /workspaces/bench-source/src/hello/hello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [85/223] END
 echo [86/223] START
 cd "/workspaces/bench-source/src/hmac"
-echo "[START] process /workspaces/bench-source/src/hmac: /workspaces/bench-source/src/hmac/hmac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hmac/hmac.gpr @/workspaces/bench-source/src/hmac/hmac.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/hmac: /workspaces/bench-source/src/hmac/hmac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/hmac: /workspaces/bench-source/src/hmac/hmac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hmac/hmac.gpr @/workspaces/bench-source/src/hmac/hmac.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/hmac: /workspaces/bench-source/src/hmac/hmac.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [86/223] END
 echo [87/223] START
 cd "/workspaces/bench-source/src/hungarian"
-echo "[START] process /workspaces/bench-source/src/hungarian: /workspaces/bench-source/src/hungarian/hungarian.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hungarian/hungarian.gpr @/workspaces/bench-source/src/hungarian/hungarian.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/hungarian: /workspaces/bench-source/src/hungarian/hungarian.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/hungarian: /workspaces/bench-source/src/hungarian/hungarian.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/hungarian/hungarian.gpr @/workspaces/bench-source/src/hungarian/hungarian.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/hungarian: /workspaces/bench-source/src/hungarian/hungarian.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [87/223] END
 echo [88/223] START
 cd "/workspaces/bench-source/src/ini_files"
-echo "[START] process /workspaces/bench-source/src/ini_files: /workspaces/bench-source/src/ini_files/ini_files.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ini_files/ini_files.gpr @/workspaces/bench-source/src/ini_files/ini_files.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/ini_files: /workspaces/bench-source/src/ini_files/ini_files.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/ini_files: /workspaces/bench-source/src/ini_files/ini_files.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/ini_files/ini_files.gpr @/workspaces/bench-source/src/ini_files/ini_files.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/ini_files: /workspaces/bench-source/src/ini_files/ini_files.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [88/223] END
 echo [89/223] START
 cd "/workspaces/bench-source/src/inotify"
-echo "[START] process /workspaces/bench-source/src/inotify: /workspaces/bench-source/src/inotify/monitor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/inotify/monitor.gpr @/workspaces/bench-source/src/inotify/monitor.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/inotify: /workspaces/bench-source/src/inotify/monitor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/inotify: /workspaces/bench-source/src/inotify/monitor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/inotify/monitor.gpr @/workspaces/bench-source/src/inotify/monitor.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/inotify: /workspaces/bench-source/src/inotify/monitor.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [89/223] END
 echo [90/223] START
 cd "/workspaces/bench-source/src/j2ada"
-echo "[START] process /workspaces/bench-source/src/j2ada: /workspaces/bench-source/src/j2ada/j2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/j2ada/j2ada.gpr @/workspaces/bench-source/src/j2ada/j2ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/j2ada: /workspaces/bench-source/src/j2ada/j2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/j2ada: /workspaces/bench-source/src/j2ada/j2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/j2ada/j2ada.gpr @/workspaces/bench-source/src/j2ada/j2ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/j2ada: /workspaces/bench-source/src/j2ada/j2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [90/223] END
 echo [91/223] START
 cd "/workspaces/bench-source/src/json/json"
-echo "[START] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json_pretty_print.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/json/json/json_pretty_print.gpr @/workspaces/bench-source/src/json/json/json_pretty_print.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json_pretty_print.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json_pretty_print.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/json/json/json_pretty_print.gpr @/workspaces/bench-source/src/json/json/json_pretty_print.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json_pretty_print.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [91/223] END
 echo [92/223] START
 cd "/workspaces/bench-source/src/json/json"
-echo "[START] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/json/json/json.gpr @/workspaces/bench-source/src/json/json/json.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/json/json/json.gpr @/workspaces/bench-source/src/json/json/json.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/json/json: /workspaces/bench-source/src/json/json/json.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [92/223] END
 echo [93/223] START
 cd "/workspaces/bench-source/src/jupyter_kernel"
-echo "[START] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr @/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr @/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [93/223] END
 echo [94/223] START
 cd "/workspaces/bench-source/src/jupyter_kernel"
-echo "[START] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr @/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr @/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/jupyter_kernel: /workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [94/223] END
 echo [95/223] START
 cd "/workspaces/bench-source/src/jwt"
-echo "[START] process /workspaces/bench-source/src/jwt: /workspaces/bench-source/src/jwt/gnat/jwt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/jwt/gnat/jwt.gpr @/workspaces/bench-source/src/jwt/gnat/jwt.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/jwt: /workspaces/bench-source/src/jwt/gnat/jwt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/jwt: /workspaces/bench-source/src/jwt/gnat/jwt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/jwt/gnat/jwt.gpr @/workspaces/bench-source/src/jwt/gnat/jwt.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/jwt: /workspaces/bench-source/src/jwt/gnat/jwt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [95/223] END
 echo [96/223] START
 cd "/workspaces/bench-source/src/labs_radar"
-echo "[START] process /workspaces/bench-source/src/labs_radar: /workspaces/bench-source/src/labs_radar/labs_radar.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/labs_radar/labs_radar.gpr @/workspaces/bench-source/src/labs_radar/labs_radar.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/labs_radar: /workspaces/bench-source/src/labs_radar/labs_radar.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/labs_radar: /workspaces/bench-source/src/labs_radar/labs_radar.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/labs_radar/labs_radar.gpr @/workspaces/bench-source/src/labs_radar/labs_radar.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/labs_radar: /workspaces/bench-source/src/labs_radar/labs_radar.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [96/223] END
 echo [97/223] START
 cd "/workspaces/bench-source/src/labs_radar/labs_standalone"
-echo "[START] process /workspaces/bench-source/src/labs_radar/labs_standalone: /workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr @/workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/labs_radar/labs_standalone: /workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/labs_radar/labs_standalone: /workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr @/workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/labs_radar/labs_standalone: /workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [97/223] END
 echo [98/223] START
 cd "/workspaces/bench-source/src/lace"
-echo "[START] process /workspaces/bench-source/src/lace: /workspaces/bench-source/src/lace/library/lace.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/library/lace.gpr @/workspaces/bench-source/src/lace/library/lace.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace: /workspaces/bench-source/src/lace/library/lace.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace: /workspaces/bench-source/src/lace/library/lace.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/library/lace.gpr @/workspaces/bench-source/src/lace/library/lace.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace: /workspaces/bench-source/src/lace/library/lace.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [98/223] END
 echo [99/223] START
 cd "/workspaces/bench-source/src/lace_box2d"
-echo "[START] process /workspaces/bench-source/src/lace_box2d: /workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr @/workspaces/bench-source/src/lace_box2d/library/box2d_thin.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace_box2d: /workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace_box2d: /workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr @/workspaces/bench-source/src/lace_box2d/library/box2d_thin.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace_box2d: /workspaces/bench-source/src/lace_box2d/library/box2d_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [99/223] END
 echo [100/223] START
 cd "/workspaces/bench-source/src/lace_bullet"
-echo "[START] process /workspaces/bench-source/src/lace_bullet: /workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr @/workspaces/bench-source/src/lace_bullet/library/bullet_thin.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace_bullet: /workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace_bullet: /workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr @/workspaces/bench-source/src/lace_bullet/library/bullet_thin.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace_bullet: /workspaces/bench-source/src/lace_bullet/library/bullet_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [100/223] END
 echo [101/223] START
 cd "/workspaces/bench-source/src/lace_c_math"
-echo "[START] process /workspaces/bench-source/src/lace_c_math: /workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr @/workspaces/bench-source/src/lace_c_math/library/c_math_thin.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace_c_math: /workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace_c_math: /workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr @/workspaces/bench-source/src/lace_c_math/library/c_math_thin.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace_c_math: /workspaces/bench-source/src/lace_c_math/library/c_math_thin.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [101/223] END
 echo [102/223] START
 cd "/workspaces/bench-source/src/lace_gel_animation_demo"
-echo "[START] process /workspaces/bench-source/src/lace_gel_animation_demo: /workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr @/workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace_gel_animation_demo: /workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace_gel_animation_demo: /workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr @/workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace_gel_animation_demo: /workspaces/bench-source/src/lace_gel_animation_demo/human_rig_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [102/223] END
 echo [103/223] START
 cd "/workspaces/bench-source/src/lace_gel_full_demo"
-echo "[START] process /workspaces/bench-source/src/lace_gel_full_demo: /workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr @/workspaces/bench-source/src/lace_gel_full_demo/full_demo.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace_gel_full_demo: /workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace_gel_full_demo: /workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr @/workspaces/bench-source/src/lace_gel_full_demo/full_demo.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace_gel_full_demo: /workspaces/bench-source/src/lace_gel_full_demo/full_demo.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [103/223] END
 echo [104/223] START
 cd "/workspaces/bench-source/src/lace/lace_collada"
-echo "[START] process /workspaces/bench-source/src/lace/lace_collada: /workspaces/bench-source/src/lace/lace_collada/library/collada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_collada/library/collada.gpr @/workspaces/bench-source/src/lace/lace_collada/library/collada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace/lace_collada: /workspaces/bench-source/src/lace/lace_collada/library/collada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace/lace_collada: /workspaces/bench-source/src/lace/lace_collada/library/collada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_collada/library/collada.gpr @/workspaces/bench-source/src/lace/lace_collada/library/collada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace/lace_collada: /workspaces/bench-source/src/lace/lace_collada/library/collada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [104/223] END
 echo [105/223] START
 cd "/workspaces/bench-source/src/lace/lace_math"
-echo "[START] process /workspaces/bench-source/src/lace/lace_math: /workspaces/bench-source/src/lace/lace_math/library/math.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_math/library/math.gpr @/workspaces/bench-source/src/lace/lace_math/library/math.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace/lace_math: /workspaces/bench-source/src/lace/lace_math/library/math.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace/lace_math: /workspaces/bench-source/src/lace/lace_math/library/math.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_math/library/math.gpr @/workspaces/bench-source/src/lace/lace_math/library/math.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace/lace_math: /workspaces/bench-source/src/lace/lace_math/library/math.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [105/223] END
 echo [106/223] START
 cd "/workspaces/bench-source/src/lace/lace_physics"
-echo "[START] process /workspaces/bench-source/src/lace/lace_physics: /workspaces/bench-source/src/lace/lace_physics/library/physics.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_physics/library/physics.gpr @/workspaces/bench-source/src/lace/lace_physics/library/physics.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace/lace_physics: /workspaces/bench-source/src/lace/lace_physics/library/physics.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace/lace_physics: /workspaces/bench-source/src/lace/lace_physics/library/physics.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_physics/library/physics.gpr @/workspaces/bench-source/src/lace/lace_physics/library/physics.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace/lace_physics: /workspaces/bench-source/src/lace/lace_physics/library/physics.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [106/223] END
 echo [107/223] START
 cd "/workspaces/bench-source/src/lace/lace_swig"
-echo "[START] process /workspaces/bench-source/src/lace/lace_swig: /workspaces/bench-source/src/lace/lace_swig/library/swig.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_swig/library/swig.gpr @/workspaces/bench-source/src/lace/lace_swig/library/swig.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace/lace_swig: /workspaces/bench-source/src/lace/lace_swig/library/swig.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace/lace_swig: /workspaces/bench-source/src/lace/lace_swig/library/swig.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_swig/library/swig.gpr @/workspaces/bench-source/src/lace/lace_swig/library/swig.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace/lace_swig: /workspaces/bench-source/src/lace/lace_swig/library/swig.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [107/223] END
 echo [108/223] START
 cd "/workspaces/bench-source/src/lace/lace_xml"
-echo "[START] process /workspaces/bench-source/src/lace/lace_xml: /workspaces/bench-source/src/lace/lace_xml/library/xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_xml/library/xml.gpr @/workspaces/bench-source/src/lace/lace_xml/library/xml.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lace/lace_xml: /workspaces/bench-source/src/lace/lace_xml/library/xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lace/lace_xml: /workspaces/bench-source/src/lace/lace_xml/library/xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lace/lace_xml/library/xml.gpr @/workspaces/bench-source/src/lace/lace_xml/library/xml.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lace/lace_xml: /workspaces/bench-source/src/lace/lace_xml/library/xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [108/223] END
 echo [109/223] START
 cd "/workspaces/bench-source/src/lal_highlight"
-echo "[START] process /workspaces/bench-source/src/lal_highlight: /workspaces/bench-source/src/lal_highlight/highlight.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lal_highlight/highlight.gpr @/workspaces/bench-source/src/lal_highlight/highlight.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lal_highlight: /workspaces/bench-source/src/lal_highlight/highlight.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lal_highlight: /workspaces/bench-source/src/lal_highlight/highlight.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lal_highlight/highlight.gpr @/workspaces/bench-source/src/lal_highlight/highlight.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lal_highlight: /workspaces/bench-source/src/lal_highlight/highlight.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [109/223] END
 echo [110/223] START
 cd "/workspaces/bench-source/src/langkit_support"
-echo "[START] process /workspaces/bench-source/src/langkit_support: /workspaces/bench-source/src/langkit_support/langkit_support.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/langkit_support/langkit_support.gpr @/workspaces/bench-source/src/langkit_support/langkit_support.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/langkit_support: /workspaces/bench-source/src/langkit_support/langkit_support.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/langkit_support: /workspaces/bench-source/src/langkit_support/langkit_support.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/langkit_support/langkit_support.gpr @/workspaces/bench-source/src/langkit_support/langkit_support.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/langkit_support: /workspaces/bench-source/src/langkit_support/langkit_support.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [110/223] END
 echo [111/223] START
 cd "/workspaces/bench-source/src/libadalang2xml"
-echo "[START] process /workspaces/bench-source/src/libadalang2xml: /workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr @/workspaces/bench-source/src/libadalang2xml/libadalang2xml.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/libadalang2xml: /workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/libadalang2xml: /workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr @/workspaces/bench-source/src/libadalang2xml/libadalang2xml.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/libadalang2xml: /workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [111/223] END
 echo [112/223] START
 cd "/workspaces/bench-source/src/libhello"
-echo "[START] process /workspaces/bench-source/src/libhello: /workspaces/bench-source/src/libhello/libhello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/libhello/libhello.gpr @/workspaces/bench-source/src/libhello/libhello.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/libhello: /workspaces/bench-source/src/libhello/libhello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/libhello: /workspaces/bench-source/src/libhello/libhello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/libhello/libhello.gpr @/workspaces/bench-source/src/libhello/libhello.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/libhello: /workspaces/bench-source/src/libhello/libhello.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [112/223] END
 echo [113/223] START
 cd "/workspaces/bench-source/src/libsimpleio"
-echo "[START] process /workspaces/bench-source/src/libsimpleio: /workspaces/bench-source/src/libsimpleio/libsimpleio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/libsimpleio/libsimpleio.gpr @/workspaces/bench-source/src/libsimpleio/libsimpleio.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/libsimpleio: /workspaces/bench-source/src/libsimpleio/libsimpleio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/libsimpleio: /workspaces/bench-source/src/libsimpleio/libsimpleio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/libsimpleio/libsimpleio.gpr @/workspaces/bench-source/src/libsimpleio/libsimpleio.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/libsimpleio: /workspaces/bench-source/src/libsimpleio/libsimpleio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [113/223] END
 echo [114/223] START
 cd "/workspaces/bench-source/src/linenoise_ada"
-echo "[START] process /workspaces/bench-source/src/linenoise_ada: /workspaces/bench-source/src/linenoise_ada/linenoise.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/linenoise_ada/linenoise.gpr @/workspaces/bench-source/src/linenoise_ada/linenoise.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/linenoise_ada: /workspaces/bench-source/src/linenoise_ada/linenoise.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/linenoise_ada: /workspaces/bench-source/src/linenoise_ada/linenoise.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/linenoise_ada/linenoise.gpr @/workspaces/bench-source/src/linenoise_ada/linenoise.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/linenoise_ada: /workspaces/bench-source/src/linenoise_ada/linenoise.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [114/223] END
 echo [115/223] START
 cd "/workspaces/bench-source/src/littlefs"
-echo "[START] process /workspaces/bench-source/src/littlefs: /workspaces/bench-source/src/littlefs/littlefs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/littlefs/littlefs.gpr @/workspaces/bench-source/src/littlefs/littlefs.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/littlefs: /workspaces/bench-source/src/littlefs/littlefs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/littlefs: /workspaces/bench-source/src/littlefs/littlefs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/littlefs/littlefs.gpr @/workspaces/bench-source/src/littlefs/littlefs.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/littlefs: /workspaces/bench-source/src/littlefs/littlefs.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [115/223] END
 echo [116/223] START
 cd "/workspaces/bench-source/src/lmdb_ada"
-echo "[START] process /workspaces/bench-source/src/lmdb_ada: /workspaces/bench-source/src/lmdb_ada/lmdb.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lmdb_ada/lmdb.gpr @/workspaces/bench-source/src/lmdb_ada/lmdb.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lmdb_ada: /workspaces/bench-source/src/lmdb_ada/lmdb.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lmdb_ada: /workspaces/bench-source/src/lmdb_ada/lmdb.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lmdb_ada/lmdb.gpr @/workspaces/bench-source/src/lmdb_ada/lmdb.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lmdb_ada: /workspaces/bench-source/src/lmdb_ada/lmdb.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [116/223] END
 echo [117/223] START
 cd "/workspaces/bench-source/src/loga"
-echo "[START] process /workspaces/bench-source/src/loga: /workspaces/bench-source/src/loga/loga.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/loga/loga.gpr @/workspaces/bench-source/src/loga/loga.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/loga: /workspaces/bench-source/src/loga/loga.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/loga: /workspaces/bench-source/src/loga/loga.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/loga/loga.gpr @/workspaces/bench-source/src/loga/loga.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/loga: /workspaces/bench-source/src/loga/loga.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [117/223] END
 echo [118/223] START
 cd "/workspaces/bench-source/src/lvgl_ada"
-echo "[START] process /workspaces/bench-source/src/lvgl_ada: /workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr @/workspaces/bench-source/src/lvgl_ada/lvgl_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lvgl_ada: /workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lvgl_ada: /workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr @/workspaces/bench-source/src/lvgl_ada/lvgl_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lvgl_ada: /workspaces/bench-source/src/lvgl_ada/lvgl_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [118/223] END
 echo [119/223] START
 cd "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator"
-echo "[START] process /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator: /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr @/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator: /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator: /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr @/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator: /workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [119/223] END
 echo [120/223] START
 cd "/workspaces/bench-source/src/mage"
-echo "[START] process /workspaces/bench-source/src/mage: /workspaces/bench-source/src/mage/mage.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mage/mage.gpr @/workspaces/bench-source/src/mage/mage.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/mage: /workspaces/bench-source/src/mage/mage.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/mage: /workspaces/bench-source/src/mage/mage.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mage/mage.gpr @/workspaces/bench-source/src/mage/mage.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/mage: /workspaces/bench-source/src/mage/mage.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [120/223] END
 echo [121/223] START
 cd "/workspaces/bench-source/src/mage_hat"
-echo "[START] process /workspaces/bench-source/src/mage_hat: /workspaces/bench-source/src/mage_hat/mage_hat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mage_hat/mage_hat.gpr @/workspaces/bench-source/src/mage_hat/mage_hat.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/mage_hat: /workspaces/bench-source/src/mage_hat/mage_hat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/mage_hat: /workspaces/bench-source/src/mage_hat/mage_hat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mage_hat/mage_hat.gpr @/workspaces/bench-source/src/mage_hat/mage_hat.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/mage_hat: /workspaces/bench-source/src/mage_hat/mage_hat.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [121/223] END
 echo [122/223] START
 cd "/workspaces/bench-source/src/mandelbrot_ascii"
-echo "[START] process /workspaces/bench-source/src/mandelbrot_ascii: /workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr @/workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/mandelbrot_ascii: /workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/mandelbrot_ascii: /workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr @/workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/mandelbrot_ascii: /workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [122/223] END
 echo [123/223] START
 cd "/workspaces/bench-source/src/markdown"
-echo "[START] process /workspaces/bench-source/src/markdown: /workspaces/bench-source/src/markdown/gnat/markdown.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/markdown/gnat/markdown.gpr @/workspaces/bench-source/src/markdown/gnat/markdown.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/markdown: /workspaces/bench-source/src/markdown/gnat/markdown.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/markdown: /workspaces/bench-source/src/markdown/gnat/markdown.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/markdown/gnat/markdown.gpr @/workspaces/bench-source/src/markdown/gnat/markdown.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/markdown: /workspaces/bench-source/src/markdown/gnat/markdown.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [123/223] END
 echo [124/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_amf.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_amf.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [124/223] END
 echo [125/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd: /workspaces/bench-source/src/matreshka/gnat/matreshka_amf_dd.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [125/223] END
 echo [126/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi: /workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi: /workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi: /workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi: /workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [126/223] END
 echo [127/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr @/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr @/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [127/223] END
 echo [128/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet: /workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet: /workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet: /workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet: /workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [128/223] END
 echo [129/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_soap.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_soap.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [129/223] END
 echo [130/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse: /workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [130/223] END
 echo [131/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [131/223] END
 echo [132/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core: /workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [132/223] END
 echo [133/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [133/223] END
 echo [134/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_firebird.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [134/223] END
 echo [135/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_mysql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [135/223] END
 echo [136/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_postgresql.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [136/223] END
 echo [137/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr @/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3: /workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [137/223] END
 echo [138/223] START
 cd "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml"
-echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr @/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr @/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml: /workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [138/223] END
 echo [139/223] START
 cd "/workspaces/bench-source/src/mcp2221"
-echo "[START] process /workspaces/bench-source/src/mcp2221: /workspaces/bench-source/src/mcp2221/mcp2221.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mcp2221/mcp2221.gpr @/workspaces/bench-source/src/mcp2221/mcp2221.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/mcp2221: /workspaces/bench-source/src/mcp2221/mcp2221.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/mcp2221: /workspaces/bench-source/src/mcp2221/mcp2221.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/mcp2221/mcp2221.gpr @/workspaces/bench-source/src/mcp2221/mcp2221.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/mcp2221: /workspaces/bench-source/src/mcp2221/mcp2221.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [139/223] END
 echo [140/223] START
 cd "/workspaces/bench-source/src/midi"
-echo "[START] process /workspaces/bench-source/src/midi: /workspaces/bench-source/src/midi/midi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/midi/midi.gpr @/workspaces/bench-source/src/midi/midi.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/midi: /workspaces/bench-source/src/midi/midi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/midi: /workspaces/bench-source/src/midi/midi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/midi/midi.gpr @/workspaces/bench-source/src/midi/midi.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/midi: /workspaces/bench-source/src/midi/midi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [140/223] END
 echo [141/223] START
 cd "/workspaces/bench-source/src/minirest"
-echo "[START] process /workspaces/bench-source/src/minirest: /workspaces/bench-source/src/minirest/minirest.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/minirest/minirest.gpr @/workspaces/bench-source/src/minirest/minirest.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/minirest: /workspaces/bench-source/src/minirest/minirest.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/minirest: /workspaces/bench-source/src/minirest/minirest.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/minirest/minirest.gpr @/workspaces/bench-source/src/minirest/minirest.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/minirest: /workspaces/bench-source/src/minirest/minirest.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [141/223] END
 echo [142/223] START
 cd "/workspaces/bench-source/src/openglada"
-echo "[START] process /workspaces/bench-source/src/openglada: /workspaces/bench-source/src/openglada/opengl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada/opengl.gpr @/workspaces/bench-source/src/openglada/opengl.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/openglada: /workspaces/bench-source/src/openglada/opengl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/openglada: /workspaces/bench-source/src/openglada/opengl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada/opengl.gpr @/workspaces/bench-source/src/openglada/opengl.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/openglada: /workspaces/bench-source/src/openglada/opengl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [142/223] END
 echo [143/223] START
 cd "/workspaces/bench-source/src/openglada_glfw"
-echo "[START] process /workspaces/bench-source/src/openglada_glfw: /workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr @/workspaces/bench-source/src/openglada_glfw/opengl-glfw.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/openglada_glfw: /workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/openglada_glfw: /workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr @/workspaces/bench-source/src/openglada_glfw/opengl-glfw.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/openglada_glfw: /workspaces/bench-source/src/openglada_glfw/opengl-glfw.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [143/223] END
 echo [144/223] START
 cd "/workspaces/bench-source/src/openglada_images"
-echo "[START] process /workspaces/bench-source/src/openglada_images: /workspaces/bench-source/src/openglada_images/opengl-images.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada_images/opengl-images.gpr @/workspaces/bench-source/src/openglada_images/opengl-images.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/openglada_images: /workspaces/bench-source/src/openglada_images/opengl-images.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/openglada_images: /workspaces/bench-source/src/openglada_images/opengl-images.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada_images/opengl-images.gpr @/workspaces/bench-source/src/openglada_images/opengl-images.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/openglada_images: /workspaces/bench-source/src/openglada_images/opengl-images.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [144/223] END
 echo [145/223] START
 cd "/workspaces/bench-source/src/openglada/openglada_text"
-echo "[START] process /workspaces/bench-source/src/openglada/openglada_text: /workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr @/workspaces/bench-source/src/openglada/openglada_text/opengl-text.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/openglada/openglada_text: /workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/openglada/openglada_text: /workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr @/workspaces/bench-source/src/openglada/openglada_text/opengl-text.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/openglada/openglada_text: /workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [145/223] END
 echo [146/223] START
 cd "/workspaces/bench-source/src/optional"
-echo "[START] process /workspaces/bench-source/src/optional: /workspaces/bench-source/src/optional/optional.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/optional/optional.gpr @/workspaces/bench-source/src/optional/optional.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/optional: /workspaces/bench-source/src/optional/optional.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/optional: /workspaces/bench-source/src/optional/optional.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/optional/optional.gpr @/workspaces/bench-source/src/optional/optional.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/optional: /workspaces/bench-source/src/optional/optional.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [146/223] END
 echo [147/223] START
 cd "/workspaces/bench-source/src/parse_args"
-echo "[START] process /workspaces/bench-source/src/parse_args: /workspaces/bench-source/src/parse_args/parse_args.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/parse_args/parse_args.gpr @/workspaces/bench-source/src/parse_args/parse_args.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/parse_args: /workspaces/bench-source/src/parse_args/parse_args.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/parse_args: /workspaces/bench-source/src/parse_args/parse_args.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/parse_args/parse_args.gpr @/workspaces/bench-source/src/parse_args/parse_args.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/parse_args: /workspaces/bench-source/src/parse_args/parse_args.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [147/223] END
 echo [148/223] START
 cd "/workspaces/bench-source/src/partord"
-echo "[START] process /workspaces/bench-source/src/partord: /workspaces/bench-source/src/partord/partord.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/partord/partord.gpr @/workspaces/bench-source/src/partord/partord.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/partord: /workspaces/bench-source/src/partord/partord.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/partord: /workspaces/bench-source/src/partord/partord.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/partord/partord.gpr @/workspaces/bench-source/src/partord/partord.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/partord: /workspaces/bench-source/src/partord/partord.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [148/223] END
 echo [149/223] START
 cd "/workspaces/bench-source/src/pbkdf2"
-echo "[START] process /workspaces/bench-source/src/pbkdf2: /workspaces/bench-source/src/pbkdf2/pbkdf2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/pbkdf2/pbkdf2.gpr @/workspaces/bench-source/src/pbkdf2/pbkdf2.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/pbkdf2: /workspaces/bench-source/src/pbkdf2/pbkdf2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/pbkdf2: /workspaces/bench-source/src/pbkdf2/pbkdf2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/pbkdf2/pbkdf2.gpr @/workspaces/bench-source/src/pbkdf2/pbkdf2.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/pbkdf2: /workspaces/bench-source/src/pbkdf2/pbkdf2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [149/223] END
 echo [150/223] START
 cd "/workspaces/bench-source/src/play_2048"
-echo "[START] process /workspaces/bench-source/src/play_2048: /workspaces/bench-source/src/play_2048/play_2048.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/play_2048/play_2048.gpr @/workspaces/bench-source/src/play_2048/play_2048.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/play_2048: /workspaces/bench-source/src/play_2048/play_2048.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/play_2048: /workspaces/bench-source/src/play_2048/play_2048.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/play_2048/play_2048.gpr @/workspaces/bench-source/src/play_2048/play_2048.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/play_2048: /workspaces/bench-source/src/play_2048/play_2048.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [150/223] END
 echo [151/223] START
 cd "/workspaces/bench-source/src/powerjoular"
-echo "[START] process /workspaces/bench-source/src/powerjoular: /workspaces/bench-source/src/powerjoular/powerjoular.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/powerjoular/powerjoular.gpr @/workspaces/bench-source/src/powerjoular/powerjoular.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/powerjoular: /workspaces/bench-source/src/powerjoular/powerjoular.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/powerjoular: /workspaces/bench-source/src/powerjoular/powerjoular.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/powerjoular/powerjoular.gpr @/workspaces/bench-source/src/powerjoular/powerjoular.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/powerjoular: /workspaces/bench-source/src/powerjoular/powerjoular.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [151/223] END
 echo [152/223] START
 cd "/workspaces/bench-source/src/progress_indicators"
-echo "[START] process /workspaces/bench-source/src/progress_indicators: /workspaces/bench-source/src/progress_indicators/progress_indicators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/progress_indicators/progress_indicators.gpr @/workspaces/bench-source/src/progress_indicators/progress_indicators.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/progress_indicators: /workspaces/bench-source/src/progress_indicators/progress_indicators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/progress_indicators: /workspaces/bench-source/src/progress_indicators/progress_indicators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/progress_indicators/progress_indicators.gpr @/workspaces/bench-source/src/progress_indicators/progress_indicators.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/progress_indicators: /workspaces/bench-source/src/progress_indicators/progress_indicators.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [152/223] END
 echo [153/223] START
 cd "/workspaces/bench-source/src/protobuf"
-echo "[START] process /workspaces/bench-source/src/protobuf: /workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr @/workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/protobuf: /workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/protobuf: /workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr @/workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/protobuf: /workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [153/223] END
 echo [154/223] START
 cd "/workspaces/bench-source/src/qoi"
-echo "[START] process /workspaces/bench-source/src/qoi: /workspaces/bench-source/src/qoi/qoi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/qoi/qoi.gpr @/workspaces/bench-source/src/qoi/qoi.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/qoi: /workspaces/bench-source/src/qoi/qoi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/qoi: /workspaces/bench-source/src/qoi/qoi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/qoi/qoi.gpr @/workspaces/bench-source/src/qoi/qoi.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/qoi: /workspaces/bench-source/src/qoi/qoi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [154/223] END
 echo [155/223] START
 cd "/workspaces/bench-source/src/raspberry_bsp"
-echo "[START] process /workspaces/bench-source/src/raspberry_bsp: /workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr @/workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/raspberry_bsp: /workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/raspberry_bsp: /workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr @/workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/raspberry_bsp: /workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [155/223] END
 echo [156/223] START
 cd "/workspaces/bench-source/src/rejuvenation"
-echo "[START] process /workspaces/bench-source/src/rejuvenation: /workspaces/bench-source/src/rejuvenation/rejuvenation.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rejuvenation/rejuvenation.gpr @/workspaces/bench-source/src/rejuvenation/rejuvenation.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/rejuvenation: /workspaces/bench-source/src/rejuvenation/rejuvenation.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/rejuvenation: /workspaces/bench-source/src/rejuvenation/rejuvenation.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rejuvenation/rejuvenation.gpr @/workspaces/bench-source/src/rejuvenation/rejuvenation.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/rejuvenation: /workspaces/bench-source/src/rejuvenation/rejuvenation.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [156/223] END
 echo [157/223] START
 cd "/workspaces/bench-source/src/remoteio"
-echo "[START] process /workspaces/bench-source/src/remoteio: /workspaces/bench-source/src/remoteio/remoteio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/remoteio/remoteio.gpr @/workspaces/bench-source/src/remoteio/remoteio.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/remoteio: /workspaces/bench-source/src/remoteio/remoteio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/remoteio: /workspaces/bench-source/src/remoteio/remoteio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/remoteio/remoteio.gpr @/workspaces/bench-source/src/remoteio/remoteio.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/remoteio: /workspaces/bench-source/src/remoteio/remoteio.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [157/223] END
 echo [158/223] START
 cd "/workspaces/bench-source/src/resources"
-echo "[START] process /workspaces/bench-source/src/resources: /workspaces/bench-source/src/resources/resources.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/resources/resources.gpr @/workspaces/bench-source/src/resources/resources.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/resources: /workspaces/bench-source/src/resources/resources.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/resources: /workspaces/bench-source/src/resources/resources.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/resources/resources.gpr @/workspaces/bench-source/src/resources/resources.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/resources: /workspaces/bench-source/src/resources/resources.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [158/223] END
 echo [159/223] START
 cd "/workspaces/bench-source/src/rewriters"
-echo "[START] process /workspaces/bench-source/src/rewriters: /workspaces/bench-source/src/rewriters/rewriters.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rewriters/rewriters.gpr @/workspaces/bench-source/src/rewriters/rewriters.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/rewriters: /workspaces/bench-source/src/rewriters/rewriters.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/rewriters: /workspaces/bench-source/src/rewriters/rewriters.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rewriters/rewriters.gpr @/workspaces/bench-source/src/rewriters/rewriters.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/rewriters: /workspaces/bench-source/src/rewriters/rewriters.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [159/223] END
 echo [160/223] START
 cd "/workspaces/bench-source/src/rsfile"
-echo "[START] process /workspaces/bench-source/src/rsfile: /workspaces/bench-source/src/rsfile/rsfile.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rsfile/rsfile.gpr @/workspaces/bench-source/src/rsfile/rsfile.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/rsfile: /workspaces/bench-source/src/rsfile/rsfile.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/rsfile: /workspaces/bench-source/src/rsfile/rsfile.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rsfile/rsfile.gpr @/workspaces/bench-source/src/rsfile/rsfile.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/rsfile: /workspaces/bench-source/src/rsfile/rsfile.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [160/223] END
 echo [161/223] START
 cd "/workspaces/bench-source/src/rtmidi"
-echo "[START] process /workspaces/bench-source/src/rtmidi: /workspaces/bench-source/src/rtmidi/rtmidi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rtmidi/rtmidi.gpr @/workspaces/bench-source/src/rtmidi/rtmidi.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/rtmidi: /workspaces/bench-source/src/rtmidi/rtmidi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/rtmidi: /workspaces/bench-source/src/rtmidi/rtmidi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/rtmidi/rtmidi.gpr @/workspaces/bench-source/src/rtmidi/rtmidi.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/rtmidi: /workspaces/bench-source/src/rtmidi/rtmidi.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [161/223] END
 echo [162/223] START
 cd "/workspaces/bench-source/src/saatana"
-echo "[START] process /workspaces/bench-source/src/saatana: /workspaces/bench-source/src/saatana/saatana.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/saatana/saatana.gpr @/workspaces/bench-source/src/saatana/saatana.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/saatana: /workspaces/bench-source/src/saatana/saatana.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/saatana: /workspaces/bench-source/src/saatana/saatana.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/saatana/saatana.gpr @/workspaces/bench-source/src/saatana/saatana.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/saatana: /workspaces/bench-source/src/saatana/saatana.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [162/223] END
 echo [163/223] START
 cd "/workspaces/bench-source/src/scripted_testing"
-echo "[START] process /workspaces/bench-source/src/scripted_testing: /workspaces/bench-source/src/scripted_testing/scripted_testing.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/scripted_testing/scripted_testing.gpr @/workspaces/bench-source/src/scripted_testing/scripted_testing.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/scripted_testing: /workspaces/bench-source/src/scripted_testing/scripted_testing.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/scripted_testing: /workspaces/bench-source/src/scripted_testing/scripted_testing.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/scripted_testing/scripted_testing.gpr @/workspaces/bench-source/src/scripted_testing/scripted_testing.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/scripted_testing: /workspaces/bench-source/src/scripted_testing/scripted_testing.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [163/223] END
 echo [164/223] START
 cd "/workspaces/bench-source/src/sdlada"
-echo "[START] process /workspaces/bench-source/src/sdlada: /workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr @/workspaces/bench-source/src/sdlada/build/gnat/sdlada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/sdlada: /workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/sdlada: /workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr @/workspaces/bench-source/src/sdlada/build/gnat/sdlada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/sdlada: /workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [164/223] END
 echo [165/223] START
 cd "/workspaces/bench-source/src/semantic_versioning"
-echo "[START] process /workspaces/bench-source/src/semantic_versioning: /workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr @/workspaces/bench-source/src/semantic_versioning/semantic_versioning.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/semantic_versioning: /workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/semantic_versioning: /workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr @/workspaces/bench-source/src/semantic_versioning/semantic_versioning.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/semantic_versioning: /workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [165/223] END
 echo [166/223] START
 cd "/workspaces/bench-source/src/septum"
-echo "[START] process /workspaces/bench-source/src/septum: /workspaces/bench-source/src/septum/septum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/septum/septum.gpr @/workspaces/bench-source/src/septum/septum.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/septum: /workspaces/bench-source/src/septum/septum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/septum: /workspaces/bench-source/src/septum/septum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/septum/septum.gpr @/workspaces/bench-source/src/septum/septum.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/septum: /workspaces/bench-source/src/septum/septum.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [166/223] END
 echo [167/223] START
 cd "/workspaces/bench-source/src/sha1"
-echo "[START] process /workspaces/bench-source/src/sha1: /workspaces/bench-source/src/sha1/sha1.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sha1/sha1.gpr @/workspaces/bench-source/src/sha1/sha1.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/sha1: /workspaces/bench-source/src/sha1/sha1.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/sha1: /workspaces/bench-source/src/sha1/sha1.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sha1/sha1.gpr @/workspaces/bench-source/src/sha1/sha1.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/sha1: /workspaces/bench-source/src/sha1/sha1.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [167/223] END
 echo [168/223] START
 cd "/workspaces/bench-source/src/sha2"
-echo "[START] process /workspaces/bench-source/src/sha2: /workspaces/bench-source/src/sha2/sha2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sha2/sha2.gpr @/workspaces/bench-source/src/sha2/sha2.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/sha2: /workspaces/bench-source/src/sha2/sha2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/sha2: /workspaces/bench-source/src/sha2/sha2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sha2/sha2.gpr @/workspaces/bench-source/src/sha2/sha2.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/sha2: /workspaces/bench-source/src/sha2/sha2.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [168/223] END
 echo [169/223] START
 cd "/workspaces/bench-source/src/si_units"
-echo "[START] process /workspaces/bench-source/src/si_units: /workspaces/bench-source/src/si_units/si_units.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/si_units/si_units.gpr @/workspaces/bench-source/src/si_units/si_units.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/si_units: /workspaces/bench-source/src/si_units/si_units.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/si_units: /workspaces/bench-source/src/si_units/si_units.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/si_units/si_units.gpr @/workspaces/bench-source/src/si_units/si_units.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/si_units: /workspaces/bench-source/src/si_units/si_units.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [169/223] END
 echo [170/223] START
 cd "/workspaces/bench-source/src/simh_tapes"
-echo "[START] process /workspaces/bench-source/src/simh_tapes: /workspaces/bench-source/src/simh_tapes/simh_tapes.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simh_tapes/simh_tapes.gpr @/workspaces/bench-source/src/simh_tapes/simh_tapes.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simh_tapes: /workspaces/bench-source/src/simh_tapes/simh_tapes.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simh_tapes: /workspaces/bench-source/src/simh_tapes/simh_tapes.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simh_tapes/simh_tapes.gpr @/workspaces/bench-source/src/simh_tapes/simh_tapes.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simh_tapes: /workspaces/bench-source/src/simh_tapes/simh_tapes.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [170/223] END
 echo [171/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [171/223] END
 echo [172/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [172/223] END
 echo [173/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-http_server.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-http_server.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [173/223] END
 echo [174/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-modbus.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-modbus.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [174/223] END
 echo [175/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-mqtt.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-mqtt.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [175/223] END
 echo [176/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-secure.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-secure.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [176/223] END
 echo [177/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-smtp.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr @/workspaces/bench-source/src/simple_components/components-connections_server-smtp.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [177/223] END
 echo [178/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server.gpr @/workspaces/bench-source/src/simple_components/components-connections_server.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-connections_server.gpr @/workspaces/bench-source/src/simple_components/components-connections_server.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-connections_server.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [178/223] END
 echo [179/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-gnutls.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-gnutls.gpr @/workspaces/bench-source/src/simple_components/components-gnutls.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-gnutls.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-gnutls.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-gnutls.gpr @/workspaces/bench-source/src/simple_components/components-gnutls.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-gnutls.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [179/223] END
 echo [180/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-ntp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-ntp.gpr @/workspaces/bench-source/src/simple_components/components-ntp.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-ntp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-ntp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-ntp.gpr @/workspaces/bench-source/src/simple_components/components-ntp.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-ntp.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [180/223] END
 echo [181/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-sqlite.gpr @/workspaces/bench-source/src/simple_components/components-sqlite.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/components-sqlite.gpr @/workspaces/bench-source/src/simple_components/components-sqlite.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/components-sqlite.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [181/223] END
 echo [182/223] START
 cd "/workspaces/bench-source/src/simple_components"
-echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/tables.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/tables.gpr @/workspaces/bench-source/src/simple_components/tables.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/tables.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/tables.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_components/tables.gpr @/workspaces/bench-source/src/simple_components/tables.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_components: /workspaces/bench-source/src/simple_components/tables.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [182/223] END
 echo [183/223] START
 cd "/workspaces/bench-source/src/simple_logging"
-echo "[START] process /workspaces/bench-source/src/simple_logging: /workspaces/bench-source/src/simple_logging/simple_logging.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_logging/simple_logging.gpr @/workspaces/bench-source/src/simple_logging/simple_logging.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/simple_logging: /workspaces/bench-source/src/simple_logging/simple_logging.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/simple_logging: /workspaces/bench-source/src/simple_logging/simple_logging.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/simple_logging/simple_logging.gpr @/workspaces/bench-source/src/simple_logging/simple_logging.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/simple_logging: /workspaces/bench-source/src/simple_logging/simple_logging.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [183/223] END
 echo [184/223] START
 cd "/workspaces/bench-source/src/slip"
-echo "[START] process /workspaces/bench-source/src/slip: /workspaces/bench-source/src/slip/slip.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/slip/slip.gpr @/workspaces/bench-source/src/slip/slip.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/slip: /workspaces/bench-source/src/slip/slip.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/slip: /workspaces/bench-source/src/slip/slip.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/slip/slip.gpr @/workspaces/bench-source/src/slip/slip.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/slip: /workspaces/bench-source/src/slip/slip.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [184/223] END
 echo [185/223] START
 cd "/workspaces/bench-source/src/socketcan"
-echo "[START] process /workspaces/bench-source/src/socketcan: /workspaces/bench-source/src/socketcan/src/socketcan.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/socketcan/src/socketcan.gpr @/workspaces/bench-source/src/socketcan/src/socketcan.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/socketcan: /workspaces/bench-source/src/socketcan/src/socketcan.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/socketcan: /workspaces/bench-source/src/socketcan/src/socketcan.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/socketcan/src/socketcan.gpr @/workspaces/bench-source/src/socketcan/src/socketcan.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/socketcan: /workspaces/bench-source/src/socketcan/src/socketcan.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [185/223] END
 echo [186/223] START
 cd "/workspaces/bench-source/src/spark_unbound"
-echo "[START] process /workspaces/bench-source/src/spark_unbound: /workspaces/bench-source/src/spark_unbound/spark_unbound.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/spark_unbound/spark_unbound.gpr @/workspaces/bench-source/src/spark_unbound/spark_unbound.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/spark_unbound: /workspaces/bench-source/src/spark_unbound/spark_unbound.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/spark_unbound: /workspaces/bench-source/src/spark_unbound/spark_unbound.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/spark_unbound/spark_unbound.gpr @/workspaces/bench-source/src/spark_unbound/spark_unbound.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/spark_unbound: /workspaces/bench-source/src/spark_unbound/spark_unbound.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [186/223] END
 echo [187/223] START
 cd "/workspaces/bench-source/src/sparknacl"
-echo "[START] process /workspaces/bench-source/src/sparknacl: /workspaces/bench-source/src/sparknacl/sparknacl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sparknacl/sparknacl.gpr @/workspaces/bench-source/src/sparknacl/sparknacl.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/sparknacl: /workspaces/bench-source/src/sparknacl/sparknacl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/sparknacl: /workspaces/bench-source/src/sparknacl/sparknacl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/sparknacl/sparknacl.gpr @/workspaces/bench-source/src/sparknacl/sparknacl.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/sparknacl: /workspaces/bench-source/src/sparknacl/sparknacl.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [187/223] END
 echo [188/223] START
 cd "/workspaces/bench-source/src/spdx"
-echo "[START] process /workspaces/bench-source/src/spdx: /workspaces/bench-source/src/spdx/spdx.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/spdx/spdx.gpr @/workspaces/bench-source/src/spdx/spdx.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/spdx: /workspaces/bench-source/src/spdx/spdx.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/spdx: /workspaces/bench-source/src/spdx/spdx.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/spdx/spdx.gpr @/workspaces/bench-source/src/spdx/spdx.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/spdx: /workspaces/bench-source/src/spdx/spdx.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [188/223] END
 echo [189/223] START
 cd "/workspaces/bench-source/src/startup_gen"
-echo "[START] process /workspaces/bench-source/src/startup_gen: /workspaces/bench-source/src/startup_gen/startup_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/startup_gen/startup_gen.gpr @/workspaces/bench-source/src/startup_gen/startup_gen.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/startup_gen: /workspaces/bench-source/src/startup_gen/startup_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/startup_gen: /workspaces/bench-source/src/startup_gen/startup_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/startup_gen/startup_gen.gpr @/workspaces/bench-source/src/startup_gen/startup_gen.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/startup_gen: /workspaces/bench-source/src/startup_gen/startup_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [189/223] END
 echo [190/223] START
 cd "/workspaces/bench-source/src/stopwatch"
-echo "[START] process /workspaces/bench-source/src/stopwatch: /workspaces/bench-source/src/stopwatch/stopwatch.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/stopwatch/stopwatch.gpr @/workspaces/bench-source/src/stopwatch/stopwatch.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/stopwatch: /workspaces/bench-source/src/stopwatch/stopwatch.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/stopwatch: /workspaces/bench-source/src/stopwatch/stopwatch.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/stopwatch/stopwatch.gpr @/workspaces/bench-source/src/stopwatch/stopwatch.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/stopwatch: /workspaces/bench-source/src/stopwatch/stopwatch.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [190/223] END
 echo [191/223] START
 cd "/workspaces/bench-source/src/svd2ada"
-echo "[START] process /workspaces/bench-source/src/svd2ada: /workspaces/bench-source/src/svd2ada/svd2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/svd2ada/svd2ada.gpr @/workspaces/bench-source/src/svd2ada/svd2ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/svd2ada: /workspaces/bench-source/src/svd2ada/svd2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/svd2ada: /workspaces/bench-source/src/svd2ada/svd2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/svd2ada/svd2ada.gpr @/workspaces/bench-source/src/svd2ada/svd2ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/svd2ada: /workspaces/bench-source/src/svd2ada/svd2ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [191/223] END
 echo [192/223] START
 cd "/workspaces/bench-source/src/system_random"
-echo "[START] process /workspaces/bench-source/src/system_random: /workspaces/bench-source/src/system_random/system_random.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/system_random/system_random.gpr @/workspaces/bench-source/src/system_random/system_random.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/system_random: /workspaces/bench-source/src/system_random/system_random.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/system_random: /workspaces/bench-source/src/system_random/system_random.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/system_random/system_random.gpr @/workspaces/bench-source/src/system_random/system_random.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/system_random: /workspaces/bench-source/src/system_random/system_random.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [192/223] END
 echo [193/223] START
 cd "/workspaces/bench-source/src/tash"
-echo "[START] process /workspaces/bench-source/src/tash: /workspaces/bench-source/src/tash/tash.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tash/tash.gpr @/workspaces/bench-source/src/tash/tash.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/tash: /workspaces/bench-source/src/tash/tash.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/tash: /workspaces/bench-source/src/tash/tash.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tash/tash.gpr @/workspaces/bench-source/src/tash/tash.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/tash: /workspaces/bench-source/src/tash/tash.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [193/223] END
 echo [194/223] START
 cd "/workspaces/bench-source/src/tiled_code_gen"
-echo "[START] process /workspaces/bench-source/src/tiled_code_gen: /workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr @/workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/tiled_code_gen: /workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/tiled_code_gen: /workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr @/workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/tiled_code_gen: /workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [194/223] END
 echo [195/223] START
 cd "/workspaces/bench-source/src/tiny_text"
-echo "[START] process /workspaces/bench-source/src/tiny_text: /workspaces/bench-source/src/tiny_text/tiny_text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tiny_text/tiny_text.gpr @/workspaces/bench-source/src/tiny_text/tiny_text.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/tiny_text: /workspaces/bench-source/src/tiny_text/tiny_text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/tiny_text: /workspaces/bench-source/src/tiny_text/tiny_text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tiny_text/tiny_text.gpr @/workspaces/bench-source/src/tiny_text/tiny_text.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/tiny_text: /workspaces/bench-source/src/tiny_text/tiny_text.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [195/223] END
 echo [196/223] START
 cd "/workspaces/bench-source/src/tlsada"
-echo "[START] process /workspaces/bench-source/src/tlsada: /workspaces/bench-source/src/tlsada/tlsada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tlsada/tlsada.gpr @/workspaces/bench-source/src/tlsada/tlsada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/tlsada: /workspaces/bench-source/src/tlsada/tlsada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/tlsada: /workspaces/bench-source/src/tlsada/tlsada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/tlsada/tlsada.gpr @/workspaces/bench-source/src/tlsada/tlsada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/tlsada: /workspaces/bench-source/src/tlsada/tlsada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [196/223] END
 echo [197/223] START
 cd "/workspaces/bench-source/src/toml_slicer"
-echo "[START] process /workspaces/bench-source/src/toml_slicer: /workspaces/bench-source/src/toml_slicer/toml_slicer.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/toml_slicer/toml_slicer.gpr @/workspaces/bench-source/src/toml_slicer/toml_slicer.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/toml_slicer: /workspaces/bench-source/src/toml_slicer/toml_slicer.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/toml_slicer: /workspaces/bench-source/src/toml_slicer/toml_slicer.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/toml_slicer/toml_slicer.gpr @/workspaces/bench-source/src/toml_slicer/toml_slicer.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/toml_slicer: /workspaces/bench-source/src/toml_slicer/toml_slicer.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [197/223] END
 echo [198/223] START
 cd "/workspaces/bench-source/src/trendy_terminal"
-echo "[START] process /workspaces/bench-source/src/trendy_terminal: /workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr @/workspaces/bench-source/src/trendy_terminal/trendy_terminal.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/trendy_terminal: /workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/trendy_terminal: /workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr @/workspaces/bench-source/src/trendy_terminal/trendy_terminal.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/trendy_terminal: /workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [198/223] END
 echo [199/223] START
 cd "/workspaces/bench-source/src/trendy_test"
-echo "[START] process /workspaces/bench-source/src/trendy_test: /workspaces/bench-source/src/trendy_test/trendy_test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/trendy_test/trendy_test.gpr @/workspaces/bench-source/src/trendy_test/trendy_test.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/trendy_test: /workspaces/bench-source/src/trendy_test/trendy_test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/trendy_test: /workspaces/bench-source/src/trendy_test/trendy_test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/trendy_test/trendy_test.gpr @/workspaces/bench-source/src/trendy_test/trendy_test.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/trendy_test: /workspaces/bench-source/src/trendy_test/trendy_test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [199/223] END
 echo [200/223] START
 cd "/workspaces/bench-source/src/uri_ada"
-echo "[START] process /workspaces/bench-source/src/uri_ada: /workspaces/bench-source/src/uri_ada/uri_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/uri_ada/uri_ada.gpr @/workspaces/bench-source/src/uri_ada/uri_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/uri_ada: /workspaces/bench-source/src/uri_ada/uri_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/uri_ada: /workspaces/bench-source/src/uri_ada/uri_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/uri_ada/uri_ada.gpr @/workspaces/bench-source/src/uri_ada/uri_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/uri_ada: /workspaces/bench-source/src/uri_ada/uri_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [200/223] END
 echo [201/223] START
 cd "/workspaces/bench-source/src/uri_mime"
-echo "[START] process /workspaces/bench-source/src/uri_mime: /workspaces/bench-source/src/uri_mime/uri_mime.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/uri_mime/uri_mime.gpr @/workspaces/bench-source/src/uri_mime/uri_mime.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/uri_mime: /workspaces/bench-source/src/uri_mime/uri_mime.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/uri_mime: /workspaces/bench-source/src/uri_mime/uri_mime.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/uri_mime/uri_mime.gpr @/workspaces/bench-source/src/uri_mime/uri_mime.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/uri_mime: /workspaces/bench-source/src/uri_mime/uri_mime.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [201/223] END
 echo [202/223] START
 cd "/workspaces/bench-source/src/utf8test"
-echo "[START] process /workspaces/bench-source/src/utf8test: /workspaces/bench-source/src/utf8test/utf8test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/utf8test/utf8test.gpr @/workspaces/bench-source/src/utf8test/utf8test.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/utf8test: /workspaces/bench-source/src/utf8test/utf8test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/utf8test: /workspaces/bench-source/src/utf8test/utf8test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/utf8test/utf8test.gpr @/workspaces/bench-source/src/utf8test/utf8test.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/utf8test: /workspaces/bench-source/src/utf8test/utf8test.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [202/223] END
 echo [203/223] START
 cd "/workspaces/bench-source/src/vaton"
-echo "[START] process /workspaces/bench-source/src/vaton: /workspaces/bench-source/src/vaton/vaton.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/vaton/vaton.gpr @/workspaces/bench-source/src/vaton/vaton.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/vaton: /workspaces/bench-source/src/vaton/vaton.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/vaton: /workspaces/bench-source/src/vaton/vaton.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/vaton/vaton.gpr @/workspaces/bench-source/src/vaton/vaton.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/vaton: /workspaces/bench-source/src/vaton/vaton.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [203/223] END
 echo [204/223] START
 cd "/workspaces/bench-source/src/virtapu"
-echo "[START] process /workspaces/bench-source/src/virtapu: /workspaces/bench-source/src/virtapu/virtapu.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/virtapu/virtapu.gpr @/workspaces/bench-source/src/virtapu/virtapu.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/virtapu: /workspaces/bench-source/src/virtapu/virtapu.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/virtapu: /workspaces/bench-source/src/virtapu/virtapu.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/virtapu/virtapu.gpr @/workspaces/bench-source/src/virtapu/virtapu.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/virtapu: /workspaces/bench-source/src/virtapu/virtapu.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [204/223] END
 echo [205/223] START
 cd "/workspaces/bench-source/src/weechat_ada"
-echo "[START] process /workspaces/bench-source/src/weechat_ada: /workspaces/bench-source/src/weechat_ada/weechat_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/weechat_ada/weechat_ada.gpr @/workspaces/bench-source/src/weechat_ada/weechat_ada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/weechat_ada: /workspaces/bench-source/src/weechat_ada/weechat_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/weechat_ada: /workspaces/bench-source/src/weechat_ada/weechat_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/weechat_ada/weechat_ada.gpr @/workspaces/bench-source/src/weechat_ada/weechat_ada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/weechat_ada: /workspaces/bench-source/src/weechat_ada/weechat_ada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [205/223] END
 echo [206/223] START
 cd "/workspaces/bench-source/src/wordle"
-echo "[START] process /workspaces/bench-source/src/wordle: /workspaces/bench-source/src/wordle/wordle.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/wordle/wordle.gpr @/workspaces/bench-source/src/wordle/wordle.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/wordle: /workspaces/bench-source/src/wordle/wordle.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/wordle: /workspaces/bench-source/src/wordle/wordle.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/wordle/wordle.gpr @/workspaces/bench-source/src/wordle/wordle.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/wordle: /workspaces/bench-source/src/wordle/wordle.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [206/223] END
 echo [207/223] START
 cd "/workspaces/bench-source/src/wordlelib"
-echo "[START] process /workspaces/bench-source/src/wordlelib: /workspaces/bench-source/src/wordlelib/wordlelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/wordlelib/wordlelib.gpr @/workspaces/bench-source/src/wordlelib/wordlelib.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/wordlelib: /workspaces/bench-source/src/wordlelib/wordlelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/wordlelib: /workspaces/bench-source/src/wordlelib/wordlelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/wordlelib/wordlelib.gpr @/workspaces/bench-source/src/wordlelib/wordlelib.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/wordlelib: /workspaces/bench-source/src/wordlelib/wordlelib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [207/223] END
 echo [208/223] START
 cd "/workspaces/bench-source/src/wordlist"
-echo "[START] process /workspaces/bench-source/src/wordlist: /workspaces/bench-source/src/wordlist/wordlist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/wordlist/wordlist.gpr @/workspaces/bench-source/src/wordlist/wordlist.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/wordlist: /workspaces/bench-source/src/wordlist/wordlist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/wordlist: /workspaces/bench-source/src/wordlist/wordlist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/wordlist/wordlist.gpr @/workspaces/bench-source/src/wordlist/wordlist.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/wordlist: /workspaces/bench-source/src/wordlist/wordlist.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [208/223] END
 echo [209/223] START
 cd "/workspaces/bench-source/src/workers"
-echo "[START] process /workspaces/bench-source/src/workers: /workspaces/bench-source/src/workers/workers.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/workers/workers.gpr @/workspaces/bench-source/src/workers/workers.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/workers: /workspaces/bench-source/src/workers/workers.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/workers: /workspaces/bench-source/src/workers/workers.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/workers/workers.gpr @/workspaces/bench-source/src/workers/workers.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/workers: /workspaces/bench-source/src/workers/workers.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [209/223] END
 echo [210/223] START
 cd "/workspaces/bench-source/src/xdg_base_dir"
-echo "[START] process /workspaces/bench-source/src/xdg_base_dir: /workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr @/workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xdg_base_dir: /workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xdg_base_dir: /workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr @/workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xdg_base_dir: /workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [210/223] END
 echo [211/223] START
 cd "/workspaces/bench-source/src/xia"
-echo "[START] process /workspaces/bench-source/src/xia: /workspaces/bench-source/src/xia/XIA.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xia/XIA.gpr @/workspaces/bench-source/src/xia/XIA.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xia: /workspaces/bench-source/src/xia/XIA.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xia: /workspaces/bench-source/src/xia/XIA.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xia/XIA.gpr @/workspaces/bench-source/src/xia/XIA.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xia: /workspaces/bench-source/src/xia/XIA.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [211/223] END
 echo [212/223] START
 cd "/workspaces/bench-source/src/xml_ez_out"
-echo "[START] process /workspaces/bench-source/src/xml_ez_out: /workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr @/workspaces/bench-source/src/xml_ez_out/xml_ez_out.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xml_ez_out: /workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xml_ez_out: /workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr @/workspaces/bench-source/src/xml_ez_out/xml_ez_out.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xml_ez_out: /workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [212/223] END
 echo [213/223] START
 cd "/workspaces/bench-source/src/xmlada"
-echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/distrib/xmlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/distrib/xmlada.gpr @/workspaces/bench-source/src/xmlada/distrib/xmlada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/distrib/xmlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/distrib/xmlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/distrib/xmlada.gpr @/workspaces/bench-source/src/xmlada/distrib/xmlada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/distrib/xmlada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [213/223] END
 echo [214/223] START
 cd "/workspaces/bench-source/src/xmlada"
-echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr @/workspaces/bench-source/src/xmlada/dom/xmlada_dom.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr @/workspaces/bench-source/src/xmlada/dom/xmlada_dom.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [214/223] END
 echo [215/223] START
 cd "/workspaces/bench-source/src/xmlada"
-echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr @/workspaces/bench-source/src/xmlada/input_sources/xmlada_input.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr @/workspaces/bench-source/src/xmlada/input_sources/xmlada_input.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [215/223] END
 echo [216/223] START
 cd "/workspaces/bench-source/src/xmlada"
-echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr @/workspaces/bench-source/src/xmlada/sax/xmlada_sax.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr @/workspaces/bench-source/src/xmlada/sax/xmlada_sax.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [216/223] END
 echo [217/223] START
 cd "/workspaces/bench-source/src/xmlada"
-echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr @/workspaces/bench-source/src/xmlada/schema/xmlada_schema.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr @/workspaces/bench-source/src/xmlada/schema/xmlada_schema.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [217/223] END
 echo [218/223] START
 cd "/workspaces/bench-source/src/xmlada"
-echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr @/workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr @/workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xmlada: /workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [218/223] END
 echo [219/223] START
 cd "/workspaces/bench-source/src/xoshiro"
-echo "[START] process /workspaces/bench-source/src/xoshiro: /workspaces/bench-source/src/xoshiro/xoshiro.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xoshiro/xoshiro.gpr @/workspaces/bench-source/src/xoshiro/xoshiro.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/xoshiro: /workspaces/bench-source/src/xoshiro/xoshiro.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/xoshiro: /workspaces/bench-source/src/xoshiro/xoshiro.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/xoshiro/xoshiro.gpr @/workspaces/bench-source/src/xoshiro/xoshiro.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/xoshiro: /workspaces/bench-source/src/xoshiro/xoshiro.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [219/223] END
 echo [220/223] START
 cd "/workspaces/bench-source/src/yeison"
-echo "[START] process /workspaces/bench-source/src/yeison: /workspaces/bench-source/src/yeison/yeison.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/yeison/yeison.gpr @/workspaces/bench-source/src/yeison/yeison.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/yeison: /workspaces/bench-source/src/yeison/yeison.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/yeison: /workspaces/bench-source/src/yeison/yeison.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/yeison/yeison.gpr @/workspaces/bench-source/src/yeison/yeison.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/yeison: /workspaces/bench-source/src/yeison/yeison.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [220/223] END
 echo [221/223] START
 cd "/workspaces/bench-source/src/zeromq_ada"
-echo "[START] process /workspaces/bench-source/src/zeromq_ada: /workspaces/bench-source/src/zeromq_ada/zmq.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/zeromq_ada/zmq.gpr @/workspaces/bench-source/src/zeromq_ada/zmq.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/zeromq_ada: /workspaces/bench-source/src/zeromq_ada/zmq.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/zeromq_ada: /workspaces/bench-source/src/zeromq_ada/zmq.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/zeromq_ada/zmq.gpr @/workspaces/bench-source/src/zeromq_ada/zmq.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/zeromq_ada: /workspaces/bench-source/src/zeromq_ada/zmq.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [221/223] END
 echo [222/223] START
 cd "/workspaces/bench-source/src/zipada"
-echo "[START] process /workspaces/bench-source/src/zipada: /workspaces/bench-source/src/zipada/zipada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/zipada/zipada.gpr @/workspaces/bench-source/src/zipada/zipada.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/zipada: /workspaces/bench-source/src/zipada/zipada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/zipada: /workspaces/bench-source/src/zipada/zipada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/zipada/zipada.gpr @/workspaces/bench-source/src/zipada/zipada.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/zipada: /workspaces/bench-source/src/zipada/zipada.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [222/223] END
 echo [223/223] START
 cd "/workspaces/bench-source/src/zlib_ada"
-echo "[START] process /workspaces/bench-source/src/zlib_ada: /workspaces/bench-source/src/zlib_ada/zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
-{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/zlib_ada/zlib.gpr @/workspaces/bench-source/src/zlib_ada/zlib.units -o adactl.report -w ; } &> >(tee -a adactl-$xpNum.log /workspaces/bench-source/adactl-all-$xpNum.log > /dev/null)
-echo "[END] process /workspaces/bench-source/src/zlib_ada: /workspaces/bench-source/src/zlib_ada/zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum.log
+echo "[START] process /workspaces/bench-source/src/zlib_ada: /workspaces/bench-source/src/zlib_ada/zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
+{ time alr exec -- adactl -f /workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru -p /workspaces/bench-source/src/zlib_ada/zlib.gpr @/workspaces/bench-source/src/zlib_ada/zlib.units -o adactl-$xpnum-j$max_procs.report -w ; } &> >(tee -a adactl-$xpNum-j$max_procs.log /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+echo "[END] process /workspaces/bench-source/src/zlib_ada: /workspaces/bench-source/src/zlib_ada/zlib.gpr" >> /workspaces/bench-source/adactl-all-$xpNum-j$max_procs.log
 echo [223/223] END

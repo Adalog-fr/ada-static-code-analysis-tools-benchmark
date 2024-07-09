@@ -118,19 +118,40 @@ export function initializeModule(program: Command, settings: {
 # This file is generated with cogralys-bench-util bench-${settings.command[0]} > this file ${" ".repeat(9 - settings.command[0].length)}#
 ###############################################################################
 
+# Initialize variables
 xpNum=0
+# Default number of maximum processes
+max_procs=0
 
-# Loop through arguments
+# Function to display help information
+function show_help() {
+    echo "Usage: $0 [-xpNum <number>] [-j <max_procs>] [-h|--help]"
+    echo "  -xpNum <number>    Set the experience number."
+    echo "  -j <max_procs>     Set the maximum number of processes."
+    echo "  -h, --help         Show help information."
+}
+
+# Loop through arguments and handle options
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -xpNum)
             xpNum="$2"
-            shift
+            shift 2  # Advance past the argument value
             ;;
-        *)
+        -j)
+            max_procs="$2"
+            shift 2  # Advance past the argument value
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)  # Handle unknown options
+            echo "Unknown option: $1"
+            show_help
+            exit 1
             ;;
     esac
-    shift
 done
 `);
 
@@ -138,7 +159,7 @@ done
                 // const currentCratePath = join(alireDir.workDir, "./alire.toml");
                 // const data = parse(Deno.readTextFileSync(currentCratePath));
 
-                const globalLogFilePath = `/workspaces/bench-source/${settings.command[0]}-all-$xpNum.log`;
+                const globalLogFilePath = `/workspaces/bench-source/${settings.command[0]}-all-$xpNum-j$max_procs.log`;
 
                 for (const project of alireDir.projects.filter((e: Project) => e.isNeo4jDbFilesComplete && e.isAdaCtlComplete)) {
                     console.log(`echo [${i}/${maxProject}] START`);
@@ -151,7 +172,7 @@ done
                             item.replace("%PRJ%", project.gprPath) : item)
                         .map(item => item.includes("%UNITS%") ?
                             item.replace("%UNITS%", project.gprPath.replace(".gpr", ".units")) : item),
-                        `; } &> >(tee -a ${settings.command[0]}-$xpNum.log ${globalLogFilePath} > /dev/null)`
+                        `; } &> >(tee -a ${settings.command[0]}-$xpNum-j$max_procs.log ${globalLogFilePath} > /dev/null)`
                     );
                     console.log(`echo "[END] process ${alireDir.workDir}: ${project.gprPath}" >> ${globalLogFilePath}`);
                     console.log(`echo [${i}/${maxProject}] END`);
