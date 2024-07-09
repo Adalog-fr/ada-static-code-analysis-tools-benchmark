@@ -97,4 +97,4 @@ To regenerate all files used for the benchmark environment, follow these instruc
 4. Run `cogralys-bench-util update-project`. This will concurrently run `alr -n update` in all directories listed in `alireTomlPath.json`.
 5. (Optional but highly recommended for identifying future analysis problems) Run `cogralys-bench-util build`. This will run `alr -n build` in all directories listed in `alireTomlPath.json`.
 6. Run `cogralys-bench-util bench-adactl > /workspaces/bench-source/Adactl_benchmark.sh` to generate the benchmark experiment script for AdaControl.
-7. Run `cogralys-bench-util bench-adactl > /workspaces/bench-source/GNATcheck_benchmark.sh` to generate the benchmark experiment script for AdaControl.
+7. Run `cogralys-bench-util bench-gnatcheck > /workspaces/bench-source/GNATcheck_benchmark.sh` to generate the benchmark experiment script for GNATcheck.
