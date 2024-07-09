@@ -1,6 +1,7 @@
 set verbose on;
 set timing global;
 set statistics 3;
+set format Gnat_Long;
 Abort_Statements : search statements (abort);
 Abstract_Type_Declarations : search declarations (abstract_type);
 Access_To_Local_Objects : search Local_Access;

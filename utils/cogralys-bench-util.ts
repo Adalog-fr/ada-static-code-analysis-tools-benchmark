@@ -50,8 +50,20 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "-p",
         "%PRJ%",
         "@%UNITS%",
-        "&>>",
-        "/workspaces/bench-source/Adactl_benchmark.output"
+        "-o",
+        "adactl.report",
+        "-w",
+        // | tee -a /workspaces/bench-source/Adactl_benchmark.output >> /workspaces/bench-source/Adactl_benchmark_second.output
+
+        // "|",
+        // "tee",
+        // "-a",
+        // "adactl-$xpNum.log",
+        // ">>",
+        // "/workspaces/bench-source/Adactl_benchmark.output"
+
+        // "&>>",
+        // "/workspaces/bench-source/Adactl_benchmark.output"
     ]
 })
 
