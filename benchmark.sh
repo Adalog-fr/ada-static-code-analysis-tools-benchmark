@@ -23,7 +23,7 @@ function run_benchmark() {
 # Main loop to run benchmarks for Adactl_benchmark.sh
 for i in $(seq 1 $maxIteration); do
     echo "Running Adactl_benchmark.sh iteration $i/$maxIteration"
-    #run_benchmark "Adactl_benchmark.sh" "$i" "1"
+    run_benchmark "Adactl_benchmark.sh" "$i" "1"
 done
 
 echo ""
@@ -32,7 +32,7 @@ echo ""
 for j_option in "1" "32"; do
     for i in $(seq 1 $maxIteration); do
         echo "Running GNATcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s)"
-        #run_benchmark "GNATcheck_benchmark.sh" "$i" "$j_option"
+        run_benchmark "GNATcheck_benchmark.sh" "$i" "$j_option"
     done
     echo ""
 done
