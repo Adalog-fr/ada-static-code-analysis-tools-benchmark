@@ -5,6 +5,7 @@ import * as dotenv from "https://deno.land/std/dotenv/mod.ts";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
+import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
 
 type commandType = [string, string[], Record<string, string>];
 type taskDataType = { path: string, command: commandType };
@@ -56,10 +57,12 @@ export function initializeModule(program: Command): void {
                 const taskRunner = new TaskRunner<taskDataType, string>(8, "./workerRunCmd.ts");
                 let completed = 0;
                 const projectFiles: string[] = [];
-                const cratesPath = JSON.parse(Deno.readTextFileSync(options.cratesPath));
-                const knowCrates = Object.keys(cratesPath);
-                const paths = knowCrates.map(elt => cratesPath[elt]);
-                const ignoredUnknownCrates = Deno.readTextFileSync(options.ignoredUnknownCrates).split(/\r?\n/g).map(elt => elt.trim()).filter(elt => elt.length > 0);
+
+                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync("/workspaces/bench-source/cratesDB.json"));
+                const ignoredUnknownCrates : string[] = getAllIgnoredCrates(cratesDB);
+                const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
+                const knowCrates = projects.map(elt => elt.crateName);
+                const paths = projects.map(elt => elt.alireTomlPath);
 
                 for (const path of paths) {
                     const alireFilePath = `${path}${path.endsWith("/") ? "alire.toml" : path.endsWith("alire.toml") ? "" : "/alire.toml"}`;

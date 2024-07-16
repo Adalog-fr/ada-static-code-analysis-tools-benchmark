@@ -1,43 +1,9 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join } from "https://deno.land/std/path/mod.ts";
-import { parse } from "https://deno.land/std/toml/mod.ts";
-import * as log from "https://deno.land/std/log/mod.ts";
 import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
-import { formatDuration } from "../utils.ts";
+import { extendedGPRProject, UnifiedCrateData, filterCompleteCrates } from "../utils.ts";
 
 type commandType = [string, string[]];
 type taskDataType = { path: string, command: commandType };
-
-function replaceProjectName(arr: string[], projectPath: string): string[] {
-    const replacedArr: string[] = [];
-
-    for (const item of arr) {
-        // Check if the element contains "-P%PRJ%"
-        if (item.includes("-P%PRJ%")) {
-            // Replace "-P%PRJ%" with "-Pauie.gpr"
-            replacedArr.push(item.replace("-P%PRJ%", `-P${projectPath}`));
-        } else {
-            // If not found, add the item as is
-            replacedArr.push(item);
-        }
-    }
-
-    return replacedArr;
-}
-
-interface CratesInNeo4j {
-    workDir: string;
-    projects: Project[];
-    isNeo4jDbFilesFullyComplete: boolean;
-    isAdaCtlComplete: boolean;
-}
-
-interface Project {
-    gprPath: string;
-    neo4jDbFilesPath: string;
-    isNeo4jDbFilesComplete: boolean;
-    isAdaCtlComplete: boolean;
-}
 
 export function initializeModule(program: Command, settings: {
     commandName: string,
@@ -54,69 +20,20 @@ export function initializeModule(program: Command, settings: {
         .description(
             settings.description
         )
-        .option(
-            "-p, --pathToCratesWithCompleteNeo4jSetup <path>",
-            "File path to a json file that contains a list of all working project.",
-            "/workspaces/bench-source/pathToCratesWithCompleteNeo4jSetup.json"
-        )
-        .option(
-            "-a, --logAppendMode <path>",
-            "If true, log files will be in append mode, otherwise is will overwrite the file.",
-            false
-        )
-        .action((options: { pathToCratesWithCompleteNeo4jSetup: string, logAppendMode: boolean }) => {
-            const cratesPath: CratesInNeo4j[] = JSON.parse(Deno.readTextFileSync(options.pathToCratesWithCompleteNeo4jSetup))
-                .filter((e: CratesInNeo4j) => e.isNeo4jDbFilesFullyComplete && e.isAdaCtlComplete);
-            const alireTomlPath = cratesPath.map(elt => elt.workDir);
+        .action(() => {
+            const crates: UnifiedCrateData = JSON.parse(Deno.readTextFileSync("/workspaces/bench-source/cratesDB.json"));
+            const projects : extendedGPRProject[] = filterCompleteCrates(crates.crates);
 
-            // Configure logs
-            log.setup({
-                handlers: {
-                    console: new log.handlers.ConsoleHandler("DEBUG"),
-
-                    file: new log.handlers.FileHandler("WARNING", {
-                        filename: `/workspaces/bench-source/cogralysRunBenchmarkCommand-${settings.commandName}.log`,
-                        formatter: "[{levelName}] {msg}",
-                        mode: options.logAppendMode ? "a" : settings.logAppendMode ? "a" : "w"
-                    }),
-                },
-
-                loggers: {
-                    default: {
-                        level: "DEBUG",
-                        handlers: ["console", "file"],
-                    },
-
-                    tasks: {
-                        level: "ERROR",
-                        handlers: ["console"],
-                    },
-                },
-            });
-
-            const logger = log.getLogger();
-
-            const taskRunner = new TaskRunner<taskDataType, string>(settings.concurrency || 1, "./workerRunCmd.ts");
-            taskRunner.preTaskCb = (task, index) => {
-                logger.debug(`[${settings.commandName}] [${index}/${alireTomlPath.length}] Building project '${task.id}' in: ${task.data.path}`);
-                settings.preTaskCb?.(task, index);
-            }
-            taskRunner.postTaskCb = (task, index) => {
-                if (task.status === "failure") {
-                    logger.error(`[${settings.commandName}] [${index}/${alireTomlPath.length}] '${task.id}' in '${task.task.data.path}' error: ${task.result.output || task.result}`);
-                }
-                settings.postTaskCb?.(task, index)
-            }
-
-            const maxProject = cratesPath.flatMap(elt => elt.projects).filter((e: Project) => e.isNeo4jDbFilesComplete && e.isAdaCtlComplete).length;
+            const maxProject = projects.length;
+            const globalLogFilePath = `/workspaces/bench-source/${settings.command[0]}-all-$xpNum-j$max_procs.log`;
 
             let i = 1;
-            console.log(`#!/bin/bash\n
+            let resultFile = `#!/bin/bash
 
-###############################################################################
-# WARNING: DO NOT EDIT THIS FILE MANUALY                                      #
-# This file is generated with cogralys-bench-util bench-${settings.command[0]} > this file ${" ".repeat(9 - settings.command[0].length)}#
-###############################################################################
+###################################################################
+# WARNING: DO NOT EDIT THIS FILE MANUALY                          #
+# This file is generated with cogralys-bench-util bench-${settings.command[0]} ${" ".repeat(9 - settings.command[0].length)}#
+###################################################################
 
 # Initialize variables
 xpNum=0
@@ -153,36 +70,28 @@ while [[ "$#" -gt 0 ]]; do
             ;;
     esac
 done
-`);
 
-            for (const alireDir of cratesPath) {
-                // const currentCratePath = join(alireDir.workDir, "./alire.toml");
-                // const data = parse(Deno.readTextFileSync(currentCratePath));
+echo "" > ${globalLogFilePath}\n
+`;
 
-                const globalLogFilePath = `/workspaces/bench-source/${settings.command[0]}-all-$xpNum-j$max_procs.log`;
+            for (const project of projects) {
+                resultFile += `echo [${i}/${maxProject}] START\n`;
+                resultFile += `cd "${project.alireTomlPath}"\n`;
 
-                for (const project of alireDir.projects.filter((e: Project) => e.isNeo4jDbFilesComplete && e.isAdaCtlComplete)) {
-                    console.log(`echo [${i}/${maxProject}] START`);
-                    console.log(`cd "${alireDir.workDir}"`);
-
-                    console.log(`echo "[START] process ${alireDir.workDir}: ${project.gprPath}" >> ${globalLogFilePath}`);
-
-                    console.log("{ time alr exec --", ...settings.command
-                        .map(item => item.includes("%PRJ%") ?
-                            item.replace("%PRJ%", project.gprPath) : item)
-                        .map(item => item.includes("%UNITS%") ?
-                            item.replace("%UNITS%", project.gprPath.replace(".gpr", ".units")) : item),
-                        `; } &> >(tee -a ${settings.command[0]}-$xpNum-j$max_procs.log ${globalLogFilePath} > /dev/null)`
-                    );
-                    console.log(`echo "[END] process ${alireDir.workDir}: ${project.gprPath}" >> ${globalLogFilePath}`);
-                    console.log(`echo [${i}/${maxProject}] END`);
-                    i++;
-                }
+                resultFile += `echo "[START] process ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}\n`;
+                resultFile += `echo "" > ${settings.command[0]}-$xpNum-j$max_procs.log\n`;
+                resultFile += "{ time alr exec -- " +
+                settings.command
+                    .map(item => item.includes("%PRJ%") ?
+                        item.replace("%PRJ%", project.gprPath) : item)
+                    .map(item => item.includes("%UNITS%") ?
+                        item.replace("%UNITS%", project.gprPath.replace(".gpr", ".units")) : item).join(" ") +
+                    `; } &> >(tee -a ${settings.command[0]}-$xpNum-j$max_procs.log ${globalLogFilePath} > /dev/null)\n`;
+                resultFile += `echo "[END] process ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}\n`;
+                resultFile += `echo [${i}/${maxProject}] END\n`;
+                i++;
             }
 
-            settings.beforeRun?.({ taskRunner, alireTomlPath });
-
-            performance.mark('buildStart');
-            taskRunner.terminate();
+            Deno.writeTextFileSync(`/workspaces/bench-source/${settings.command[0]}_benchmark.sh`, resultFile);
         });
 }

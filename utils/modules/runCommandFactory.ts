@@ -3,7 +3,7 @@ import { join } from "https://deno.land/std/path/mod.ts";
 import { parse } from "https://deno.land/std/toml/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
 import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
-import { formatDuration } from "../utils.ts";
+import { UnifiedCrateData, extendedGPRProject, formatDuration, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
 
 type commandType = [string, string[]];
 type taskDataType = { path: string, command: commandType };
@@ -23,30 +23,21 @@ export function initializeModule(program: Command, settings: {
             settings.description
         )
         .option(
-            "-c, --cratesPath <path>",
-            "Path to a file that contains a list of know crates.",
-            "/workspaces/bench-source/cratesPath.json"
-        )
-        .option(
-            "-i, --ignoreCratesPath <path>",
-            "Path to a file that contains a list of crates to ignore in dependencies.",
-            "/workspaces/bench-source/unknownCrates.ignore"
-        )
-        .option(
-            "-p, --alireTomlPath <path>",
-            "File path to a json file that contains a list of all directories that contains a `alire.origin.toml`.",
-            "/workspaces/bench-source/alireTomlPath.json"
-        )
-        .option(
-            "-a, --logAppendMode <path>",
+            "-a, --logAppendMode",
             "If true, log files will be in append mode, otherwise is will overwrite the file.",
             false
         )
-        .action((options: { cratesPath: string, ignoreCratesPath: string, alireTomlPath: string, logAppendMode: boolean }) => {
-            const cratesPath = JSON.parse(Deno.readTextFileSync(options.cratesPath));
-            const ignoreCrate = Deno.readTextFileSync(options.ignoreCratesPath).split(/\r?\n/g).map(elt => elt.trim());
-            const alireTomlPath: string[] = JSON.parse(Deno.readTextFileSync(options.alireTomlPath));
-            const knowCrates = Object.keys(cratesPath);
+        .option(
+            "-i, --ignoreMissingDependencies",
+            "If true, the task runner will not throw error when there are missing dependencies.",
+            false
+        )
+        .action((options: { logAppendMode: boolean, ignoreMissingDependencies: boolean }) => {
+            const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync("/workspaces/bench-source/cratesDB.json"));
+            const ignoreCrate : string[] = getAllIgnoredCrates(cratesDB);
+            const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
+            const alireTomlPath: string[] = [...new Set(projects.map(elt => elt.alireTomlPath))];
+            const knowCrates = Object.keys(cratesDB.crates);
 
             // Configure logs
             log.setup({
@@ -75,7 +66,7 @@ export function initializeModule(program: Command, settings: {
 
             const logger = log.getLogger();
 
-            const taskRunner = new TaskRunner<taskDataType, string>(settings.concurrency || 1, "./workerRunCmd.ts");
+            const taskRunner = new TaskRunner<taskDataType, string>(settings.concurrency || 1, "./workerRunCmd.ts", undefined, options.ignoreMissingDependencies);
             taskRunner.preTaskCb = (task, index) => {
                 logger.debug(`[${settings.commandName}] [${index}/${alireTomlPath.length}] Building project '${task.id}' in: ${task.data.path}`);
                 settings.preTaskCb?.(task, index);

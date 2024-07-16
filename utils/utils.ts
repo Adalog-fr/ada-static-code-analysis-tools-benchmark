@@ -50,3 +50,73 @@ export function formatDuration(milliseconds: number): string {
 
   return durationParts.join(" ");
 }
+
+export interface UnifiedCrateData {
+    crates: { [key: string]: Crate };
+    ignoredCrates: string[];
+}
+
+export interface Crate {
+    path: string;
+    alireProjects: CrateInfo[];
+    ignore: boolean;
+    ignoreReason?: string;
+}
+
+export interface CrateInfo {
+    alireTomlPath: string;
+    projects: GPRProject[];
+}
+
+export interface CratesInNeo4j {
+    workDir: string;
+    projects: GPRProject[];
+    isNeo4jDbFilesFullyComplete: boolean;
+    isAdaCtlComplete: boolean;
+}
+
+export interface GPRProject {
+    gprPath: string;
+    neo4jDbFilesPath: string;
+    isNeo4jDbFilesComplete: boolean;
+    isAdaCtlComplete: boolean;
+}
+
+export interface extendedGPRProject extends GPRProject {
+    alireTomlPath: string;
+    crateName: string;
+}
+
+/** Filters crates to include only those with all projects meeting complete criteria */
+export function filterCompleteCrates(crates: { [key: string]: Crate }): extendedGPRProject[] {
+    const filteredCrates: extendedGPRProject[] = [];
+
+    for (const [crateName, crate] of Object.entries(crates)) {
+        if (crate.ignore) {
+            continue;
+        }
+
+        for (const projectInfo of crate.alireProjects) {
+            for (const project of projectInfo.projects) {
+                if (project.isNeo4jDbFilesComplete && project.isAdaCtlComplete) {
+                    filteredCrates.push({...project, crateName, alireTomlPath: projectInfo.alireTomlPath})
+                }
+            }
+        }
+    }
+
+    return filteredCrates;
+}
+
+export function getAllIgnoredCrates(data : UnifiedCrateData): string[] {
+    const result = [...data.ignoredCrates];
+
+    for (const [_, crate] of Object.entries(data.crates)) {
+        if (!crate.ignore) {
+            continue;
+        }
+        result.push(crate.path);
+    }
+
+    return result;
+}
