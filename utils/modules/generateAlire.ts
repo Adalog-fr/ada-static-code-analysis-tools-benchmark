@@ -7,7 +7,7 @@ export function initializeModule(program: Command): void {
     program
         .command("generate-alire")
         .description(
-            "Generate `alire.toml` from a liste of directory that contains a `alire.origin.toml`. It also delete existing `alire` folder and generate a '" + DEFAULT_UNKNOWN_CRATES_FILENAME + "' that contains a list of all unknown crates."
+            "Generate `alire.toml` from a list of directory that contains a `alire.origin.toml`. It also delete existing `alire` folder and generate a '" + DEFAULT_UNKNOWN_CRATES_FILENAME + "' that contains a list of all unknown crates."
         )
         .option(
             "-c, --cratesPath <path>",
@@ -22,7 +22,7 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-u, --unknownCrates <path>",
-            "File path to a json file that contains a list of all unknown crtates found by processing `alire.origin.toml` files.",
+            "File path to a json file that contains a list of all unknown crates found by processing `alire.origin.toml` files.",
             "/workspaces/bench-source/" + DEFAULT_UNKNOWN_CRATES_FILENAME
         )
         .action(

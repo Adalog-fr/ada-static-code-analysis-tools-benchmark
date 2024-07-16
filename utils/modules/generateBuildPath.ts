@@ -17,7 +17,7 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-o, --output-dir <path>",
-            "Diriectory were the `" + OUTPUT_FILENAME + "` will be generated.",
+            "Directory were the `" + OUTPUT_FILENAME + "` will be generated.",
             "."
         )
         .action(

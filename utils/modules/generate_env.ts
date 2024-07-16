@@ -19,7 +19,7 @@ export function initializeModule(program: Command): void {
                 "--allow-env",
                 "--allow-run",
                 "--allow-ffi",
-                "--unstable",
+                "--unstable-ffi",
                 "/workspaces/bench-source/utils/executeEnvFileGeneration.ts",
             ]
         ],
