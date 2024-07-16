@@ -1,0 +1,4927 @@
+{
+  "crates": {
+    "aaa": {
+      "path": "/workspaces/bench-source/src/aaa",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/aaa",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/aaa/aaa.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/aaa/.aaa/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/aaa/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "ada_fuse": {
+      "path": "/workspaces/bench-source/src/ada_fuse",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ada_fuse",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ada_fuse/ada_fuse.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ada_fuse/.ada_fuse/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ada_language_server": {
+      "path": "/workspaces/bench-source/src/ada_language_server",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ada_language_server",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "ada_lua": {
+      "path": "/workspaces/bench-source/src/ada_lua",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ada_lua",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ada_lua/ada_lua.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ada_lua/.ada_lua/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ada_pretty": {
+      "path": "/workspaces/bench-source/src/ada_pretty",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ada_pretty",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ada_pretty/gnat/ada_pretty.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ada_pretty/.ada_pretty/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ada_toml": {
+      "path": "/workspaces/bench-source/src/ada_toml",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ada_toml",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ada_toml/ada_toml.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ada_toml/.ada_toml/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ada_voxel_space_demo": {
+      "path": "/workspaces/bench-source/src/ada_voxel_space_demo",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ada_voxel_space_demo",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ada_voxel_space_demo/ada_voxel_space_demo.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ada_voxel_space_demo/.ada_voxel_space_demo/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "adabots": {
+      "path": "/workspaces/bench-source/src/adabots",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/adabots",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/adabots/adabots.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/adabots/.adabots/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "adacl": {
+      "path": "/workspaces/bench-source/src/adacl",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/adacl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/adacl/test",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "adayaml": {
+      "path": "/workspaces/bench-source/src/adayaml",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/adayaml",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/adayaml/yaml-annotation_processor.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/adayaml/.yaml-annotation_processor/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/adayaml/yaml-server.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/adayaml/.yaml-server/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/adayaml/yaml-utils.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/adayaml/.yaml-utils/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/adayaml/yaml.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/adayaml/.yaml/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "adl_middleware": {
+      "path": "/workspaces/bench-source/src/adl_middleware",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/adl_middleware",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/adl_middleware/adl_middleware.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/adl_middleware/.adl_middleware/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "admpfr": {
+      "path": "/workspaces/bench-source/src/admpfr",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/admpfr",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "ado": {
+      "path": "/workspaces/bench-source/src/awa/ada-ado",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-ado",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/awa/ada-ado/.alire/sqlite/ado_sqlite.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/awa/ada-ado/sqlite/.ado_sqlite/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-ado/all",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-ado/mysql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-ado/postgresql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-ado/sqlite",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "ado_all": {
+      "path": "/workspaces/bench-source/src/awa/ada-ado/all",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "ado_mysql": {
+      "path": "/workspaces/bench-source/src/awa/ada-ado/mysql",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "ado_postgresql": {
+      "path": "/workspaces/bench-source/src/awa/ada-ado/postgresql",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "ado_sqlite": {
+      "path": "/workspaces/bench-source/src/awa/ada-ado/sqlite",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "aflex": {
+      "path": "/workspaces/bench-source/src/aflex",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/aflex",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/aflex/aflex.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/aflex/.aflex/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "agpl": {
+      "path": "/workspaces/bench-source/src/agpl",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/agpl",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/agpl/agpl.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/agpl/.agpl/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "aicwl": {
+      "path": "/workspaces/bench-source/src/aicwl",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/aicwl",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/aicwl/sources/aicwl-editor.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/aicwl/.aicwl-editor/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/aicwl/sources/aicwl.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/aicwl/.aicwl/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ajunitgen": {
+      "path": "/workspaces/bench-source/src/ajunitgen",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ajunitgen",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ajunitgen/ajunitgen.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ajunitgen/.ajunitgen/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "akt": {
+      "path": "/workspaces/bench-source/src/awa/ada-keystore/akt",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-keystore/akt",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/awa/ada-keystore/.alire/keystoreada_tools.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/awa/ada-keystore/akt/.keystoreada_tools/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "anagram": {
+      "path": "/workspaces/bench-source/src/anagram",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/anagram",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/anagram/gnat/anagram.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/anagram/.anagram/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ansiada": {
+      "path": "/workspaces/bench-source/src/ansiada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ansiada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ansiada/ansiada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ansiada/.ansiada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ansiada/demo",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "apdf": {
+      "path": "/workspaces/bench-source/src/apdf",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/apdf",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/apdf/pdf_out_gnat_w_gid.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/apdf/.pdf_out_gnat_w_gid/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "asfml": {
+      "path": "/workspaces/bench-source/src/asfml",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/asfml",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/asfml/asfml.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/asfml/.asfml/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "asis": {
+      "path": "/workspaces/bench-source/src/asis",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/asis",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "atari_atr_tools": {
+      "path": "/workspaces/bench-source/src/atari_atr_tools",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/atari_atr_tools",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/atari_atr_tools/test",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "atomic": {
+      "path": "/workspaces/bench-source/src/atomic",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/atomic",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/atomic/atomic.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/atomic/.atomic/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/atomic/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "audio_base": {
+      "path": "/workspaces/bench-source/src/audio_base",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/audio_base",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/audio_base/audio_base.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/audio_base/.audio_base/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "audio_wavefiles": {
+      "path": "/workspaces/bench-source/src/audio_wavefiles",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/audio_wavefiles",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/audio_wavefiles/audio_wavefiles.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/audio_wavefiles/.audio_wavefiles/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "aunit": {
+      "path": "/workspaces/bench-source/src/aunit",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/aunit",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/aunit/lib/gnat/aunit.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/aunit/.aunit/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "automate": {
+      "path": "/workspaces/bench-source/src/automate",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/automate",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/automate/automate.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/automate/.automate/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "avltrees": {
+      "path": "/workspaces/bench-source/src/avltrees",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/avltrees",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/avltrees/avltrees.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/avltrees/.avltrees/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "avrada_rts": {
+      "path": "/workspaces/bench-source/src/avrada_examples/avrada_rts",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/avrada_examples/avrada_rts",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/avrada_examples/avrada_rts/avrada_rts.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/avrada_examples/avrada_rts/.avrada_rts/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "awa": {
+      "path": "/workspaces/bench-source/src/awa",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/awa/.alire/unit/awa_unit.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/awa/unit/.awa_unit/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-asf",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-asf/unit",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-el",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-keystore",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-lzma",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-security",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-servlet",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-servlet/aws",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-servlet/ews",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-servlet/unit",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-util",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-util/aws",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-util/curl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-util/lzma",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-util/unit",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-util/xml",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/ada-wiki",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/dynamo",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/openapi-ada",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/openapi-ada/server",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/awa/unit",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "awa_unit": {
+      "path": "/workspaces/bench-source/src/awa/unit",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "aws": {
+      "path": "/workspaces/bench-source/src/aws",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/aws",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/aws/aws.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/aws/.aws/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "axmpp": {
+      "path": "/workspaces/bench-source/src/axmpp",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/axmpp",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/axmpp/gnat/axmpp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/axmpp/.axmpp/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ayacc": {
+      "path": "/workspaces/bench-source/src/ayacc",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ayacc",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ayacc/ayacc.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ayacc/.ayacc/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "b2ssum": {
+      "path": "/workspaces/bench-source/src/b2ssum",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/b2ssum",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/b2ssum/b2ssum.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/b2ssum/.b2ssum/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "bar_codes": {
+      "path": "/workspaces/bench-source/src/bar_codes",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/bar_codes",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/bar_codes/bar_codes_gnat.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/bar_codes/.bar_codes_gnat/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "basalt": {
+      "path": "/workspaces/bench-source/src/basalt",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/basalt",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/basalt/basalt.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/basalt/.basalt/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "base64": {
+      "path": "/workspaces/bench-source/src/base64",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/base64",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/base64/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "bbqueue": {
+      "path": "/workspaces/bench-source/src/bbqueue",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/bbqueue",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/bbqueue/bbqueue.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/bbqueue/.bbqueue/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/bbqueue/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "bingada": {
+      "path": "/workspaces/bench-source/src/bingada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/bingada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/bingada/bingada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/bingada/.bingada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/bingada/libs/ASFML",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "blake2s": {
+      "path": "/workspaces/bench-source/src/blake2s",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/blake2s",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/blake2s/blake2s.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/blake2s/.blake2s/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "brackelib": {
+      "path": "/workspaces/bench-source/src/brackelib",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/brackelib",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/brackelib/brackelib.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/brackelib/.brackelib/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/brackelib/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "c_strings": {
+      "path": "/workspaces/bench-source/src/c_strings",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/c_strings",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/c_strings/c_strings.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/c_strings/.c_strings/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "canberra_ada": {
+      "path": "/workspaces/bench-source/src/canberra_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/canberra_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/canberra_ada/canberra_ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/canberra_ada/.canberra_ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "cbsg": {
+      "path": "/workspaces/bench-source/src/cbsg",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/cbsg",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/cbsg/cbsg.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/cbsg/.cbsg/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "chacha20": {
+      "path": "/workspaces/bench-source/src/chacha20",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/chacha20",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/chacha20/chacha20.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/chacha20/.chacha20/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "chests": {
+      "path": "/workspaces/bench-source/src/chests",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/chests",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/chests/chests.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/chests/.chests/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/chests/example",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/chests/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "clic": {
+      "path": "/workspaces/bench-source/src/clic",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/clic",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/clic/clic.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/clic/.clic/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/clic/example",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "cmd_ada": {
+      "path": "/workspaces/bench-source/src/cmd_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/cmd_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/cmd_ada/cmd_ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/cmd_ada/.cmd_ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/cmd_ada/example_app",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "cobs": {
+      "path": "/workspaces/bench-source/src/cobs",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/cobs",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/cobs/cobs.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/cobs/.cobs/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/cobs/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "dashera": {
+      "path": "/workspaces/bench-source/src/dashera",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dashera",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/dashera/dashera.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/dashera/.dashera/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "dcf": {
+      "path": "/workspaces/bench-source/src/dcf",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dcf",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/dcf/zipdcf/zipdcf.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/dcf/zipdcf/.zipdcf/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dcf/dcf",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dcf/zipdcf",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "dependency_graph_extractor": {
+      "path": "/workspaces/bench-source/src/dependency_graph_extractor",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dependency_graph_extractor",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/dependency_graph_extractor/dependency_graph_extractor.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/dependency_graph_extractor/.dependency_graph_extractor/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dependency_graph_extractor/tests/syntax_examples",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "dg_loada": {
+      "path": "/workspaces/bench-source/src/dg_loada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dg_loada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/dg_loada/dg_loada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/dg_loada/.dg_loada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "dir_iterators": {
+      "path": "/workspaces/bench-source/src/dir_iterators",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dir_iterators",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/dir_iterators/dir_iterators.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/dir_iterators/.dir_iterators/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "dotenv": {
+      "path": "/workspaces/bench-source/src/dotenv",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dotenv",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/dotenv/dotenv.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/dotenv/.dotenv/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dotenv/example",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "dummyserver": {
+      "path": "/workspaces/bench-source/src/dummyserver",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/dummyserver",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "dynamo": {
+      "path": "/workspaces/bench-source/src/awa/dynamo",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "eagle_lander": {
+      "path": "/workspaces/bench-source/src/eagle_lander",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/eagle_lander",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/eagle_lander/eagle_lander.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/eagle_lander/.eagle_lander/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "edc_client": {
+      "path": "/workspaces/bench-source/src/edc_client",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/edc_client",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/edc_client/edc_client.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/edc_client/.edc_client/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "eeprom_i2c": {
+      "path": "/workspaces/bench-source/src/eeprom_i2c",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/eeprom_i2c",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/eeprom_i2c/eeprom_i2c.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/eeprom_i2c/.eeprom_i2c/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "elada": {
+      "path": "/workspaces/bench-source/src/awa/ada-el",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "elevator": {
+      "path": "/workspaces/bench-source/src/elevator",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/elevator",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/elevator/elevator.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/elevator/.elevator/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "emacs_ada_mode": {
+      "path": "/workspaces/bench-source/src/emacs_ada_mode",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emacs_ada_mode",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/emacs_ada_mode/emacs_ada_mode.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/emacs_ada_mode/.emacs_ada_mode/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "emacs_gpr_mode": {
+      "path": "/workspaces/bench-source/src/emacs_gpr_mode",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emacs_gpr_mode",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/emacs_gpr_mode/emacs_gpr_mode.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/emacs_gpr_mode/.emacs_gpr_mode/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "emacs_gpr_query": {
+      "path": "/workspaces/bench-source/src/emacs_gpr_query",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emacs_gpr_query",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/emacs_gpr_query/emacs_gpr_query.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/emacs_gpr_query/.emacs_gpr_query/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "emacs_wisi": {
+      "path": "/workspaces/bench-source/src/emacs_wisi",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emacs_wisi",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/emacs_wisitoken_grammar_mode.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/emacs_wisitoken_grammar_mode/.emacs_wisitoken_grammar_mode/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emacs_wisitoken_grammar_mode",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "emacs_wisitoken_grammar_mode": {
+      "path": "/workspaces/bench-source/src/emacs_wisitoken_grammar_mode",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "embedded_components": {
+      "path": "/workspaces/bench-source/src/embedded_components",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/embedded_components",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/embedded_components/embedded_components.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/embedded_components/.embedded_components/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "emojis": {
+      "path": "/workspaces/bench-source/src/emojis",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emojis",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/emojis/emojis.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/emojis/.emojis/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/emojis/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "endianness": {
+      "path": "/workspaces/bench-source/src/endianness",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/endianness",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/endianness/endianness.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/endianness/.endianness/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/endianness/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "epoll": {
+      "path": "/workspaces/bench-source/src/epoll",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/epoll",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/epoll/epoll.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/epoll/.epoll/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/epoll/example",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "esp_idf": {
+      "path": "/workspaces/bench-source/src/esp_idf",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/esp_idf",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/esp_idf/esp_idf.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/esp_idf/.esp_idf/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "euler_tools": {
+      "path": "/workspaces/bench-source/src/euler_tools",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/euler_tools",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/euler_tools/euler_tools.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/euler_tools/.euler_tools/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/euler_tools/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature"
+    },
+    "evdev": {
+      "path": "/workspaces/bench-source/src/evdev",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/evdev",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/evdev/evdev_info.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/evdev/.evdev_info/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/evdev/evdev.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/evdev/.evdev/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ews": {
+      "path": "/workspaces/bench-source/src/ews",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ews",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ews/ews.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ews/.ews/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ews/demonstrator",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ews/generator",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "excel_writer": {
+      "path": "/workspaces/bench-source/src/excel_writer",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/excel_writer",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/excel_writer/excel_out_gnat.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/excel_writer/.excel_out_gnat/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "fastpbkdf2_ada": {
+      "path": "/workspaces/bench-source/src/fastpbkdf2_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/fastpbkdf2_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/fastpbkdf2_ada/.fastpbkdf2_ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "felix": {
+      "path": "/workspaces/bench-source/src/felix",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/felix",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/felix/felix.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/felix/.felix/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "florist_blady": {
+      "path": "/workspaces/bench-source/src/florist_blady",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/florist_blady",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/florist_blady/lib_florist.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/florist_blady/.lib_florist/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "freetypeada": {
+      "path": "/workspaces/bench-source/src/freetypeada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/freetypeada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/freetypeada/freetype.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/freetypeada/.freetype/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "garlic": {
+      "path": "/workspaces/bench-source/src/garlic",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/garlic",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/garlic/gnat/gnatdist.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/garlic/Dist/.gnatdist/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/garlic/Dist",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "geo_coords": {
+      "path": "/workspaces/bench-source/src/geo_coords",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geo_coords",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/geo_coords/geo_coords.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/geo_coords/.geo_coords/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geo_coords/examples/distance_bearing_calculation",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geo_coords/examples/geo_coords_calculation",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geo_coords/examples/lat_lon_calculation",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "geste": {
+      "path": "/workspaces/bench-source/src/geste",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geste/examples/platformer",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geste/examples/racing",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geste/examples/RPG",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/geste/geste_examples",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "geste_examples": {
+      "path": "/workspaces/bench-source/src/geste/geste_examples",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "get_password": {
+      "path": "/workspaces/bench-source/src/get_password",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/get_password",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/get_password/get_password.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/get_password/.get_password/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "getopt": {
+      "path": "/workspaces/bench-source/src/getopt",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/getopt",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/getopt/getopt.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/getopt/.getopt/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gid": {
+      "path": "/workspaces/bench-source/src/gid",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gid",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gid/gid.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gid/.gid/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnat_arm_elf": {
+      "path": "/workspaces/bench-source/compilers/gnat_arm_elf",
+      "alireProjects": [],
+      "ignore": true
+    },
+    "gnat_avr_elf": {
+      "path": "/workspaces/bench-source/compilers/gnat_avr_elf",
+      "alireProjects": [],
+      "ignore": true
+    },
+    "gnat_math_extensions": {
+      "path": "/workspaces/bench-source/src/gnat_math_extensions",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnat_math_extensions",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnat_math_extensions/gnat_math_extensions.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnat_math_extensions/.gnat_math_extensions/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnat_math_extensions/test",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "gnat_native": {
+      "path": "/workspaces/bench-source/compilers/gnat_native",
+      "alireProjects": [],
+      "ignore": true
+    },
+    "gnatcoll": {
+      "path": "/workspaces/bench-source/src/gnatcoll-core",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-core",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-core/gnatcoll.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-core/.gnatcoll/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_gmp": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/gmp",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/gmp",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/gmp/gnatcoll_gmp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/gmp/.gnatcoll_gmp/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_iconv": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/iconv",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/iconv",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/iconv/.gnatcoll_iconv/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_lzma": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/lzma",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/lzma",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/lzma/.gnatcoll_lzma/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_omp": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/omp",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/omp",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/omp/.gnatcoll_omp/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_postgres": {
+      "path": "/workspaces/bench-source/src/gnatcoll-db/postgres",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-db/postgres",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-db/postgres/gnatcoll_postgres.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-db/postgres/.gnatcoll_postgres/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_python": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/python",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/python",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/python/gnatcoll_python.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/python/.gnatcoll_python/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_readline": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/readline",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/readline",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/readline/.gnatcoll_readline/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_sql": {
+      "path": "/workspaces/bench-source/src/gnatcoll-db/sql",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-db/sql",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-db/sqlite/.gnatcoll_sqlite/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-db/sqlite",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_sqlite": {
+      "path": "/workspaces/bench-source/src/gnatcoll-db/sqlite",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "gnatcoll_syslog": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/syslog",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/syslog",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/syslog/gnatcoll_syslog.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/syslog/.gnatcoll_syslog/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_xref": {
+      "path": "/workspaces/bench-source/src/gnatcoll-db/xref",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-db/xref",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-db/xref/gnatcoll_xref.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-db/xref/.gnatcoll_xref/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcoll_zlip": {
+      "path": "/workspaces/bench-source/src/gnatcoll-bindings/zlib",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatcoll-bindings/zlib",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnatcoll-bindings/zlib/.gnatcoll_zlib/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gnatcov": {
+      "path": "/workspaces/bench-source/src/gnatcov",
+      "alireProjects": [],
+      "ignore": true
+    },
+    "gnatdist_garlic": {
+      "path": "/workspaces/bench-source/src/garlic/Dist",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "gnatdoc": {
+      "path": "/workspaces/bench-source/src/gnatdoc",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnatdoc",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "gnatprove": {
+      "path": "/workspaces/bench-source/src/gnatprove",
+      "alireProjects": [],
+      "ignore": true
+    },
+    "gnoga": {
+      "path": "/workspaces/bench-source/src/gnoga",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gnoga",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gnoga/lib_gnoga.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gnoga/.lib_gnoga/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "gpr_unit_provider": {
+      "path": "/workspaces/bench-source/src/gpr_unit_provider",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gpr_unit_provider",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gpr_unit_provider/gpr_unit_provider.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gpr_unit_provider/.gpr_unit_provider/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "GNAT BUG DETECTED"
+    },
+    "gtkada": {
+      "path": "/workspaces/bench-source/src/gtkada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gtkada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gtkada/src/gtkada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gtkada/.gtkada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "hac": {
+      "path": "/workspaces/bench-source/src/hac",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/hac",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/hac/hac.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/hac/.hac/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "hal": {
+      "path": "/workspaces/bench-source/src/hal",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/hal",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/hal/hal.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/hal/.hal/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "hangman": {
+      "path": "/workspaces/bench-source/src/hangman",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/hangman",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/hangman/hangman.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/hangman/.hangman/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "hello": {
+      "path": "/workspaces/bench-source/src/hello",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/hello",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/hello/hello.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/hello/.hello/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "hmac": {
+      "path": "/workspaces/bench-source/src/hmac",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/hmac",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/hmac/hmac.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/hmac/.hmac/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "honki_tonks_zivilisationen": {
+      "path": "/workspaces/bench-source/src/honki_tonks_zivilisationen",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/honki_tonks_zivilisationen",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/honki_tonks_zivilisationen/honki_tonks_zivilisationen.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/honki_tonks_zivilisationen/.honki_tonks_zivilisationen/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "hungarian": {
+      "path": "/workspaces/bench-source/src/hungarian",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/hungarian",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/hungarian/hungarian.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/hungarian/.hungarian/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ini_files": {
+      "path": "/workspaces/bench-source/src/ini_files",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ini_files",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ini_files/ini_files.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ini_files/.ini_files/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "inotify": {
+      "path": "/workspaces/bench-source/src/inotify",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/inotify",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/inotify/inotify.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/inotify/.inotify/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/inotify/monitor.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/inotify/.monitor/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "iso": {
+      "path": "/workspaces/bench-source/src/iso",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/iso",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/iso/generator",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/iso/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "j2ada": {
+      "path": "/workspaces/bench-source/src/j2ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/j2ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/j2ada/j2ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/j2ada/.j2ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "json": {
+      "path": "/workspaces/bench-source/src/json/json",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/json/json",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/json/json/json_pretty_print.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/json/json/.json_pretty_print/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/json/json/json.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/json/json/.json/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "jupyter_kernel": {
+      "path": "/workspaces/bench-source/src/jupyter_kernel",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/jupyter_kernel",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/jupyter_kernel/.jupyter_ada_driver/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/jupyter_kernel/.jupyter_ada_kernel/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "jwt": {
+      "path": "/workspaces/bench-source/src/jwt",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/jwt",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/jwt/gnat/jwt.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/jwt/.jwt/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "keystoreada": {
+      "path": "/workspaces/bench-source/src/awa/ada-keystore",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "labs_radar": {
+      "path": "/workspaces/bench-source/src/labs_radar",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/labs_radar",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/labs_radar/labs_standalone/labs_standalone.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/labs_radar/labs_standalone/.labs_standalone/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/labs_radar/labs_standalone",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "labs_standalone": {
+      "path": "/workspaces/bench-source/src/labs_radar/labs_standalone",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace": {
+      "path": "/workspaces/bench-source/src/lace",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/lace/lace_xml/library/xml.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/lace/lace_xml/.xml/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace_box2d",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace_bullet",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace_c_math",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace_gel_animation_demo",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace_gel_full_demo",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace_shared",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_collada",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_gel",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_gel/applet/demo/full",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_gel/applet/demo/skinning/rig/human_rig",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_math",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_opengl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_physics",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_swig",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lace/lace_xml",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "lace_box2d": {
+      "path": "/workspaces/bench-source/src/lace_box2d",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_bullet": {
+      "path": "/workspaces/bench-source/src/lace_bullet",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_c_math": {
+      "path": "/workspaces/bench-source/src/lace_c_math",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_collada": {
+      "path": "/workspaces/bench-source/src/lace/lace_collada",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_gel": {
+      "path": "/workspaces/bench-source/src/lace/lace_gel",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_gel_animation_demo": {
+      "path": "/workspaces/bench-source/src/lace_gel_animation_demo",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_gel_full_demo": {
+      "path": "/workspaces/bench-source/src/lace_gel_full_demo",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_math": {
+      "path": "/workspaces/bench-source/src/lace/lace_math",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_opengl": {
+      "path": "/workspaces/bench-source/src/lace/lace_opengl",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_physics": {
+      "path": "/workspaces/bench-source/src/lace/lace_physics",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_shared": {
+      "path": "/workspaces/bench-source/src/lace_shared",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_swig": {
+      "path": "/workspaces/bench-source/src/lace/lace_swig",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lace_xml": {
+      "path": "/workspaces/bench-source/src/lace/lace_xml",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lal_highlight": {
+      "path": "/workspaces/bench-source/src/lal_highlight",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lal_highlight",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/lal_highlight/highlight.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/lal_highlight/.highlight/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "langkit_support": {
+      "path": "/workspaces/bench-source/src/langkit_support",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/langkit_support",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/langkit_support/langkit_support.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/langkit_support/.langkit_support/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "libadalang": {
+      "path": "/workspaces/bench-source/src/libadalang",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libadalang",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/libadalang2xml/libadalang2xml.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/libadalang2xml/.libadalang2xml/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libadalang_tools",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libadalang2xml",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Contains a file with more than 100k LoC that make huge tree swapping with ASIS."
+    },
+    "libadalang2xml": {
+      "path": "/workspaces/bench-source/src/libadalang2xml",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "libadalang_tools": {
+      "path": "/workspaces/bench-source/src/libadalang_tools",
+      "alireProjects": [],
+      "ignore": true
+    },
+    "libgnatdoc": {
+      "path": "/workspaces/bench-source/src/libgnatdoc",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libgnatdoc",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "libgpr": {
+      "path": "/workspaces/bench-source/src/gprbuild",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/gprbuild",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/gprbuild/gpr/gpr.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/gprbuild/.gpr/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "libgpr2": {
+      "path": "/workspaces/bench-source/src/libgpr2",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libgpr2",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/libgpr2/gpr2.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/libgpr2/gpr2/.gpr2/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libgpr2/gpr2",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "gpr2": {
+      "path": "/workspaces/bench-source/src/libgpr2/gpr2",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "libhello": {
+      "path": "/workspaces/bench-source/src/libhello",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libhello",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/libhello/libhello.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/libhello/.libhello/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "libkeccak": {
+      "path": "/workspaces/bench-source/src/libkeccak",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libkeccak",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/libkeccak/libkeccak.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/libkeccak/.libkeccak/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libkeccak/tests/benchmark",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libkeccak/tests/kat",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libkeccak/tests/unit_tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "libsimpleio": {
+      "path": "/workspaces/bench-source/src/libsimpleio",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/libsimpleio",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/libsimpleio/libsimpleio.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/libsimpleio/.libsimpleio/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "linenoise_ada": {
+      "path": "/workspaces/bench-source/src/linenoise_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/linenoise_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/linenoise_ada/linenoise.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/linenoise_ada/.linenoise/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "littlefs": {
+      "path": "/workspaces/bench-source/src/littlefs",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/littlefs",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/littlefs/littlefs.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/littlefs/.littlefs/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/littlefs/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "lmdb_ada": {
+      "path": "/workspaces/bench-source/src/lmdb_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lmdb_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/lmdb_ada/lmdb.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/lmdb_ada/.lmdb/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "loga": {
+      "path": "/workspaces/bench-source/src/loga",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/loga",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/loga/loga.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/loga/.loga/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "lvgl_ada": {
+      "path": "/workspaces/bench-source/src/lvgl_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/.lvgl_ada_simulator/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/checks/check_pix1",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/checks/check_pix16",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/checks/check_pix16_swap",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/checks/check_pix32",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/checks/check_pix8",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/check",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "lvgl_ada_simulator": {
+      "path": "/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "lzmada": {
+      "path": "/workspaces/bench-source/src/awa/ada-lzma",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "mage": {
+      "path": "/workspaces/bench-source/src/mage",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mage",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/mage_hat/mage_hat.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/mage_hat/.mage_hat/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mage_hat",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "mage_hat": {
+      "path": "/workspaces/bench-source/src/mage_hat",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "mandelbrot_ascii": {
+      "path": "/workspaces/bench-source/src/mandelbrot_ascii",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mandelbrot_ascii",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/mandelbrot_ascii/mandelbrot_ascii.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/mandelbrot_ascii/.mandelbrot_ascii/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "markdown": {
+      "path": "/workspaces/bench-source/src/markdown",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/markdown",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/markdown/gnat/markdown.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/markdown/.markdown/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "mathpaqs": {
+      "path": "/workspaces/bench-source/src/mathpaqs",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mathpaqs",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/mathpaqs/mathpaqs.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/mathpaqs/.mathpaqs/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_amf": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_amf_utp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_utp/.matreshka_amf_utp/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_mofext",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_ocl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_uml",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_utp",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_amf_dd": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_dd",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_amf_mofext": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_mofext",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_amf_ocl": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_ocl",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_amf_uml": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_uml",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_amf_utp": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_amf_utp",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_fastcgi": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_fastcgi.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_fastcgi/.matreshka_fastcgi/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_league": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_league/.build_matreshka_league/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_servlet": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_servlet.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_servlet/.matreshka_servlet/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_soap": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_soap_wsse.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse/.matreshka_soap_wsse/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_soap_wsse": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_soap_wsse",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_spikedog_api": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_api.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_api/.matreshka_spikedog_api/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_spikedog_core": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_spikedog_core.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_spikedog_core/.matreshka_spikedog_core/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_sql": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/gnat/matreshka_sql_sqlite3.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3/.matreshka_sql_sqlite3/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "matreshka_sql_firebird": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_firebird",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_sql_mysql": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_mysql",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_sql_postgresql": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_postgresql",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_sql_sqlite3": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_sql_sqlite3",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "matreshka_xml": {
+      "path": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/matreshka/packages/alire/matreshka_xml/.build_matreshka_xml/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "mcp2221": {
+      "path": "/workspaces/bench-source/src/mcp2221",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mcp2221",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/mcp2221/mcp2221.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/mcp2221/.mcp2221/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "midi": {
+      "path": "/workspaces/bench-source/src/midi",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/midi",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/midi/midi.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/midi/.midi/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/midi/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "minirest": {
+      "path": "/workspaces/bench-source/src/minirest",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/minirest",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/minirest/minirest.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/minirest/.minirest/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "mos6502_create_led": {
+      "path": "/workspaces/bench-source/src/mos6502_create_led",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mos6502_create_led",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mos6502_create_led/test",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "mos6502_create_nop": {
+      "path": "/workspaces/bench-source/src/mos6502_create_nop",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mos6502_create_nop",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mos6502_create_nop/test",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "mos6502_create_reset": {
+      "path": "/workspaces/bench-source/src/mos6502_create_reset",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mos6502_create_reset",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/mos6502_create_reset/test",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "ncursesada": {
+      "path": "/workspaces/bench-source/src/ncursesada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ncursesada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ncursesada/Ada95/lib_adacurses.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ncursesada/.lib_adacurses/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "openapi": {
+      "path": "/workspaces/bench-source/src/awa/openapi-ada",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "openapi_server": {
+      "path": "/workspaces/bench-source/src/awa/openapi-ada/server",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "openglada": {
+      "path": "/workspaces/bench-source/src/openglada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/openglada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/openglada/openglada_text/opengl-text.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/openglada/openglada_text/.opengl-text/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/openglada_glfw",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/openglada_images",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/openglada/openglada_text",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "openglada_glfw": {
+      "path": "/workspaces/bench-source/src/openglada_glfw",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "openglada_images": {
+      "path": "/workspaces/bench-source/src/openglada_images",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "openglada_text": {
+      "path": "/workspaces/bench-source/src/openglada/openglada_text",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "optional": {
+      "path": "/workspaces/bench-source/src/optional",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/optional",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/optional/optional.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/optional/.optional/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "parse_args": {
+      "path": "/workspaces/bench-source/src/parse_args",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/parse_args",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/parse_args/parse_args.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/parse_args/.parse_args/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/parse_args/examples",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/parse_args/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "partord": {
+      "path": "/workspaces/bench-source/src/partord",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/partord",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/partord/partord.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/partord/.partord/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "pbkdf2": {
+      "path": "/workspaces/bench-source/src/pbkdf2",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/pbkdf2",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/pbkdf2/pbkdf2.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/pbkdf2/.pbkdf2/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/pbkdf2/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "play_2048": {
+      "path": "/workspaces/bench-source/src/play_2048",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/play_2048",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/play_2048/play_2048.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/play_2048/.play_2048/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "powerjoular": {
+      "path": "/workspaces/bench-source/src/powerjoular",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/powerjoular",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/powerjoular/powerjoular.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/powerjoular/.powerjoular/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "ppag": {
+      "path": "/workspaces/bench-source/src/ppag",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/ppag",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/ppag/ppag.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/ppag/.ppag/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "progress_indicators": {
+      "path": "/workspaces/bench-source/src/progress_indicators",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/progress_indicators",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/progress_indicators/progress_indicators.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/progress_indicators/.progress_indicators/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "protobuf": {
+      "path": "/workspaces/bench-source/src/protobuf",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/protobuf",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/protobuf/gnat/protoc_gen_ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/protobuf/.protoc_gen_ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "pygamer_simulator": {
+      "path": "/workspaces/bench-source/src/pygamer_simulator",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/pygamer_simulator",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/pygamer_simulator/pygamer_simulator.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/pygamer_simulator/.pygamer_simulator/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "qoi": {
+      "path": "/workspaces/bench-source/src/qoi",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/qoi",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/qoi/qoi.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/qoi/.qoi/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/qoi/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "raspberry_bsp": {
+      "path": "/workspaces/bench-source/src/raspberry_bsp",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/raspberry_bsp",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/raspberry_bsp/raspberry_bsp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/raspberry_bsp/.raspberry_bsp/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "rejuvenation": {
+      "path": "/workspaces/bench-source/src/rejuvenation",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/rejuvenation/rejuvenation.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/rejuvenation/.rejuvenation/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/examples",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/find_and_replace_tool",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/find_tool",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/generator-developers_only",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/tests",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/workshop",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rejuvenation/workshop/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "remoteio": {
+      "path": "/workspaces/bench-source/src/remoteio",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/remoteio",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/remoteio/remoteio.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/remoteio/.remoteio/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "resources": {
+      "path": "/workspaces/bench-source/src/resources",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/resources",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/resources/resources.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/resources/.resources/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/resources/tests",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/resources/tests/lib_a",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "rewriters": {
+      "path": "/workspaces/bench-source/src/rewriters",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rewriters",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/rewriters/rewriters.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/rewriters/.rewriters/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rewriters/code_reviewer",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rewriters/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "rsfile": {
+      "path": "/workspaces/bench-source/src/rsfile",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rsfile",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/rsfile/rsfile.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/rsfile/.rsfile/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "rtmidi": {
+      "path": "/workspaces/bench-source/src/rtmidi",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rtmidi",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/rtmidi/rtmidi.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/rtmidi/.rtmidi/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rtmidi/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "rxada": {
+      "path": "/workspaces/bench-source/src/rxada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/rxada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/rxada/rxada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/rxada/.rxada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "saatana": {
+      "path": "/workspaces/bench-source/src/saatana",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/saatana",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/saatana/saatana.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/saatana/.saatana/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "scripted_testing": {
+      "path": "/workspaces/bench-source/src/scripted_testing",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/scripted_testing",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/scripted_testing/scripted_testing.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/scripted_testing/.scripted_testing/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/scripted_testing/test",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "sdlada": {
+      "path": "/workspaces/bench-source/src/sdlada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/sdlada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/sdlada/build/gnat/sdlada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/sdlada/.sdlada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "security": {
+      "path": "/workspaces/bench-source/src/awa/ada-security",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "semantic_versioning": {
+      "path": "/workspaces/bench-source/src/semantic_versioning",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/semantic_versioning",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/semantic_versioning/semantic_versioning.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/semantic_versioning/.semantic_versioning/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "septum": {
+      "path": "/workspaces/bench-source/src/septum",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/septum",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/septum/septum.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/septum/.septum/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/septum/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "serverfaces": {
+      "path": "/workspaces/bench-source/src/awa/ada-asf",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "serverfaces_unit": {
+      "path": "/workspaces/bench-source/src/awa/ada-asf/unit",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "servletada": {
+      "path": "/workspaces/bench-source/src/awa/ada-servlet",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "servletada_aws": {
+      "path": "/workspaces/bench-source/src/awa/ada-servlet/aws",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "servletada_ews": {
+      "path": "/workspaces/bench-source/src/awa/ada-servlet/ews",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "servletada_unit": {
+      "path": "/workspaces/bench-source/src/awa/ada-servlet/unit",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "sha1": {
+      "path": "/workspaces/bench-source/src/sha1",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/sha1",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/sha1/sha1.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/sha1/.sha1/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/sha1/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "sha2": {
+      "path": "/workspaces/bench-source/src/sha2",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/sha2",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/sha2/sha2.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/sha2/.sha2/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/sha2/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "si_units": {
+      "path": "/workspaces/bench-source/src/si_units",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/si_units",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/si_units/si_units.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/si_units/.si_units/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "simh_tapes": {
+      "path": "/workspaces/bench-source/src/simh_tapes",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/simh_tapes",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/simh_tapes/simh_tapes.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simh_tapes/.simh_tapes/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/simh_tapes/simhtapetool",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "simple_components": {
+      "path": "/workspaces/bench-source/src/simple_components",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/simple_components",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-elv_max_cube.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-elv_max_cube/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-http_server-sqlite_browser.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-http_server-sqlite_browser/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-http_server.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-http_server/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-modbus.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-modbus/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-mqtt.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-mqtt/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-secure.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-secure/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server-smtp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server-smtp/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-connections_server.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-connections_server/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-gnutls.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-gnutls/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-ntp.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-ntp/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components-sqlite.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components-sqlite/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/components.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.components/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/strings_edit.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.strings_edit/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_components/tables.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_components/.tables/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "simple_logging": {
+      "path": "/workspaces/bench-source/src/simple_logging",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/simple_logging",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/simple_logging/simple_logging.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/simple_logging/.simple_logging/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "slip": {
+      "path": "/workspaces/bench-source/src/slip",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/slip",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/slip/slip.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/slip/.slip/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "socketcan": {
+      "path": "/workspaces/bench-source/src/socketcan",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/socketcan",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/socketcan/src/socketcan.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/socketcan/.socketcan/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "spark_unbound": {
+      "path": "/workspaces/bench-source/src/spark_unbound",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spark_unbound",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/spark_unbound/spark_unbound.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/spark_unbound/.spark_unbound/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spark_unbound/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "sparknacl": {
+      "path": "/workspaces/bench-source/src/sparknacl",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/sparknacl",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/sparknacl/sparknacl.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/sparknacl/.sparknacl/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "spat": {
+      "path": "/workspaces/bench-source/src/spat",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spat",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/spat/spat.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/spat/.spat/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "spawn": {
+      "path": "/workspaces/bench-source/src/spawn",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spawn",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spawn/packages/glib",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spawn/spawn_glib",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spawn/spawn_glib/packages/glib",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "spawn_glib": {
+      "path": "/workspaces/bench-source/src/spawn/spawn_glib",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "spdx": {
+      "path": "/workspaces/bench-source/src/spdx",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spdx",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/spdx/spdx.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/spdx/.spdx/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "specfun": {
+      "path": "/workspaces/bench-source/src/specfun",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/specfun",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/specfun/specfun.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/specfun/.specfun/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "spoon": {
+      "path": "/workspaces/bench-source/src/spoon",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/spoon",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/spoon/spoon.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/spoon/.spoon/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "startup_gen": {
+      "path": "/workspaces/bench-source/src/startup_gen",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/startup_gen",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/startup_gen/startup_gen.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/startup_gen/.startup_gen/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "stephes_ada_library": {
+      "path": "/workspaces/bench-source/src/stephes_ada_library",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/stephes_ada_library",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/stephes_ada_library/build/stephes_ada_library.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/stephes_ada_library/.stephes_ada_library/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "stopwatch": {
+      "path": "/workspaces/bench-source/src/stopwatch",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/stopwatch",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/stopwatch/stopwatch.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/stopwatch/.stopwatch/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "svd2ada": {
+      "path": "/workspaces/bench-source/src/svd2ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/svd2ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/svd2ada/svd2ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/svd2ada/.svd2ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "system_random": {
+      "path": "/workspaces/bench-source/src/system_random",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/system_random",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/system_random/system_random.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/system_random/.system_random/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/system_random/example",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "tash": {
+      "path": "/workspaces/bench-source/src/tash",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/tash",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/tash/tash.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/tash/.tash/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/tash/demos",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/tash/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "task_coroutines": {
+      "path": "/workspaces/bench-source/src/task_coroutines",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/task_coroutines",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/task_coroutines/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "templates_parser": {
+      "path": "/workspaces/bench-source/src/templates_parser",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/templates_parser",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/templates_parser/templates_parser.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/templates_parser/.templates_parser/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "tiled_code_gen": {
+      "path": "/workspaces/bench-source/src/tiled_code_gen",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/tiled_code_gen",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/tiled_code_gen/tiled_code_gen.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/tiled_code_gen/.tiled_code_gen/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "tiny_text": {
+      "path": "/workspaces/bench-source/src/tiny_text",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/tiny_text",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/tiny_text/tiny_text.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/tiny_text/.tiny_text/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "tlsada": {
+      "path": "/workspaces/bench-source/src/tlsada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/tlsada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/tlsada/tlsada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/tlsada/.tlsada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "toml_slicer": {
+      "path": "/workspaces/bench-source/src/toml_slicer",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/toml_slicer",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/toml_slicer/toml_slicer.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/toml_slicer/.toml_slicer/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "trendy_terminal": {
+      "path": "/workspaces/bench-source/src/trendy_terminal",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/trendy_terminal",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/trendy_terminal/trendy_terminal.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/trendy_terminal/.trendy_terminal/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/trendy_terminal/example",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/trendy_terminal/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "trendy_test": {
+      "path": "/workspaces/bench-source/src/trendy_test",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/trendy_test",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/trendy_test/trendy_test.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/trendy_test/.trendy_test/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "uri_ada": {
+      "path": "/workspaces/bench-source/src/uri_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/uri_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/uri_ada/uri_ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/uri_ada/.uri_ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "uri_mime": {
+      "path": "/workspaces/bench-source/src/uri_mime",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/uri_mime",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/uri_mime/uri_mime.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/uri_mime/.uri_mime/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "usb_embedded": {
+      "path": "/workspaces/bench-source/src/usb_embedded",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/usb_embedded",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/usb_embedded/usb_embedded.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/usb_embedded/.usb_embedded/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/usb_embedded/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "utf8test": {
+      "path": "/workspaces/bench-source/src/utf8test",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/utf8test",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/utf8test/utf8test.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/utf8test/.utf8test/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "utilada": {
+      "path": "/workspaces/bench-source/src/awa/ada-util",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "utilada_aws": {
+      "path": "/workspaces/bench-source/src/awa/ada-util/aws",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "utilada_curl": {
+      "path": "/workspaces/bench-source/src/awa/ada-util/curl",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "utilada_lzma": {
+      "path": "/workspaces/bench-source/src/awa/ada-util/lzma",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "utilada_unit": {
+      "path": "/workspaces/bench-source/src/awa/ada-util/unit",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "utilada_xml": {
+      "path": "/workspaces/bench-source/src/awa/ada-util/xml",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "uxstrings": {
+      "path": "/workspaces/bench-source/src/uxstrings",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/uxstrings",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/uxstrings/lib_uxstrings1.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/uxstrings/.lib_uxstrings1/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/uxstrings/lib_uxstrings2.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/uxstrings/.lib_uxstrings2/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/uxstrings/lib_uxstrings3.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/uxstrings/.lib_uxstrings3/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "vaton": {
+      "path": "/workspaces/bench-source/src/vaton",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/vaton",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/vaton/vaton.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/vaton/.vaton/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/vaton/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "virtapu": {
+      "path": "/workspaces/bench-source/src/virtapu",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/virtapu",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/virtapu/virtapu.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/virtapu/.virtapu/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "vss": {
+      "path": "/workspaces/bench-source/src/vss",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/vss",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/vss/tools/json_schema",
+          "projects": []
+        }
+      ],
+      "ignore": true
+    },
+    "weechat_ada": {
+      "path": "/workspaces/bench-source/src/weechat_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/weechat_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/weechat_ada/weechat_ada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/weechat_ada/.weechat_ada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "wikiada": {
+      "path": "/workspaces/bench-source/src/awa/ada-wiki",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "wisitoken": {
+      "path": "/workspaces/bench-source/src/wisitoken",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/wisitoken",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/wisitoken/build/wisitoken_alire_mains.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/wisitoken/.wisitoken_alire_mains/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/wisitoken/build/wisitoken_alire.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/wisitoken/.wisitoken_alire/.atdgb",
+              "isNeo4jDbFilesComplete": false,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature"
+    },
+    "wordle": {
+      "path": "/workspaces/bench-source/src/wordle",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/wordle",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/wordlelib/wordlelib.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/wordlelib/.wordlelib/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/wordlelib",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature"
+    },
+    "wordlelib": {
+      "path": "/workspaces/bench-source/src/wordlelib",
+      "alireProjects": [],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature"
+    },
+    "wordlist": {
+      "path": "/workspaces/bench-source/src/wordlist",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/wordlist",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/wordlist/wordlist.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/wordlist/.wordlist/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/wordlist/demo",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "workers": {
+      "path": "/workspaces/bench-source/src/workers",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/workers",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/workers/workers.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/workers/.workers/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "xdg_base_dir": {
+      "path": "/workspaces/bench-source/src/xdg_base_dir",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/xdg_base_dir",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/xdg_base_dir/xdg_base_dir.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xdg_base_dir/.xdg_base_dir/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "xia": {
+      "path": "/workspaces/bench-source/src/xia",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/xia",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/xia/XIA.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xia/.XIA/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/xia/test",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "xml_ez_out": {
+      "path": "/workspaces/bench-source/src/xml_ez_out",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/xml_ez_out",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/xml_ez_out/xml_ez_out.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xml_ez_out/.xml_ez_out/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "xmlada": {
+      "path": "/workspaces/bench-source/src/xmlada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/xmlada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/xmlada/distrib/xmlada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xmlada/.xmlada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/xmlada/dom/xmlada_dom.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xmlada/.xmlada_dom/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/xmlada/input_sources/xmlada_input.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xmlada/.xmlada_input/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/xmlada/sax/xmlada_sax.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xmlada/.xmlada_sax/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/xmlada/schema/xmlada_schema.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xmlada/.xmlada_schema/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            },
+            {
+              "gprPath": "/workspaces/bench-source/src/xmlada/unicode/xmlada_unicode.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xmlada/.xmlada_unicode/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "xoshiro": {
+      "path": "/workspaces/bench-source/src/xoshiro",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/xoshiro",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/xoshiro/xoshiro.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/xoshiro/.xoshiro/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "yeison": {
+      "path": "/workspaces/bench-source/src/yeison",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/yeison",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/yeison/yeison.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/yeison/.yeison/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/yeison/demo",
+          "projects": []
+        }
+      ],
+      "ignore": false
+    },
+    "zeromq_ada": {
+      "path": "/workspaces/bench-source/src/zeromq_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/zeromq_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/zeromq_ada/zmq.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/zeromq_ada/.zmq/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "zipada": {
+      "path": "/workspaces/bench-source/src/zipada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/zipada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/zipada/zipada.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/zipada/.zipada/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    },
+    "zipdcf": {
+      "path": "/workspaces/bench-source/src/dcf/zipdcf",
+      "alireProjects": [],
+      "ignore": false
+    },
+    "zlib_ada": {
+      "path": "/workspaces/bench-source/src/zlib_ada",
+      "alireProjects": [
+        {
+          "alireTomlPath": "/workspaces/bench-source/src/zlib_ada",
+          "projects": [
+            {
+              "gprPath": "/workspaces/bench-source/src/zlib_ada/zlib.gpr",
+              "neo4jDbFilesPath": "/workspaces/bench-source/src/zlib_ada/.zlib/.atdgb",
+              "isNeo4jDbFilesComplete": true,
+              "isAdaCtlComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false
+    }
+  },
+  "ignoredCrates": [
+    "curl",
+    "feather_rp2040_bsp",
+    "gcc",
+    "gnat",
+    "lib_a",
+    "libblas",
+    "libbullet",
+    "libcanberra",
+    "libcsfml",
+    "libexpat",
+    "libfbclient",
+    "libfreetype",
+    "libfuse",
+    "libglfw3",
+    "libgmp",
+    "libgnutls",
+    "libgomp",
+    "libgsl",
+    "libgtk3",
+    "libhidapi",
+    "liblapack",
+    "liblua",
+    "liblzma",
+    "libmariadb",
+    "libmpfr",
+    "libmysqlclient",
+    "libpq",
+    "libpython2dev",
+    "libpython3dev",
+    "libreadline",
+    "librtmidi",
+    "libsdl2",
+    "libsdl2_image",
+    "libsdl2_ttf",
+    "libsqlite3",
+    "libtcl",
+    "libtk",
+    "libtls",
+    "libusb",
+    "libwayland",
+    "libx11",
+    "libzmq",
+    "m4_tool",
+    "make",
+    "openssl",
+    "pkg_config",
+    "postgresql",
+    "re2c",
+    "unixodbc",
+    "workshop",
+    "zlib"
+  ]
+}
