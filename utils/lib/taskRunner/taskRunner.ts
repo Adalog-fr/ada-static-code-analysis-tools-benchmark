@@ -52,6 +52,25 @@ class ExtendedWorker extends Worker {
     public index = 0;
 }
 
+function generateMissingDependenciesList<T>(tasks: Task<T>[], missingDeps: string[]): string {
+    let markdownOutput = '';
+
+    tasks.forEach(task => {
+        // Find the intersection of task dependencies and missing dependencies
+        const taskMissingDeps = task.dependencies.filter(dep => missingDeps.includes(dep));
+
+        if (taskMissingDeps.length > 0) {
+            // Append the task ID followed by its missing dependencies
+            markdownOutput += `${task.id}:\n`;
+            taskMissingDeps.forEach(dep => {
+                markdownOutput += `  - ${dep}\n`;
+            });
+        }
+    });
+
+    return markdownOutput;
+}
+
 type taskResultType<T, U> = { id: string, result: U, status: "success", task: Task<T> } | { id: string, result: ErrorEvent | MessageEvent, status: "failure", task: Task<T> };
 
 export type preTaskCbType<T> = (task: Task<T>, index: number) => Promise<void> | void;
@@ -71,7 +90,7 @@ export class TaskRunner<T, U> {
 
     private assocMap: Map<number, Task<T>> = new Map();
 
-    constructor(private concurrency: number, private workerPath: string, tasks?: Task<T>[]) {
+    constructor(private concurrency: number, private workerPath: string, tasks?: Task<T>[], private ignoreMissingDependencies: boolean = false) {
         if (typeof concurrency !== 'number' || concurrency < 1) {
             throw new Error("Concurrency must be a positive integer");
         }
@@ -149,19 +168,22 @@ export class TaskRunner<T, U> {
     }
 
     async run() {
-        // Check if all dependencies exist in the taskQueue
-        const taskQueueIds = this.taskQueue.map(elt => elt.id);
-        const dependencySet = new Set<string>(this.taskQueue.map(elt => elt.dependencies).flat());
-        const missingDependencies: string[] = [];
+        if (!this.ignoreMissingDependencies) {
+            // Check if all dependencies exist in the taskQueue
+            const taskQueueIds = this.taskQueue.map(elt => elt.id);
+            const dependencySet = new Set<string>(this.taskQueue.map(elt => elt.dependencies).flat());
+            const missingDependencies: string[] = [];
 
-        for (const depenedncy of dependencySet) {
-            if (!taskQueueIds.includes(depenedncy)) {
-                missingDependencies.push(depenedncy);
+            for (const depenedncy of dependencySet) {
+                if (!taskQueueIds.includes(depenedncy)) {
+                    missingDependencies.push(depenedncy);
+                }
             }
-        }
 
-        if (missingDependencies.length > 0) {
-            throw new Error(`Missing dependencies: ${missingDependencies.join(', ')}`);
+            if (missingDependencies.length > 0) {
+                throw new Error(`Missing dependencies: ${missingDependencies.join(', ')
+                    }\n\nMissing dependencies by task:\n${generateMissingDependenciesList<T>(this.taskQueue, missingDependencies)}`);
+            }
         }
 
         while (this.taskQueue.length > 0 || this.activeTasks > 0) {
