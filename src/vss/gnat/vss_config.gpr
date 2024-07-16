@@ -8,9 +8,9 @@
 
 abstract project VSS_Config is
 
-   type OS_API_Kind is ("unix", "osx", "Windows_NT");
+   type OS_API_Kind is ("UNIX", "osx", "Windows_NT");
    OS_API : OS_API_Kind :=
-     external ("VSS_OS", external ("OS", "unix"));
+     external ("VSS_OS", external ("OS", "UNIX"));
 
    type VSS_Build_Kind is ("dev", "prod", "coverage");
    Build_Mode : VSS_Build_Kind :=

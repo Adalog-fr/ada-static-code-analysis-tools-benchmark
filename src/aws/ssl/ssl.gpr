@@ -82,7 +82,8 @@ library project SSL is
 
       case Shared.Socket is
          when "std" =>
-            for Specification ("SSL.Thin") use "ssl-thin__dummy.ads";
+            -- for Specification ("SSL.Thin") use "ssl-thin__dummy.ads";
+            null;
 
          when "ssl" | "openssl" =>
             case Shared.SSL_Dynamic is
