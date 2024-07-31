@@ -1,0 +1,132 @@
+Sampling module for positive dimensional solution components with PHCv2.4.87
+
+This directory is entirely new in release 2.1, with no changes in
+release 2.2.  Intrinsic samplers were added in release 2.3.
+
+There are four parts in this library:
+  1) definition of witness sets as solutions to embedded systems;
+  2) the sampling machine, sample points, lists, and grids;
+  3) sampling of solution clusters for multiple components;
+  4) sampling a hypersurface reduces to univariate solver: p(b+t*v) = 0.
+Almost all sampling is done "extrinsically", using the explicit equations
+of the linear hyperplanes instead of the generators of the linear spaces.
+Intrinsic samplers which use these generators are still under development.
+New since 2.3.53 are the use of local intrinsic coordinates, see ts_ilocal.
+Samplers in double double and quad double arithmetic were added in
+version 2.3.87 of PHCpack.
+
+Run "gprbuild samplers.gpr" to make all test programs.
+On windows, type "gprbuild samplers.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean samplers.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                         : short description
+------------------------------------------------------------------------------
+standard_plane_representations    : convert representations of planes
+dobldobl_plane_representations    : dobldobl convert representations of planes
+quaddobl_plane_representations    : quaddobl convert representations of planes
+standard_point_coordinates        : coordinates of points in planes
+dobldobl_point_coordinates        : dobldobl coordinates of points in planes
+quaddobl_point_coordinates        : quaddobl coordinates of points in planes
+standard_plane_operations         : utilities to work with planes
+dobldobl_plane_operations         : work with planes in dobldobl precision
+quaddobl_plane_operations         : work with planes in quaddobl precision
+ts_planes                         : test on manipulating planes
+standard_flag_representations     : intrinsic format of a flag
+ts_flag                           : test on formats of flags
+standard_intrinsic_solutions      : format conversions of witness points
+dobldobl_intrinsic_solutions      : conversions of dobldobl witness points
+quaddobl_intrinsic_solutions      : conversions of quaddobl witness points
+ts_coords                         : test representations of witness points
+standard_affine_solutions         : convert solutions in affine planes
+planes_and_polynomials            : operations on planes and polynomials
+witness_sets                      : main tools to create an embedding
+witness_sets_io                   : utilities to read embedded systems
+witness_sets_formats              : from intrinsic to extrinsic formats
+intrinsic_witness_sets_io         : writes intrinsic sets to extrinsic format
+ts_square                         : test on making polynomial systems square
+ts_embed                          : test on embedding a polynomial system
+ts_squemb                         : test on squaring and embedding
+ts_locdim                         : attempt at a local dimension test
+------------------------------------------------------------------------------
+standard_moving_planes            : define path of linear spaces
+dobldobl_moving_planes            : path of planes with double doubles
+quaddobl_moving_planes            : path of planes with quad doubles
+standard_intrinsic_newton         : Newton's method for intrinsic coordinates
+dobldobl_intrinsic_newton         : double double intrinsic Newton
+quaddobl_intrinsic_newton         : quad double intrinsic Newton
+ts_iddnewt                        : test {dobl,quad}dobl intrinsic Newton
+standard_rescaling_coordinates    : local intrinsic coords, standard precision
+dobldobl_rescaling_coordinates    : local intrinsic coords, dobldobl precision
+quaddobl_rescaling_coordinates    : local intrinsic coords, quaddobl precision
+standard_intrinsic_trackers       : tracking paths in intrinsic coordinates
+dobldobl_intrinsic_trackers       : dobldobl tracking in intrinsic coordinates
+quaddobl_intrinsic_trackers       : quaddobl tracking in intrinsic coordinates
+standard_linear_span              : determine linear span of component
+dobldobl_linear_span              : linear span in double double precision
+quaddobl_linear_span              : linear span in quad double precision
+ts_ispan                          : test on determining linear span
+ts_iwset                          : convert to intrinsic witness sets
+standard_intrinsic_continuation   : calls trackers on a list of solutions
+dobldobl_intrinsic_continuation   : intrinsic tracking with double doubles
+quaddobl_intrinsic_continuation   : intrinsic tracking with quad doubles
+ts_inewt                          : test on intrinsic Newton's method
+ts_itrack                         : test on intrinsic path trackers
+standard_recentering_coordinates  : work with local intrinsic coordinates
+ts_ilocal                         : test local intrinsic coordinates
+affine_sampling_machine           : sampling using affine planes
+sampling_machine                  : interface to homotopy continuation
+sample_points                     : points sampled from a component
+sample_points_io                  : input-output for sampled points
+sample_point_lists                : lists of sampled points
+sample_point_lists_io             : input-output for sampled point lists
+sample_point_grids                : grids are lists of sampled point lists
+sample_point_grids_io             : input-output for sampled point grids
+ts_sample                         : interactive testing facility for sampler
+------------------------------------------------------------------------------
+sampling_laurent_machine          : sampling on Laurent polynomial systems
+dobldobl_sampling_machine         : sampling in double double precision
+dobldobl_sampling_laurent_machine : sampling dobldobl Laurent systems
+quaddobl_sampling_machine         : sampling in quad double precision
+quaddobl_sampling_laurent_machine : sampling quaddobl Laurent systems
+dobldobl_sample_points            : sampled points in double double precision
+dobldobl_sample_grids             : grids of double double precision samples
+dobldobl_sample_lists             : lists of double double sample points
+quaddobl_sample_points            : sampled points in quad double precision
+quaddobl_sample_lists             : lists of quad double sample points
+quaddobl_sample_grids             : grids of quad double precision samples
+ts_ddqdsam                        : test double double & quad double sampling
+------------------------------------------------------------------------------
+rectangular_sample_grids          : sampling on parallel slices
+dobldobl_rectangular_sample_grids : parallel sampling with double doubles
+quaddobl_rectangular_sample_grids : parallel sampling with quad doubles
+standard_stacked_sample_grids     : grids for general dimensions
+dobldobl_stacked_sample_grids     : double double version of stacked grids
+quaddobl_stacked_sample_grids     : quad double version of stacked grids
+multprec_stacked_sample_grids     : multiprecision version of stacked grids
+make_sample_grids                 : makes grids of sample points with tests
+------------------------------------------------------------------------------
+standard_solution_clusters        : managing clusters of solutions
+extrapolate_solution_clusters     : refining solutions by extrapolation
+multiplicity_homotopies           : homotopy to sample multiple components
+ts_mulhom                         : test on multiplicity samplers
+------------------------------------------------------------------------------
+ts_unisam                         : test on the use of Weierstrass method
+standard_lined_hypersurfaces      : generic points on hypersurfaces
+dobldobl_lined_hypersurfaces      : generic points in double double precision
+quaddobl_lined_hypersurfaces      : generic points in quad double precision
+hypersurface_samplers             : sample points on hypersurface
+hypersurface_sample_grids         : building grids for interpolation
+dobldobl_gridded_hypersurfaces    : grids on hypersurfaces with double doubles
+quaddobl_gridded_hypersurfaces    : grids on hypersurfaces with quad doubles
+ts_hypsam                         : test on hypersurface sampler
+polynomial_roots                  : homotopies to solve p(x) = 0
+ts_roots                          : calls root finder
+hypersurface_points               : homotopies to solve p(b+t*v) = 0
+ts_hyppts                         : test on solving p(b+t*v) = 0
+hypersurface_roots                : homotopies to solve p(t*v) = 0
+ts_hyprts                         : test on solving p(t*v) = 0
+-------------------------------------------------------------------------------
+main_samplers                     : defines phc -y
+------------------------------------------------------------------------------

@@ -1,0 +1,49 @@
+Mon 16 Jan 2017 : new file all_ped_kernels.cu combines the all kernels
+  for the three precisions, which allows then to run the tests in test_ped,
+  with the precision at the first item at the command line.
+
+Sun 15 Jan 2017 : new files ped_host.h and ped_host.cpp to define the
+  execution on the host, tested in test_ped, and compiled with double,
+  double double, and quad double precision, as defined by the makefile.
+  Redefined ped_kernels.h, with ped_kernels.cu, ped_kernels_qd.cu,
+  with their separate compilations as defined in the makefile,
+  with the call documented away in test_ped.cpp.
+
+Sat 14 Jan 2017 : edits in gqd_qd_util.h and gqd_qd_util.cpp, with a bug
+  fix in the generation of the random positions.  Move the write_system
+  from run_ped.cpp to the gqd_qd_util.h.  New main test program test_ped
+  takes the working precision at the command line.
+  Cleaned up the CPU_evaldiff in run_ped.cpp, with comparisons in main.
+  Replaced T by realD in ped_kernelsT* and improved run_ped.cpp.
+  Made the CPU_evaldiff a templated function in run_ped.cpp.
+
+Fri 13 Jan 2017 : instead of T and T1, used realD and realH in run_ped.cpp.
+
+Wed 11 Jan 2017 : in mycomplex.h and use_complex.cpp, used type real
+  instead of T, and replaced real and imag with re and im.
+  Replaced real and imag by re and im in complexD.h and complexH.h.
+  Instead of T and T1 used realD and realH in gqd_qd_util.h,
+  and also in complexH.h; replaced T by real in complexD.h.
+
+Tue 10 Jan 2017 : updated the makefile for qd-2.3.17, where the libqd.a
+  is in a separate location, separate from the src directory.
+  Fixed an allocation error in ped_kernelsT.cu and ped_kernelsT_qd.cu.
+  Made the error message when parsing the command line arguments in
+  gqd_qd_util.cpp better.  For symmetry with complexH.h, renamed complex.h
+  into complexD.h, which changed the *cu, *h, and *cpp files,
+  except for the experimental use_complex.cpp and mycomplex.h.
+  Extended the experimental use_complex.cpp with a templated function;
+  replaced the image by imag in mycomplex.h.
+
+Sun 8 Jan 2017 : experimenting with complex numbers at several levels
+  of precision in the same source file in the file use_complex.cpp,
+  made a change to complexH.h, in the copy mycomplex.h.
+  Updated makefile for qd-2.3.14.
+
+Fri 8 Mar 2013 : gqd_qd_util.h_new for initialization of the
+  coefficients of the Jacobian matrix.
+
+Wed 6 Mar 2013 : modified run_ped.cpp, gqd_qd_util.h, gqd_qd_util.cpp,
+  ped_kernelsT.cu, ped_kernelsT_qd.cu to suppress output when taking
+  timings for Table VI in the relation with MGS.
+  Made a new directory Timings.

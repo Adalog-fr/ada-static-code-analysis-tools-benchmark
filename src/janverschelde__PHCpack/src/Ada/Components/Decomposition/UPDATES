@@ -1,0 +1,662 @@
+Tue 20 Feb 2024 : extended path_counts_table with functions and procedures
+  to store, retrieve and clear the irreducible factors.
+
+Sun 18 Feb 2024 : extended path_counts_table with a function to return
+  the decomposition string.
+
+Fri 11 Jun 2021 : fixed ts_dimred.adb, defined decomposition.gpr to
+  build the test procedures.
+
+Thu 3 Dec 2020 : moved maindeco to the package main_decomposition.
+
+Sun 8 Nov 2020 : updated maindeco.adb, drivers_to_cascade_filtering.adb,
+  jumpstart_diagonal_homotopies.adb for the renaming of drivers_for_poly_
+  continuation into main_poly_continuation.
+
+Fri 11 Oct 2019 : added verbose level to maindeco and to running_cascades,
+  embeddings_and_cascades, and drivers_to_cascade_filtering.
+  Adding writing of superwitness sets, as _sw files to running_cascades.adb,
+  for standard double precision.  Extended extrinsic_diagonal_homotopies_io
+  with procedures to write witness sets for double doubles and quad doubles,
+  called in running_cascades.adb.
+
+Thu 29 Aug 2019 : removed superfluous with/use clauses from
+  drivers_to_cascade_filtering.adb and updated cascade_homotopies
+  and cascade_homotopy_filters.a* for compiler warnings.
+
+Wed 2 Jan 2019 : fixed compiler error in witness_generate_and_classify.adb,
+  for changed specifications in black_box_continuations.
+
+Thu 23 Aug 2018 : new package store_witness_solutions contains the definitions
+  of the Store procedures, used in ts_witsols.adb.  Isolated the computation
+  of a lower bound on the dimension of a solution set into a separate function
+  in the package embeddings_and_cascades.  Moved the output procedures from
+  ts_witsols.adb into a new package write_witness_solutions.
+
+Tue 21 Aug 2018 : indices to the irreducible factors in the decomposition
+  added as output parameter in the procedures with callback in
+  running_cascades and embeddings_and_cascades, tested by ts_witsols.
+  In running_cascades and embeddings_and_cascades, the procedures with
+  callback return the path counts and filter counts.
+  Added a procedure to path_counts_table, and tests in ts_witsols.
+  Remove a superfluous space in path_counts_table.adb.
+
+Mon 20 Aug 2018 : added the running of cascades with a callback procedure
+  to running_cascades, called in embeddings_and_cascades, with a better
+  documentation, and with the main test procedures in ts_witsols.adb.
+  Added callback procedures to cascade_homotopies, called in the
+  procedures in the package running_cascades.adb, tested by ts_witsols.adb.
+  Added callback procedures to cascade_{homotopy,membership}_filters,
+  called by the procedures in running_cascades.adb.
+
+Sun 19 Aug 2018 : added solution management to standard_witness_solutions,
+  copied to {dobldobl,quaddobl}_witness_solutions, tested by ts_witsols.adb.
+  Provided stubs for solvers with callback procedures in the package
+  embeddings_and_cascades, tested by ts_witsols.adb.
+  Top dimension 0 works for the solve with callback procedures in
+  embeddings_and_cascades.adb, tested by ts_witsols.adb.
+
+Sat 18 Aug 2018 : new package standard_witness_solutions to store the output
+  of running the cascades, tested by ts_witsols.adb.
+
+Wed 6 Jun 2018 : bug fix in cascade_homotopies.adb, topdim instead of lowdim
+  in running cascades with filename as string on input in double precision.
+
+Sat 7 Apr 2018 : in cascade_homotopy_steps.adb and cascade_homotopies.adb,
+  reverted Zero_Singular_Split_Filter back to Filter_and_Split_Solutions.
+  New package embeddings_and_cascades with code taken from the package
+  drivers_to_cascade_filtering.  Added file as argument to several
+  procedures in running_cascades.adb which write to file.
+  New package cascade_membership_filters, with code from the package
+  homotopy_membership_filters, called in cascade_homotopy_filters.
+  Added more filter procedures to cascade_membership_filters,
+  called in cascade_homotopy_filters.adb.
+
+Fri 6 Apr 2018 : added number of paths tracked before starting the cascade
+  with flush(file) in cascade_homotopy_steps.adb.
+  In cascade_homotopy_steps, added "tolsing" as parameter, and replaced
+  the Filter_and_Split_Solutions by the Zero_Singular_Split_Filter.
+  Did the same in cascade_homotopies.  Adjusted tolerances and added
+  tolsing argument in running_cascades.adb, cascade_homotopy_filters.adb,
+  and drivers_to_cascade_filtering.adb.
+  Because of the extra deflate parameter in the blackbox refiners,
+  updated cascade_homotopy_steps.adb, homotopy_cascade_filter.adb,
+  and drivers_to_witness_generate.adb.
+  As the deflate option was added to the blackbox solvers,
+  drivers_to_cascade_filtering.adb was updated.
+  Set the deflate option to false in cascade_homotopy_steps.adb
+  because deflate only after homotopy membership test!
+
+Fri 30 Mar 2018 : changed intrinsic_diagonal_continuation.adb for the
+  improved interface in standard_solution_filters.
+  Set default values for tolerances in running_cascades.adb.
+
+Thu 29 Mar 2018 : improved output in cascade_homotopy_steps.adb.
+
+Wed 28 Mar 2018 : added writing of elapsed wall clock time of the solving
+  of the top dimensional system in drivers_to_cascade_filtering.adb.
+  Updated running_cascades.adb, cascade_homotopy_filters, and
+  cascade_homotopies for better output to file.
+  Added multitasked membership filters to cascade_homotopy_filters.adb.
+
+Sun 11 Mar 2018 : added extra tolerance parameter on the inverse of the
+  estimated condition number in cascade_homotopy_filters, which also
+  modified the calls in running_cascades.adb.
+
+Sat 10 Mar 2018 : added flush(file) to drivers_to_cascade_filtering.adb,
+  to flush the buffers after calling the blackbox solver on the top system.
+
+Sat 30 Dec 2017 : in drivers_to_cascade_filtering.adb, run the cascades
+  only when the top dimension is strictly positive.
+
+Fri 29 Dec 2017 : if there are any isolated solutions, then the writing of
+  the decomposition in running_cascades.adb is followed by the writing of
+  the number of isolated solutions.
+
+Thu 28 Dec 2017 : added a write_decomposition procedure to path_counts_table,
+  called in running_cascades.adb.
+
+Wed 27 Dec 2017 : added the file name to procedures in running_cascades,
+  which changed drivers_to_cascade_filtering.adb.  Set the default value
+  for homtol to 1.0e-6 (instead of 1.0e-8) in running_cascades.adb.
+  Changed header in one of the tables defined in path_counts_table.adb.
+  Instead of the indices to the points in the decomposition,
+  the factor counts table in path_counts_table.adb writes the
+  degrees of the factors in the decomposition.
+
+Tue 26 Dec 2017 : in drivers_to_cascade_filtering.adb, updated the
+  embed and cascade procedures that write to file to call running_cascades.
+  In drivers_to_cascade_filtering.adb, in the Prompt_for_Top_Dimension,
+  replaced the "suggested top dimension" by "largest top dimension".
+  In running_cascades.adb, added the write_decomposition() in all procedures
+  for every precision and also for Laurent systems.
+
+Sat 23 Dec 2017 : added filter and factor flags to the embed and cascade
+  procedure in drivers_to_cascade_filtering.
+
+Sat 21 Oct 2017 : new package running_cascades with code refactored from
+  drivers_to_cascade_filtering.  Added procedures which write to file in
+  the package running_cascades.
+
+Fri 20 Oct 2017 : started filling the stubs in cascade_homotopy_filters.adb.
+
+Thu 19 Oct 2017 : added a prompting for the top dimension to check whether
+  the entered top dimension is within bounds in drivers_to_cascade_filtering.
+  Added better error messages to drivers_to_cascade_filtering.adb.
+  In cascade_homotopies.adb, halted the cascade early for underdertermined
+  inputs. Fixed crash in drivers_to_cascade_filtering.adb for linear systems.
+  Refactored procedures in drivers_to_cascade_filtering.
+  Added lower bound on the dimension as parameter in the procedures of the
+  cascade_homotopies and cascade_homotopy_filters, which changed the calls
+  in drivers_to_cascade_filtering.
+
+Tue 17 Oct 2017 : added monodromy_homotopies_io to the with list in
+  drivers_to_cascade_filtering.adb.
+
+Sun 15 Oct 2017 : in drivers_to_cascade_filtering, added the factor option
+  and calls to the witness_factor in the monodromy_homotopies.
+  Extended the package path_counts_table with a procedure to write the
+  factor counts in drivers_to_cascade_filtering.adb.
+  Updated drivers_to_cascade_filtering.adb with calls to witness_factor.
+
+Tue 10 Oct 2017 : fixed the range of the arrays of duration for the filtering
+  in drivers_to_cascade_filtering.adb for double double and quad doubles.
+  New procedure Witness_Factor in cascade_homotopy_filters.
+
+Mon 9 Oct 2017 : updated path_counts_table.adb so no constraint_error 
+  happens at empty levels.  Applied remove_imaginary_target to the solutions
+  computed with multitasking in cascade_homotopy_steps.adb and in
+  drivers_to_cascade_filtering.adb.  Removed debugging output from
+  the code in cascade_homotopies.adb.  Updated cascade_homotopy_steps.adb
+  and drivers_to_cascade_filtering.adb for dobldobl and quaddobl precision.
+
+Sun 8 Oct 2017 : added writing of the timing information to the procedures
+  which write to file in cascade_homotopies, added one procedure which
+  writes to file and also return the superwitness sets.
+  Fixed bug in cascade_homotopies.adb: must remove the last coordinate
+  in the solutions with zero slack variable after one continuation stage.
+  Added writing of the filter counters to drivers_to_cascade_filtering.adb
+  and updated the layout in path_counts_table.adb.
+
+Sat 7 Oct 2017 : Updated cascade_homotopy_filters with filter counts.
+  Added the writing of the times and filter counts to path_counts_table,
+  with updated calls in drivers_to_cascade_filtering.adb.
+  At the last level in the cascade in cascade_homotopy_steps, there is
+  no split filter any more, only a vanishing filter.
+
+Fri 6 Oct 2017 : new package cascade_homotopy_filters, to be called in the
+  drivers_to_cascade_filtering.adb.  Added calls to the filters in
+  cascade_homotopy_filters.adb, updated drivers_to_cascade_filtering.
+
+Tue 3 Oct 2017 : more complete versions for the silent procedures in
+  drivers_to_cascade_filtering.adb.  Added double double and quad double
+  versions to drivers_to_cascade_filtering.
+
+Mon 2 Oct 2017 : provided silent procedures in drivers_to_cascade_filtering.
+
+Sun 1 Oct 2017 : new packages cascade_homotopy_steps and cascade_homotopies_io
+  with code move out of cascade_homotopies.  In cascade_homotopy_steps, added
+  silent versions of running the continuation procedures.
+  Moved the splitting on the slack variable of the solutions from
+  cascade_homotopies.adb to cascade_homotopy_steps.
+  Added silent version of witness generate to cascade_homotopies.
+
+Sat 30 Sep 2017 : moved the array_of_duration out of the packages
+  homotopy_cascade_filter and witness_generate_and_classify.
+  New drivers_to_witness_generate to collect the code for the original
+  witness generate/classify method, moved out of drivers_to_cascade_filtering,
+  which changed maindeco.adb and ts_irdeco.adb.
+  Separated code out of drivers_to_cascade_filtering into a new package
+  cascade_homotopies.
+
+Fri 29 Sep 2017 : new package add_and_remove_embedding with code taken out
+  of drivers_to_cascade_filtering.  This changed the test ts_cascade.adb
+  and maindeco.adb.
+
+Wed 27 Sep 2017 : renaming of the variable k into topdim, to make the
+  drivers_to_cascade_filtering more readable.  Added counting of the
+  solutions after filtering to drivers_to_cascade_filtering.adb,
+  with the writing of a report at the end.  New package path_counts_table,
+  with the code for the updating a writing the path counts.
+
+Sun 23 Jul 2017 : improved specification of extrinsic_diagonal_continuation,
+  moving documentation of procedures from body to specification.
+
+Sat 22 Jul 2017 : fixed ts_cascade.adb for added parameters to the driver
+  procedures.  Splitted diagonal_homotopy_continuation into two new packages:
+  extrinsic_diagonal_continuation and intrinsic_diagonal_continuation.
+  This changed drivers_to_intersect_varieties.adb, maindeco.adb, and
+  ts_intdia.adb.
+
+Fri 21 Jul 2017 : completed the extension in extrinsic_diagonal_homotopies
+  for witness sets defined by Laurent systems.  Extended the writing of
+  witness sets for Laurent systems in extrinsic_diagonal_homotopies_io.
+
+Thu 20 Jul 2017 : in extrinsic_diagonal_homotopies, added the definition of
+  the first type of diagonal homotopy for Laurent polynomial systems.
+
+Wed 19 Jul 2017 : in the packages *_diagonal_polynomials, removed the global
+  use clause on the polynomials, to make room for Laurent polynomials.
+  Added operations on Laurent polynomials to standard_diagonal_polynomials;
+  and also to {dobldobl,quaddobl}_diagonal_polynomials.
+
+Thu 13 Jul 2017 : in maindeco.adb, used the proper create_output_file
+  from communications_with_user.
+
+Thu 29 Jun 2017 : added silent procedures to square_and_embed_systems to
+  square and embed Laurent polynomial systems.
+
+Tue 27 Jun 2017 : the embedding and running of cascade with option 0 in
+  phc -c now works for Laurent systems, and in several precisions,
+  thanks to an extended drivers_to_cascade_filtering.
+  To drivers_to_cascade_filtering.adb, adding writing of seed number and 
+  version number for reproducible runs of the cascades.
+
+Mon 26 Jun 2017 : modified drivers_to_cascade_filtering so phc -c uses
+  the file names passed at the command line with option 0.
+
+Sun 25 Jun 2017 : in maindeco.adb, passed the command line arguments for
+  the files to the drivers.  Extended drivers_to_cascade_filtering and
+  square_and_embed_systems with operations for Laurent systems.
+  Running a witness generate cascade on Laurent systems works in
+  drivers_to_cascade_filtering. 
+
+Sat 24 Jun 2017 : added operations to square_and_embed_systems for Laurent
+  systems, used in drivers_to_cascade_filtering.adb.
+
+Fri 23 Jun 2017 : maindeco.adb should pass the command line parameters
+  to the square and embed procedures in drivers_to_cascade_filtering.
+
+Wed 30 Nov 2016 : fixed ts_cascade, adding nt parameter.
+
+Tue 24 May 2016 : fixed bug in drivers_to_cascade_filtering.adb,
+  treating the case where nt = 0 separately.
+
+Thu 28 Apr 2016 : called blackbox solver with nt tasks in 
+  drivers_to_cascade_filtering.adb.
+
+Thu 14 Apr 2016 : added nt parameter in maindeco.adb to the driver routines
+  for the extrinsic diagonal cascade of homotopies.
+
+Sat 9 Apr 2016 : the interactive drivers have no need for nt, but the
+  witness generate procedures in the cascade can use multitasking.
+  Updated drivers_to_cascade_filtering, which changed maindeco.adb.
+
+Fri 8 Apr 2016 : added the number of tasks nt as parameter to the interactive
+  drivers in drivers_to_cascade_filtering.
+
+Thu 7 Apr 2016 : added number of tasks nt parameter to the main driver
+  to embed a system and run the cascade in drivers_to_cascade_filtering.
+
+Wed 6 Apr 2016 : added nt to maindeco to prepare for multitasking.
+
+Sat 27 Feb 2016 : changes in diagonal_homotopy_continuation.adb due to 
+  extra argument in increment-and-fix continuation with standard doubles.
+
+Tue 17 Nov 2015 : moved the function prompt_for_precision from the package
+  extrinsic_diagonal_solvers into communications_with_user.
+  The package square_and_embed offers every of its operations in double
+  double and quad double precision, extended drivers_to_cascade_filtering.
+  Versions of witness_generate in drivers_to_cascade_filtering in double
+  double and quad double precision.
+
+Mon 16 Nov 2015 : new package square_and_embed_systems with code factored
+  out of drivers_to_cascade_filtering.  Added more code to those packages
+  with versions of operations in double double and quad double precision.
+
+Fri 13 Nov 2015 : edited drivers_to_cascade_filtering to make room for
+  versions in double double and quad double precision.
+  Added versions to make the homotopy at the start of the diagonal cascade
+  for double double and quad double precision in extrinsic_diagonal_solvers.
+
+Thu 12 Nov 2015 : more procedures to extrinsic_diagonal_solvers added in
+  double double and quad double precision.
+
+Tue 10 Nov 2015 : extended extrinsic_diagonal_solvers with procedures to
+  collapse the diagonal in double double and quad double precision.
+
+Mon 9 Nov 2015 : factored out code from extrinsic_diagonal_homotopies
+  into standard_diagonal_polynomials and standard_diagonal_solutions.
+  This changed of course extrinsic_diagonal_homotopies, but also
+  diagonal_homotopy_continuation.adb and extrinsic_diagonal_solvers.adb.
+  Updated witness_generate_and_classify.adb to refer to the new
+  standard_blackbox_continuations.  New packages {dobldobl, quaddobl}_
+  diagonal_{polynomials, solutions} used in the definition of the double
+  double and quad double versions in extrinsic_diagonal_homotopies.
+
+Tue 27 Oct 2015 : because of the renaming of black_box_poly_continuations,
+  homotopy_cascade_filter.adb and drivers_to_cascade_filtering.adb changed.
+
+Wed 5 Nov 2014 : renamed and exported procedures to square and embed
+  polynomial systems in drivers_to_cascade_filtering, for use in the
+  phcpy.sets.embed method.
+
+Wed 30 Apr 2014 : changed maindeco.adb so the user is now prompted also
+  in silent mode whether the solution set is pure dimensional.
+
+Fri 20 Dec 2013 : updated maindeco.adb for the option B to transform
+  a Laurent system with supports that are of positive corank.
+
+Tue 17 Sep 2013 : updated maindeco.adb for an added option in the
+  black box binomial system solvers.
+
+Thu 27 Jun 2013 : changed jumpstart_diagonal_homotopies, ts_intdia,
+  standard_cascading_planes, ts_filfac, ts_fillit,
+  {standard,multprec}_membership_tests, homotopy_cascade_filter,
+  {standard,multprec}_breakup_components, drivers_for_cascade_filtering.adb,
+  {standard,multprec}_irreducible_decomp{_io}.adb, and
+  drivers_to_breakup_components.adb.
+
+Wed 26 Jun 2013 : updated diagonal_homotopy_continuation, maindeco.adb,
+  instrinsic_diagonal_solvers, driver_to_intersect_varieties.adb,
+  standard_cascading_planes, homotopy_cascade_filter,
+  driver_to_cascade_filtering, standard_irreducible_decomp,
+  extrinsic_diagonal_homotopies_io, and extrinsic_diagonal_solvers.
+
+Fri 21 Jun 2013 : updates in maindeco.adb and drivers_to_cascade_filtering.
+
+Wed 27 Feb 2013 : updates in diagonal_homotopy_continuation.adb and
+  maindeco.adb for wrong reporting of end dimension...
+
+Tue 26 Feb 2013 : bug fix in extrinsic_diagonal_solvers.adb with the
+  collapse of the diagonal in case the result is zero dimensional.
+
+Tue 1 Jan 2013 : changed witness_generate_and_classify.adb because of
+  compilation errors, ts_irdeco.adb now again compiles.
+  Fixed a compilation error in ts_intcas.adb and ts_intdia.adb.
+
+Sun 9 Dec 2012 : attempted some changes in drivers_to_cascade_filtering.ads.
+
+Mon 12 Nov 2012 : changed maindeco.adb so output file contains number of
+  equations and variables of the input system.
+
+Thu 8 Nov 2012 : added extra option to maindeco to call the affine
+  binomial solver from phc -c and to compute the degrees of the maps.
+
+Sun 5 Aug 2012 : changed extrinsic_diagonal_homotopies_io.adb and
+  diagonal_homotopy_continuation.adb to output witness sets to file.
+
+Sun 29 Jul 2012 : adjusted diagonal_homotopy_continuation and maindeco.adb
+  to add the name of the output file for output of witness sets.
+
+Thu 4 Aug 2011 : removed from diagonal_homotopy_continuation.adb the
+  orthogonality check.
+
+Sun 31 Jul 2011 : moved intersect from standard_cascading_planes
+  to Samplers/standard_plane_operations, updated headers in
+  diagonal_homotopy_continuation.adb.
+
+Thu 23 Jun 2011 : updated diagonal_homotopy_continuation.adb.
+
+Wed 22 Jun 2011 : updated diagonal_homotopy_continuation.adb.
+
+Sun 19 Jun 2011 : inserted "recentered_path_tracking" procedure into
+  diagonal_homotopy_continuation.adb.
+
+Sun 12 Jun 2011 : changed diagonal_homotopy_continuation.adb for a bug.
+
+Wed 1 Jun 2011 : changed standard_breakup_components.adb,
+  extrinsic_diagonal_homotopies.adb, standard_irreducible_decomp.adb,
+  and drivers_to_intersect_varieties.adb for warnings.
+
+Sun 29 May 2011 : only one warning left in standard_cascading_planes.adb.
+  Modified homotopy_cascade_filter.adb, extrinsic_diagonal_homotopies_io.adb,
+  multprec_breakup_components.adb, drivers_to_component_creators.adb,
+  extrinsic_diagonal_solvers.adb and drivers_to_cascade_filtering.adb
+  for GNAT GPL 2010 warnings.
+
+Fri 24 Sep 2010 : updated maindeco.adb and drivers_to_cascade_filtering.adb
+  for string_splitters.
+
+Tue 14 Sep 2010 : changed diagonal_homotopy_continuation.adb adding
+  use Continuation_Parameters to headers.
+
+Mon 6 Jul 2009 : updated drivers_to_cascade_filtering.adb because of
+  multitasking in blackbox root counters.
+
+Sun 26 Oct 2008 : the extra output in extrinsic_diagonal_homotopies.adb
+  is commented out because bug is not there.  The continuation parameter
+  is set to zero in extrinsic_diagonal_solvers.adb of the start solutions.
+
+Fri 24 Oct 2008 : changed extrinsic_diagonal_solver.adb and added extra
+  output to extrinsic_diagonal_homotopies.adb to chase a bug.
+
+Thu 14 Aug 2008 : drivers_for_cascade_filtering.adb extended so that
+  now the cascade for the witness points is executed.
+
+Wed 9 Jul 2008 : updated drivers_to_cascade_filtering.* and maindeco.adb
+  with option 0 for doing embedding and start of cascade.
+
+Thu 21 Dec 2007 : changed extrinsic_diagonal_homotopies.a* and its _io.a*,
+  along with extrinsic_diagonal_solvers.adb to fix the collapse bug.
+
+Thu 20 Dec 2007 : to fix collapse of a system, changed 
+  extrinsic_diagonal_homotopies_io and extrinsic_diagonal_solvers.adb.
+
+Sat 8 Dec 2007 : changed drivers_for_cascade_filtering.adb because of
+  change in black_box_root_counters and solvers.
+
+Fri 23 Nov 2007 : removed memory chaning in creation of the extrinsic
+  diagonal homotopies in extrinsic_diagonal_homotopies.adb.
+
+Tue 13 Nov 2007 : added extra procedure to jumpstart_diagonal_homotopies
+  to remove one last slack variable after one level down in the cascade.
+
+Sat 13 Oct 2007 : revised collapse functions in extrinsic_diagonal_homotopies,
+  also changed extrinsic_diagonal_solvers.
+
+Mon 20 Aug 2007 : changed diagonal_homotopy_continuation.adb because of the
+  introduction of projective coordinates in the intrinsic path trackers.
+
+Thu 16 Aug 2007 : changed maindeco.adb so that witness set is written to
+  file at the end of the intrinsic diagonal homotopies.
+
+Wed 11 Jul 2007 : fixed bug in Cascade2 of extrinsic_diagonal_homotopies.adb.
+
+Tue 10 Jul 2007 : extrinsic_diagonal_solvers.adb uses "Add_Dummy".
+
+Mon 9 Jul 2007 : fix in extrinsic_diagonal_solvers.adb to add
+  to the dimension when collapsing the diagonal.  Fixed bug in the
+  matching_permutation of extrinsic_diagonal_homotopies_io.adb.
+
+Sat 28 Apr 2007 : moved homotopy_membership_tests to ../Factorization.
+
+Thu 25 Jan 2007 : changed drivers_to_cascade_filtering because of name
+  change of black_box_root_counting into package black_box_root_counters.
+
+Wed 10 Jan 2007 : bug in adding suffixes to product of symbol tables
+  in jumpstart_diagonal_homotopies.adb.
+
+Tue 9 Jan 2007 : fixed small bug in output symbol table of
+  jumpstart_diagonal_homotopies.  Extended extrinsic_diagonal_homotopies
+  with one extra function.
+
+Mon 8 Jan 2007 : commented out output of jumpstart_diagonal_homotopies.
+
+Fri 20 Dec 2006 : modifications to jumpstart_diagonal_homotopies
+  for use in maintrack.adb, ts_jmpdia.adb changed too.
+
+Thu 21 Dec 2006 : created the package jumpstart_diagonal_homotopies,
+  to offload the routines in ts_jmpdia.adb.
+
+Mon 18 Dec 2006 : changed extrinsic_diagonal_homotopies* extending
+  ts_jmpdia, also extrinsic_diagonal_solvers.adb changed.
+
+Sun 17 Dec 2006 : added path trackers to ts_jmpdia.
+
+Fri 15 Dec 2006 : created ts_jmpdia to develop the jumpstarting of
+  diagonal homotopies.  Updated extrinsic_diagonal_homotopies.ads.
+
+Thu 14 Dec 2006 : ts_intdia.adb did not compile anymore, provided patch.
+  Because of renaming of witness_points into *sets*, maindeco.adb changed;
+  diagonal_homotopy_continuation.adb, drivers_to_cascade_filtering.adb,
+  drivers_to_intersect_varieties.adb, extrinsic_diagonal_solvers.adb,
+  drivers_to_breakup_components.adb, homotopy_membership_tests.adb,
+  extrinsic_diagonal_homotopies.adb, standard_cascading_planes.adb,
+  homotopy_cascade_filter.adb, {multprec,standard}_breakup_components.adb,
+  ts_intcas, p_intrinsic_diagonal_solvers.adb, ts_dimred, ts_filfac,
+  ts_fillit, ts_mbthom also changed.
+  Seems obsolete: ts_irdeco.adb and irreducible_decompositions.adb,
+  witness_generate_and_classify.adb.
+
+Thu 15 Jun 2006 : elimination of standard_complex_solutions.get caused
+  changes in {standard,multprec}_breakup_components.adb and
+  {standard,multprec}_membership_tests.adb.
+
+Wed 14 Jun 2006 : because of warnings on AIX, changed standard_ and 
+  multprec_breakup_components.adb and drivers_to_cascade_filtering.adb.
+  Note that drivers_to_cascade_filtering.ads was different in public!
+
+Fri 12 May 2006 : moved solution_filters and splitters to Homotopy.
+
+Mon 6 Feb 2005 : renaming in standard_condition_tables caused changes in
+  standard_solution_splitters.adb and diagonal_homotopy_continuation.adb.
+
+Sat 10 Dec 2005 : added to drivers_to_cascade_filtering.ads a routine to
+  remove an embedding from a polynomial system, changed maindeco.adb to
+  make this removal accessible as 4th option in phc -c.
+
+Tue 29 Nov 2005 : updated drivers_to_cascade_filtering.adb to fix a bug with
+  embedding overdetermined polynomial systems in phc -c.
+
+Thu 24 Mar 2005 : updated diagonal_homotopy_continuation.adb.
+
+Mon 21 Mar 2005 : filter_and_split_solutions -> standard_solution_splitters,
+  changes to drivers_to_cascade_filtering.adb, homotopy_cascade_filter.adb.
+  The splitters also replace the standard_singular_filters.
+  The file "diagonal_homotopy_continuation.adb" changed the most.
+
+Sun 20 Mar 2005 : moved New_Witness_Generate to a new Witness_Generate
+  in drivers_to_cascade_filtering.  Updated diagonal_homotopy_continuation,
+  changed menus in maindeco.adb and drivers_to_intersect_varieties.adb.
+
+Sat 19 Mar 2005 : renaming intrinsic_diagonal_homotopies into
+  diagonal_homotopy_continuation changed drivers_to_intersect_varieties.adb
+  and ts_intdia.adb.  Moved the cascade from extrinsic_diagonal_solvers into
+  extrinsic_diagonal_homotopies.
+
+Tue 8 Feb 2005 : start_cascade consists of several stages in the
+  intrinsic_diagonal_homotopies.adb
+
+Sun 23 Jan 2005 : added diagnostics to standard_cascading_planes, used
+  in intrinsic_diagonal_homotopies.adb.
+
+Mon 17 Jan 2005 : created "Start_Cascade" in intrinsic_diagonal_homotopies.
+
+Sun 16 Jan 2005 : added "report" options to intrinsic_diagonal_homotpies
+  and adjusted drivers_to_intersect_varieties accordingly.
+
+Thu 13 Jan 2005 : changed intrinsic_diagonal_homotopies to indicate BUG.
+
+Sun 19 Dec 2004 : added an extra routine with output to separate files
+  to drivers_to_intersect_varieties.
+
+Sun 21 Nov 2004 : changed drivers_to_intersect_varieties.adb to write
+  witness set to file at the end of the diagonal homotopy.
+
+Wed 25 Aug 2004 : added the use of Solu_Info_Array_List to
+  intrinsic_diagonal_homotopies, for huge solution lists in testnine.
+
+Mon 19 Jul 2004 : reporting version in standard_singular_filters prints
+  a frequency table of logarithms of the condition numbers, also modified
+  intrinsic_diagonal_homotopies.adb with frequency tables.
+
+Sat 17 Jul 2004 : added generic versions to intrinsic_diagonal_homotopies,
+  changed drivers_to_intersect_varieties.adb
+
+Fri 16 Jul 2004 : created the package standard_singular_filters for use
+  in intrinsic_diagonal_homotopies.adb.
+
+Tue 13 Jul 2004 : gave the packages intrinsic_diagonal_continuation,
+  intrinsic_diagonal_homotopies and intrinsic_diagonal_solvers all
+  the prefix p_ (for premature and preliminary) to make way for the
+  real intrinsic_diagonal_homotopies package.
+
+Wed 23 Jun 2004 : drivers_to_intersect_varieties adjusted so that
+  the polynomials can be given as generic functions.
+
+Mon 14 Jun 2004 : dragged intersect varieties outside ts_intdia and
+  created driver_to_intersect_varieties, available to call in maindeco.
+
+Sun 6 Jun 2004 : changed drivers_to_cascade_filtering.adb to create
+  separate files in the cascade with each pure dimensional solution set.
+
+Tue 9 Mar 2004 : added ts_intcas.adb to develop cascade of homotopies
+  in intrinsic coordinates.
+
+Fri 27 Feb 2004 : changed drivers_to_cascade_filtering.adb and
+  homotopy_cascade_filtering.adb due to renaming of
+  black_polynomial_continuations into black_box_poly_continuations.
+
+******************************************************* since v2.2 **
+
+Sat Nov 18 2000: integrated homotopy test in ts_irco.
+
+Sun 5 Dec 2000 : worked on Witness_Classify, updates in ts_irdeco.adb,
+  irreducible_decompositions.adb and witness_generate_and_classify.adb.
+
+Tue 22 May 2001 : enlarged the menu structure of ts_irco, modified the
+  packages irreducible_component_creators and irreducible_component_lists
+  to allow trace interpolation
+Wed 23 May 2001 : continued modifications, trace interpolation runs
+
+Tue 5 June 2001 : inserted linear trace interpolation for higher dimensions
+
+Thu 14 June 2001 : ts_sqem.adb implements squaring and embedding, we cannot
+  separate the one from the other
+
+Sun 24 June 2001 : irreducible_component_creators now also call the
+  trace interpolators for more than one dimension
+
+Fri 20 July 2001 : introduced mainfac and maindeco (instead of maincomp),
+  new driver_to_factor_components contains much of what was in ts_irco.
+
+Sat 21 July 2001 : found that we do not really need higher dimensional
+  linear traces, changed irreducible_component_lists.adb and 
+  irreducible_component_creators.adb.
+
+Mon 30 July 2001 : integration of power traces in phc requires modification
+  of driver_to_factor_components.adb, irreducible_component_lists, and
+  irreducible_component_creators.
+
+Thu 2 Aug 2001 : phc -f now calls the polynomial factorization routines,
+  modified mainfac.adb for this.
+
+Thu 9 Aug 2001 : fixed bug in mainfac.adb, the variable "dim" was not
+  assigned when the input file was not on the command line.
+
+Sat 27 Oct 2001 : finished operational version of ts_mbthom.adb, a first
+  version to add the homotopy membership test to the validation module
+
+Wed 20 Mar 2002 : started with ts_intvar.adb, to develop a new tool to phc
+  to intersect pure dimensional varieties
+
+Sun 24 Mar 2002 : lifted the functionality from ts_cascade.adb into the
+  phc -c, maindeco.adb, upgrading drivers_to_cascade_filtering.
+  Created new package homotopy_membership_tests, lifted from ts_mbthom.
+
+Mon 25 Mar 2002 : created ts_filfac.adb as intermediate to upgrade mainfac.
+  The driver_to_factor_components was upgraded to a package, called
+  drivers_to_factor_components.
+
+Mon 8 Apr 2002 : upgraded drivers_to_cascade_filtering.adb to enable the
+  elimination of variables by special slices.
+
+Tue 9 Apr 2002 : upgraded mainfac.adb so that it now contains ts_elim.adb.
+
+Sun 26 May 2002 : created the package diagonal_homotopies, from the
+  operations from ts_intvar.adb.
+
+Mon 27 May 2002 : due to a change from slice_and_embed_components into
+  witness_points, many packages and ts_ files had their headers updated.
+
+Tue 4 June 2002 : problems with mainfac.adb, the link with monodromy was
+  not made appropriately!
+
+*** more adequate bookkeeping needed since release v2.2alpha on 5/30/03 ***
+
+Tue 3 June 2003 : changed drivers_for_cascade_filtering.adb to accomodate
+  for the embedding of the equation of a cylinder
+
+Wed 4 June 2003 : added Truncate to extrinsic_diagonal_homotopies and
+  changed extrinsic_diagonal_solvers

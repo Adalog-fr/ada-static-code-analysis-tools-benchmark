@@ -1,0 +1,12 @@
+Mon 14 Jun 2021 : added math_lib.gpr to build all test procedures.
+
+Sat 20 Mar 2021 : new folder Laurent added for Laurent series.
+
+Sat 15 Dec 2018 : added new directory AD.
+
+Tue 7 Jun 2016 : added new directory Series.
+
+Wed 17 Jun 2015 : created new directory Circuits, taking the code for the
+  reverse mode of algorithmic differentiation out of the Functions folder.
+
+Thu 25 Apr 2013 : merged directory Tasking with the Ada/Tasking directory.

@@ -1,0 +1,18 @@
+Puiseux series for curves in PHCv2.4.85
+
+Code in this folder connects mixed-cell configurations induced by
+integer valued lifting functions with the Newton-Puiseux algorithm
+to compute multiple terms in a regular expansion.
+
+Run "gprbuild puiseux.gpr" to make all test programs.
+On windows, type "gprbuild puiseux.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean puiseux.gpr" removes all files created by gprbuild.
+
+-------------------------------------------------------------------------------
+file name                         : short description
+-------------------------------------------------------------------------------
+regular_solution_curves_series    : operations for series of solution curves
+regular_newton_puiseux            : Newton-Puiseux for mixed cells
+ts_puiseux                        : development of Newton-Puiseux algorithm
+-------------------------------------------------------------------------------

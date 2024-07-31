@@ -1,0 +1,21 @@
+Code to run on the host in the Path library, in PHCv2.4.44
+
+This directory is the reworked PATH_GPU subdirectory of the Path directory.
+The code is reworked to use templates properly.
+
+-------------------------------------------------------------------------------
+file name              : short description
+-------------------------------------------------------------------------------
+r_pos                  : position calculation
+mgs_large_norm         : kernels to compute the norm of large vectors
+mgs_large_row_reduce   : kernels for row reduction in rounds
+mgs_large_backsub      : backsubstitution kernels
+log2ceil               : function to compute the ceil of the 2-logarithm
+mgs_large_row          : kernels for large row reduction
+get_grid               : auxiliary functions for mgs_large_block_reduce
+mgs_large_block_reduce : kernels for block reduction for large problems
+mgs_large_block        : kernels for block MGS method for large problems
+mgs_small              : kernels for MGS method for small problems
+cuda_set               : sets the device
+mgs                    : calls the kernels for the MGS method
+-------------------------------------------------------------------------------

@@ -1,0 +1,521 @@
+Truncated power series with complex coefficients for PHCv2.4.87
+
+Similar to Taylor series approximations for general functions,
+we can approximate roots of polynomials in a parameter by series.
+
+The library is divided in three parts:
+(1) the basic arithmetic with truncated power series
+(2) vectors, matrices, and linear system solving
+(3) polynomials with coefficients as truncated power series
+
+In the first design, series are represented by a coefficient vector
+of fixed length, a length that is determined at compile time,
+and a variable which represents the degree of the series.
+While this design allows to treat series just as numbers,
+the degree of a series is limited to what was determined at compile time,
+which turns out to be too inflexible.
+In the second design, a type Link_to_Series was added with which the
+series vectors are instantiated.  The third design applies generics
+and defines series over any ring extended with division.
+
+In v2.4.80, series in triple, penta, octo, and deca double precision
+were added.  Support for hexa double precision was added in v2.4.87.
+
+Run "gprbuild series.gpr" to make all test programs.
+On windows, type "gprbuild series.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean series.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                          : short description
+------------------------------------------------------------------------------
+standard_truncated_series          : defines basic operations on power series
+ts_pstrunc                         : tests proof-of-concept power series
+binomial_coefficients              : export binomial() function
+ts_bincff                          : test on binomial coefficients
+double_taylor_developments         : Taylor series of real exponent monomials
+ts_taymon                          : expand monomials with real exponents
+------------------------------------------------------------------------------
+generic_dense_series               : series over any ring with division
+standard_complex_series            : series with standard complex coefficients
+dobldobl_complex_series            : series with dobldobl complex coefficients
+tripdobl_complex_series            : series with tripdobl complex coefficients
+quaddobl_complex_series            : series with quaddobl complex coefficients
+pentdobl_complex_series            : series with pentdobl complex coefficients
+octodobl_complex_series            : series with octodobl complex coefficients
+decadobl_complex_series            : series with decadobl complex coefficients
+hexadobl_complex_series            : series with hexadobl complex coefficients
+standard_complex_series_io         : i/o for standard complex series
+dobldobl_complex_series_io         : i/o for double double complex series
+tripdobl_complex_series_io         : i/o for triple double complex series
+quaddobl_complex_series_io         : i/o for quad double complex series
+pentdobl_complex_series_io         : i/o for penta double complex series
+octodobl_complex_series_io         : i/o for octo double complex series
+decadobl_complex_series_io         : i/o for deca double complex series
+hexadobl_complex_series_io         : i/o for hexa double complex series
+standard_complex_random_series     : generators for random standard series
+dobldobl_complex_random_series     : generators for random dobldobl series
+tripdobl_complex_random_series     : generators for random tripdobl series
+quaddobl_complex_random_series     : generators for random quaddobl series
+pentdobl_complex_random_series     : generators for random pentdobl series
+octodobl_complex_random_series     : generators for random octodobl series
+decadobl_complex_random_series     : generators for random decadobl series
+hexadobl_complex_random_series     : generators for random hexadobl series
+standard_complex_algebraic_series  : sqrt and n-th root of standard series
+dobldobl_complex_algebraic_series  : sqrt and n-th root of dobldobl series
+tripdobl_complex_algebraic_series  : sqrt and n-th root of tripdobl series
+quaddobl_complex_algebraic_series  : sqrt and n-th root of quaddobl series
+pentdobl_complex_algebraic_series  : sqrt and n-th root of pentdobl series
+octodobl_complex_algebraic_series  : sqrt and n-th root of octodobl series
+decadobl_complex_algebraic_series  : sqrt and n-th root of decadobl series
+hexadobl_complex_algebraic_series  : sqrt and n-th root of hexadobl series
+standard_complex_series_norms      : conjugates and norms of standard series
+dobldobl_complex_series_norms      : conjugates and norms of dobldobl series
+tripdobl_complex_series_norms      : conjugates and norms of tripdobl series
+quaddobl_complex_series_norms      : conjugates and norms of quaddobl series
+pentdobl_complex_series_norms      : conjugates and norms of pentdobl series
+octodobl_complex_series_norms      : conjugates and norms of octodobl series
+decadobl_complex_series_norms      : conjugates and norms of decadobl series
+hexadobl_complex_series_norms      : conjugates and norms of hexadobl series
+standard_complex_series_functions  : evaluate and shift standard series
+dobldobl_complex_series_functions  : evaluate and shift dobldobl series
+tripdobl_complex_series_functions  : evaluate and shift tripdobl series
+quaddobl_complex_series_functions  : evaluate and shift quaddobl series
+pentdobl_complex_series_functions  : evaluate and shift pentdobl series
+octodobl_complex_series_functions  : evaluate and shift octodobl series
+decadobl_complex_series_functions  : evaluate and shift decadobl series
+hexadobl_complex_series_functions  : evaluate and shift hexadobl series
+standard_complex_series_transforms : coefficient modulus transformations
+dobldobl_complex_series_transforms : dd coefficient modulus transformations
+quaddobl_complex_series_transforms : qd coefficient modulus transformations
+test_standard_complex_series       : tests series with double complex coeffs
+test_dobldobl_complex_series       : tests series in double double precision
+test_tripdobl_complex_series       : tests series in triple double precision
+test_quaddobl_complex_series       : tests series in quad double precision
+test_pentdobl_complex_series       : tests series in penta double precision
+test_octodobl_complex_series       : tests series in octo double precision
+test_decadobl_complex_series       : tests series in deca double precision
+test_hexadobl_complex_series       : tests series in hexa double precision
+ts_cseries                         : main test on 3rd version of series
+------------------------------------------------------------------------------
+standard_complex_series_ring       : ring of series in double precision
+standard_complex_series_ring_io    : i/o for standard series in the ring
+dobldobl_complex_series_ring       : ring of series in double double precision
+dobldobl_complex_series_ring_io    : i/o for dobldobl series in the ring
+tripdobl_complex_series_ring       : ring of series in triple double precision
+tripdobl_complex_series_ring_io    : i/o for tripdobl series in the ring
+quaddobl_complex_series_ring       : ring of series in quad double precision
+quaddobl_complex_series_ring_io    : i/o for quaddobl series in the ring
+pentdobl_complex_series_ring       : ring of series in penta double precision
+pentdobl_complex_series_ring_io    : i/o for pentdobl series in the ring
+octodobl_complex_series_ring       : ring of series in octo double precision
+octodobl_complex_series_ring_io    : i/o for octodobl series in the ring
+decadobl_complex_series_ring       : ring of series in deca double precision
+decadobl_complex_series_ring_io    : i/o for decadobl series in the ring
+hexadobl_complex_series_ring       : ring of series in hexa double precision
+hexadobl_complex_series_ring_io    : i/o for hexadobl series in the ring
+standard_complex_series_vectors    : vectors of standard series
+standard_complex_series_vectors_io : i/o for vectors of standard series
+dobldobl_complex_series_vectors    : vectors of dobldobl series
+dobldobl_complex_series_vectors_io : i/o for vectors of dobldobl series
+tripdobl_complex_series_vectors    : vectors of tripdobl series
+tripdobl_complex_series_vectors_io : i/o for vectors of tripdobl series
+quaddobl_complex_series_vectors    : vectors of quaddobl series
+quaddobl_complex_series_vectors_io : i/o for vectors of quaddobl series
+pentdobl_complex_series_vectors    : vectors of pentdobl series
+pentdobl_complex_series_vectors_io : i/o for vectors of pentdobl series
+octodobl_complex_series_vectors    : vectors of octodobl series
+octodobl_complex_series_vectors_io : i/o for vectors of octodobl series
+decadobl_complex_series_vectors    : vectors of decadobl series
+decadobl_complex_series_vectors_io : i/o for vectors of decadobl series
+hexadobl_complex_series_vectors    : vectors of hexadobl series
+hexadobl_complex_series_vectors_io : i/o for vectors of hexadobl series
+standard_complex_series_vecvecs    : vectors of vectors of standard series
+dobldobl_complex_series_vecvecs    : vectors of vectors of dobldobl series
+tripdobl_complex_series_vecvecs    : vectors of vectors of tripdobl series
+quaddobl_complex_series_vecvecs    : vectors of vectors of quaddobl series
+pentdobl_complex_series_vecvecs    : vectors of vectors of pentdobl series
+octodobl_complex_series_vecvecs    : vectors of vectors of octodobl series
+decadobl_complex_series_vecvecs    : vectors of vectors of decadobl series
+hexadobl_complex_series_vecvecs    : vectors of vectors of hexadobl series
+standard_complex_series_norms      : norms of vectors of standard series
+dobldobl_complex_series_norms      : norms of vectors of dobldobl series
+tripdbol_complex_series_norms      : norms of vectors of tripdobl series
+quaddobl_complex_series_norms      : norms of vectors of dobldobl series
+pentdobl_complex_series_norms      : norms of vectors of pentdobl series
+octodobl_complex_series_norms      : norms of vectors of octodobl series
+decadobl_complex_series_norms      : norms of vectors of decadobl series
+hexadobl_complex_series_norms      : norms of vectors of hexadobl series
+standard_complex_vector_series     : series with standard vector coefficients
+standard_complex_vector_series_io  : basic output of standard vector series
+dobldobl_complex_vector_series     : series with dobldobl vector coefficients
+dobldobl_complex_vector_series_io  : basic output of dobldobl vector series
+tripdobl_complex_vector_series     : series with tripdobl vector coefficients
+tripdobl_complex_vector_series_io  : basic output of tripdobl vector series
+quaddobl_complex_vector_series     : series with quaddobl vector coefficients
+quaddobl_complex_vector_series_io  : basic output of quaddobl vector series
+pentdobl_complex_vector_series     : series with pentdobl vector coefficients
+pentdobl_complex_vector_series_io  : basic output of pentdobl vector series
+octodobl_complex_vector_series     : series with octodobl vector coefficients
+octodobl_complex_vector_series_io  : basic output of octodobl vector series
+decadobl_complex_vector_series     : series with decadobl vector coefficients
+decadobl_complex_vector_series_io  : basic output of decadobl vector series
+hexadobl_complex_vector_series     : series with hexadobl vector coefficients
+hexadobl_complex_vector_series_io  : basic output of hexadobl vector series
+standard_cseries_vector_norms      : norms of vectors of standard series
+dobldobl_cseries_vector_norms      : norms of vectors of dobldobl series
+tripdobl_cseries_vector_norms      : norms of vectors of tripdobl series
+quaddobl_cseries_vector_norms      : norms of vectors of quaddobl series
+pentdobl_cseries_vector_norms      : norms of vectors of pentdobl series
+octodobl_cseries_vector_norms      : norms of vectors of octodobl series
+decadobl_cseries_vector_norms      : norms of vectors of decadobl series
+hexadobl_cseries_vector_norms      : norms of vectors of hexadobl series
+standard_random_series_vectors     : random vectors of standard series
+dobldobl_random_series_vectors     : random vectors of dobldobl series
+tripdobl_random_series_vectors     : random vectors of tripdobl series
+quaddobl_random_series_vectors     : random vectors of quaddobl series
+pentdobl_random_series_vectors     : random vectors of pentdobl series
+octodobl_random_series_vectors     : random vectors of octodobl series
+decadobl_random_series_vectors     : random vectors of decadobl series
+hexadobl_random_series_vectors     : random vectors of hexadobl series
+test_standard_vector_series        : tests vector series in double precision
+test_dobldobl_vector_series        : tests vector series in dobldobl precision
+test_tripdobl_vector_series        : tests vector series in tripdobl precision
+test_quaddobl_vector_series        : tests vector series in quaddobl precision
+test_pentdobl_vector_series        : tests vector series in pentdobl precision
+test_octodobl_vector_series        : tests vector series in octodobl precision
+test_decadobl_vector_series        : tests vector series in decadobl precision
+test_hexadobl_vector_series        : tests vector series in hexadobl precision
+ts_cservec                         : test on 3rd version of vector series
+standard_cseries_vector_functions  : evaluating vectors of standard series
+dobldobl_cseries_vector_functions  : evaluating vectors of dobldobl series
+tripdobl_cseries_vector_functions  : evaluating vectors of tripdobl series
+quaddobl_cseries_vector_functions  : evaluating vectors of quaddobl series
+pentdobl_cseries_vector_functions  : evaluating vectors of pentdobl series
+octodobl_cseries_vector_functions  : evaluating vectors of octodobl series
+decadobl_cseries_vector_functions  : evaluating vectors of decadobl series
+hexadobl_cseries_vector_functions  : evaluating vectors of hexadobl series
+------------------------------------------------------------------------------
+standard_complex_series_matrices   : matrices of standard series
+dobldobl_complex_series_matrices   : matrices of dobldobl series
+tripdobl_complex_series_matrices   : matrices of tripdobl series
+quaddobl_complex_series_matrices   : matrices of quaddobl series
+pentdobl_complex_series_matrices   : matrices of pentdobl series
+octodobl_complex_series_matrices   : matrices of octodobl series
+decadobl_complex_series_matrices   : matrices of decadobl series
+hexadobl_complex_series_matrices   : matrices of hexadobl series
+standard_complex_matrix_series     : series with standard matrix coefficients
+dobldobl_complex_matrix_series     : series with dobldobl matrix coefficients
+tripdobl_complex_matrix_series     : series with tripdobl matrix coefficients
+quaddobl_complex_matrix_series     : series with quaddobl matrix coefficients
+pentdobl_complex_matrix_series     : series with pentdobl matrix coefficients
+octodobl_complex_matrix_series     : series with octodobl matrix coefficients
+decadobl_complex_matrix_series     : series with decadobl matrix coefficients
+hexadobl_complex_matrix_series     : series with hexadobl matrix coefficients
+standard_complex_matrix_series_io  : basic output of standard matrix series
+dobldobl_complex_matrix_series_io  : basic output of dobldobl matrix series
+tripdobl_complex_matrix_series_io  : basic output of tripdobl matrix series
+quaddobl_complex_matrix_series_io  : basic output of quaddobl matrix series
+pentdobl_complex_matrix_series_io  : basic output of pentdobl matrix series
+octodobl_complex_matrix_series_io  : basic output of octodobl matrix series
+decadobl_complex_matrix_series_io  : basic output of decadobl matrix series
+hexadobl_complex_matrix_series_io  : basic output of hexadobl matrix series
+standard_random_series_matrices    : standard random matrices of series
+dobldobl_random_series_matrices    : dobldobl random matrices of series
+tripdobl_random_series_matrices    : tripdobl random matrices of series
+quaddobl_random_series_matrices    : quaddobl random matrices of series
+pentdobl_random_series_matrices    : pentdobl random matrices of series
+octodobl_random_series_matrices    : octodobl random matrices of series
+decadobl_random_series_matrices    : decadobl random matrices of series
+hexadobl_random_series_matrices    : hexadobl random matrices of series
+standard_series_linear_solvers     : standard LU solver on matrices of series
+dobldobl_series_linear_solvers     : dobldobl LU solver on matrices of series
+tripdobl_series_linear_solvers     : tripdobl LU solver on matrices of series
+quaddobl_series_linear_solvers     : quaddobl LU solver on matrices of series
+pentdobl_series_linear_solvers     : pentdobl LU solver on matrices of series
+octodobl_series_linear_solvers     : octodobl LU solver on matrices of series
+decadobl_series_linear_solvers     : decadobl LU solver on matrices of series
+hexadobl_series_linear_solvers     : hexadobl LU solver on matrices of series
+standard_series_least_squares      : standard QR solver on matrices of series
+dobldobl_series_least_squares      : dobldobl QR solver on matrices of series
+tripdobl_series_least_squares      : tripdobl QR solver on matrices of series
+quaddobl_series_least_squares      : quaddobl QR solver on matrices of series
+pentdobl_series_least_squares      : pentdobl QR solver on matrices of series
+octodobl_series_least_squares      : octodobl QR solver on matrices of series
+decadobl_series_least_squares      : decadobl QR solver on matrices of series
+hexadobl_series_least_squares      : hexadobl QR solver on matrices of series
+test_standard_matrix_series        : tests matrix series in double precision
+test_dobldobl_matrix_series        : tests matrix series in dobldobl precision
+test_tripdobl_matrix_series        : tests matrix series in tripdobl precision
+test_quaddobl_matrix_series        : tests matrix series in quaddobl precision
+test_pentdobl_matrix_series        : tests matrix series in pentdobl precision
+test_octodobl_matrix_series        : tests matrix series in octodobl precision
+test_decadobl_matrix_series        : tests matrix series in decadobl precision
+ts_csermat                         : test on 3rd version of matrices of series
+------------------------------------------------------------------------------
+standard_interpolating_series      : interpolation for standard series systems
+dobldobl_interpolating_series      : interpolation for dobldobl series systems
+tripdobl_interpolating_series      : interpolation for tripdobl series systems
+quaddobl_interpolating_series      : interpolation for quaddobl series systems
+pentdobl_interpolating_series      : interpolation for pentdobl series systems
+octodobl_interpolating_series      : interpolation for octodobl series systems
+decadobl_interpolating_series      : interpolation for decadobl series systems
+hexadobl_interpolating_series      : interpolation for hexadobl series systems
+ts_cseritp                         : test on linear series interpolation
+------------------------------------------------------------------------------
+standard_echelon_forms             : echelon standard Hermite-Laurent systems
+dobldobl_echelon_forms             : echelon dobldobl Hermite-Laurent systems
+tripdobl_echelon_forms             : echelon tripdobl Hermite-Laurent systems
+quaddobl_echelon_forms             : echelon quaddobl Hermite-Laurent systems
+pentdobl_echelon_forms             : echelon pentdobl Hermite-Laurent systems
+octodobl_echelon_forms             : echelon octodobl Hermite-Laurent systems
+decadobl_echelon_forms             : echelon decadobl Hermite-Laurent systems
+hexadobl_echelon_forms             : echelon hexadobl Hermite-Laurent systems
+ts_csersin                         : test on solving singular linear systems
+------------------------------------------------------------------------------
+standard_series_matrix_solvers     : linearization for standard series systems
+dobldobl_series_matrix_solvers     : linearization for dobldobl series systems
+tripdobl_series_matrix_solvers     : linearization for tripdobl series systems
+quaddobl_series_matrix_solvers     : linearization for quaddobl series systems
+pentdobl_series_matrix_solvers     : linearization for pentdobl series systems
+octodobl_series_matrix_solvers     : linearization for octodobl series systems
+decadobl_series_matrix_solvers     : linearization for decadobl series systems
+hexadobl_series_matrix_solvers     : linearization for hexadobl series systems
+series_coefficient_vectors         : flatten data structure
+test_standard_linearization        : tests linearization in double precision
+test_dobldobl_linearization        : tests linearization in dobldobl precision
+test_tripdobl_linearization        : tests linearization in tripdobl precision
+test_quaddobl_linearization        : tests linearization in quaddobl precision
+test_pentdobl_linearization        : tests linearization in pentdobl precision
+test_octodobl_linearization        : tests linearization in octodobl precision
+test_decadobl_linearization        : tests linearization in decadobl precision
+test_hexadobl_linearization        : tests linearization in hexadobl precision
+ts_cserlin                         : test on linearization
+ts_cserinv                         : test on inverting singular problems
+------------------------------------------------------------------------------
+standard_cseries_polynomials       : polynomials with standard cseries coeffs
+standard_cseries_polynomials_io    : output of standard cseries polynomials
+standard_cseries_poly_functions    : evaluating standard cseries polynomials
+standard_cseries_poly_systems      : systems of standard cseries polynomials
+standard_cseries_poly_systems_io   : output of standard cseries poly systems
+standard_cseries_poly_sysfun       : evaluating standard series poly systems
+standard_cseries_jaco_matrices     : differentiating standard series systems
+dobldobl_cseries_polynomials       : polynomials with dobldobl cseries coeffs
+dobldobl_cseries_polynomials_io    : output of dobldobl cseries polynomials
+dobldobl_cseries_poly_functions    : evaluating dobldobl cseries polynomials
+dobldobl_cseries_poly_systems      : systems of dobldobl cseries polynomials
+dobldobl_cseries_poly_systems_io   : output of dobldobl cseries poly systems
+dobldobl_cseries_poly_sysfun       : evaluating dobldobl series poly systems
+dobldobl_cseries_jaco_matrices     : differentiating dobldobl series systems
+tripdobl_cseries_polynomials       : polynomials with tripdobl cseries coeffs
+tripdobl_cseries_polynomials_io    : output of tripdobl cseries polynomials
+tripdobl_cseries_poly_functions    : evaluating tripdobl cseries polynomials
+tripdobl_cseries_poly_systems      : systems of tripdobl cseries polynomials
+tripdobl_cseries_poly_systems_io   : output of tripdobl cseries poly systems
+tripdobl_cseries_poly_sysfun       : evaluating tripdobl series poly systems
+tripdobl_cseries_jaco_matrices     : differentiating tripdobl series systems
+quaddobl_cseries_polynomials       : polynomials with quaddobl cseries coeffs
+quaddobl_cseries_polynomials_io    : output of quaddobl cseries polynomials
+quaddobl_cseries_poly_functions    : evaluating quaddobl cseries polynomials
+quaddobl_cseries_poly_systems      : systems of quaddobl cseries polynomials
+quaddobl_cseries_poly_systems_io   : output of quaddobl cseries poly systems
+quaddobl_cseries_poly_sysfun       : evaluating quaddobl series poly systems
+quaddobl_cseries_jaco_matrices     : differentiating quaddobl series systems
+pentdobl_cseries_polynomials       : polynomials with pentdobl cseries coeffs
+pentdobl_cseries_polynomials_io    : output of pentdobl cseries polynomials
+pentdobl_cseries_poly_functions    : evaluating pentdobl cseries polynomials
+pentdobl_cseries_poly_systems      : systems of pentdobl cseries polynomials
+pentdobl_cseries_poly_systems_io   : output of pentdobl cseries poly systems
+pentdobl_cseries_poly_sysfun       : evaluating pentdobl series poly systems
+pentdobl_cseries_jaco_matrices     : differentiating pentdobl series systems
+octodobl_cseries_polynomials       : polynomials with octodobl cseries coeffs
+octodobl_cseries_polynomials_io    : output of octodobl cseries polynomials
+octodobl_cseries_poly_functions    : evaluating octodobl cseries polynomials
+octodobl_cseries_poly_systems      : systems of octodobl cseries polynomials
+octodobl_cseries_poly_systems_io   : output of octodobl cseries poly systems
+octodobl_cseries_poly_sysfun       : evaluating octodobl series poly systems
+octodobl_cseries_jaco_matrices     : differentiating octodobl series systems
+decadobl_cseries_polynomials       : polynomials with decadobl cseries coeffs
+decadobl_cseries_polynomials_io    : output of decadobl cseries polynomials
+decadobl_cseries_poly_functions    : evaluating decadobl cseries polynomials
+decadobl_cseries_poly_systems      : systems of decadobl cseries polynomials
+decadobl_cseries_poly_systems_io   : output of decadobl cseries poly systems
+decadobl_cseries_poly_sysfun       : evaluating decadobl series poly systems
+decadobl_cseries_jaco_matrices     : differentiating decadobl series systems
+hexadobl_cseries_polynomials       : polynomials with hexadobl cseries coeffs
+hexadobl_cseries_polynomials_io    : output of hexadobl cseries polynomials
+hexadobl_cseries_poly_functions    : evaluating hexadobl cseries polynomials
+hexadobl_cseries_poly_systems      : systems of hexadobl cseries polynomials
+hexadobl_cseries_poly_systems_io   : output of hexadobl cseries poly systems
+hexadobl_cseries_poly_sysfun       : evaluating hexadobl series poly systems
+hexadobl_cseries_jaco_matrices     : differentiating hexadobl series systems
+complex_series_and_polynomials     : convertor functions
+complex_series_and_polynomials_io  : symbolic i/o of series
+standard_polynomial_cseries        : standard polynomial series
+dobldobl_polynomial_cseries        : dobldobl polynomial series
+tripdobl_polynomial_cseries        : tripdobl polynomial series
+quaddobl_polynomial_cseries        : quaddobl polynomial series
+pentdobl_polynomial_cseries        : pentdobl polynomial series
+octodobl_polynomial_cseries        : octodobl polynomial series
+decadobl_polynomial_cseries        : decadobl polynomial series
+hexadobl_polynomial_cseries        : hexadobl polynomial series
+test_standard_cseries_polynomials  : tests standard cseries polynomials
+test_dobldobl_cseries_polynomials  : tests dobldobl cseries polynomials
+test_tripdobl_cseries_polynomials  : tests tripdobl cseries polynomials
+test_quaddobl_cseries_polynomials  : tests quaddobl cseries polynomials
+test_pentdobl_cseries_polynomials  : tests pentdobl cseries polynomials
+test_octodobl_cseries_polynomials  : tests octodobl cseries polynomials
+test_decadobl_cseries_polynomials  : tests decadobl cseries polynomials
+ts_cserpol                         : test on series polynomials
+test_standard_cseries_systems      : tests standard cseries systems
+test_dobldobl_cseries_systems      : tests dobldobl cseries systems
+test_quaddobl_cseries_systems      : tests quaddobl cseries systems
+ts_csersys                         : test systems of series polynomials
+random_series_polynomials          : random polynomials with series coeff
+ts_sercffpol                       : test series coefficient-parameter eval
+------------------------------------------------------------------------------
+
+Below are the descriptions of the original design,
+with fixed maximal degree power series, written without generics.
+The second design allows for variable degree series,
+but available only in standard double precision, without generics.
+The code below will become obsolete at some later stage.
+
+------------------------------------------------------------------------------
+file name                         : short description
+------------------------------------------------------------------------------
+standard_dense_series2            : dense power series, standard coefficients
+standard_dense_series2_io         : basic input/output of standard series
+standard_algebraic_series2        : sqrt and n-th root of standard series
+standard_dense_series_norms2      : norms, normalization of standard series
+random_series_generators          : generators for random series
+ts_series2                        : test on 2nd design of series
+------------------------------------------------------------------------------
+standard_dense_series2_ring       : the ring of standard power series
+standard_dense_series2_ring_io    : i/o operations for ring elements
+standard_dense_series2_vectors    : vectors of standard power series
+standard_dense_series2_vectors_io : i/o of vectors of standard power series
+standard_dense_series2_vecvecs    : vector of vectors of standard series
+standard_dense_vector_series2     : series with standard vector coefficients
+standard_dense_vector_series2_io  : basic output of vector series
+random_series_vectors             : generators for vectors of random series
+standard_series_vector_norms2     : norms of vectors of standard series
+ts_servec2                        : test on vectors of standard series
+------------------------------------------------------------------------------
+standard_dense_series2_matrices   : matrices of standard double power series
+standard_dense_matrix_series2     : series with matrix coefficients
+standard_dense_matrix_series2_io  : i/o of standard matrix series
+standard_linear_series2_solvers   : LU factorization to solve linear system
+standard_least_squares_series2    : QR factorization to solve linear system
+random_dense_matrices             : random matrices of series
+ts_sermat2                        : test on matrices of standard series
+------------------------------------------------------------------------------
+standard_interpolating_series2    : interpolation for linear series systems
+ts_seritp2                        : test on linear series interpolation
+------------------------------------------------------------------------------
+standard_echelon_forms            : echelon form for Hermite-Laurent systems
+ts_sersin2                        : test on solving singular linear systems
+------------------------------------------------------------------------------
+standard_matrix_series2_solvers   : linearization for matrix series systems
+ts_serlin2                        : test on linearization
+standard_inlined_linearization    : linearization with inlined solvers
+ts_perfserlin                     : a better performing solver
+------------------------------------------------------------------------------
+standard_dense_series            : dense power series, standard coefficients
+dobldobl_dense_series            : dense series in double double precision
+quaddobl_dense_series            : dense series in quad double precision
+standard_dense_series_io         : basic output of standard series
+dobldobl_dense_series_io         : basic output of dobldobl series
+quaddobl_dense_series_io         : basic output of quaddobl series
+standard_random_series           : series with standard random coefficients
+dobldobl_random_series           : series with dobldobl random coefficients
+quaddobl_random_series           : series with quaddobl random coefficients
+standard_algebraic_series        : sqrt and n-th root of standard series
+dobldobl_algebraic_series        : sqrt and n-th root of dobldobl series
+quaddobl_algebraic_series        : sqrt and n-th root of quaddobl series
+standard_dense_series_norms      : norms and normalizations of standard series
+dobldobl_dense_series_norms      : norms and normalizations of dobldobl series
+quaddobl_dense_series_norms      : norms and normalizations of quaddobl series
+standard_dense_series_ring       : the ring of standard power series
+standard_dense_series_ring_io    : i/o operations for ring elements
+dobldobl_dense_series_ring       : the ring of double double power series
+dobldobl_dense_series_ring_io    : i/o operations for ring elements
+quaddobl_dense_series_ring       : the ring of quad double power series
+quaddobl_dense_series_ring_io    : i/o operations for ring elements
+ts_series                        : basic test on truncated dense series
+------------------------------------------------------------------------------
+standard_dense_series_vectors    : vectors of double power series
+standard_dense_series_vectors_io : i/o for double power series vectors
+standard_dense_vector_series     : series with double vectors coefficients
+standard_dense_vector_series_io  : output for double vector series
+dobldobl_dense_series_vectors    : vectors of double double power series
+dobldobl_dense_series_vectors_io : i/o for double double power series vectors
+dobldobl_dense_vector_series     : series with double double vector coeffs
+dobldobl_dense_vector_series_io  : output for double double vector series
+quaddobl_dense_series_vectors    : vectors of quad double power series
+quaddobl_dense_series_vectors_io : i/o for quad double power series vectors
+quaddobl_dense_vector_series     : series with quad double vector coefficients
+quaddobl_dense_vector_series_io  : output for quad double vector series
+standard_dense_series_vecvecs    : vectors of vectors of standard power series
+dobldobl_dense_series_vecvecs    : vectors of vectors of dobldobl power series
+quaddobl_dense_series_vecvecs    : vectors of vectors of quaddobl power series
+standard_series_vector_norms     : standard double inner products and norms
+dobldobl_series_vector_norms     : double double inner products and norms
+quaddobl_series_vector_norms     : quad double inner products and norms
+standard_series_vector_functions : evaluating vectors of standard power series
+dobldobl_series_vector_functions : evaluating vectors of dobldobl power series
+quaddobl_series_vector_functions : evaluating vectors of quaddobl power series
+ts_servec                        : test on vectors of dense power series
+standard_dense_series_matrices   : matrices of standard double power series
+standard_dense_matrix_series     : series with double matrices as coefficients
+standard_dense_matrix_series_io  : basic output for double matrix series
+dobldobl_dense_series_matrices   : matrices of double double power series
+dobldobl_dense_matrix_series     : series with dobldobl matrices as coeffs
+dobldobl_dense_matrix_series_io  : basic output for double double matrix series
+quaddobl_dense_series_matrices   : matrices of quad double power series
+dobldobl_dense_matrix_series     : series with quaddobl matrices as coeffs
+dobldobl_dense_matrix_series_io  : basic output for quad double matrix series
+standard_linear_series_solvers   : lu factorization for standard linear systems
+dobldobl_linear_series_solvers   : lu factorization for dobldobl linear systems
+quaddobl_linear_series_solvers   : lu factorization for quaddobl linear systems
+standard_least_squares_series    : standard qr decomposition and least squares
+dobldobl_least_squares_series    : dobldobl qr decomposition and least squares
+quaddobl_least_squares_series    : quaddobl qr decomposition and least squares
+ts_sermat                        : test on matrices of dense power series
+standard_matrix_series_solvers   : linearization to solve a system of series
+dobldobl_matrix_series_solvers   : linearization in double double precision
+quaddobl_matrix_series_solvers   : linearization in quad double precision
+ts_serlin                        : test on matrix series solver
+standard_interpolating_series    : interpolation for linear series systems
+dobldobl_interpolating_series    : interpolating series with double doubles
+quaddobl_interpolating_series    : interpolating series with quad doubles
+random_matrix_series             : matrix series with random coefficients
+ts_seritp                        : test interpolation on linear series systems
+standard_echelon_forms           : echelon form for Hermite-Laurent systems
+dobldobl_echelon_forms           : double double echelon Hermite-Laurent forms
+quaddobl_echelon_forms           : quad double echelon Hermite-Laurent forms
+ts_sersin                        : test solving of singular matrix series
+------------------------------------------------------------------------------
+standard_series_polynomials      : polynomials with series as coefficients
+standard_series_poly_functions   : evaluating standard series polynomials
+standard_series_poly_systems     : systems of standard series polynomials
+standard_series_poly_sysfun      : evaluating systems of series polynomials
+dobldobl_series_polynomials      : polynomials with series as coefficients
+dobldobl_series_poly_functions   : evaluating dobldobl series polynomials
+dobldobl_series_poly_systems     : systems of dobldobl series polynomials
+dobldobl_series_poly_sysfun      : evaluating systems of series polynomials
+quaddobl_series_polynomials      : polynomials with series as coefficients
+quaddobl_series_poly_functions   : evaluating quaddobl series polynomials
+quaddobl_series_poly_systems     : systems of quaddobl series polynomials
+quaddobl_series_poly_sysfun      : evaluating systems of series polynomials
+standard_series_jaco_matrices    : differentiating standard series systems
+dobldobl_series_jaco_matrices    : differentiating dobldobl series systems
+quaddobl_series_jaco_matrices    : differentiating quaddobl series systems
+series_and_polynomials           : convertor functions
+series_and_polynomials_io        : symbolic i/o of series
+standard_polynomial_series       : series with polynomials for coefficients
+dobldobl_polynomial_series       : double double precision polynomial series
+quaddobl_polynomial_series       : quad double precision polynomial series
+ts_serpol                        : test on series polynomials
+ts_sersys                        : test systems of series polynomials
+------------------------------------------------------------------------------

@@ -1,0 +1,434 @@
+Sun 18 Jun 2023 : fixed increment of job counter (when not verbose)
+  in complexinc_jobs.cpp and complexconv_jobs.cpp.
+  Fixed layer depth in complexinc_jobs.cpp and in complexconv_jobs.cpp,
+  the job count should not be set to zero for every monomial!
+  Added an output statement to test_complexconv_jobs.cpp.
+
+Sat 17 Jun 2023 : extended write_job_counts with operation counts for
+  the increment jobs in the complex vectorized arithmetic.
+
+Sun 4 Jun 2023 : fixed {dbl2, dbl4, dbl8}_indexed_coefficients.cpp.
+
+Sat 3 Jun 2023 : new {dbl, dbl2, dbl4, dbl8}_indexed_coefficients, with
+  code from test_{dbl, dbl2, dbl4, dbl8}_cycsys.cpp.
+  Updated makefile_unix and makefile_windows.
+
+Thu 1 Jun 2023 : in dbl8_polynomials_kernels, the cmplx8_padded_convjobs
+  are needed to compile test_dbl8_newton.cpp in ../Newton.  Therefore,
+  removed the comments around the cmplx_padded_convjobs kernel.
+
+Wed 31 May 2023 : new test_dbl4_cycsys.cpp, extended dbl4_polynomial_testers
+  and all makefiles.  Added test_dbl8_cycsys.cpp, dbl8_polynomial_testers
+  was extended, updated all makefiles.
+  In test_{dbl, dbl2, dbl4, dbl8}_cycsys.cpp replaced the complex
+  exponentials by random complex numbers for constant and coefficients.
+  In test_dbl8_cycsys.cpp, applied the verbose level correctly and made
+  updates in {dbl, dbl2, dbl4, dbl8}_polynomials_{host, kernels} to
+  control the verbosity better.
+
+Tue 30 May 2023 : new test_dbl_cycsys.cpp for cyclic n-roots systems.
+  Updated the makefiles.  Extended dbl_polynomials_testers, makefile_unix,
+  makefile_windows, and test_dbl_cycsys.cpp.  New cyclic_indices, with
+  code refactored from test_dbl_cycsys.cpp, new test_dbl2_cycsys.cpp;
+  extended dbl2_polynomials_testers, all makefiles.
+
+Mon 29 May 2023 : extended prompt_for_setup.cpp and random_polynomials to
+  allow for user input on the number of variables per monomial.
+  Extended {dbl, dbl2, dbl4, dbl8}_polynomials_testers.cpp;
+  edited dbl_polynomials_testers.h and dbl2_polynomials_testers.h.
+  Fixed bug in dbl8_polynomials_testers.cpp, commented out extra output
+  in dbl8_polynomials_kernels.cu.
+
+Sun 28 May 2023 : in {dbl, dbl2, dbl4, dbl8}_polynomials_testers,
+  returned zero as error when duplicates in randomly generated support.
+
+Sat 27 May 2023 : in {dbl, dbl2, dbl4, dbl8}_polynomials_kernels.cu added
+  systematically a deallocation statement for each memory allocation.
+  Bug fixed in complexadd_jobs.cpp.  Formatted dbl8_polynomials_testers
+  and bug fixed in dbl8_polynomials_host.cpp.
+
+Fri 26 May 2023 : extended dbl2_polynomials_kernels with vectorized complex
+  arithmetic and adjusted dbl2_polynomials_testers.cpp.
+  Edited dbl4_polynomials_kernels and dbl8_polynomials_kernels.h.
+  Extended dbl_polynomials_kernels with vectorized complex arithmetic,
+  adjusted dbl_polynomials_testers.cpp.
+
+Thu 25 May 2023 : fixed special case in dbl2_polynomials_host.cpp.
+  In dbl_polynomials_host.cpp, applied the same fix for special cases.
+  In {dbl, dbl2, dbl4, dbl8}_polynomials_host.cpp, fixed all real versions
+  of the special case of a linear form.  Bug fix in random8_polynomials.cpp,
+  to generate coefficients of cyclic n-roots polynomials.
+
+Wed 24 May 2023 : more output in verbose mode in dbl8_polynomials_kernels.cu.
+  Fixed output error in dbl8_polynomials_testers.cpp.
+  In {dbl4, dbl8}_polynomials_kernels.cu, extended the initialization of
+  the output to cover the second operands as well.
+  Fixed bug in dbl8_polynomials_testers.cpp and commented out extra output
+  in dbl8_polynomials_kernels.cu.
+
+Tue 23 May 2023 : completed dbl8_polynomials_testers with functions for
+  complex data.  Updated makefile_unix and makefile_windows.
+  Fixed bugs in dbl8_polynomials_{host, testers}.cpp.
+  Index error in dbl8_polynomials_kernels.cu fixed.
+  Set imaginary part of constant in dbl8_polynomials_testers.cpp to zero,
+  so it works for one monomial.
+
+Mon 22 May 2023 : reformatted code in random8_polynomials and added
+  functions for complex data.  Extended dbl8_polynomials_testers with
+  functions for complex data.
+
+Sun 21 May 2023 : more code formatting in dbl8_polynomials_kernels
+  and the addition of kernels for complex numbers.
+  Completed dbl8_polynomials_kernels.cu, updated makefile_unix
+  and makefile_windows.
+
+Sat 20 May 2023 : extended dbl8_polynomials_host with a function for
+  complex numbers.  Completed dbl8_polynomials_host with all functions.
+  Extended dbl8_polynomials_kernels with functions on complex data.
+
+Fri 19 May 2023 : removed the doubling of layers in complexadd_jobs.cpp.
+  Extended dbl8_polynomials_host with a function on complex numbers.
+
+Thu 18 May 2023 : in dbl4_polynomials_kernels, corrected the flipping of
+  the signs of the second real operand using the increment job indices.
+  Renamed test_helpers into job_makers, updated makefile_unix and
+  makefile_windows, and {dbl, dbl2, dbl3, dbl4, dbl5}_polynomials_testers.cpp.
+  Extended job_coordinates with complex versions of the coefficient counts
+  and the coefficient indices, with updates in dbl4_polynomials_kernels.cu.
+  In dbl4_polynomials_kernels.cu, fixed case when the first variable in
+  a monomial is not the one with index zero: one monomial is okay.
+  One monomial plus nonzero constant is okay for complex quad doubles,
+  after another bug fix in job_coordinates.cpp.  In complexadd_jobs.cpp,
+  commented out the generation of all jobs with the second operands.
+
+Wed 17 May 2023 : in dbl4_polynomials_kernels.cu, fixed the bugs for the
+  special cases of the derivative of a linear monomial.
+  In {dbl, dbl2, dbl3, dbl5, dbl8, dbl10}_polynomials_kernels.cu
+  made the same fixes as in dbl4_polynomials_kernels.cu.
+  Updated makefile_unix and makefile_windows.
+  Fixed indexing error in complexconv_jobs.cpp.  More indexing
+  errors fixed in complexconv_jobs.cpp and job_coordinates.cpp.
+
+Tue 16 May 2023 : new complexinc_job and complexinc_jobs, with extra tests
+  in test_complexconv_jobs.cpp, updated makefile_unix and makefile_windows.
+  Extended job_coordinates, test_helpers, dbl4_polynomials_kernels, and
+  dbl4_polynomials_testers.cpp with the increment jobs.
+  Updated makefile_unix and makefile_windows.
+  Toggling off cmplx4vectorized addition jobs in dbl4_polynomials_kernels.cu
+  and the value of one monomial works!  Updated dbl4_polymomials_testers.cpp.
+
+Mon 15 May 2023 : in dbl4_polynomial_kernels.cu, initialized data arrays
+  and fixed a bug in the flipping of the signs.
+  Fixed indexing bugs in complexadd_jobs.cpp.  In job_coordinates.cpp,
+  more indexing bugs fixed, adjustments in dbl4_polynomials_kernels.cu
+  and dbl4_polynomials_testers.cpp.
+
+Sun 14 May 2023 : defined the coordinates of the complex convolution and
+  addition jobs in job_coordinates and then applied those new functions in
+  dbl4_polynomials_kernels, in the complex vectorized version.
+  Defined sign flips and the transition of the data arrays to the output
+  for the complex vectorized arithmetic.  Extended write_job_counts,
+  test_helpers, and dbl4_polynomials_testers for complex vectorization.
+  Fixed some bugs in job_coordinates.cpp.
+
+Sat 13 May 2023 : new functions for the data initialization, for the 
+  convolution jobs, and for the addition jobs in dbl4_polynomials_kernels.
+  Added functions to dbl4_polynomials_kernels to enable the vectorized
+  complex arithmetic in the convolutions and additions.
+  Updated makefile_unix and makefile_windows.
+
+Fri 12 May 2023 : completed definition of the addition jobs for complex
+  data in complexadd_jobs.cpp.
+
+Thu 11 May 2023 : use STL vectors in addition_jobs for the data attributes.
+  New complexadd_job, complexadd_jobs, and test_complexadd_jobs for the
+  addition jobs on complex data, now defined for the first operands of
+  real and imaginary parts.  Updated all makefiles.
+
+Wed 10 May 2023 : edited the documentation of convolution_job.h for clarity.
+  Used an STL vector to represent the frequency table of layer counts
+  in convolution_jobs.  New prompt_test_supports with code factored out of
+  test_addition_jobs.cpp and test_convolution_jobs.cpp; updated makefiles
+  for unix and windows.  New complexconv_job, complexconv_jobs, and
+  test_complexconv_jobs, updated all makefiles.
+
+Tue 9 May 2023 : in convolution_jobs.cpp removed duplicate output statements
+  in verbose mode.  In dbl4_polynomials_kernels.cu, used local variables in
+  the kernel cmplx4_padded_convjobs.
+
+Fri 16 Dec 2022 : extended write_job_counts with a function to write only
+  the operations for the convolution jobs.  Then changed the types in
+  write_job_counts to long long int to avoid overflow in the counts.
+
+Sat 10 Dec 2022 : to convolution_jobs.cpp and dbl_polynomial_kernels.cu
+  added if tests from empty jobs and monomials.
+
+Thu 15 Sep 2022 : added a kernel to dbl8_polynomials_kernels on complex data.
+
+Sat 3 Sep 2022 : updated {dbl2,dbl4,dbl8}_polynomials_kernels.cu to use the
+  gettimeofday4win in ../Matrices, updated makefile_windows.
+
+Sun 28 Aug 2022 : updated dbl_polynomials_kernels.cu to use the
+  gettimeofday4win in ../Matrices, updated makefile_windows.
+
+Thu 4 Feb 2021 : edited dbl4_polynomials_host.h.
+  Extended dbl5_polynomials_host with conv and add complex functions.
+
+Wed 3 Feb 2021 : extended dbl5_polynomials_{host, testers} with functions
+  on complex data.  Updated the makefiles.
+
+Tue 2 Feb 2021 : extended random5_polynomials with function to generate
+  random polynomials with complex coefficients in penta double precision.
+
+Mon 1 Feb 2021 : extended dbl4_polynomials_kernels with functions to launch
+  the kernels to evaluate and differentiate on complex data.
+  Updated dbl4_polynomials_testers.cpp with the call to the GPU code on
+  the complex data.  One fix in the output in dbl4_polynomials_testers.cpp
+  
+Sun 31 Jan 2021 : to dbl4_polynomials_kernels, added the kernels for the
+  convolution and the update jobs.
+
+Sat 30 Jan 2021 : bug fix in dbl4_polynomials_host.cpp, edited cmplx4_error_
+  sum in dbl4_polynomials_testers.cpp.
+
+Fri 29 Jan 2021 : updated the error sum in dbl3_polynomials_testers.cpp 
+  for complex data, for a superfluous semicolon.
+  Extended dbl4_polynomials_{host,testers}, updated makefiles.
+
+Thu 28 Jan 2021 : edited {dbl2,dbl3}_polynomials_host.h.
+  Extended dbl4_polynomials_{host,testers} with functions for complex data.
+  Do dbl4_polynomials_host, added the convolution and addition jobs.
+
+Wed 27 Jan 2021 : to dbl3_polynomials_kernels, added the definition of the
+  kernels for complex data in triple double precision.
+  Extended dbl3_polynomials_kernels and dbl3_polynomials_testers.cpp.
+  Extended random4_polynomials with functions to generate polynomials
+  with random complex coefficients.
+
+Tue 26 Jan 2021 : to dbl3_polynomials_host.h, added the specifications of
+  the last function, extended dbl3_polynomials_testers.
+
+Mon 25 Jan 2021 : extended dbl3_polynomial_host with code to evaluate and
+  differentiate with convolution and addition jobs.
+
+Sun 24 Jan 2021 : to dbl3_polynomials_host, added code for the functions
+  of the convolution and addition jobs.
+
+Sat 23 Jan 2021 : small update in random2_polynomials.cpp.  Extended random3_
+  polynomials with the making of polynomials with complex coefficients.
+  Edited documentation in dbl2_polynomials_host.h.  Added code for complex 
+  data to dbl3_polynomials_host and dbl3_polynomials_testers.
+
+Fri 22 Jan 2021 : moved write_coefficient_indices to job_coordinates,
+  extracting the function from dbl_polynomials_kernels.
+  Extended dbl2_polynomials_kernels and dbl2_polynomials_testers.cpp
+  with code for complex data.  Updated dbl3_polynomials_kernels.cu and
+  dbl3_polynomials_testers.cpp to use functions from test_helpers
+  and write_gpu_timings.  Updated makefiles.
+
+Thu 21 Jan 2021 : added convolution and addition kernels to
+  dbl2_polynomials_kernels for complex data.
+
+Wed 20 Jan 2021 : restored the precision in dbl2_polynomials_host.cpp,
+  extended dbl2_polynomials_testers with tests on the complex data.
+
+Tue 19 Jan 2021 : extended dbl2_polynomials_host with the functions which
+  use the jobs on complex data, updated dbl2_polynomials_testers.cpp.
+
+Mon 18 Jan 2021 : extended dbl2_polynomials_host with code for complex data.
+  Moved write_gpu_timings out of dbl_polynomial_kernels.  New test_helpers,
+  used in {dbl,dbl2}_polynomials_testers.  Updated makefiles.
+
+Sun 17 Jan 2021 : to dbl_polynomials_kernels, added code for complex data,
+  updated dbl_polynomials_testers.  Extended random2_polynomials with
+  functions to generate random polynomials with complex coefficients in
+  double double precision.
+
+Sat 16 Jan 2021 : make some corrections to dbl_polynomials_host and
+  extended dbl_polynomials_testers for complex data.
+
+Fri 15 Jan 2021 : to random_polynomials, added a function to generate
+  random polynomials with complex coefficients.
+  Extended dbl_polynomials_testers with tests on random complex data.
+  Extended dbl_polynomials_host with code for complex data.
+
+Wed 13 Jan 2021 : in all testers.cpp, for all precisions, extended the run
+  sequence with degrees 0 and 8.
+
+Tue 12 Jan 2021 : added more tests to run_polynomials.cpp.
+
+Mon 11 Jan 2021 : updated all kernels and testers.cpp to separate times
+  spent on convolutions and on additions.  To all kernels and testers.cpp,
+  added wall clock time measurement and reporting.
+  Added wingettimeofday.h for the wall clock time on Windows,
+  used in dbl*_polynomials_kernels.cu, updated makefile_windows.
+  Added two tests to all run*cpp files.
+  
+Sun 10 Jan 2021 : Updated {dbl2,dbl3,dbl4,dbl5,dbl8,dbl10}_polynomials_
+  testers.cpp to report the times as in dbl_polynomials_testers.cpp.
+  Extended prompt_for_setup to prompt for the mode of execution.
+  To dbl_polynomials_testers added a function to test a sequence,
+  updated {run,test}_dbl_polynomials.cpp.
+  Updated dbl?*_polynomials_testers.*, {run,test}_dbl?*_polynomials.cpp
+  with the execution mode and a sequence test function.
+  Improved test_polynomials.cpp and run_polynomials.cpp.
+  Fixed dbl10_polynomials_testers.cpp, as the sequence should stop at 152.
+  Improved test_polynomials.cpp.
+
+Fri 8 Jan 2021 : Extended run_{dbl,dbl2,dbl3,dbl4,dbl5}_polynomials.cpp
+  with more specific tests for an increasing sequence of degrees.
+  Updated all dbl*_polynomials_kernels.cu with the definition of the
+  bound on the shared memory size.
+
+Thu 7 Jan 2021 : applied prompt_for_setup in test_polynomials.cpp.
+  Added to all testers a flag to suppress the jobs report at the end.
+  New run_*cpp to run specific examples to test the performance.
+  Bug fix in prompt_for_setup.cpp.  Extended run_{dbl8,dbl10}_polynomials.cpp
+  with more tests for an increasing sequence of degrees.
+
+Wed 6 Jan 2021 : in all testers, separated the computation of the sum of
+  errors into a separate function.  In addition, factored out the setup
+  of the input into separate functions in all testers.
+  Moved the prompting for the setup into a separate function,
+  out of all test_dbl*_polynomials.cpp.  Update the makefiles.
+
+Tue 5 Jan 2021 : added timers with CUDA events to all kernels, reported by
+  all testers.cpp.  Added timers with clock() to all host code, updated
+  all testers.cpp.  Improved verbose level in all testers.
+  In all testers, improved the settings of the tolerances.
+
+Mon 4 Jan 2021 : extracted code from test_dbl*_polynomials.cpp into separate
+  files dbl*_polynomials_testers.  Applied the verbose flag correctly in 
+  all dbl*_polynomials_host.cpp.  New polynomial_kernels.cu.
+  In addition_jobs.cpp, applied verbose flag correctly.
+  Fixed the reporting of number of failures in test_polynomials.cpp.
+  In dbl*_polynomials_kernels.cu, doubled the size of the shared memory
+  occupied in the padded convolutions of the second input argument.
+
+Sun 3 Jan 2021 : new random5_polynomials and test_dbl5_polynomials, updated
+  the makefiles.  New random10_polynomials and test_dbl10_polynomials.
+  Added {dbl5,dbl10}_polynomials_host, tested by test_{dbl5,dbl10}_polynomials
+  and updated the makefiles.  Edited {dbl2,dbl3,dbl4,dbl8}_polynomials_
+  kernels.h, added dbl5_polynomials_kernels, updated test_dbl5_polynomials.
+  Added dbl10_polynomials_kernels, tested in test_dbl10_polynomials.
+
+Sat 2 Jan 2021 : new random4_polynomials, edits in {random2,random3}_
+  polynomials, new test_dbl4_polynomials, decreased the tolerances in
+  test_{dbl2,dbl3}_polynomials.  Updated makefiles.
+  Edited {dbl2,dbl3}_polynomials_host.h, added missing free at the end of
+  dbl3_polynomials_host.cpp; new dbl4_polynomials_host with updated tests
+  in test_dbl4_polynomials.cpp; updated makefiles.
+  New dbl4_polynomials_kernels, tested by test_dbl4_polynomials,
+  updated the makefiles.  New random8_polynomials, test_dbl8_polynomials.
+  New dbl8_polynomials_host, tested by test_dbl8_polynomials.
+  New dbl8_polynomials_kernels, tested by test_dbl8_polynomials.
+
+Fri 1 Jan 2021 : new dbl2_polynomials_host, tested by test_dbl2_polynomials,
+  updated makefiles.  New job_coordinates with code taken from the
+  dbl_polynomials_kernels.h and dbl_polynomials_kernels.cu.
+  Defined dbl2_polynomials_kernels, tested by test_dbl2_polynomials,
+  updated the makefiles.  New random3_polynomials and test_dbl3_polynomials,
+  updated makefiles.  New dbl3_polynomials_host, updated makefiles, and
+  updated test_dbl3_polynomials.  Added dbl3_polynomials_kernels.
+
+Thu 31 Dec 2020 : to random_polynomials, added the generation of sums of
+  all products, updated test_{{convolution,addition}_jobs,dbl_polynomials}.
+  In random_polynomials.cpp, changed the allocation of the accumulator.
+  In addition_jobs.cpp, fixed the problems with negative indices.
+  Moved writing of job counts to separate write_job_counts,
+  adjusted test_dbl_polynomials and the makefiles.
+  To random_polynomials, added the definition of cyclic polynomials,
+  updated all test programs.  New random2_polynomials, tested by
+  test_dbl2_polynomials, updated the makefiles.
+
+Wed 30 Dec 2020 : new functions in dbl_polynomials_host for the additions,
+  with or without the addition jobs.  Fixed index in addition_jobs.cpp,
+  added special case to addition_job.cpp and dbl_polynomials_host.cpp
+  when a forward product is updated with a coefficient of a monomial.
+  More bugs fixed in addition_jobs.cpp.  Updated dbl_polynomial_host.cpp
+  for cases when a variable does not occur.  Added addition kernels to
+  dbl_polynomials_kernels, tested by test_dbl_polynomials.
+
+Tue 29 Dec 2020 : in addition_jobs.cpp, corrected the dimension of the
+  difcnt, which should be nbrvar instead of nbrmon.  The first derivative
+  is correctly computed with addition jobs, as verified by the updates
+  in dbl_polynomials_host.cpp.  Extended addition_job with a type for
+  the increment.  Added the jobs for all derivaties to addition_jobs.
+  Replaced not, and in addition_jobs.cpp and random_polynomials.cpp.
+  In test_addition_jobs and test_dbl_polynomials, printed seedused first.
+  In addition_jobs.h, exported the position method, to dbl_polynomials_host,
+  added code for jobs for all derivatives, extended test_dbl_polynomials.
+
+Mon 28 Dec 2020 : extended random_polynomials with a check on duplicate
+  support vectors, tested in test_dbl_polynomials.cpp.
+  To test_addition_jobs.cpp, added differential indices computation.
+  Moved the differential indices from test_addition_jobs into the class
+  addition_jobs, updated test_dbl_polynomials.  Extended addition_job.cpp
+  with the coefficient output.  Added the definition of the jobs for the
+  first derivative to addition_jobs, tested by test_addition_jobs.
+
+Sun 27 Dec 2020 : bug fix, in addition_jobs and test_addition_jobs,
+  the dimension is the number of monomials, not the number of variables.
+  Added recursive make of jobs to addition_jobs, test_addition_jobs.
+  In addition_job.h, fixed the ifndef label.  In dbl_polynomials_host,
+  added the application of the addition jobs, tested by test_dbl_polynomials.
+
+Sat 26 Dec 2020 : new class in addition_job, used in test_addition_jobs.
+  New class in addition_jobs, updated addition_job.cpp and test_addition_jobs.
+  Fixed indexing error for the first monomial in addition_jobs.cpp
+  and test_addition_jobs.cpp.
+
+Fri 25 Dec 2020 : updated dbl_polynomial_kernels to include the constant.
+  New test_addition_jobs.cpp to define the reduction tree of additions.
+
+Thu 24 Dec 2020 : bug fixed in dbl_polynomials_kernels, the computation of
+  the job indices does not need the cumulative sums; test_dbl_polynomials
+  verifies that the polynomial value with GPU convolutions is correct.
+  To dbl_polynomials_kernels, test_dbl_polynomials added computation and
+  test on all other derivatives.  Fixes in dbl_polynomials_kernels...
+  Fixed the last indexing bug in dbl_polynomials_kernels.cu.
+
+Wed 23 Dec 2020 : edited dbl_polynomials_host.cpp and test_dbl_polynomials.
+  Added a first setup for the preparation of the convolution jobs in
+  dbl_polynomials_kernels.h and dbl_polynomials_kernels.cu.
+  Updated dbl_polynomials_kernels and test_dbl_polynomials with a first
+  definition of the kernel to compute all convolutions.
+  In dbl_polynomials_kernels.cu, changed dim == BS into deg1 == BS.
+
+Tue 22 Dec 2020 : updated dbl_polynomials_host.cpp and test_dbl_polynomials
+  with the computation of first and last derivative.  Simplified 2-variable
+  monomials, updated convolution_jobs.cpp and dbl_polynomials_host.cpp.
+  Updated dbl_polynomials_host.cpp and test_dbl_polynomials.cpp,
+  all derivatives are now computed correctly.
+  Improved memory usage in dbl_polynomials_host.cpp.
+
+Mon 21 Dec 2020 : fixed bug in output, in convolution_job.cpp.
+  Added get_job() method in convolution_jobs.h, convolution_jobs.cpp,
+  to write all convolution_jobs per layer in test_convolution_jobs.
+  Bug fix in layer assignment in convolution_jobs.cpp.
+  Extended dbl_polynomials_host with function to evaluate and differentiate
+  in the order of the convolution layers, tested by test_dbl_polynomials.
+  Fixed a bug in convolution_jobs.
+
+Sun 20 Dec 2020 : updated the layer count for the cross products in
+  convolution_jobs.cpp, removed functions from test_convolution_jobs.cpp.
+  Added convolution_job.h and convolution_job.cpp to define the class
+  to represent one convolution job.  Adjusted convolution_jobs.h and *.cpp.
+  Updated makefile_windows, added return os statement in convolution_job.cpp.
+
+Sat 19 Dec 2020 : convolution_jobs.h and convolution_jobs.cpp define a class
+  to setup the layers of convolution jobs, tested by test_convolution_jobs.
+
+Fri 18 Dec 2020 : extended test_convolution_jobs with layer counts.
+  Extended test_convolution_jobs with a frequency table of layer counts.
+  Improved the 2-variable case in dbl_polynomials_host.cpp and adjusted
+  the counts in test_convolution_jobs.cpp.
+
+Thu 17 Dec 2020 : new random_polynomials, updated dbl_polynomials_host and
+  test_dbl_polynomials, so polynomials with one term are no longer special.
+  Bug fix in dbl_polynomials_host.cpp for 2 variables in low dimension.
+  Added verbose option to dbl_polynomials_host and test_dbl_polynomials.
+  New test_convolution_jobs.cpp to collect all convolution jobs.
+
+Wed 16 Dec 2020 : added test_dbl_polynomials.cpp, makefile and makefile_unix.
+  Added makefile_windows.  New dbl_polynomials_host.h and .cpp.

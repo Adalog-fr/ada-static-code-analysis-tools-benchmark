@@ -1,0 +1,28 @@
+examples of phcpy
+
+This directory is new in release 2.3.89 of PHCpack.
+The purpose of this directory is to store Python modules that illustrate
+and test the use of the capabilities of phcpy.
+While not strictly part of the phcpy core distribution, the goal of this
+directory is to document the development process, with regression tests,
+and to collect use cases with applications.
+
+-------------------------------------------------------------------------------
+file name    : short description
+-------------------------------------------------------------------------------
+showpaths2   : plotting the trajectories of solution curves
+backelin     : sample positive dimensional cyclic n-roots following the
+             : tropical version of Backelin's Lemma and make witness set
+pierisystems : generate hypersurface Pieri intersection conditions
+             : for p-planes meeting m-planes in (m+p)-space
+randlrhom    : generate and enumerate random Schubert problems
+             : for the Littlewood-Richardson homotopies (lrhom)
+runcyc10d    : script to run the GPU accelerated path trackers
+lrhomprob    : problems in G(4,8) to test Littlewood-Richardson homotopies
+appolonius   : solves the circle problem of Apollonius, a use case
+fourbar      : design of a 4-bar mechanism, another use case
+touchcircle  : tangents to a circle, another use case
+fourlines    : two lines meet four general lines, another use case
+illusex3     : witness generate on an illustrative example
+sevenbar     : illustration of numerical irreducible decomposition
+-------------------------------------------------------------------------------

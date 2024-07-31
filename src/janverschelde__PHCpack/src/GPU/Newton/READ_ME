@@ -1,0 +1,74 @@
+Accelerated Newton for Power Series in PHCv2.4.87.
+
+------------------------------------------------------------------------------
+file name                : short description
+------------------------------------------------------------------------------
+unimodular_matrices      : code to generate random exponent matrices
+test_unimodular          : test on unimodular triangulation
+cyclic_columns           : defines column representation for cyclic n-roots
+test_columns             : tests column representation for cyclic n-roots
+prompt_newton_setup      : prompts for the test parameters
+dbl_monomial_systems     : makes monomial systems in double precision
+dbl2_monomial_systems    : makes monomial systems in double double precision
+dbl4_monomial_systems    : makes monomial systems in quad double precision
+dbl8_monomial_systems    : makes monomial systems in octo double precision
+test_monomial_systems    : tests on making double monomial systems
+test2_monomial_systems   : tests on making double double monomial systems
+test4_monomial_systems   : tests on making quad double monomial systems
+test8_monomial_systems   : tests on making octo double monomial systems
+------------------------------------------------------------------------------
+test_monomial_jobs       : prepares the acceleration of the evaluation
+dbl_systems_host         : systems evaldiff with doubles on host
+dbl_systems_kernels      : systems evaldiff with doubles on device
+dbl2_systems_host        : systems evaldiff with double doubles on host
+dbl2_systems_kernels     : systems evaldiff with double doubles on device
+dbl4_systems_host        : systems evaldiff with quad doubles on host
+dbl4_systems_kernels     : systems evaldiff with quad doubles on device
+dbl8_systems_host        : systems evaldiff with octo doubles on host
+dbl8_systems_kernels     : systems evaldiff with octo doubles on device
+test_dbl_cyclic          : test evaldiff cyclic system with doubles
+test_dbl2_cyclic         : test evaldiff cyclic system with double doubles
+test_dbl4_cyclic         : test evaldiff cyclic system with quad doubles
+test_dbl8_cyclic         : test evaldiff cyclic system with octo doubles
+------------------------------------------------------------------------------
+dbl_onenorms_host        : computes 1-norm of vectors in double precision
+------------------------------------------------------------------------------
+dbl_bals_flopcounts      : counts the flops in the tail kernels
+dbl_tail_kernels         : kernels for tail operations in double precision
+dbl2_tail_kernels        : kernels for tail operations with double doubles
+dbl4_tail_kernels        : kernels for tail operations with quad doubles
+dbl8_tail_kernels        : kernels for tail operations with octo doubles
+test_dbl_flopbals        : performance test on double tail kernels
+test_dbl2_flopbals       : performance test on double double tail kernels
+test_dbl4_flopbals       : performance test on quad double tail kernels
+test_dbl8_flopbals       : performance test on octo double tail kernels
+------------------------------------------------------------------------------
+dbl_bals_host            : linearization in double precision on host
+dbl_bals_kernels         : linearization in double precision on device
+dbl2_bals_host           : linearization in double double precision on host
+dbl2_bals_kernels        : linearization in double double precision on device
+dbl4_bals_host           : linearization in quad double precision on host
+dbl4_bals_kernels        : linearization in quad double precision on device
+dbl8_bals_host           : linearization in octo double precision on host
+dbl8_bals_kernels        : linearization in octo double precision on device
+------------------------------------------------------------------------------
+dbl_newton_testers       : test functions on Newton in double precision
+dbl2_newton_testers      : test functions on Newton in double double precision
+dbl4_newton_testers      : test functions on Newton in quad double precision
+dbl8_newton_testers      : test functions on Newton in octo double precision
+------------------------------------------------------------------------------
+dbl_newton_method        : Newton on real numbers in double precision
+dbl2_newton_method       : Newton on real numbers in double double precision
+dbl4_newton_method       : Newton on real numbers in quad double precision
+dbl8_newton_method       : Newton on real numbers in octo double precision
+cmplx_newton_method      : Newton on complex numbers in double precision
+cmplx2_newton_method     : Newton on double double complex numbers
+cmplx4_newton_method     : Newton on quad double complex numbers
+cmplx8_newton_method     : Newton on octo double complex numbers
+------------------------------------------------------------------------------
+write_newton_times       : utility to write timings of Newton runs
+test_dbl_newton          : main test Newton in double precision
+test_dbl2_newton         : main test Newton in double double precision
+test_dbl4_newton         : main test Newton in quad double precision
+test_dbl8_newton         : main test Newton in octo double precision
+------------------------------------------------------------------------------

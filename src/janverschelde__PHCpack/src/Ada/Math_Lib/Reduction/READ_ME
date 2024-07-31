@@ -1,0 +1,211 @@
+Numerical Linear Algebra in PHCv2.4.86
+
+This "Reduction" directory implements "row reduction" on linear systems
+of floating-point number of various precisions: double, double double,
+quad double, and arbitrary precision.  When the "Matrices" directory became
+too full in version 2.3.71, this new directory was made.  Below are some
+milestones in the development of numerical linear algebra in PHCpack.
+
+Version 2.2 contains singular value decomposition, which was extended
+to multiprecision in version 2.3.  
+In v2.3.55, double double and quad double numbers were introducted.
+The modified Gram-Schmidt method was added in version 2.3.70.
+
+Added solvers in triple, penta, octo, and deca double precision
+in version 2.4.80.
+
+Run "gprbuild reduction.gpr" to make all test programs.
+On windows, type "gprbuild reduction.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean reduction.gpr" removes all files created by gprbuild.
+
+-------------------------------------------------------------------------------
+file name                          : short description
+-------------------------------------------------------------------------------
+standard_floating_vector_norms     : norms of vectors of double floats
+standard_complex_vector_norms      : norms of standard complex vectors
+double_double_vector_norms         : norms of double double vectors
+dobldobl_complex_vector_norms      : vector norms for double double complex
+test_dobldobl_vector_norms         : tests on double double vector norms
+ts_ddnorm                          : main test on double double vector norms
+quad_double_vector_norms           : norms of vectors of quad doubles
+quaddobl_complex_vector_norms      : vector norms for quad double complex
+test_quaddobl_vector_norms         : tests on quad double vector norms
+ts_qdnorm                          : main test on quad double vector norms
+-------------------------------------------------------------------------------
+standard_floating_two_norms        : Euclidean norms for standard floating vecs
+double_double_two_norms            : 2-norms in double double precision
+quad_double_two_norms              : 2-norms in quad double precision
+standard_complex_matrix_norms      : max norm for double complex matrices
+dobldobl_complex_matrix_norms      : max norm for dobldobl complex matrices
+quaddobl_complex_matrix_norms      : max norm for quaddobl complex matrices
+-------------------------------------------------------------------------------
+triple_double_vector_norms         : norms of vectors of triple doubles
+tripdobl_complex_vector_norms      : norms of complex triple double vectors
+test_tripdobl_vector_norms         : tests on triple double vector norms
+ts_tdnorm                          : main test on triple double vector norms
+penta_double_vector_norms          : norms of vectors of penta doubles
+pentdobl_complex_vector_norms      : norms of complex penta double vectors
+test_pentdobl_vector_norms         : tests on penta double vector norms
+ts_pdnorm                          : main test on penta double vector norms
+octo_double_vector_norms           : norms of vectors of octo doubles
+octodobl_complex_vector_norms      : norms of complex octo double vectors
+test_octodobl_vector_norms         : tests on octo double vector norms
+ts_odnorm                          : main test on octo double vector norms
+deca_double_vector_norms           : norms of vectors of deca doubles
+decadobl_complex_vector_norms      : norms of complex deca double vectors
+test_decadobl_vector_norms         : tests on deca double vector norms
+ts_danorm                          : main test on deca double vector norms
+hexa_double_vector_norms           : norms of vectors of hexa doubles
+hexadobl_complex_vector_norms      : norms of complex hexa double vectors
+test_hexadobl_vector_norms         : tests on hexa double vector norms
+ts_hdnorm                          : main test on hexa double vector norms
+ts_errfree                         : illustrates error free transformations
+-------------------------------------------------------------------------------
+generic_norms_equals               : norms and equality routines
+standard_floating_norms_equals     : norms/equals for standard floating numbers
+multprec_floating_norms_equals     : norms/equals for multprec floating numbers
+standard_complex_norms_equals      : norms/equals for standard complex numbers
+multprec_complex_norms_equals      : norms/equals for multprec complex numbers
+-------------------------------------------------------------------------------
+generic_floating_linear_solvers    : solvers of linear systems of floats
+standard_floating_linear_solvers   : linear-system solvers for standard floats
+double_double_linear_solvers       : linear-system solvers for double doubles
+triple_double_linear_solvers       : linear-system solvers for triple doubles
+quad_double_linear_solvers         : linear-system solvers for quad doubles
+penta_double_linear_solvers        : linear-system solvers for penta doubles
+octo_double_linear_solvers         : linear-system solvers for octo doubles
+deca_double_linear_solvers         : linear-system solvers for deca doubles
+multprec_floating_linear_solvers   : linear-system solvers for multprec floats
+multprec_floating64_linear_solvers : linear-system solvers for multprec floats
+standard_complex_linear_solvers    : linear solvers for standard complex
+dobldobl_complex_linear_solvers    : linear solvers for double double complex
+tripdobl_complex_linear_solvers    : linear solvers for triple double complex
+quaddobl_complex_linear_solvers    : linear solvers for quad double complex
+pentdobl_complex_linear_solvers    : linear solvers for penta double complex
+octodobl_complex_linear_solvers    : linear solvers for octo double complex
+decadobl_complex_linear_solvers    : linear solvers for deca double complex
+hexadobl_complex_linear_solvers    : linear solvers for hexa double complex
+multprec_complex_linear_solvers    : linear solvers for multprec complex
+------------------------------------------------------------------------------
+test_lu_decompositions             : test accuracy of LU factorization
+test_dobldobl_linear_solvers       : test double double linear solvers
+test_tripdobl_linear_solvers       : test triple double linear solvers
+test_quaddobl_linear_solvers       : test quad double linear solvers
+test_pentdobl_linear_solvers       : test penta double linear solvers
+test_octodobl_linear_solvers       : test octo double linear solvers
+test_decadobl_linear_solvers       : test deca double linear solvers
+test_hexadobl_linear_solvers       : test hexa double linear solvers
+------------------------------------------------------------------------------
+ts_fltdls                          : test dynamic matrix triangulators
+ts_fltlu                           : test on floating-point LU factorization
+ts_cmplu                           : test on complex LU factorization
+ts_ddlu                            : main test on double double LU solver
+ts_tdlu                            : main test on triple double LU solver
+ts_qdlu                            : main test on quad double LU solver 
+ts_pdlu                            : main test on penta double LU solver 
+ts_odlu                            : main test on octo double LU solver 
+ts_dalu                            : main test on deca double LU solver 
+ts_hdlu                            : main test on hexa double LU solver 
+ts_backsubs                        : test on accuracy of back substitution
+ts_vvlu                            : test LU factorization on vecvecs
+ts_perflu                          : performance test on lufac
+standard_inlined_linear_solvers    : inlined complex arithmetic in loops
+ts_perfdlu                         : better performing complex lufac
+-------------------------------------------------------------------------------
+standard_complex_row_reduction     : tools for incremental row reduction
+dobldobl_complex_row_reduction     : row reduction with double doubles
+quaddobl_complex_row_reduction     : row reduction with quad doubles
+ts_rowred                          : test incremental row reduction
+-------------------------------------------------------------------------------
+standard_floating_qr_least_squares : QR + least squares for standard doubles
+double_double_qr_least_squares     : QR + least squares for double doubles
+triple_double_qr_least_squares     : QR + least squares for triple doubles
+quad_double_qr_least_squares       : QR + least squares for quad doubles
+penta_double_qr_least_squares      : QR + least squares for penta doubles
+octo_double_qr_least_squares       : QR + least squares for octo doubles
+deca_double_qr_least_squares       : QR + least squares for deca doubles
+hexa_double_qr_least_squares       : QR + least squares for hexa doubles
+standard_complex_qr_least_squares  : QR + least squares for standard complex
+dobldobl_complex_qr_least_squares  : QR + least squares for dobldobl complex
+tripdobl_complex_qr_least_squares  : QR + least squares for tripdobl complex
+quaddobl_complex_qr_least_squares  : QR + least squares for quaddobl complex
+pentdobl_complex_qr_least_squares  : QR + least squares for pentdobl complex
+octodobl_complex_qr_least_squares  : QR + least squares for octodobl complex
+decadobl_complex_qr_least_squares  : QR + least squares for decadobl complex
+hexadobl_complex_qr_least_squares  : QR + least squares for hexadobl complex
+multprec_complex_qr_least_squares  : QR + least squares for multprec complex
+test_standard_qrls_solvers         : tests QRLS solvers for doubles
+test_dobldobl_qrls_solvers         : tests QRLS solvers for double doubles
+test_tripdobl_qrls_solvers         : tests QRLS solvers for triple doubles
+test_quaddobl_qrls_solvers         : tests QRLS solvers for quad doubles
+test_pentdobl_qrls_solvers         : tests QRLS solvers for penta doubles
+test_octodobl_qrls_solvers         : tests QRLS solvers for octo doubles
+test_decadobl_qrls_solvers         : tests QRLS solvers for deca doubles
+test_hexadobl_qrls_solvers         : tests QRLS solvers for hexa doubles
+test_multprec_qrls_solvers         : tests QRLS solvers for multiprecision
+ts_dqrd                            : main test on double QR and LS
+ts_ddqrd                           : main test on double double QR and LS
+ts_tdqrd                           : main test on triple double QR and LS
+ts_qdqrd                           : main test on quad double QR and LS
+ts_pdqrd                           : main test on penta double QR and LS
+ts_odqrd                           : main test on octo double QR and LS
+ts_daqrd                           : main test on deca double QR and LS
+ts_hdqrd                           : main test on hexa double QR and LS
+ts_mpqrd                           : main test on multiprecision QR and LS
+ts_qrd                             : main test on QR and least squares
+-------------------------------------------------------------------------------
+standard_floating_gramschmidt      : modified Gram-Schmidt QR on doubles
+standard_complex_gramschmidt       : Gram-Schmidt QR on complex numbers
+dobldobl_complex_gramschmidt       : Gram-Schmidt QR on double double complex
+quaddobl_complex_gramschmidt       : Gram-Schmidt QR on quad double complex
+ts_mgs                             : test on modified Gram-Schmidt
+ts_mgsrnk                          : Gram-Schmidt for rank determination
+-------------------------------------------------------------------------------
+standard_complex_blas_helpers      : BLAS helpers in double precision
+standard_inlined_blas_helpers      : inlined versions of the BLAS helpers
+standard_complex_singular_values   : SVD in standard arithmetic
+standard_inlined_singular_values   : inlined double precision SVD
+dobldobl_complex_singular_values   : SVD in double double arithmetic
+tripdobl_complex_singular_values   : SVD in triple double arithmetic
+quaddobl_complex_singular_values   : SVD in quad double arithmetic
+pentdobl_complex_singular_values   : SVD in penta double arithmetic
+octodobl_complex_singular_values   : SVD in octo double arithmetic
+decadobl_complex_singular_values   : SVD in deca double arithmetic
+hexadobl_complex_singular_values   : SVD in hexa double arithmetic
+multprec_complex_singular_values   : SVD in multiprecision arithmetic
+test_standard_singular_values      : test SVD in double precision
+test_dobldobl_singular_values      : test SVD in double double precision
+test_tripdobl_singular_values      : test SVD in quad double precision
+test_quaddobl_singular_values      : test SVD in quad double precision
+test_pentdobl_singular_values      : test SVD in penta double precision
+test_octodobl_singular_values      : test SVD in octo double precision
+test_decadobl_singular_values      : test SVD in deca double precision
+test_hexadobl_singular_values      : test SVD in hexa double precision
+test_multprec_singular_values      : test SVD in arbitrary multiprecision
+ts_dsvd                            : main test on double SVD
+ts_ddsvd                           : main test on double double SVD
+ts_tdsvd                           : main test on triple double SVD
+ts_qdsvd                           : main test on quad double SVD
+ts_pdsvd                           : main test on penta double SVD
+ts_odsvd                           : main test on octo double SVD
+ts_dasvd                           : main test on deca double SVD
+ts_hdsvd                           : main test on hexa double SVD
+ts_mpsvd                           : main test on multiprecision SVD
+ts_svd                             : main test on the SVD
+ts_perfdsvd                        : develop better performing SVD
+-------------------------------------------------------------------------------
+standard_floating_eigenvalues      : eigenvalues of floating-point matrices
+double_double_eigenvalues          : eigenvalues in double double precision
+quad_double_eigenvalues            : eigenvalues in quad double precision
+ts_eigval                          : test on eigenvalue computation
+-------------------------------------------------------------------------------
+varbprec_complex_linear_solvers    : variable precision linear system solvers
+ts_vmplu                           : test on variable precision solvers
+-------------------------------------------------------------------------------
+
+The LU-factorizations for real and complex numbers have been translated from
+the LINPACK f66 library.  Adaptions have been made for multiprecision.
+The LINPACK f66 library was also the source for QR and least squares,
+and the singular values decomposition.  EISPACK was the source for the
+eigenvalue computations.

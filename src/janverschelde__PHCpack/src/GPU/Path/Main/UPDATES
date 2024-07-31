@@ -1,0 +1,52 @@
+Tue 24 Jan 2017 : fixed missing include in witness_set_test.h and init_test.h.
+
+Sun 22 Jan 2017 : reformatted code in pieri_test.h and pieri_test.cpp.
+  Inserted missing #include in path_multi_test.h.
+  Reformatted code in witness_set_test.h and witness_set_test.cpp.
+
+Sun 4 Sep 2016 : fixes in ada_test_dd.cpp and ada_test_qd.cpp for
+  the g++ Apple LLVM version 7.3.0.
+
+Mon 14 Dec 2015 : name changes in solcon changed ada_test.cpp.
+
+Tue 22 Sep 2015 : name changes in syscon caused change in ada_test.cpp.
+
+Wed 19 Aug 2015 : extended write_sols of ada_test_{dd,qd}.cpp.
+
+Tue 18 Aug 2015 : extended write_sols of ada_test.cpp so that all solutions
+  of the PolySolSet are appended to the solution container.
+
+Mon 17 Aug 2015 : reformatted mgs_test.h and mgs_test.cpp.
+  Updated ada_test.h, ada_test_dd.h, and ada_test_qd.h for the new
+  polysol.h and polysol.cpp, with the definitions of the PolySolSet class.
+
+Sun 16 Aug 2015 : reformatted path_multi_test.h, path_multi_test.cpp,
+  newton_test.h, newton_test.cpp, eval_test.h, eval_test.cpp, path_data.h,
+  and path_data.cpp.
+
+Sat 15 Aug 2015 : formatting in init_test.h, init_test.cpp, path_test.h,
+  and path_test.cpp.
+
+Tue 11 Aug 2015 : added verbose parameter to ada_test, ada_test_dd, and
+  ada_test_qd, documented in header file and implemented in .cpp file.
+
+Fri 7 Aug 2015 : added write_sols function to ada_test to write the updated
+  solution into the solutions container.  Did the same for the double double
+  and the quad double versions in ada_test_dd and ada_test_qd.
+
+Thu 6 Aug 2015 : bug fix in ada_test_qd.cpp.
+
+Wed 5 Aug 2015 : number of symbols should be determined first when
+  allocating space for the string of symbols in ada_test.cpp and 
+  ada_test_dd.cpp.  Fixed passing of coefficients in ada_test_dd.cpp.
+  New ada_test_qd.h and ada_test_qd.cpp for quad doubles.
+
+Tue 4 Aug 2015 : new ada_test_dd.h and ada_test_dd.cpp for double doubles.
+
+Tue 30 Jun 2015 : moved the adainit() and adafile() from ada_test.cpp
+  into main_test_ada.cpp; adjusted formatting in ada_test.cpp and added
+  prototypes to ada_test.h.
+
+Mon 29 Jun 2015 : added to init_test.cpp a constant string with the
+  definition for the gamma file.  The same constant string is also
+  defined in main_test.cpp.

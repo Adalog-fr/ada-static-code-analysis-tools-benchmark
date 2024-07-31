@@ -1,0 +1,48 @@
+Polyhedral end games for polynomial homotopies in PHCv2.4.86
+
+This directory was isolated in version 2.3.75 for clarity.
+New in release 2.3 is Newton's method with deflation for singularities
+and improved endgame routines based on extrapolation methods.
+
+Run "gprbuild end_games.gpr" to make all test programs.
+On windows, type "gprbuild end_games.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean end_games.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                        : short description
+------------------------------------------------------------------------------
+standard_vlprs_tables            : extrapolation tables with standard numbers
+dobldobl_vlprs_tables            : extrapolation tables with double doubles
+quaddobl_vlprs_tables            : extrapolation tables with quad doubles
+multprec_vlprs_tables            : extrapolation tables with multprec numbers
+standard_vlprs_algorithm         : extrapolation in standard arithmetic
+dobldobl_vlprs_algorithm         : extrapolation in double double arithmetic
+quaddobl_vlprs_algorithm         : extrapolation in quad double arithmetic
+multprec_vlprs_algorithm         : extrapolation in multiprecision arithmetic
+standard_winding_numbers         : standard extrapolate for winding numbers
+dobldobl_winding_numbers         : winding numbers with double doubles
+quaddobl_winding_numbers         : winding numbers with quad doubles
+multprec_winding_numbers         : multprec extrapolate for winding numbers
+ts_vlprs                         : test extrapolation on generated series
+directions_of_standard_paths     : routines for polyhedral end game
+directions_of_dobldobl_paths     : polyhedral end game with double doubles
+directions_of_quaddobl_paths     : polyhedral end game with quad doubles
+------------------------------------------------------------------------------
+driver_for_winding_numbers       : driver for winding number calculations
+valipoco                         : validation of computed path directions
+postpoco                         : stand-alone routine for polyhedral end game
+------------------------------------------------------------------------------
+double_theta_algorithm           : theta algorithm on real doubles
+double_double_theta_algorithm    : theta algorithm on real double doubles
+quad_double_theta_algorithm      : theta algorithm on real quad doubles
+octo_double_theta_algorithm      : theta algorithm on real octo doubles
+test_theta_algorithm             : tests the theta algorithm
+ts_theta                         : calls the main test on the theta algorithm
+------------------------------------------------------------------------------
+double_rho_algorithm             : rho algorithm on real doubles
+double_complex_rho_algorithm     : rho algorithm on complex doubles
+dobldobl_complex_rho_algorithm   : rho algorithm on complex double doubles
+test_rho_algorithm               : tests the rho algorithm
+ts_rho                           : calls the main test on the rho algorithm
+------------------------------------------------------------------------------

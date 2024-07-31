@@ -1,0 +1,182 @@
+Sun 6 Dec 2020 : moved mainadep.ads to main_ade_trackers.ads and the
+  mainadep.adb in Main_full and Main_noqd to main_ade_trackers.adb.
+
+Tue 26 Nov 2019 : moved the algorithmic_diffeval_trackers to Main_full
+  and copied a restricted version to Main_noqd.
+
+Fri 25 Oct 2019 : new directories Main_full and Main_noqd with the full
+  and the restricted version of mainadep.adb, to enable compilation of phc
+  with the QD library installed.
+
+Sat 27 Oct 2018 : as a temporary patch, in algorithmic_diffeval_trackers.adb,
+  switched to multitasked root refiners for very large solution solutions.
+
+Tue 16 May 2017 : new package maximum_power_degrees to check whether simple
+  algorithmic circuits will do to evaluate and differentiate,
+  used in algorithmic_diffeval_trackers.adb.
+
+Wed 15 Feb 2017 : in the default values in path_parameters.ads, lowered
+  the number of Newton steps at the end and lowered the default tolerance
+  on the corrector update.
+
+Tue 14 Feb 2017 : to algorithmic_diffeval_trackers.adb, added statement
+  that no more input is expected, just before the path tracking.
+  In path_parameters.ads, tightened the default value for the tolerance
+  on the residual, from 1.0e-2 to 1.0e-5.  Increased max number of steps.
+
+Sun 12 Feb 2017 : extended algorithmic_diffeval_trackers.adb with the calls
+  to the C code with the full list of tuned parameters.
+  Added root refiners with condition tables at the end of the manytrack
+  in algorithmic_diffeval_trackers.
+
+Sat 11 Feb 2017 : new package path_parameters to define a tune the
+  parameters for the path trackers in the path library, tested by ts_pathpars.
+  Extended wrappers in algorithmic_diffeval_trackers with the parameters.
+
+Mon 6 Feb 2017 : added output to file in algorithmic_diffeval_trackers.adb.
+
+Sun 5 Feb 2017 : new mainadep.ads and mainadep.adb to call the path trackers
+  with algorithmic differentiation.
+
+Wed 1 Feb 2017 : new package algorithmic_diffeval_trackers with code from
+  ts_ademanypaths.adb.
+
+Tue 31 Jan 2017 : ts_ademanypaths.adb is a new test procedure to call the
+  path tracking functions in lib2path, extended with a test on Newton's
+  method and the tracking of one path.
+
+Mon 30 Jan 2017 : new ademanypaths.h and ademanypaths.cpp which uses the
+  templated code.  Added dobldobl and quaddobl versions to ademanypaths.h
+  and ademanypaths.cpp.
+
+Thu 17 Jan 2017 : new ts_gpu2norm.adb, which collects the test code from
+  ts_gpu2norm_d, ts_gpu2norm_dd, and ts_gpu2norm_qd.  This new ts_gpu2norm
+  builds to one executable program for the three levels of precision.
+
+Mon 16 Jan 2017 : new ts_cpu2norm.adb, with the code from the three separate
+  test programs for double, double double, and quad double precision.
+
+Sun 8 Jan 2017 : added timers to ts_adepath_{d,dd,qd}.adb.
+
+Mon 14 Dec 2015 : name changes in solcon changed {ade,gpu}newton_d.cpp,
+  {ada,gpu}onepath_d.cpp, and {ade,gpu}manypaths_d.cpp.
+
+Tue 22 Sep 2015 : name changes in syscon caused updates in adenewton_d.cpp,
+  adeonepath_d.cpp, ademanypaths_d.cpp, gpunewton_d.cp, gpuonepath_d.cpp,
+  gpumanypaths_d.cpp; also modified adenewton_dd.cpp, adenewton_qd.cpp,
+  and ademanypaths_dd.cpp.
+
+Thu 3 Sep 2015 : used verbose option in gpu_newton_{d,dd,qd}.cpp.
+
+Wed 2 Sep 2015 : updated gpuonepath_qd.cpp for bug fix.
+
+Sun 30 Aug 2015 : separated header files gpunewton_{d,dd,qd}.h,
+  separated from gpunewton_{d,dd,qd}.cpp.
+
+Sat 29 Aug 2015 : updated ad hoc interface in ts_gpuonepath_qd.adb.
+
+Fri 28 Aug 2015 : added gamma constant as input parameter to the
+  adeonepath_{d,dd,qd} and ademanypaths_{d,dd,qd} routines, and
+  updated the {standard,dobldobl,quaddobl}_algodiffeval_trackers
+  along with the test programs ts_adepath_{d,dd,qd}.
+  Also updated the GPU versions with the gamma constant, leading to changes
+  in gpuonepath_{d,dd,qd}, gpumanypaths_{d,dd,qd}, and
+  {standard,dobldobl,quaddobl}_accelerated_trackers, with updates
+  in ts_gpupath_{d,dd,qd}.
+
+Tue 25 Aug 2015 : made a separate header file from adenewton_d.cpp,
+  into adenewton_d.h, for use in the adepath_d in ../Lib.
+  Did the same of adeonepath_d and ademanypaths_d,
+  and also for {adenewton,adeonepath,ademanypaths}_{dd,qd}.
+
+Mon 24 Aug 2015 : fixed bugs in adeonepath_dd.cpp and ademanypaths_dd.cpp,
+  mainly due to forgotten adjustments to calls to dobldobl functions.
+  Made the quad double analogues for algorithmic differentiation:
+  adenewton_qd.cpp, adeonepath_qd.cpp, ademanypaths_qd, called in
+  quaddobl_algodiffeval_trackers, and tested in ts_adepath_qd.
+
+Sun 23 Aug 2015 : dobldobl_algodiffeval_trackers calls the c++ code to
+  perform Newton's method and to track paths with algorithmic differentiation
+  in double double precision.  The c++ code is in adenewton_dd,
+  adeonepath_dd, and ademanypaths_dd, with test program in ts_adepath_dd.
+
+Sat 22 Aug 2015 : new package standard_algodiffeval_trackers, called by
+  ts_adepath_d, and calling the c++ code adenewton_d, adeonepath_d, and
+  ademanypaths_d to execute the c++ code only on the host (not the device).
+
+Fri 21 Aug 2015 : changed menu to prompt for mode in ts_gpupath_{d,dd,qd}.adb,
+  added verbose option to the GPU path tracker in gpumanypaths_{d,dd,qd}.cpp.
+  Also added verbose option in the call to the GPU path tracker for one path
+  in gpuonepath_{d,dd,qd}.cpp.  In the calls to the GPU path tracker,
+  we must explicitly give a one and a zero before the verbose option.
+
+Thu 20 Aug 2015 : extended gpumanypaths_d.cpp with code for the GPU,
+  and did the same for double double and quad double versions,
+  in the files gpumanypaths_dd.cpp and gpumanypaths_qd.cpp.
+  New package standard_accelerated_trackers collects the wrappers in
+  the ts_gpu*_d.adb test programs, called by ts_gpupath_d.adb.
+  One small change in the name of the 'track' function in gpumanypaths_d.cpp
+  was needed to avoid a naming conflict with gpuonepath_d.cpp.
+  Similarly, new packages {dobldobl,quaddobl}_accelerated_trackers
+  are tested by ts_gpupath_dd and ts_gpupath_qd.
+
+Wed 19 Aug 2015 : added verbose option to the instantiation of the homotopy
+  in gpunewton_{d,dd,qd}.cpp and gpuonepath_{d,dd,qd}.cpp
+  Also added this verbose option in gpumanypaths_d.cpp, and made the new
+  versions with double doubles and quad doubles: gpumanypaths_{dd,qd}.cpp,
+  called by ts_gpumanypaths_{dd,qd}.adb.
+
+Tue 18 Aug 2015 : updates to gpuonepath_{d,dd,qd}.cpp for the new verbose
+  option that has been added to the path_tracker on the host.
+  Tracking many paths in double precision works, via the new
+  gpumanypaths_d.cpp called by ts_gpumanypaths_d.adb.
+
+Fri 14 Aug 2015 : fixed bug in gpuonepath_{d,dd,qd}.cpp, so the CPU version
+  of the path tracker works for all precision levels.
+
+Thu 13 Aug 2015 : new gpuonepath_dd.cpp, gpuonepath_qd.cpp, called by
+  ts_gpuonepath_dd.adb and ts_gpuonepath_qd.adb respectively.
+
+Wed 12 Aug 2015 : new ts_gpuonepath calls gpuonepath_d.cpp to track one
+  solution in standard double precision, accelerated by the GPU.
+
+Tue 11 Aug 2015 : added mode and verbose flags to gpunewton*cpp and the
+  corresponding Ada ts_gpunewton*adb procedures.
+
+Fri 7 Aug 2015 : writing of the updated solution caused changes in
+  gpunewton_d.cpp and ts_gpunewton.adb.  Also modified the double double
+  and quad double versions: gpunewton_dd.cpp, gpunewton_qd.cpp and the
+  test programs in ts_gpunewton_dd.adb, ts_gpunewton_qd.adb.
+
+Thu 6 Aug 2015 : updated ts_gpunewton.adb, new gpunewt_qd.cpp called by
+  ts_gpunewton_qd.adb.
+
+Tue 4 Aug 2015 : used the new ada_test_dd.h in gpunewton_dd.cpp.
+
+Mon 3 Aug 2015 : updates in ts_gpunewton.adb, new gpunewton_dd.cpp for use
+  in the new ts_gpunewton_dd.adb.
+
+Wed 1 Jul 2015 : gpunewton_d.cpp works on the host.
+
+Tue 30 Jun 2015 : gpunewton_d.cpp calls routines to transfer data from the
+  systems and solutions containers into dedicated data structures.
+
+Sat 27 Jun 2015 : updates to gpunewton_d.cpp, as called by ts_gpunewton.adb.
+
+Fri 26 Jun 2015 : new file ts_gpunewton.adb to accelerate Newton's method.
+
+Tue 1 Jul 2014 : renaming of files, separating ts_cpu from ts_gpu and
+  using the ts_ only for the Ada main test programs, not for the C code.
+  Made double double and quad double interfaces for random vector
+  generated by Ada and 2-norm computed by the GPU.
+
+Tue 18 Feb 2014 : renamed ts_gpu2norm_in_c.c into ts_gpu2norm_d_in_c.c
+  and ts_gpu2norm.adb into ts_gpu2norm_d.adb to distinguish between the
+  new double double and quad double versions.
+
+Mon 17 Feb 2014 : callGPUnorm.cpp succeeds in having the GPU compute the
+  2-norm, as called by ts_gpu2norm_Cmain.c.  Calling the GPU from an Ada
+  main program works as well as is done in ts_gpu2norm_call.adb.
+
+Thu 13 Feb 2014 : first programs ts_gpu2norm and ts_gpu2norm_in_c rely on
+  the first CtoPHC/Funky interface.

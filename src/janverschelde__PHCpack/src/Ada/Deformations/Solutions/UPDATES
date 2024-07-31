@@ -1,0 +1,226 @@
+Sat 9 Dec 2023 : extended solution_drops for hexa double precision.
+
+Thu 30 Nov 2023 : moved ts_ddsols.adb and ts_qdsols.adb into a new test
+  package test_solutions_io, with extensions for other precisions.
+  Removed ts_ddsols.adb and ts_qdsols.adb, new ts_sols_io.adb.
+  Updated solutions.gpr.  New hexadobl_complex_solutions and _io,
+  extended test_solutions_io.  The code of ts_solstr.adb was made
+  into a new package test_solution_strings.  New ts_syssols_io,
+  with tests defined by test_system_and_solutions_io, and
+  hexadobl_system_and_solutions_io.  Updated solutions.gpr.
+
+Tue 13 Jul 2021 : updated standard_system_and_solutions_io, so phc -z -p
+  without output file writes directly to screen.
+
+Fri 15 Jun 2021 : removed the obsolete mergesols.adb.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to solutions.gpr.
+
+Wed 9 Jun 2021 : defined solutions.gpr to build the test procedures.
+
+Mon 22 Feb 2021 : to standard_system_and_solutions_io added a main procedure.
+
+Wed 17 Feb 2021 : moved the scan_for_start_system from ts_getstart
+  to the package standard_system_and_solutions_io.
+  Renamed drivers_for_solution_filters into main_solution_filters,
+  moved code from ts_solfilt into test_solution_filters.
+  Updated mainfilt.adb.  Moved mainfilt into main_solution_filters,
+  removed the files mainfilt.ads and mainfilt.adb.
+
+Tue 16 Feb 2021 : extended ts_getstart.adb with a procedure to read
+  the start system and its solutions for an input file.
+
+Mon 15 Feb 2021 : new test ts_getstart.adb to extract the start system
+  and start solutions from the output file of the blackbox solver.
+
+Sun 1 Nov 2020 : new test_dictionary_solutions and test_maple_solutions,
+  packages with code from ts_dicsols_io and ts_mapsols_io.
+
+Wed 23 Sep 2020 : extended solution_drops with operations on solutions in
+  triple, penta, octo, and deca double precision.
+
+Tue 22 Sep 2020 : added {trip,pent,octo,deca}dobl_complex_solutions, its _io,
+  and {trip,pent,octo,deca}dobl_system_and_solutions_io. 
+
+Thu 6 Aug 2020 : updated *_system_and_solutions_io.adb to output systems
+  that have a different number of polynomials than equations.
+
+Fri 10 Jul 2020 : in {standard,dobldobl,quaddobl}_system_and_solutions_io.adb
+  made the dot dot dot consistent with other prompters.
+
+Thu 11 Jun 2020 : updated drivers_for_condition_tables for the extra
+  verbose level parameter.
+
+Wed 10 Jun 2020 : new package standard_solutions_heap with code from the
+  test procedure ts_newcirc.
+
+Tue 9 Jun 2020 : generalized the get/put procedures in all
+  *_system_and_solutions_io packages with a banner string option.
+
+Mon 16 Mar 2020 : to {standard,dobldobl,quaddobl}_mixed_residuals, added
+  functions to compute the mixed residuals directly from vectors.
+
+Thu 2 Jan 2020 : for compiler warnings, modified ts_quad, ts_quadpart,
+  standard_complex_solutions.adb, standard_complex_solutions_io.adb,
+  standard_solution_array_lists.adb, ts_sols, ts_mapsols_io, ts_dicsols_io.
+
+Sun 24 Mar 2019 : added functions and procedures to *mixed_residuals to
+  evaluate the formulas for the mixed residuals directly, given evaluations.
+
+Tue 12 Mar 2019 : removed superfluous documentation from the body of
+  quaddobl_mixed_residuals.adb.
+
+Sat 9 Mar 2019 : exposed the Write_Residuals function to the specification
+  of the *_mixed_residuals packages.
+
+Fri 8 Mar 2019 : completed adding output file types to the procedures
+  and functions in standard_mixed_residuals.  Completed similar adds
+  to the {dobldobl,quaddobl}_mixed_residuals, tested by ts_mixres.
+
+Thu 7 Mar 2019 : added output to standard_mixed_residuals and ts_mixres.
+
+Wed 6 Mar 2019 : extended standard_mixed_residuals for evaluable forms
+  and copied into double double and quad double versions, with more tests
+  in ts_mixres.
+
+Tue 5 Mar 2019 : extended standard_mixed_residuals for Laurent polynomials
+  and systems of polynomials, tested by ts_mixres.
+
+Mon 4 Mar 2019 : basic version of computing a new residual in
+  standard_mixed_residuals, tested by ts_mixres.
+
+Sun 30 Dec 2018 : extended *_solution_filters* with functions to select the
+  start solutions corresponding to failed paths, tested in ts_trasols_io.
+  Updated ts_trasols_io, so the start system is written in front of the
+  start solutions which correspond to failed paths.
+  New package drivers_for_failed_paths, with code from ts_trasols_io and
+  with drivers for use in phc -v, updated drivers_for_condition_tables.adb.
+
+Sat 29 Dec 2018 : new procedure ts_trasols_io.adb to develop processing of
+  the output file of a tracker.  Extended the code in ts_trasols_io and
+  moved to new packages {standard,dobldobl,quaddobl}_tracked_solutions_io.
+
+Fri 6 Apr 2018 : added a zero_singular_split_filter to the
+  {standard,dobldobl,quaddobl}_solution_splitters, to remove the singular
+  solutions from the solutions with nonzero slack variables.
+
+Fri 30 Mar 2018 : in {standard,dobldobl,quaddobl}_solution_splitters,
+  improved the interface to the singular filters.
+
+Mon 9 Oct 2017 : new package standard_solution_manipulators to remove the
+  imaginary part of the target.  Made dobldobl and quaddobl versions of
+  this new package.
+
+Fri 23 Jun 2017 : moved packages prompt_for_systems and prompt_for_solutions
+  from the Main folder to the Solutions folder.
+
+Fri 13 Jan 2017 : new package symbols_io with utilities factored out from
+  standard_complex_solutions_io.adb.  Use symbols_io for double double and
+  quad doubles in {dobldobl,quaddobl}_complex_solutions_io.adb.
+
+Thu 12 Jan 2017 : in standard_complex_solutions_io.adb, added exception 
+  handler in the get() procedure, so phc -b -v no longer crashes when there
+  is a solution vector with NaN coordinates.  Fixed the skip_line(file)
+  in standard_complex_solutions_io.adb, only skip if ch /= '='.
+
+Mon 8 Aug 2016 : to standard_complex_solutions_io added a put_vector to
+  work on vectors of complex numbers.  Did the same for the dobldobl and
+  the quaddobl versions.
+
+Tue 17 Nov 2015 : versions for double double and quad double precision of
+  the solution_splitters, in {dobldobl, quaddobl}_solution_splitters.
+
+Wed 7 Oct 2015 : fixed ts_grepsols.adb for code that was factored out of
+  the drivers_for_condition_tables.
+
+Tue 29 Sep 2015 : new packages {dobldobl,quaddobl}_solution_filters to filter
+  solutions given in double double and quad double precision, with drivers in
+  drivers_for_solution_filters, tested by ts_solfilt and called by mainfilt.
+
+Mon 28 Sep 2015 : new packages {dobldobl,quaddobl}_point_lists,
+  tested by ts_ptlists, and new packages {dobldobl,quaddobl}_quad_trees,
+  tested by ts_quadpart.  Factored code of the drivers_for_condition_tables
+  into standard_select_solutions, new packages *dobl_select_solutions,
+  tested by ts_selsol.  This changes also mainfilt.adb, ts_quad.db.
+  New packages *dobl_solution_diagnostics, *dobl_condition_{tables,report},
+  called by drivers_for_condition_tables.
+
+Thu 24 Sep 2015 : to {dobldobl,quaddobl}_complex_solutions, added a push
+  procedure to insert a list of solutions to the front of another list.
+
+Mon 29 Dec 2014 : extended standard_solution_strings with write functions
+  to string for variable precision use.  Be careful with one variable case!
+
+Thu 25 Dec 2014 : new package solution_string_splitters tested by ts_solstr.
+
+Sun 7 Dec 2014 : new package varbprec_complex_solutions to convert solutions
+  over various levels of precision.
+
+Tue 26 Aug 2014 : extended {dobl,quad}dobl_complex_solutions_io with output
+  routines for the diagnostics of a solution.
+
+Fri 20 Jun 2014 : proper adjustment of multiplicity field in the procedure
+  Multiplicity of standard_condition_report.
+
+Thu 19 Jun 2014 : insert with duplicates in standard_point_lists is extended
+  with extra parameter for the position of the added point.
+
+Wed 18 Jun 2014 : added another insert to standard_point_lists for use
+  in the Multiplicity of standard_condition_report.
+
+Tue 17 Jun 2014 : added insert routines to standard_point_lists,
+  tested with ts_ptlists.  Added more efficient Is_Clustered to
+  the package standard_condition_report.
+
+Thu 29 May 2014 : changed {standard,dobldobl,quaddobl,multprec}_complex_
+  solutions_io.adb to remove all compiler warnings.
+
+Wed 28 May 2014 : changed {standard,dobldobl,quaddobl,multprec}_complex_
+  solutions_io.adb for compiler warnings.
+
+Fri 29 Nov 2013 : changed copy of multprec_complex_solutions.adb 
+  and fixed a bug in the copy of lists of multiprecision solutions,
+  which occurred while upgrading ts_extrapol to multiprecision.
+
+Thu 27 Jun 2013 : updated drivers_for_solution_filters.adb for a warning.
+
+Wed 26 Jun 2013 : updated mainfilt.adb for natural32 data type.
+
+Tue 25 Jun 2013 : standard_solution_splitters got updated with integer32.
+
+Wed 12 Jun 2013 : updated {dobldobl,quaddobl}_systems_and_solutions_io.adb.
+
+Mon 10 Jun 2013 : copied lists_of_symbols from ../Homotopy to here
+  and completed reorganzation for all ts_ files.
+
+Sun 9 Jun 2013 : about half of the files in this directory changed
+  because of the introduction of natural32 and integer32 types.
+
+Fri 10 May 2013 : new package standard_condition_report to avoid the
+  confusion in drivers_for_condition_tables, tested by ts_quad.adb,
+  also additions to standard_select_solutions.
+
+Thu 9 May 2013 : copied from ../Homotopy the standard_point_lists.a*
+  because there are needed by standard_quad_trees.
+  Modified ts_selsol.adb to allow for interactive input of indices.
+  New package standard_select_solutions, used in ts_quad.adb.
+  Copied from ../Homotopy the mainfilt.a* and modified mainfilt.adb,
+  because of changes in drivers_for_condition_tables.
+  Also ts_grepsols.adb changed.
+
+Fri 15 Feb 2013 : the parse operations in *_solution_strings* now
+  initialize the symbol table.
+
+Thu 14 Feb 2013 : new package solution_drops tested by ts_soldrop.
+
+Fri 1 Feb 2013 : fixed bug in dobldobl_solution_strings.adb,
+  the same bug appeared in quadobl_solution_strings.adb.
+
+Tue 29 Jan 2013 : multprec_solution_strings.adb got fixed.
+  New packages {dobldobl,quaddobl}_solution_strings, tested by ts_solstr.
+
+Mon 28 Jan 2013 : changed standard_solution_strings.ads, new package
+  multprec_solution_strings, tested by ts_solstr.adb.
+
+Sun 20 Jan 2013 : created this new directory from code of Homotopy:
+  all that concerns the representation of solutions.

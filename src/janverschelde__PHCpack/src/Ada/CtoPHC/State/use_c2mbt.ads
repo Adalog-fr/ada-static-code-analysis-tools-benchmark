@@ -1,0 +1,271 @@
+with Standard_Integer_Numbers;          use Standard_Integer_Numbers;
+with C_Integer_Arrays;                  use C_Integer_Arrays;
+with C_Double_Arrays;                   use C_Double_Arrays;
+
+function use_c2mbt ( job : integer32;
+                     a : C_intarrs.Pointer;
+                     b : C_intarrs.Pointer;
+                     c : C_dblarrs.Pointer;
+                     vrblvl : integer32 := 0 ) return integer32;
+
+-- DESCRIPTION :
+--   Provides a gateway from C to the operations in PHCpack
+--   to run a homotopy membership test to decide whether a given point
+--   belongs to a positive dimensional algebraic set, represented by a 
+--   witness set, in double, double double, or quad double precision,
+--   defined by an ordinary or a Laurent polynomial system.
+--   The test point is either given as a sequence of doubles,
+--   or as a string representation of a solution in symbolic format,
+--   with the symbols for the variables of the coordinates.
+
+-- ON ENTRY :
+--   job    =  0 : runs the membership test in standard double precision,
+--                 for a witness set stored in the standard containers,
+--                 defined by an ordinary polynomial systems,
+--                 on input in a is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in b[0] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in b[1] is the dimension of the witness set, and
+--                 in b[2] is the number of tasks (0 for no multitasking);
+--                 on input in c are first the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 followed then by the coordinates of the test point,
+--                 if a test point has dimension n, then c on input
+--                 is expected to have 2 + 2*n doubles;
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  1 : runs the membership test in double double precision,
+--                 for a witness set stored in the dobldobl containers,
+--                 defined by an ordinary polynomial systems,
+--                 on input in a is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in b is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in b[1] is the dimension of the witness set, and
+--                 in b[2] is the number of tasks (0 for no multitasking);
+--                 on input in c are first the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 followed then by the coordinates of the test point,
+--                 if a test point has dimension n, then c on input
+--                 is expected to have 2 + 4*n doubles;
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  2 : runs the membership test in quad double precision,
+--                 for a witness set stored in the quaddobl containers,
+--                 defined by an ordinary polynomial systems,
+--                 on input in a is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in b is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in b[1] is the dimension of the witness set, and
+--                 in b[2] is the number of tasks (0 for no multitasking);
+--                 on input in c are first the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 followed then by the coordinates of the test point,
+--                 if a test point has dimension n, then c on input
+--                 is expected to have 2 + 8*n doubles;
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success.
+--   job    =  3 : runs the membership test in standard double precision,
+--                 for a witness set stored in the standard containers,
+--                 defined by a Laurent polynomial systems,
+--                 on input in a is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in b[0] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in b[1] is the dimension of the witness set, and
+--                 in b[2] is the number of tasks (0 for no multitasking);
+--                 on input in c are first the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 followed then by the coordinates of the test point,
+--                 if a test point has dimension n, then c on input
+--                 is expected to have 2 + 2*n doubles;
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  4 : runs the membership test in double double precision,
+--                 for a witness set stored in the dobldobl containers,
+--                 defined by a Laurent polynomial systems,
+--                 on input in a is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in b[0] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in b[1] is the dimension of the witness set, and
+--                 in b[2] is the number of tasks (0 for no multitasking);
+--                 on input in c are first the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 followed then by the coordinates of the test point,
+--                 if a test point has dimension n, then c on input
+--                 is expected to have 2 + 4*n doubles;
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  5 : runs the membership test in quad double precision,
+--                 for a witness set stored in the quaddobl containers,
+--                 defined by a Laurent polynomial systems,
+--                 on input in a is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in b[0] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in b[1] is the dimension of the witness set, and
+--                 in b[2] is the number of tasks (0 for no multitasking);
+--                 on input in c are first the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 followed then by the coordinates of the test point,
+--                 if a test point has dimension n, then c on input
+--                 is expected to have 2 + 8*n doubles;
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success.
+--   job    =  6 : runs the membership test in standard double precision,
+--                 for a witness set stored in the standard containers,
+--                 defined by an ordinary polynomial systems,
+--                 on input in a[0] is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in a[1] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in a[2] is the dimension of the witness set,
+--                 in a[3] is the number of characters in the string
+--                 representation of the test point, as a solution, and
+--                 in a[4] is the number of tasks (0 for no multitasking);
+--                 on input in b are the a[3] integers which encode the
+--                 characters of the string representation of the solution,
+--                 which stores the coordinates of the test point,
+--                 in standard double precision,
+--                 on input in c are the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  7 : runs the membership test in double double precision,
+--                 for a witness set stored in the double double containers,
+--                 defined by an ordinary polynomial systems,
+--                 on input in a[0] is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in a[1] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in a[2] is the dimension of the witness set,
+--                 in a[3] is the number of characters in the string
+--                 representation of the test point, as a solution, and
+--                 in a[4] is the number of tasks (0 for no multitasking);
+--                 on input in b are the a[3] integers which encode the
+--                 characters of the string representation of the solution,
+--                 which stores the coordinates of the test point,
+--                 in double double precision,
+--                 on input in c are the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  8 : runs the membership test in quad double precision,
+--                 for a witness set stored in the quad double containers,
+--                 defined by an ordinary polynomial systems,
+--                 on input in a[0] is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in a[1] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in a[2] is the dimension of the witness set,
+--                 in a[3] is the number of characters in the string
+--                 representation of the test point, as a solution, and
+--                 in a[4] is the number of tasks (0 for no multitasking);
+--                 on input in b are the a[3] integers which encode the
+--                 characters of the string representation of the solution,
+--                 which stores the coordinates of the test point,
+--                 in quad double precision,
+--                 on input in c are the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    =  9 : runs the membership test in standard double precision,
+--                 for a witness set stored in the standard containers,
+--                 defined by a Laurent polynomial systems,
+--                 on input in a[0] is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in a[1] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in a[2] is the dimension of the witness set,
+--                 in a[3] is the number of characters in the string
+--                 representation of the test point, as a solution, and
+--                 in a[4] is the number of tasks (0 for no multitasking);
+--                 on input in b are the a[3] integers which encode the
+--                 characters of the string representation of the solution,
+--                 which stores the coordinates of the test point,
+--                 in standard double precision,
+--                 on input in c are the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    = 10 : runs the membership test in double double precision,
+--                 for a witness set stored in the double double containers,
+--                 defined by a Laurent polynomial systems,
+--                 on input in a[0] is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in a[1] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in a[2] is the dimension of the witness set,
+--                 in a[3] is the number of characters in the string
+--                 representation of the test point, as a solution, and
+--                 in a[4] is the number of tasks (0 for no multitasking);
+--                 on input in b are the a[3] integers which encode the
+--                 characters of the string representation of the solution,
+--                 which stores the coordinates of the test point,
+--                 in double double precision,
+--                 on input in c are the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+--   job    = 11 : runs the membership test in quad double precision,
+--                 for a witness set stored in the quad double containers,
+--                 defined by a Laurent polynomial systems,
+--                 on input in a[0] is the verbose flag:
+--                 0 for no output, or 1 for diagnostic intermediate output,
+--                 on input in a[1] is the dimension n of the test point,
+--                 which equals the number of complex coordinates,
+--                 in a[2] is the dimension of the witness set,
+--                 in a[3] is the number of characters in the string
+--                 representation of the test point, as a solution, and
+--                 in a[4] is the number of tasks (0 for no multitasking);
+--                 on input in b are the a[3] integers which encode the
+--                 characters of the string representation of the solution,
+--                 which stores the coordinates of the test point,
+--                 in quad double precision,
+--                 on input in c are the two tolerances:
+--                 first on the residual for the evaluation,
+--                 second on the tolerance on the membership,
+--                 on return in a is the result of the evaluation test:
+--                 0 if failure, or 1 if success,
+--                 on return in b is the result of the membership test:
+--                 0 if failure, or 1 if success;
+
+-- ON RETURN :
+--   0 if the operation was successful, otherwise something went wrong,
+--   e.g.: job not in the right range.

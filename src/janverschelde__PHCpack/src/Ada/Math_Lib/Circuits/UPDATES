@@ -1,0 +1,557 @@
+Fri 8 Dec 2023 : in convergence_radius_estimates, adjusted the error
+  estimate to take into account the logarithmic convergence.
+
+Thu 7 Dec 2023 : new hexadobl_speelpenning_convolutions and
+  test_hexadobl_speel_convolutions, extended series_polynomial_gradients,
+  and ts_speelser.adb.  Extended {system,homotopy}_convolution_circuits,
+  convergence_radius_estimates, added new hexadobl_newton_convolutions 
+  and test_hexadobl_fabry, extended ts_fabry.adb with version 
+  in hexa double precision.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to circuits.gpr.
+
+Tue 8 Jun 2021 : defined circuits.gpr to build the test procedures.
+
+Sat 5 Dec 2020 : added wrappers to convergence_radius_estimates.
+
+Sat 24 Oct 2020 : to decadobl_circuit_makers added functions to convert
+  circuits with coefficients in deca double precision to lower precision.
+
+Fri 23 Oct 2020 : refactored the main test in test_hessian_circuits to
+  make room for triple, penta, octo, and deca double precision.
+  New packages {tripdobl,pentdobl,octodobl,decadobl}_hessian_updaters
+  {tripdobl,pentdobl,octodobl,decadobl}_complex_circuits, and
+  {tripdobl,pentdobl,octodobl,decadobl}_circuit_makers, with added
+  procedures in test_hessian_circuits.
+
+Thu 22 Oct 2020 : moved code from ts_perfhess.adb into a new package
+  test_hessian_circuits.
+
+Wed 21 Oct 2020 : extended evaluation_differentiation_errors with
+  operations in triple double precision.  Then extended that package again
+  for penta, octo, and deca double precision.  Extended random_convolution_ 
+  circuits, evaluation_differentiation_errors, system_convolution_circuits,
+  mainly to reach deca double precision.
+
+Tue 20 Oct 2020 : extended random_convolution_circuits with procedures
+  to generate random circuits with triple double precision coefficients.
+  Extended system_convolution_circuits with convertors from quad double
+  to triple double precision.
+
+Wed 23 Sep 2020 : to test the Fabry ratio theorem with octo and deca doubles,
+  extended {system,homotopy}_convolution_circuits, and the operations in
+  convergence_radius_estimates; added new {octo,deca}dobl_newton_convolutions
+  and test_{octo,deca}dobl_fabry, with extensions in ts_fabry.
+
+Tue 22 Sep 2020 : {trip,pent,octo,deca}dobl_speelpenning_convolutions are
+  instantiations of generic_speelpenning_convolutions.  Extended reference
+  code in series_polynomial_gradient and made new test packages
+  test_{trip,pent,octo,deca}dobl_speel_convolutions, called in ts_speelser.
+  Splitted the package newton_convolutions into three separate packages:
+  {standard,dobldobl,quaddobl}_newton_convolutions, which changed
+  random_convolution_circuits.adb, newton_coefficient_convolutions.adb,
+  and test_{standard,dobldobl,quaddobl}_fabry.adb.  Extended
+  {system,homotopy}_convolution_circuits and convergence_radius_estimates
+  to triple double precision, added new tripdobl_newton_convolutions and
+  test_tripdobl_fabry, called in ts_fabry.  For penta doubles, extended
+  {system,homotopy}_convolution_circuits and convergence_radius_estimates,
+  added pentdobl_newton_convolutions, test_pentdobl_fabry, updated ts_fabry.
+
+Mon 21 Sep 2020 : new test_{standard,dobldobl,quaddobl}_speel_convolutions
+  with code from ts_speelser and moved code from ts_speelcnv into new
+  packages test_{standard,dobldobl,quaddobl}_coeff_convolutions.
+
+Sun 20 Sep 2020 : new test_{standard,dobldobl,quaddobl}_fabry packages,
+  with test procedures from ts_fabry.
+
+Thu 20 Aug 2020 : added functions to {dobldobl,quaddobl}_circuit_makers
+  to make complex circuits from Speelpenning convolution circuits.
+
+Wed 19 Aug 2020 : extended standard_circuit_makers with function to make
+  complex circuits from Speelpenning convolution circuits.
+
+Wed 15 Jul 2020 : shortened output in newton_coefficient_convolutions.adb,
+  in the staggered procedures.  Bug fix in the staggered indexed procedures
+  of newton_coefficient_convolution.adb.
+
+Tue 14 Jul 2020 : in newton_coefficient_convolutions.adb, fixed the writing
+  of the tolerance index to file.
+
+Mon 13 Jul 2020 : added indexed versions of the LU Newton steps to
+  newton_coefficient_convolutions, with updates in newton_convolutions,
+  tested by ts_fabry.  To newton_coefficient_convolutions, added the
+  definition of the tolerance index to compute the progress of the
+  convergence of Newton's method, tested by ts_fabry.
+
+Sun 12 Jul 2020 : added copying of pdg in the procedure Copy of 
+  standard_coefficient_circuits.adb.
+
+Sat 11 Jul 2020 : in evaluation_differentiation_errors removed superfluous
+  with statements, added Polynomial_Degree functions to exponent_indices.
+  To standard_{complex,coefficient}_circuits, added "pdg" to Circuit type,
+  and added this pdg also in {dobldobl,quaddobl}_complex_circuits,
+  updated {standard,dobldobl,quaddobl}_circuit_makers, with added output
+  statement when making a system from a given polynomial system.
+  To all *complex_circuits and *coefficient_circuits, the special case
+  of a linear polynomial degree is added.
+
+Tue 7 Jul 2020 : added procedures with the inlined linearization procedures
+  in newton_coefficient_convolutions, with added tests in ts_fabry.
+  Added inlined lufco procedures to newton_coefficient_convolutions,
+  and added tests to ts_fabry.
+
+Fri 3 Jul 2020 : moved the definition of VecVecVec from the package
+  standard_coefficient_convolutions into a new package, updated
+  standard_coefficient_storage, shift_coefficient_convolutions,
+  standard_convolution_splitters, dobldobl_convolution_splitters,
+  quaddobl_convolution_splitters, dobldobl_coefficient_convolutions,
+  quaddobl_coefficient_convolutions, and ts_shiftcnv.
+
+Thu 2 Jul 2020 : to standard_coefficient_circuits, added work space
+  vectors for the real and imaginary parts of the columns of the Jacobian,
+  with an extra test in ts_perfade.
+
+Mon 29 Jun 2020 : fixed bug in copy of standard_coefficients_circuits,
+  adding the forgotten allocation of the Hessian space.
+
+Sun 28 Jun 2020 : added copy procedures to standard_coefficient_convolutions.
+
+Sat 27 Jun 2020 : new package newton_coefficient_convolutions, with code
+  taken from newton_convolutions, updated ts_fabry.
+  Added Delinearize procedure to generic_speelpenning_convolutions,
+  added to newton_convolutions and newton_coefficient_convolutions
+  procedures with the degree as extra parameter, tested a staggered degree
+  Newton procedure in ts_fabry.  To newton_convolutions, added procedures
+  MaxIdx for coefficient vectors of series with given degree deg.
+
+Fri 26 Jun 2020 : to the procedures in standard_coefficient_convolutions,
+  added the degree as an extra parameter to make the convolutions run
+  more efficiently on restricted ranges of the series coefficients.
+
+Mon 22 Jun 2020 : added more Map procedures to shift_coefficient_convolutions,
+  to take in pointer data structures directly.  Bug fix in the Map procedures
+  of shift_coefficient_convolutions.adb, added test to ts_shiftcnv.adb.
+
+Sun 21 Jun 2020 : extended shift_coefficient_convolutions with procedures
+  that map original coefficients into shifted coefficients.
+
+Sat 20 Jun 2020 : new package standard_coefficient_storage to store and
+  restore the values of coefficient circuits.
+
+Fri 19 Jun 2020 : new package shift_coefficient_convolutions to shift the
+  coefficients in coefficient convolutions series, tested by ts_shiftcnv.
+  Completed shift_coefficient_convolutions with shifts on circuits and
+  systems of circuits, tested by ts_shiftcnv.
+
+Tue 16 Jun 2020 : extended standard_circuit_makers with function to make
+  coefficient circuits from coefficient convolutions.  Extended
+  standard_coefficient_circuits with Copy functions and more AbsVal
+  procedure sto compute the radii of the coefficients.
+
+Mon 15 Jun 2020 : to standard_coefficient_circuits, added procedures to
+  evaluate circuits at vectors with zero imaginary parts and to
+  standard_coefficient_convolutions, added procedures to evaluate the
+  power series coefficients at a value for the continuation parameter t.
+  Changed prototype of EvalCoeff in standard_coefficient_convolutions.
+
+Sun 14 Jun 2020 : extended standard_coefficient_circuits with a function
+  and a procedure to simply evaluate without computing any derivatives,
+  tested by ts_perfade.
+
+Mon 8 Jun 2020 : turned make_complex_system into make_coefficient_system
+  in standard_circuit_makers.
+
+Sun 7 Jun 2020 : added two functions to standard_circuit_makers to make
+  a coefficient circuit directly from a polynomial system.
+  Fix compilation error in ts_perfade.
+
+Sat 6 Jun 2020 : added verbose flag to a function in quaddobl_circuit_makers.
+
+Wed 3 Jun 2020 : in *_complex_circuits.adb, hessian_convolution_circuits.adb,
+  and standard_coefficient_circuits.adb, replaced the job = 11 in the SVD
+  by job = 0, because only singular values are needed.
+
+Tue 2 Jun 2020 : added wrapper procedures for the Hessians to
+  standard_coefficient_circuits.  Added coefficient versions for 1, 2, and
+  3 dimensional special cases to standard_hessian_updaters, updated
+  standard_coefficient_circuits, standard_complex_circuits.adb, and
+  added tests to ts_perfhess.adb.  Defined the general case in
+  standard_hessian_updaters, updated standard_coefficient_circuits.adb,
+  and added tests to ts_perfhess.  Added wrappers for the singular
+  values to standard_coefficient_circuits, and added more tests to
+  ts_perfhess, to test user given systems.  With code from ts_perfhess,
+  made a new package standard_circuit_splitters to split complex circuits.
+
+Mon 1 Jun 2020 : extended newton_convolutions with procedures to run one
+  Newton step with coefficient convolutions in double double precision,
+  tested by ts_fabry.  Started development of Hessian computation on
+  coefficient circuits in standard_coefficient_circuits, tested by
+  ts_perfhess.adb.  Small change in standard_complex_circuits.ads.
+
+Sun 31 May 2020 : modified quaddobl_vector_splitters to pass the auxiliary
+  vectors u, v, and w  as pointers.  Updated ts_speelcnv.
+
+Sat 30 May 2020 : bug fix in quaddobl_coefficient_convolutions.adb,
+  in the allocation of the imaginary part of the power table.
+
+Fri 29 May 2020 : new packages quaddobl_coefficient_convolutions and
+  quaddobl_convolution_splitters, with updates to series_polynomial_gradients
+  and dobldobl_coefficient_convolutions, tested by ts_speelcnv.
+  Bug fixed in one EvalDiff of quaddobl_coefficient_convolutions.adb.
+  Removed extra output in quaddobl_convolution_splitters.adb.
+
+Tue 26 May 2020 : new package dobldobl_coefficient_convolutions, extended
+  series_polynomial_gradients, for tests in ts_speelcnv.  New package
+  dobldobl_convolution_splitters, for testing in ts_speelcnv, completed
+  dobldobl_coefficient_convolutions with wrappers for systems.
+  
+Fri 22 May 2020 : tested the EvalDiff2 on complex circuits in ts_perfhess,
+  updated {standard,dobldobl,quaddobl}_complex_circuits with an allocator.
+  Added SVD to *_complex_circuits and tests to ts_hesscnv.
+  To {standard,dobldobl,quaddobl}_circuit_makers added more functions to
+  make random systems and to convert data types.
+  To {standard,dobldobl,quaddobl}_complex_circuits, added wrappers to
+  compute all singular values on systems of circuits.
+
+Thu 21 May 2020 : defined procedures for the special cases of the Hessian
+  of a general circuit with higher powers.  Indices of size four are the
+  last special case for the Hessian for circuits of higher powers.
+  Added the general case of the Hessian computation to ts_perfhess.
+  New package standard_hessian_updaters, with code from ts_perfhess,
+  used to update standard_complex_circuits, modified ts_perfade.
+  Versions for double double and quad double precision lead to new packages:
+  {dobldobl,quaddobl}_{circuit_makers,complex_circuits,hessian_updaters},
+  with added functions in evaluation_differentiation_errors, and added
+  test procedures in ts_perfhess.
+
+Wed 20 May 2020 : new package standard_circuit_makers with code from
+  ts_perfade and ts_perfess.  Extended ts_perfhess with a procedure to
+  work on random circuits with 0/1 exponents, moved the symbolic Hessian
+  computation to standard_circuit_makers.  Extended standard_complex_circuits
+  with procedures to compute the Hessian for 0/1 exponent circuits,
+  tested by ts_perfhess.  Bug fix for extra constant coefficients in
+  standard_complex_circuits.adb and standard_coefficient_circuits.adb.
+  Added formulas for general circuits for dimension two in ts_perfhess.
+
+Tue 19 May 2020 : completed system definition in standard_complex_circuits
+  and standard_coefficient_circuits, with tests in ts_perfade.
+  Extended evaluation_differentiation_errors with functions to compute
+  the sum of differences between two vectors and two matrices,
+  with code taken from ts_perfade.  The new test procedure ts_perfhess 
+  implements a general formula for the Hessian of the product of a variables.
+  To ts_perfhess, added an indexed version to the differentiation procedures.
+
+Mon 18 May 2020 : indicated wrapper procedure for Speel in packages
+  standard_complex_circuits and standard_coefficient_circuits, with
+  the added error computation in ts_perfade.
+  Defined and tested multiplication with common factor in ts_perfade,
+  standard_complex_circuits, and standard_coefficient_circuits.
+  In standard_complex_circuits and standard_coefficient_circuits,
+  defined procedures to evaluate and differentiate with a power table,
+  tested in ts_perfade.  In standard_complex_circuits, defined a system 
+  and updated ts_perfade.
+
+Sun 17 May 2020 : added a Speel procedure to standard_complex_circuits
+  and to standard_coefficient_circuits, tested by ts_perfade.
+
+Sat 16 May 2020 : new package standard_complex_circuits with development code
+  from standard_coefficient_circuits.  Added data structures to the packages
+  standard_complex_circuits and standard_coefficient_circuits.
+
+Fri 15 May 2020 : bug fix in grabbing imaginary part in fused versions
+  in standard_coefficient_circuits.adb.  More bug fixes with indexing
+  in standard_coefficient_circuits.adb, added test in ts_perfade.adb.
+  Added error computations in ts_perfade and fixed another bug in
+  standard_coefficient_circuits.adb.
+
+Thu 14 May 2020 : new package standard_coefficient_circuits with code
+  taken from ts_perfade.  To standard_coefficient_circuits, added indexed
+  versions of the procedures, tested by ts_perfade.
+
+Wed 13 May 2020 : added computation of power table to ts_perfade.
+  Added loop fusion to forward/backward products in ts_perfade.
+  Defined complex forward/backward/cross with loop fusion in ts_perfade.
+  Added to ts_perfade the real fused forward/backward/cross products.
+
+Tue 12 May 2020 : added computation of backward products to ts_perfade.
+
+Mon 11 May 2020 : new test procedure ts_perfade, to test the performance
+  of algorithmic differentiation and evaluation.
+
+Fri 8 May 2020 : in standard_convolution_splitters.adb, fixed a bug with
+  splitting the power table in case there are no common factors.
+
+Thu 7 May 2020 : added new procedures to newton_convolutions, added an if
+  test to standard_convolution_splitters.adb and a test in ts_fabry.
+
+Wed 6 May 2020 : new package standard_convolution_splitters, to test the
+  evaluation and differentiation of the new circuits in ts_speelcnv.
+  New procedure ts_perfcirc to test the performance of the convolution
+  circuits with splitted coefficient vectors.
+
+Tue 5 May 2020 : the general case for algorithmic differentiation works in
+  standard_coefficient_convolutions, tested by ts_speelcnv.
+  To standard_coefficient_convolutions, added the definition of the circuit 
+  data structure and adjusted parameters of Speel procedures, which altered
+  the tests in speelcnv.  To standard_coefficient_convolutions, added the
+  system data structure.
+
+Mon 4 May 2020 : modified ts_perfconv for compiler warnings.
+  Fixed bug in series_polynomial_gradients for the construction of a 
+  polynomial with constant one coefficients, fixed a bug for when one
+  of the variables does not occur in evaluation_differentiation_errors.adb,
+  improved tests on special cases in ts_speelcnv.
+  In standard_coefficient_convolutions, modified parameters of the Speel
+  procedures and tested special cases in ts_speelcnv.
+
+Sun 3 May 2020 : new package standard_coefficient_convolutions with code from
+  ts_perfconv.  Extended standard_coefficient_convolutions with procedures
+  to compute the power table and to apply algorithmic differentiation.
+
+Sat 2 May 2020 : added inner product tests to ts_perfconv.adb.
+  Added Horner and wrapped procedures to ts_perfconv.adb.
+
+Fri 1 May 2020 : new test procedure ts_perfconv.adb to compute the
+  convolutions faster.
+
+Fri 3 Apr 2020 : extended test on system in ts_shiftcnv.
+
+Thu 2 Apr 2020 : added system_array type to generic_speelpenning_convolutions.
+  Added vevecvec_array to generic_speelpenning_convolutions.
+
+Tue 31 Mar 2020 : added more copy functions with degree specifications
+  to generic_speelpenning_convolutions.  Applied the copy functions in
+  the residual_convolutions_circuits, added update of the radii of constants
+  procedures to residual_convolutions_circuits.  Fixed problem in 
+  shift_convolution_circuits.adb with the c.cst equal to the number zero.
+
+Mon 30 Mar 2020 : added copy procedures to generic_speelpenning_convolutions.
+
+Wed 25 Mar 2020 : extended generic_speelpenning_convolutions with more
+  procedure to evaluate and differentiate at a point, tested by ts_speelcnv.
+  Completed extension of generic_speelpenning_convolution to evaluate a
+  system at a point, instead of at a series, tested by ts_speelcnv.
+
+Tue 24 Mar 2020 : extended procedures in generic_speelpenning_convolutions,
+  to apply the reverse mode on one point, tested by ts_speelcnv.
+  Extended ts_speelcnv with test in double double and quad double precision,
+  after adding the initialization of ygrad before rerunning Speel.
+  Fixed indexing error in generic_speelpenning_convolutions.adb.
+
+Wed 18 Mar 2020 : added procedures to convergence_radius_estimates to write
+  the results to file if in verbose mode.
+
+Sun 15 Mar 2020 : added functions to residual_convolution_circuits to return
+  a system of circuits for the computation of mixed residuals.
+
+Sat 14 Mar 2020 : new package residual_convolution_circuits for the computation
+  of mixed residuals, tested by ts_evalcnv.
+
+Thu 12 Mar 2020 : added an offset index to the convergence_radius_estimates
+  so the estimate corresponds to the pole of an [L,1]-approximant.
+
+Sat 7 Mar 2020 : bug fix in system_convolution_circuits.adb.
+  Another bug fix in system_convolution_circuits.adb and also bug fixedl
+  in the Update() of generic_speelpenning_convolutions.adb.
+
+Fri 6 Mar 2020 : added more functions to system_convolution_circuits,
+  to return the system structures with the allocated work space.
+
+Thu 5 Mar 2020 : bug fix in system_convolution_circuits.adb, added Is_Zero
+  functions for the degrees of cseries polynomials.
+
+Mon 24 Feb 2020 : for circuits coming from overdetermined systems, an
+  extra parameter is needed to represent a system, updated 
+  generic_speelpenning_convolutions and system_convolution_circuits.adb.
+
+Sun 23 Feb 2020 : fixed the documentation in newton_convolutions.ads.
+
+Wed 19 Feb 2020 : in shift_convolution_circuits.adb, applied the double,
+  double double, and quad double versions of the binomial coefficients.
+
+Tue 18 Feb 2020 : modifications in generic_speelpenning_convolutions.adb,
+  newton_convolutions.adb, and ts_fabry.adb for nonsquare problems.
+
+Mon 17 Feb 2020 : added copy procedures to generic_speelpenning_convolutions.
+
+Sun 16 Feb 2020 : new test procedure ts_shiftcnv to develop a thread safe
+  version of shifting the coefficients of a power series.
+  New package shift_convolution_circuits, tested by ts_shiftcnv.
+
+Wed 12 Feb 2020 : to generic_speelpenning_convolutions, added two speel
+  functions to evaluate and differentiate efficiently at a product.
+
+Fri 7 Feb 2020 : to system_convolution_circuits, added functions to
+  convert systems in quad double precision to double and double doubles,
+  as needed for benchmarking on the same randomly generated tests.
+
+Thu 6 Feb 2020 : added simple computation of first derivatives to
+  generic_speelpenning_convolutions, applied in new package
+  jacobian_convolution_circuits, tested by ts_jacocnv.
+
+Mon 3 Feb 2020 : to hessian_convolution_circuits, added procedures to
+  compute the singular values for link to circuits.
+
+Sat 1 Feb 2020 : added to generic_speelpenning_convolutions a function
+  to compute the value of the second derivative for a link to a circuit.
+  Extended ts_hesscnv with tests on Hessian matrices.
+  New package hessian_convolution_circuits with some code of ts_hesscnv.
+  Added SVD to hessian_convolution_circuits.
+
+Fri 31 Jan 2020 : completed a first test of the Hessian computation in
+  ts_hesscnv.  Extended generic_speelpenning_convolutions with the Diff
+  procedures to compute second derivatives, tested by ts_hesscnv.
+
+Thu 30 Jan 2020 : first version of the Diff on a circuit in ts_hesscnv.
+
+Wed 29 Jan 2020 : new procedure ts_hesscnv to develop the code to compute
+  the value of the Hessian of a circuit.
+
+Mon 27 Jan 2020 : to Newton_convolutions, added procedures to compute
+  the highest index of the coefficient vector of the update that is lower
+  than a given tolerance, to measure the convergence of Newton's method.
+
+Sat 25 Jan 2020 : added functions to system_convolution_circuits.
+  Shortened the names *Convolution_Circuit* into *Circuit* in
+  generic_speelpenning_convolutions, modified system_convolution_circuits,
+  random_convolution_circuits, homotopy_convolution_circuits,
+  series_polynomial_gradients, ts_speelcnv, ts_fabry, ts_evalcnv.
+
+Thu 23 Jan 2020 : added another eval to generic_speelpenning_convolutions
+  to test the Newton homotopy of homotopy_convolution_circuits,
+  tested by ts_evalcnv.  To random_convolution_circuits, added procedures
+  to generate random Newton homotopies, tested by ts_evalcnv.
+
+Wed 22 Jan 2020 : new Eval function in generic_speelpenning_convolutions,
+  tested by the procedure ts_evalcnv.  Added to homotopy_convolution_circuits
+  procedures to modify the constant coefficients so a given vector is
+  a solution, tested by ts_evalcnv.
+
+Mon 20 Jan 2020 : to newton_convolutions, added input parameter to flag
+  the scaling of the coefficient vectors, adjusted ts_fabry.
+
+Mon 13 Jan 2020 : new package homotopy_convolution_circuits to add a
+  continuation parameter to convolution circuits, with code taken from
+  ts_fabry and from ../../Deformations/ts_sernewcnv.
+
+Sat 11 Jan 2020 : added an extra output parameter to the Newton step
+  procedures in newton_convolutions, tested by ts_fabry.
+  Added function to newton_convolutions for the max computation.
+
+Fri 10 Jan 2020 : extended newton_convolutions with procedures with QRLS
+  and SVD, tested by ts_fabry.
+
+Wed 8 Jan 2020 : new package convergence_radius_estimates to apply the
+  ratio theorem of Fabry, with tests in ts_fabry.  New package
+  newton_convolutions with code taken from ts_fabry.
+
+Mon 6 Jan 2020 : to generic_speelpenning_convolutions added operations to
+  allocate and compute the power table.  Added a system type to the
+  generic_speelpenning_convolutions to encapsulate the work space along
+  with the convolution circuits and added encapsulated EvalDiff procedures.
+  The package Linearized_Series_Coefficients is obsolete as the Delinearize
+  is moved into the generic_speelpenning_convolutions; tested by ts_speelcnv.
+
+Sun 5 Jan 2020 : in generic_speelpenning_convolutions turned the representation
+  of the evaluated series in linearized form, tested by ts_speelcnv.
+  Extracted the Delinearize procedures out of ts_speelcnv into a new
+  package Linearized_Series_Coefficients.
+
+Fri 3 Jan 2020 : extracted code from series_polynomial_gradients, which
+  modified random_convolution_circuits.adb, ts_speelser, and ts_speelcnv.
+
+Mon 30 Dec 2019 : added functions to evaluation_differentiation_errors
+  to compare results computed by the multitasked versions.
+
+Sun 29 Dec 2019 : new package evaluation_differentiation_errors with code
+  taken from ts_speelcnv.
+
+Sat 28 Dec 2019 : moved the computation of the exponent maxima from the
+  ts_speelser to the generic_speelpenning_convolutions.
+
+Fri 27 Dec 2019 : new package random_convolution_circuits with code taken
+  from ts_speelcnv.  New package system_convolution_circuits to define
+  circuits from polynomials and systems, tested by ts_speelcnv.
+  Added comparison tests to ts_speelcnv for systems given on input.
+
+Thu 26 Dec 2019 : updated exponent_indices and ts_speelser for the changes
+  in series_polynomial_grandients.  Reset the work space variables to zero
+  in the EvalDiff of generic_speelpenning_convolutions.adb for systems,
+  with extra test procedure in ts_speelcnv.  To ts_speelcnv, added
+  procedure to compute the errors of the differences between the symbolic
+  way and the algorithm differentiation convolution circuits.
+
+Wed 25 Dec 2019 : upgraded series_polynomial_gradients to work with complex
+  series instead of dense series, tested by ts_speelcnv.
+
+Tue 24 Dec 2019 : added allocation of vectors of matrices to
+  generic_speelpenning_convolutions, called in ts_speelcnv.
+
+Mon 23 Dec 2019 : to series_polynomial_gradients, added functions to turn
+  convolution circuits into polynomial systems and to ts_speelcnv,
+  added procedures to generate random convolution circuits.
+
+Sun 22 Dec 2019 : added the convolution circuit as a data type to
+  generic_speelpenning_convolutions, with added constant declarations
+  in ts_speelcnv.  Added the assignments to the series of matrices
+  in generic_speelpenning_convolutions and adjusted the instantiations,
+  in {standard,dobldobl,quaddobl}_speelpenning_convolutions.
+
+Sat 21 Dec 2019 : added procedures to generic_speelpenning_convolutions
+  to multiply the common factor and the multiplier exponent.
+  Fixed error with the multiplication with the multiplier exponent.
+  Fixed the case with two participating variables in a monomial.
+
+Fri 20 Dec 2019 : added the computation of the errors to ts_speelcnv.
+  Extended the exponent_indices with function to compute the factor index,
+  tested by ts_speelcnv.  Updated series_polynomial_gradients for general
+  exponents, extended exponent_indices with a power table, used in
+  generic_speelpenning_convolutions, and tested in ts_speelcnv.
+
+Thu 19 Dec 2019 : new package series_polynomial_gradients, with code
+  from ts_speelser, for use in ts_speelcnv.  Extended the package
+  generic_speelpenning_convolutions with procedures to evaluate and
+  differentiate a sum of products, tested by ts_speelcnv.
+  Extended series_polynomial_gradients and generic_speelpenning_convolutions
+  with operations for general coefficients, tested by ts_speelcnv.
+
+Wed 18 Dec 2019 : ts_speelser computes all derivatives of a product,
+  with convolutions for the coefficients of power series.
+  New package generic_speelpenning_convolutions, instantiated with
+  double, double double, and quad double coefficients in
+  {standard,dobldobl,quaddobl}_speelpenning_convolutions.ads,
+  tested by ts_speelser.  Extended generic_speelpenning_convolutions
+  for indexed products, tested by ts_speelser.  New package exponent_indices,
+  with code extracted from ts_speelser, new ts_speelcnv.
+
+Tue 17 Dec 2019 : new test procedure ts_speelser, to develop the reverse mode
+  of algorithmic differentiation on power series.
+  Added the computation of the product to ts_speelser.adb.
+
+Mon 22 Jun 2015 : new packages multprec_jacobian_evaluations and
+  multprec_jacobian_circuits, tested by ts_gradcirc.
+
+Sun 21 Jun 2015 : updates in standard_jacobian_evaluations and ts_speelsys.
+  Upgraded standard_jacobian_circuits with EvalDiff procedure,
+  tested by ts_gradcirc.  Versions for double doubles and quad doubles 
+  in packages {dobldobl,quaddobl}_jacobian_circuits, tested by ts_gradcirc.
+
+Sat 20 Jun 2015 : new package standard_jacobian_circuits to contain the
+  data structures to evaluate and differentiate systems of polynomials,
+  tested by ts_gradcirc.
+
+Fri 19 Jun 2015 : in standard_gradient_evaluations, added functions and
+  procedures in case there are no common factors.
+  New package standard_gradient_circuits encapsulates evaluation
+  and differentiation, tested by ts_gradcirc.
+  Extended {dobldobl,quaddobl,multprec}_gradient_evaluations also with
+  routines for when there are no common factors.
+  New packages {dobldobl,quaddobl,multprec}_gradient_circuits,
+  tested by ts_gradcirc.
+
+Thu 18 Jun 2015 : factored split_common_factors out of the different
+  gradient_evaluations packages into coefficient_supported_polynomials,
+  which also changed the *jacobian_evaluations.adb files.
+  Provided an extended version of split_common_factors.
+
+Wed 17 Jun 2015 : new directory populated with code from ../Functions.

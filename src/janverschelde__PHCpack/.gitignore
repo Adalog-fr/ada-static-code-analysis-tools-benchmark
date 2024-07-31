@@ -1,0 +1,6 @@
+bin/*
+!bin/READ_ME
+lib/*
+!lib/READ_ME
+obj/*
+!obj/READ_ME

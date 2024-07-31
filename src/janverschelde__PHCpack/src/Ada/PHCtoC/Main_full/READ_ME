@@ -1,0 +1,13 @@
+This directory contains the full version of the capabilities of phc -j,
+with the algorithmic differentiation procedures in double double
+and quad double arithmetic.
+
+For this to compile with success, 
+the QD library must be present and installed.
+
+-------------------------------------------------------------------------------
+file name                      : short description
+-------------------------------------------------------------------------------
+algorithmic_diffeval_trackers  : wrappers and drivers to the Path library
+main_ade_trackers.adb          : body for phc -j with the QD library
+-------------------------------------------------------------------------------

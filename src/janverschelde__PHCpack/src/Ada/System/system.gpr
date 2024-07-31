@@ -1,0 +1,51 @@
+project system is
+
+    type OS_type is ("linux", "windows", "macosx");
+    os : OS_type := external("os", "linux");
+
+    case os is
+        when "linux" | "macosx" => 
+            for Languages use ("Ada");
+            for Source_Dirs use (".", "Unix_Timer");
+            for Main use
+            (
+               "ts_stamps.adb",   -- tests date, time, and elapsed time
+               "ts_syscall.adb",  -- tests execution of a system call
+               "ts_mach.adb",     -- prints system information
+               "ts_cmdline.adb",  -- prints command line arguments
+               "ts_byemess.adb",  -- prints the end message
+               "ts_strsplit.adb", -- tests string_splitters package
+               "ts_commuser.adb", -- tests the dialogues with the user
+               "ts_filescan.adb", -- tests file scanning
+               "ts_striscan.adb", -- tests on string_parsing.scan()
+               "ts_timer.adb"     -- tests the timer
+            );
+        when "windows" =>
+            for Languages use ("Ada", "C");
+            for Source_Dirs use (".", "Basic_Timer");
+            for Main use
+            (
+               "ts_stamps.adb",   -- tests date, time, and elapsed time
+               "ts_syscall.adb",  -- tests execution of a system call
+               "ts_mach.adb",     -- prints system information
+               "ts_cmdline.adb",  -- prints command line arguments
+               "ts_byemess.adb",  -- prints the end message
+               "ts_strsplit.adb", -- tests string_splitters package
+               "ts_commuser.adb", -- tests the dialogues with the user
+               "ts_filescan.adb", -- tests file scanning
+               "ts_striscan.adb", -- tests on string_parsing.scan()
+               "ts_ctimer.adb",   -- tests the C timer
+               "ts_timer.adb"     -- tests the timer
+            );
+    end case;
+
+    for Object_Dir use "../../Objects";
+    for Exec_Dir use "../../bin";
+
+    package Compiler is
+
+        for Default_Switches ("Ada") use ("-gnatwa", "-gnatva");
+
+    end Compiler;
+
+end system;

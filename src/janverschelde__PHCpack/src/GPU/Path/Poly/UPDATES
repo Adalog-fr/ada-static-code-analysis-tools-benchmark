@@ -1,0 +1,22 @@
+Mon 23 Jan 2017 : suppressed a superfluous error message in poly.cpp
+  and extra printing in dict.h when reading a polynomial system from file.
+
+Sun 22 Jan 2017 : new test program test_poly.cpp, with a new makefile.
+
+Sat 21 Jan 2017 : reformatted code of poly.h and poly.cpp.
+  More reformatting in dict.h and polysol.cpp.
+  Reformatting in linklist.h and linklist.tpp.
+
+Thu 19 Jan 2017 : reformatted the code in utilities.cpp, utilities.h,
+  and polysol.cpp.  More edits in poly.cpp.
+
+Wed 18 Jan 2017 : reformatted code in poly.cpp.
+
+Wed 19 Aug 2015 : reformatted polysol.h, made deletion mute,
+  also muted deletion of polynomial system in poly.h.
+
+Mon 17 Aug 2015 : upgrade code with new versions, and new polysol.h
+  and polysol.cpp, updated with change_sol() method.
+
+Fri 7 Aug 2015 : added change_sol method to PolySolSet class in poly.h,
+  defined by the code in poly.cpp.

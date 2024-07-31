@@ -1,0 +1,90 @@
+A Numerical Irreducible Decomposition with PHCv2.4.89
+
+This directory is entirely new in release 2.1 and contains homotopies to
+compute witness points on all positive dimensional solution components.
+There are two approaches:
+  1) using a sequence of homotopies starting at the top dimension;
+  2) with diagonal homotopies we incrementally compute witness point sets.
+The extrinsic/intrinsic approach to implement diagonal homotopies is
+under development and is improved in release 2.2.
+The binomial solver was added as an option to phc -c in release 2.3.70.
+
+Run "gprbuild decomposition.gpr" to make all test programs.
+On windows, type "gprbuild decomposition.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean decomposition.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                        : short description
+------------------------------------------------------------------------------
+irreducible_decompositions       : data representation + primitives
+irreducible_decompositions_io    : input-output facilities
+filtered_points                  : structure to collect filtering data
+witness_generate_and_classify    : creators of irreducible decomposition
+ts_irdeco                        : test on witness generate and classify
+------------------------------------------------------------------------------
+standard_affine_planes           : intrinsic <-> extrinsic affine planes
+standard_affine_solutions        : intrinsic <-> extrinsic solutions
+multihomogeneous_solutions       : representing multi-homogeneous solutions
+standard_diagonal_polynomials    : polynomials in diagonal homotopies
+dobldobl_diagonal_polynomials    : dd polynomials in diagonal homotopies
+quaddobl_diagonal_polynomials    : qd polynomials in diagonal homotopies
+standard_diagonal_solutions      : solutions in diagonal homotopies
+dobldobl_diagonal_solutions      : dd solutions in diagonal homotopies
+quaddobl_diagonal_solutions      : qd solutions in diagonal homotopies
+extrinsic_diagonal_homotopies    : extrinsic version of diagonal homotopies 
+extrinsic_diagonal_homotopies_io : tools to double symbol table
+extrinsic_diagonal_solvers       : drivers for extrinsic diagonal homotopies
+p_intrinsic_diagonal_continuation: premature intrinsic diagonal continuation
+p_intrinsic_diagonal_homotopies  : premature intrinsic diagonal homotopies
+p_intrinsic_diagonal_solvers     : solving with intrinsic diagonal homotopies
+ts_diahom                        : test on diagonal homotopies
+extrinsic_diagonal_continuation  : track paths of extrinsic diagonal homotopies
+intrinsic_diagonal_continuation  : track paths of intrinsic diagonal homotopies
+driver_to_intersect_varieties    : driver to intrinsic diagonal homotopies
+ts_intdia                        : test to intersect varieties intrinsically
+jumpstart_diagonal_homotopies    : jumpstart to intersect varieties
+ts_jmpdia                        : jumpstarting diagonal homotopies
+------------------------------------------------------------------------------
+add_and_remove_embedding         : adding and removing an embedding
+main_decomposition               : defines phc -c
+------------------------------------------------------------------------------
+ts_dimred                        : test on dimension determination
+------------------------------------------------------------------------------
+standard_membership_tests        : membership for point in component or not
+standard_breakup_components      : component interpolation in standard arith
+multprec_membership_tests        : membership for point in component or not
+multprec_breakup_components      : component interpolation in multprec arith
+------------------------------------------------------------------------------
+drivers_to_breakup_components    : drivers to construct interpolators
+ts_breakup                       : test on breaking up components
+------------------------------------------------------------------------------
+standard_irreducible_decomp      : data structure for solution components
+standard_irreducible_decomp_io   : output of hypersurfaces and components
+multprec_irreducible_decomp      : data structure for solution components
+multprec_irreducible_decomp_io   : output of hypersurfaces and components
+homotopy_cascade_filter          : witness generate + classify
+square_and_embed_systems         : squaring and embedding systems
+path_counts_table                : counts the paths with zero & nonzero slacks
+standard_witness_solutions       : stores a numerical irreducible decomposition
+dobldobl_witness_solutions       : double double version of witness solutions
+quaddobl_witness_solutions       : quad double version of witness solutions
+store_witness_solutions          : default callback procedures
+write_witness_solutions          : output for testing purposes
+ts_witsols                       : tests the witness solutions package
+cascade_homotopy_steps           : run one step in a cascade homotopy
+cascade_homotopies_io            : defines the writing of witness super sets
+cascade_homotopies               : versions of cascade homotopies
+cascade_membership_filters       : filter sequences of witness super sets
+cascade_homotopy_filters         : run a cascade and filter junk
+running_cascades                 : given top solutions, run cascades
+embeddings_and_cascades          : embed system and launch cascade
+drivers_to_cascade_filtering     : drivers to cascade of homotopies 
+ts_cascade                       : calls the cascade routine
+------------------------------------------------------------------------------
+Positive dimensional components of solutions are represented in the
+package Standard/Multprec_Irreducible_Decomp by means of a list of
+generic points, projection operators, and interpolating hypersurfaces.
+The cascade of homotopies runs from the top dimensional components
+down to the isolated solutions.  The multiprecision facilities are
+needed to deal with curves and surfaces of high degree.

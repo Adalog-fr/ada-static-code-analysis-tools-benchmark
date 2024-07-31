@@ -1,0 +1,747 @@
+Thu 7 Mar 2024 : fixed tasking.gpr so it works on windows.
+
+Wed 7 Feb 2024 : fixed tuning of parameters to the default values,
+  instead of taking into account the decimal places.
+
+Fri 8 Dec 2023 : updated tasking.gpr for less obsolete files.
+  Extended multitasked_{algodiff,newton}_convolutions,
+  multitasked_series_linearization, multitasked_power_newton,
+  and test_mtnewton_convolutions.
+  Small fixes in test_mtnewton_convolutions.
+
+Thu 17 Jun 2021 : added "with use_c2phc;" to ts_mtcelidx.adb to force the
+  compilation of use_c2phc when building with the updated tasking.gpr.
+
+Mon 14 Jun 2021 : fixed ts_mtmatvec, ts_mtpolval, ts_mtsam, and the packages
+  multitasking_{matrix_x_vector,polynomial_functions,sampling},
+  updated tasking.gpr.
+
+Sat 12 Jun 2021 : fixed ts_mtcont.adb, updated tasking.gpr.
+
+Fri 11 Jun 2021 : defined tasking.gpr to build the test procedures.
+
+Mon 31 May 2021 : number_of_cores.adb uses System.Multiprocessors instead
+  of the C interface.
+
+Sat 5 Dec 2020 : new package multitasked_power_newton with code extracted
+  from test_mtnewton_convolutions.adb.
+
+Sun 8 Nov 2020 : updated multitasking_continuation.adb for the renaming of
+  drivers_for_poly_continuation into main_poly_continuation.
+
+Sat 24 Oct 2020 : extended multitasked_hessian_circuits with procedures
+  in triple, penta, octo, and deca double precision.  Added tests to
+  multitasked_hessian_circuits, so seven precisions are supported.
+
+Thu 22 Oct 2020 : extended multitasked_newton_convolutions and
+  test_mtnewton_convolutions with procedures in penta, octo, and deca
+  double precision.  Added procedures to test_mtnewton_convolution to
+  benchmark all seven precisions.
+
+Wed 21 Oct 2020 : extended test_mtseries_linearization to triple double
+  precision.  Extended multitasked_series_linearization and test_mtseries_
+  linearization to penta double, octo double, and deca double precision.
+  Extended the benchmark test in test_mtseries_linearization to penta,
+  octo, and deca double precision.  To multitasked_algodiff_convolutions
+  added procedures to run in penta double, octo double, and deca double
+  precision, with extra tests in test_mtalgodiff_convolutions.
+
+Tue 20 Oct 2020 : moved tests from ts_mtnewton.adb to the new package
+  test_mtnewton_convolutions.  Extended multitasked_series_linearization,
+  multitasked_algodiff_convolutions, multitasked_newton_convolutions,
+  and test_mtnewton_convolutions for runs in triple double precision.
+  Added new test_mtseries_linearization, test_mtalgodiff_convolutions,
+  test_mthessian_convolutions, test_mthessian_circuits,
+  test_mtpade_approximations, test_mtshift_convolutions, with code from
+  respectively ts_mtserlin, ts_mtadcnv, ts_mthessian, ts_mthesscrc,
+  ts_mtratapp, and ts_mtshiftcnv.
+
+Tue 22 Sep 2020 : updates in multitasked_newton_convolutions.adb,
+  ts_mtnewton.adb and ts_mthessian.adb because of the split of the
+  Newton convolutions package.
+
+Fri 21 Aug 2020 : exported the boolean arrays for synchronization to the
+  static and dynamic load balancing in multitasked_hessian_circuits.
+  Applied the dynamic load balancing procedure directly in the test
+  procedures in ts_mtprdcnv.
+
+Thu 20 Aug 2020 : added tests in double double and quad double precision
+  to ts_mtprdcnv.  Bug fix in multitasked_hessian_circuits.adb, in the
+  functions {Standard,DoblDobl,QuadDobl}_Distance; exported the procedures
+  for static/dynamic load balancing with allocated memories;
+  updates in ts_mtprdcnv.adb
+
+Wed 19 Aug 2020 : new test procedure ts_mtprdcnv, for the multitasked
+  computation of Newton-Fabry and Hesse-Pade.
+
+Thu 30 Jul 2020 : set the default to coefficient convolution circuits
+  in multitasked_path_convolutions.adb; fixed output when verbose level > 0.
+
+Mon 27 Jul 2020 : to multitasked_newton_convolutions, added procedures to
+  return the estimated condition numbers, tested by ts_mtnewton.
+  Updated multitasked_series_linearization.adb so if the output flag is true,
+  the norms of the solution vectors are written to screen.
+
+Fri 10 Jul 2020 : in multitasked_path_convolutions.adb, flipped the SVD
+  into LU, for the predictor type on coefficient convolution circuits.
+
+Fri 3 Jul 2020 : for the new package standard_floating_vecvecvecs, updated
+  multitasked_path_convolutions.adb, multitasked_algodiff_convolutions,
+  multitasked_hessian_circuits, ts_mtadcnv, and ts_mtpcscnv.
+
+Tue 30 Jun 2020 : updated multitasked_path_convolutions.adb to reflect that
+  homogeneous coordinates are not yet supported for coefficient circuits.
+  Adjusted multitasked_path_convolutions so the main procedure can take
+  (optionally) the number of tasks on input.
+
+Mon 29 Jun 2020 : extended multitasked_path_convolutions with procedures
+  to run on coefficient convolution circuits in double precision.
+
+Wed 17 Jun 2020 : update multitasked_path_convolutions.adb for the new
+  package predictor_corrector_trackers.
+
+Tue 16 Jun 2020 : moved allocators from multitasked_hessian_circuits
+  into the *vector_splitters*, updated ts_mthesscrc.
+
+Sat 6 Jun 2020 : updated the benchmarking procedures in ts_mthesscrc
+  with a function to prompt for sequences of numbers of tasks.
+
+Fri 5 Jun 2020 : updated ts_mtnewton and added efficiency computations.
+  Added benchmark procedure to ts_mtnewton for user given systems.
+  To ts_mtnewton, added function to prompt for sequence of number of tasks,
+  for faster and targeted benchmarking.
+
+Thu 4 Jun 2020 : added flush(file) to ts_mtadcnv and fixed the allocation
+  of the u, v, w workspace vectors in multitasked_algodiff_convolutions.adb.
+  Fixed an error in multitasked_series_linearization and added the
+  efficiency computations to ts_mtserlin.  Added efficiency computations
+  to the procedures ts_mtratapp and ts_mtshiftcnv.
+
+Wed 3 Jun 2020 : fixed multitasked_hessian_circuits to use separate work
+  spaces for the Hessians for each task, for coefficient circuits.
+  To ts_mthesscrc, added procedure to benchmark coefficient circuits.
+
+Tue 2 Jun 2020 : extended multitasked_hessian_circuits with the
+  computation on coefficient circuits in double precision, with an added
+  test procedure in ts_mthesscrc.
+
+Mon 1 Jun 2020 : in multitasked_hessian_circuits, defined dynamic load
+  balancing, with tests added in ts_mthesscrc.
+
+Sun 31 May 2020 : in multitasked_algodiff_convolutions, defined dynamic
+  load balancing, tested by ts_mtadcnv.  Updated ts_mtadcnv and procedures
+  in multitasked_algodiff_convolutions for the passing of the auxiliary
+  vectors u, v, w for quad double vector arithmetic via pointers.
+  To ts_mtadcnv, added tests on coefficient convolution circuits,
+  for user given input systems.
+
+Sat 30 May 2020 : in multitasked_algodiff_convolutions.adb fixed indexing
+  errors in assignments of gradients into the Jacobian matrices.
+  Fixed bug in multitasked_algodiff_convolutions.adb in the computation
+  of the power table in quad double precision.
+  Fixed last (?) bug in multitasked_algodiff_convolutions.adb.
+  Added benchmark tests on coefficient convolutions to ts_mtadcnv.adb.
+  Added efficiency computations to ts_mtadcnv.
+
+Fri 29 May 2020 : added tests for coefficients convolutions in double
+  double and quad double precision to ts_mtadcnv, to test the new
+  procedures in multitasked_algodiff_convolutions.
+
+Mon 25 May 2020 : added test for coefficient convolutions in ts_mtadcnv,
+  with stubs in multitasked_algodiff_convolutions.  Defined the multitasking
+  for coefficient convolutions in multitasked_algodiff_convolutions.adb.
+
+Sat 23 May 2020 : completed multitasked_hessian_circuits.adb and ts_mthesscrc.
+  Updated multitasked_hessian_circuits.adb with a check for cases
+  (such as the cyclic n-roots problems) where no power table is needed
+
+Fri 22 May 2020 : first (incomplete) multitasked_hessian_circuits,
+  tested by ts_mthesscrc, to compute Hessians with multitasking better.
+
+Fri 1 May 2020 : updated multitasked_path_convolutions so the seed,
+  version number, time stamps, and number of tasks are written at end.
+
+Thu 30 Apr 2020 : applied extra corrector iteration at the end of the
+  path trackers in multitasked_path_convolutions.adb.
+
+Mon 27 Apr 2020 : new package multitasked_dd_qd_refiners, with code from
+  ts_mtddref and ts_mtqdref.
+
+Sun 26 Apr 2020 : extended multitasked_path_convolutions with track and
+  main procedure, with code taken from ts_mtpcscnv.
+
+Sat 25 Apr 2020 : in ts_mtpcsconv, transformed the solutions into affine
+  coordinates after a run in multi-homogeneous coordinates.
+  In ts_mtpcscnv, the procedures of the new track_path_convolutions
+  package are called.
+
+Fri 24 Apr 2020 : passed the multi-homogenization parameters from the tests
+  in ts_mtpcscnv to the procedures in multitasked_path_convolutions.
+
+Tue 21 Apr 2020 : in multitasked_path_convolutions.adb, changed the 1 into
+  pars.corsteps for the final corrector steps at the end of a path.
+  Added affine transformations on the solutions to ts_mtpcscnv.
+
+Mon 20 Apr 2020 : bug fix in multitasked_path_convolutions.adb for double
+  double and quad double precision, in the copy of the data in abh.
+
+Sun 19 Apr 2020 : updated multitasked_path_convolutions.adb for updated
+  max |dx| in the corrector convolutions.
+
+Fri 17 Apr 2020 : added to multitasked_path_convolutions one extra root
+  refiner step after the tracking of one path.
+
+Wed 15 Apr 2020 : added to multitasked_path_convolutions the option to run
+  the path trackers in 1-homogeneous coordinates, tested by ts_mtpcscnv.
+
+Sun 12 Apr 2020 : updated ts_mtpcscnv with writing of start system,
+  (or the equations in the natural parameter homotopy, start solutions, and
+  the settings of the parameters to file.
+
+Fri 10 Apr 2020 : updated multitasked_path_convolutions.adb for the added
+  minimum and maximum step sizes along a path.  Updated for the number of
+  corrector iterations the procedures in multitasked_path_convolutions.adb.
+
+Wed 8 Apr 2020 : to ts_mtpcscnv, added computation of wall clock time
+  and writing of target system to file for input to phc -v.
+  Updates multitasked_path_convolutions for the updated procedures of
+  the package predictor_corrector_loops.
+
+Tue 7 Apr 2020 : added the restoring of coefficients after each track
+  in ts_mtpcscnv.  New package multitasked_path_convolutions, with code
+  extracted from ts_mtpcscnv.
+
+Mon 6 Apr 2020 : moved counters and fail output variable into the local
+  variables of the multitasked procedures in ts_mtpcscnv.
+  
+Sat 4 Apr 2020 : added printing of solutions in ts_mtpcscnv.
+
+Fri 3 Apr 2020 : updated ts_mtpcscnv for the modified specifications of
+  the path tracking procedures.
+
+Thu 2 Apr 2020 : added ts_mtpcscnv, skeleton procedure to develop and test
+  the multitasked path tracking with homotopy convolution circuits.
+  Added allocations of work space arrays in ts_mtpcscnv.
+  Applied the track_one_path procedures to ts_mtpcscnv.
+
+Tue 3 Mar 2020 : added work space vectors the solve_by_SVD procedures in
+  multitasked_series_linearization, tested by ts_mtserlin.
+
+Mon 2 Mar 2020 : added procedures to multitasked_series_linearization to
+  make the SVD solver work for one task.  Applied the new procedure Solve
+  in the SVD solver to have all local vectors as work space vectors.
+
+Sun 1 Mar 2020 : added tests on the SVD in ts_mtserlin.
+
+Sat 29 Feb 2020 : added separate vector of work space vectors to the
+  multitasked_series_linearization for the QRLS application, tested
+  by ts_mtserlin.
+
+Fri 28 Feb 2020 : adjusted ts_mtserlin so the QRLS with multitasking
+  is called for the overdetermined problems.  Changes in ts_mtserlin
+  and multitasked_series_linearization for the application of QRLS.
+
+Thu 27 Feb 2020 : updated ts_mtserlin to test overdetermined problems.
+  Add procedures to multitasked_series_linearization to apply least squares
+  solving with multitasking.
+
+Wed 26 Feb 2020 : added more procedures to multitasked_series_linearization
+  for solving overdetermined linear systems of power series.  Modifications
+  in multitasked_series_linearization for the work space allocations.
+
+Tue 25 Feb 2020 : added procedures to multitasked_series_linearization for
+  the solving of the linear system with QR and Least Squares.
+
+Thu 20 Feb 2020 : to ts_mtadcnv, added test procedures for user given input.
+
+Tue 18 Feb 2020 : fixed ts_mtnewton to work with nonsquare systems.
+  Extended ts_mthessian, so the user can provide a system with solutions.
+
+Mon 17 Feb 2020 : new package multitasked_shift_circuits, tested by
+  ts_mtshiftcnv, with multitasked code to shift coefficients of circuits.
+  Added benchmark test to ts_mtshiftcnv.
+
+Sat 15 Feb 2020 : new test procedure ts_ratapp to develop the multitasked
+  construction and evaluation of rational approximations.
+  New package multitasked_pade_approximations, tested by ts_mtratapp,
+  with timers added.  Added benchmark procedures to ts_mtratapp.
+
+Thu 13 Feb 2020 : bug fix in a benchmark procedure in ts_mtserlin.
+
+Tue 11 Feb 2020 : added the application of Fabry's theorem to ts_mtnewton.
+
+Mon 10 Feb 2020 : improved benchmark procedures in ts_mtnewton.
+  Added benchmarking procedures to ts_mtadcnv and to ts_mtserlin.
+
+Sun 9 Feb 2020 : updated ts_mthessian with prompting the number of runs
+  and the increment for benchmarking.  Moved the to_double_double and the
+  to_double functions from ts_mthessian to quaddobl_complex_vectors_cv.
+  First version of procedure in ts_mtnewton to benchmark for all precisions.
+
+Sat 8 Feb 2020 : extended the benchmark test in ts_mthessian.
+
+Fri 7 Feb 2020 : to multitasked_hessian_convolutions, added the computation
+  of the eta constant, tested in ts_mthessian.  Added a benchmark test for
+  all precisions to ts_mthessian.
+
+Thu 6 Feb 2020 : added to ts_mthessian a difference computation and
+  timers to compute the speedup.  Added the computation of the Jacobian
+  and its singular values to multitasked_hessian_convolutions, tested
+  by ts_mthessian.
+
+Wed 5 Feb 2020 : first multitasked version in ts_mthessian.
+  New package multitasked_hessian_convolutions with code from ts_mthessian,
+  with extensions for double double and quad double precision.
+
+Tue 4 Feb 2020 : new test procedure ts_mthessian to develop the multitasked
+  version of the singular value computation of the Hessians.
+
+Sat 25 Jan 2020 : updates in multitasked_algodiff_convolutions, ts_mtadcnv,
+  and ts_mtnewton for the name change Convolution_Circuit.
+
+Fri 24 Jan 2020 : fixed bug in timer in ts_mtnewton.
+
+Thu 23 Jan 2020 : updated ts_mtnewton with a random Newton homotopy.
+
+Tue 21 Jan 2020 : improved multitasked_series_linearization with better
+  tests in ts_mtserlin and similar changes in multitasked_newton_convolutions,
+  tested by ts_mtnewton.
+
+Mon 20 Jan 2020 : added wall clock timer to ts_mtnewton.adb.
+
+Sun 19 Jan 2020 : to multitasked_series_linearization, added procedures
+  that return an estimate for the inverse condition number.
+
+Sat 18 Jan 2020 : start of setup of ts_mtnewton, to develop multitasked
+  Newton on power series with convolutions and linearization.
+  Added procedures to ts_mtnewton, for various precisions.
+  New package multitasked_newton_convolutions, with code from ts_mtnewton.
+
+Thu 16 Jan 2020 : extended multitasked_series_linearization with versions
+  for double double and quad double arithmetic, tested by ts_mtserlin.
+  Added computation of sum of all errors to ts_mtserlin.
+  Added wall clock time and speedup calculation to ts_mtserlin.
+
+Wed 15 Jan 2020 : improved ts_mtserlin with indexing errors fixed.
+  New package multitasked_series_linearization, with code from ts_mtserlin.
+
+Tue 14 Jan 2020 : updated ts_mtserlin with the control flow of the tasking.
+  Fixed an index error in ts_mtserlin.
+
+Thu 9 Jan 2020 : with new ts_mtserlin, started development of multitasked
+  solving of matrix series with linearization.
+
+Tue 7 Jan 2020 : speedup computation and separate power table computations
+  in ts_mtadcnv.  Added multitasked computation of the power table to
+  multitasked_algodiff_convolutions.  Added a loop to each test in ts_mtadcnv
+  to run on a different number of tasks.
+
+Sun 5 Jan 2020 : updates in multitasked_algodiff_convolutions.adb and the
+  tests in ts_mtadcnv for the linearized evaluated convolution circuits.
+
+Tue 31 Dec 2019 : new package multitasked_algodiff_convolutions, with code
+  from ts_mtadcnv, extended with double double and quad double versions.
+  Added start and stop of the clock in ts_mtadcnv to measure speedups.
+
+Mon 30 Dec 2019 : compared results in ts_mtadcnv, fixed indexing error.
+
+Sun 29 Dec 2019 : updated ts_mtadcnv with multitasked code.
+
+Sat 28 Dec 2019 : fixed compilation errors in ts_tasking.adb. 
+  New test procedure ts_mtadcnv to develop the multitasked version of
+  the algorithmic differentiation for power series convolutions.
+
+Fri 22 Mar 2019 : new function number_of_cores, tested by ts_corecount,
+  uses corecount.c to return the number of available cores.
+  Added version for windows in corecountwindows.c.
+
+Sat 2 Feb 2019 : added simple test on handling ctrl+c interrupt.
+
+Wed 2 Jan 2019 : removed the superfluous Coeff() functions from the
+  package polyhedral_start_systems.
+
+Sun 18 Nov 2018 : new ts_mtpermtrol to add a control to the permanent
+  computation with multitasking.
+
+Sun 3 Jun 2018 : added another producer to pipelined_cell_indices for stable
+  mixed volumes, tested by ts_mtcelidx.adb.
+
+Mon 28 May 2018 : moved random_lifting out of pipelined_polyhedral_homotopies
+  and into the package demics_algorithm.  Moved the function Flatten from
+  pipelined_cell_indices.adb to demics_algorithm.
+
+Sun 27 May 2018 : making of the random coefficient system fixed in
+  pipelined_polyhedral_homotopies to just take the ordered supports
+  and not the type of mixture on input.
+
+Sat 26 May 2018 : added type of mixture as argument when making a random
+  coefficient system in pipelined_polyhedral_homotopies.adb.
+  Fixed bug in Flatten function in pipelined_cell_indices.adb.
+
+Fri 25 May 2018 : new package pipelined_polyhedral_homotopies to run the
+  pipeline to feed to the cells directly to the multitasked path trackers,
+  tested by ts_mtcelidx.  In pipelined_polyhedral_homotopies, exported
+  the random lifting, improved the test program ts_mtcelidx.adb.
+
+Thu 24 May 2018 : bug fix in pipelined_cell_indices.adb involving "done"
+  and added extra test in ts_mtcelidx.adb.  To pipelined_cell_indices, 
+  added a new pipelined procedure to construct the mixed cell data 
+  structures by the consumer tasks, tested by ts_mtcelidx.adb.
+  Started pipelined polyhedral homotopies in ts_mtcelidx.adb.
+
+Wed 23 May 2018 : new package pipelined_cell_trackers to track all paths
+  defined by one mixed cell, factored out of pipelined_polyhedral_trackers.
+  Updated pipelined_cell_indices.adb and ts_mtcelidx.adb for renaming
+  of operations in DEMiCs_Output_Data.  Changes in ts_mtcelidx.adb and
+  in pipelined_cell_indices.adb for debugging demics_output_data.adb.
+
+Tue 22 May 2018 : added extraction of cell indices to the multitasked
+  writing in ts_mtcelidx, with a new procedure in demics_command_line.
+  Fixed compilation errors in ts_mtmva.adb.
+  New package pipelined_cell_indices with producer/consumer model,
+  tested by ts_mtcelidx.adb.  Added pipelined_mixed_cells procedure
+  to pipelined_cell_indices, tested by ts_mtcelidx.
+
+Mon 21 May 2018 : new test procedure ts_mtcelidx.adb to start the development
+  of pipelined processing of mixed cells computed by DEMiCs.
+  Added multitasked writing of the strings to ts_mtcelidx.adb.
+
+Wed 4 Apr 2018 : to multitasking_membership_tests, added procedures to
+  add a preprocessing evaluation test on the residual.
+
+Fri 30 Mar 2018 : fixed filter in multitasking_membership_tests.adb.
+
+Thu 29 Mar 2018 : added mute procedures to multitasking_root_refiners.
+
+Wed 28 Mar 2018 : new package multitasking_membership_tests, 
+  tested by ts_mtmbthom.adb.
+
+Tue 27 Mar 2018 : the new write_number_of_tasks procedure defines the
+  writing of the number of tasks in a run.  New procedure in ts_mtmbthom.adb
+  to develop a multitasked homotopy membership test.
+
+Sat 24 Mar 2018 : extended pipelined_polyhedral_trackers and the
+  pipelined_polyhedral_drivers for stable polyhedral continuation
+  in double double and quad double precision.  Added reporting
+  versions to the pipelined_polyhedral_trackers, which modified
+  pipelined_polyhedral_drivers.adb.
+
+Fri 23 Mar 2018 : added construction of a start system for stable polyhedral
+  continuation in pipelined_polyhedral_trackers.adb.
+
+Thu 22 Mar 2018 : added extra parameters to pipelined_polyhedral_trackers
+  and pipelined_polyhedral_drivers for stable polyhedral continuation.
+
+Wed 21 Mar 2018 : improved the pipelined_polyhedral_drivers to handle
+  the lifting bound of the artificial origin.
+
+Mon 19 Mar 2018 : fixed ts_mtmva.adb for the removed stlb parameter.
+  Updated pipelined_polyhedral_{trackers, drivers}, tested by ts_mtmva.adb
+  for working with stable mixed volumes.  Removed the stlb parameter
+  from pipelined_labeled_cells.
+
+Thu 15 Mar 2018 : removed stlb from the parameters in the procedures for
+  Laurent systems in pipelined_polyhedral_trakers, which then also changed
+  pipelined_polyhedral_drivers.adb.
+
+Wed 14 Mar 2018 : added silent versions to pipelined_polyhedral_drivers.
+
+Mon 12 Feb 2018 : moved the random_Boolean_matrix function from ts_mtperm
+  to the package standard_random_matrices.
+
+Fri 2 Feb 2018 : added another test procedure to ts_mtperm.adb.
+
+Wed 31 Jan 2018 : defined the package static_columns_queue for a thread
+  safe data structure to manage the queue of column indices.
+  New package multitasking_integer_permanents, tested by ts_mtperm,
+  works with one static queue of column indices.
+
+Tue 30 Jan 2018 : new package integer_permanents, tested by ts_mtperm,
+  with reference code for multitasked permanent computation.
+  Updated integer_permanents and ts_mtperm with start columns.
+
+Fri 1 Apr 2016 : fixed ts_mtsols.adb and ts_mtsharps for compilation.
+
+Thu 31 Mar 2016 : fixed ts_mtddref.adb and ts_mtqdref.adb as well.
+
+Wed 30 Mar 2016 : fixed ts_mtstref.adb so it compiles again...
+
+Fri 18 Mar 2016 : fix in multitasking_continuation.adb so multitasked
+  path tracking works on overdetermined Laurent homotopies.
+
+Wed 16 Mar 2016 : improved the drivers in multitasking_continuation.adb
+  so the start system and start solutions are written correctly to file.
+
+Tue 8 Mar 2016 : added preset precision level to the input parameters of
+  the drivers to the multitasked path trackers in multitasking_continuation.
+  Added driver for Laurent systems in multitasking_continuation.
+
+Sat 5 Mar 2016 : updates in the driver of multitasking_continuation for
+  the Gauss-Newton correctors on overdetermined homotopies.
+  More updates in multitasking_continuation to make it work.
+
+Thu 7 Jan 2016 : change single_polyhedral_trackers.adb in the call to the
+  path trackers with the extra parameter for the estimated winding number.
+
+Fri 11 Dec 2015 : to pipelined_polyhedral_drivers, added wrappers to deal
+  with ordinary polynomial systems.
+
+Thu 10 Dec 2015 : new package pipelined_polyhedral_drivers, tested by
+  ts_mtmva, with drivers to call the pipelined polyhedral trackers.
+
+Wed 9 Dec 2015 : fixed lifted_supports of pipelined_polyhedral_trackers.adb
+  so that it works for already sorted semi-mixed inputs as well.
+  No permutations have to be applied for the general semi-mixed case.
+  Silent versions in pipelined_polyhedral_trackers are tested by ts_mtmva.
+  Modified pipelined_labeled_cells and ts_mtmva for a pipelined computation
+  of the stable mixed volume.  In pipelined_polyhedral_trackers, included
+  the parameter stlb as the lifting bound for stable mixed volumes,
+  tested by ts_mtmva.
+
+Tue 8 Dec 2015 : to mixed_labels_queue added a Next procedure that returns
+  both the labels and the counter, which is useful to track the progress
+  of the processor in the monitored version of pipelined_labeled_cells.adb.
+  Changed pipelined_labeled_cells.adb, pipelined_polyhedral_trackers.adb,
+  and ts_mtmva.adb for shortened parameter list to mv_lift.
+  For fully mixed systems, must permute the polynomials and the lifted
+  supports before doing the polyhedral path tracking.  Also added versions
+  for double double and quad double precision, tested by ts_mtmva.
+
+Mon 7 Dec 2015 : pipelined_polyhedral_trackers.adb simulate path tracking
+  through a multitasked mixed volume count.  Refactored code from
+  multitasking_polyhedral_trackers into polyhedral_start_systems.
+  The pipelined polyhedral trackers work for fully mixed when the permutation
+  is the identity and only in standard double precision.
+
+Sun 6 Dec 2015 : minor change in documentation in pipelined_labeled_cells.ads.
+  New packaged pipelined_polyhedral_trackers contain specifications to apply
+  pipelining to solve a random coefficient systems, tested by ts_mtmva.
+
+Sat 5 Dec 2015 : improved pipelined_labeled_cells, tested by ts_mtmva.
+  Split pipelined procedure into two: one before and one after the
+  preprocessing and lifting.  Added idtask as parameter to argument of the
+  process procedure in the pipelined_labeled_cells.
+
+Fri 4 Dec 2015 : made the mixed volume computation of the cells in ts_mtmva
+  thread safe, avoiding type conversions.
+
+Thu 3 Dec 2015 : use only one semaphore in mixed_labels_queue.adb.
+
+Wed 2 Dec 2015 : new package pipelined_labeled_cells, with code from
+  the ts_mtmva test procedure.  Added output flag to the producer and
+  consumer in pipelined_labeled_cells, also ts_mtmva.adb changed.
+  Added callback function process in pipeline_labeled_cells,
+  tested by ts_mtmva.adb.
+
+Tue 1 Dec 2015 : new package single_polyhedral_trackers to track one path,
+  factored out from the multitasking_polyhedral_trackers.
+
+Mon 30 Nov 2015 : added 'stopped' function to mixed_labels_queue.
+  In ts_mtmva, the production of the labels to the mixed cells can happen
+  in parallel with the making of the mixed cells.
+
+Sun 29 Nov 2015 : new test procedure ts_mtmva to develop an interlacing of
+  the producing of mixed cells with the processing of the mixed cells.
+  New package mixed_labels_queue with thread safe queue for ts_mtmva.
+
+Fri 27 Nov 2015 : refactored code in multitasking_polyhedral_trackers;
+  also for double double and quad double precision.
+
+Thu 26 Nov 2015 : factored out queues out of multitasking_continuation
+  in the new packages {standard,dobldobl,quaddobl}_solutions_queue.
+  Similarly, the new package mixed_cells_queue is factored out the
+  package multitasking_polyhedral_trackers.adb.
+
+Fri 9 Oct 2015 : extended multitasking_root_refiners with procedures in
+  double double and quad double precision, tested by ts_mtverify.
+
+Wed 7 Oct 2015 : for consistency with double double and quad double
+  precision, moved in multitasking_polyhedral_trackers.adb the end of the
+  second critical section also farther.
+
+Tue 6 Oct 2015 : in multitasking_polyhedral_trackers.adb, the end of the
+  second critical section had to be moved farther for double double and
+  quad double arithmetic. 
+
+Mon 5 Oct 2015 : added scaling of the powers in the polyhedral homotopies
+  in multitasking_polyhedral_trackers.adb.
+
+Sun 6 Sep 2015 : extended multitasking_continuation with procedures to
+  track paths defined by a homotopy between Laurent polynomial systems,
+  in double double and quad double precision.
+
+Mon 14 Jul 2014 : updated test on start systems in quad double precision,
+  in ts_mtvolcon.adb, which required modifications in the packages
+  polyhedral_start_systems and multitasking_polyhedral_starters.
+
+Sat 12 Jul 2014 : new package multitasking_polyhedral_starters with code
+  taken from multitasking_polyhedral_trackers, tested by ts_mtvolcon.adb.
+  Updated test on start systems in double double precision.
+
+Fri 11 Jul 2014 : modifications in multitasking_polyhedral_trackers.adb
+  concerning distance to target before end game.
+  
+Wed 9 Jul 2014 : in ts_mtvolcon.adb, the tuning of continuation parameters
+  must take into account the number of decimal places!
+
+Tue 8 Jul 2014 : upgrades in polyhedral_start_systems and 
+  multitasking_polyhedral_trackers for quad doubles, tested by ts_mtvolcon,
+  works for fully mixed polynomial systems.
+
+Mon 7 Jul 2014 : new package polyhedral_start_systems with code taken from
+  multitasking_polyhedral_trackers.  Fixed ts_mtvolcon.
+
+Thu 6 Mar 2014 : fixed ts_mtcont.adb for natural32/integer32.
+
+Sun 2 Feb 2014 : further experimentation with V1 and V2 of the
+  multitasking_linear_solvers, with tests in ts_mtlinsol{V1,V2}.adb.
+  Test programs ts_protect.adb and ts_access.adb.
+
+Fri 31 Jan 2014 : experimenting to resolve a hanging in ts_mtlinsol,
+  cloned off multitasking_linear_solvers in multitasking_linear_solvers0
+  with corresponding tests in ts_mtlinsol.adb and ts_mtlinsol0.adb;
+  and then also multitasking_linear_solversV0 and ts_mtlinsolV0.adb.
+
+Wed 29 Jan 2014 : extended multitasking with operation to_string for
+  integer32 types.   Updated multitasking_linear_solvers and ts_mtlinsol.adb.
+
+Thu 5 Dec 2013 : for natural32 and integer32, updated ts_jobs.adb,
+  ts_mtvol.adb, ts_mtvolcon.ada, ts_mutex, ts_mtverify.adb, and also
+  ts_mtmatvec.adb, even as the multitasking packages were not okay...
+
+Tue 25 Jun 2013 : updated multitasking_root_refiners and _continuation
+  for the new data types natural32 and integer32.
+
+Sun 16 Jun 2013 : updated multitasking_polyhedral_trackers for new data types
+  natural32 and integer32.
+
+Thu 9 May 2013 : naming in multitasking_root_refiners to make room for
+  extensions to double double and quad double arithmetic.
+
+Wed 8 May 2013 : new package multitasking_root_refiners, tested by
+  ts_mtverify.
+
+Thu 25 Apr 2013 : merged Math_Lib/Tasking with this directories.
+  Entries below till Mon 7 Jun 2010 are the UPDATES of that directory.
+  Note that some of that code was also moved to the Functions directory.
+
+Thu 5 Jul 2012 : new package standard_jacobian_evaluations, with code
+  extracted from ts_speelsys.adb.  With the new directory Functions,
+  move this new code and the flatteners to Functions so only the tasking
+  code remains in this directory.
+
+Wed 4 Jul 2012 : new ts_speelsys.adb to develop Jacobian evaluations.
+
+Wed 11 Aug 2010 : add factoring and compression to the evaluators in
+  {dobldobl,quaddobl}_polynomial_flatteners, updated ts_polyflat and
+  tested performance with ts_perfeval.
+
+Sun 8 Aug 2010 : added compression to lexicographical_supports and to
+  standard_polynomial_flatteners, tested by ts_polyflat and ts_perfeval.
+
+Wed 4 Aug 2010 : updates in lexicographical_supports.a* tested by
+  ts_perfeval.adb. 
+
+Wed 16 Jun 2010 : minor changes in multitasking_linear_solvers.adb in
+  an attempt to improve the performance.
+
+Mon 14 Jun 2010 : moved flags out of multitasking_linear_solvers.adb.
+
+Sun 13 Jun 2010 : new package multitasking_linear_solvers, tested by
+  ts_mtlinsol.adb.
+
+Thu 10 Jun 2010 : added performance testers to ts_mtpolval.
+
+Wed 9 Jun 2010 : extended *polynomial_flatteners with sparse representation,
+  tested by ts_polyflat.adb.  Also sparse representations were added to
+  multitasking_polynomial_functions, tested by ts_mtpolval.
+
+Tue 8 Jun 2010 : extended *polynomial_flatteners with Flatten wrapper,
+  update in ts_polyflat.adb and new ts_mtpolval.adb.  New package
+  multitasking_polynomial_functions is tested by ts_mtpolval.
+
+Mon 7 Jun 2010 : new directory with packages lexicographical_supports,
+  {standard,dobldobl,quaddobl}_polynomial_flatteners, tested by ts_polyflat,
+  ts_mtmatvec tests the package multitasking_matrix_x_vector.
+
+Thu 25 Apr 2013 : merged Root_Counts/Tasking with this directory.
+  Entries below till Sun 14 Apr 2013 are the UPDATES of that temporarily
+  new directory Tasking in Root_Counts.
+
+Wed 24 Apr 2013 : extended multitasking_polyhedral_trackers for it to
+  work too for semi-mixed inputs, tested by ts_mtvolcon.adb.
+
+Tue 23 Apr 2013 : multitasking_polyhedral_trackers.adb works! tested by
+  ts_mtvolcon.adb.
+
+Mon 22 Apr 2013 : modifications in multitasking_polyhedral_trackers,
+  tested by ts_mtvolcon.adb.
+
+Sun 21 Apr 2013 : cleaned up multitasking_volume_computation.adb.
+
+Fri 19 Apr 2013 : added dynamic scheduling to multitasking_volume_computation
+  tested by ts_mtvol.adb, and discovered a bug in the use of semaphores!
+
+Thu 18 Apr 2013 : extensions and bug fixes in multitasking_polyhedral_trackers
+  tested by ts_mtvolcon.
+
+Wed 17 Apr 2013 : refactored code in ts_mtvolcon.adb to compute the
+  solutions of the start system defined by mixed cells.
+  New package multitasking_polyhedral_trackers with code from ts_mtvolcon.
+
+Tue 16 Apr 2013 : updated ts_mtvolcon.adb.
+
+Mon 15 Apr 2013 : new ts_mtvolcon.adb.
+
+Sun 14 Apr 2013 : new directory starting with ts_mtvol.adb, which gave rise
+  to the multitasking_volume_computation.
+
+Fri 19 Apr 2013 : implemented semaphore with protected type, bug fixes in
+  mt_polyhedral_continuation.adb and multitasking_polynomial_continuation.adb.
+
+Sat 16 Feb 2013 : updates in multitasking_continuation to prepare for
+  double double and quad double path tracking.
+
+Wed 7 Sep 2011 : changed mt_polyhedral_continuation because of problems
+  with cyclic10 on dezon.
+
+Wed 1 Jun 2011 : changed multitasking_continuation.adb for warnings.
+
+Tue 15 Jun 2010 : added guessing game in ts_tasking.adb to test looping
+  workers, fixed bugs in multitasking.adb.
+
+Mon 14 Jun 2010 : updated multitasking with looping workers.
+
+Wed 9 Jun 2010 : added option to ts_mtddref and ts_mtqdref to toggle of
+  the monitoring of the progress of the root refiner.
+
+Sun 6 Jun 2010 : new ts_mtddref and ts_mtqdref to develop multitasking root
+  refiner with complex double double and quad double arithmetic.
+
+Sun 11 Apr 2010 : extended multitasking_sampling.adb with 10 monodromy loops.
+
+Sun 4 Apr 2010 : extended multitasking_sampling with driver for monodromy
+  loops, tested by ts_mtsam.adb.
+
+Sat 27 Feb 2010 : updates in multitasking_sampling.
+
+Thu 25 Feb 2010 : new ts_mtsam tests multitasking_sampling package.
+
+Fri 9 Oct 2009 : extended mt_polyhedral_continuation with trackers for
+  Laurent polynomial systems.  Extended multitasking_continuation also.
+
+Thu 16 Jul 2009 : added done array in multitasking.adb for main task to
+  enter a busy loop waiting, but showed not to be effective
+  => not in the the main distribution!
+
+Sun 5 Jul 2009 : fixed type error in mt_polyhedral_continuation.ads.
+
+Mon 22 Jun 2009 : updates in mt_polyhedral_continuation.adb and ts_mtpolco.
+
+Sun 21 Jun 2009 : created mt_polyhedral_continuation, tested by ts_mtpolco.
+
+Thu 14 May 2009 : ts_mtsols, ts_mtstref, ts_mtsharp, and ts_mtcont add
+  to the development.
+
+Wed 13 May 2009 : creation of this directory, the packages multitasking and
+  semaphore are tested by ts_tasking, ts_mutex, and ts_jobs.

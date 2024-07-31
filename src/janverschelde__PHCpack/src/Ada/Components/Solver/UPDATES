@@ -1,0 +1,154 @@
+Wed 22 Mar 2023 : removed testnine.m, testnine.adb, testfivehom1.adb,
+  and obsolete ts_rdisol.adb.
+
+Fri 11 Jun 2021 : defined solver.gpr to build the test procedures.
+
+Fri 4 Dec 2020 : moved mainwit into the new package main_intersection.
+  Added the verbose level to the procedures in main_intersection.
+
+Wed 2 Dec 2020 : renamed drivers_to_eqn_by_eqn_solvers into main_eqn_by_eqn_
+  solvers and moved mainsolve into main_eqn_by_eqn_solvers as its main
+  procedure.  Updated bablsolve.adb and removed the procedure mainsolve.
+  Update ts_solver.adb for the renaming of the package.
+
+Sun 22 Nov 2020 : moved mainhyp, mainhyp2, mainhyp4 into a new package
+  main_hypersurface_witsets.
+
+Sun 8 Nov 2020 : updated drivers_to_eqn_by_eqn_solvers.adb for the renaming
+  of drivers_for_poly_continuation into main_poly_continuation.
+
+Sat 14 Sep 2019 : added file_type and boolean as arguments to bablsolve.
+
+Fri 6 Sep 2019 : added a file name as argument to bablsolve.
+
+Thu 5 Sep 2019 : added verbose level to bablsolve.
+
+Fri 30 Mar 2018 : equation_by_equation_solvers.adb changed because of
+  improved interface in standard_solution_filters.
+
+Mon 31 Jul 2017 : added the type conversions to the Silent_Root_Finder
+  procedures in the *hypersurface_witdrivers.adb packages.
+  Bug fix in *hypersurface_witdrivers.adb, swapped cases in conversions.
+
+Sun 30 Jul 2017 : added calls to convertor functions in mainhyp.adb,
+  mainhyp2.adb, and mainhyp4.adb so basic versions of phc -l, phc -l2,
+  and phc -l4 work.  Adjusted declarations in *hypersurface_witdrivers*
+  to make room for Laurent polynomials.  Added stub procedures to
+  *hypersurface_witdrivers* to compute witness sets for Laurent polynomials.
+
+Thu 27 Jul 2017 : made similar changes to mainhyp2.adb as done to mainhyp.adb;
+  and did the similar changes also to mainhyp4.adb, to prepare to compute
+  witness sets for hypersurfaces defined by Laurent polynomials, in double
+  double and quad double precision.
+
+Wed 26 Jul 2017 : started making of the witness set procedure in mainhyp.adb,
+  for Laurent polynomials.
+
+Tue 25 Jul 2017 : extended mainhyp, mainhyp2, mainhyp4, so phc -l, phc -l2,
+  and phc -l4 accept Laurent polynomials on input.
+
+Sat 22 Jul 2017 : updated equation_by_equation_solvers.adb for the splitting
+  of the code in the package diagonal_homotopy_continuation.
+
+Sun 15 Nov 2015 : updates in hypersurfaces_and_filters for double double and
+  quad double arithmetic, new mainhyp2 and mainhyp4 for phc -l2 and -l4.
+
+Wed 11 Nov 2015 : refactored code from standard_hypersurface_witsets_io into
+  the new package standard_hypersurface_witdrivers, tested by ts_hypwit.
+  This changed hypersurfaces_and_filters.adb.  Made dobldobl and quaddobl
+  versions of the *hypersurface_witsets*, io and drivers, and extended
+  the tests in ts_hypwit.adb.
+
+Tue 10 Nov 2015 : renamed hypersurface_witness_sets and its _io into
+  standard_hypersurface_witsets and its _io.
+
+Thu 27 Jun 2013 : worked on the rest of the directory so all ts_ programs
+  compile with the new 32-bit data types.
+
+Wed 26 Jun 2013 : updated mainwit.adb for natural32.
+
+Wed 20 Feb 2013 : added silent root finder to hypersurface_witness_sets_io
+  tested by ts_hypwit.adb.
+
+Thu 3 Aug 2011 : from equation_by_equation_solver.adb and
+  hypersurfaces_and_filters.adb removed messages.
+
+Wed 22 Jun 2001 : changed flow_tables.adb for a warning, updated
+  hypersurfaces_and_filters.adb, equation_by_equation_solvers.adb, and
+  drivers_to_eqn_by_eqn_solvers.adb.
+
+Sun 12 Jun 2011 : added put_lines in equation_by_equation_solvers.adb to
+  trace a bug.  Modified mainsolve.adb for the banner.
+
+Thu 2 Jun 2011 : ts_solver.adb and ts_rdisol.adb needed string_splitters.
+  Modified hypersurface_witness_sets_io.adb for warnings.
+
+Sun 29 May 2011 : changed hypersurfaces_and_filters.adb and
+  drivers_to_eqn_by_eqn_solvers.adb for warnings.
+
+Fri 24 Sep 2010 : updated mainhyp.adb, mainwit.adb, bablsolve.adb, and
+  mainsolve.adb because of the new string_splitters.
+
+Thu 11 Oct 2007 : adjusted driver in hypersurface_witness_sets_io.adb
+  and tester ts_hypwit.adb.
+
+Wed 10 Oct 2007 : used code from ts_hypwit.adb to create the driver
+  package hypersurface_witness_sets_io.
+
+Wed 3 Oct 2007 : extended ts_hypwit.adb with output.
+
+Wed 26 Sep 2007 : new ts_rdisol.adb to test new recursive solver.
+
+Thu 14 Dec 2006 : because witness_points* became *sets*, mainwit.adb changed.
+  Also drivers_to_eqn_by_eqn_solvers.adb changed.
+
+Thu 24 Mar 2005 : fixed handling of output file in mainsolve, bug in 
+  equation_by_equation_solver: after new random (b,v), update line!
+
+Mon 21 Mar 2005 : the new standard_solution_splitters caused a change in
+  the equation_by_equation_solvers.adb.
+
+Sat 19 Mar 2005 : changing intrinsic_diagonal_homotopies into
+  diagonal_homotopy_continuation changed equation_by_equation_solvers.adb.
+
+Tue 8 Feb 2005 : new random b and v in equation_by_equation_solvers.adb.
+
+Sun 16 Jan 2005 : changed drivers_to_eqn_by_eqn_solvers and
+  equation_by_equation_solvers to allow for tuning and output options;
+  also changed mainwit.adb to remain silent during tracking.
+
+Mon 20 Dec 2004 : added mainhyp as driver to create a witness set for
+  a hypersurface, given as argument to phc -l.
+
+Sun 19 Dec 2004 : moved intrinsic_witness_sets_io to Samplers
+
+Sat 18 Dec 2004 : added mainwit as driver to intersect witness sets.
+
+Sun 21 Nov 2004 : made output of flow tables cleaner.
+
+Thu 14 Oct 2004 : completed witness stones, also for G_solvers,
+  after changing intrinsic_witness_sets_io, equation_by_equation_solvers,
+  drivers_to_eqn_by_eqn_solvers.adb, and testnine.adb.
+
+Wed 13 Oct 2004 : changed equation_by_equation_solvers.adb and
+  drivers_to_eqn_by_eqn_solvers.adb for witness stones in G_solvers.
+
+Tue 12 Oct 2004 : able to restart with witness stones in P_solvers,
+  modified, intrinsic_witness_sets_io, equation_by_equations_solvers,
+  drivers_to_eqn_by_eqn_solvers.adb, and testnine.adb.
+
+Sun 10 Oct 2004 : invented "witness stone", new intrinsic_witness_sets_io
+  and equation_by_equation_solvers, also drivers_to_eqn_by_eqn_solvers.
+
+Thu 7 Oct 2004 : changed equation_by_equation_solvers, ts_solver,
+  and intrinsic_witness_sets_io.adb to prepare for stepping stones.
+
+Thu 22 Jul 2004 : created drivers_to_eqn_by_eqn_solvers for mainsolve
+  and bablphc to be called by dispatch and mainphc respectively.
+
+Tue 20 Jul 2004 : created intrinsic_witness_sets_io to write output of
+  the solver to separate files.
+
+Sat 17 Jul 2004 : added generic version to equation_by_equation_solvers,
+  tested with ts_solver.adb and instantiated in testnine.adb,
+  ready to move over to the public distribution PHCv2_3p.

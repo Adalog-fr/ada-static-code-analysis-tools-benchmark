@@ -1,0 +1,35 @@
+Sat 6 May 2023 : new cmplx_path_tracker, updated test_dbl_track.cpp
+  and makefile_unix.  Updated makefile_windows, to cmplx_path_tracker.cpp
+  added return 0; statements to the functions.  New cmplx2_path_tracker,
+  updated test_dbl2_track.cpp, makefile_unix, and makefile_windows.
+  New cmplx4_path_tracker, small fix in cmplx2_path_tracker.cpp,
+  updated test_dbl4_track.cpp, makefile_unix, and makefile_windows.
+  New cmplx8_path_tracker, updated test_dbl8_track.cpp, makefile_unix,
+  and makefile_windows.
+
+Fri 5 May 2023 : extended dbl_fabry_host with a predictor,
+  updated dbl_path_tracker.cpp.
+
+Fri 28 Apr 2023 : new dbl_fabry_host to determine the step size based on
+  the Fabry ratios of the series.  Updated dbl_path_tracker.cpp,
+  and makefile_unix.  Updated makefile_windows and dbl_fabry_host.cpp
+  for compilation error on Windows.  Also called the Fabry step size in
+  {dbl2, dbl4, dbl8}_path_tracker.cpp, updated dbl_path_tracker.cpp
+  and the makefiles.
+
+Tue 25 Apr 2023 : updated dbl_path_tracker.cpp for the zeroQ flag.
+  Also updated {dbl2, dbl4, dbl8}_path_tracker.cpp.
+
+Mon 24 Apr 2023 : updated {dbl, dbl2, dbl4, dbl8}_path_tracker.cpp for
+  a start solution and a right hand side for a Newton homotopy.
+  Adjusted the makefile_windows to clean everything.
+
+Sun 23 Apr 2023 : added {dbl4, dbl8}_path_tracker, test_{dbl4, dbl8}_track,
+  and updated the makefile and makefile_unix.  Updated makefile_windows.
+
+Sat 22 Apr 2023 : test_dbl_track calls the new dbl_path_tracker,
+  wrapping the running of Newton's method, with
+  double double versions in test_dbl2_track and dbl2_path_tracker.
+  Updated makefile and makefile_unix.  Added makefile_windows.
+
+Mon 17 Apr 2023 : first test_dbl_track.cpp and makefile, makefile_unix.

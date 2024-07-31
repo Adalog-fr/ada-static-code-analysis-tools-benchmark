@@ -1,0 +1,23 @@
+Mon 17 Apr 2023 : new folder Track.
+
+Mon 16 May 2022 : new folder Newton.
+
+Fri 5 Feb 2021 : new folder Matrices.
+
+Wed 16 Dec 2020 : new folder Polynomials, edited READ_ME file.
+
+Mon 26 Oct 2020 : new folder Convolutions.
+
+Tue 1 Sep 2020 : new folder Norms to experiment with vector norms.
+
+Fri 26 Jun 2015 : cleaning up and new directory Path.
+
+Thu 26 Dec 2013 : new directory MGS2 to upgrade MGS for larger dimensions.
+
+Tue 19 Feb 2013 : New directory PED with restructured code
+  for the polynomial evaluation and differentiation.
+
+Mon 7 Jan 2013 : new directory MGS, with code copied from the directory
+  GPU-CPU-LinSolver-better-documented.
+
+Thu 3 Jan 2013 : structured the directory, see the READ_ME file.

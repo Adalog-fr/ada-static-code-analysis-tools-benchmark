@@ -1,0 +1,59 @@
+Sat 9 Dec 2023 : added package hexadobl_parameter_systems.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to sweep.gpr.
+
+Wed 9 Jun 2021 : defined sweep.gpr to build the test procedures.
+
+Sun 8 Nov 2020 : updated parameter_homotopy_continuation.adb for the renaming
+  of drivers_for_poly_continuation into main_poly_continuation.
+
+Fri 25 Sep 2020 : defined {pent,octo,deca}dobl_parameter_systems.
+
+Wed 23 Sep 2020 : defined tripdobl_parameter_systems.
+
+Mon 22 Oct 2018 : added new procedures to *parameter_systems.a* to read
+  solutions and parameter homotopies without writing to an output file.
+
+Sat 27 Feb 2016 : changes in complex_convex_continuation.adb for changes in
+  the increment-and-fix continuation in standard double precision.
+
+Thu 5 Nov 2015 : added silent version needed for the real sweep in
+  standard_quad_turn_points and standard_quad_sweepers.
+  Added also silent versions in {dobldobl,quaddobl}_quad_turn_points
+  and {dobldobl,quaddobl}_quad_sweepers.
+
+Fri 30 Oct 2015 : factored out code of parameter_homotopy_continuation into
+  the new package complex_convex_continuation.  Added silent versions to
+  the procedures in complex_convex_continuation.
+
+Tue 27 Oct 2015 : completed ts_parcon and ts_realcont with the proper calls to 
+  the double double and quad ouble versions of the test procedures.
+  Removed a redundant message from parameter_homotopy_continuation.adb.
+
+Mon 26 Oct 2015 : new packages dobldobl_quad_{parameters, turn_points}_{io}
+  to sweep a real curve in double double precision for singularities.
+  Extended computation of quadratic turning points and the sweeping for
+  singular points to quad double precision, with new packages
+  quaddobl_quad_{parameters, turn_points, turn_points_io},
+  and {dobldobl, quaddobl}_quad_sweepers, called in the procedures of
+  the package parameter_homotopy_continuation.
+
+Sun 25 Oct 2015 : new packages {dobldobl,quaddobl}_parameter_solutions,
+  for use in parameter_homotopy_continuation, updated with wrappers for a
+  convex-parameter homotopy continuation in double double or quad double
+  precision.  Updated parameter_homotopy_continuation for dd & qd.
+
+Sat 24 Oct 2015 : updated parameter_homotopy_continuation to make room for
+  double double and quad double versions.  Renaming of system_with_parameters
+  into standard_parameter_systems changed parameter_homotopy_continuation.adb
+  and ts_parcon.  Renamed solutions_with_parameters into standard_parameter_
+  solutions, which caused parameter_homotopy_continuation.adb to change.
+  New packages {dobldobl,quaddobl}_parameter_systems, tested by ts_parcon.
+
+Wed 26 Jun 2013 : updated parameter_homotopy_continuation.adb for
+  Increment_and_Fix_Continuation name change.  Also updated
+  systems_with_parameters, solutions_with_parameters,
+  parameter_homotopy_continuation and ts_parcon.adb.
+
+Mon 21 Jan 2013 : creation of this directory, moving code involving sweep
+  and parameter continuation from Continuation to this new directory Sweep.

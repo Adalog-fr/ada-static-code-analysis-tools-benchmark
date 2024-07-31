@@ -194,3 +194,4 @@ tmp
 #*benchmark.output
 #*benchmark.output.bak*
 githubAnalysis/repos
+scc_metrics.json

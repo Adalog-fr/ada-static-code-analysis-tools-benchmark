@@ -1,0 +1,109 @@
+Accelerated Convolutions for Power Series Multiplication in PHCv2.4.87.
+
+The code in this folder concerns the product of two power series,
+truncated to the same degree.
+
+Input: d, degree of the series;
+       x, array of range 0..d with coefficients of the first series;
+       y, array of range 0..d with coefficients of the second series.
+
+Output: z = x*y, array of range 0..d with coefficients of the product
+        of x with y.
+      
+Algorithm: 1.  z(0) := x(0)*y(0)
+           2.  for k in 1..d do
+           2.1     z(k) := x(0)*y(k)
+           2.2     for i in 1..k do
+           2.2.1       z(k) := z(k) + x(i)*y(k-i)
+
+The above algorithm is implemented for several multiple double precisions.
+
+The data parallel version of the algorithm, with d+1 threads in a block,
+reduces to two statements:
+
+   1.   z(k) := x(0)*y(k)
+   2.   for i in 1..k do
+   2.1      z(k) := z(k) + x(i)*y(k-i)
+
+where thread k computes z(k).
+
+-----------------------------------------------------------------------------
+file name                  : short description
+-----------------------------------------------------------------------------
+random_series              : generates series in double precision
+random2_series             : generates series in double double precision
+random3_series             : generates series in triple double precision
+random4_series             : generates series in quad double precision
+random5_series             : generates series in penta double precision
+random8_series             : generates series in octo double precision
+random10_series            : generates series in deca double precision
+-----------------------------------------------------------------------------
+dbl_convolutions_host      : convolutions of double vectors on host
+dbl_convolutions_kernels   : convolutions of double vectors on device
+dbl_convolutions_testers   : test convolutions in double precision
+test_dbl_convolutions      : main test on double convolutions 
+dbl2_convolutions_host     : convolutions of double double vectors on host
+dbl2_convolutions_kernels  : convolutions of double double vectors on device
+dbl2_convolutions_testers  : test convolutions in double double precision
+test_dbl2_convolutions     : main test on double double convolutions
+dbl3_convolutions_host     : convolutions of triple double vectors on host
+dbl3_convolutions_kernels  : convolutions of triple double vectors on device
+dbl3_convolutions_testers  : test convolutions in triple double precision
+test_dbl3_convolutions     : main test on triple double convolutions
+dbl4_convolutions_host     : convolutions of quad double vectors on host
+dbl4_convolutions_kernels  : convolutions of quad double vectors on device
+dbl4_convolutions_testers  : test convolutions in quad precision
+test_dbl4_convolutions     : main test on quad double convolutions
+dbl5_convolutions_host     : convolutions of penta double vectors on host
+dbl5_convolutions_kernels  : convolutions of penta double vectors on device
+dbl5_convolutions_testers  : test convolutions in penta double precision
+test_dbl5_convolutions     : main test on penta double convolutions
+dbl8_convolutions_host     : convolutions of octo double vectors on host
+dbl8_convolutions_kernels  : convolutions of octo double vectors on device
+dbl8_convolutions_testers  : test convolutions in octo double precision
+test_dbl8_convolutions     : main test on octo double convolutions
+dbl10_convolutions_host    : convolutions of deca double vectors on host
+dbl10_convolutions_kernels : convolutions of deca double vectors on device
+dbl10_convolutions_testers : test convolutions in deca double precision
+test_dbl10_convolutions    : main test on deca double convolutions
+convolutions_kernels       : includes all cuda convolutions code
+test_convolutions          : tests convolutions in all precisions
+-----------------------------------------------------------------------------
+random_monomials           : setup test data in double precision
+random2_monomials          : setup test data in double double precision
+random3_monomials          : setup test data in triple double precision
+random4_monomials          : setup test data in quad double precision
+random5_monomials          : setup test data in penta double precision
+random8_monomials          : setup test data in octo double precision
+random10_monomials         : setup test data in deca double precision
+-----------------------------------------------------------------------------
+dbl_monomials_host         : evaldiff of double monomials on host
+dbl_monomials_kernels      : evaldiff of double monomials on device
+dbl_monomials_testers      : test monomial eval/diff with doubles
+test_dbl_monomials         : main test on eval/diff in double precision
+dbl2_monomials_host        : evaldiff of double double monomials on host
+dbl2_monomials_kernels     : evaldiff of double double monomials on device
+dbl2_monomials_testers     : test monomial eval/diff with double doubles
+test_dbl2_monomials        : main test on eval/diff in double double precision
+dbl3_monomials_host        : evaldiff of triple double monomials on host
+dbl3_monomials_kernels     : evaldiff of triple double monomials on device
+dbl3_monomials_testers     : test monomial eval/diff with triple doubles
+test_dbl3_monomials        : main test on eval/diff in triple double precision
+dbl4_monomials_host        : evaldiff of quad double monomials on host
+dbl4_monomials_kernels     : evaldiff of quad double monomials on device
+dbl4_monomials_testers     : test monomial eval/diff with quad doubles
+test_dbl4_monomials        : main test on eval/diff in quad double precision
+dbl5_monomials_host        : evaldiff of penta double monomials on host
+dbl5_monomials_kernels     : evaldiff of penta double monomials on device
+dbl5_monomials_testers     : test monomial eval/diff with penta doubles
+test_dbl5_monomials        : main test on eval/diff in penta double precision
+dbl8_monomials_host        : evaldiff of octo double monomials on host
+dbl8_monomials_kernels     : evaldiff of octo double monomials on device
+dbl8_monomials_testers     : test monomial eval/diff with octo doubles
+test_dbl8_monomials        : main test on eval/diff in octo double precision
+dbl10_monomials_host       : evaldiff of deca double monomials on host
+dbl10_monomials_kernels    : evaldiff of deca double monomials on device
+dbl10_monomials_testers    : test monomial eval/diff with deca doubles
+test_dbl10_monomials       : main test on eval/diff in deca double precision
+test_monomials             : tests eval/diff in all precisions
+-----------------------------------------------------------------------------

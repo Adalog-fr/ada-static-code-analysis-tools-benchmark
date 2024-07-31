@@ -1,0 +1,20 @@
+Mon 28 Aug 2017 : bug fixes in complexD.h, complexD.cu, needed for the entire
+  compilation of gqd2qd_convertors.cpp.  The program test_complexdsqrt.cu
+  works for three different levels of precision, updated makefile.
+
+Sun 27 Aug 2017 : defined templated class in complexD.h with definitions
+  in complexD.cu for complex arithmetic on the device, tested by a run
+  of Newton's method in test_complexdsqrt.cu.  Included the gqd_type.h
+  in complexD.h, extended test_complexdsqrt.cu for dd/qd precision.
+  Started writing gqd2qd_convertors.h and gqd2qd_convertors.cpp to
+  convert between types on device and the host.
+
+Sat 26 Aug 2017 : reformatted complex_gd.h, complex_gdd.h, complex_gqd.h,
+  removed superfluous complexH.hpp.  Reformatted complex.h, complex.cu,
+  complex_gd.cu, complex_gdd.cu, and complex_gqd.cu.
+  Add test program test_complexsqrt_d.cu, to test complex_gd.cu,
+  also updated the makefile.
+
+Sat 21 Jan 2017 : reformatted code in complexH.h.
+  Adjusted the use_complex.cpp from PED to the test_complexH.cpp,
+  with an added makefile, type 'make test_complexH' for the executable.

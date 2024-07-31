@@ -1,0 +1,165 @@
+Fri 31 Dec 2021 : because of std::data, replace all "data" by "theData"
+  in fTest.h, fTest.cpp, smplex.h, simplex.cpp, mvc.h, mvc.cpp.
+  Update demics.gpr for the removal of weighted_projective_transfos.
+
+Sun 27 Jun 2021 : updated demics.gpr to no longer exclude the C MixedVol.
+  Updated demics.gpr for the removal of the obsolete face_structures.
+  Updated demics.gpr for the removal of evaluate_schubert_conditions.
+  Updated demics.gpr for the removal of multprec_lattice_facets and its io.
+  Updated demics.gpr for the removal of pieri_count.
+
+Sat 26 Jun 2021 : updated demics.gpr to no longer exclude double_double.c.
+
+Thu 17 Jun 2021 : added "with use_c2phc;" to ts_demicsrun.adb, to force the
+  compilation in a standalone build.  First version of demics.gpr to define
+  the instructions for ts_demicsrun and some other test procedures ...
+
+Thu 10 Jun 2021 : commented out the timer in main.cpp because 
+  compiler errors prevented the compilation of demics.
+
+Thu 20 Jun 2019 : added return in simplex.cpp for compiler warning.
+
+Fri 29 Mar 2019 : commented out the #include <sys/times.h> in global.h
+  as this was a problem for the mingw compiler.
+
+Fri 22 Mar 2019 : replaced srandom() by srand() and random() by rand() in
+  reltab.cpp, simplex.cpp, and mvc.cpp.  Fixed bug in demics_algorithm.adb.
+
+Thu 27 Sep 2018 : used the function lrint() in simplex.cpp to round to
+  the nearest integer before converting to a long int.
+
+Wed 26 Sep 2018 : in simplex.cpp, added the volume and accumulated volume
+  to the string strcell, which provides better info for progress monitoring.
+  Did an explicit type cast to int of the volumes to avoid default format.
+
+Fri 1 Jun 2018 : mixed volume functions in use_outdata.adb must clear the
+  contents of DEMiCs_Output_Data at entry.
+
+Thu 31 May 2018 : added a stub job to outdata to make room for a procedure to
+  compute stable mixed volumes by demics.  In use_outdata.adb, added the call
+  to the blackbox procedure to compute the stable mixed volume by demics.
+
+Tue 29 May 2018 : extended demics_algorithm with procedures which also return
+  the permutation when the supports are extracted from the system.
+
+Mon 28 May 2018 : to demics_algorithm, added procedures to add an artificial
+  origin and to add the stable lifting bound to compute mixed volumes.
+  Changed ts_calldemics.adb, assuming demics is in the execution path.
+  Extra flag 'stable' in demics_output_data.ads.  For stable mixed volumes,
+  updates in demics_algorithm, tested by ts_demicsrun.adb.
+  Added output to ts_demicsrun.adb so stable mixed volume is shown.
+
+Sat 26 May 2018 : fixed bug in demics_command_line.adb, adjusting the
+  position in the string to skip the ':' after the cell number in the
+  output line of DEMiCs.
+
+Thu 24 May 2018 : in demics_output_data.adb, documented the getting of the
+  next cell indices and fixed the getting of the next allocated mixed cell.
+  To demics_output_convertors, added a procedure to make a mixed cell
+  without memory allocation for multitasking.
+  In demics_output_data.adb, flipped the allocation with the adding of
+  the cell indices to ensure the allocation is done when a consumer task
+  gets the next cell indices.
+
+Wed 23 May 2018 : extended demics_output_data with memory allocation for
+  the new mixed cells, allocated each time new cell indices are added.
+  Fixed get of next cell indices in demics_output_data.adb.
+
+Tue 22 May 2018 : added a new procedure to demics_command_line to compute
+  the indices for each cell in a multitasked procedure.
+  Added a "done" boolean variable to demics_output_data.ads.
+  Extended demics_algorithm with a Call_DEMiCs which allows the user to
+  provide the random lifting values.
+
+Sun 20 May 2018 : added storing of lifting values in demics_algorithm.adb
+  directly after generating the lifting values; in demics_output_data.adb,
+  added a clear at the start of initialize_lifting procedure.
+  Fixed bug in demicsrun.cpp with the printing of the lifting values,
+  fixed bug in computing the total number of points for semi-mixed inputs,
+  updating demics_algorithm.
+
+Sat 19 May 2018 : updated use_outdata.adb for unused variables.
+  Extended demics_output_data with operations to retrieve the next cell
+  and the number of cell indices stored.  Added monitor option to
+  demics_output_data to see the cell indices as they are added, 
+  turned on in ts_demicsrun.adb.
+
+Fri 18 May 2018 : to demicsrun, added a function demicsfly and to
+  demics_algorithm, added fly_demics, to pass the lifting values to DEMiCs.
+  Added "initialize_with_lifting" methods to mvc.h, mvc.cpp, simplex.h,
+  and simplex.cpp with modifications to demicsrun.cpp and demics_algorithm.
+
+Thu 17 May 2018 : extended demics_algorithm with a function to generate
+  random lifting values.
+
+Tue 15 May 2018 : added job to use_outdata to compute mixed volume by DEMiCs.
+
+Mon 14 May 2018 : updated ts_demicsrun to prepare for driver package.
+  New package DEMiCs_Algorithm with code taken from ts_demicsrun.adb.
+  To demics_algorithm, added extract of supports for Laurent systems.
+
+Sun 13 May 2018 : added mixed_volume variable to demics_output_data.ads,
+  added functions to use_outdata, outputData, tested by ts_outputData.cpp,
+  updated demicsrun.h and demicsrun.cpp, tested by ts_demicsrun.adb.
+  Fixed a bug and upgraded simplex.cpp.  To ts_demicsrun.adb, added the
+  application of the lifting and the making of the mixed-cell configuration.
+
+Sat 12 May 2018 : in simplex.cpp, commented out the call to the append
+  of the cell indices, which caused a crash.  Revised ts_outdata.adb
+  and added a test on storing strings in DEMiCs_Output_Data.
+  Extended demics_output_data, tested by ts_outdata, and with C++ interface
+  (via use_outdata) in outputData.* tested by ts_outputData.cpp.
+  The simplex.cpp appends the cell indices to DEMiCs_Output_Data,
+  which are then retrieved by ts_demicsrun.adb.
+
+Fri 11 May 2018 : to simplex.cpp added writing of the cell indices to a
+  string.  Added operations to DEMiCs_Output_Data to store the cell indices,
+  after defining lists_of_strings.  Updated simplex.cpp with the storing
+  of the strings representing the cell indices, added jobs to use_outdata,
+  and added also the interface operations to outputData.
+
+Thu 10 May 2018 : new outputData.h and outputData.cpp,
+  tested by ts_outputData.cpp to store lifting values.
+  Updated use_outdata.adb.  Added conditional compilation statements
+  to simplex.cpp, with updates in ts_demicsrun.adb to retrieve the
+  lifting from the computed output of DEMiCs.
+
+Wed 9 May 2018 : new use_outdata.ads and use_outdata.adb to export the
+  operations of demics_output_data to C and C++.
+
+Tue 8 May 2018 : new demicsrun.h, demicsrun.cpp, tested by ts_demicsrun.adb,
+  to call demics directly from an Ada procedure.
+  Removed superfluous semi-colons of the documentation of main.cpp.
+  Added to the documentation of inputData.h and updated demicsrun.h
+  and demicsrun.cpp so the mixed volume is computed.
+  New packages demics_output_data to store the results of DEMiCs,
+  tested by ts_outdata.adb.
+
+Mon 7 May 2018 : documented the parameters of a function in main.cpp.
+  Did some reformatting in inputData.h and removed extraneous parentheses
+  in equality comparison on line 98 in inputData.cpp.
+  Added program ts_inputData.cpp to test inputData, with added documentation
+  in inputData.h and some modifications in inputData.cpp.
+
+Sun 6 May 2018 : added the reformatted source code of DEMiCs.
+
+Thu 3 May 2018 : fixed making of mixed cells in demics_output_convertors
+  for semi- and un-mixed inputs.  Fixed testing of inner normal in
+  demics_output_convertors for semi- and un-mixed inputs.
+  Fixed bug in parsing of labels computed by demics for semi-mixed inputs,
+  updated demics_command_line.adb.
+
+Wed 2 May 2018 : updated demics_command_line and ts_calldemics.adb
+  to deal with semi-mixed and unmixed inputs.  Updated ts_calldemics.adb
+  and demics_output_convertors for semi- and un-mixed inputs.
+
+Tue 24 Apr 2018 : new package demics_output_convertors with code factored
+  out of ts_calldemics.  Added computation of the normal to each cell in
+  demics_output_convertors.adb.  To demics_output_convertors,
+  added a check on the computed labels, computed via the inner normal.
+
+Mon 23 Apr 2018 : improved ts_calldemics, adding absolute path name as
+  default argument to the caller procedure, started parsing lifting values.
+  Fixed parsing of lifting.  New package demics_command_line, 
+  with code taken out and tested by ts_calldemics.
+  To ts_calldemics, added function to make the mixed cell configuration.

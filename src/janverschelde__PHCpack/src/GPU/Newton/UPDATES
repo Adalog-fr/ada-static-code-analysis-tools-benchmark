@@ -1,0 +1,515 @@
+Sat 17 Jun 2023 : extended dbl_systems_kernels with vectorized versions to
+  evaluate and differentiate monomials on complex data, called in
+  cmplx_newton_method.cpp on one column systems of monomials.
+  Extended dbl2_systems_kernels and cmplx2_newton_method.cpp to apply
+  complex vectorized arithmetic on monomial systems.
+  Extended dbl4_systems_kernels and cmplx4_newton_method.cpp to apply
+  complex vectorized arithmetic on monomial systems.
+  Extended dbl8_systems_kernels and cmplx8_newton_method.cpp to apply
+  complex vectorized arithmetic on monomial systems.
+
+Tue 6 Jun 2023 : refactored cmplx8_newton_method.
+  Added the functional octo double Newton to cmplx8_newton_method.
+  Updated {dbl, dbl2, dbl4, dbl8, cmplx, cmplx2, cmplx4, cmplx8}_newton_
+  method.cpp to report the evaluating and differentiation times.
+
+Mon 5 Jun 2023 : refactored and extended dbl4_newton_method,
+  extended dbl4_systems_host, updated makefile_unix and makefile_windows.
+  Refactored and extended cmplx4_newton_method.
+  Refactored and extended dbl8_newton_method, extended dbl8_systems_host,
+  updated makefile_unix and makefile_windows.
+
+Sun 4 Jun 2023 : refactored and added to cmplx_newton_method.
+  New write_newton_times with code from dbl_newton_method.
+  Updated makefile_unix and makefile_windows.
+  Extended dbl2_systems_host with functions to map output.
+  Refactored and added to dbl2_newton_method code for indexed systems.
+  Updated makefile_unix and makefile_windows.
+  Refactored and added to cmplx2_newton_method code for indexed systems.
+
+Sat 3 Jun 2023 : refactored and added to dbl_newton_method,
+  updated makefile_unix and makefile_windows.
+  Extended dbl_systems_host with functions to map the output of the
+  evaluation and differentiation to functions values and matrix series,
+  extended dbl_newton_method to a functional Newton method.
+
+Fri 2 Jun 2023 : put allocations in dbl_newton_method in functions.
+
+Thu 1 Jun 2023 : updated makefile_unix and makefile_windows to compile
+  test_*_newton.cpp for the jobs of the complex vectorized arithmetic.
+  Extended unimodular_matrices.cpp with an extra test option.
+  Renamings of functions in all *newton_method and test_*newton files
+  to label the column versions of the systems appropriately.
+  To test*newton and *newton_method* added tester stub functions,
+  updated makefile_unix and makefile_windows.
+
+Fri 19 May 2023 : extended dbl4_systems_kernels to use the vectorized
+  versions in the column evaluations, updated test_dbl4_cyclic.cpp,
+  makefile_unix and makefile_windows.
+
+Tue 9 May 2023 : in dbl4_systems_kernels.cu, improved formatting of the
+  output series at verbose level 2.  Updated test_dbl4_cyclic.cpp with
+  the number of columns variable for more test cases.
+
+Mon 8 May 2023 : bug fix in test_dbl_cyclic.cpp by initializing the
+  coefficients of the input, at all degrees in the series.
+  New test_dbl2_cyclic.cpp, updated makefile and makefile_unix;
+  and makefile_windows.  New test_dbl4_cyclic.cpp, updated makefile
+  and makefile_unix; and makefile_windows.  New test_dbl8_cyclic.cpp,
+  updated makefile, makefile_unix, and makefile_windows.
+  Added test with column evaluations to test_dbl4_cyclic.cpp.
+
+Sun 7 May 2023 : updated test_columns.cpp, adding value for #columns.
+  New test_dbl_cyclic.cpp to test the evaluation and differentiation
+  of the cyclic n-root systems.  Updated the makefiles.
+
+Sat 6 May 2023 : fixed cmplx_newton_method.h for a wrong header of the
+  qrstep function.  In dbl2_bals_host.cpp and dbl2_bals_kernels.cu,
+  commented outthe assignment to prevnorm.  And did the same in
+  dbl4_bals_host.cpp and dbl4_bals_kernels.cu.
+
+Fri 5 May 2023 : in dbl_bals_host.cpp and dbl_bals_kernels.cu, commented
+  out the assignment to prevnorm.
+
+Thu 27 Apr 2023 : in dbl8_bals_host.cpp, commented out the assignment
+  to prevnorm to allow the computation of large coefficients.
+
+Tue 25 Apr 2023 : to avoid skipping the QR in the very first step,
+  adjusted dbl_bals_{host, kernels} and {dbl, cmplx}_newton_method.
+  Updated dbl_bals_kernels.cu, dbl_newton_method.h, and all other
+  dbl?_bals_{host, kernels}, {dbl?, cmplx?}_newton_method files.
+
+Wed 11 Jan 2023 : updated unimodular_matrices.cpp, prompt_newton_setup.cpp,
+  and test_{dbl,dbl2,dbl4,dbl8}_newton.cpp for 2-column lower/upper tests.
+
+Mon 26 Dec 2022 : in prompt_newton_setup.cpp, set nbrcol to 1 by default.
+
+Sun 25 Dec 2022 : in *newton_method.cpp, formatted output of error sum
+  properly and removed printing of rowsum from dbl_monomial_systems.cpp.
+  In dbl*monomial_systems.cpp refined the range for the alpha parameter
+  of the test solutions.  Adjusted cyclic_columns and prompt_newton_setup
+  to allow for a given number of columns.  Updated all test_dbl*_newton.cpp
+  and all *newton_method.cpp files.
+
+Sat 24 Dec 2022 : added output of the right hand side series of the test
+  system in all precisions, in all *newton_method.cpp files.
+  To d*monomial_systems* added functions to evaluate columns with given
+  input coefficients.  Updated *newton_method.cpp files.
+
+Mon 19 Dec 2022 : accumulated all kernel times, updated all *kernels*
+  and *newton_method* files.  In dbl8_bals_kernels.cu, used long long int
+  in the expression to compute the flops for the Q^H*b computation.
+  Did the same in {dbl, dbl2, dbl4}_bals_kernels.cu.
+
+Sun 18 Dec 2022 : added reporting of times and flops in dbl*_bals_kernels,
+  updated *newton_method.cpp.  Added the computation of wall time for all 
+  Newton steps in *newton_method.cpp.  Updated makefile_windows.
+
+Sat 17 Dec 2022 : in dbl*_bals_kernels.cu, *newton_method.cpp, used the
+  proper scientific formatting for residuals and 1-norms.
+
+Fri 16 Dec 2022 : extended {dbl, dbl2, dbl4, dbl8_systems_kernels with
+  functions to write the arithmetic intensity and the flop counts.
+  Updates the makefiles for the compilation of write_job_counts.
+  Modified dbl*_systems_kernels.cu for the long long int in the counts.
+  To dbl*_bals_kernels, added flops computation for Q^T*b kernels.
+
+Thu 15 Dec 2022 : updated dbl_bals_kernels.cu for the computation of the
+  arithmetic intensities of the QR and back substitutions.
+
+Wed 14 Dec 2022 : replaced "bool verbose" by "int vrblvl" in *systems_kernels*
+  function prototypes.  In *{bals, tail}_kernels.* did the same replacements
+  and called the writing of times and flops for the back substitutions.
+  Updates the makefiles.  To *bals_kernels.cu, added the function calls
+  to write times and flops of the Householder QR.  Updated makefiles.
+
+Sat 10 Dec 2022 : added accelerated column evaluation and differentiation
+  to dbl_systems_kernels, updated {dbl, cmplx}_newton_method.cpp
+  To dbl_systems_kernels.cu, added if test for empty monomial.
+  Extended dbl2_system_kernels, updated {dbl2, cmplx2}_newton_method.cpp.
+  Extended dbl4_system_kernels, updated {dbl4, cmplx4}_newton_method.cpp.
+  Extended dbl8_system_kernels, updated {dbl8, cmplx8}_newton_method.cpp.
+
+Tue 6 Dec 2022 : fixed bugs in dbl_{monomial_systems, systems_host}.cpp
+  and set the leading coefficients of the solution to random doubles in
+  {dbl, cmplx}_newton_method.cpp.  Extended dbl?_monomial_systems and
+  test?_monomial_systems.cpp with the setup for cyclic n-roots,
+  updated makefiles.  Edited dbl_systems.h, dbl_newton_method.h.
+  Extended dbl?_systems_host.*, dbl?_newton_testers.*,
+  dbl?_newton_method.*, cmplx?_newton_method.*, test_dbl?_newton.cpp,
+  updated makefiles.
+
+Mon 5 Dec 2022 : added functions to dbl_monomial_systems to evaluate the
+  column representation of cyclic n-roots, tested by test_monomial_systems.
+  Added the '-3' options when prompting dimensions in unimodular_matrices,
+  updated test_dbl_newton.cpp, {dbl, cmplx}_newton_method (.h and .cpp).
+  Added the definition of the right hand side to dbl_systems_host,
+  added functions to dbl_newton_testers.  Updated makefiles.
+  Fixed bug in test_dbl_newton.cpp.  In {dbl, cmplx}_newton_method.cpp,
+  randomized the leading coefficients of the solution series to avoid
+  a singular Jacobian matrix on cyclic n-roots
+
+Sun 4 Dec 2022 : extended dbl_systems_host.h and dbl_systems_host.cpp to
+  evaluate and differentiate systems defined by the column representation.
+  To {dbl, cmplx}_newt_method, added the number of columns, and updated
+  test_dbl_newton.cpp.
+
+Sat 3 Dec 2022 : added test_columns.cpp to define the column representation
+  of the monomials in the cyclic n-roots system.  Updated makefiles.
+  New cyclic_columns.h and cyclic_columns.cpp out of test_columns.cpp,
+  for use in test_monomial_systems.cpp.  Updated makefiles.
+
+Thu 1 Dec 2022 : determined the tail index on the host, for all precisions,
+  modifying all *bals_host* and *newton_method* files.  Computed the tail
+  index in kernels, updating *bals_kernels* and *newton_method* files.
+  Used tail index in residue computations, updating *newton_method.cpp files,
+  and all *bals_host* and *tail_kernels* files and also applied the tail
+  index in the stop criterion for Newton's method in all precisions.
+
+Wed 30 Nov 2022 : in dbl*_bals_{host.cpp, kernels.cu} reset the prevnorm
+  to the fixed constant 1.0e+8 instead of multiplying with the norm of b.
+  Updated *newton_testers* for the update of the series to have a start index
+  and updated *newton_method.cpp.
+
+Tue 29 Nov 2022 : in {dbl,dbl2,dbl4,dbl8}_tail_kernels.cu, limited the
+  output at level 1 in the residue cmoputation.
+  Added tailidx to all *_newton_method, *_bals_{host, kernels} files.
+
+Fri 28 Oct 2022 : removed the superfluous work matrices needed for the 
+  deprecated LU in {dbl, cmplx}_newton_method and dbl_bals_host.
+  Did the same in the corresponding files for the other precisions.
+
+Thu 27 Oct 2022 : updated {dbl, dbl2, dbl4, dbl8}_newton_testers.cpp
+  to start at staggered precision.  Introduced working degree of precision
+  in {dbl*, cmplx*}_newton_method.cpp.
+
+Wed 26 Oct 2022 : Separated allocations in cmplx8_newton_method.cpp,
+  for data on host and device, also in {dbl2, cmplx2}_newton_method.cpp
+  and in {dbl4, cmplx4}_newton_method.cpp.
+
+Tue 25 Oct 2022 : in {dbl, cmplx}_newton_method.cpp separated the allocations
+  of memory on host and on device to save space on larger problems.
+  Separated allocations in dbl8_newton_method.cpp.
+
+Mon 24 Oct 2022 : to {dbl, dbl2, dbl4, dbl8}_{bals, systems, tail}_kernels.cu,
+  added cudaFree() statements to free memory on the device.
+
+Sat 22 Oct 2022 : to avoid redundant QR decompositions,
+  updated dbl?_bals_{host, kernels} and {dbl?, cmplx?}_newton_method,
+  for ? equal to 2, 4, 8, for double doubles, quad doubles, and octo doubles.
+  Added flag for no qr, separate on host and on device, modifying all
+  *newton_method*, *bals_host* and *bals_kernels* for all precisions.
+
+Fri 21 Oct 2022 : passed skipped counters from tail methods up to the 
+  Newton method, updating dbl_bals_{host, kernels} 
+  and {dbl, cmplx}_newton_method, to avoid redundant QR decompositions.
+
+Thu 20 Oct 2022 : small edit in dbl2_systems_host.h.  Updated
+  {dbl4, dbl8}_{systems_host, newton_method, newton_testers},
+  and test_{dbl4, dbl8}_newton_method.cpp to test on the exponentials.
+
+Wed 19 Oct 2022 : extended {dbl,test,dbl2,test2}_monomial_systems with
+  definitions of a real monomial system using the exponential expansion.
+  Used the new monomial test systems in {dbl, dbl2}_newton_method,
+  updated {dbl, dbl2}_systems_host, {dbl, dbl2}_newton_testers}, and 
+  test_{dbl, dbl2}_newton.cpp.
+  Extended {dbl4,test4,dbl8,test8}_monomial_systems with definitions
+  of a real monomial system using the exponential expansion.
+
+Tue 18 Oct 2022 : edits in cmplx2_newton_method, dbl2_systems_host.cpp
+  and dbl_systems_host.cpp have improved complex linearizers.
+  Applied prescribed solution tester in {cmplx4, cmplx8}_newton_method,
+  using rhs in linearization in {dbl4, dbl8}_systems_host, updated
+  {dbl4, dbl8}_newton_testers, test_{dbl4, dbl8}_newton.cpp,
+  and the makefile_{unix, windows}.
+
+Mon 17 Oct 2022 : new {dbl4,dbl8}_monomial_systems and corresponding
+  {test4,test8}_monomial_systems, updated makefiles.
+  Made some edits in dbl2_monomial_systems.
+  New {dbl4,cmplx4}_newton_method with code from dbl4_newton_testers,
+  new {dbl4,cmplx8}_newton_method with code from dbl8_newton_testers,
+  updated test_{dbl4,dbl8}_newton.cpp and makefile_{unix, windows}.
+
+Sun 16 Oct 2022 : new dbl2_monomial_systems and test2_monomial_systems,
+  updated makefiles.  Updated the cmplx linearize in dbl2_systems_host.
+  New {dbl2,cmplx2}_newton_method with code from dbl2_newton_testers,
+  updated test_dbl2_newton and the makefiles.
+  Small edit in cmplx_newton_method.h.
+
+Sat 15 Oct 2022 : new dbl_newton_method and cmplx_newton_method with code
+  taken from dbl_newton_testers, updated test_dbl_newton.cpp and makefiles.
+  Fixed return type of row_sums in unimodular_matrices.
+  New dbl_monomial_systems, test_monomial_systems.cpp, updated makefiles.
+  Moved evaluation from test_monomial_systems into dbl_monomial_systems. 
+  Used prescribed solution and the evaluated right hand sides
+  in cmplx_newton_method, updated dbl_newton_testers, test_dbl_newton,
+  and test_dbl_newton.cpp.  Updated makefile_unix and makefile_windows.
+  Small bug fix in dbl_bals_kernels.cu.
+
+Fri 14 Oct 2022 : added row_sums function to unimodular_matrices,
+  updated dbl_newton_testers, dbl_systems_host, and test_dbl_newton.cpp
+  to work with a vector of complex constants in the right hand side.
+
+Wed 12 Oct 2022 : modifications in dbl_systems_host and dbl_newton_testers
+  to work with random complex numbers in the right hand side.
+
+Tue 11 Oct 2022 : returns the exponents of the powers in the solution in
+  the exponent_check of unimodular_matrices, updated test_dbl*_newton.cpp.
+
+Mon 10 Oct 2022 : introduced a damper multiplier coefficient in
+  dbl_systems_host, dbl_newton_testers, prompted for in test_dbl_newton.cpp.
+  Made similar updates to dbl?_systems_host, dbl?_newton_testers,
+  and test_dbl?_newton.cpp, for double, quad, and octo doubles.
+
+Sun 9 Oct 2022 : to dbl*_newton_testers.cpp added the setting of the
+  precision in the last output statements in case vrblvl equals zero.
+  In dbl*_bals_kernels.cu, fixed the too restrictive norm bounds on
+  the back substitutions.
+
+Sat 8 Oct 2022 : moved the exponents_check from test_dbl_newton.cpp
+  into unimodular matrices, updated test_{dbl2,dbl4,dbl8}_newton.cpp.
+  Altered the too restrictive norm bound in dbl*bals_host.cpp.
+
+Fri 7 Oct 2022 : fixed bug in {dbl4,dbl8}_newton_testers.cpp.
+  Checked for zero rhs in dbl*_bals_kernels.cu.
+  Added upper bound on norm check in dbl*_bals_{host.cpp, kernels.cu}.
+
+Thu 6 Oct 2022 : updated dbl*_bals_host.cpp to skip the update of the
+  right hand sides for tiny solution vectors.  Applied the same changes
+  in dbl*_bals_kernels.cu.  In {dbl,dbl2,dbl4,dbl8}_bals_host.cpp,
+  tested norm of right hand sides before the backsubstitutions.
+
+Wed 5 Oct 2022 : new dbl_onenorms_host applied in dbl_bals_host.cpp
+  and dbl_bals_kernels.cu to skip the QR if the rhs is zero.
+  In dbl_newton_testers.cpp reset the complex start series, for convergence.
+  Updates makefile_unix and makefile_windows.
+  Applied similar changes to dbl2_bals_host.cpp, dbl2_bals_kernels.cu,
+  dbl2_newton_testers.cpp, with edits in the corresponding dbl_ versions,
+  and updated makefile_unix and makefile_windows.
+  And did likewise for dbl4, dbl8 on bals_{host.cpp,kernels.cu},
+  updating {dbl4,dbl8}_newton_testers.cpp.   Updated makefiles.
+
+Tue 4 Oct 2022 : new test_{dbl4,dbl8}_flopbals.cpp, updated makefiles,
+  some edits in test_dbl2_flopbals.cpp.  New dbl_bals_flopcounts.h
+  and dbl_bals_flopcounts.cpp, modified {dbl,dbl2}_tail_kernels,
+  {dbl,dbl2}_newton_testers.cpp and test_{dbl,dbl2}_flopbals.cpp.
+  Updated makefiles.  Fixed mistake in dbl2_tail_kernels.cu.
+  Extended dbl4_tail_kernels with timers and flop counts,
+  updated dbl4_newton_testers.cpp, test_dbl4_flopbals.cpp, and makefiles.
+  Extended dbl8_tail_kernels with timers and flop counts,
+  updated dbl8_newton_testers.cpp, test_dbl8_flopbals.cpp, and makefiles.
+
+Mon 3 Oct 2022 : new dbl_tail_kernels, with code from dbl_bals_kernels,
+  for use in test_dbl_flopbals, updated dbl_newton_testers and makefiles.
+  Did the same for dbl2: new dbl2_tail_kernels, from dbl2_bals_kernels,
+  new test_dbl2_flopbals, updated dbl2_newton_testers and makefiles.
+  Separated code from {dbl4,dbl8}_bals_kernels into {dbl4,dbl8}_tail_kernels,
+  updated {dbl4,dbl8}_newton_testers.cpp and makefiles.
+
+Sun 2 Oct 2022 : to dbl_bals_kernels, added residual computation,
+  added accelerated residual computation to dbl_newton_testers.cpp.
+  Bugs fixed in complex residue function in {dbl2,dbl4,dbl8}_bals_host.cpp.
+  Added residual computation to {dbl2,dbl4,dbl8}_bals_kernels
+  and adjusted the {dbl2,dbl4,dbl8}_newton_testers.cpp.
+
+Sat 1 Oct 2022 : in dbl2_newton_testers, factored out the comparisons
+  between host and device computed data, in the error sum computation.
+  Did the same in {dbl4,dbl8}_newton_testers.
+  In all newton_testers, separated unit series from start series.
+
+Fri 30 Sep 2022 : added new functions to dbl_newton_testers, to factor out
+  the comparisons in the computation of the error sums.
+
+Tue 27 Sep 2022 : fixed prototypes in dbl8_bals_host.h and its .cpp file
+  for the wrong order of arrays in the function CPU_cmplx8_qrbs_head.
+  Restored a verbose flag in dbl2_bals_kernels.cu, improved verbose level
+  in test_dbl_newton.cpp, small update in dbl8_newton_testers.cpp.
+
+Mon 26 Sep 2022 : in {dbl4,dbl8}_systems_kernels.cu fixed multiplication 
+  with factor to properly apply multiple double arithmetic.
+
+Sat 24 Sep 2022 : more verbosity in dbl_bals_kernels.cu to chase a bug
+  on complex data.
+
+Fri 23 Sep 2022 : extended unimodular_matrices with the test case of
+  decoupled two variable monomials.
+
+Thu 22 Sep 2022 : added lower_triangular_unit to unimodular_matrices,
+  updated test_dbl*_newton.cpp.  Updates in dbl_systems_kernels.cu,
+  dbl*_newton_testers.cpp for better output messages at verbose level 1.
+
+Wed 21 Sep 2022 : introduced distinction between vrblvl 1 and 2,
+  updated dbl*_{systems,bals}_{host.cpp, kernels.cu}
+  and dbl*_newton_testers.cpp.
+ 
+Tue 20 Sep 2022 : fixed bug in dbl8_newton_testers.cpp and extended the
+  verbosity in {dbl4,dbl8}_{bals,systems}_host.cpp during the debugging.
+
+Mon 19 Sep 2022 : in dbl_bals_kernels.cu added the necessary multiplication
+  of the transpose of Q with the right hand side before solving the upper
+  triangular system in the computation of the head term.
+  Applied the same fix to {dbl2,dbl4,dbl8}_bals_kernels.cu.
+
+Sun 18 Sep 2022 : changed initial values in dbl_newton_testers.cpp to
+  test complex arithmetic with nonzero imaginary values.
+  Made similar chages to dbl?_newton_testers.cpp.
+
+Sat 17 Sep 2022 : new prompt_newton_setup, out of dbl_newton_testers.cpp.
+  Updated {dbl,dbl2,dbl4,dbl8}_newton_testers.cpp and the makefile_*.
+  Bug fix in computation of residual in dbl*_bals_host.cpp.
+
+Fri 16 Sep 2022 : bugs fixed in dbl8_bals_host.cpp and dbl8_bals_testers.cpp.
+
+Thu 15 Sep 2022 : updated dbl8_systems_kernels.cu for the new convolution
+  kernel on complex data.  Edited dbl4_newton_testers.h.  Added functions
+  on complex data to dbl8_newton_testers, updated test_dbl8_newton.cpp.
+
+Wed 14 Sep 2022 : edited dbl4_bals_kernels.cu, fixed dbl4_kernels.cu,
+  extended dbl8_bals_kernels with functions on complex data.
+
+Tue 13 Sep 2022 : extended dbl8_bals_host with functions on complex data.
+  Extended dbl8_systems_kernels with functions on complex data.
+  Updated makefile_unix.
+
+Mon 12 Sep 2022 : edited dbl4_systems_host.h, extended dbl8_systems_host
+  with functions on complex data.
+
+Sun 11 Sep 2022 : fixed deallocation bug in dbl4_bals_kernels.cu.
+
+Sat 10 Sep 2022 : extended test_dbl4_newton.cpp, dbl4_systems_kernels,
+  dbl4_bals_{host,kernels}, dbl4_newton_testers, and makefile_unix.
+
+Fri 9 Sep 2022 : edited dbl_newton_testers.h, dbl_newton_testers.cpp,
+  dbl_systems_kernels.h, and dbl_bals_kernels.h.
+  Extended dbl2_{bals,systems}_kernels, dbl2_newton_testers, and 
+  test_dbl2_newton.cpp with complex versions.  Updated makefiles.
+
+Thu 8 Sep 2022 : extended dbl2_bals_host with functions on complex data.
+
+Wed 7 Sep 2022 : Extended {dbl2,dbl4}_systems_host with functions on
+  complex data, edited the documentation in dbl_system_host.h.
+
+Tue 6 Sep 2022 : added cmplx functions to dbl_bals_host, dbl_newton_testers,
+  and updated test_dbl_newton.cpp.  Extended dbl_systems_kernels and
+  dbl_bals_kernels with cmplx functions, updated dbl_newton_testers.cpp.
+
+Mon 5 Sep 2022 : New dbl8_systems_kernels.  Extended dbl8_bals_host and
+  dbl8_newton_testers do run Newton's method with the QR factorization.
+  Updated test_dbl8_newton.cpp and the makefiles.
+  Updated test_dbl8_newton.cpp for the qrstep and GPU mode.
+  Moved code from test_dbl*_newton.cpp into the corresponding
+  dbl*_newton_testers.  Added cmplx_ functions to dbl_systems_host.
+
+Sun 4 Sep 2022 : bug fixed in {dbl2,dbl8}_bals_kernels.cu and in
+  test_{dbl2,dbl4}_newton.cpp.  New dbl8_bals_kernels, updated makefiles.
+
+Sat 3 Sep 2022 : new {dbl2,dbl4,dbl8}_systems_host with code factored out
+  of {dbl2,dbl4,dbl8}_newton_testers.  Updated makefiles.
+  For compiler warnings, modified {dbl,dbl2}_bals_kernels.cu.
+  New {dbl2,dbl4}_systems_kernels, updated makefiles.
+  New dbl4_bals_kernels, fixed dbl2_bals_kernels, updated makefiles.
+  Extended {dbl2,dbl4}_newton_testers.cpp and test_{dbl2,dbl4}_newton.cpp;
+  updated dbl_newton_testers.cpp, test_dbl_newton.cpp, and the makefiles.
+
+Fri 2 Sep 2022 : fixed typos in dbl2_bals_host.h and dbl2_newton_testers.h.
+  Extended dbl4_bals_host with qrbs solvers, applied in dbl4_newton_testers,
+  and called in updated test_dbl4_newton.cpp.
+  Fixed documentation of dbl_bals_kernels.h for omitted argument.
+  First version of dbl2_bals_kernels, updated makefiles.
+
+Thu 1 Sep 2022 : renamed files *dbl_comfacmon_* into dbl_systems_*
+  which changed dbl_newton_testers.cpp.  Adjusted the makefiles.
+
+Wed 31 Aug 2022 : renamed functions in dbl2_bals_host, adding qrbs,
+  which updated dbl2_newton_testers and test_dbl2_newton.cpp.
+
+Tue 30 Aug 2022 : in dbl_newton_testers.cpp, reset cff for GPU evaluation.
+  Fixed indexing in the matrix in tail solver in dbl_bals_kernels.cu.
+  In dbl_bals_kernels.cu, corrected addressing error with sol[stage-1].
+
+Mon 29 Aug 2022 : in dbl_comfacmon_kernels.cu used deg+1 instead of szt
+  in the kernel launches.  Added more tests to dbl_newton_testers,
+  Separated values for function and Jacobian in dbl_newton_testers,
+  updated test_dbl_newton.cpp.  Fixed output in dbl_bals_host.cpp.
+  In dbl_bals_kernels.cu made a copy of R because the GPU solver changes R.
+
+Sun 28 Aug 2022 : updated dbl_comfacmon_kernels.cu to use gettimeofday4win
+  and updated makefile_windows.  Extended dbl_comfacmon_kernels.h with an
+  extra function for ***output and dbl_comfacmon_kernels.cu, tested in
+  dbl_newton_testers.cpp.
+
+Sat 27 Aug 2022 : new test_monomial_jobs.cpp to prepare for the evaluation
+  and differentation of a monomial system on the GPU.  Updated makefiles.
+  Extended dbl_comfacmon_kernels with an adaptation of the function to
+  launch the convolution kernels for all monomials in a polynomial.
+  Updates the makefiles.
+
+Fri 26 Aug 2022 : new dbl_comfacmon_kernels with stub implementation.
+  Name change in function of dbl_comfacmon_host.  Updated makefiles.  
+  Updated dbl_newton_testers.cpp.
+
+Thu 25 Aug 2022 : new dbl_comfacmon_host with code factored out of the
+  dbl_newton_testers.  Splitted output into output_h and output_d, whic
+  then also changed test_dbl_newton.cpp.  Updated makefiles.
+
+Wed 24 Aug 2022 : improved documentation in dbl_bals_kernels.cu.
+  Separated variables for host and device inputs in dbl_newton_testers,
+  updated test_dbl_newton.cpp.
+
+Tue 23 Aug 2022 : added printing of Qtb in dbl_bals_host.cpp if verbose,
+  to dbl_bals_kernels and dbl_newton_testers added separate variables for
+  host and device results, updated test_dbl_newton.cpp.
+
+Mon 22 Aug 2022 : added a kernel to dbl_bals_kernels.h, dbl_bals_kernels.cu,
+  and updated dbl_newton_testers.cpp.
+
+Sat 20 Aug 2022 : first complete kernel to compute the tail, with updated
+  prototype in dbl_bals_kernels.h, code in dbl_bals_kernels.cu.
+  Updated makefile_windows to compile test_dbl_newton.
+
+Fri 19 Aug 2022 : extended dbl_bals_kernels.h and dbl_bals_kernels.cu,
+  updated the #include of dbl_newton_testers.cpp and makefile_unix.
+
+Thu 18 Aug 2022 : added intialization of R, printing of R and b to
+  dbl_bals_kernels.cu.  To dbl_bals_kernels.cu added start of code for the
+  update of the right hand side for the stages in the update of the series.
+
+Wed 17 Aug 2022 : renamed {dbl,dbl2,dbl4,dbl8}_linearseries into
+  {dbl,dbl2,dbl4,dbl8}_bals, for block accelerated linearized series,
+  which changed {dbl,dbl2,dbl4,dbl8}_newton_testers.cpp.  Updated makefiles.
+  New dbl_bals_kernels, called in the modified dbl_newton_testers, 
+  with updates in test_dbl_newton.cpp.  Updated makefiles.
+
+Wed 10 Aug 2022 : renamed {dbl,dbl2,dbl4,dbl8}_linearized_solvers into
+  {dbl,dbl2,dbl4,dbl8}_linearseries_host, which changed all 
+  {dbl,dbl2,dbl4,dbl8}_newton_testers.cpp.  Updated makefiles.
+  To dbl_linearseries_host, added qr solver, updated dbl_newton_testers,
+  and test_dbl_newton.cpp.
+
+Tue 9 Aug 2022 : extended unimodular_matrices with the computation of the
+  exponent vector of the solution of equal right hand side elements.
+  Updated test_unimodular.cpp and test_dbl_newton.cpp.
+
+Mon 8 Aug 2022 : added test_unimodular.cpp, after extending the
+  unimodular_matrices with a lower_triangulate function and gcd.
+  Updated makefiles.
+
+Wed 1 Jun 2022 : fixed bug in dbl2_newton_testers.cpp.
+  New dbl4_linearized_solvers, dbl4_newton_testers, test_dbl4_newton
+  for power series in quad double precision.  Updated makefiles.
+  New dbl8_linearized_solvers, dbl8_newton_testers, test_dbl8_newton
+  for power series in octo double precision.  Updated makefiles.
+
+Tue 31 May 2022 : to unimodular_matrices.h and unimodular_matrices.cpp,
+  added function to read an exponent matrix.  Bug fix in test_dbl2_newton.cpp.
+  New dbl_newton_testers.h and dbl_newton_testers.cpp with code extracted
+  from test_dbl_newton.cpp.
+
+Thu 26 May 2022 : after a bug fix in dbl_monomials_host.cpp,
+  the test_dbl_newton.cpp works.  Added double double versions.
+
+Sun 22 May 2022 : new dbl_linearized_solvers, to solve linear systems of
+  power series by lineariziation, extracted from test_dbl_newton.cpp.
+
+Thu 19 May 2022 : new unimodular_matrices, to define the test monomial
+  homotopy, with code taken from test_dbl_newton.cpp.

@@ -1,0 +1,217 @@
+Vectors and vectors of vectors in PHCv2.4.87
+
+Because the directory Matrices became too big, 
+this directory was created new for PHCv2.3.33.
+New in release 2.3.49 are the integer64 data types.
+In v2.3.55, double and quad doubles were added.
+
+This library is organized in four parts :
+1) generic packages: vectors, vectors of vectors, and _io.
+2) instantiations:
+      {standard,dobldobl,quaddobl,multprec}
+     _{natural,natural64,integer,integer64,floating,complex}
+     _{vectors,vecvecs}[_{io}]
+3) random generators and test programs, with prefix ts_*
+The organization above is hierarchic.  Other possible views are 
+classifications by numeric types (e.g., everything with standard_integer*,
+*integer*, etc...) or by data types.
+
+In version 2.4.80, all test procedures were moved into ten test packages.
+Instantiations for vectors in triple, penta, octo, and deca double
+precisions were added.
+
+Run "gprbuild vectors.gpr" to make all test programs.
+On windows, type "gprbuild vectors.gpr -Xos=windows" at the PowerShell prompt.
+The "gprclean vectors.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                          : short description
+------------------------------------------------------------------------------
+generic_vectors                    : vectors with coefficients in any ring
+generic_vectors_io                 : input/output for generic vectors
+generic_vecvecs                    : vectors of vectors over any ring
+generic_vecvecs_io                 : input/output for vectors of vectors
+-----------------------------------------------------------------------------
+boolean_vectors                    : vectors of Boolean numbers
+boolean_vectors_io                 : input/output for Boolean vectors
+standard_natural_vectors           : vectors of standard natural numbers
+standard_natural_vectors_io        : generic_vectors_io(standard natural)
+standard_natural_vecvecs           : generic_vecvecs(standard natural)
+standard_natural_vecvecs_io        : generic_vecvecs_io(standard natural)
+standard_natural64_vectors         : vectors of standard natural64 numbers
+standard_natural64_vectors_io      : generic_vectors_io(standard natural64)
+standard_natural64_vecvecs         : generic_vecvecs(standard natural64)
+standard_natural64_vecvecs_io      : generic_vecvecs_io(standard natural64)
+standard_integer_vectors           : vectors of standard integer numbers
+standard_integer_vectors_io        : generic_vectors_io(standard integer)
+standard_integer_vecvecs           : generic_vecvecs(standard integer)
+standard_integer_vecvecs_io        : generic_vecvecs_io(standard integer)
+standard_integer64_vectors         : vectors of standard integer64 numbers
+standard_integer64_vectors_io      : generic_vectors_io(standard integer64)
+standard_integer64_vecvecs         : generic_vecvecs(standard integer64)
+standard_integer64_vecvecs_io      : generic_vecvecs_io(standard integer64)
+standard_floating_vectors          : vectors of standard floating numbers
+standard_floating_vectors_io       : generic_vectors_io(standard floating)
+standard_floating_vecvecs          : generic_vecvecs(standard floating)
+standard_floating_vecvecs_io       : generic_vecvecs_io(standard floating)
+standard_complex_vectors           : vectors of standard complex numbers
+standard_complex_vectors_io        : generic_vectors_io(standard complex)
+standard_complex_vector_strings    : parse/write cmplx vectors from/to strings
+standard_complex_vecvecs           : generic_vecvecs(standard complex)
+standard_complex_vecvecs_io        : generic_vecvecs_io(standard complex)
+standard_complex_nesvecs           : generic_nesvecs(standard complex)
+standard_complex_nesvecs_io        : generic_nesvecs_io(standard complex)
+double_double_vectors              : vectors of double double numbers
+double_double_vectors_io           : generic_vectors_io(double double)
+double_double_vecvecs              : vectors of double double vectors
+double_double_vecvecs_io           : generic_vecvecs_io(double double)
+dobldobl_complex_vectors           : vectors of double double complex numbers
+dobldobl_complex_vectors_io        : generic_vectors_io(double double complex)
+dobldobl_complex_vector_strings    : parse/write ddcplx vectors from/to strings
+dobldobl_complex_vectors_cv        : convert complex <-> double double
+dobldobl_complex_equality_tests    : tests whether double doubles are equal
+dobldobl_complex_vecvecs           : vectors of double double complex vectors
+dobldobl_complex_vecvecs_io        : generic_vecvecs_io(double double complex)
+dobldobl_complex_nesvecs           : generic_nesvecs(dobldobl complex)
+dobldobl_complex_nesvecs_io        : generic_nesvecs_io(dobldobl complex)
+quad_double_vectors                : vectors of quad double numbers
+quad_double_vectors_io             : generic_vectors_io(quad double)
+quaddobl_complex_equality_tests    : tests whether quad doubles are equal
+quad_double_vecvecs                : vectors of double quad vectors
+quad_double_vecvecs_io             : generic_vecvecs_io(quad double)
+quaddobl_complex_vectors           : vectors of quad double complex numbers
+quaddobl_complex_vectors_io        : generic_vectors_io(quad double complex)
+quaddobl_copmlex_vector_strings    : parse/write qdcplx vectors from/to strings
+quaddobl_complex_vectors_cv        : convert complex <-> quad double
+quaddobl_complex_vecvecs           : vectors of quad double complex vectors
+quaddobl_complex_vecvecs_io        : generic_vecvecs_io(quad double complex)
+quaddobl_complex_nesvecs           : generic_nesvecs(quaddobl complex)
+quaddobl_complex_nesvecs_io        : generic_nesvecs_io(quaddobl complex)
+multprec_natural_vectors           : vectors of multiprecision natural numbers
+multprec_natural_vectors_io        : generic_vectors_io(multprec natural)
+multprec_natural_vecvecs           : generic_vecvecs(multprec natural)
+multprec_natural_vecvecs_io        : generic_vecvecs_io(multprec natural)
+multprec_integer_vectors           : vectors of multiprecision integer numbers
+multprec_integer_vectors_io        : generic_vectors_io(multprec integer)
+multprec_integer64_vectors         : multiprecision integer64 vectors
+multprec_integer64_vectors_io      : generic_vectors_io(multprec integer64)
+multprec_integer_vecvecs           : generic_vecvecs(multprec integer)
+multprec_integer_vecvecs_io        : generic_vecvecs_io(multprec integer)
+multprec_floating_vectors          : vectors of multiprecision floating numbers
+multprec_floating_vectors_io       : generic_vectors_io(multprec floating)
+multprec_floating64_vectors        : vectors of multiprecision floating numbers
+multprec_floating64_vectors_io     : generic_vectors_io(multprec floating)
+multprec_floating_vecvecs          : generic_vecvecs(multprec floating)
+multprec_floating_vecvecs_io       : generic_vecvecs_io(multprec floating)
+multprec_floating_vector_tools     : format and size conversions
+multprec_complex_vectors           : vectors of multiprecision complex numbers
+multprec_complex_vectors_io        : generic_vectors_io(multprec complex)
+multprec_complex_vector_strings    : parse/write mpcplx vectors from/to strings
+multprec_complex_vecvecs           : generic_vecvecs(multprec complex)
+multprec_complex_vecvecs_io        : generic_vecvecs_io(multprec complex)
+multprec_complex_vector_tools      : format and size conversions
+multprec_complex_nesvecs           : generic_nesvecs(multprec complex)
+multprec_complex_nesvecs_io        : generic_nesvecs_io(multprec complex)
+------------------------------------------------------------------------------
+triple_double_vectors              : vectors of triple double numbers
+triple_double_vectors_io           : input/output of triple double vectors
+triple_double_vecvecs              : vectors of triple double vectors
+tripdobl_complex_vectors           : complex vectors of triple doubles
+tripdobl_complex_vectors_io        : i/o of complex vectors of triple doubles
+tripdobl_complex_vecvecs           : complex vecvecs of triple doubles
+tripdobl_complex_vecvecs_io        : i/o of complex vecvecs of triple doubles
+tripdobl_complex_vectors_cv        : convert to double and multiprecision
+penta_double_vectors               : vectors of penta double numbers
+penta_double_vectors_io            : input/output of penta double vectors
+pentdobl_complex_vectors           : complex vectors of penta doubles
+pentdobl_complex_vectors_io        : i/o of complex vectors of penta doubles
+pentdobl_complex_vecvecs           : complex vecvecs of penta doubles
+pentdobl_complex_vecvecs_io        : i/o of complex vecvecs of penta doubles
+pentdobl_complex_vectors_cv        : convert to double and multiprecision
+octo_double_vectors                : vectors of octo double numbers
+octo_double_vectors_io             : input/output of octo double vectors
+octo_double_vecvecs                : vecvecs of octo double numbers
+octo_double_vecvecs_io             : input/output of octo double vecvecs
+octodobl_complex_vectors           : complex vectors of octo doubles
+octodobl_complex_vectors_io        : i/o of complex vectors of octo doubles
+octodobl_complex_vecvecs           : complex vevcecs of octo doubles
+octodobl_complex_vecvecs_io        : i/o of complex vevcecs of octo doubles
+octodobl_complex_vectors_cv        : convert to double and multiprecision
+deca_double_vectors                : vectors of deca double numbers
+deca_double_vectors_io             : input/output of deca double vectors
+decadobl_complex_vectors           : complex vectors of deca doubles
+decadobl_complex_vectors_io        : i/o of complex vectors of deca doubles
+decadobl_complex_vecvecs           : complex vecvecs of deca doubles
+decadobl_complex_vecvecs_io        : i/o of complex vecvecs of deca doubles
+decadobl_complex_vectors_cv        : convert to double and multiprecision
+hexa_double_vectors                : vectors of hexa double numbers
+hexa_double_vectors_io             : input/output of hexa double vectors
+hexadobl_complex_vectors           : complex vectors of hexa doubles
+hexadobl_complex_vectors_io        : i/o of complex vectors of hexa doubles
+hexadobl_complex_vecvecs           : complex vecvecs of hexa doubles
+hexadobl_complex_vecvecs_io        : i/o of complex vecvecs of hexa doubles
+hexadobl_complex_vectors_cv        : convert to double and multiprecision
+------------------------------------------------------------------------------
+valid_vector_checks                : valid if no component is NaN
+------------------------------------------------------------------------------
+standard_random_vectors            : vectors of random standard numbers
+standard_random_vecvecs            : vecvecs of random standard numbers
+dobldobl_random_vectors            : vectors of random double doubles
+dobldobl_random_vecvecs            : vecvecs of random double doubles
+quaddobl_random_vectors            : vectors of random quad doubles
+quaddobl_random_vecvecs            : vecvecs of random quad doubles
+multprec_random_vectors            : vectors of random multiprecision numbers
+multprec_random_vecvecs            : vecvecs of random multiprecision numbers
+tripdobl_random_vectors            : vectors of random triple doubles
+pentdobl_random_vectors            : vectors of random penta doubles
+octodobl_random_vectors            : vectors of random octo doubles
+decadobl_random_vectors            : vectors of random deca doubles
+hexadobl_random_vectors            : vectors of random hexa doubles
+------------------------------------------------------------------------------
+standard_floating_vecvecvecs       : vectors of vectors of floating vectors
+standard_complex_vecvecvecs        : vectors of vectors of complex vectors
+------------------------------------------------------------------------------
+varbprec_vecvec_conversions        : conversions between vecvecs of varb prcs
+------------------------------------------------------------------------------
+test_natural_vectors               : tests vectors of natural numbers
+test_integer_vectors               : tests vectors of integer numbers
+test_floating_vectors              : tests vectors of floating-point numbers
+test_complex_vectors               : tests vectors of complex numbers
+test_vector_strings                : tests vectors in strings
+test_nested_vectors                : tests nested complex vectors
+test_dobldobl_vectors              : tests vectors in double double precision
+test_quaddobl_vectors              : tests vectors in quad double precision
+test_tripdobl_vectors              : tests vectors in triple double precision
+test_pentdobl_vectors              : tests vectors in penta double precision
+test_octodobl_vectors              : tests vectors in octo double precision
+test_decadobl_vectors              : tests vectors in deca double precision
+test_hexadobl_vectors              : tests vectors in hexa double precision
+------------------------------------------------------------------------------
+ts_natvec                          : main test on natural vectors
+ts_intvec                          : main test on integer vectors
+ts_fltvec                          : main test on floating-point vectors
+ts_cmpvec                          : main test on complex vectors
+ts_strvec                          : main test on vectors in strings
+ts_nesvec                          : main test on nested vectors
+ts_ddvec                           : main test on vectors of double doubles
+ts_qdvec                           : main test on vectors of quad doubles
+ts_tdvec                           : main test on vectors of triple doubles
+ts_pdvec                           : main test on vectors of penta doubles
+ts_odvec                           : main test on vectors of octo doubles
+ts_davec                           : main test on vectors of deca doubles
+ts_hdvec                           : main test on vectors of hexa doubles
+------------------------------------------------------------------------------
+standard_vector_splitters          : split/merge complex vectors for doubles
+dobldobl_vector_splitters          : 4-vector representation of dobldobl vecs
+tripdobl_vector_splitters          : allocators for triple double vectors
+quaddobl_vector_splitters          : 2-vector representation of quaddobl vecs
+pentdobl_vector_splitters          : allocators for penta double vectors
+octodobl_vector_splitters          : allocators for octo double vectors
+decadobl_vector_splitters          : allocators for deca double vectors
+test_dobldobl_performance          : performance test with double doubles
+test_quaddobl_performance          : performance test with quad doubles
+ts_perfddvc                        : main test on dd vector performance
+ts_perfqdvc                        : main test on qd vector performance
+------------------------------------------------------------------------------
+The generic_* packages are different from the abstract_* packages in the
+sense that they export types and operations, i.e.: they have a body.

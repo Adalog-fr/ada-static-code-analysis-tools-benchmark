@@ -1,0 +1,252 @@
+Fri 8 Dec 2023 : extended varbprec_vecvec_conversions.
+
+Thu 30 Nov 2023 : new package hexadobl_complex_vectors_cv.
+
+Mon 14 Aug 2023 : added octo_double_vecvecs and octo_double_vecvecs_io.
+
+Thu 9 Dec 2021 : new packages hexa_double_vectors, hexa_double_vectors_io,
+  hexadobl_complex_vectors, hexadobl_complex_vectors_io,
+  hexadobl_complex_vecvecs, hexadobl_complex_vecvecs_io,
+  hexadobl_random_vectors, test_hexadobl_vectors, with the main test in
+  ts_hdvec.adb.  Updated vectors.gpr for the new ts_hdvec.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to vectors.gpr.
+
+Tue 8 Jun 2021 : defined vectors.gpr to build the test procedures.
+
+Sat 20 Mar 2021 : new package standard_complex_vecvecvecs.
+
+Sat 24 Oct 2020 : new packages {tripdobl,pentdobl,octodobl,decadobl}_vector_
+  splitters with memory allocators.
+
+Wed 21 Oct 2020 : added functions to varbprec_vecvec_conversions to convert
+  complex deca double vectors of vectors into lower precision.
+
+Tue 20 Oct 2020 : new triple_double_vecvecs.ads.  Added convertors to
+  quaddobl_complex_vectors_cv and varbprec_vecvec_conversions.
+  Extended decadobl_complex_vectors_cv with operations to convert vectors 
+  in deca double precision to lower precision equivalent vectors.
+
+Tue 22 Sep 2020 : new {trip,pent,octo,deca}dobl_complex_vectors_cv with
+  functions to convert triple, penta, octo, and deca double complex vectors
+  from and into double precision and multiprecision.
+
+Tue 15 Sep 2020 : changed {tripdobl,pentdobl,octodobl,decadobl}_random_vectors
+  so a random complex vector has all elements on the unit circle.
+
+Sun 30 Aug 2020 : instantiated vectors in triple, penta, octo, and deca
+  double precision: {triple,penta,octo,deca}_double_vectors,
+  with io: {triple,penta,octo,deca}_double_vectors_io.
+  Instantiated complex vectors in triple, penta, octo, and deca double
+  precision: {tripdobl,pentdobl,octodobl,decadobl}_complex_vectors,
+  with io: {tripdobl,pentdobl,octodobl,decadobl}_complex_vectors_io.
+  Defined basic routines to generate random vectors in the packages
+  {tripdobl,pentdobl,octodobl,decadobl}_random_vectors.  Added tests in
+  test_{tripdobl,pentdobl,octodobl,decadobl}_vectors, with calls to the
+  main interactive tests in ts_tdvec, ts_pdvec, ts_odvec, ts_davec.
+  Instantiated vectors of vectors in triple, penta, octo, and deca double
+  precision: {tripdobl,pentdobl,octodobl,decadobl}_complex_vecvecs and
+  the i/o in {tripdobl,pentdobl,octodobl,decadobl}_complex_vecvecs_io.
+
+Sat 29 Aug 2020 : moved all test procedures in the ts_*.adb files into
+  test_{natural,integer,floating,complex,dobldobl,quaddobl,nesvec}_vectors,
+  test_string_vectors, and test_{dobldobl,quaddobl}_performance packages.
+
+Sun 5 Jun 2020 : added an Allocate procedure to standard_floating_vecvecvecs.
+
+Fri 3 Jul 2020 : new package standard_floating_vecvecvecs, with definitions
+  taken from standard_coefficient_convolutions.
+
+Sat 27 Jun 2020 : to {standard,dobldobl,quaddobl}_vector_splitters, added
+  procedures to part and merge complex vectors up to the degree of a series.
+
+Fri 26 Jun 2020 : fixed memory leak in standard_vector_splitters.adb,
+  the Complex_Parts() on vectors of vectors should not allocate.
+
+Tue 23 Jun 2020 : extended {standard,dobldobl,quaddobl}_vector_splitters
+  with allocate procedures that return pointers to vectors of vectors.
+
+Tue 16 Jun 2020 : extended {standard,dobldobl,quaddobl}_vector_splitters
+  with allocators from multitasked_hessian_circuits.
+
+Tue 9 Jun 2020 : in generic_vectors.adb, fixed the definition of Sum,
+  fixing the test v'first < v'last to v'first > v'last.
+
+Mon 8 Jun 2020 : to standard_vector_splitters, added Split/Merge procedures;
+  added Complex_Parts procedure to standard_vector_splitters.
+
+Sat 6 Jun 2020 : improved generic_vectors.adb for the sum of null vectors
+  or vectors with empty ranges.
+
+Tue 2 Jun 2020 : in *vector_splitters.adb improved the Split_Complex
+  procedures to skip null entries.
+
+Sun 31 May 2020 : modified quaddobl_vector_splitters to pass the auxiliary
+  vectors as pointers instead of as values.  Updated ts_perfqdvc.
+
+Fri 29 May 2020 : new package quaddobl_vector_splitters with code from
+  ts_perfqdvc and with added split/merge and update procedures.
+  Bug fixed in quaddobl_vector_splitters.adb.
+
+Thu 28 May 2020 : eliminated many procedure calls in ts_perfqdvc,
+  only the two_prod left in the update_product procedure.  Reduced
+  the number of splits from 80 to 16 in update_product of ts_perfqdvc.
+  Eliminated the 16 procedure calls to split in ts_perfqdvc.
+  Added convolution code to ts_perfqdvc.
+
+Wed 27 May 2020 : new test procedure ts_perfqdvc, to improve the performance
+  of working with quad double complex vectors.  Eliminated procedure calls
+  from the Add procedure in ts_perfqdvc.  First version of an inner product
+  on quad double complex vectors in ts_perfqdvc.
+
+Tue 26 May 2020 : defined convolutions for double double complex vectors
+  in ts_perfddvc.  New package dobldobl_vector_splitters with code taken
+  from ts_perfddvc.  Extended dobldobl_vector_splitters with procedure
+  to part and merge vectors of vectors, fixed bug in update start index.
+  Added more Split_Complex procedures to dobldobl_vector_splitters.
+
+Sun 24 May 2020 : new test procedure ts_perfddvc to develop better performing
+  double double complex vector operations.
+  Experimented with links to vectors in ts_perfddvc...
+
+Sun 17 May 2020 : added more functions to standard_vector_splitters.
+
+Wed 13 May 2020 : added function to standard_vector_splitters.
+
+Wed 6 May 2020 : added another split procedure to standard_vector_splitters.
+
+Tue 5 May 2020 : added allocators to standard_vector_splitters.
+
+Mon 4 May 2020 : revised standard_vector_splitters for compiler warnings
+  and cleaned up the package documentation.  Added two procedures to
+  standard_vector_splitters, for vectors of vectors.
+
+Sun 3 May 2020 : new package standard_vector_splitters with functions and
+  procedures to split and merge the parts of complex vectors.
+
+Mon 10 Feb 2020 : added check in the copy of generic_vecvecs.adb,
+  in case some entries in the original vector of vectors are null.
+  Added two more convertor functions to quaddobl_complex_vectors_cv.
+
+Sun 9 Feb 2020 : added to quaddobl_complex_vectors_cv functions to convert
+  vectors of vectors from quad duoble to double and double double precision.
+
+Sat 25 Jan 2020 : added to quaddobl_complex_vectors_cv to convert a vector
+  of complex numbers in quad double precision into double double precision.
+
+Tue 21 Jan 2020 : added a copy procedure to generic_vecvecs.
+
+Tue 30 Jan 2018 : new package boolean_vectors and boolean_vectors_io
+  to represent vectors of Boolean numbers.
+
+Wed 28 Jun 2017 : new package valid_vector_checks to test if all components
+  of a vector are valid numbers.
+
+Sat 22 Oct 2016 : to standard_random_vectors added random generator generators
+  with given seed to procedure independent sequences.
+  Did the same to dobldobl_random_vectors and quaddobl_random_vectors.
+
+Mon 15 Jun 2015 : new package varbprec_vecvec_conversions to convert various
+  types of vectors of vectors, for various levels of precision.
+
+Tue 2 Jun 2015 : fixed bug in initialization of Sum in generic_vectors.adb,
+  which affected the multiprecision versions.
+
+Fri 26 Dec 2014 : in standard_complex_vector_strings.adb fixed bug when
+  index went over the end of a string.  Applied the same fix for the 
+  dobldobl, quaddobl, and multprec versions.
+
+Sun 23 Nov 2014 : extended length of strings when writing double double complex
+  vectors to strings, in dobldobl_complex_vector_strings.adb.
+
+Sat 22 Nov 2014 : extended length of strings when writing complex vectors
+  in standard precision to strings, in standard_complex_vector_strings.adb.
+
+Tue 18 Nov 2014 : some edits in quaddobl_complex_vector_strings.ads to
+  correct some documentation and new multprec_complex_vector_strings to
+  parse/write multiprecision complex vectors from/to strings.
+
+Mon 17 Nov 2014 : new package standard_complex_vector_strings to parse/write
+  complex vectors from/to strings, tested by ts_strvec.adb.  Similar for
+  double double and quad doubles, added {dobl,quad}_complex_vector_strings,
+  also tested by ts_strvec.adb.
+
+Thu 31 Jul 2014 : new packages {dobl,quad}dobl_complex_nesvecs with _io.
+
+Fri 21 Jun 2013 : updated multprec_random_vecvecs as needed by multiprecision
+  interpolation methods.
+
+Fri 7 Jun 2013 : updated multprec_random_vectors,
+  multprec_complex_vector_tools, and all random vecvecs:
+  {standard,dobldobl,quaddobl}_random_vecvecs.
+
+Thu 6 Jun 2013 : following the introduction of natural32 and integer32,
+  updated generic_vectors_io, generic_vecvecs_io, tested by ts_natvec.
+  Updated ts_cmpvec, {dobldobl,quaddobl}_random_vectors, tested by ts_ddvec
+  and ts_qdvec.  Also changed generic_nesvecs, generic_nesvecs_io.adb,
+  tested by ts_nesvec.
+
+Tue 4 Jun 2013 : because of GNAT GPL 2013 changes in the numbers,
+  updated standard_random_vectors.adb, ts_natvec.adb, and ts_fltvec.adb.
+  Also changed generic_vectors.ads and generic_vecvecs.ads.
+
+Wed 21 Nov 2012 : moved add *norms* to the new directory Reduction.
+
+Mon 8 Oct 2012 : new package standard_complex_vector_norms, updates
+  in dobldobl_complex_vector_norms.adb to use the double double sqrt.
+  Also quaddobl_complex_vector_norms.adb uses the quad double sqrt.
+
+Sat 6 Oct 2012 : new package standard_floating_vector_norms.
+
+Wed 26 Sep 2012 : updated standard_random_vectors with routines to generate
+  vectors with entries of a certain magnitude, tested by ts_fltvec.adb 
+  and ts_cmpvec.adb.  Updated standard_random_vecvecs to generate vectors
+  of vectors with the magnitude in a certain range.  Did the same update
+  for {dobldobl,quaddobl}_random_{vectors,vecvecs}, tested by ts_ddvec.adb
+  and ts_qdvec.adb.
+
+Tue 25 Sep 2012 : new packages {dobldobl,quaddobl}_random_vecvecs.
+
+Fri 20 May 2011 : added "constant" declarations to ts_ddvec and ts_qdvec
+  because of warnings, also changed {double,quad}_double_vector_norms.adb
+  because of redundant use clause in body.
+
+Thu 8 Oct 2010 : new package dobldobl_complex_equality_tests needed for
+  dobldobl_path_trackers.  Update in dobldobl_complex_equality_tests and
+  new package quaddobl_complex_equality_tests for quaddobl_path_trackers.
+
+Fri 25 Jun 2010 : {double,quad}_double_vector_norms now use the SQRT
+  of {dobldobl,quaddobl}_mathematical_functions.
+
+Fri 4 Jun 2010 : added double_double_vector_norms.
+
+Fri 28 May 2010 : to convert complex vectors and double, quad doubles
+  new packages are {DoblDobl,QuadDobl}_complex_vectors_cv, tested by
+  ts_ddvec and ts_qdvec.  Vector norms are provided in the packages
+  {dobldobl,quaddobl}_complex_vector_norms.
+
+Tue 25 May 2010 : defined {quad,double}_double_{vectors,vecvecs}_io and
+  {quad,dobl}dobl_complex_{vectors,vecvecs}_io, resulting in 8 new types
+  and 16 instantiated packages.  For testing, created random vectors in
+  {dobldobl,quaddobl}_random_vectors, called by ts_ddvec and ts_qdvec.
+  
+Fri 6 Nov 2009 : modified generic_vectors.a* for GNAT GPL 2009 warnings.
+
+Mon 21 Sep 2009 : instantiated standard_natural64_{vectors,vecvecs} and _io.
+
+Tue 8 Sep 2009 : instantiated multprec_floating64_vectors and its _io.
+
+Fri 4 Sep 2009 : extended standard_random_vectors with a generator
+  for standard integer 64-bit vectors.
+
+Sun 30 Aug 2009 : instantiated multprec_integer64_vectors and its i/o.
+
+Thu 20 Aug 2009 : introducing vectors of long long integers: new are
+  standard_integer64_vectors, standard_integer64_vectors_io,
+  standard_integer64_vecvecs, standard_integer64_vecvecs_io, tested by
+  ts_intvec.adb.  Documentation change in standard_integer_vectors.ads
+
+Thu 3 Jan 2008 : because of warnings with GNAT GPL 2006, changed
+  generic_nesvecs.adb and ts_nesvec.adb.
+
+Sun 23 Sep 2007 : splitted this directory off from Matrices.

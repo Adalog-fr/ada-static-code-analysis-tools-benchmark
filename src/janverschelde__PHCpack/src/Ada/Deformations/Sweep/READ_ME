@@ -1,0 +1,42 @@
+Sweeping for singularities and parameter continuation in PHCv2.4.87
+
+For clarity, this directory was isolated from Continuation in v2.3.75.
+The path trackers in this directory rely on natural parameter homotopies.
+
+Run "gprbuild sweep.gpr" to make all test programs.
+On windows, type "gprbuild sweep.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean sweep.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                        : short description
+------------------------------------------------------------------------------
+standard_parameter_solutions     : selecting and joining variables
+dobldobl_parameter_solutions     : parameter solutions with double doubles
+quaddobl_parameter_solutions     : parameter solutions with quad doubles
+standard_parameter_systems       : definition of parameter homotopy + i/o
+dobldobl_parameter_systems       : parameter homotopy with double doubles
+tripdobl_parameter_systems       : parameter homotopy with triple doubles
+quaddobl_parameter_systems       : parameter homotopy with quad doubles
+pentdobl_parameter_systems       : parameter homotopy with penta doubles
+octodobl_parameter_systems       : parameter homotopy with octo doubles
+decadobl_parameter_systems       : parameter homotopy with deca doubles
+hexadobl_parameter_systems       : parameter homotopy with hexa doubles
+complex_convex_continuation      : interpolate start and target with complex
+parameter_homotopy_continuation  : drivers to path tracking
+ts_parcon                        : stand-alone calling program
+------------------------------------------------------------------------------
+standard_quad_parameters         : manages sweep numerical parameters
+dobldobl_quad_parameters         : numerical parameters as double doubles
+quaddobl_quad_parameters         : numerical parameters as quad doubles
+standard_quad_turn_points        : location of quadratic turning points
+dobldobl_quad_turn_points        : location in double double precision
+quaddobl_quad_turn_points        : location in quad double precision
+standard_quad_turn_points_io     : some input and output routines
+dobldobl_quad_turn_points_io     : i/o for the double double version
+quaddobl_quad_turn_points_io     : i/o for the quad double version
+standard_quad_sweepers           : sweeper for singularities along a path
+dobldobl_quad_sweepers           : double double sweeper for singularities
+quaddobl_quad_sweepers           : quad double sweeper for singularities
+ts_realcont                      : development of real path tracking
+------------------------------------------------------------------------------

@@ -1,0 +1,81 @@
+Thu 17 Jun 2021 : removed the obsolete parallel_edges, parallel_directions,
+  tropisms_of_supports, and ts_degcurve.  Updated puiseux.gpr.
+
+Wed 16 Jun 2021 : added puiseux.gpr for the build of tests.
+
+Fri 9 Nov 2018 : updated regular_solution_curves_series and
+  regular_newton_puiseux.adb for the maximal degree bound on the series.
+
+Wed 7 Nov 2018 : adjusted the packages regular_solution_curves_series and
+  regular_newton_puiseux for the new series definitions.
+
+Sat 8 Oct 2016 : new package regular_newton_puiseux with code extracted
+  from ts_puiseux.
+
+Wed 5 Oct 2016 : more output statements added to ts_puiseux.
+  Added mixed volume to Tropisms() in regular_solution_curves_series.
+  To ts_puiseux, added printing of the tropism before residual.
+
+Tue 4 Oct 2016 : edits in regular_solution_curves_series.adb and ts_puiseux
+  because of compiler warnings.
+
+Mon 3 Oct 2016 : added random test to ts_puiseux.adb.
+
+Sun 2 Oct 2016 : added Tropism() function to extract the normals of a mixed
+  subdivision in regular_solution_curves_series, tested in ts_puiseux.
+  Added double double and quad double residual eval test to ts_puiseux.
+
+Sat 1 Oct 2016 : added residual computation to ts_puiseux.adb.
+
+Fri 30 Sep 2016 : in regular_solution_curves_series, turned procedures into
+  function to return the computed series developments.  The functions in 
+  regular_solution_curves_series return vectors of vectors of series.
+
+Thu 29 Sep 2016 : ts_puiseux has drivers for double doubles and quad doubles.
+  Bug fix in regular_solution_curves_series.adb.
+
+Wed 28 Sep 2016 : fixed bug in coordinate transformation in the
+  regular_solution_curves_series.  More support for dd and qd.
+
+Tue 27 Sep 2016 : linked in Newton's method to regular_solution_curves_series,
+  tested by ts_puiseux.  Added a symbolic output of the series.
+  Started adding double double and quad double versions of the operations
+  in regular_solution_curves_series.
+
+Mon 26 Sep 2016 : refactoring code in regular_solution_curves_series,
+  tested by ts_puiseux.  More output parameters in Initial() of the
+  regular_solution_curves_series.  Added Series() procedure.
+
+Sun 25 Sep 2016 : new package regular_solution_curves_series with code
+  extracted from ts_puiseux.  Fixed bug in shift() call to procedure.
+
+Sat 24 Sep 2016 : better control of the output in ts_puiseux.
+
+Thu 22 Sep 2016 : added sanity check to evaluate the initial form solution
+  at the transformed polynomial system, in ts_puiseux.
+
+Wed 21 Sep 2016 : refactored code in ts_puiseux.
+
+Mon 19 Sep 2016 : shifted transformed systems so no negative exponents
+  occur in the transformated systems.
+
+Sun 18 Sep 2016 : added coordinate transformations to ts_puiseux.adb.
+
+Sat 17 Sep 2016 : refactorings in ts_puiseux.adb.
+
+Thu 15 Sep 2016 : another small documentation change in ts_puiseux.
+
+Wed 14 Sep 2016 : small documentation changes in ts_puiseux.
+
+Tue 13 Sep 2016 : refactored some code in ts_puiseux to prepare for
+  more general code.
+
+Mon 12 Sep 2016 : added computation of solutions of the initial forms
+  to ts_puiseux.
+
+Sun 11 Sep 2016 : extended ts_puiseux.adb with silent versions of the
+  tropisms computations.
+
+Sat 10 Sep 2016 : new ts_puiseux.adb to develop the Newton-Puiseux algorithm.
+
+Sun 30 Dec 2012 : ts_degcurve.adb no longer compiled, fixed.
