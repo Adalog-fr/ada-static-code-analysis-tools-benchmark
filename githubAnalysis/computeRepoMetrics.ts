@@ -137,4 +137,4 @@ for (const repo of allGhRepos) {
     i++;
 }
 
-Deno.writeTextFileSync(join(MAIN_CWD, "allReposInfo.json"), JSON.stringify(allReposInfo, null, 2));
+Deno.writeTextFileSync(join(MAIN_CWD, "allReposMetrics.json"), JSON.stringify(allReposInfo, null, 2));

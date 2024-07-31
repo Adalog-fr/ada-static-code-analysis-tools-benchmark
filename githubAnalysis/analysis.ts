@@ -3,7 +3,7 @@ import { repoInfo } from "./types.ts";
 
 const MAIN_CWD = Deno.cwd();
 
-const repositories: repoInfo[] = JSON.parse(Deno.readTextFileSync(join(MAIN_CWD, "allReposInfo.json")));
+const repositories: repoInfo[] = JSON.parse(Deno.readTextFileSync(join(MAIN_CWD, "allReposMetrics.json")));
 
 // Sort repositories by the 'total_LoC' property in descending order
 const sortedRepos = repositories.sort((a, b) => b.total_LoC - a.total_LoC);
