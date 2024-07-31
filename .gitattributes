@@ -1,5 +1,4 @@
 * text eol=lf
-
 last-line-missing-crlf.ads binary
 crlf.ads text eol=crlf
 ./src/libadalang_tools/testsuite/tests/**/test.out text eol=crlf
@@ -8,6 +7,7 @@ lf.* text eol=lf
 *.ico binary
 *.pdf binary
 *.png binary
+githubAnalysis/allReposInfo.json filter=lfs diff=lfs merge=lfs -text
 install/**/*.zip filter=lfs diff=lfs merge=lfs -text
 compilers/gnat_native/bin/gdb filter=lfs diff=lfs merge=lfs -text
 compilers/gnat_arm_elf/bin/arm-eabi-gdb filter=lfs diff=lfs merge=lfs -text
