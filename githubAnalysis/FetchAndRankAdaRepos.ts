@@ -2,64 +2,6 @@ import { Octokit, App } from "https://esm.sh/octokit?dts";
 import { load } from "https://deno.land/std/dotenv/mod.ts";
 import { GhRepoSearchResultItem } from "./github-api.ts"
 await load({export: true})
-// Tokei type
-
-export interface RootTokei {
-    Ada: Ada
-    Total: Total
-  }
-
-  export interface Ada {
-    blanks: number
-    children: Children
-    code: number
-    comments: number
-    inaccurate: boolean
-    reports: Report[]
-  }
-
-  export interface Children {}
-
-  export interface Report {
-    name: string
-    stats: Stats
-  }
-
-  export interface Stats {
-    blanks: number
-    blobs: Blobs
-    code: number
-    comments: number
-  }
-
-  export interface Blobs {}
-
-  export interface Total {
-    blanks: number
-    children: Children2
-    code: number
-    comments: number
-    inaccurate: boolean
-    reports: any[]
-  }
-
-  export interface Children2 {
-    Ada: Ada2[]
-  }
-
-  export interface Ada2 {
-    name: string
-    stats: Stats2
-  }
-
-  export interface Stats2 {
-    blanks: number
-    blobs: Blobs2
-    code: number
-    comments: number
-  }
-
-  export interface Blobs2 {}
 
 async function getAllIgnoredCrates() {
     // Octokit.js
@@ -68,7 +10,7 @@ async function getAllIgnoredCrates() {
         auth: Deno.env.get("GH_TOKEN")
     })
 
-    let allRepositories : GhRepoSearchResultItem = [];
+    let allRepositories : GhRepoSearchResultItem[] = [];
 
     let remainingRepo = true;
     let sizeFilter = "";
@@ -101,65 +43,24 @@ async function getAllIgnoredCrates() {
     }
 }
 
-const allRepositories : GhRepoSearchResultItem = JSON.parse(Deno.readTextFileSync("./allAdaGithubRepos.json"))
+function removeDuplicates(arrayOfObjects: GhRepoSearchResultItem[]): GhRepoSearchResultItem[] {
+    // Create a new Map to keep track of unique objects
+    const uniqueObjects = new Map();
 
+    // Iterate over each object in the array
+    arrayOfObjects.forEach((object) => {
+        // Use the object's 'id' as the key and the object itself as the value
+        // Map will automatically handle duplication by overriding duplicates
+        uniqueObjects.set(object.id, object);
+    });
 
-// Function to execute the `git-cloc-ada` command and extract Ada code lines
-async function countAdaLines(repositoryUrl: string): Promise<number> {
-    try {
-        // Convert the URL into a file-system-friendly name by removing unwanted characters
-        const safeName = repositoryUrl
-            .replace(/https?:\/\//, '')  // Remove protocol (http, https)
-            .replace(/[\/:]/g, '-')      // Replace slashes and colons with hyphens
-            .replace(/\.[^/.]+$/, '');   // Remove file extension
-
-        const process = new Deno.Command("git-cloc-ada", {
-            args: [repositoryUrl, safeName.substring(safeName.length - 255)],
-            stdout: "piped",
-            stderr: "piped",
-        });
-
-        const { code, stderr, stdout } = await process.output();
-
-        if (code === 0) {
-            const outputJson: RootTokei = JSON.parse(new TextDecoder().decode(stdout));
-            return outputJson.Ada.code;
-        } else {
-            const errorOutput = new TextDecoder().decode(stderr);
-            console.error(repositoryUrl, errorOutput);
-        }
-    } catch (e) {
-        console.error(repositoryUrl, e);
-    }
-
-    return -1;
+    // Convert the Map values back to an array and return it
+    // This array will have only one object per unique 'id'
+    return Array.from(uniqueObjects.values());
 }
 
-// TODO: refactor to clone repo and compute metrics on it:
-// - number of Ada lines of codes
-// - number of alire.toml
-// - number of .gpr
+// MAIN
 
-// Main function to orchestrate fetching and ranking by lines of Ada code
-async function main() {
-    const repositories = await fetchAdaRepositories();
-    const countPromises = repositories.map(repo => countAdaLines(repo.clone_url));
-    const linesOfCode = await Promise.all(countPromises);
-
-    // Combine repository data with line counts
-    const reposWithLineCounts = repositories.map((repo, index) => ({
-        name: repo.full_name,
-        lines_of_code: linesOfCode[index]
-    }));
-
-    // Sort repositories by lines of Ada code in descending order
-    reposWithLineCounts.sort((a, b) => b.lines_of_code - a.lines_of_code);
-
-    Deno.writeTextFileSync("largestGithubAdaRepo.json", JSON.stringify(reposWithLineCounts, null, 2));
-
-    // Return the top 10 repositories by Ada code lines
-    return reposWithLineCounts.slice(0, 10);
-}
-
-// Execute the main function and log the results
-main().then(console.log).catch(console.error);
+const allRepositories : GhRepoSearchResultItem[] = JSON.parse(Deno.readTextFileSync("./allAdaGithubRepos.json"))
+const finalResult = removeDuplicates(allRepositories);
+Deno.writeTextFileSync("./allAdaGithubRepos.json", JSON.stringify(finalResult, null, 2));
