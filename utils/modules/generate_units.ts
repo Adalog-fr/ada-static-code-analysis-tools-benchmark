@@ -55,7 +55,6 @@ export function initializeModule(program: Command): void {
             "unit"
         )
         .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", "/workspaces/bench-source/unknownCrates.ignore")
-        .option("-o, --output <path>", "Name of the output file", "units.txt")
         .option(
             "-P, --project <type>",
             "Treat the command entries (paths) as project (.gpr) paths rather than as directories to search files (.ads, abd).",
@@ -65,7 +64,7 @@ export function initializeModule(program: Command): void {
         .action(
             async (
                 paths: string[],
-                options: { ignoredUnknownCrates: string, resultingUnitKind: "unit" | "file" | "path"; output: string; project: string, verbose: boolean }
+                options: { ignoredUnknownCrates: string, resultingUnitKind: "unit" | "file" | "path"; project: string, verbose: boolean }
             ) => {
                 if (!paths || paths.length === 0) {
                     console.error("Please set one or several path");
@@ -178,7 +177,7 @@ export function initializeModule(program: Command): void {
                                         "--allow-ffi",
                                         "--unstable",
                                         "/workspaces/bench-source/utils/cogralys-bench-util.ts",
-                                        "units", "-P", "gpr", "-o", options.output, "-f", options.resultingUnitKind,
+                                        "units", "-P", "gpr", "-f", options.resultingUnitKind,
                                         "-i", options.ignoredUnknownCrates, path
                                     ],
                                     {
@@ -191,16 +190,13 @@ export function initializeModule(program: Command): void {
 
                             continue;
                         }
+                        // The following code in executed only if `path` is not an `alire.toml` path
                         const envFilePath = join(path in correspondingAlire ? correspondingAlire[path] : dirname(path), ".env");
-                        console.log("envFilePath: ", envFilePath, Deno.cwd());
 
-                        console.log("env (before): ", JSON.stringify(Deno.env.toObject()));
                         dotenv.loadSync({
                             envPath: envFilePath,
                             export: true
                         });
-
-                        console.log("env: ", JSON.stringify(Deno.env.toObject()));
 
                         Deno.chdir(dirname(path));
 
@@ -251,9 +247,7 @@ export function initializeModule(program: Command): void {
                     units = generateFromDir(paths, options.resultingUnitKind);
                 }
 
-                const unitsList = units.sort((a, b) => a.localeCompare(b)).join("\n");
                 Deno.chdir(CWD);
-                Deno.writeTextFileSync(options.output, unitsList);
             }
         );
 }
