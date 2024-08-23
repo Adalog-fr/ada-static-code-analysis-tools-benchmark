@@ -51,7 +51,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "%PRJ%",
         "@%UNITS%",
         "-o",
-        "adactl-$xpnum-j$max_procs.report",
+        "adactl-$xpNum-j$max_procs.report",
         "-w",
         // | tee -a /workspaces/bench-source/Adactl_benchmark.output >> /workspaces/bench-source/Adactl_benchmark_second.output
 
@@ -78,7 +78,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "-l",
         "--show-rule",
         "-o",
-        "gnatcheck-$xpnum-j$max_procs.report",
+        "gnatcheck-$xpNum-j$max_procs.report",
         "-P%PRJ%",
         "-rules",
         "-from=/workspaces/bench-source/benchmark-rules/all_rules_in_one_file/gnatcheck.rules"
