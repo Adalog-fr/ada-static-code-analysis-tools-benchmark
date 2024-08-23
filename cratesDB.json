@@ -813,7 +813,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "bingada": {
       "path": "/workspaces/bench-source/src/bingada",
@@ -986,7 +987,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED"
     },
     "cmd_ada": {
       "path": "/workspaces/bench-source/src/cmd_ada",
@@ -1778,7 +1780,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED"
     },
     "gnatcoll_lzma": {
       "path": "/workspaces/bench-source/src/gnatcoll-bindings/lzma",
@@ -1829,7 +1832,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "gnatcoll_python": {
       "path": "/workspaces/bench-source/src/gnatcoll-bindings/python",
@@ -1846,7 +1850,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "gnatcoll_readline": {
       "path": "/workspaces/bench-source/src/gnatcoll-bindings/readline",
@@ -1884,7 +1889,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED"
     },
     "gnatcoll_sqlite": {
       "path": "/workspaces/bench-source/src/gnatcoll-db/sqlite",
@@ -2382,7 +2388,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED"
     },
     "lace_box2d": {
       "path": "/workspaces/bench-source/src/lace_box2d",
@@ -2688,7 +2695,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "loga": {
       "path": "/workspaces/bench-source/src/loga",
@@ -2781,7 +2789,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "mage_hat": {
       "path": "/workspaces/bench-source/src/mage_hat",
@@ -3265,7 +3274,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED"
     },
     "parse_args": {
       "path": "/workspaces/bench-source/src/parse_args",
@@ -3396,7 +3406,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "protobuf": {
       "path": "/workspaces/bench-source/src/protobuf",
@@ -3784,7 +3795,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason":"ASIS BUG DETECTED"
     },
     "sha2": {
       "path": "/workspaces/bench-source/src/sha2",
@@ -3805,7 +3817,8 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED"
     },
     "si_units": {
       "path": "/workspaces/bench-source/src/si_units",
