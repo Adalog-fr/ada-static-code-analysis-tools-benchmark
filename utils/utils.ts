@@ -80,6 +80,8 @@ export interface GPRProject {
     neo4jDbFilesPath: string;
     isNeo4jDbFilesComplete: boolean;
     isAdaCtlComplete: boolean;
+    ignore?: boolean;
+    ignoreReason?: string;
 }
 
 export interface extendedGPRProject extends GPRProject {
