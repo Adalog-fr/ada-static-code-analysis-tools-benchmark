@@ -100,7 +100,7 @@ export function filterCompleteCrates(crates: { [key: string]: Crate }): extended
 
         for (const projectInfo of crate.alireProjects) {
             for (const project of projectInfo.projects) {
-                if (project.isNeo4jDbFilesComplete && project.isAdaCtlComplete) {
+                if (project.isNeo4jDbFilesComplete && project.isAdaCtlComplete && !project.ignore) {
                     filteredCrates.push({...project, crateName, alireTomlPath: projectInfo.alireTomlPath})
                 }
             }
@@ -121,4 +121,36 @@ export function getAllIgnoredCrates(data : UnifiedCrateData): string[] {
     }
 
     return result;
+}
+
+/**
+ * Function to create a block of text with a border
+ * @param content The content to be displayed inside the block
+ * @param borderChar The character to use for the border (default: '#')
+ * @returns The formatted block as a string
+ */
+export function createBlock(content: string, borderChar: string = '#'): string {
+    // Split the content into lines
+    const lines: string[] = content.split('\n');
+
+    // Find the maximum line length
+    const maxLength: number = Math.max(...lines.map(line => line.length));
+
+    // Calculate the total width of the block
+    const totalWidth: number = maxLength + 4;
+
+    // Create the top and bottom borders
+    const border: string = borderChar.repeat(totalWidth);
+
+    // Format each line of content
+    const formattedLines: string[] = lines.map(line =>
+        `${borderChar} ${line.padEnd(maxLength)} ${borderChar}`
+    );
+
+    // Combine all parts of the block
+    return [
+        border,
+        ...formattedLines,
+        border
+    ].join('\n');
 }

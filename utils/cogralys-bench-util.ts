@@ -51,7 +51,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "%PRJ%",
         "@%UNITS%",
         "-o",
-        "adactl-$xpNum-j$max_procs.report",
+        "adactl-%PRJ_NAME%-$xpNum-j$max_procs.report",
         "-w",
         // | tee -a /workspaces/bench-source/Adactl_benchmark.output >> /workspaces/bench-source/Adactl_benchmark_second.output
 
