@@ -8,6 +8,7 @@ import * as CreateRunCommand from "./modules/runCommandFactory.ts";
 import * as CreateRunBenchmarkCommand from "./modules/runBenchmarkCommandFactory.ts";
 import * as GenerateEnv from "./modules/generate_env.ts";
 import * as Run from "./modules/run.ts";
+import * as CogralysRun from "./modules/cogralysRun.ts";
 import * as ExploreNeo4jDirs from "./modules/explore-neo4j-dirs.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
@@ -53,17 +54,6 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "-o",
         "adactl-%PRJ_NAME%-$xpNum-j$max_procs.report",
         "-w",
-        // | tee -a /workspaces/bench-source/Adactl_benchmark.output >> /workspaces/bench-source/Adactl_benchmark_second.output
-
-        // "|",
-        // "tee",
-        // "-a",
-        // "adactl-$xpnum-j$max_procs.log",
-        // ">>",
-        // "/workspaces/bench-source/Adactl_benchmark.output"
-
-        // "&>>",
-        // "/workspaces/bench-source/Adactl_benchmark.output"
     ]
 })
 
@@ -97,5 +87,7 @@ CountResults.initializeModule(program, {
     description: "Count reported results analysis from AdaControl",
     filePattern: "adactl.report"
 })
+
+CogralysRun.initializeModule(program);
 
 program.parse(Deno.args);
