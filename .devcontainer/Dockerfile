@@ -32,7 +32,9 @@ RUN apt-get install -y build-essential libssl-dev \
     libgnutls28-dev liblapack-dev \
     libmpfr-dev libcanberra-dev libusb-1.0-0-dev \
     # Install zsh and Oh-My-Posh for a better shell experience
-    zsh sudo
+    zsh sudo \
+    # Install jc to transform output of time in JSON format
+    jc
 
 # Install Oh My Posh for a better prompt
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s

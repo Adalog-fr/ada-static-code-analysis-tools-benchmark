@@ -33,12 +33,15 @@ xpNum=0
 max_procs=0
 # Root of the benchmark project
 PROJECT_ROOT=$PWD
+# Path to the rule file
+ruleFile="${settings.ruleFile}"
 
 # Function to display help information
 function show_help() {
     echo "Usage: $0 [-xpNum <number>] [-j <max_procs>] [-h|--help]"
     echo "  -xpNum <number>    Set the experience number."
     echo "  -j <max_procs>     Set the maximum number of processes."
+    echo "  -rule <path>       Set the path to the rule file."
     echo "  -h, --help         Show help information."
 }
 
@@ -51,6 +54,10 @@ while [[ "$#" -gt 0 ]]; do
             ;;
         -j)
             max_procs="$2"
+            shift 2  # Advance past the argument value
+            ;;
+        -rule)
+            ruleFile="$2"
             shift 2  # Advance past the argument value
             ;;
         -h|--help)
@@ -69,12 +76,13 @@ echo "" > ${globalLogFilePath}\n
 `;
 
             for (const project of projects) {
+                const localFileLogName = `${settings.command[0]}-${basename(project.gprPath).replace(".gpr", "")}-$xpNum-j$max_procs`;
                 resultFile += `echo [${i}/${maxProject}] START\n`;
                 resultFile += `cd "$PROJECT_ROOT/${project.alireTomlPath}"\n`;
 
                 resultFile += `echo "[START] process ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}\n`;
                 resultFile += `echo "" > ${settings.command[0]}-$xpNum-j$max_procs.log\n`;
-                resultFile += "{ time alr exec -- " +
+                resultFile += `{ /usr/bin/time -v -o ${localFileLogName}.time alr exec -- ` +
                 settings.command
                     .map(item => item.includes("%PRJ%") ?
                         item.replace("%PRJ%", "$PROJECT_ROOT/" + project.gprPath) : item)
@@ -83,7 +91,8 @@ echo "" > ${globalLogFilePath}\n
                     .map(item => item.includes("%PRJ_NAME%") ?
                     item.replace("%PRJ_NAME%", basename(project.gprPath).replace(".gpr", "")) : item)
                     .join(" ") +
-                    `; } &> >(tee -a ${settings.command[0]}-${basename(project.gprPath).replace(".gpr", "")}-$xpNum-j$max_procs.log ${globalLogFilePath} > /dev/null)\n`;
+                    `; } &> >(tee -a ${localFileLogName}.log ${globalLogFilePath} > /dev/null)\n`;
+                resultFile += `cat ${localFileLogName}.time | jc --time -p -r > ${localFileLogName}.time.json\n`;
                 resultFile += `echo "[END] process ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}\n`;
                 resultFile += `echo [${i}/${maxProject}] END\n`;
                 i++;

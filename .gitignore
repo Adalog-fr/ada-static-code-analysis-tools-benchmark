@@ -196,3 +196,5 @@ tmp
 #*benchmark.output.bak*
 githubAnalysis/repos
 scc_metrics.json
+*.time
+*.time.json

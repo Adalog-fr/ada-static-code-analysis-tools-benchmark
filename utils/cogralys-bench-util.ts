@@ -44,10 +44,11 @@ PopulateNeo4j.initializeModule(program);
 CreateRunBenchmarkCommand.initializeModule(program, {
     commandName: "bench-adactl",
     description: "Run Adactl benchmark",
+    ruleFile: "$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru",
     command: [
         "adactl",
         "-f",
-        "$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru",
+        "$ruleFile",
         "-p",
         "%PRJ%",
         "@%UNITS%",
@@ -60,6 +61,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
 CreateRunBenchmarkCommand.initializeModule(program, {
     commandName: "bench-gnatcheck",
     description: "Run GNATcheck benchmark",
+    ruleFile: "$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/gnatcheck.rules",
     command: [
         "gnatcheck",
         " --brief",
@@ -71,7 +73,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "gnatcheck-$xpNum-j$max_procs.report",
         "-P%PRJ%",
         "-rules",
-        `-from=$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/gnatcheck.rules`
+        `-from=$ruleFile`
     ]
 })
 

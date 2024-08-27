@@ -11,12 +11,15 @@ xpNum=0
 max_procs=0
 # Root of the benchmark project
 PROJECT_ROOT=$PWD
+# Path to the rule file
+ruleFile="$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru"
 
 # Function to display help information
 function show_help() {
     echo "Usage: $0 [-xpNum <number>] [-j <max_procs>] [-h|--help]"
     echo "  -xpNum <number>    Set the experience number."
     echo "  -j <max_procs>     Set the maximum number of processes."
+    echo "  -rule <path>       Set the path to the rule file."
     echo "  -h, --help         Show help information."
 }
 
@@ -29,6 +32,10 @@ while [[ "$#" -gt 0 ]]; do
             ;;
         -j)
             max_procs="$2"
+            shift 2  # Advance past the argument value
+            ;;
+        -rule)
+            ruleFile="$2"
             shift 2  # Advance past the argument value
             ;;
         -h|--help)
@@ -49,1182 +56,1351 @@ echo [1/169] START
 cd "$PROJECT_ROOT/src/aaa"
 echo "[START] process src/aaa: src/aaa/aaa.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/aaa/aaa.gpr @$PROJECT_ROOT/src/aaa/aaa.units -o adactl-aaa-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aaa-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-aaa-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/aaa/aaa.gpr @$PROJECT_ROOT/src/aaa/aaa.units -o adactl-aaa-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aaa-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-aaa-$xpNum-j$max_procs.time | jc --time -p -r > adactl-aaa-$xpNum-j$max_procs.time.json
 echo "[END] process src/aaa: src/aaa/aaa.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [1/169] END
 echo [2/169] START
 cd "$PROJECT_ROOT/src/ada_fuse"
 echo "[START] process src/ada_fuse: src/ada_fuse/ada_fuse.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ada_fuse/ada_fuse.gpr @$PROJECT_ROOT/src/ada_fuse/ada_fuse.units -o adactl-ada_fuse-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_fuse-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ada_fuse-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ada_fuse/ada_fuse.gpr @$PROJECT_ROOT/src/ada_fuse/ada_fuse.units -o adactl-ada_fuse-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_fuse-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ada_fuse-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ada_fuse-$xpNum-j$max_procs.time.json
 echo "[END] process src/ada_fuse: src/ada_fuse/ada_fuse.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [2/169] END
 echo [3/169] START
 cd "$PROJECT_ROOT/src/ada_lua"
 echo "[START] process src/ada_lua: src/ada_lua/ada_lua.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ada_lua/ada_lua.gpr @$PROJECT_ROOT/src/ada_lua/ada_lua.units -o adactl-ada_lua-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_lua-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ada_lua-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ada_lua/ada_lua.gpr @$PROJECT_ROOT/src/ada_lua/ada_lua.units -o adactl-ada_lua-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_lua-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ada_lua-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ada_lua-$xpNum-j$max_procs.time.json
 echo "[END] process src/ada_lua: src/ada_lua/ada_lua.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [3/169] END
 echo [4/169] START
 cd "$PROJECT_ROOT/src/ada_pretty"
 echo "[START] process src/ada_pretty: src/ada_pretty/gnat/ada_pretty.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ada_pretty/gnat/ada_pretty.gpr @$PROJECT_ROOT/src/ada_pretty/gnat/ada_pretty.units -o adactl-ada_pretty-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_pretty-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ada_pretty-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ada_pretty/gnat/ada_pretty.gpr @$PROJECT_ROOT/src/ada_pretty/gnat/ada_pretty.units -o adactl-ada_pretty-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_pretty-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ada_pretty-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ada_pretty-$xpNum-j$max_procs.time.json
 echo "[END] process src/ada_pretty: src/ada_pretty/gnat/ada_pretty.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [4/169] END
 echo [5/169] START
 cd "$PROJECT_ROOT/src/ada_toml"
 echo "[START] process src/ada_toml: src/ada_toml/ada_toml.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ada_toml/ada_toml.gpr @$PROJECT_ROOT/src/ada_toml/ada_toml.units -o adactl-ada_toml-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_toml-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ada_toml-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ada_toml/ada_toml.gpr @$PROJECT_ROOT/src/ada_toml/ada_toml.units -o adactl-ada_toml-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ada_toml-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ada_toml-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ada_toml-$xpNum-j$max_procs.time.json
 echo "[END] process src/ada_toml: src/ada_toml/ada_toml.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [5/169] END
 echo [6/169] START
 cd "$PROJECT_ROOT/src/adabots"
 echo "[START] process src/adabots: src/adabots/adabots.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/adabots/adabots.gpr @$PROJECT_ROOT/src/adabots/adabots.units -o adactl-adabots-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-adabots-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-adabots-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/adabots/adabots.gpr @$PROJECT_ROOT/src/adabots/adabots.units -o adactl-adabots-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-adabots-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-adabots-$xpNum-j$max_procs.time | jc --time -p -r > adactl-adabots-$xpNum-j$max_procs.time.json
 echo "[END] process src/adabots: src/adabots/adabots.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [6/169] END
 echo [7/169] START
 cd "$PROJECT_ROOT/src/adl_middleware"
 echo "[START] process src/adl_middleware: src/adl_middleware/adl_middleware.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/adl_middleware/adl_middleware.gpr @$PROJECT_ROOT/src/adl_middleware/adl_middleware.units -o adactl-adl_middleware-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-adl_middleware-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-adl_middleware-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/adl_middleware/adl_middleware.gpr @$PROJECT_ROOT/src/adl_middleware/adl_middleware.units -o adactl-adl_middleware-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-adl_middleware-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-adl_middleware-$xpNum-j$max_procs.time | jc --time -p -r > adactl-adl_middleware-$xpNum-j$max_procs.time.json
 echo "[END] process src/adl_middleware: src/adl_middleware/adl_middleware.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [7/169] END
 echo [8/169] START
 cd "$PROJECT_ROOT/src/aicwl"
 echo "[START] process src/aicwl: src/aicwl/sources/aicwl-editor.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/aicwl/sources/aicwl-editor.gpr @$PROJECT_ROOT/src/aicwl/sources/aicwl-editor.units -o adactl-aicwl-editor-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aicwl-editor-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-aicwl-editor-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/aicwl/sources/aicwl-editor.gpr @$PROJECT_ROOT/src/aicwl/sources/aicwl-editor.units -o adactl-aicwl-editor-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aicwl-editor-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-aicwl-editor-$xpNum-j$max_procs.time | jc --time -p -r > adactl-aicwl-editor-$xpNum-j$max_procs.time.json
 echo "[END] process src/aicwl: src/aicwl/sources/aicwl-editor.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [8/169] END
 echo [9/169] START
 cd "$PROJECT_ROOT/src/aicwl"
 echo "[START] process src/aicwl: src/aicwl/sources/aicwl.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/aicwl/sources/aicwl.gpr @$PROJECT_ROOT/src/aicwl/sources/aicwl.units -o adactl-aicwl-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aicwl-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-aicwl-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/aicwl/sources/aicwl.gpr @$PROJECT_ROOT/src/aicwl/sources/aicwl.units -o adactl-aicwl-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aicwl-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-aicwl-$xpNum-j$max_procs.time | jc --time -p -r > adactl-aicwl-$xpNum-j$max_procs.time.json
 echo "[END] process src/aicwl: src/aicwl/sources/aicwl.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [9/169] END
 echo [10/169] START
 cd "$PROJECT_ROOT/src/ajunitgen"
 echo "[START] process src/ajunitgen: src/ajunitgen/ajunitgen.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ajunitgen/ajunitgen.gpr @$PROJECT_ROOT/src/ajunitgen/ajunitgen.units -o adactl-ajunitgen-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ajunitgen-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ajunitgen-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ajunitgen/ajunitgen.gpr @$PROJECT_ROOT/src/ajunitgen/ajunitgen.units -o adactl-ajunitgen-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ajunitgen-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ajunitgen-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ajunitgen-$xpNum-j$max_procs.time.json
 echo "[END] process src/ajunitgen: src/ajunitgen/ajunitgen.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [10/169] END
 echo [11/169] START
 cd "$PROJECT_ROOT/src/anagram"
 echo "[START] process src/anagram: src/anagram/gnat/anagram.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/anagram/gnat/anagram.gpr @$PROJECT_ROOT/src/anagram/gnat/anagram.units -o adactl-anagram-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-anagram-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-anagram-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/anagram/gnat/anagram.gpr @$PROJECT_ROOT/src/anagram/gnat/anagram.units -o adactl-anagram-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-anagram-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-anagram-$xpNum-j$max_procs.time | jc --time -p -r > adactl-anagram-$xpNum-j$max_procs.time.json
 echo "[END] process src/anagram: src/anagram/gnat/anagram.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [11/169] END
 echo [12/169] START
 cd "$PROJECT_ROOT/src/ansiada"
 echo "[START] process src/ansiada: src/ansiada/ansiada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ansiada/ansiada.gpr @$PROJECT_ROOT/src/ansiada/ansiada.units -o adactl-ansiada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ansiada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ansiada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ansiada/ansiada.gpr @$PROJECT_ROOT/src/ansiada/ansiada.units -o adactl-ansiada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ansiada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ansiada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ansiada-$xpNum-j$max_procs.time.json
 echo "[END] process src/ansiada: src/ansiada/ansiada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [12/169] END
 echo [13/169] START
 cd "$PROJECT_ROOT/src/apdf"
 echo "[START] process src/apdf: src/apdf/pdf_out_gnat_w_gid.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/apdf/pdf_out_gnat_w_gid.gpr @$PROJECT_ROOT/src/apdf/pdf_out_gnat_w_gid.units -o adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/apdf/pdf_out_gnat_w_gid.gpr @$PROJECT_ROOT/src/apdf/pdf_out_gnat_w_gid.units -o adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.time | jc --time -p -r > adactl-pdf_out_gnat_w_gid-$xpNum-j$max_procs.time.json
 echo "[END] process src/apdf: src/apdf/pdf_out_gnat_w_gid.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [13/169] END
 echo [14/169] START
 cd "$PROJECT_ROOT/src/asfml"
 echo "[START] process src/asfml: src/asfml/asfml.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/asfml/asfml.gpr @$PROJECT_ROOT/src/asfml/asfml.units -o adactl-asfml-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-asfml-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-asfml-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/asfml/asfml.gpr @$PROJECT_ROOT/src/asfml/asfml.units -o adactl-asfml-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-asfml-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-asfml-$xpNum-j$max_procs.time | jc --time -p -r > adactl-asfml-$xpNum-j$max_procs.time.json
 echo "[END] process src/asfml: src/asfml/asfml.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [14/169] END
 echo [15/169] START
 cd "$PROJECT_ROOT/src/atomic"
 echo "[START] process src/atomic: src/atomic/atomic.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/atomic/atomic.gpr @$PROJECT_ROOT/src/atomic/atomic.units -o adactl-atomic-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-atomic-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-atomic-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/atomic/atomic.gpr @$PROJECT_ROOT/src/atomic/atomic.units -o adactl-atomic-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-atomic-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-atomic-$xpNum-j$max_procs.time | jc --time -p -r > adactl-atomic-$xpNum-j$max_procs.time.json
 echo "[END] process src/atomic: src/atomic/atomic.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [15/169] END
 echo [16/169] START
 cd "$PROJECT_ROOT/src/audio_base"
 echo "[START] process src/audio_base: src/audio_base/audio_base.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/audio_base/audio_base.gpr @$PROJECT_ROOT/src/audio_base/audio_base.units -o adactl-audio_base-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-audio_base-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-audio_base-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/audio_base/audio_base.gpr @$PROJECT_ROOT/src/audio_base/audio_base.units -o adactl-audio_base-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-audio_base-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-audio_base-$xpNum-j$max_procs.time | jc --time -p -r > adactl-audio_base-$xpNum-j$max_procs.time.json
 echo "[END] process src/audio_base: src/audio_base/audio_base.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [16/169] END
 echo [17/169] START
 cd "$PROJECT_ROOT/src/audio_wavefiles"
 echo "[START] process src/audio_wavefiles: src/audio_wavefiles/audio_wavefiles.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/audio_wavefiles/audio_wavefiles.gpr @$PROJECT_ROOT/src/audio_wavefiles/audio_wavefiles.units -o adactl-audio_wavefiles-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-audio_wavefiles-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-audio_wavefiles-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/audio_wavefiles/audio_wavefiles.gpr @$PROJECT_ROOT/src/audio_wavefiles/audio_wavefiles.units -o adactl-audio_wavefiles-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-audio_wavefiles-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-audio_wavefiles-$xpNum-j$max_procs.time | jc --time -p -r > adactl-audio_wavefiles-$xpNum-j$max_procs.time.json
 echo "[END] process src/audio_wavefiles: src/audio_wavefiles/audio_wavefiles.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [17/169] END
 echo [18/169] START
 cd "$PROJECT_ROOT/src/aunit"
 echo "[START] process src/aunit: src/aunit/lib/gnat/aunit.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/aunit/lib/gnat/aunit.gpr @$PROJECT_ROOT/src/aunit/lib/gnat/aunit.units -o adactl-aunit-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aunit-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-aunit-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/aunit/lib/gnat/aunit.gpr @$PROJECT_ROOT/src/aunit/lib/gnat/aunit.units -o adactl-aunit-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aunit-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-aunit-$xpNum-j$max_procs.time | jc --time -p -r > adactl-aunit-$xpNum-j$max_procs.time.json
 echo "[END] process src/aunit: src/aunit/lib/gnat/aunit.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [18/169] END
 echo [19/169] START
 cd "$PROJECT_ROOT/src/automate"
 echo "[START] process src/automate: src/automate/automate.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/automate/automate.gpr @$PROJECT_ROOT/src/automate/automate.units -o adactl-automate-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-automate-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-automate-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/automate/automate.gpr @$PROJECT_ROOT/src/automate/automate.units -o adactl-automate-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-automate-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-automate-$xpNum-j$max_procs.time | jc --time -p -r > adactl-automate-$xpNum-j$max_procs.time.json
 echo "[END] process src/automate: src/automate/automate.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [19/169] END
 echo [20/169] START
 cd "$PROJECT_ROOT/src/avltrees"
 echo "[START] process src/avltrees: src/avltrees/avltrees.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/avltrees/avltrees.gpr @$PROJECT_ROOT/src/avltrees/avltrees.units -o adactl-avltrees-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-avltrees-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-avltrees-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/avltrees/avltrees.gpr @$PROJECT_ROOT/src/avltrees/avltrees.units -o adactl-avltrees-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-avltrees-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-avltrees-$xpNum-j$max_procs.time | jc --time -p -r > adactl-avltrees-$xpNum-j$max_procs.time.json
 echo "[END] process src/avltrees: src/avltrees/avltrees.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [20/169] END
 echo [21/169] START
 cd "$PROJECT_ROOT/src/aws"
 echo "[START] process src/aws: src/aws/aws.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/aws/aws.gpr @$PROJECT_ROOT/src/aws/aws.units -o adactl-aws-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aws-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-aws-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/aws/aws.gpr @$PROJECT_ROOT/src/aws/aws.units -o adactl-aws-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-aws-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-aws-$xpNum-j$max_procs.time | jc --time -p -r > adactl-aws-$xpNum-j$max_procs.time.json
 echo "[END] process src/aws: src/aws/aws.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [21/169] END
 echo [22/169] START
 cd "$PROJECT_ROOT/src/axmpp"
 echo "[START] process src/axmpp: src/axmpp/gnat/axmpp.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/axmpp/gnat/axmpp.gpr @$PROJECT_ROOT/src/axmpp/gnat/axmpp.units -o adactl-axmpp-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-axmpp-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-axmpp-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/axmpp/gnat/axmpp.gpr @$PROJECT_ROOT/src/axmpp/gnat/axmpp.units -o adactl-axmpp-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-axmpp-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-axmpp-$xpNum-j$max_procs.time | jc --time -p -r > adactl-axmpp-$xpNum-j$max_procs.time.json
 echo "[END] process src/axmpp: src/axmpp/gnat/axmpp.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [22/169] END
 echo [23/169] START
 cd "$PROJECT_ROOT/src/ayacc"
 echo "[START] process src/ayacc: src/ayacc/ayacc.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ayacc/ayacc.gpr @$PROJECT_ROOT/src/ayacc/ayacc.units -o adactl-ayacc-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ayacc-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ayacc-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ayacc/ayacc.gpr @$PROJECT_ROOT/src/ayacc/ayacc.units -o adactl-ayacc-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ayacc-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ayacc-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ayacc-$xpNum-j$max_procs.time.json
 echo "[END] process src/ayacc: src/ayacc/ayacc.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [23/169] END
 echo [24/169] START
 cd "$PROJECT_ROOT/src/b2ssum"
 echo "[START] process src/b2ssum: src/b2ssum/b2ssum.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/b2ssum/b2ssum.gpr @$PROJECT_ROOT/src/b2ssum/b2ssum.units -o adactl-b2ssum-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-b2ssum-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-b2ssum-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/b2ssum/b2ssum.gpr @$PROJECT_ROOT/src/b2ssum/b2ssum.units -o adactl-b2ssum-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-b2ssum-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-b2ssum-$xpNum-j$max_procs.time | jc --time -p -r > adactl-b2ssum-$xpNum-j$max_procs.time.json
 echo "[END] process src/b2ssum: src/b2ssum/b2ssum.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [24/169] END
 echo [25/169] START
 cd "$PROJECT_ROOT/src/bar_codes"
 echo "[START] process src/bar_codes: src/bar_codes/bar_codes_gnat.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/bar_codes/bar_codes_gnat.gpr @$PROJECT_ROOT/src/bar_codes/bar_codes_gnat.units -o adactl-bar_codes_gnat-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-bar_codes_gnat-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-bar_codes_gnat-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/bar_codes/bar_codes_gnat.gpr @$PROJECT_ROOT/src/bar_codes/bar_codes_gnat.units -o adactl-bar_codes_gnat-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-bar_codes_gnat-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-bar_codes_gnat-$xpNum-j$max_procs.time | jc --time -p -r > adactl-bar_codes_gnat-$xpNum-j$max_procs.time.json
 echo "[END] process src/bar_codes: src/bar_codes/bar_codes_gnat.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [25/169] END
 echo [26/169] START
 cd "$PROJECT_ROOT/src/basalt"
 echo "[START] process src/basalt: src/basalt/basalt.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/basalt/basalt.gpr @$PROJECT_ROOT/src/basalt/basalt.units -o adactl-basalt-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-basalt-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-basalt-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/basalt/basalt.gpr @$PROJECT_ROOT/src/basalt/basalt.units -o adactl-basalt-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-basalt-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-basalt-$xpNum-j$max_procs.time | jc --time -p -r > adactl-basalt-$xpNum-j$max_procs.time.json
 echo "[END] process src/basalt: src/basalt/basalt.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [26/169] END
 echo [27/169] START
 cd "$PROJECT_ROOT/src/bingada"
 echo "[START] process src/bingada: src/bingada/bingada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/bingada/bingada.gpr @$PROJECT_ROOT/src/bingada/bingada.units -o adactl-bingada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-bingada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-bingada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/bingada/bingada.gpr @$PROJECT_ROOT/src/bingada/bingada.units -o adactl-bingada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-bingada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-bingada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-bingada-$xpNum-j$max_procs.time.json
 echo "[END] process src/bingada: src/bingada/bingada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [27/169] END
 echo [28/169] START
 cd "$PROJECT_ROOT/src/blake2s"
 echo "[START] process src/blake2s: src/blake2s/blake2s.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/blake2s/blake2s.gpr @$PROJECT_ROOT/src/blake2s/blake2s.units -o adactl-blake2s-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-blake2s-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-blake2s-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/blake2s/blake2s.gpr @$PROJECT_ROOT/src/blake2s/blake2s.units -o adactl-blake2s-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-blake2s-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-blake2s-$xpNum-j$max_procs.time | jc --time -p -r > adactl-blake2s-$xpNum-j$max_procs.time.json
 echo "[END] process src/blake2s: src/blake2s/blake2s.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [28/169] END
 echo [29/169] START
 cd "$PROJECT_ROOT/src/brackelib"
 echo "[START] process src/brackelib: src/brackelib/brackelib.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/brackelib/brackelib.gpr @$PROJECT_ROOT/src/brackelib/brackelib.units -o adactl-brackelib-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-brackelib-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-brackelib-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/brackelib/brackelib.gpr @$PROJECT_ROOT/src/brackelib/brackelib.units -o adactl-brackelib-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-brackelib-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-brackelib-$xpNum-j$max_procs.time | jc --time -p -r > adactl-brackelib-$xpNum-j$max_procs.time.json
 echo "[END] process src/brackelib: src/brackelib/brackelib.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [29/169] END
 echo [30/169] START
 cd "$PROJECT_ROOT/src/c_strings"
 echo "[START] process src/c_strings: src/c_strings/c_strings.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/c_strings/c_strings.gpr @$PROJECT_ROOT/src/c_strings/c_strings.units -o adactl-c_strings-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-c_strings-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-c_strings-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/c_strings/c_strings.gpr @$PROJECT_ROOT/src/c_strings/c_strings.units -o adactl-c_strings-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-c_strings-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-c_strings-$xpNum-j$max_procs.time | jc --time -p -r > adactl-c_strings-$xpNum-j$max_procs.time.json
 echo "[END] process src/c_strings: src/c_strings/c_strings.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [30/169] END
 echo [31/169] START
 cd "$PROJECT_ROOT/src/canberra_ada"
 echo "[START] process src/canberra_ada: src/canberra_ada/canberra_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/canberra_ada/canberra_ada.gpr @$PROJECT_ROOT/src/canberra_ada/canberra_ada.units -o adactl-canberra_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-canberra_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-canberra_ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/canberra_ada/canberra_ada.gpr @$PROJECT_ROOT/src/canberra_ada/canberra_ada.units -o adactl-canberra_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-canberra_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-canberra_ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-canberra_ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/canberra_ada: src/canberra_ada/canberra_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [31/169] END
 echo [32/169] START
 cd "$PROJECT_ROOT/src/cbsg"
 echo "[START] process src/cbsg: src/cbsg/cbsg.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/cbsg/cbsg.gpr @$PROJECT_ROOT/src/cbsg/cbsg.units -o adactl-cbsg-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-cbsg-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-cbsg-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/cbsg/cbsg.gpr @$PROJECT_ROOT/src/cbsg/cbsg.units -o adactl-cbsg-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-cbsg-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-cbsg-$xpNum-j$max_procs.time | jc --time -p -r > adactl-cbsg-$xpNum-j$max_procs.time.json
 echo "[END] process src/cbsg: src/cbsg/cbsg.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [32/169] END
 echo [33/169] START
 cd "$PROJECT_ROOT/src/chacha20"
 echo "[START] process src/chacha20: src/chacha20/chacha20.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/chacha20/chacha20.gpr @$PROJECT_ROOT/src/chacha20/chacha20.units -o adactl-chacha20-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-chacha20-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-chacha20-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/chacha20/chacha20.gpr @$PROJECT_ROOT/src/chacha20/chacha20.units -o adactl-chacha20-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-chacha20-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-chacha20-$xpNum-j$max_procs.time | jc --time -p -r > adactl-chacha20-$xpNum-j$max_procs.time.json
 echo "[END] process src/chacha20: src/chacha20/chacha20.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [33/169] END
 echo [34/169] START
 cd "$PROJECT_ROOT/src/chests"
 echo "[START] process src/chests: src/chests/chests.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/chests/chests.gpr @$PROJECT_ROOT/src/chests/chests.units -o adactl-chests-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-chests-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-chests-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/chests/chests.gpr @$PROJECT_ROOT/src/chests/chests.units -o adactl-chests-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-chests-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-chests-$xpNum-j$max_procs.time | jc --time -p -r > adactl-chests-$xpNum-j$max_procs.time.json
 echo "[END] process src/chests: src/chests/chests.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [34/169] END
 echo [35/169] START
 cd "$PROJECT_ROOT/src/cmd_ada"
 echo "[START] process src/cmd_ada: src/cmd_ada/cmd_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/cmd_ada/cmd_ada.gpr @$PROJECT_ROOT/src/cmd_ada/cmd_ada.units -o adactl-cmd_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-cmd_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-cmd_ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/cmd_ada/cmd_ada.gpr @$PROJECT_ROOT/src/cmd_ada/cmd_ada.units -o adactl-cmd_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-cmd_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-cmd_ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-cmd_ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/cmd_ada: src/cmd_ada/cmd_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [35/169] END
 echo [36/169] START
 cd "$PROJECT_ROOT/src/cobs"
 echo "[START] process src/cobs: src/cobs/cobs.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/cobs/cobs.gpr @$PROJECT_ROOT/src/cobs/cobs.units -o adactl-cobs-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-cobs-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-cobs-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/cobs/cobs.gpr @$PROJECT_ROOT/src/cobs/cobs.units -o adactl-cobs-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-cobs-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-cobs-$xpNum-j$max_procs.time | jc --time -p -r > adactl-cobs-$xpNum-j$max_procs.time.json
 echo "[END] process src/cobs: src/cobs/cobs.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [36/169] END
 echo [37/169] START
 cd "$PROJECT_ROOT/src/dashera"
 echo "[START] process src/dashera: src/dashera/dashera.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/dashera/dashera.gpr @$PROJECT_ROOT/src/dashera/dashera.units -o adactl-dashera-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dashera-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-dashera-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/dashera/dashera.gpr @$PROJECT_ROOT/src/dashera/dashera.units -o adactl-dashera-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dashera-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-dashera-$xpNum-j$max_procs.time | jc --time -p -r > adactl-dashera-$xpNum-j$max_procs.time.json
 echo "[END] process src/dashera: src/dashera/dashera.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [37/169] END
 echo [38/169] START
 cd "$PROJECT_ROOT/src/dcf"
 echo "[START] process src/dcf: src/dcf/zipdcf/zipdcf.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/dcf/zipdcf/zipdcf.gpr @$PROJECT_ROOT/src/dcf/zipdcf/zipdcf.units -o adactl-zipdcf-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zipdcf-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-zipdcf-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/dcf/zipdcf/zipdcf.gpr @$PROJECT_ROOT/src/dcf/zipdcf/zipdcf.units -o adactl-zipdcf-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zipdcf-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-zipdcf-$xpNum-j$max_procs.time | jc --time -p -r > adactl-zipdcf-$xpNum-j$max_procs.time.json
 echo "[END] process src/dcf: src/dcf/zipdcf/zipdcf.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [38/169] END
 echo [39/169] START
 cd "$PROJECT_ROOT/src/dg_loada"
 echo "[START] process src/dg_loada: src/dg_loada/dg_loada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/dg_loada/dg_loada.gpr @$PROJECT_ROOT/src/dg_loada/dg_loada.units -o adactl-dg_loada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dg_loada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-dg_loada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/dg_loada/dg_loada.gpr @$PROJECT_ROOT/src/dg_loada/dg_loada.units -o adactl-dg_loada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dg_loada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-dg_loada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-dg_loada-$xpNum-j$max_procs.time.json
 echo "[END] process src/dg_loada: src/dg_loada/dg_loada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [39/169] END
 echo [40/169] START
 cd "$PROJECT_ROOT/src/dir_iterators"
 echo "[START] process src/dir_iterators: src/dir_iterators/dir_iterators.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/dir_iterators/dir_iterators.gpr @$PROJECT_ROOT/src/dir_iterators/dir_iterators.units -o adactl-dir_iterators-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dir_iterators-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-dir_iterators-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/dir_iterators/dir_iterators.gpr @$PROJECT_ROOT/src/dir_iterators/dir_iterators.units -o adactl-dir_iterators-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dir_iterators-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-dir_iterators-$xpNum-j$max_procs.time | jc --time -p -r > adactl-dir_iterators-$xpNum-j$max_procs.time.json
 echo "[END] process src/dir_iterators: src/dir_iterators/dir_iterators.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [40/169] END
 echo [41/169] START
 cd "$PROJECT_ROOT/src/dotenv"
 echo "[START] process src/dotenv: src/dotenv/dotenv.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/dotenv/dotenv.gpr @$PROJECT_ROOT/src/dotenv/dotenv.units -o adactl-dotenv-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dotenv-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-dotenv-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/dotenv/dotenv.gpr @$PROJECT_ROOT/src/dotenv/dotenv.units -o adactl-dotenv-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-dotenv-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-dotenv-$xpNum-j$max_procs.time | jc --time -p -r > adactl-dotenv-$xpNum-j$max_procs.time.json
 echo "[END] process src/dotenv: src/dotenv/dotenv.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [41/169] END
 echo [42/169] START
 cd "$PROJECT_ROOT/src/eagle_lander"
 echo "[START] process src/eagle_lander: src/eagle_lander/eagle_lander.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/eagle_lander/eagle_lander.gpr @$PROJECT_ROOT/src/eagle_lander/eagle_lander.units -o adactl-eagle_lander-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-eagle_lander-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-eagle_lander-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/eagle_lander/eagle_lander.gpr @$PROJECT_ROOT/src/eagle_lander/eagle_lander.units -o adactl-eagle_lander-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-eagle_lander-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-eagle_lander-$xpNum-j$max_procs.time | jc --time -p -r > adactl-eagle_lander-$xpNum-j$max_procs.time.json
 echo "[END] process src/eagle_lander: src/eagle_lander/eagle_lander.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [42/169] END
 echo [43/169] START
 cd "$PROJECT_ROOT/src/edc_client"
 echo "[START] process src/edc_client: src/edc_client/edc_client.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/edc_client/edc_client.gpr @$PROJECT_ROOT/src/edc_client/edc_client.units -o adactl-edc_client-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-edc_client-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-edc_client-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/edc_client/edc_client.gpr @$PROJECT_ROOT/src/edc_client/edc_client.units -o adactl-edc_client-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-edc_client-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-edc_client-$xpNum-j$max_procs.time | jc --time -p -r > adactl-edc_client-$xpNum-j$max_procs.time.json
 echo "[END] process src/edc_client: src/edc_client/edc_client.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [43/169] END
 echo [44/169] START
 cd "$PROJECT_ROOT/src/eeprom_i2c"
 echo "[START] process src/eeprom_i2c: src/eeprom_i2c/eeprom_i2c.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/eeprom_i2c/eeprom_i2c.gpr @$PROJECT_ROOT/src/eeprom_i2c/eeprom_i2c.units -o adactl-eeprom_i2c-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-eeprom_i2c-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-eeprom_i2c-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/eeprom_i2c/eeprom_i2c.gpr @$PROJECT_ROOT/src/eeprom_i2c/eeprom_i2c.units -o adactl-eeprom_i2c-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-eeprom_i2c-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-eeprom_i2c-$xpNum-j$max_procs.time | jc --time -p -r > adactl-eeprom_i2c-$xpNum-j$max_procs.time.json
 echo "[END] process src/eeprom_i2c: src/eeprom_i2c/eeprom_i2c.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [44/169] END
 echo [45/169] START
 cd "$PROJECT_ROOT/src/elevator"
 echo "[START] process src/elevator: src/elevator/elevator.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/elevator/elevator.gpr @$PROJECT_ROOT/src/elevator/elevator.units -o adactl-elevator-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-elevator-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-elevator-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/elevator/elevator.gpr @$PROJECT_ROOT/src/elevator/elevator.units -o adactl-elevator-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-elevator-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-elevator-$xpNum-j$max_procs.time | jc --time -p -r > adactl-elevator-$xpNum-j$max_procs.time.json
 echo "[END] process src/elevator: src/elevator/elevator.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [45/169] END
 echo [46/169] START
 cd "$PROJECT_ROOT/src/emacs_gpr_query"
 echo "[START] process src/emacs_gpr_query: src/emacs_gpr_query/emacs_gpr_query.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/emacs_gpr_query/emacs_gpr_query.gpr @$PROJECT_ROOT/src/emacs_gpr_query/emacs_gpr_query.units -o adactl-emacs_gpr_query-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-emacs_gpr_query-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-emacs_gpr_query-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/emacs_gpr_query/emacs_gpr_query.gpr @$PROJECT_ROOT/src/emacs_gpr_query/emacs_gpr_query.units -o adactl-emacs_gpr_query-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-emacs_gpr_query-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-emacs_gpr_query-$xpNum-j$max_procs.time | jc --time -p -r > adactl-emacs_gpr_query-$xpNum-j$max_procs.time.json
 echo "[END] process src/emacs_gpr_query: src/emacs_gpr_query/emacs_gpr_query.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [46/169] END
 echo [47/169] START
 cd "$PROJECT_ROOT/src/emojis"
 echo "[START] process src/emojis: src/emojis/emojis.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/emojis/emojis.gpr @$PROJECT_ROOT/src/emojis/emojis.units -o adactl-emojis-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-emojis-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-emojis-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/emojis/emojis.gpr @$PROJECT_ROOT/src/emojis/emojis.units -o adactl-emojis-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-emojis-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-emojis-$xpNum-j$max_procs.time | jc --time -p -r > adactl-emojis-$xpNum-j$max_procs.time.json
 echo "[END] process src/emojis: src/emojis/emojis.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [47/169] END
 echo [48/169] START
 cd "$PROJECT_ROOT/src/endianness"
 echo "[START] process src/endianness: src/endianness/endianness.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/endianness/endianness.gpr @$PROJECT_ROOT/src/endianness/endianness.units -o adactl-endianness-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-endianness-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-endianness-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/endianness/endianness.gpr @$PROJECT_ROOT/src/endianness/endianness.units -o adactl-endianness-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-endianness-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-endianness-$xpNum-j$max_procs.time | jc --time -p -r > adactl-endianness-$xpNum-j$max_procs.time.json
 echo "[END] process src/endianness: src/endianness/endianness.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [48/169] END
 echo [49/169] START
 cd "$PROJECT_ROOT/src/epoll"
 echo "[START] process src/epoll: src/epoll/epoll.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/epoll/epoll.gpr @$PROJECT_ROOT/src/epoll/epoll.units -o adactl-epoll-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-epoll-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-epoll-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/epoll/epoll.gpr @$PROJECT_ROOT/src/epoll/epoll.units -o adactl-epoll-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-epoll-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-epoll-$xpNum-j$max_procs.time | jc --time -p -r > adactl-epoll-$xpNum-j$max_procs.time.json
 echo "[END] process src/epoll: src/epoll/epoll.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [49/169] END
 echo [50/169] START
 cd "$PROJECT_ROOT/src/esp_idf"
 echo "[START] process src/esp_idf: src/esp_idf/esp_idf.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/esp_idf/esp_idf.gpr @$PROJECT_ROOT/src/esp_idf/esp_idf.units -o adactl-esp_idf-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-esp_idf-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-esp_idf-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/esp_idf/esp_idf.gpr @$PROJECT_ROOT/src/esp_idf/esp_idf.units -o adactl-esp_idf-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-esp_idf-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-esp_idf-$xpNum-j$max_procs.time | jc --time -p -r > adactl-esp_idf-$xpNum-j$max_procs.time.json
 echo "[END] process src/esp_idf: src/esp_idf/esp_idf.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [50/169] END
 echo [51/169] START
 cd "$PROJECT_ROOT/src/evdev"
 echo "[START] process src/evdev: src/evdev/evdev_info.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/evdev/evdev_info.gpr @$PROJECT_ROOT/src/evdev/evdev_info.units -o adactl-evdev_info-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-evdev_info-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-evdev_info-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/evdev/evdev_info.gpr @$PROJECT_ROOT/src/evdev/evdev_info.units -o adactl-evdev_info-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-evdev_info-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-evdev_info-$xpNum-j$max_procs.time | jc --time -p -r > adactl-evdev_info-$xpNum-j$max_procs.time.json
 echo "[END] process src/evdev: src/evdev/evdev_info.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [51/169] END
 echo [52/169] START
 cd "$PROJECT_ROOT/src/ews"
 echo "[START] process src/ews: src/ews/ews.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ews/ews.gpr @$PROJECT_ROOT/src/ews/ews.units -o adactl-ews-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ews-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ews-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ews/ews.gpr @$PROJECT_ROOT/src/ews/ews.units -o adactl-ews-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ews-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ews-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ews-$xpNum-j$max_procs.time.json
 echo "[END] process src/ews: src/ews/ews.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [52/169] END
 echo [53/169] START
 cd "$PROJECT_ROOT/src/excel_writer"
 echo "[START] process src/excel_writer: src/excel_writer/excel_out_gnat.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/excel_writer/excel_out_gnat.gpr @$PROJECT_ROOT/src/excel_writer/excel_out_gnat.units -o adactl-excel_out_gnat-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-excel_out_gnat-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-excel_out_gnat-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/excel_writer/excel_out_gnat.gpr @$PROJECT_ROOT/src/excel_writer/excel_out_gnat.units -o adactl-excel_out_gnat-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-excel_out_gnat-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-excel_out_gnat-$xpNum-j$max_procs.time | jc --time -p -r > adactl-excel_out_gnat-$xpNum-j$max_procs.time.json
 echo "[END] process src/excel_writer: src/excel_writer/excel_out_gnat.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [53/169] END
 echo [54/169] START
 cd "$PROJECT_ROOT/src/fastpbkdf2_ada"
 echo "[START] process src/fastpbkdf2_ada: src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr @$PROJECT_ROOT/src/fastpbkdf2_ada/fastpbkdf2_ada.units -o adactl-fastpbkdf2_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-fastpbkdf2_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-fastpbkdf2_ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr @$PROJECT_ROOT/src/fastpbkdf2_ada/fastpbkdf2_ada.units -o adactl-fastpbkdf2_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-fastpbkdf2_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-fastpbkdf2_ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-fastpbkdf2_ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/fastpbkdf2_ada: src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [54/169] END
 echo [55/169] START
 cd "$PROJECT_ROOT/src/felix"
 echo "[START] process src/felix: src/felix/felix.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/felix/felix.gpr @$PROJECT_ROOT/src/felix/felix.units -o adactl-felix-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-felix-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-felix-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/felix/felix.gpr @$PROJECT_ROOT/src/felix/felix.units -o adactl-felix-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-felix-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-felix-$xpNum-j$max_procs.time | jc --time -p -r > adactl-felix-$xpNum-j$max_procs.time.json
 echo "[END] process src/felix: src/felix/felix.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [55/169] END
 echo [56/169] START
 cd "$PROJECT_ROOT/src/freetypeada"
 echo "[START] process src/freetypeada: src/freetypeada/freetype.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/freetypeada/freetype.gpr @$PROJECT_ROOT/src/freetypeada/freetype.units -o adactl-freetype-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-freetype-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-freetype-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/freetypeada/freetype.gpr @$PROJECT_ROOT/src/freetypeada/freetype.units -o adactl-freetype-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-freetype-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-freetype-$xpNum-j$max_procs.time | jc --time -p -r > adactl-freetype-$xpNum-j$max_procs.time.json
 echo "[END] process src/freetypeada: src/freetypeada/freetype.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [56/169] END
 echo [57/169] START
 cd "$PROJECT_ROOT/src/garlic"
 echo "[START] process src/garlic: src/garlic/gnat/gnatdist.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/garlic/gnat/gnatdist.gpr @$PROJECT_ROOT/src/garlic/gnat/gnatdist.units -o adactl-gnatdist-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatdist-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gnatdist-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/garlic/gnat/gnatdist.gpr @$PROJECT_ROOT/src/garlic/gnat/gnatdist.units -o adactl-gnatdist-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatdist-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gnatdist-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gnatdist-$xpNum-j$max_procs.time.json
 echo "[END] process src/garlic: src/garlic/gnat/gnatdist.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [57/169] END
 echo [58/169] START
 cd "$PROJECT_ROOT/src/geo_coords"
 echo "[START] process src/geo_coords: src/geo_coords/geo_coords.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/geo_coords/geo_coords.gpr @$PROJECT_ROOT/src/geo_coords/geo_coords.units -o adactl-geo_coords-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-geo_coords-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-geo_coords-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/geo_coords/geo_coords.gpr @$PROJECT_ROOT/src/geo_coords/geo_coords.units -o adactl-geo_coords-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-geo_coords-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-geo_coords-$xpNum-j$max_procs.time | jc --time -p -r > adactl-geo_coords-$xpNum-j$max_procs.time.json
 echo "[END] process src/geo_coords: src/geo_coords/geo_coords.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [58/169] END
 echo [59/169] START
 cd "$PROJECT_ROOT/src/get_password"
 echo "[START] process src/get_password: src/get_password/get_password.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/get_password/get_password.gpr @$PROJECT_ROOT/src/get_password/get_password.units -o adactl-get_password-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-get_password-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-get_password-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/get_password/get_password.gpr @$PROJECT_ROOT/src/get_password/get_password.units -o adactl-get_password-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-get_password-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-get_password-$xpNum-j$max_procs.time | jc --time -p -r > adactl-get_password-$xpNum-j$max_procs.time.json
 echo "[END] process src/get_password: src/get_password/get_password.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [59/169] END
 echo [60/169] START
 cd "$PROJECT_ROOT/src/getopt"
 echo "[START] process src/getopt: src/getopt/getopt.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/getopt/getopt.gpr @$PROJECT_ROOT/src/getopt/getopt.units -o adactl-getopt-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-getopt-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-getopt-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/getopt/getopt.gpr @$PROJECT_ROOT/src/getopt/getopt.units -o adactl-getopt-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-getopt-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-getopt-$xpNum-j$max_procs.time | jc --time -p -r > adactl-getopt-$xpNum-j$max_procs.time.json
 echo "[END] process src/getopt: src/getopt/getopt.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [60/169] END
 echo [61/169] START
 cd "$PROJECT_ROOT/src/gid"
 echo "[START] process src/gid: src/gid/gid.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gid/gid.gpr @$PROJECT_ROOT/src/gid/gid.units -o adactl-gid-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gid-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gid-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gid/gid.gpr @$PROJECT_ROOT/src/gid/gid.units -o adactl-gid-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gid-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gid-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gid-$xpNum-j$max_procs.time.json
 echo "[END] process src/gid: src/gid/gid.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [61/169] END
 echo [62/169] START
 cd "$PROJECT_ROOT/src/gnat_math_extensions"
 echo "[START] process src/gnat_math_extensions: src/gnat_math_extensions/gnat_math_extensions.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gnat_math_extensions/gnat_math_extensions.gpr @$PROJECT_ROOT/src/gnat_math_extensions/gnat_math_extensions.units -o adactl-gnat_math_extensions-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnat_math_extensions-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gnat_math_extensions-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gnat_math_extensions/gnat_math_extensions.gpr @$PROJECT_ROOT/src/gnat_math_extensions/gnat_math_extensions.units -o adactl-gnat_math_extensions-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnat_math_extensions-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gnat_math_extensions-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gnat_math_extensions-$xpNum-j$max_procs.time.json
 echo "[END] process src/gnat_math_extensions: src/gnat_math_extensions/gnat_math_extensions.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [62/169] END
 echo [63/169] START
 cd "$PROJECT_ROOT/src/gnatcoll-bindings/lzma"
 echo "[START] process src/gnatcoll-bindings/lzma: src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/lzma/gnatcoll_lzma.units -o adactl-gnatcoll_lzma-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_lzma-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gnatcoll_lzma-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/lzma/gnatcoll_lzma.units -o adactl-gnatcoll_lzma-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_lzma-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gnatcoll_lzma-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gnatcoll_lzma-$xpNum-j$max_procs.time.json
 echo "[END] process src/gnatcoll-bindings/lzma: src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [63/169] END
 echo [64/169] START
 cd "$PROJECT_ROOT/src/gnatcoll-bindings/omp"
 echo "[START] process src/gnatcoll-bindings/omp: src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/omp/gnatcoll_omp.units -o adactl-gnatcoll_omp-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_omp-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gnatcoll_omp-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/omp/gnatcoll_omp.units -o adactl-gnatcoll_omp-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_omp-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gnatcoll_omp-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gnatcoll_omp-$xpNum-j$max_procs.time.json
 echo "[END] process src/gnatcoll-bindings/omp: src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [64/169] END
 echo [65/169] START
 cd "$PROJECT_ROOT/src/gnatcoll-bindings/readline"
 echo "[START] process src/gnatcoll-bindings/readline: src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/readline/gnatcoll_readline.units -o adactl-gnatcoll_readline-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_readline-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gnatcoll_readline-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/readline/gnatcoll_readline.units -o adactl-gnatcoll_readline-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_readline-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gnatcoll_readline-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gnatcoll_readline-$xpNum-j$max_procs.time.json
 echo "[END] process src/gnatcoll-bindings/readline: src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [65/169] END
 echo [66/169] START
 cd "$PROJECT_ROOT/src/gnatcoll-bindings/zlib"
 echo "[START] process src/gnatcoll-bindings/zlib: src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/zlib/gnatcoll_zlib.units -o adactl-gnatcoll_zlib-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_zlib-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gnatcoll_zlib-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr @$PROJECT_ROOT/src/gnatcoll-bindings/zlib/gnatcoll_zlib.units -o adactl-gnatcoll_zlib-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gnatcoll_zlib-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gnatcoll_zlib-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gnatcoll_zlib-$xpNum-j$max_procs.time.json
 echo "[END] process src/gnatcoll-bindings/zlib: src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [66/169] END
 echo [67/169] START
 cd "$PROJECT_ROOT/src/gtkada"
 echo "[START] process src/gtkada: src/gtkada/src/gtkada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gtkada/src/gtkada.gpr @$PROJECT_ROOT/src/gtkada/src/gtkada.units -o adactl-gtkada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gtkada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gtkada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gtkada/src/gtkada.gpr @$PROJECT_ROOT/src/gtkada/src/gtkada.units -o adactl-gtkada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gtkada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gtkada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gtkada-$xpNum-j$max_procs.time.json
 echo "[END] process src/gtkada: src/gtkada/src/gtkada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [67/169] END
 echo [68/169] START
 cd "$PROJECT_ROOT/src/hac"
 echo "[START] process src/hac: src/hac/hac.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/hac/hac.gpr @$PROJECT_ROOT/src/hac/hac.units -o adactl-hac-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hac-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-hac-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/hac/hac.gpr @$PROJECT_ROOT/src/hac/hac.units -o adactl-hac-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hac-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-hac-$xpNum-j$max_procs.time | jc --time -p -r > adactl-hac-$xpNum-j$max_procs.time.json
 echo "[END] process src/hac: src/hac/hac.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [68/169] END
 echo [69/169] START
 cd "$PROJECT_ROOT/src/hal"
 echo "[START] process src/hal: src/hal/hal.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/hal/hal.gpr @$PROJECT_ROOT/src/hal/hal.units -o adactl-hal-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hal-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-hal-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/hal/hal.gpr @$PROJECT_ROOT/src/hal/hal.units -o adactl-hal-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hal-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-hal-$xpNum-j$max_procs.time | jc --time -p -r > adactl-hal-$xpNum-j$max_procs.time.json
 echo "[END] process src/hal: src/hal/hal.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [69/169] END
 echo [70/169] START
 cd "$PROJECT_ROOT/src/hangman"
 echo "[START] process src/hangman: src/hangman/hangman.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/hangman/hangman.gpr @$PROJECT_ROOT/src/hangman/hangman.units -o adactl-hangman-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hangman-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-hangman-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/hangman/hangman.gpr @$PROJECT_ROOT/src/hangman/hangman.units -o adactl-hangman-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hangman-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-hangman-$xpNum-j$max_procs.time | jc --time -p -r > adactl-hangman-$xpNum-j$max_procs.time.json
 echo "[END] process src/hangman: src/hangman/hangman.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [70/169] END
 echo [71/169] START
 cd "$PROJECT_ROOT/src/hello"
 echo "[START] process src/hello: src/hello/hello.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/hello/hello.gpr @$PROJECT_ROOT/src/hello/hello.units -o adactl-hello-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hello-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-hello-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/hello/hello.gpr @$PROJECT_ROOT/src/hello/hello.units -o adactl-hello-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hello-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-hello-$xpNum-j$max_procs.time | jc --time -p -r > adactl-hello-$xpNum-j$max_procs.time.json
 echo "[END] process src/hello: src/hello/hello.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [71/169] END
 echo [72/169] START
 cd "$PROJECT_ROOT/src/hmac"
 echo "[START] process src/hmac: src/hmac/hmac.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/hmac/hmac.gpr @$PROJECT_ROOT/src/hmac/hmac.units -o adactl-hmac-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hmac-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-hmac-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/hmac/hmac.gpr @$PROJECT_ROOT/src/hmac/hmac.units -o adactl-hmac-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hmac-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-hmac-$xpNum-j$max_procs.time | jc --time -p -r > adactl-hmac-$xpNum-j$max_procs.time.json
 echo "[END] process src/hmac: src/hmac/hmac.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [72/169] END
 echo [73/169] START
 cd "$PROJECT_ROOT/src/hungarian"
 echo "[START] process src/hungarian: src/hungarian/hungarian.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/hungarian/hungarian.gpr @$PROJECT_ROOT/src/hungarian/hungarian.units -o adactl-hungarian-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hungarian-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-hungarian-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/hungarian/hungarian.gpr @$PROJECT_ROOT/src/hungarian/hungarian.units -o adactl-hungarian-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-hungarian-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-hungarian-$xpNum-j$max_procs.time | jc --time -p -r > adactl-hungarian-$xpNum-j$max_procs.time.json
 echo "[END] process src/hungarian: src/hungarian/hungarian.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [73/169] END
 echo [74/169] START
 cd "$PROJECT_ROOT/src/ini_files"
 echo "[START] process src/ini_files: src/ini_files/ini_files.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/ini_files/ini_files.gpr @$PROJECT_ROOT/src/ini_files/ini_files.units -o adactl-ini_files-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ini_files-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-ini_files-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/ini_files/ini_files.gpr @$PROJECT_ROOT/src/ini_files/ini_files.units -o adactl-ini_files-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-ini_files-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-ini_files-$xpNum-j$max_procs.time | jc --time -p -r > adactl-ini_files-$xpNum-j$max_procs.time.json
 echo "[END] process src/ini_files: src/ini_files/ini_files.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [74/169] END
 echo [75/169] START
 cd "$PROJECT_ROOT/src/inotify"
 echo "[START] process src/inotify: src/inotify/monitor.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/inotify/monitor.gpr @$PROJECT_ROOT/src/inotify/monitor.units -o adactl-monitor-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-monitor-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-monitor-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/inotify/monitor.gpr @$PROJECT_ROOT/src/inotify/monitor.units -o adactl-monitor-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-monitor-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-monitor-$xpNum-j$max_procs.time | jc --time -p -r > adactl-monitor-$xpNum-j$max_procs.time.json
 echo "[END] process src/inotify: src/inotify/monitor.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [75/169] END
 echo [76/169] START
 cd "$PROJECT_ROOT/src/j2ada"
 echo "[START] process src/j2ada: src/j2ada/j2ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/j2ada/j2ada.gpr @$PROJECT_ROOT/src/j2ada/j2ada.units -o adactl-j2ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-j2ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-j2ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/j2ada/j2ada.gpr @$PROJECT_ROOT/src/j2ada/j2ada.units -o adactl-j2ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-j2ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-j2ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-j2ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/j2ada: src/j2ada/j2ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [76/169] END
 echo [77/169] START
 cd "$PROJECT_ROOT/src/json/json"
 echo "[START] process src/json/json: src/json/json/json_pretty_print.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/json/json/json_pretty_print.gpr @$PROJECT_ROOT/src/json/json/json_pretty_print.units -o adactl-json_pretty_print-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-json_pretty_print-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-json_pretty_print-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/json/json/json_pretty_print.gpr @$PROJECT_ROOT/src/json/json/json_pretty_print.units -o adactl-json_pretty_print-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-json_pretty_print-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-json_pretty_print-$xpNum-j$max_procs.time | jc --time -p -r > adactl-json_pretty_print-$xpNum-j$max_procs.time.json
 echo "[END] process src/json/json: src/json/json/json_pretty_print.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [77/169] END
 echo [78/169] START
 cd "$PROJECT_ROOT/src/json/json"
 echo "[START] process src/json/json: src/json/json/json.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/json/json/json.gpr @$PROJECT_ROOT/src/json/json/json.units -o adactl-json-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-json-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-json-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/json/json/json.gpr @$PROJECT_ROOT/src/json/json/json.units -o adactl-json-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-json-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-json-$xpNum-j$max_procs.time | jc --time -p -r > adactl-json-$xpNum-j$max_procs.time.json
 echo "[END] process src/json/json: src/json/json/json.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [78/169] END
 echo [79/169] START
 cd "$PROJECT_ROOT/src/jupyter_kernel"
 echo "[START] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr @$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_driver.units -o adactl-jupyter_ada_driver-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-jupyter_ada_driver-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-jupyter_ada_driver-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr @$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_driver.units -o adactl-jupyter_ada_driver-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-jupyter_ada_driver-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-jupyter_ada_driver-$xpNum-j$max_procs.time | jc --time -p -r > adactl-jupyter_ada_driver-$xpNum-j$max_procs.time.json
 echo "[END] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [79/169] END
 echo [80/169] START
 cd "$PROJECT_ROOT/src/jupyter_kernel"
 echo "[START] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr @$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_kernel.units -o adactl-jupyter_ada_kernel-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-jupyter_ada_kernel-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-jupyter_ada_kernel-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr @$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_kernel.units -o adactl-jupyter_ada_kernel-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-jupyter_ada_kernel-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-jupyter_ada_kernel-$xpNum-j$max_procs.time | jc --time -p -r > adactl-jupyter_ada_kernel-$xpNum-j$max_procs.time.json
 echo "[END] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [80/169] END
 echo [81/169] START
 cd "$PROJECT_ROOT/src/jwt"
 echo "[START] process src/jwt: src/jwt/gnat/jwt.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/jwt/gnat/jwt.gpr @$PROJECT_ROOT/src/jwt/gnat/jwt.units -o adactl-jwt-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-jwt-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-jwt-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/jwt/gnat/jwt.gpr @$PROJECT_ROOT/src/jwt/gnat/jwt.units -o adactl-jwt-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-jwt-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-jwt-$xpNum-j$max_procs.time | jc --time -p -r > adactl-jwt-$xpNum-j$max_procs.time.json
 echo "[END] process src/jwt: src/jwt/gnat/jwt.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [81/169] END
 echo [82/169] START
 cd "$PROJECT_ROOT/src/labs_radar"
 echo "[START] process src/labs_radar: src/labs_radar/labs_standalone/labs_standalone.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/labs_radar/labs_standalone/labs_standalone.gpr @$PROJECT_ROOT/src/labs_radar/labs_standalone/labs_standalone.units -o adactl-labs_standalone-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-labs_standalone-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-labs_standalone-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/labs_radar/labs_standalone/labs_standalone.gpr @$PROJECT_ROOT/src/labs_radar/labs_standalone/labs_standalone.units -o adactl-labs_standalone-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-labs_standalone-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-labs_standalone-$xpNum-j$max_procs.time | jc --time -p -r > adactl-labs_standalone-$xpNum-j$max_procs.time.json
 echo "[END] process src/labs_radar: src/labs_radar/labs_standalone/labs_standalone.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [82/169] END
 echo [83/169] START
 cd "$PROJECT_ROOT/src/lal_highlight"
 echo "[START] process src/lal_highlight: src/lal_highlight/highlight.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/lal_highlight/highlight.gpr @$PROJECT_ROOT/src/lal_highlight/highlight.units -o adactl-highlight-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-highlight-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-highlight-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/lal_highlight/highlight.gpr @$PROJECT_ROOT/src/lal_highlight/highlight.units -o adactl-highlight-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-highlight-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-highlight-$xpNum-j$max_procs.time | jc --time -p -r > adactl-highlight-$xpNum-j$max_procs.time.json
 echo "[END] process src/lal_highlight: src/lal_highlight/highlight.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [83/169] END
 echo [84/169] START
 cd "$PROJECT_ROOT/src/langkit_support"
 echo "[START] process src/langkit_support: src/langkit_support/langkit_support.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/langkit_support/langkit_support.gpr @$PROJECT_ROOT/src/langkit_support/langkit_support.units -o adactl-langkit_support-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-langkit_support-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-langkit_support-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/langkit_support/langkit_support.gpr @$PROJECT_ROOT/src/langkit_support/langkit_support.units -o adactl-langkit_support-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-langkit_support-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-langkit_support-$xpNum-j$max_procs.time | jc --time -p -r > adactl-langkit_support-$xpNum-j$max_procs.time.json
 echo "[END] process src/langkit_support: src/langkit_support/langkit_support.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [84/169] END
 echo [85/169] START
 cd "$PROJECT_ROOT/src/gprbuild"
 echo "[START] process src/gprbuild: src/gprbuild/gpr/gpr.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/gprbuild/gpr/gpr.gpr @$PROJECT_ROOT/src/gprbuild/gpr/gpr.units -o adactl-gpr-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gpr-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-gpr-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/gprbuild/gpr/gpr.gpr @$PROJECT_ROOT/src/gprbuild/gpr/gpr.units -o adactl-gpr-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-gpr-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-gpr-$xpNum-j$max_procs.time | jc --time -p -r > adactl-gpr-$xpNum-j$max_procs.time.json
 echo "[END] process src/gprbuild: src/gprbuild/gpr/gpr.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [85/169] END
 echo [86/169] START
 cd "$PROJECT_ROOT/src/libhello"
 echo "[START] process src/libhello: src/libhello/libhello.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/libhello/libhello.gpr @$PROJECT_ROOT/src/libhello/libhello.units -o adactl-libhello-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-libhello-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-libhello-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/libhello/libhello.gpr @$PROJECT_ROOT/src/libhello/libhello.units -o adactl-libhello-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-libhello-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-libhello-$xpNum-j$max_procs.time | jc --time -p -r > adactl-libhello-$xpNum-j$max_procs.time.json
 echo "[END] process src/libhello: src/libhello/libhello.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [86/169] END
 echo [87/169] START
 cd "$PROJECT_ROOT/src/libsimpleio"
 echo "[START] process src/libsimpleio: src/libsimpleio/libsimpleio.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/libsimpleio/libsimpleio.gpr @$PROJECT_ROOT/src/libsimpleio/libsimpleio.units -o adactl-libsimpleio-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-libsimpleio-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-libsimpleio-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/libsimpleio/libsimpleio.gpr @$PROJECT_ROOT/src/libsimpleio/libsimpleio.units -o adactl-libsimpleio-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-libsimpleio-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-libsimpleio-$xpNum-j$max_procs.time | jc --time -p -r > adactl-libsimpleio-$xpNum-j$max_procs.time.json
 echo "[END] process src/libsimpleio: src/libsimpleio/libsimpleio.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [87/169] END
 echo [88/169] START
 cd "$PROJECT_ROOT/src/linenoise_ada"
 echo "[START] process src/linenoise_ada: src/linenoise_ada/linenoise.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/linenoise_ada/linenoise.gpr @$PROJECT_ROOT/src/linenoise_ada/linenoise.units -o adactl-linenoise-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-linenoise-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-linenoise-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/linenoise_ada/linenoise.gpr @$PROJECT_ROOT/src/linenoise_ada/linenoise.units -o adactl-linenoise-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-linenoise-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-linenoise-$xpNum-j$max_procs.time | jc --time -p -r > adactl-linenoise-$xpNum-j$max_procs.time.json
 echo "[END] process src/linenoise_ada: src/linenoise_ada/linenoise.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [88/169] END
 echo [89/169] START
 cd "$PROJECT_ROOT/src/littlefs"
 echo "[START] process src/littlefs: src/littlefs/littlefs.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/littlefs/littlefs.gpr @$PROJECT_ROOT/src/littlefs/littlefs.units -o adactl-littlefs-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-littlefs-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-littlefs-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/littlefs/littlefs.gpr @$PROJECT_ROOT/src/littlefs/littlefs.units -o adactl-littlefs-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-littlefs-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-littlefs-$xpNum-j$max_procs.time | jc --time -p -r > adactl-littlefs-$xpNum-j$max_procs.time.json
 echo "[END] process src/littlefs: src/littlefs/littlefs.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [89/169] END
 echo [90/169] START
 cd "$PROJECT_ROOT/src/loga"
 echo "[START] process src/loga: src/loga/loga.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/loga/loga.gpr @$PROJECT_ROOT/src/loga/loga.units -o adactl-loga-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-loga-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-loga-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/loga/loga.gpr @$PROJECT_ROOT/src/loga/loga.units -o adactl-loga-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-loga-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-loga-$xpNum-j$max_procs.time | jc --time -p -r > adactl-loga-$xpNum-j$max_procs.time.json
 echo "[END] process src/loga: src/loga/loga.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [90/169] END
 echo [91/169] START
 cd "$PROJECT_ROOT/src/lvgl_ada"
 echo "[START] process src/lvgl_ada: src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr @$PROJECT_ROOT/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.units -o adactl-lvgl_ada_simulator-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-lvgl_ada_simulator-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-lvgl_ada_simulator-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr @$PROJECT_ROOT/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.units -o adactl-lvgl_ada_simulator-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-lvgl_ada_simulator-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-lvgl_ada_simulator-$xpNum-j$max_procs.time | jc --time -p -r > adactl-lvgl_ada_simulator-$xpNum-j$max_procs.time.json
 echo "[END] process src/lvgl_ada: src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [91/169] END
 echo [92/169] START
 cd "$PROJECT_ROOT/src/mandelbrot_ascii"
 echo "[START] process src/mandelbrot_ascii: src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/mandelbrot_ascii/mandelbrot_ascii.gpr @$PROJECT_ROOT/src/mandelbrot_ascii/mandelbrot_ascii.units -o adactl-mandelbrot_ascii-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-mandelbrot_ascii-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-mandelbrot_ascii-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/mandelbrot_ascii/mandelbrot_ascii.gpr @$PROJECT_ROOT/src/mandelbrot_ascii/mandelbrot_ascii.units -o adactl-mandelbrot_ascii-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-mandelbrot_ascii-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-mandelbrot_ascii-$xpNum-j$max_procs.time | jc --time -p -r > adactl-mandelbrot_ascii-$xpNum-j$max_procs.time.json
 echo "[END] process src/mandelbrot_ascii: src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [92/169] END
 echo [93/169] START
 cd "$PROJECT_ROOT/src/markdown"
 echo "[START] process src/markdown: src/markdown/gnat/markdown.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/markdown/gnat/markdown.gpr @$PROJECT_ROOT/src/markdown/gnat/markdown.units -o adactl-markdown-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-markdown-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-markdown-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/markdown/gnat/markdown.gpr @$PROJECT_ROOT/src/markdown/gnat/markdown.units -o adactl-markdown-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-markdown-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-markdown-$xpNum-j$max_procs.time | jc --time -p -r > adactl-markdown-$xpNum-j$max_procs.time.json
 echo "[END] process src/markdown: src/markdown/gnat/markdown.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [93/169] END
 echo [94/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_fastcgi"
 echo "[START] process src/matreshka/packages/alire/matreshka_fastcgi: src/matreshka/gnat/matreshka_fastcgi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_fastcgi.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_fastcgi.units -o adactl-matreshka_fastcgi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_fastcgi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-matreshka_fastcgi-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_fastcgi.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_fastcgi.units -o adactl-matreshka_fastcgi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_fastcgi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-matreshka_fastcgi-$xpNum-j$max_procs.time | jc --time -p -r > adactl-matreshka_fastcgi-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_fastcgi: src/matreshka/gnat/matreshka_fastcgi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [94/169] END
 echo [95/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league"
 echo "[START] process src/matreshka/packages/alire/matreshka_league: src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr @$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.units -o adactl-build_matreshka_league-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-build_matreshka_league-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-build_matreshka_league-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr @$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.units -o adactl-build_matreshka_league-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-build_matreshka_league-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-build_matreshka_league-$xpNum-j$max_procs.time | jc --time -p -r > adactl-build_matreshka_league-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_league: src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [95/169] END
 echo [96/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_servlet"
 echo "[START] process src/matreshka/packages/alire/matreshka_servlet: src/matreshka/gnat/matreshka_servlet.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_servlet.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_servlet.units -o adactl-matreshka_servlet-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_servlet-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-matreshka_servlet-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_servlet.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_servlet.units -o adactl-matreshka_servlet-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_servlet-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-matreshka_servlet-$xpNum-j$max_procs.time | jc --time -p -r > adactl-matreshka_servlet-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_servlet: src/matreshka/gnat/matreshka_servlet.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [96/169] END
 echo [97/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_soap"
 echo "[START] process src/matreshka/packages/alire/matreshka_soap: src/matreshka/gnat/matreshka_soap_wsse.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_soap_wsse.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_soap_wsse.units -o adactl-matreshka_soap_wsse-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_soap_wsse-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-matreshka_soap_wsse-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_soap_wsse.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_soap_wsse.units -o adactl-matreshka_soap_wsse-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_soap_wsse-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-matreshka_soap_wsse-$xpNum-j$max_procs.time | jc --time -p -r > adactl-matreshka_soap_wsse-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_soap: src/matreshka/gnat/matreshka_soap_wsse.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [97/169] END
 echo [98/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_spikedog_api"
 echo "[START] process src/matreshka/packages/alire/matreshka_spikedog_api: src/matreshka/gnat/matreshka_spikedog_api.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_api.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_api.units -o adactl-matreshka_spikedog_api-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_spikedog_api-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-matreshka_spikedog_api-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_api.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_api.units -o adactl-matreshka_spikedog_api-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_spikedog_api-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-matreshka_spikedog_api-$xpNum-j$max_procs.time | jc --time -p -r > adactl-matreshka_spikedog_api-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_spikedog_api: src/matreshka/gnat/matreshka_spikedog_api.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [98/169] END
 echo [99/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_spikedog_core"
 echo "[START] process src/matreshka/packages/alire/matreshka_spikedog_core: src/matreshka/gnat/matreshka_spikedog_core.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_core.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_core.units -o adactl-matreshka_spikedog_core-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_spikedog_core-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-matreshka_spikedog_core-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_core.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_core.units -o adactl-matreshka_spikedog_core-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_spikedog_core-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-matreshka_spikedog_core-$xpNum-j$max_procs.time | jc --time -p -r > adactl-matreshka_spikedog_core-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_spikedog_core: src/matreshka/gnat/matreshka_spikedog_core.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [99/169] END
 echo [100/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_sql"
 echo "[START] process src/matreshka/packages/alire/matreshka_sql: src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_sql_sqlite3.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_sql_sqlite3.units -o adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/gnat/matreshka_sql_sqlite3.gpr @$PROJECT_ROOT/src/matreshka/gnat/matreshka_sql_sqlite3.units -o adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.time | jc --time -p -r > adactl-matreshka_sql_sqlite3-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_sql: src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [100/169] END
 echo [101/169] START
 cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml"
 echo "[START] process src/matreshka/packages/alire/matreshka_xml: src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr @$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.units -o adactl-build_matreshka_xml-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-build_matreshka_xml-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-build_matreshka_xml-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr @$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.units -o adactl-build_matreshka_xml-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-build_matreshka_xml-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-build_matreshka_xml-$xpNum-j$max_procs.time | jc --time -p -r > adactl-build_matreshka_xml-$xpNum-j$max_procs.time.json
 echo "[END] process src/matreshka/packages/alire/matreshka_xml: src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [101/169] END
 echo [102/169] START
 cd "$PROJECT_ROOT/src/mcp2221"
 echo "[START] process src/mcp2221: src/mcp2221/mcp2221.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/mcp2221/mcp2221.gpr @$PROJECT_ROOT/src/mcp2221/mcp2221.units -o adactl-mcp2221-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-mcp2221-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-mcp2221-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/mcp2221/mcp2221.gpr @$PROJECT_ROOT/src/mcp2221/mcp2221.units -o adactl-mcp2221-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-mcp2221-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-mcp2221-$xpNum-j$max_procs.time | jc --time -p -r > adactl-mcp2221-$xpNum-j$max_procs.time.json
 echo "[END] process src/mcp2221: src/mcp2221/mcp2221.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [102/169] END
 echo [103/169] START
 cd "$PROJECT_ROOT/src/midi"
 echo "[START] process src/midi: src/midi/midi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/midi/midi.gpr @$PROJECT_ROOT/src/midi/midi.units -o adactl-midi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-midi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-midi-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/midi/midi.gpr @$PROJECT_ROOT/src/midi/midi.units -o adactl-midi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-midi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-midi-$xpNum-j$max_procs.time | jc --time -p -r > adactl-midi-$xpNum-j$max_procs.time.json
 echo "[END] process src/midi: src/midi/midi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [103/169] END
 echo [104/169] START
 cd "$PROJECT_ROOT/src/minirest"
 echo "[START] process src/minirest: src/minirest/minirest.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/minirest/minirest.gpr @$PROJECT_ROOT/src/minirest/minirest.units -o adactl-minirest-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-minirest-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-minirest-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/minirest/minirest.gpr @$PROJECT_ROOT/src/minirest/minirest.units -o adactl-minirest-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-minirest-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-minirest-$xpNum-j$max_procs.time | jc --time -p -r > adactl-minirest-$xpNum-j$max_procs.time.json
 echo "[END] process src/minirest: src/minirest/minirest.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [104/169] END
 echo [105/169] START
 cd "$PROJECT_ROOT/src/openglada"
 echo "[START] process src/openglada: src/openglada/openglada_text/opengl-text.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/openglada/openglada_text/opengl-text.gpr @$PROJECT_ROOT/src/openglada/openglada_text/opengl-text.units -o adactl-opengl-text-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-opengl-text-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-opengl-text-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/openglada/openglada_text/opengl-text.gpr @$PROJECT_ROOT/src/openglada/openglada_text/opengl-text.units -o adactl-opengl-text-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-opengl-text-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-opengl-text-$xpNum-j$max_procs.time | jc --time -p -r > adactl-opengl-text-$xpNum-j$max_procs.time.json
 echo "[END] process src/openglada: src/openglada/openglada_text/opengl-text.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [105/169] END
 echo [106/169] START
 cd "$PROJECT_ROOT/src/parse_args"
 echo "[START] process src/parse_args: src/parse_args/parse_args.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/parse_args/parse_args.gpr @$PROJECT_ROOT/src/parse_args/parse_args.units -o adactl-parse_args-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-parse_args-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-parse_args-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/parse_args/parse_args.gpr @$PROJECT_ROOT/src/parse_args/parse_args.units -o adactl-parse_args-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-parse_args-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-parse_args-$xpNum-j$max_procs.time | jc --time -p -r > adactl-parse_args-$xpNum-j$max_procs.time.json
 echo "[END] process src/parse_args: src/parse_args/parse_args.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [106/169] END
 echo [107/169] START
 cd "$PROJECT_ROOT/src/partord"
 echo "[START] process src/partord: src/partord/partord.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/partord/partord.gpr @$PROJECT_ROOT/src/partord/partord.units -o adactl-partord-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-partord-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-partord-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/partord/partord.gpr @$PROJECT_ROOT/src/partord/partord.units -o adactl-partord-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-partord-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-partord-$xpNum-j$max_procs.time | jc --time -p -r > adactl-partord-$xpNum-j$max_procs.time.json
 echo "[END] process src/partord: src/partord/partord.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [107/169] END
 echo [108/169] START
 cd "$PROJECT_ROOT/src/pbkdf2"
 echo "[START] process src/pbkdf2: src/pbkdf2/pbkdf2.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/pbkdf2/pbkdf2.gpr @$PROJECT_ROOT/src/pbkdf2/pbkdf2.units -o adactl-pbkdf2-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-pbkdf2-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-pbkdf2-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/pbkdf2/pbkdf2.gpr @$PROJECT_ROOT/src/pbkdf2/pbkdf2.units -o adactl-pbkdf2-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-pbkdf2-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-pbkdf2-$xpNum-j$max_procs.time | jc --time -p -r > adactl-pbkdf2-$xpNum-j$max_procs.time.json
 echo "[END] process src/pbkdf2: src/pbkdf2/pbkdf2.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [108/169] END
 echo [109/169] START
 cd "$PROJECT_ROOT/src/play_2048"
 echo "[START] process src/play_2048: src/play_2048/play_2048.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/play_2048/play_2048.gpr @$PROJECT_ROOT/src/play_2048/play_2048.units -o adactl-play_2048-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-play_2048-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-play_2048-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/play_2048/play_2048.gpr @$PROJECT_ROOT/src/play_2048/play_2048.units -o adactl-play_2048-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-play_2048-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-play_2048-$xpNum-j$max_procs.time | jc --time -p -r > adactl-play_2048-$xpNum-j$max_procs.time.json
 echo "[END] process src/play_2048: src/play_2048/play_2048.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [109/169] END
 echo [110/169] START
 cd "$PROJECT_ROOT/src/powerjoular"
 echo "[START] process src/powerjoular: src/powerjoular/powerjoular.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/powerjoular/powerjoular.gpr @$PROJECT_ROOT/src/powerjoular/powerjoular.units -o adactl-powerjoular-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-powerjoular-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-powerjoular-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/powerjoular/powerjoular.gpr @$PROJECT_ROOT/src/powerjoular/powerjoular.units -o adactl-powerjoular-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-powerjoular-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-powerjoular-$xpNum-j$max_procs.time | jc --time -p -r > adactl-powerjoular-$xpNum-j$max_procs.time.json
 echo "[END] process src/powerjoular: src/powerjoular/powerjoular.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [110/169] END
 echo [111/169] START
 cd "$PROJECT_ROOT/src/protobuf"
 echo "[START] process src/protobuf: src/protobuf/gnat/protoc_gen_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.gpr @$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.units -o adactl-protoc_gen_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-protoc_gen_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-protoc_gen_ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.gpr @$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.units -o adactl-protoc_gen_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-protoc_gen_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-protoc_gen_ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-protoc_gen_ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/protobuf: src/protobuf/gnat/protoc_gen_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [111/169] END
 echo [112/169] START
 cd "$PROJECT_ROOT/src/qoi"
 echo "[START] process src/qoi: src/qoi/qoi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/qoi/qoi.gpr @$PROJECT_ROOT/src/qoi/qoi.units -o adactl-qoi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-qoi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-qoi-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/qoi/qoi.gpr @$PROJECT_ROOT/src/qoi/qoi.units -o adactl-qoi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-qoi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-qoi-$xpNum-j$max_procs.time | jc --time -p -r > adactl-qoi-$xpNum-j$max_procs.time.json
 echo "[END] process src/qoi: src/qoi/qoi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [112/169] END
 echo [113/169] START
 cd "$PROJECT_ROOT/src/raspberry_bsp"
 echo "[START] process src/raspberry_bsp: src/raspberry_bsp/raspberry_bsp.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/raspberry_bsp/raspberry_bsp.gpr @$PROJECT_ROOT/src/raspberry_bsp/raspberry_bsp.units -o adactl-raspberry_bsp-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-raspberry_bsp-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-raspberry_bsp-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/raspberry_bsp/raspberry_bsp.gpr @$PROJECT_ROOT/src/raspberry_bsp/raspberry_bsp.units -o adactl-raspberry_bsp-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-raspberry_bsp-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-raspberry_bsp-$xpNum-j$max_procs.time | jc --time -p -r > adactl-raspberry_bsp-$xpNum-j$max_procs.time.json
 echo "[END] process src/raspberry_bsp: src/raspberry_bsp/raspberry_bsp.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [113/169] END
 echo [114/169] START
 cd "$PROJECT_ROOT/src/rejuvenation"
 echo "[START] process src/rejuvenation: src/rejuvenation/rejuvenation.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/rejuvenation/rejuvenation.gpr @$PROJECT_ROOT/src/rejuvenation/rejuvenation.units -o adactl-rejuvenation-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rejuvenation-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-rejuvenation-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/rejuvenation/rejuvenation.gpr @$PROJECT_ROOT/src/rejuvenation/rejuvenation.units -o adactl-rejuvenation-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rejuvenation-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-rejuvenation-$xpNum-j$max_procs.time | jc --time -p -r > adactl-rejuvenation-$xpNum-j$max_procs.time.json
 echo "[END] process src/rejuvenation: src/rejuvenation/rejuvenation.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [114/169] END
 echo [115/169] START
 cd "$PROJECT_ROOT/src/remoteio"
 echo "[START] process src/remoteio: src/remoteio/remoteio.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/remoteio/remoteio.gpr @$PROJECT_ROOT/src/remoteio/remoteio.units -o adactl-remoteio-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-remoteio-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-remoteio-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/remoteio/remoteio.gpr @$PROJECT_ROOT/src/remoteio/remoteio.units -o adactl-remoteio-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-remoteio-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-remoteio-$xpNum-j$max_procs.time | jc --time -p -r > adactl-remoteio-$xpNum-j$max_procs.time.json
 echo "[END] process src/remoteio: src/remoteio/remoteio.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [115/169] END
 echo [116/169] START
 cd "$PROJECT_ROOT/src/resources"
 echo "[START] process src/resources: src/resources/resources.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/resources/resources.gpr @$PROJECT_ROOT/src/resources/resources.units -o adactl-resources-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-resources-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-resources-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/resources/resources.gpr @$PROJECT_ROOT/src/resources/resources.units -o adactl-resources-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-resources-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-resources-$xpNum-j$max_procs.time | jc --time -p -r > adactl-resources-$xpNum-j$max_procs.time.json
 echo "[END] process src/resources: src/resources/resources.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [116/169] END
 echo [117/169] START
 cd "$PROJECT_ROOT/src/rewriters"
 echo "[START] process src/rewriters: src/rewriters/rewriters.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/rewriters/rewriters.gpr @$PROJECT_ROOT/src/rewriters/rewriters.units -o adactl-rewriters-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rewriters-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-rewriters-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/rewriters/rewriters.gpr @$PROJECT_ROOT/src/rewriters/rewriters.units -o adactl-rewriters-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rewriters-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-rewriters-$xpNum-j$max_procs.time | jc --time -p -r > adactl-rewriters-$xpNum-j$max_procs.time.json
 echo "[END] process src/rewriters: src/rewriters/rewriters.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [117/169] END
 echo [118/169] START
 cd "$PROJECT_ROOT/src/rsfile"
 echo "[START] process src/rsfile: src/rsfile/rsfile.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/rsfile/rsfile.gpr @$PROJECT_ROOT/src/rsfile/rsfile.units -o adactl-rsfile-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rsfile-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-rsfile-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/rsfile/rsfile.gpr @$PROJECT_ROOT/src/rsfile/rsfile.units -o adactl-rsfile-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rsfile-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-rsfile-$xpNum-j$max_procs.time | jc --time -p -r > adactl-rsfile-$xpNum-j$max_procs.time.json
 echo "[END] process src/rsfile: src/rsfile/rsfile.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [118/169] END
 echo [119/169] START
 cd "$PROJECT_ROOT/src/rtmidi"
 echo "[START] process src/rtmidi: src/rtmidi/rtmidi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/rtmidi/rtmidi.gpr @$PROJECT_ROOT/src/rtmidi/rtmidi.units -o adactl-rtmidi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rtmidi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-rtmidi-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/rtmidi/rtmidi.gpr @$PROJECT_ROOT/src/rtmidi/rtmidi.units -o adactl-rtmidi-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-rtmidi-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-rtmidi-$xpNum-j$max_procs.time | jc --time -p -r > adactl-rtmidi-$xpNum-j$max_procs.time.json
 echo "[END] process src/rtmidi: src/rtmidi/rtmidi.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [119/169] END
 echo [120/169] START
 cd "$PROJECT_ROOT/src/saatana"
 echo "[START] process src/saatana: src/saatana/saatana.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/saatana/saatana.gpr @$PROJECT_ROOT/src/saatana/saatana.units -o adactl-saatana-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-saatana-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-saatana-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/saatana/saatana.gpr @$PROJECT_ROOT/src/saatana/saatana.units -o adactl-saatana-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-saatana-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-saatana-$xpNum-j$max_procs.time | jc --time -p -r > adactl-saatana-$xpNum-j$max_procs.time.json
 echo "[END] process src/saatana: src/saatana/saatana.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [120/169] END
 echo [121/169] START
 cd "$PROJECT_ROOT/src/scripted_testing"
 echo "[START] process src/scripted_testing: src/scripted_testing/scripted_testing.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/scripted_testing/scripted_testing.gpr @$PROJECT_ROOT/src/scripted_testing/scripted_testing.units -o adactl-scripted_testing-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-scripted_testing-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-scripted_testing-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/scripted_testing/scripted_testing.gpr @$PROJECT_ROOT/src/scripted_testing/scripted_testing.units -o adactl-scripted_testing-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-scripted_testing-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-scripted_testing-$xpNum-j$max_procs.time | jc --time -p -r > adactl-scripted_testing-$xpNum-j$max_procs.time.json
 echo "[END] process src/scripted_testing: src/scripted_testing/scripted_testing.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [121/169] END
 echo [122/169] START
 cd "$PROJECT_ROOT/src/sdlada"
 echo "[START] process src/sdlada: src/sdlada/build/gnat/sdlada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/sdlada/build/gnat/sdlada.gpr @$PROJECT_ROOT/src/sdlada/build/gnat/sdlada.units -o adactl-sdlada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-sdlada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-sdlada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/sdlada/build/gnat/sdlada.gpr @$PROJECT_ROOT/src/sdlada/build/gnat/sdlada.units -o adactl-sdlada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-sdlada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-sdlada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-sdlada-$xpNum-j$max_procs.time.json
 echo "[END] process src/sdlada: src/sdlada/build/gnat/sdlada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [122/169] END
 echo [123/169] START
 cd "$PROJECT_ROOT/src/semantic_versioning"
 echo "[START] process src/semantic_versioning: src/semantic_versioning/semantic_versioning.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/semantic_versioning/semantic_versioning.gpr @$PROJECT_ROOT/src/semantic_versioning/semantic_versioning.units -o adactl-semantic_versioning-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-semantic_versioning-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-semantic_versioning-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/semantic_versioning/semantic_versioning.gpr @$PROJECT_ROOT/src/semantic_versioning/semantic_versioning.units -o adactl-semantic_versioning-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-semantic_versioning-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-semantic_versioning-$xpNum-j$max_procs.time | jc --time -p -r > adactl-semantic_versioning-$xpNum-j$max_procs.time.json
 echo "[END] process src/semantic_versioning: src/semantic_versioning/semantic_versioning.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [123/169] END
 echo [124/169] START
 cd "$PROJECT_ROOT/src/septum"
 echo "[START] process src/septum: src/septum/septum.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/septum/septum.gpr @$PROJECT_ROOT/src/septum/septum.units -o adactl-septum-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-septum-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-septum-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/septum/septum.gpr @$PROJECT_ROOT/src/septum/septum.units -o adactl-septum-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-septum-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-septum-$xpNum-j$max_procs.time | jc --time -p -r > adactl-septum-$xpNum-j$max_procs.time.json
 echo "[END] process src/septum: src/septum/septum.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [124/169] END
 echo [125/169] START
 cd "$PROJECT_ROOT/src/si_units"
 echo "[START] process src/si_units: src/si_units/si_units.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/si_units/si_units.gpr @$PROJECT_ROOT/src/si_units/si_units.units -o adactl-si_units-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-si_units-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-si_units-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/si_units/si_units.gpr @$PROJECT_ROOT/src/si_units/si_units.units -o adactl-si_units-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-si_units-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-si_units-$xpNum-j$max_procs.time | jc --time -p -r > adactl-si_units-$xpNum-j$max_procs.time.json
 echo "[END] process src/si_units: src/si_units/si_units.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [125/169] END
 echo [126/169] START
 cd "$PROJECT_ROOT/src/simh_tapes"
 echo "[START] process src/simh_tapes: src/simh_tapes/simh_tapes.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/simh_tapes/simh_tapes.gpr @$PROJECT_ROOT/src/simh_tapes/simh_tapes.units -o adactl-simh_tapes-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-simh_tapes-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-simh_tapes-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/simh_tapes/simh_tapes.gpr @$PROJECT_ROOT/src/simh_tapes/simh_tapes.units -o adactl-simh_tapes-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-simh_tapes-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-simh_tapes-$xpNum-j$max_procs.time | jc --time -p -r > adactl-simh_tapes-$xpNum-j$max_procs.time.json
 echo "[END] process src/simh_tapes: src/simh_tapes/simh_tapes.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [126/169] END
 echo [127/169] START
 cd "$PROJECT_ROOT/src/simple_components"
 echo "[START] process src/simple_components: src/simple_components/components-gnutls.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/simple_components/components-gnutls.gpr @$PROJECT_ROOT/src/simple_components/components-gnutls.units -o adactl-components-gnutls-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-components-gnutls-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-components-gnutls-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/simple_components/components-gnutls.gpr @$PROJECT_ROOT/src/simple_components/components-gnutls.units -o adactl-components-gnutls-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-components-gnutls-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-components-gnutls-$xpNum-j$max_procs.time | jc --time -p -r > adactl-components-gnutls-$xpNum-j$max_procs.time.json
 echo "[END] process src/simple_components: src/simple_components/components-gnutls.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [127/169] END
 echo [128/169] START
 cd "$PROJECT_ROOT/src/simple_components"
 echo "[START] process src/simple_components: src/simple_components/components-sqlite.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/simple_components/components-sqlite.gpr @$PROJECT_ROOT/src/simple_components/components-sqlite.units -o adactl-components-sqlite-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-components-sqlite-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-components-sqlite-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/simple_components/components-sqlite.gpr @$PROJECT_ROOT/src/simple_components/components-sqlite.units -o adactl-components-sqlite-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-components-sqlite-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-components-sqlite-$xpNum-j$max_procs.time | jc --time -p -r > adactl-components-sqlite-$xpNum-j$max_procs.time.json
 echo "[END] process src/simple_components: src/simple_components/components-sqlite.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [128/169] END
 echo [129/169] START
 cd "$PROJECT_ROOT/src/simple_components"
 echo "[START] process src/simple_components: src/simple_components/components.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/simple_components/components.gpr @$PROJECT_ROOT/src/simple_components/components.units -o adactl-components-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-components-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-components-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/simple_components/components.gpr @$PROJECT_ROOT/src/simple_components/components.units -o adactl-components-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-components-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-components-$xpNum-j$max_procs.time | jc --time -p -r > adactl-components-$xpNum-j$max_procs.time.json
 echo "[END] process src/simple_components: src/simple_components/components.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [129/169] END
 echo [130/169] START
 cd "$PROJECT_ROOT/src/simple_components"
 echo "[START] process src/simple_components: src/simple_components/tables.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/simple_components/tables.gpr @$PROJECT_ROOT/src/simple_components/tables.units -o adactl-tables-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tables-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-tables-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/simple_components/tables.gpr @$PROJECT_ROOT/src/simple_components/tables.units -o adactl-tables-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tables-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-tables-$xpNum-j$max_procs.time | jc --time -p -r > adactl-tables-$xpNum-j$max_procs.time.json
 echo "[END] process src/simple_components: src/simple_components/tables.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [130/169] END
 echo [131/169] START
 cd "$PROJECT_ROOT/src/simple_logging"
 echo "[START] process src/simple_logging: src/simple_logging/simple_logging.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/simple_logging/simple_logging.gpr @$PROJECT_ROOT/src/simple_logging/simple_logging.units -o adactl-simple_logging-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-simple_logging-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-simple_logging-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/simple_logging/simple_logging.gpr @$PROJECT_ROOT/src/simple_logging/simple_logging.units -o adactl-simple_logging-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-simple_logging-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-simple_logging-$xpNum-j$max_procs.time | jc --time -p -r > adactl-simple_logging-$xpNum-j$max_procs.time.json
 echo "[END] process src/simple_logging: src/simple_logging/simple_logging.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [131/169] END
 echo [132/169] START
 cd "$PROJECT_ROOT/src/slip"
 echo "[START] process src/slip: src/slip/slip.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/slip/slip.gpr @$PROJECT_ROOT/src/slip/slip.units -o adactl-slip-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-slip-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-slip-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/slip/slip.gpr @$PROJECT_ROOT/src/slip/slip.units -o adactl-slip-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-slip-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-slip-$xpNum-j$max_procs.time | jc --time -p -r > adactl-slip-$xpNum-j$max_procs.time.json
 echo "[END] process src/slip: src/slip/slip.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [132/169] END
 echo [133/169] START
 cd "$PROJECT_ROOT/src/socketcan"
 echo "[START] process src/socketcan: src/socketcan/src/socketcan.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/socketcan/src/socketcan.gpr @$PROJECT_ROOT/src/socketcan/src/socketcan.units -o adactl-socketcan-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-socketcan-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-socketcan-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/socketcan/src/socketcan.gpr @$PROJECT_ROOT/src/socketcan/src/socketcan.units -o adactl-socketcan-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-socketcan-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-socketcan-$xpNum-j$max_procs.time | jc --time -p -r > adactl-socketcan-$xpNum-j$max_procs.time.json
 echo "[END] process src/socketcan: src/socketcan/src/socketcan.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [133/169] END
 echo [134/169] START
 cd "$PROJECT_ROOT/src/spark_unbound"
 echo "[START] process src/spark_unbound: src/spark_unbound/spark_unbound.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/spark_unbound/spark_unbound.gpr @$PROJECT_ROOT/src/spark_unbound/spark_unbound.units -o adactl-spark_unbound-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-spark_unbound-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-spark_unbound-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/spark_unbound/spark_unbound.gpr @$PROJECT_ROOT/src/spark_unbound/spark_unbound.units -o adactl-spark_unbound-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-spark_unbound-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-spark_unbound-$xpNum-j$max_procs.time | jc --time -p -r > adactl-spark_unbound-$xpNum-j$max_procs.time.json
 echo "[END] process src/spark_unbound: src/spark_unbound/spark_unbound.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [134/169] END
 echo [135/169] START
 cd "$PROJECT_ROOT/src/sparknacl"
 echo "[START] process src/sparknacl: src/sparknacl/sparknacl.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/sparknacl/sparknacl.gpr @$PROJECT_ROOT/src/sparknacl/sparknacl.units -o adactl-sparknacl-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-sparknacl-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-sparknacl-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/sparknacl/sparknacl.gpr @$PROJECT_ROOT/src/sparknacl/sparknacl.units -o adactl-sparknacl-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-sparknacl-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-sparknacl-$xpNum-j$max_procs.time | jc --time -p -r > adactl-sparknacl-$xpNum-j$max_procs.time.json
 echo "[END] process src/sparknacl: src/sparknacl/sparknacl.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [135/169] END
 echo [136/169] START
 cd "$PROJECT_ROOT/src/spdx"
 echo "[START] process src/spdx: src/spdx/spdx.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/spdx/spdx.gpr @$PROJECT_ROOT/src/spdx/spdx.units -o adactl-spdx-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-spdx-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-spdx-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/spdx/spdx.gpr @$PROJECT_ROOT/src/spdx/spdx.units -o adactl-spdx-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-spdx-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-spdx-$xpNum-j$max_procs.time | jc --time -p -r > adactl-spdx-$xpNum-j$max_procs.time.json
 echo "[END] process src/spdx: src/spdx/spdx.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [136/169] END
 echo [137/169] START
 cd "$PROJECT_ROOT/src/startup_gen"
 echo "[START] process src/startup_gen: src/startup_gen/startup_gen.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/startup_gen/startup_gen.gpr @$PROJECT_ROOT/src/startup_gen/startup_gen.units -o adactl-startup_gen-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-startup_gen-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-startup_gen-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/startup_gen/startup_gen.gpr @$PROJECT_ROOT/src/startup_gen/startup_gen.units -o adactl-startup_gen-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-startup_gen-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-startup_gen-$xpNum-j$max_procs.time | jc --time -p -r > adactl-startup_gen-$xpNum-j$max_procs.time.json
 echo "[END] process src/startup_gen: src/startup_gen/startup_gen.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [137/169] END
 echo [138/169] START
 cd "$PROJECT_ROOT/src/stopwatch"
 echo "[START] process src/stopwatch: src/stopwatch/stopwatch.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/stopwatch/stopwatch.gpr @$PROJECT_ROOT/src/stopwatch/stopwatch.units -o adactl-stopwatch-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-stopwatch-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-stopwatch-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/stopwatch/stopwatch.gpr @$PROJECT_ROOT/src/stopwatch/stopwatch.units -o adactl-stopwatch-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-stopwatch-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-stopwatch-$xpNum-j$max_procs.time | jc --time -p -r > adactl-stopwatch-$xpNum-j$max_procs.time.json
 echo "[END] process src/stopwatch: src/stopwatch/stopwatch.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [138/169] END
 echo [139/169] START
 cd "$PROJECT_ROOT/src/svd2ada"
 echo "[START] process src/svd2ada: src/svd2ada/svd2ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/svd2ada/svd2ada.gpr @$PROJECT_ROOT/src/svd2ada/svd2ada.units -o adactl-svd2ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-svd2ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-svd2ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/svd2ada/svd2ada.gpr @$PROJECT_ROOT/src/svd2ada/svd2ada.units -o adactl-svd2ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-svd2ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-svd2ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-svd2ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/svd2ada: src/svd2ada/svd2ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [139/169] END
 echo [140/169] START
 cd "$PROJECT_ROOT/src/system_random"
 echo "[START] process src/system_random: src/system_random/system_random.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/system_random/system_random.gpr @$PROJECT_ROOT/src/system_random/system_random.units -o adactl-system_random-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-system_random-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-system_random-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/system_random/system_random.gpr @$PROJECT_ROOT/src/system_random/system_random.units -o adactl-system_random-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-system_random-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-system_random-$xpNum-j$max_procs.time | jc --time -p -r > adactl-system_random-$xpNum-j$max_procs.time.json
 echo "[END] process src/system_random: src/system_random/system_random.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [140/169] END
 echo [141/169] START
 cd "$PROJECT_ROOT/src/tash"
 echo "[START] process src/tash: src/tash/tash.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/tash/tash.gpr @$PROJECT_ROOT/src/tash/tash.units -o adactl-tash-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tash-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-tash-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/tash/tash.gpr @$PROJECT_ROOT/src/tash/tash.units -o adactl-tash-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tash-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-tash-$xpNum-j$max_procs.time | jc --time -p -r > adactl-tash-$xpNum-j$max_procs.time.json
 echo "[END] process src/tash: src/tash/tash.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [141/169] END
 echo [142/169] START
 cd "$PROJECT_ROOT/src/tiled_code_gen"
 echo "[START] process src/tiled_code_gen: src/tiled_code_gen/tiled_code_gen.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/tiled_code_gen/tiled_code_gen.gpr @$PROJECT_ROOT/src/tiled_code_gen/tiled_code_gen.units -o adactl-tiled_code_gen-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tiled_code_gen-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-tiled_code_gen-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/tiled_code_gen/tiled_code_gen.gpr @$PROJECT_ROOT/src/tiled_code_gen/tiled_code_gen.units -o adactl-tiled_code_gen-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tiled_code_gen-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-tiled_code_gen-$xpNum-j$max_procs.time | jc --time -p -r > adactl-tiled_code_gen-$xpNum-j$max_procs.time.json
 echo "[END] process src/tiled_code_gen: src/tiled_code_gen/tiled_code_gen.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [142/169] END
 echo [143/169] START
 cd "$PROJECT_ROOT/src/tiny_text"
 echo "[START] process src/tiny_text: src/tiny_text/tiny_text.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/tiny_text/tiny_text.gpr @$PROJECT_ROOT/src/tiny_text/tiny_text.units -o adactl-tiny_text-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tiny_text-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-tiny_text-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/tiny_text/tiny_text.gpr @$PROJECT_ROOT/src/tiny_text/tiny_text.units -o adactl-tiny_text-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tiny_text-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-tiny_text-$xpNum-j$max_procs.time | jc --time -p -r > adactl-tiny_text-$xpNum-j$max_procs.time.json
 echo "[END] process src/tiny_text: src/tiny_text/tiny_text.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [143/169] END
 echo [144/169] START
 cd "$PROJECT_ROOT/src/tlsada"
 echo "[START] process src/tlsada: src/tlsada/tlsada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/tlsada/tlsada.gpr @$PROJECT_ROOT/src/tlsada/tlsada.units -o adactl-tlsada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tlsada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-tlsada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/tlsada/tlsada.gpr @$PROJECT_ROOT/src/tlsada/tlsada.units -o adactl-tlsada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-tlsada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-tlsada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-tlsada-$xpNum-j$max_procs.time.json
 echo "[END] process src/tlsada: src/tlsada/tlsada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [144/169] END
 echo [145/169] START
 cd "$PROJECT_ROOT/src/toml_slicer"
 echo "[START] process src/toml_slicer: src/toml_slicer/toml_slicer.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/toml_slicer/toml_slicer.gpr @$PROJECT_ROOT/src/toml_slicer/toml_slicer.units -o adactl-toml_slicer-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-toml_slicer-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-toml_slicer-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/toml_slicer/toml_slicer.gpr @$PROJECT_ROOT/src/toml_slicer/toml_slicer.units -o adactl-toml_slicer-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-toml_slicer-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-toml_slicer-$xpNum-j$max_procs.time | jc --time -p -r > adactl-toml_slicer-$xpNum-j$max_procs.time.json
 echo "[END] process src/toml_slicer: src/toml_slicer/toml_slicer.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [145/169] END
 echo [146/169] START
 cd "$PROJECT_ROOT/src/trendy_terminal"
 echo "[START] process src/trendy_terminal: src/trendy_terminal/trendy_terminal.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/trendy_terminal/trendy_terminal.gpr @$PROJECT_ROOT/src/trendy_terminal/trendy_terminal.units -o adactl-trendy_terminal-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-trendy_terminal-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-trendy_terminal-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/trendy_terminal/trendy_terminal.gpr @$PROJECT_ROOT/src/trendy_terminal/trendy_terminal.units -o adactl-trendy_terminal-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-trendy_terminal-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-trendy_terminal-$xpNum-j$max_procs.time | jc --time -p -r > adactl-trendy_terminal-$xpNum-j$max_procs.time.json
 echo "[END] process src/trendy_terminal: src/trendy_terminal/trendy_terminal.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [146/169] END
 echo [147/169] START
 cd "$PROJECT_ROOT/src/trendy_test"
 echo "[START] process src/trendy_test: src/trendy_test/trendy_test.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/trendy_test/trendy_test.gpr @$PROJECT_ROOT/src/trendy_test/trendy_test.units -o adactl-trendy_test-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-trendy_test-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-trendy_test-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/trendy_test/trendy_test.gpr @$PROJECT_ROOT/src/trendy_test/trendy_test.units -o adactl-trendy_test-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-trendy_test-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-trendy_test-$xpNum-j$max_procs.time | jc --time -p -r > adactl-trendy_test-$xpNum-j$max_procs.time.json
 echo "[END] process src/trendy_test: src/trendy_test/trendy_test.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [147/169] END
 echo [148/169] START
 cd "$PROJECT_ROOT/src/uri_ada"
 echo "[START] process src/uri_ada: src/uri_ada/uri_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/uri_ada/uri_ada.gpr @$PROJECT_ROOT/src/uri_ada/uri_ada.units -o adactl-uri_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-uri_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-uri_ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/uri_ada/uri_ada.gpr @$PROJECT_ROOT/src/uri_ada/uri_ada.units -o adactl-uri_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-uri_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-uri_ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-uri_ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/uri_ada: src/uri_ada/uri_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [148/169] END
 echo [149/169] START
 cd "$PROJECT_ROOT/src/uri_mime"
 echo "[START] process src/uri_mime: src/uri_mime/uri_mime.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/uri_mime/uri_mime.gpr @$PROJECT_ROOT/src/uri_mime/uri_mime.units -o adactl-uri_mime-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-uri_mime-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-uri_mime-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/uri_mime/uri_mime.gpr @$PROJECT_ROOT/src/uri_mime/uri_mime.units -o adactl-uri_mime-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-uri_mime-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-uri_mime-$xpNum-j$max_procs.time | jc --time -p -r > adactl-uri_mime-$xpNum-j$max_procs.time.json
 echo "[END] process src/uri_mime: src/uri_mime/uri_mime.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [149/169] END
 echo [150/169] START
 cd "$PROJECT_ROOT/src/utf8test"
 echo "[START] process src/utf8test: src/utf8test/utf8test.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/utf8test/utf8test.gpr @$PROJECT_ROOT/src/utf8test/utf8test.units -o adactl-utf8test-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-utf8test-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-utf8test-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/utf8test/utf8test.gpr @$PROJECT_ROOT/src/utf8test/utf8test.units -o adactl-utf8test-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-utf8test-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-utf8test-$xpNum-j$max_procs.time | jc --time -p -r > adactl-utf8test-$xpNum-j$max_procs.time.json
 echo "[END] process src/utf8test: src/utf8test/utf8test.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [150/169] END
 echo [151/169] START
 cd "$PROJECT_ROOT/src/vaton"
 echo "[START] process src/vaton: src/vaton/vaton.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/vaton/vaton.gpr @$PROJECT_ROOT/src/vaton/vaton.units -o adactl-vaton-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-vaton-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-vaton-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/vaton/vaton.gpr @$PROJECT_ROOT/src/vaton/vaton.units -o adactl-vaton-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-vaton-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-vaton-$xpNum-j$max_procs.time | jc --time -p -r > adactl-vaton-$xpNum-j$max_procs.time.json
 echo "[END] process src/vaton: src/vaton/vaton.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [151/169] END
 echo [152/169] START
 cd "$PROJECT_ROOT/src/virtapu"
 echo "[START] process src/virtapu: src/virtapu/virtapu.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/virtapu/virtapu.gpr @$PROJECT_ROOT/src/virtapu/virtapu.units -o adactl-virtapu-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-virtapu-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-virtapu-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/virtapu/virtapu.gpr @$PROJECT_ROOT/src/virtapu/virtapu.units -o adactl-virtapu-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-virtapu-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-virtapu-$xpNum-j$max_procs.time | jc --time -p -r > adactl-virtapu-$xpNum-j$max_procs.time.json
 echo "[END] process src/virtapu: src/virtapu/virtapu.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [152/169] END
 echo [153/169] START
 cd "$PROJECT_ROOT/src/weechat_ada"
 echo "[START] process src/weechat_ada: src/weechat_ada/weechat_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/weechat_ada/weechat_ada.gpr @$PROJECT_ROOT/src/weechat_ada/weechat_ada.units -o adactl-weechat_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-weechat_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-weechat_ada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/weechat_ada/weechat_ada.gpr @$PROJECT_ROOT/src/weechat_ada/weechat_ada.units -o adactl-weechat_ada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-weechat_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-weechat_ada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-weechat_ada-$xpNum-j$max_procs.time.json
 echo "[END] process src/weechat_ada: src/weechat_ada/weechat_ada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [153/169] END
 echo [154/169] START
 cd "$PROJECT_ROOT/src/wordlist"
 echo "[START] process src/wordlist: src/wordlist/wordlist.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/wordlist/wordlist.gpr @$PROJECT_ROOT/src/wordlist/wordlist.units -o adactl-wordlist-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-wordlist-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-wordlist-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/wordlist/wordlist.gpr @$PROJECT_ROOT/src/wordlist/wordlist.units -o adactl-wordlist-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-wordlist-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-wordlist-$xpNum-j$max_procs.time | jc --time -p -r > adactl-wordlist-$xpNum-j$max_procs.time.json
 echo "[END] process src/wordlist: src/wordlist/wordlist.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [154/169] END
 echo [155/169] START
 cd "$PROJECT_ROOT/src/workers"
 echo "[START] process src/workers: src/workers/workers.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/workers/workers.gpr @$PROJECT_ROOT/src/workers/workers.units -o adactl-workers-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-workers-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-workers-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/workers/workers.gpr @$PROJECT_ROOT/src/workers/workers.units -o adactl-workers-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-workers-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-workers-$xpNum-j$max_procs.time | jc --time -p -r > adactl-workers-$xpNum-j$max_procs.time.json
 echo "[END] process src/workers: src/workers/workers.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [155/169] END
 echo [156/169] START
 cd "$PROJECT_ROOT/src/xdg_base_dir"
 echo "[START] process src/xdg_base_dir: src/xdg_base_dir/xdg_base_dir.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xdg_base_dir/xdg_base_dir.gpr @$PROJECT_ROOT/src/xdg_base_dir/xdg_base_dir.units -o adactl-xdg_base_dir-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xdg_base_dir-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xdg_base_dir-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xdg_base_dir/xdg_base_dir.gpr @$PROJECT_ROOT/src/xdg_base_dir/xdg_base_dir.units -o adactl-xdg_base_dir-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xdg_base_dir-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xdg_base_dir-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xdg_base_dir-$xpNum-j$max_procs.time.json
 echo "[END] process src/xdg_base_dir: src/xdg_base_dir/xdg_base_dir.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [156/169] END
 echo [157/169] START
 cd "$PROJECT_ROOT/src/xia"
 echo "[START] process src/xia: src/xia/XIA.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xia/XIA.gpr @$PROJECT_ROOT/src/xia/XIA.units -o adactl-XIA-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-XIA-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-XIA-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xia/XIA.gpr @$PROJECT_ROOT/src/xia/XIA.units -o adactl-XIA-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-XIA-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-XIA-$xpNum-j$max_procs.time | jc --time -p -r > adactl-XIA-$xpNum-j$max_procs.time.json
 echo "[END] process src/xia: src/xia/XIA.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [157/169] END
 echo [158/169] START
 cd "$PROJECT_ROOT/src/xml_ez_out"
 echo "[START] process src/xml_ez_out: src/xml_ez_out/xml_ez_out.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xml_ez_out/xml_ez_out.gpr @$PROJECT_ROOT/src/xml_ez_out/xml_ez_out.units -o adactl-xml_ez_out-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xml_ez_out-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xml_ez_out-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xml_ez_out/xml_ez_out.gpr @$PROJECT_ROOT/src/xml_ez_out/xml_ez_out.units -o adactl-xml_ez_out-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xml_ez_out-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xml_ez_out-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xml_ez_out-$xpNum-j$max_procs.time.json
 echo "[END] process src/xml_ez_out: src/xml_ez_out/xml_ez_out.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [158/169] END
 echo [159/169] START
 cd "$PROJECT_ROOT/src/xmlada"
 echo "[START] process src/xmlada: src/xmlada/distrib/xmlada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xmlada/distrib/xmlada.gpr @$PROJECT_ROOT/src/xmlada/distrib/xmlada.units -o adactl-xmlada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xmlada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xmlada/distrib/xmlada.gpr @$PROJECT_ROOT/src/xmlada/distrib/xmlada.units -o adactl-xmlada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xmlada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xmlada-$xpNum-j$max_procs.time.json
 echo "[END] process src/xmlada: src/xmlada/distrib/xmlada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [159/169] END
 echo [160/169] START
 cd "$PROJECT_ROOT/src/xmlada"
 echo "[START] process src/xmlada: src/xmlada/dom/xmlada_dom.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xmlada/dom/xmlada_dom.gpr @$PROJECT_ROOT/src/xmlada/dom/xmlada_dom.units -o adactl-xmlada_dom-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_dom-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xmlada_dom-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xmlada/dom/xmlada_dom.gpr @$PROJECT_ROOT/src/xmlada/dom/xmlada_dom.units -o adactl-xmlada_dom-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_dom-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xmlada_dom-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xmlada_dom-$xpNum-j$max_procs.time.json
 echo "[END] process src/xmlada: src/xmlada/dom/xmlada_dom.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [160/169] END
 echo [161/169] START
 cd "$PROJECT_ROOT/src/xmlada"
 echo "[START] process src/xmlada: src/xmlada/input_sources/xmlada_input.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xmlada/input_sources/xmlada_input.gpr @$PROJECT_ROOT/src/xmlada/input_sources/xmlada_input.units -o adactl-xmlada_input-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_input-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xmlada_input-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xmlada/input_sources/xmlada_input.gpr @$PROJECT_ROOT/src/xmlada/input_sources/xmlada_input.units -o adactl-xmlada_input-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_input-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xmlada_input-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xmlada_input-$xpNum-j$max_procs.time.json
 echo "[END] process src/xmlada: src/xmlada/input_sources/xmlada_input.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [161/169] END
 echo [162/169] START
 cd "$PROJECT_ROOT/src/xmlada"
 echo "[START] process src/xmlada: src/xmlada/sax/xmlada_sax.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xmlada/sax/xmlada_sax.gpr @$PROJECT_ROOT/src/xmlada/sax/xmlada_sax.units -o adactl-xmlada_sax-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_sax-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xmlada_sax-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xmlada/sax/xmlada_sax.gpr @$PROJECT_ROOT/src/xmlada/sax/xmlada_sax.units -o adactl-xmlada_sax-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_sax-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xmlada_sax-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xmlada_sax-$xpNum-j$max_procs.time.json
 echo "[END] process src/xmlada: src/xmlada/sax/xmlada_sax.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [162/169] END
 echo [163/169] START
 cd "$PROJECT_ROOT/src/xmlada"
 echo "[START] process src/xmlada: src/xmlada/schema/xmlada_schema.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xmlada/schema/xmlada_schema.gpr @$PROJECT_ROOT/src/xmlada/schema/xmlada_schema.units -o adactl-xmlada_schema-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_schema-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xmlada_schema-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xmlada/schema/xmlada_schema.gpr @$PROJECT_ROOT/src/xmlada/schema/xmlada_schema.units -o adactl-xmlada_schema-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_schema-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xmlada_schema-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xmlada_schema-$xpNum-j$max_procs.time.json
 echo "[END] process src/xmlada: src/xmlada/schema/xmlada_schema.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [163/169] END
 echo [164/169] START
 cd "$PROJECT_ROOT/src/xmlada"
 echo "[START] process src/xmlada: src/xmlada/unicode/xmlada_unicode.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xmlada/unicode/xmlada_unicode.gpr @$PROJECT_ROOT/src/xmlada/unicode/xmlada_unicode.units -o adactl-xmlada_unicode-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_unicode-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xmlada_unicode-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xmlada/unicode/xmlada_unicode.gpr @$PROJECT_ROOT/src/xmlada/unicode/xmlada_unicode.units -o adactl-xmlada_unicode-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xmlada_unicode-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xmlada_unicode-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xmlada_unicode-$xpNum-j$max_procs.time.json
 echo "[END] process src/xmlada: src/xmlada/unicode/xmlada_unicode.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [164/169] END
 echo [165/169] START
 cd "$PROJECT_ROOT/src/xoshiro"
 echo "[START] process src/xoshiro: src/xoshiro/xoshiro.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/xoshiro/xoshiro.gpr @$PROJECT_ROOT/src/xoshiro/xoshiro.units -o adactl-xoshiro-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xoshiro-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-xoshiro-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/xoshiro/xoshiro.gpr @$PROJECT_ROOT/src/xoshiro/xoshiro.units -o adactl-xoshiro-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-xoshiro-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-xoshiro-$xpNum-j$max_procs.time | jc --time -p -r > adactl-xoshiro-$xpNum-j$max_procs.time.json
 echo "[END] process src/xoshiro: src/xoshiro/xoshiro.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [165/169] END
 echo [166/169] START
 cd "$PROJECT_ROOT/src/yeison"
 echo "[START] process src/yeison: src/yeison/yeison.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/yeison/yeison.gpr @$PROJECT_ROOT/src/yeison/yeison.units -o adactl-yeison-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-yeison-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-yeison-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/yeison/yeison.gpr @$PROJECT_ROOT/src/yeison/yeison.units -o adactl-yeison-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-yeison-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-yeison-$xpNum-j$max_procs.time | jc --time -p -r > adactl-yeison-$xpNum-j$max_procs.time.json
 echo "[END] process src/yeison: src/yeison/yeison.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [166/169] END
 echo [167/169] START
 cd "$PROJECT_ROOT/src/zeromq_ada"
 echo "[START] process src/zeromq_ada: src/zeromq_ada/zmq.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/zeromq_ada/zmq.gpr @$PROJECT_ROOT/src/zeromq_ada/zmq.units -o adactl-zmq-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zmq-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-zmq-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/zeromq_ada/zmq.gpr @$PROJECT_ROOT/src/zeromq_ada/zmq.units -o adactl-zmq-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zmq-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-zmq-$xpNum-j$max_procs.time | jc --time -p -r > adactl-zmq-$xpNum-j$max_procs.time.json
 echo "[END] process src/zeromq_ada: src/zeromq_ada/zmq.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [167/169] END
 echo [168/169] START
 cd "$PROJECT_ROOT/src/zipada"
 echo "[START] process src/zipada: src/zipada/zipada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/zipada/zipada.gpr @$PROJECT_ROOT/src/zipada/zipada.units -o adactl-zipada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zipada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-zipada-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/zipada/zipada.gpr @$PROJECT_ROOT/src/zipada/zipada.units -o adactl-zipada-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zipada-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-zipada-$xpNum-j$max_procs.time | jc --time -p -r > adactl-zipada-$xpNum-j$max_procs.time.json
 echo "[END] process src/zipada: src/zipada/zipada.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [168/169] END
 echo [169/169] START
 cd "$PROJECT_ROOT/src/zlib_ada"
 echo "[START] process src/zlib_ada: src/zlib_ada/zlib.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo "" > adactl-$xpNum-j$max_procs.log
-{ time alr exec -- adactl -f $PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru -p $PROJECT_ROOT/src/zlib_ada/zlib.gpr @$PROJECT_ROOT/src/zlib_ada/zlib.units -o adactl-zlib-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zlib-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+{ /usr/bin/time -v -o adactl-zlib-$xpNum-j$max_procs.time alr exec -- adactl -f $ruleFile -p $PROJECT_ROOT/src/zlib_ada/zlib.gpr @$PROJECT_ROOT/src/zlib_ada/zlib.units -o adactl-zlib-$xpNum-j$max_procs.report -w; } &> >(tee -a adactl-zlib-$xpNum-j$max_procs.log $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log > /dev/null)
+cat adactl-zlib-$xpNum-j$max_procs.time | jc --time -p -r > adactl-zlib-$xpNum-j$max_procs.time.json
 echo "[END] process src/zlib_ada: src/zlib_ada/zlib.gpr" >> $PROJECT_ROOT/adactl-all-$xpNum-j$max_procs.log
 echo [169/169] END
