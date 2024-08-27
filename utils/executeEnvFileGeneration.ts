@@ -2,8 +2,6 @@
 import { join } from "https://deno.land/std/path/mod.ts";
 import { exec } from "./utils.ts";
 
-const TIMEOUT = 20000; // In ms
-
 try {
     const result = exec("alr", ["printenv"]);
     if (!result.success) {
