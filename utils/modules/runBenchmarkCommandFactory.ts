@@ -1,21 +1,13 @@
 import { basename, join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
 import { extendedGPRProject, UnifiedCrateData, filterCompleteCrates, createBlock } from "../utils.ts";
 import { PROJECT_ROOT } from "../../config.ts";
-
-type commandType = [string, string[]];
-type taskDataType = { path: string, command: commandType };
 
 export function initializeModule(program: Command, settings: {
     commandName: string,
     description: string,
     command: string[],
-    concurrency?: number,
-    logAppendMode?: boolean,
-    preTaskCb?: preTaskCbType<taskDataType> | undefined,
-    postTaskCb?: postTaskCbType<taskDataType, string> | undefined,
-    beforeRun?: (params: { taskRunner: TaskRunner<taskDataType, string>, alireTomlPath: string[] }) => void,
+    ruleFile: string,
 }): void {
     program
         .command(settings.commandName)
