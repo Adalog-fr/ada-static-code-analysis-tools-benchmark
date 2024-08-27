@@ -106,7 +106,7 @@ export interface GPRProject {
     neo4jDbFilesPath: string;
     isNeo4jDbFilesComplete: boolean;
     isAdaCtlComplete: boolean;
-    ignore?: boolean;
+    ignore: boolean;
     ignoreReason?: string;
 }
 
