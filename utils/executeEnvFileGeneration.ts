@@ -1,5 +1,5 @@
 // This script is called by `cogralys-bench-util generate-env`
-import { join } from "https://deno.land/std/path/mod.ts";
+import { join } from "jsr:@std/path@^0.225.1";
 import { exec } from "./utils.ts";
 
 try {

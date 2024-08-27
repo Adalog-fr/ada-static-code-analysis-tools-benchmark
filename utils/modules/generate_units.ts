@@ -1,10 +1,10 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { parse, isGlob, basename, join, dirname, format } from "https://deno.land/std/path/mod.ts";
-import { parse as parseToml } from "https://deno.land/std/toml/mod.ts";
-import * as dotenv from "https://deno.land/std/dotenv/mod.ts";
+import { parse, isGlob, basename, join, dirname, format } from "jsr:@std/path@^0.225.1";
+import { parse as parseToml } from "jsr:@std/toml@^1.0.1";
+import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
-import * as log from "https://deno.land/std/log/mod.ts";
-import fg from "npm:fast-glob@3.2.12";
+import * as log from "jsr:@std/log@^0.224.6";
+import fg from "npm:fast-glob@3.3.2";
 import * as libgpr2 from "../lib/gpr2/libgpr2.ts";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
 import { PROJECT_ROOT } from "../../config.ts";

@@ -1,4 +1,4 @@
-import { basename, join } from "https://deno.land/std/path/mod.ts";
+import { basename, join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
 import { extendedGPRProject, UnifiedCrateData, filterCompleteCrates, createBlock } from "../utils.ts";

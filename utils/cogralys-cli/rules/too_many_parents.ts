@@ -1,4 +1,4 @@
-import { join } from "https://deno.land/std/path/mod.ts";
+import { join } from "jsr:@std/path@^0.225.1";
 import { Query } from "https://deno.land/x/neo4j_driver_lite@5.18.0/core/types.ts";
 import { RuleType, responseRecords, ruleConstructorParamsExtended } from "./types/rules.ts";
 

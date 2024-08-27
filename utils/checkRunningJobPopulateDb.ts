@@ -1,4 +1,4 @@
-import { join } from "https://deno.land/std/path/mod.ts";
+import { join } from "jsr:@std/path@^0.225.1";
 import { PROJECT_ROOT } from "../config.ts";
 
 const inputFile = Deno.readTextFileSync(join(PROJECT_ROOT, "cogralysRunCommand-populate-neo4j.log")).split(/\r?\n/g);

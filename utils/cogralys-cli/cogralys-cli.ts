@@ -1,4 +1,4 @@
-import { join } from "https://deno.land/std/path/mod.ts";
+import { join } from "jsr:@std/path@^0.225.1";
 import neo4j from "https://deno.land/x/neo4j_driver_lite@5.18.0/mod.ts";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { formatDuration } from "../utils.ts";

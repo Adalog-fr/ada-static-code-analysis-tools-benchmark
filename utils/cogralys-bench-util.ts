@@ -13,9 +13,6 @@ import * as ExploreNeo4jDirs from "./modules/explore-neo4j-dirs.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
 
-import { join } from "https://deno.land/std/path/mod.ts";
-import { PROJECT_ROOT } from "../config.ts";
-
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
 const program = new Command();

@@ -1,10 +1,16 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join, basename } from "https://deno.land/std/path/mod.ts";
-import * as dotenv from "https://deno.land/std/dotenv/mod.ts";
-import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, createBlock } from "../utils.ts";
+import { join, basename } from "jsr:@std/path@^0.225.1";
+import * as dotenv from "jsr:@std/dotenv@^0.225.1";
+import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, createBlock, getCogralysEnginePath } from "../utils.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
 const globalLogFilePath = `$PROJECT_ROOT/cogralys-run-all-$xpNum-j$max_procs.log`;
+let defaultCogralysEnginePath = "";
+try {
+    defaultCogralysEnginePath = getCogralysEnginePath()
+} catch (_) {
+    defaultCogralysEnginePath = "NOT FOUND"
+}
 
 export function initializeModule(program: Command): void {
     program
@@ -17,8 +23,8 @@ export function initializeModule(program: Command): void {
             "Path to a file that contains a list of known crates.",
             join(PROJECT_ROOT, "cratesPath.json")
         )
-        .option("-e, --execPath <path>", "Path to cogralys bin/exec file", "/home/devy/bin/atgdb")
-        .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", "/home/devy/bin/log4j.properties")
+        .option("-e, --execPath <path>", "Path to cogralys bin/exec file", defaultCogralysEnginePath)
+        .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", "$PROJECT_ROOT/rootfs/home/bin/log4j.properties")
         .action(
             (options: { cratesPath: string, execPath: string, log4jSettingsPath: string }) => {
                 const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));

@@ -1,4 +1,4 @@
-import fg from "npm:fast-glob@3.2.12";
+import fg from "npm:fast-glob@3.3.2";
 
 type ErrorKind = "ASIS_BUG" | "ASIS_USAGE" | "GNAT_BUG" | "undefined";
 type ErrorArray = { errorKind: ErrorKind, error: string, textPosition: string, diagnosis: string }[];

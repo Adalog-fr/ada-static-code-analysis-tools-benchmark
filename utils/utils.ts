@@ -1,3 +1,6 @@
+import { PROJECT_ROOT } from "../config.ts";
+import { join } from "jsr:@std/path@^0.225.1";
+
 export function collectOptionList(value, previous) {
   return previous.concat([value]);
 }
@@ -23,6 +26,29 @@ export function exec(
   }
 
   return { success: true, output: new TextDecoder().decode(stdout) };
+}
+
+export function getCogralysEnginePath(pathToCogralys?: string): string {
+    const execName = "atgdb";
+    const paths = [];
+
+    if (pathToCogralys) {
+        paths.push(pathToCogralys);
+    } else {
+        paths.push(execName);
+        paths.push(join(PROJECT_ROOT, "rootfs/home/bin", execName));
+    }
+
+    for (const path of paths) {
+        try {
+            exec(execName);
+            return path;
+        } catch (_) {
+            // The path is not found or not executable
+        }
+    }
+
+    throw new Error ("Unable to locate 'cogralys' command")
 }
 
 export function formatDuration(milliseconds: number): string {

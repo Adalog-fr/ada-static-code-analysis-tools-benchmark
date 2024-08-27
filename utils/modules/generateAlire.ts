@@ -1,6 +1,6 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join, relative } from "https://deno.land/std/path/mod.ts";
-import { parse, stringify } from "https://deno.land/std/toml/mod.ts";
+import { join, relative } from "jsr:@std/path@^0.225.1";
+import { parse, stringify } from "jsr:@std/toml@^1.0.1";
 import { PROJECT_ROOT } from "../../config.ts";
 
 const DEFAULT_UNKNOWN_CRATES_FILENAME = "unknownCrates.json";

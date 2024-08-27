@@ -1,5 +1,5 @@
-import { ensureDirSync } from "https://deno.land/std/fs/mod.ts";
-import { join } from "https://deno.land/std/path/mod.ts";
+import { ensureDirSync } from "jsr:@std/fs@^1.0.2";
+import { join } from "jsr:@std/path@^0.225.1";
 
 function splitLogFile(inputFile: string): void {
   // Create 'allLogs' folder if it doesn't exist

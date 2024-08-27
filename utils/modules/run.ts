@@ -1,15 +1,22 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join, dirname, basename } from "https://deno.land/std/path/mod.ts";
-import { parse as parseToml } from "https://deno.land/std/toml/mod.ts";
-import * as dotenv from "https://deno.land/std/dotenv/mod.ts";
+import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
+import { parse as parseToml } from "jsr:@std/toml@^1.0.1";
+import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
-import * as log from "https://deno.land/std/log/mod.ts";
+import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
-import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
+import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, getAllIgnoredCrates, getCogralysEnginePath } from "../utils.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
 type commandType = [string, string[], Record<string, string>];
 type taskDataType = { path: string, command: commandType };
+
+let defaultCogralysEnginePath = "";
+try {
+    defaultCogralysEnginePath = getCogralysEnginePath()
+} catch (_) {
+    defaultCogralysEnginePath = "NOT FOUND"
+}
 
 export function initializeModule(program: Command): void {
     program
@@ -24,8 +31,8 @@ export function initializeModule(program: Command): void {
         )
         .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
         .option("-v, --verbose", "Verbose mode")
-        .option("-e, --execPath <path>", "Path to cogralys bin/exec file", "/home/devy/bin/atgdb")
-        .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", "/home/devy/bin/log4j.properties")
+        .option("-e, --execPath <path>", "Path to cogralys bin/exec file", defaultCogralysEnginePath)
+        .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", join(PROJECT_ROOT, "rootfs/home/bin/log4j.properties"))
         .action(
             async (
                 options: { cratesPath: string, ignoredUnknownCrates: string, execPath: string, log4jSettingsPath: string, verbose: boolean }

@@ -1,7 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join, dirname, basename } from "https://deno.land/std/path/mod.ts";
-import { parse as parseToml } from "https://deno.land/std/toml/mod.ts";
-import fg from "npm:fast-glob@3.2.12";
+import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
+import { parse as parseToml } from "jsr:@std/toml@^1.0.1";
+import fg from "npm:fast-glob@3.3.2";
 import { PROJECT_ROOT } from "../../config.ts";
 
 const OUTPUT_FILENAME = "pathToCratesWithCompleteNeo4jSetup.json";

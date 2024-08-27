@@ -1,8 +1,7 @@
-import { globToRegExp } from "https://deno.land/std/path/glob.ts";
-import { parse, isGlob } from "https://deno.land/std/path/mod.ts";
+import { parse, isGlob, globToRegExp } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { collectOptionList } from "../utils.ts";
-import fg from "npm:fast-glob@3.2.12";
+import fg from "npm:fast-glob@3.3.2";
 
 interface WithStatementMap {
   [key: string]: string[];

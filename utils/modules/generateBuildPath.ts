@@ -1,6 +1,6 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { isGlob, join, dirname } from "https://deno.land/std/path/mod.ts";
-import fg from "npm:fast-glob@3.2.12";
+import { isGlob, join, dirname } from "jsr:@std/path@^0.225.1";
+import fg from "npm:fast-glob@3.3.2";
 
 const OUTPUT_FILENAME = "alireTomlPath.json";
 

@@ -1,5 +1,5 @@
 // Import the required fast-glob package
-import fg from "npm:fast-glob@3.2.12";
+import fg from "npm:fast-glob@3.3.2";
 
 // Define prefixes for the files to be deleted
 const PREFIXES = ["gnatcheck", "adactl"];

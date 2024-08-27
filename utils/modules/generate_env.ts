@@ -1,7 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import { initializeModule as initializeCommandModule } from "./runCommandFactory.ts";
-import { join } from "https://deno.land/std/path/mod.ts";
+import { join } from "jsr:@std/path@^0.225.1";
 import { PROJECT_ROOT } from "../../config.ts";
 
 export function initializeModule(program: Command): void {

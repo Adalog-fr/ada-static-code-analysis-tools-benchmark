@@ -1,6 +1,6 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join } from "https://deno.land/std/path/mod.ts";
-import fg from "npm:fast-glob@3.2.12";
+import { join } from "jsr:@std/path@^0.225.1";
+import fg from "npm:fast-glob@3.3.2";
 import { PROJECT_ROOT } from "../../config.ts";
 
 const regex = new RegExp('^[\\/\\w\\-\\.]+:\\d+:\\d+');

@@ -1,6 +1,6 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { walkSync } from "https://deno.land/std/fs/mod.ts";
-import { parse } from "https://deno.land/std/toml/mod.ts";
+import { walkSync } from "jsr:@std/fs@^1.0.2";
+import { parse } from "jsr:@std/toml@^1.0.1";
 
 function readAlireTomlFiles(directory: string): string[] {
   const dependsOn = new Set<string>();

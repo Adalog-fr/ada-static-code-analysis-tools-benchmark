@@ -1,7 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { join } from "https://deno.land/std/path/mod.ts";
-import { parse } from "https://deno.land/std/toml/mod.ts";
-import * as log from "https://deno.land/std/log/mod.ts";
+import { join } from "jsr:@std/path@^0.225.1";
+import { parse } from "jsr:@std/toml@^1.0.1";
+import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
 import { UnifiedCrateData, extendedGPRProject, formatDuration, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
 import { PROJECT_ROOT } from "../../config.ts";

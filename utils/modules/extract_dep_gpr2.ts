@@ -1,6 +1,6 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { parse, isGlob, join } from "https://deno.land/std/path/mod.ts";
-import fg from "npm:fast-glob@3.2.12";
+import { parse, isGlob, join } from "jsr:@std/path@^0.225.1";
+import fg from "npm:fast-glob@3.3.2";
 import * as libgpr2 from "../lib/gpr2/libgpr2.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
