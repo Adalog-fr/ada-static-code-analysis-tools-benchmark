@@ -12,6 +12,7 @@ import * as CogralysRun from "./modules/cogralysRun.ts";
 import * as ExploreNeo4jDirs from "./modules/explore-neo4j-dirs.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
+import * as UpdateCratesDBneo4jComplete from "./modules/update_cratesDBNeo4jComplete.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -38,7 +39,8 @@ CreateRunCommand.initializeModule(program, {
 });
 GenerateEnv.initializeModule(program);
 Run.initializeModule(program);
-ExploreNeo4jDirs.initializeModule(program);
+// ExploreNeo4jDirs.initializeModule(program);
+UpdateCratesDBneo4jComplete.initializeModule(program);
 PopulateNeo4j.initializeModule(program);
 
 CreateRunBenchmarkCommand.initializeModule(program, {
