@@ -12,6 +12,8 @@
       "jsr:@std/path@^0.225.1": "jsr:@std/path@0.225.2",
       "jsr:@std/path@^1.0.3": "jsr:@std/path@1.0.3",
       "jsr:@std/toml@^1.0.1": "jsr:@std/toml@1.0.1",
+      "npm:@types/node": "npm:@types/node@18.16.19",
+      "npm:fast-glob@3.2.12": "npm:fast-glob@3.2.12",
       "npm:fast-glob@3.3.2": "npm:fast-glob@3.3.2",
       "npm:fast-glob@^3.3.2": "npm:fast-glob@3.3.2"
     },
@@ -80,10 +82,24 @@
           "fastq": "fastq@1.17.1"
         }
       },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
+        "dependencies": {}
+      },
       "braces@3.0.3": {
         "integrity": "sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==",
         "dependencies": {
           "fill-range": "fill-range@7.1.1"
+        }
+      },
+      "fast-glob@3.2.12": {
+        "integrity": "sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==",
+        "dependencies": {
+          "@nodelib/fs.stat": "@nodelib/fs.stat@2.0.5",
+          "@nodelib/fs.walk": "@nodelib/fs.walk@1.2.8",
+          "glob-parent": "glob-parent@5.1.2",
+          "merge2": "merge2@1.4.1",
+          "micromatch": "micromatch@4.0.8"
         }
       },
       "fast-glob@3.3.2": {
