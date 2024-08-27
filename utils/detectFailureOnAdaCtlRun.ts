@@ -1,4 +1,7 @@
-const content = Deno.readTextFileSync("/workspaces/bench-source/Adactl_benchmark.output");
+import { join } from "https://deno.land/std/path/mod.ts";
+import { PROJECT_ROOT } from "../config.ts";
+
+const content = Deno.readTextFileSync(join (PROJECT_ROOT, "Adactl_benchmark.output"));
 const regex = /^ERROR:.*"(.*\.gpr).*/gm;
 
 let m;

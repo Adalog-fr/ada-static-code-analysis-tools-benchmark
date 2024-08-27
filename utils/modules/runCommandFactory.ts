@@ -4,6 +4,7 @@ import { parse } from "https://deno.land/std/toml/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
 import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
 import { UnifiedCrateData, extendedGPRProject, formatDuration, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 type commandType = [string, string[]];
 type taskDataType = { path: string, command: commandType };
@@ -33,10 +34,10 @@ export function initializeModule(program: Command, settings: {
             false
         )
         .action((options: { logAppendMode: boolean, ignoreMissingDependencies: boolean }) => {
-            const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync("/workspaces/bench-source/cratesDB.json"));
+            const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
             const ignoreCrate : string[] = getAllIgnoredCrates(cratesDB);
             const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
-            const alireTomlPath: string[] = [...new Set(projects.map(elt => elt.alireTomlPath))];
+            const alireTomlPath: string[] = [...new Set(projects.map(elt => join(PROJECT_ROOT, elt.alireTomlPath)))];
             const knowCrates = Object.keys(cratesDB.crates);
 
             // Configure logs
@@ -45,7 +46,7 @@ export function initializeModule(program: Command, settings: {
                     console: new log.handlers.ConsoleHandler("DEBUG"),
 
                     file: new log.handlers.FileHandler("WARNING", {
-                        filename: `/workspaces/bench-source/cogralysRunCommand-${settings.commandName}.log`,
+                        filename: join(PROJECT_ROOT, `cogralysRunCommand-${settings.commandName}.log`),
                         formatter: "[{levelName}] {msg}",
                         mode: options.logAppendMode ? "a" : settings.logAppendMode ? "a" : "w"
                     }),

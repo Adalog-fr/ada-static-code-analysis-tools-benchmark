@@ -13,6 +13,9 @@ import * as ExploreNeo4jDirs from "./modules/explore-neo4j-dirs.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
 
+import { join } from "https://deno.land/std/path/mod.ts";
+import { PROJECT_ROOT } from "../config.ts";
+
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
 const program = new Command();
@@ -47,7 +50,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
     command: [
         "adactl",
         "-f",
-        "/workspaces/bench-source/benchmark-rules/all_rules_in_one_file/_all.aru",
+        "$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru",
         "-p",
         "%PRJ%",
         "@%UNITS%",
@@ -71,7 +74,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "gnatcheck-$xpNum-j$max_procs.report",
         "-P%PRJ%",
         "-rules",
-        "-from=/workspaces/bench-source/benchmark-rules/all_rules_in_one_file/gnatcheck.rules"
+        `-from=$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/gnatcheck.rules`
     ]
 })
 

@@ -6,6 +6,7 @@ import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
 import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 type commandType = [string, string[], Record<string, string>];
 type taskDataType = { path: string, command: commandType };
@@ -19,9 +20,9 @@ export function initializeModule(program: Command): void {
         .option(
             "-c, --cratesPath <path>",
             "Path to a file that contains a list of know crates.",
-            "/workspaces/bench-source/cratesPath.json"
+            join(PROJECT_ROOT, "cratesPath.json")
         )
-        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", "/workspaces/bench-source/unknownCrates.ignore")
+        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
         .option("-v, --verbose", "Verbose mode")
         .option("-e, --execPath <path>", "Path to cogralys bin/exec file", "/home/devy/bin/atgdb")
         .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", "/home/devy/bin/log4j.properties")
@@ -35,7 +36,7 @@ export function initializeModule(program: Command): void {
                         console: new log.handlers.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
 
                         file: new log.handlers.FileHandler("WARNING", {
-                            filename: `/workspaces/bench-source/cogralysRunCommand-run.log`,
+                            filename: join(PROJECT_ROOT, "cogralysRunCommand-run.log"),
                             formatter: "[{levelName}] {msg}",
                             mode: "w"
                         }),
@@ -58,14 +59,14 @@ export function initializeModule(program: Command): void {
                 let completed = 0;
                 const projectFiles: string[] = [];
 
-                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync("/workspaces/bench-source/cratesDB.json"));
+                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
                 const ignoredUnknownCrates : string[] = getAllIgnoredCrates(cratesDB);
                 const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
                 const knowCrates = projects.map(elt => elt.crateName);
                 const paths = projects.map(elt => elt.alireTomlPath);
 
                 for (const path of paths) {
-                    const alireFilePath = `${path}${path.endsWith("/") ? "alire.toml" : path.endsWith("alire.toml") ? "" : "/alire.toml"}`;
+                    const alireFilePath = join(PROJECT_ROOT, `${path}${path.endsWith("/") ? "alire.toml" : path.endsWith("alire.toml") ? "" : "/alire.toml"}`);
                     const alireToml = parseToml(Deno.readTextFileSync(alireFilePath));
                     const projectFilesPath = alireToml["project-files"] as string[];
 
@@ -95,12 +96,12 @@ export function initializeModule(program: Command): void {
                                     [
                                         "run",
                                         "--config",
-                                        "/workspaces/bench-source/deno.jsonc",
+                                        join(PROJECT_ROOT, "deno.jsonc"),
                                         "--allow-read",
                                         "--allow-write",
                                         "--allow-env",
                                         "--allow-run",
-                                        "/workspaces/bench-source/utils/executeCogralysWithWatchdog.ts",
+                                        join(PROJECT_ROOT, "utils/executeCogralysWithWatchdog.ts"),
                                         JSON.stringify({
                                             path: dirname(alireFilePath), command: [
                                             options.execPath,
@@ -145,12 +146,12 @@ export function initializeModule(program: Command): void {
                                     [
                                         "run",
                                         "--config",
-                                        "/workspaces/bench-source/deno.jsonc",
+                                        join(PROJECT_ROOT, "deno.jsonc"),
                                         "--allow-read",
                                         "--allow-write",
                                         "--allow-env",
                                         "--allow-run",
-                                        "/workspaces/bench-source/utils/executeCogralysWithWatchdog.ts",
+                                        join(PROJECT_ROOT, "utils/executeCogralysWithWatchdog.ts"),
                                         JSON.stringify({
                                             path: dirname(alireFilePath), command: [
                                             options.execPath,

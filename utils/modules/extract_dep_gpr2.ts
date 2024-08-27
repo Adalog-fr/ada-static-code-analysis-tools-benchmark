@@ -1,7 +1,8 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { parse, isGlob, basename } from "https://deno.land/std/path/mod.ts";
+import { parse, isGlob, join } from "https://deno.land/std/path/mod.ts";
 import fg from "npm:fast-glob@3.2.12";
 import * as libgpr2 from "../lib/gpr2/libgpr2.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 function generateFromDir(paths: string[], setFileName: boolean): string[] {
     const pathGlobs: string[] = [];
@@ -43,7 +44,7 @@ export function initializeModule(program: Command): void {
         //   "-f, --filenameUnit",
         //   "Set filenames into the output file instead of unit name."
         // )
-        .option("-o, --output <path>", "Name of the output file", "/workspaces/bench-source/gpr2deps.txt")
+        .option("-o, --output <path>", "Name of the output file", join(PROJECT_ROOT, "gpr2deps.txt"))
         // .option(
         //   "-P, --project",
         //   "Treat the command entries (paths) as project (.gpr) paths rather than as directories to search files (.ads, abd)."

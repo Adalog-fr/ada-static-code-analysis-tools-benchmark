@@ -1,8 +1,10 @@
+import { join } from "https://deno.land/std/path/mod.ts";
 import neo4j from "https://deno.land/x/neo4j_driver_lite@5.18.0/mod.ts";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { formatDuration } from "../utils.ts";
 import * as allRules from "./allRules.ts";
 import { RuleType, UnknownRuleError } from "./rules/types/rules.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 type AllRulesName = keyof typeof allRules;
 const ruleNames: AllRulesName[] = Object.keys(allRules) as AllRulesName[];
@@ -14,7 +16,7 @@ type ruleFile = Array<[string, ({ [key: string]: any })?]>;
 const program = new Command()
   .option("-t, --timing", "Enable/disable the computation of execution time (global and by rules)", false)
   .option("-h, --host <URI>", "Neo4j URI", "bolt://host.docker.internal:7687")
-  .option("-p, --path <path>", "Path to Cypher rules", "/workspaces/bench-source/benchmark-rules")
+  .option("-p, --path <path>", "Path to Cypher rules", join(PROJECT_ROOT, "benchmark-rules"))
   .option(
         "--username <string>",
         "Username used to login to Neo4j database",
@@ -33,7 +35,7 @@ const program = new Command()
     .option(
         "-r, --rulePath <string>",
         "Path to a JSON file that provides all rules to analyse",
-        "/workspaces/bench-source/utils/cogralys-cli/rules/types/allRules.json"
+        join(PROJECT_ROOT, "utils/cogralys-cli/rules/types/allRules.json")
     )
   .parse(Deno.args);
 

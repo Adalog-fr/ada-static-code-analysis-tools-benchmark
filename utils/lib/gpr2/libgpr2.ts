@@ -1,3 +1,6 @@
+import { join } from "https://deno.land/std/path/mod.ts";
+import { PROJECT_ROOT } from "../../../config.ts";
+
 import {
   methodList,
   gpr2RequestAnswer,
@@ -35,7 +38,7 @@ switch (Deno.build.os) {
     break;
 }
 
-const libName = `/workspaces/bench-source/src/libgpr2/bindings/c/build/release/lib/libgpr2c.${libSuffix}`;
+const libName = join(PROJECT_ROOT, `src/libgpr2/bindings/c/build/release/lib/libgpr2c.${libSuffix}`);
 
 const lib = Deno.dlopen(libName, {
   gpr2_request: {

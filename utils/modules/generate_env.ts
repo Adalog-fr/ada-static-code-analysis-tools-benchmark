@@ -1,6 +1,8 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import { initializeModule as initializeCommandModule } from "./runCommandFactory.ts";
+import { join } from "https://deno.land/std/path/mod.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 export function initializeModule(program: Command): void {
     let progress : ProgressBar;
@@ -13,14 +15,14 @@ export function initializeModule(program: Command): void {
             [
                 "run",
                 "--config",
-                "/workspaces/bench-source/deno.jsonc",
+                join(PROJECT_ROOT, "deno.jsonc"),
                 "--allow-read",
                 "--allow-write",
                 "--allow-env",
                 "--allow-run",
                 "--allow-ffi",
                 "--unstable-ffi",
-                "/workspaces/bench-source/utils/executeEnvFileGeneration.ts",
+                join(PROJECT_ROOT, "utils/executeEnvFileGeneration.ts"),
             ]
         ],
         concurrency: 8,

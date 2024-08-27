@@ -1,6 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join, relative } from "https://deno.land/std/path/mod.ts";
 import { parse, stringify } from "https://deno.land/std/toml/mod.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 const DEFAULT_UNKNOWN_CRATES_FILENAME = "unknownCrates.json";
 export function initializeModule(program: Command): void {
@@ -12,18 +13,18 @@ export function initializeModule(program: Command): void {
         .option(
             "-c, --cratesPath <path>",
             "Path to a file that contains a list of know crates.",
-            "/workspaces/bench-source/cratesPath.json"
+            join(PROJECT_ROOT, "cratesPath.json")
         )
-        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", "/workspaces/bench-source/unknownCrates.ignore")
+        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
         .option(
             "-p, --alireTomlPath <path>",
             "Path to a json file that contains a list of all directories that contains a `alire.origin.toml`. If the path is a directory, it assume that is a root of a crate and will try to find `alire.origin.toml` in this directory.",
-            "/workspaces/bench-source/alireTomlPath.json"
+            join(PROJECT_ROOT, "alireTomlPath.json")
         )
         .option(
             "-u, --unknownCrates <path>",
             "File path to a json file that contains a list of all unknown crates found by processing `alire.origin.toml` files.",
-            "/workspaces/bench-source/" + DEFAULT_UNKNOWN_CRATES_FILENAME
+            join(PROJECT_ROOT, DEFAULT_UNKNOWN_CRATES_FILENAME)
         )
         .action(
             (options: { cratesPath: string, ignoredUnknownCrates: string, alireTomlPath: string, unknownCrates: string }) => {

@@ -1,6 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join } from "https://deno.land/std/path/mod.ts";
 import fg from "npm:fast-glob@3.2.12";
+import { PROJECT_ROOT } from "../../config.ts";
 
 const regex = new RegExp('^[\\/\\w\\-\\.]+:\\d+:\\d+');
 
@@ -29,7 +30,7 @@ export function initializeModule(program: Command, settings: {
         .option(
             "-p, --path <path>",
             "Path to start the exploration of results file.",
-            "/workspaces/bench-source/src"
+            join(PROJECT_ROOT, "src")
         )
         .option(
             "-f, --filename <path>",

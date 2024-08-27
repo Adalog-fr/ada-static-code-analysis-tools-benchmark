@@ -7,6 +7,7 @@ import * as log from "https://deno.land/std/log/mod.ts";
 import fg from "npm:fast-glob@3.2.12";
 import * as libgpr2 from "../lib/gpr2/libgpr2.ts";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 type commandType = [string, string[], Record<string, string>];
 type taskDataType = { path: string, command: commandType };
@@ -54,7 +55,7 @@ export function initializeModule(program: Command): void {
             "Choose what kind of units is set into the resulting file: unit (unit name), file (file name), path (full path to the unit file).",
             "unit"
         )
-        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", "/workspaces/bench-source/unknownCrates.ignore")
+        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
         .option(
             "-P, --project <type>",
             "Treat the command entries (paths) as project (.gpr) paths rather than as directories to search files (.ads, abd).",
@@ -129,7 +130,7 @@ export function initializeModule(program: Command): void {
                             console: new log.handlers.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
 
                             file: new log.handlers.FileHandler("WARNING", {
-                                filename: `/workspaces/bench-source/cogralysRunCommand-generate_units.log`,
+                                filename: join(PROJECT_ROOT,`cogralysRunCommand-generate_units.log`),
                                 formatter: "[{levelName}] {msg}",
                                 mode: "a"
                             }),
@@ -169,14 +170,14 @@ export function initializeModule(program: Command): void {
                                     [
                                         "run",
                                         "--config",
-                                        "/workspaces/bench-source/deno.jsonc",
+                                        join(PROJECT_ROOT, "deno.jsonc"),
                                         "--allow-read",
                                         "--allow-write",
                                         "--allow-env",
                                         "--allow-run",
                                         "--allow-ffi",
                                         "--unstable",
-                                        "/workspaces/bench-source/utils/cogralys-bench-util.ts",
+                                        join(PROJECT_ROOT, "utils/cogralys-bench-util.ts"),
                                         "units", "-P", "gpr", "-f", options.resultingUnitKind,
                                         "-i", options.ignoredUnknownCrates, path
                                     ],

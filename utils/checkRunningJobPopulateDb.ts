@@ -1,4 +1,7 @@
-const inputFile = Deno.readTextFileSync("/workspaces/bench-source/cogralysRunCommand-populate-neo4j.log").split(/\r?\n/g);
+import { join } from "https://deno.land/std/path/mod.ts";
+import { PROJECT_ROOT } from "../config.ts";
+
+const inputFile = Deno.readTextFileSync(join(PROJECT_ROOT, "cogralysRunCommand-populate-neo4j.log")).split(/\r?\n/g);
 
 const runningTasks: Record<string, string> = {};
 const completeTasks: string[] = [];

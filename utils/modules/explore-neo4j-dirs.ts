@@ -2,6 +2,7 @@ import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join, dirname, basename } from "https://deno.land/std/path/mod.ts";
 import { parse as parseToml } from "https://deno.land/std/toml/mod.ts";
 import fg from "npm:fast-glob@3.2.12";
+import { PROJECT_ROOT } from "../../config.ts";
 
 const OUTPUT_FILENAME = "pathToCratesWithCompleteNeo4jSetup.json";
 export type gprProjectAndNeo4jDbFiles = { isNeo4jDbFilesComplete: boolean, gprPath: string, neo4jDbFilesPath: string }
@@ -75,9 +76,9 @@ export function initializeModule(program: Command): void {
         .option(
             "-c, --cratesPath <path>",
             "Path to a file that contains a list of know crates.",
-            "/workspaces/bench-source/cratesPath.json"
+            join(PROJECT_ROOT, "cratesPath.json")
         )
-        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", "/workspaces/bench-source/unknownCrates.ignore")
+        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
         .option(
             "-o, --output-dir <path>",
             "Diriectory were the `" + OUTPUT_FILENAME + "` will be generated.",

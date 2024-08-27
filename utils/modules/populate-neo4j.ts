@@ -5,6 +5,7 @@ import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "https://deno.land/std/log/mod.ts";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
 import { alireAndGprPath } from "./explore-neo4j-dirs.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 const INPUT_FILENAME = "pathToCratesWithCompleteNeo4jSetup.json";
 type taskDataType = { skip: boolean } |
@@ -19,7 +20,7 @@ export function initializeModule(program: Command): void {
         .option(
             "-p, --path <path>",
             "The path to start the exploration.",
-            "/workspaces/bench-source/pathToCratesWithCompleteNeo4jSetup.json"
+            joinPath(PROJECT_ROOT, "pathToCratesWithCompleteNeo4jSetup.json")
         )
         .option(
             "-h, --host <host:port>",
@@ -52,7 +53,7 @@ export function initializeModule(program: Command): void {
                         console: new log.handlers.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
 
                         file: new log.handlers.FileHandler("INFO", {
-                            filename: `/workspaces/bench-source/cogralysRunCommand-populate-neo4j.log`,
+                            filename: joinPath(PROJECT_ROOT,`cogralysRunCommand-populate-neo4j.log`),
                             formatter: "[{levelName}] {msg}",
                             mode: "w"
                         }),
