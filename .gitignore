@@ -180,7 +180,7 @@ rootfs/home/.bash_history
 rootfs/home/.histfile
 rootfs/home/.gitconfig
 rootfs/home/omp.cache
-rootfs/home/bin
+rootfs/home/bin/*
 !rootfs/home/bin/log4j.properties
 *.log
 .atgdb/
