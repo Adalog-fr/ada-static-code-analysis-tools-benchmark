@@ -39,6 +39,10 @@ RUN apt-get install -y build-essential libssl-dev \
 # Install Oh My Posh for a better prompt
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
 
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Install SCC to count lines of codes
+RUN brew install scc
+
 ARG USERNAME=devy
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID

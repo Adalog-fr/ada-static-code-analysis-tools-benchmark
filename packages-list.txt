@@ -101,6 +101,7 @@ iproute2
 iputils-ping
 iso-codes
 javascript-common
+jc
 jp2a
 jq
 krb5-multidev:amd64

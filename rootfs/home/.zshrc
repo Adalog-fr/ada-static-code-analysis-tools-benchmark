@@ -30,4 +30,7 @@ source ~/.aliases
 # Load cargo deps
 . "$HOME/.cargo/env"
 
+# Load Brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 export PATH="$HOME/bin:$PATH"
