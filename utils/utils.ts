@@ -103,7 +103,6 @@ export interface CratesInNeo4j {
 
 export interface GPRProject {
     gprPath: string;
-    neo4jDbFilesPath: string;
     isNeo4jDbFilesComplete: boolean;
     isAdaCtlComplete: boolean;
     ignore: boolean;
