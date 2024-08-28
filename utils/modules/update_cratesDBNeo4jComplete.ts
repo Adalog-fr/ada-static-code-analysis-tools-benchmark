@@ -64,7 +64,7 @@ export function initializeModule(program: Command): void {
     program
         .command("update-cratesDB-neo4j-dir")
         .description(
-            "Updates the Neo4j DB files (" + OUTPUT_FILENAME + "), according to the completion status of cogralys-engine for a specific GPR project" + "This file is used for example to run analysis (AdaControl, Cogralys, GNATcheck) and code metrics (tokei/scc).\n" +
+            "Updates the crates DB files (" + OUTPUT_FILENAME + "), according to the completion status of cogralys-engine for a specific GPR project" + "This file is used for example to run analysis (AdaControl, Cogralys, GNATcheck) and code metrics (tokei/scc).\n" +
             "Example: cogralys-bench-util update-cratesDB-neo4j-dir -c aaa -w src/aaa -g src/aaa/aaa.gpr"
         )
         .option(
@@ -81,11 +81,11 @@ export function initializeModule(program: Command): void {
         )
         .action(
             (options: { crateName: string, workDir: string, gprPath: string }) => {
-                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync("cratesDB.json"));
+                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, OUTPUT_FILENAME)));
 
                 const updatedCratesDB = updateGPRProject(cratesDB, options);
 
-                Deno.writeTextFileSync("cratesDB.json", JSON.stringify(updatedCratesDB, null, 2));
+                Deno.writeTextFileSync(OUTPUT_FILENAME, JSON.stringify(updatedCratesDB, null, 2));
             }
         );
 }
