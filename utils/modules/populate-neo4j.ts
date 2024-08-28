@@ -4,8 +4,10 @@ import fg from "npm:fast-glob@3.3.2";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
-import { alireAndGprPath } from "./explore-neo4j-dirs.ts";
 import { PROJECT_ROOT } from "../../config.ts";
+
+export type gprProjectAndNeo4jDbFiles = { isNeo4jDbFilesComplete: boolean, gprPath: string, neo4jDbFilesPath: string }
+export type alireAndGprPath = { workDir: string, projects: gprProjectAndNeo4jDbFiles[], isNeo4jDbFilesFullyComplete: boolean };
 
 const INPUT_FILENAME = "pathToCratesWithCompleteNeo4jSetup.json";
 type taskDataType = { skip: boolean } |

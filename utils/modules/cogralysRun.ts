@@ -90,12 +90,17 @@ echo "" > ${globalLogFilePath}
 }
 
 function generateCommandBlock(i: number, maxProject: number, project: extendedGPRProject, options: any): string {
+    const localFileLogNameInit = `cogralys-init-${basename(project.gprPath).replace(".gpr", "")}-$xpNum-j$max_procs`;
+    const localFileLogNamePopulate = `cogralys-populate-${basename(project.gprPath).replace(".gpr", "")}-$xpNum-j$max_procs`;
+    const localFileLogNameRun = `cogralys-run-${basename(project.gprPath).replace(".gpr", "")}-$xpNum-j$max_procs`;
+
     return `echo [${i}/${maxProject}] START
 cd "$PROJECT_ROOT/${project.alireTomlPath}"
-echo "[START] process ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}
+echo "[START] processing ${project.crateName} > ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}
 echo "" > cogralys-run-$xpNum-j$max_procs.log
-{ time deno run --config $PROJECT_ROOT/deno.jsonc --allow-read --allow-write --allow-env --allow-run $PROJECT_ROOT/utils/executeCogralysWithWatchdog.ts '${JSON.stringify({
-    path: project.alireTomlPath,
+echo [${project.gprPath}] Start init
+{ /usr/bin/time -v -o ${localFileLogNameInit}.time deno run --config $PROJECT_ROOT/deno.jsonc --allow-read --allow-write --allow-env --allow-run $PROJECT_ROOT/utils/executeCogralysWithWatchdog.ts '${JSON.stringify({
+    path: join(PROJECT_ROOT, project.alireTomlPath),
     command: [
         options.execPath,
         [
@@ -107,7 +112,7 @@ echo "" > cogralys-run-$xpNum-j$max_procs.log
         {
             env: {
                 ...dotenv.loadSync({
-                    envPath: join(project.alireTomlPath, ".env"),
+                    envPath: join(PROJECT_ROOT, project.alireTomlPath, ".env"),
                 }),
                 DRY_RUN: "True",
                 LOGGER_CONFIG: options.log4jSettingsPath,
@@ -115,8 +120,16 @@ echo "" > cogralys-run-$xpNum-j$max_procs.log
             }
         },
     ]
-})}'; } &> >(tee -a cogralys-run-${basename(project.gprPath).replace(".gpr", "")}-$xpNum-j$max_procs.log ${globalLogFilePath} > /dev/null)
-echo "[END] process ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}
+})}'; } &> >(tee -a ${localFileLogNameInit}.log ${globalLogFilePath} > /dev/null)
+cat ${localFileLogNameInit}.time | jc --time -p -r > ${localFileLogNameInit}.time.json
+echo [${project.gprPath}] End init
+echo [${project.gprPath}] Start populate
+
+echo [${project.gprPath}] End populate
+echo [${project.gprPath}] Start run
+
+echo [${project.gprPath}] End run
+echo "[END] processing ${project.crateName} > ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}
 echo [${i}/${maxProject}] END
 `;
 }
