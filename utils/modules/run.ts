@@ -6,7 +6,7 @@ import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
 import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, getAllIgnoredCrates, getCogralysEnginePath } from "../utils.ts";
-import { PROJECT_ROOT } from "../../config.ts";
+import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 type commandType = [string, string[], Record<string, string>];
 type taskDataType = { path: string, command: commandType };
@@ -125,7 +125,7 @@ export function initializeModule(program: Command): void {
                                                     }),
                                                     DRY_RUN: "True",
                                                     LOGGER_CONFIG: options.log4jSettingsPath,
-                                                    NEO4J_RESULT_DIR: join("." + basename(currentPath).replace(".gpr", "").trim(), ".atdgb")
+                                                    NEO4J_RESULT_DIR: join("." + basename(currentPath).replace(".gpr", "").trim(), COGRALYS_DIR_NAME)
                                                 }
                                             },
                                         ]})
@@ -175,7 +175,7 @@ export function initializeModule(program: Command): void {
                                                     }),
                                                     DRY_RUN: "True",
                                                     LOGGER_CONFIG: options.log4jSettingsPath,
-                                                    NEO4J_RESULT_DIR: join("." + basename(currentPath).replace(".gpr", "").trim(), ".atdgb")
+                                                    NEO4J_RESULT_DIR: join("." + basename(currentPath).replace(".gpr", "").trim(), COGRALYS_DIR_NAME)
                                                 }
                                             },
                                         ]})

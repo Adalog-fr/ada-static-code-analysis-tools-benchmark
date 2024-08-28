@@ -2,7 +2,7 @@ import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
 import { UnifiedCrateData, GPRProject, Crate } from "../utils.ts";
-import { PROJECT_ROOT } from "../../config.ts";
+import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 const OUTPUT_FILENAME = "cratesDB.json";
 
@@ -60,7 +60,7 @@ function updateNeo4jDbFilesStatus(gprProject: GPRProject): GPRProject {
  * @returns True if the Neo4j DB files are complete, false otherwise
  */
 function checkNeo4jDbFilesCompletion(gprPath: string): boolean {
-    const searchPath = join(PROJECT_ROOT, dirname(gprPath), "." + basename(gprPath).replace(".gpr", "").trim(), ".atdgb", "3_*.json");
+    const searchPath = join(PROJECT_ROOT, dirname(gprPath), "." + basename(gprPath).replace(".gpr", "").trim(), COGRALYS_DIR_NAME, "3_*.json");
     return fg.sync(searchPath, { onlyFiles: true }).length > 0;
 }
 
