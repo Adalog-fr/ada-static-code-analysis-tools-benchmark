@@ -2,7 +2,7 @@ import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join, basename } from "jsr:@std/path@^0.225.1";
 import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, createBlock, getCogralysEnginePath } from "../utils.ts";
-import { PROJECT_ROOT } from "../../config.ts";
+import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 const globalLogFilePath = `$PROJECT_ROOT/cogralys-run-all-$xpNum-j$max_procs.log`;
 let defaultCogralysEnginePath = "";
@@ -27,6 +27,7 @@ export function initializeModule(program: Command): void {
         .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", "$PROJECT_ROOT/rootfs/home/bin/log4j.properties")
         .action(
             (options: { cratesPath: string, execPath: string, log4jSettingsPath: string }) => {
+                options.execPath = getCogralysEnginePath(options.execPath);
                 const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
                 const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
 
@@ -41,6 +42,8 @@ xpNum=0
 max_procs=0
 # Root of the benchmark project
 PROJECT_ROOT=$PWD
+# URI of Neo4j Bolt API, in form of "bolt://domain.com:7687"
+NEO4J_HOST="bolt://host.docker.internal:7687"
 
 # Function to display help information
 function show_help() {
@@ -98,7 +101,7 @@ function generateCommandBlock(i: number, maxProject: number, project: extendedGP
 cd "$PROJECT_ROOT/${project.alireTomlPath}"
 echo "[START] processing ${project.crateName} > ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}
 echo "" > cogralys-run-$xpNum-j$max_procs.log
-echo [${project.gprPath}] Start init
+echo [${project.gprPath}] Start init >> ${globalLogFilePath}
 { /usr/bin/time -v -o ${localFileLogNameInit}.time deno run --config $PROJECT_ROOT/deno.jsonc --allow-read --allow-write --allow-env --allow-run $PROJECT_ROOT/utils/executeCogralysWithWatchdog.ts '${JSON.stringify({
     path: join(PROJECT_ROOT, project.alireTomlPath),
     command: [
@@ -116,19 +119,24 @@ echo [${project.gprPath}] Start init
                 }),
                 DRY_RUN: "True",
                 LOGGER_CONFIG: options.log4jSettingsPath,
-                NEO4J_RESULT_DIR: join("." + basename(project.gprPath).replace(".gpr", "").trim(), ".atdgb")
+                NEO4J_RESULT_DIR: join("." + basename(project.gprPath, ".gpr").trim(), COGRALYS_DIR_NAME)
             }
         },
     ]
 })}'; } &> >(tee -a ${localFileLogNameInit}.log ${globalLogFilePath} > /dev/null)
 cat ${localFileLogNameInit}.time | jc --time -p -r > ${localFileLogNameInit}.time.json
-echo [${project.gprPath}] End init
-echo [${project.gprPath}] Start populate
+echo [${project.gprPath}] End init >> ${globalLogFilePath}
+echo [${project.gprPath}] Start updating cratesDB for this project >> ${globalLogFilePath}
+{ /usr/bin/time -v -o ${localFileLogNamePopulate}.time deno run --config $PROJECT_ROOT/deno.jsonc --allow-read --allow-write --allow-env --allow-run $PROJECT_ROOT/utils/cogralys-bench-util update-cratesDB-neo4j-dir -c ${project.crateName} -w ${project.alireTomlPath} -g ${project.gprPath} ; } &> >(tee -a ${globalLogFilePath} > /dev/null)
+echo [${project.gprPath}] End updating cratesDB for this project >> ${globalLogFilePath}
+echo [${project.gprPath}] Start populate >> ${globalLogFilePath}
+{ /usr/bin/time -v -o ${localFileLogNamePopulate}.time deno run --config $PROJECT_ROOT/deno.jsonc --allow-read --allow-write --allow-env --allow-run $PROJECT_ROOT/utils/cogralys-bench-util populate-neo4j-single -h $NEO4J_HOST -w ${project.alireTomlPath} -g ${project.gprPath} ; } &> >(tee -a ${globalLogFilePath} > /dev/null)
+cat ${localFileLogNamePopulate}.time | jc --time -p -r > ${localFileLogNamePopulate}.time.json
+echo [${project.gprPath}] End populate >> ${globalLogFilePath}
+echo [${project.gprPath}] Start run >> ${globalLogFilePath}
 
-echo [${project.gprPath}] End populate
-echo [${project.gprPath}] Start run
-
-echo [${project.gprPath}] End run
+echo [${project.gprPath}] End run >> ${globalLogFilePath}
+# TODO: clean DB
 echo "[END] processing ${project.crateName} > ${project.alireTomlPath}: ${project.gprPath}" >> ${globalLogFilePath}
 echo [${i}/${maxProject}] END
 `;
