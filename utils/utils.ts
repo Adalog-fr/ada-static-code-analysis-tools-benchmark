@@ -1,4 +1,4 @@
-import { PROJECT_ROOT } from "../config.ts";
+import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
 import { join } from "jsr:@std/path@^0.225.1";
 
 export function collectOptionList(value, previous) {
@@ -29,19 +29,18 @@ export function exec(
 }
 
 export function getCogralysEnginePath(pathToCogralys?: string): string {
-    const execName = "atgdb";
     const paths = [];
 
     if (pathToCogralys) {
         paths.push(pathToCogralys);
     } else {
-        paths.push(execName);
-        paths.push(join(PROJECT_ROOT, "rootfs/home/bin", execName));
+        paths.push(COGRALYS_EXE_NAME);
+        paths.push(join(PROJECT_ROOT, "rootfs/home/bin", COGRALYS_EXE_NAME));
     }
 
     for (const path of paths) {
         try {
-            exec(execName);
+            exec(COGRALYS_EXE_NAME);
             return path;
         } catch (_) {
             // The path is not found or not executable
