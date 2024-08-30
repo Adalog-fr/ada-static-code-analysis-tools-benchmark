@@ -11,6 +11,7 @@ import * as Run from "./modules/run.ts";
 import * as CogralysRun from "./modules/cogralysRun.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as PopulateNeo4jSingle from "./modules/populate-neo4j-single.ts";
+import * as CleanNeo4j from "./modules/clean-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
 import * as UpdateCratesDBneo4jComplete from "./modules/update_cratesDBNeo4jComplete.ts";
 import * as UpdateAllCratesDBneo4jComplete from "./modules/update_all_cratesDBNeo4jComplete.ts";
@@ -44,6 +45,7 @@ UpdateCratesDBneo4jComplete.initializeModule(program);
 UpdateAllCratesDBneo4jComplete.initializeModule(program);
 PopulateNeo4j.initializeModule(program);
 PopulateNeo4jSingle.initializeModule(program);
+CleanNeo4j.initializeModule(program);
 
 CreateRunBenchmarkCommand.initializeModule(program, {
     commandName: "bench-adactl",
