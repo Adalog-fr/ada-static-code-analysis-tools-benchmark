@@ -20,8 +20,8 @@ if [ "$#" -eq 0 ]; then
 fi
 
 # Define the source and target directories
-source_directory="/workspaces/bench-source/benchmark-rules"
-target_directory="/workspaces/bench-source/utils/cogralys-cli/rules"
+source_directory="../../../../bench-source/benchmark-rules"
+target_directory=".."
 
 # Function to generate TypeScript file from a .cyp filename
 generate_ts_file() {
