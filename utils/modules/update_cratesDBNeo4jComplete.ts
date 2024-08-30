@@ -85,7 +85,7 @@ export function initializeModule(program: Command): void {
 
                 const updatedCratesDB = updateGPRProject(cratesDB, options);
 
-                Deno.writeTextFileSync(OUTPUT_FILENAME, JSON.stringify(updatedCratesDB, null, 2));
+                Deno.writeTextFileSync(join(PROJECT_ROOT, OUTPUT_FILENAME), JSON.stringify(updatedCratesDB, null, 2));
             }
         );
 }
