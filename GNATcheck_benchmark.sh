@@ -13,1394 +13,263 @@ max_procs=0
 PROJECT_ROOT=$PWD
 # Path to the rule file
 ruleFile="$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/gnatcheck.rules"
+# Suffix of log file
+logSuffix=""
+
+# Function to get current date and time
+get_datetime() {
+    date "+%Y-%m-%d %H:%M:%S"
+}
 
 # Function to display help information
 function show_help() {
-    echo "Usage: $0 [-xpNum <number>] [-j <max_procs>] [-h|--help]"
-    echo "  -xpNum <number>    Set the experience number."
-    echo "  -j <max_procs>     Set the maximum number of processes."
-    echo "  -rule <path>       Set the path to the rule file."
-    echo "  -h, --help         Show help information."
+    echo "Usage: $0 [--xpNum <number>] [-j <max_procs>] [-h|--help]"
+    echo "  --xpNum <number>          Set the experience number."
+    echo "  -j <max_procs>            Set the maximum number of processes."
+    echo "  --rule <path>             Set the path to the rule file."
+    echo "  -s, --suffix <string>     Suffix used on the name of logs files."
+    echo "  -h, --help                Show help information."
+}
+
+# Function to process a single project
+process_project() {
+    local project_info=$1
+    local project_number=$2
+    local total_projects=$3
+    IFS='|' read -r crateName alireTomlPath gprPath command <<< "$project_info"
+
+    local base_name=$(basename "$gprPath" .gpr)
+    local log_prefix="gnatcheck-$base_name-$xpNum-j$max_procs$logSuffix"
+
+    echo "[$(get_datetime)] [$project_number/$total_projects] START" | tee -a "$globalLogFilePath"
+    cd "$PROJECT_ROOT/$alireTomlPath"
+
+    echo "[$(get_datetime)] [START] processing $crateName > $alireTomlPath > $gprPath" | tee -a "$globalLogFilePath"
+    echo "" > "$log_prefix.log"
+
+    run_command "$gprPath" "$log_prefix" "$command"
+    clean "$gprPath"
+
+    echo "[$(get_datetime)] [END] processing $crateName > $alireTomlPath > $gprPath" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$project_number/$total_projects] END" | tee -a "$globalLogFilePath"
+}
+
+run_command() {
+    local gprPath=$1
+    local log_prefix=$2
+    local command="$3"
+
+    echo "[$(get_datetime)] [$gprPath] Start xp" | tee -a "$globalLogFilePath"
+    /usr/bin/time -v -o "$log_prefix.time" alr exec -- $command 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath" > /dev/null
+    jc --time -p -r < "$log_prefix.time" > "$log_prefix.time.json"
+    echo "[$(get_datetime)] [$gprPath] End xp" | tee -a "$globalLogFilePath"
+}
+
+clean() {
+    local gprPath=$1
+    echo "[$(get_datetime)] [$gprPath] Start cleaning" | tee -a "$globalLogFilePath"
+    # Remove ASIS AST
+    rm -f *.ali *.adt
+    echo "[$(get_datetime)] [$gprPath] End cleaning" | tee -a "$globalLogFilePath"
 }
 
 # Loop through arguments and handle options
 while [[ "$#" -gt 0 ]]; do
     case $1 in
-        -xpNum)
-            xpNum="$2"
-            shift 2  # Advance past the argument value
-            ;;
-        -j)
-            max_procs="$2"
-            shift 2  # Advance past the argument value
-            ;;
-        -rule)
-            ruleFile="$2"
-            shift 2  # Advance past the argument value
-            ;;
-        -h|--help)
-            show_help
-            exit 0
-            ;;
-        *)  # Handle unknown options
-            echo "Unknown option: $1"
-            show_help
-            exit 1
-            ;;
+        --xpNum) xpNum="$2"; shift 2 ;;
+        -j) max_procs="$2"; shift 2 ;;
+        --rule) ruleFile="$2"; shift 2 ;;
+        -s|--suffix) logSuffix="$2"; shift 2 ;;
+        -h|--help) show_help; exit 0 ;;
+        *) echo "Unknown option: $1"; show_help; exit 1 ;;
     esac
 done
 
-echo "" > $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
+projects=(
+    "aaa|src/aaa|src/aaa/aaa.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/aaa/aaa.gpr -rules -from=$ruleFile"
+    "ada_fuse|src/ada_fuse|src/ada_fuse/ada_fuse.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ada_fuse/ada_fuse.gpr -rules -from=$ruleFile"
+    "ada_lua|src/ada_lua|src/ada_lua/ada_lua.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ada_lua/ada_lua.gpr -rules -from=$ruleFile"
+    "ada_pretty|src/ada_pretty|src/ada_pretty/gnat/ada_pretty.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ada_pretty/gnat/ada_pretty.gpr -rules -from=$ruleFile"
+    "ada_toml|src/ada_toml|src/ada_toml/ada_toml.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ada_toml/ada_toml.gpr -rules -from=$ruleFile"
+    "adabots|src/adabots|src/adabots/adabots.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/adabots/adabots.gpr -rules -from=$ruleFile"
+    "adl_middleware|src/adl_middleware|src/adl_middleware/adl_middleware.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/adl_middleware/adl_middleware.gpr -rules -from=$ruleFile"
+    "aicwl|src/aicwl|src/aicwl/sources/aicwl-editor.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/aicwl/sources/aicwl-editor.gpr -rules -from=$ruleFile"
+    "aicwl|src/aicwl|src/aicwl/sources/aicwl.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/aicwl/sources/aicwl.gpr -rules -from=$ruleFile"
+    "ajunitgen|src/ajunitgen|src/ajunitgen/ajunitgen.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ajunitgen/ajunitgen.gpr -rules -from=$ruleFile"
+    "anagram|src/anagram|src/anagram/gnat/anagram.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/anagram/gnat/anagram.gpr -rules -from=$ruleFile"
+    "ansiada|src/ansiada|src/ansiada/ansiada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ansiada/ansiada.gpr -rules -from=$ruleFile"
+    "apdf|src/apdf|src/apdf/pdf_out_gnat_w_gid.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/apdf/pdf_out_gnat_w_gid.gpr -rules -from=$ruleFile"
+    "asfml|src/asfml|src/asfml/asfml.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/asfml/asfml.gpr -rules -from=$ruleFile"
+    "atomic|src/atomic|src/atomic/atomic.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/atomic/atomic.gpr -rules -from=$ruleFile"
+    "audio_base|src/audio_base|src/audio_base/audio_base.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/audio_base/audio_base.gpr -rules -from=$ruleFile"
+    "audio_wavefiles|src/audio_wavefiles|src/audio_wavefiles/audio_wavefiles.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/audio_wavefiles/audio_wavefiles.gpr -rules -from=$ruleFile"
+    "aunit|src/aunit|src/aunit/lib/gnat/aunit.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/aunit/lib/gnat/aunit.gpr -rules -from=$ruleFile"
+    "automate|src/automate|src/automate/automate.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/automate/automate.gpr -rules -from=$ruleFile"
+    "avltrees|src/avltrees|src/avltrees/avltrees.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/avltrees/avltrees.gpr -rules -from=$ruleFile"
+    "aws|src/aws|src/aws/aws.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/aws/aws.gpr -rules -from=$ruleFile"
+    "axmpp|src/axmpp|src/axmpp/gnat/axmpp.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/axmpp/gnat/axmpp.gpr -rules -from=$ruleFile"
+    "ayacc|src/ayacc|src/ayacc/ayacc.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ayacc/ayacc.gpr -rules -from=$ruleFile"
+    "b2ssum|src/b2ssum|src/b2ssum/b2ssum.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/b2ssum/b2ssum.gpr -rules -from=$ruleFile"
+    "bar_codes|src/bar_codes|src/bar_codes/bar_codes_gnat.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/bar_codes/bar_codes_gnat.gpr -rules -from=$ruleFile"
+    "basalt|src/basalt|src/basalt/basalt.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/basalt/basalt.gpr -rules -from=$ruleFile"
+    "bingada|src/bingada|src/bingada/bingada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/bingada/bingada.gpr -rules -from=$ruleFile"
+    "blake2s|src/blake2s|src/blake2s/blake2s.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/blake2s/blake2s.gpr -rules -from=$ruleFile"
+    "brackelib|src/brackelib|src/brackelib/brackelib.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/brackelib/brackelib.gpr -rules -from=$ruleFile"
+    "c_strings|src/c_strings|src/c_strings/c_strings.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/c_strings/c_strings.gpr -rules -from=$ruleFile"
+    "canberra_ada|src/canberra_ada|src/canberra_ada/canberra_ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/canberra_ada/canberra_ada.gpr -rules -from=$ruleFile"
+    "cbsg|src/cbsg|src/cbsg/cbsg.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/cbsg/cbsg.gpr -rules -from=$ruleFile"
+    "chacha20|src/chacha20|src/chacha20/chacha20.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/chacha20/chacha20.gpr -rules -from=$ruleFile"
+    "chests|src/chests|src/chests/chests.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/chests/chests.gpr -rules -from=$ruleFile"
+    "cmd_ada|src/cmd_ada|src/cmd_ada/cmd_ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/cmd_ada/cmd_ada.gpr -rules -from=$ruleFile"
+    "cobs|src/cobs|src/cobs/cobs.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/cobs/cobs.gpr -rules -from=$ruleFile"
+    "dashera|src/dashera|src/dashera/dashera.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/dashera/dashera.gpr -rules -from=$ruleFile"
+    "dcf|src/dcf|src/dcf/zipdcf/zipdcf.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/dcf/zipdcf/zipdcf.gpr -rules -from=$ruleFile"
+    "dg_loada|src/dg_loada|src/dg_loada/dg_loada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/dg_loada/dg_loada.gpr -rules -from=$ruleFile"
+    "dir_iterators|src/dir_iterators|src/dir_iterators/dir_iterators.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/dir_iterators/dir_iterators.gpr -rules -from=$ruleFile"
+    "dotenv|src/dotenv|src/dotenv/dotenv.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/dotenv/dotenv.gpr -rules -from=$ruleFile"
+    "eagle_lander|src/eagle_lander|src/eagle_lander/eagle_lander.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/eagle_lander/eagle_lander.gpr -rules -from=$ruleFile"
+    "edc_client|src/edc_client|src/edc_client/edc_client.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/edc_client/edc_client.gpr -rules -from=$ruleFile"
+    "eeprom_i2c|src/eeprom_i2c|src/eeprom_i2c/eeprom_i2c.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/eeprom_i2c/eeprom_i2c.gpr -rules -from=$ruleFile"
+    "elevator|src/elevator|src/elevator/elevator.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/elevator/elevator.gpr -rules -from=$ruleFile"
+    "emacs_gpr_query|src/emacs_gpr_query|src/emacs_gpr_query/emacs_gpr_query.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/emacs_gpr_query/emacs_gpr_query.gpr -rules -from=$ruleFile"
+    "emojis|src/emojis|src/emojis/emojis.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/emojis/emojis.gpr -rules -from=$ruleFile"
+    "endianness|src/endianness|src/endianness/endianness.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/endianness/endianness.gpr -rules -from=$ruleFile"
+    "epoll|src/epoll|src/epoll/epoll.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/epoll/epoll.gpr -rules -from=$ruleFile"
+    "esp_idf|src/esp_idf|src/esp_idf/esp_idf.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/esp_idf/esp_idf.gpr -rules -from=$ruleFile"
+    "evdev|src/evdev|src/evdev/evdev_info.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/evdev/evdev_info.gpr -rules -from=$ruleFile"
+    "ews|src/ews|src/ews/ews.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ews/ews.gpr -rules -from=$ruleFile"
+    "excel_writer|src/excel_writer|src/excel_writer/excel_out_gnat.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/excel_writer/excel_out_gnat.gpr -rules -from=$ruleFile"
+    "fastpbkdf2_ada|src/fastpbkdf2_ada|src/fastpbkdf2_ada/fastpbkdf2_ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr -rules -from=$ruleFile"
+    "felix|src/felix|src/felix/felix.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/felix/felix.gpr -rules -from=$ruleFile"
+    "freetypeada|src/freetypeada|src/freetypeada/freetype.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/freetypeada/freetype.gpr -rules -from=$ruleFile"
+    "garlic|src/garlic|src/garlic/gnat/gnatdist.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/garlic/gnat/gnatdist.gpr -rules -from=$ruleFile"
+    "geo_coords|src/geo_coords|src/geo_coords/geo_coords.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/geo_coords/geo_coords.gpr -rules -from=$ruleFile"
+    "get_password|src/get_password|src/get_password/get_password.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/get_password/get_password.gpr -rules -from=$ruleFile"
+    "getopt|src/getopt|src/getopt/getopt.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/getopt/getopt.gpr -rules -from=$ruleFile"
+    "gid|src/gid|src/gid/gid.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gid/gid.gpr -rules -from=$ruleFile"
+    "gnat_math_extensions|src/gnat_math_extensions|src/gnat_math_extensions/gnat_math_extensions.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gnat_math_extensions/gnat_math_extensions.gpr -rules -from=$ruleFile"
+    "gnatcoll_lzma|src/gnatcoll-bindings/lzma|src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr -rules -from=$ruleFile"
+    "gnatcoll_omp|src/gnatcoll-bindings/omp|src/gnatcoll-bindings/omp/gnatcoll_omp.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr -rules -from=$ruleFile"
+    "gnatcoll_readline|src/gnatcoll-bindings/readline|src/gnatcoll-bindings/readline/gnatcoll_readline.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr -rules -from=$ruleFile"
+    "gnatcoll_zlip|src/gnatcoll-bindings/zlib|src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr -rules -from=$ruleFile"
+    "gtkada|src/gtkada|src/gtkada/src/gtkada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gtkada/src/gtkada.gpr -rules -from=$ruleFile"
+    "hac|src/hac|src/hac/hac.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/hac/hac.gpr -rules -from=$ruleFile"
+    "hal|src/hal|src/hal/hal.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/hal/hal.gpr -rules -from=$ruleFile"
+    "hangman|src/hangman|src/hangman/hangman.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/hangman/hangman.gpr -rules -from=$ruleFile"
+    "hello|src/hello|src/hello/hello.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/hello/hello.gpr -rules -from=$ruleFile"
+    "hmac|src/hmac|src/hmac/hmac.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/hmac/hmac.gpr -rules -from=$ruleFile"
+    "hungarian|src/hungarian|src/hungarian/hungarian.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/hungarian/hungarian.gpr -rules -from=$ruleFile"
+    "ini_files|src/ini_files|src/ini_files/ini_files.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/ini_files/ini_files.gpr -rules -from=$ruleFile"
+    "inotify|src/inotify|src/inotify/monitor.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/inotify/monitor.gpr -rules -from=$ruleFile"
+    "j2ada|src/j2ada|src/j2ada/j2ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/j2ada/j2ada.gpr -rules -from=$ruleFile"
+    "json|src/json/json|src/json/json/json_pretty_print.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/json/json/json_pretty_print.gpr -rules -from=$ruleFile"
+    "json|src/json/json|src/json/json/json.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/json/json/json.gpr -rules -from=$ruleFile"
+    "jupyter_kernel|src/jupyter_kernel|src/jupyter_kernel/gnat/jupyter_ada_driver.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr -rules -from=$ruleFile"
+    "jupyter_kernel|src/jupyter_kernel|src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr -rules -from=$ruleFile"
+    "jwt|src/jwt|src/jwt/gnat/jwt.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/jwt/gnat/jwt.gpr -rules -from=$ruleFile"
+    "labs_radar|src/labs_radar|src/labs_radar/labs_standalone/labs_standalone.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/labs_radar/labs_standalone/labs_standalone.gpr -rules -from=$ruleFile"
+    "lal_highlight|src/lal_highlight|src/lal_highlight/highlight.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/lal_highlight/highlight.gpr -rules -from=$ruleFile"
+    "langkit_support|src/langkit_support|src/langkit_support/langkit_support.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/langkit_support/langkit_support.gpr -rules -from=$ruleFile"
+    "libgpr|src/gprbuild|src/gprbuild/gpr/gpr.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/gprbuild/gpr/gpr.gpr -rules -from=$ruleFile"
+    "libhello|src/libhello|src/libhello/libhello.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/libhello/libhello.gpr -rules -from=$ruleFile"
+    "libsimpleio|src/libsimpleio|src/libsimpleio/libsimpleio.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/libsimpleio/libsimpleio.gpr -rules -from=$ruleFile"
+    "linenoise_ada|src/linenoise_ada|src/linenoise_ada/linenoise.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/linenoise_ada/linenoise.gpr -rules -from=$ruleFile"
+    "littlefs|src/littlefs|src/littlefs/littlefs.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/littlefs/littlefs.gpr -rules -from=$ruleFile"
+    "loga|src/loga|src/loga/loga.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/loga/loga.gpr -rules -from=$ruleFile"
+    "lvgl_ada|src/lvgl_ada|src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr -rules -from=$ruleFile"
+    "mandelbrot_ascii|src/mandelbrot_ascii|src/mandelbrot_ascii/mandelbrot_ascii.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/mandelbrot_ascii/mandelbrot_ascii.gpr -rules -from=$ruleFile"
+    "markdown|src/markdown|src/markdown/gnat/markdown.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/markdown/gnat/markdown.gpr -rules -from=$ruleFile"
+    "matreshka_fastcgi|src/matreshka/packages/alire/matreshka_fastcgi|src/matreshka/gnat/matreshka_fastcgi.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_fastcgi.gpr -rules -from=$ruleFile"
+    "matreshka_league|src/matreshka/packages/alire/matreshka_league|src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr -rules -from=$ruleFile"
+    "matreshka_servlet|src/matreshka/packages/alire/matreshka_servlet|src/matreshka/gnat/matreshka_servlet.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_servlet.gpr -rules -from=$ruleFile"
+    "matreshka_soap|src/matreshka/packages/alire/matreshka_soap|src/matreshka/gnat/matreshka_soap_wsse.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_soap_wsse.gpr -rules -from=$ruleFile"
+    "matreshka_spikedog_api|src/matreshka/packages/alire/matreshka_spikedog_api|src/matreshka/gnat/matreshka_spikedog_api.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_api.gpr -rules -from=$ruleFile"
+    "matreshka_spikedog_core|src/matreshka/packages/alire/matreshka_spikedog_core|src/matreshka/gnat/matreshka_spikedog_core.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_core.gpr -rules -from=$ruleFile"
+    "matreshka_sql|src/matreshka/packages/alire/matreshka_sql|src/matreshka/gnat/matreshka_sql_sqlite3.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_sql_sqlite3.gpr -rules -from=$ruleFile"
+    "matreshka_xml|src/matreshka/packages/alire/matreshka_xml|src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr -rules -from=$ruleFile"
+    "mcp2221|src/mcp2221|src/mcp2221/mcp2221.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/mcp2221/mcp2221.gpr -rules -from=$ruleFile"
+    "midi|src/midi|src/midi/midi.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/midi/midi.gpr -rules -from=$ruleFile"
+    "minirest|src/minirest|src/minirest/minirest.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/minirest/minirest.gpr -rules -from=$ruleFile"
+    "openglada|src/openglada|src/openglada/openglada_text/opengl-text.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/openglada/openglada_text/opengl-text.gpr -rules -from=$ruleFile"
+    "parse_args|src/parse_args|src/parse_args/parse_args.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/parse_args/parse_args.gpr -rules -from=$ruleFile"
+    "partord|src/partord|src/partord/partord.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/partord/partord.gpr -rules -from=$ruleFile"
+    "pbkdf2|src/pbkdf2|src/pbkdf2/pbkdf2.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/pbkdf2/pbkdf2.gpr -rules -from=$ruleFile"
+    "play_2048|src/play_2048|src/play_2048/play_2048.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/play_2048/play_2048.gpr -rules -from=$ruleFile"
+    "powerjoular|src/powerjoular|src/powerjoular/powerjoular.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/powerjoular/powerjoular.gpr -rules -from=$ruleFile"
+    "protobuf|src/protobuf|src/protobuf/gnat/protoc_gen_ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.gpr -rules -from=$ruleFile"
+    "qoi|src/qoi|src/qoi/qoi.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/qoi/qoi.gpr -rules -from=$ruleFile"
+    "raspberry_bsp|src/raspberry_bsp|src/raspberry_bsp/raspberry_bsp.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/raspberry_bsp/raspberry_bsp.gpr -rules -from=$ruleFile"
+    "rejuvenation|src/rejuvenation|src/rejuvenation/rejuvenation.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/rejuvenation/rejuvenation.gpr -rules -from=$ruleFile"
+    "remoteio|src/remoteio|src/remoteio/remoteio.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/remoteio/remoteio.gpr -rules -from=$ruleFile"
+    "resources|src/resources|src/resources/resources.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/resources/resources.gpr -rules -from=$ruleFile"
+    "rewriters|src/rewriters|src/rewriters/rewriters.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/rewriters/rewriters.gpr -rules -from=$ruleFile"
+    "rsfile|src/rsfile|src/rsfile/rsfile.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/rsfile/rsfile.gpr -rules -from=$ruleFile"
+    "rtmidi|src/rtmidi|src/rtmidi/rtmidi.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/rtmidi/rtmidi.gpr -rules -from=$ruleFile"
+    "saatana|src/saatana|src/saatana/saatana.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/saatana/saatana.gpr -rules -from=$ruleFile"
+    "scripted_testing|src/scripted_testing|src/scripted_testing/scripted_testing.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/scripted_testing/scripted_testing.gpr -rules -from=$ruleFile"
+    "sdlada|src/sdlada|src/sdlada/build/gnat/sdlada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/sdlada/build/gnat/sdlada.gpr -rules -from=$ruleFile"
+    "semantic_versioning|src/semantic_versioning|src/semantic_versioning/semantic_versioning.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/semantic_versioning/semantic_versioning.gpr -rules -from=$ruleFile"
+    "septum|src/septum|src/septum/septum.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/septum/septum.gpr -rules -from=$ruleFile"
+    "si_units|src/si_units|src/si_units/si_units.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/si_units/si_units.gpr -rules -from=$ruleFile"
+    "simh_tapes|src/simh_tapes|src/simh_tapes/simh_tapes.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/simh_tapes/simh_tapes.gpr -rules -from=$ruleFile"
+    "simple_components|src/simple_components|src/simple_components/components-gnutls.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/simple_components/components-gnutls.gpr -rules -from=$ruleFile"
+    "simple_components|src/simple_components|src/simple_components/components-sqlite.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/simple_components/components-sqlite.gpr -rules -from=$ruleFile"
+    "simple_components|src/simple_components|src/simple_components/components.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/simple_components/components.gpr -rules -from=$ruleFile"
+    "simple_components|src/simple_components|src/simple_components/tables.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/simple_components/tables.gpr -rules -from=$ruleFile"
+    "simple_logging|src/simple_logging|src/simple_logging/simple_logging.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/simple_logging/simple_logging.gpr -rules -from=$ruleFile"
+    "slip|src/slip|src/slip/slip.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/slip/slip.gpr -rules -from=$ruleFile"
+    "socketcan|src/socketcan|src/socketcan/src/socketcan.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/socketcan/src/socketcan.gpr -rules -from=$ruleFile"
+    "spark_unbound|src/spark_unbound|src/spark_unbound/spark_unbound.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/spark_unbound/spark_unbound.gpr -rules -from=$ruleFile"
+    "sparknacl|src/sparknacl|src/sparknacl/sparknacl.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/sparknacl/sparknacl.gpr -rules -from=$ruleFile"
+    "spdx|src/spdx|src/spdx/spdx.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/spdx/spdx.gpr -rules -from=$ruleFile"
+    "startup_gen|src/startup_gen|src/startup_gen/startup_gen.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/startup_gen/startup_gen.gpr -rules -from=$ruleFile"
+    "stopwatch|src/stopwatch|src/stopwatch/stopwatch.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/stopwatch/stopwatch.gpr -rules -from=$ruleFile"
+    "svd2ada|src/svd2ada|src/svd2ada/svd2ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/svd2ada/svd2ada.gpr -rules -from=$ruleFile"
+    "system_random|src/system_random|src/system_random/system_random.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/system_random/system_random.gpr -rules -from=$ruleFile"
+    "tash|src/tash|src/tash/tash.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/tash/tash.gpr -rules -from=$ruleFile"
+    "tiled_code_gen|src/tiled_code_gen|src/tiled_code_gen/tiled_code_gen.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/tiled_code_gen/tiled_code_gen.gpr -rules -from=$ruleFile"
+    "tiny_text|src/tiny_text|src/tiny_text/tiny_text.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/tiny_text/tiny_text.gpr -rules -from=$ruleFile"
+    "tlsada|src/tlsada|src/tlsada/tlsada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/tlsada/tlsada.gpr -rules -from=$ruleFile"
+    "toml_slicer|src/toml_slicer|src/toml_slicer/toml_slicer.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/toml_slicer/toml_slicer.gpr -rules -from=$ruleFile"
+    "trendy_terminal|src/trendy_terminal|src/trendy_terminal/trendy_terminal.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/trendy_terminal/trendy_terminal.gpr -rules -from=$ruleFile"
+    "trendy_test|src/trendy_test|src/trendy_test/trendy_test.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/trendy_test/trendy_test.gpr -rules -from=$ruleFile"
+    "uri_ada|src/uri_ada|src/uri_ada/uri_ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/uri_ada/uri_ada.gpr -rules -from=$ruleFile"
+    "uri_mime|src/uri_mime|src/uri_mime/uri_mime.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/uri_mime/uri_mime.gpr -rules -from=$ruleFile"
+    "utf8test|src/utf8test|src/utf8test/utf8test.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/utf8test/utf8test.gpr -rules -from=$ruleFile"
+    "vaton|src/vaton|src/vaton/vaton.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/vaton/vaton.gpr -rules -from=$ruleFile"
+    "virtapu|src/virtapu|src/virtapu/virtapu.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/virtapu/virtapu.gpr -rules -from=$ruleFile"
+    "weechat_ada|src/weechat_ada|src/weechat_ada/weechat_ada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/weechat_ada/weechat_ada.gpr -rules -from=$ruleFile"
+    "wordlist|src/wordlist|src/wordlist/wordlist.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/wordlist/wordlist.gpr -rules -from=$ruleFile"
+    "workers|src/workers|src/workers/workers.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/workers/workers.gpr -rules -from=$ruleFile"
+    "xdg_base_dir|src/xdg_base_dir|src/xdg_base_dir/xdg_base_dir.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xdg_base_dir/xdg_base_dir.gpr -rules -from=$ruleFile"
+    "xia|src/xia|src/xia/XIA.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xia/XIA.gpr -rules -from=$ruleFile"
+    "xml_ez_out|src/xml_ez_out|src/xml_ez_out/xml_ez_out.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xml_ez_out/xml_ez_out.gpr -rules -from=$ruleFile"
+    "xmlada|src/xmlada|src/xmlada/distrib/xmlada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xmlada/distrib/xmlada.gpr -rules -from=$ruleFile"
+    "xmlada|src/xmlada|src/xmlada/dom/xmlada_dom.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xmlada/dom/xmlada_dom.gpr -rules -from=$ruleFile"
+    "xmlada|src/xmlada|src/xmlada/input_sources/xmlada_input.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xmlada/input_sources/xmlada_input.gpr -rules -from=$ruleFile"
+    "xmlada|src/xmlada|src/xmlada/sax/xmlada_sax.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xmlada/sax/xmlada_sax.gpr -rules -from=$ruleFile"
+    "xmlada|src/xmlada|src/xmlada/schema/xmlada_schema.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xmlada/schema/xmlada_schema.gpr -rules -from=$ruleFile"
+    "xmlada|src/xmlada|src/xmlada/unicode/xmlada_unicode.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xmlada/unicode/xmlada_unicode.gpr -rules -from=$ruleFile"
+    "xoshiro|src/xoshiro|src/xoshiro/xoshiro.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/xoshiro/xoshiro.gpr -rules -from=$ruleFile"
+    "yeison|src/yeison|src/yeison/yeison.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/yeison/yeison.gpr -rules -from=$ruleFile"
+    "zeromq_ada|src/zeromq_ada|src/zeromq_ada/zmq.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/zeromq_ada/zmq.gpr -rules -from=$ruleFile"
+    "zipada|src/zipada|src/zipada/zipada.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/zipada/zipada.gpr -rules -from=$ruleFile"
+    "zlib_ada|src/zlib_ada|src/zlib_ada/zlib.gpr|gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs$logSuffix.report -P$PROJECT_ROOT/src/zlib_ada/zlib.gpr -rules -from=$ruleFile"
+)
 
-echo [1/169] START
-cd "$PROJECT_ROOT/src/aaa"
-echo "[START] process src/aaa: src/aaa/aaa.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-aaa-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/aaa/aaa.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-aaa-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-aaa-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-aaa-$xpNum-j$max_procs.time.json
-echo "[END] process src/aaa: src/aaa/aaa.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [1/169] END
-echo [2/169] START
-cd "$PROJECT_ROOT/src/ada_fuse"
-echo "[START] process src/ada_fuse: src/ada_fuse/ada_fuse.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ada_fuse-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ada_fuse/ada_fuse.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ada_fuse-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ada_fuse-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ada_fuse-$xpNum-j$max_procs.time.json
-echo "[END] process src/ada_fuse: src/ada_fuse/ada_fuse.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [2/169] END
-echo [3/169] START
-cd "$PROJECT_ROOT/src/ada_lua"
-echo "[START] process src/ada_lua: src/ada_lua/ada_lua.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ada_lua-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ada_lua/ada_lua.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ada_lua-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ada_lua-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ada_lua-$xpNum-j$max_procs.time.json
-echo "[END] process src/ada_lua: src/ada_lua/ada_lua.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [3/169] END
-echo [4/169] START
-cd "$PROJECT_ROOT/src/ada_pretty"
-echo "[START] process src/ada_pretty: src/ada_pretty/gnat/ada_pretty.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ada_pretty-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ada_pretty/gnat/ada_pretty.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ada_pretty-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ada_pretty-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ada_pretty-$xpNum-j$max_procs.time.json
-echo "[END] process src/ada_pretty: src/ada_pretty/gnat/ada_pretty.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [4/169] END
-echo [5/169] START
-cd "$PROJECT_ROOT/src/ada_toml"
-echo "[START] process src/ada_toml: src/ada_toml/ada_toml.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ada_toml-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ada_toml/ada_toml.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ada_toml-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ada_toml-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ada_toml-$xpNum-j$max_procs.time.json
-echo "[END] process src/ada_toml: src/ada_toml/ada_toml.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [5/169] END
-echo [6/169] START
-cd "$PROJECT_ROOT/src/adabots"
-echo "[START] process src/adabots: src/adabots/adabots.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-adabots-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/adabots/adabots.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-adabots-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-adabots-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-adabots-$xpNum-j$max_procs.time.json
-echo "[END] process src/adabots: src/adabots/adabots.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [6/169] END
-echo [7/169] START
-cd "$PROJECT_ROOT/src/adl_middleware"
-echo "[START] process src/adl_middleware: src/adl_middleware/adl_middleware.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-adl_middleware-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/adl_middleware/adl_middleware.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-adl_middleware-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-adl_middleware-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-adl_middleware-$xpNum-j$max_procs.time.json
-echo "[END] process src/adl_middleware: src/adl_middleware/adl_middleware.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [7/169] END
-echo [8/169] START
-cd "$PROJECT_ROOT/src/aicwl"
-echo "[START] process src/aicwl: src/aicwl/sources/aicwl-editor.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-aicwl-editor-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/aicwl/sources/aicwl-editor.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-aicwl-editor-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-aicwl-editor-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-aicwl-editor-$xpNum-j$max_procs.time.json
-echo "[END] process src/aicwl: src/aicwl/sources/aicwl-editor.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [8/169] END
-echo [9/169] START
-cd "$PROJECT_ROOT/src/aicwl"
-echo "[START] process src/aicwl: src/aicwl/sources/aicwl.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-aicwl-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/aicwl/sources/aicwl.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-aicwl-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-aicwl-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-aicwl-$xpNum-j$max_procs.time.json
-echo "[END] process src/aicwl: src/aicwl/sources/aicwl.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [9/169] END
-echo [10/169] START
-cd "$PROJECT_ROOT/src/ajunitgen"
-echo "[START] process src/ajunitgen: src/ajunitgen/ajunitgen.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ajunitgen-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ajunitgen/ajunitgen.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ajunitgen-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ajunitgen-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ajunitgen-$xpNum-j$max_procs.time.json
-echo "[END] process src/ajunitgen: src/ajunitgen/ajunitgen.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [10/169] END
-echo [11/169] START
-cd "$PROJECT_ROOT/src/anagram"
-echo "[START] process src/anagram: src/anagram/gnat/anagram.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-anagram-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/anagram/gnat/anagram.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-anagram-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-anagram-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-anagram-$xpNum-j$max_procs.time.json
-echo "[END] process src/anagram: src/anagram/gnat/anagram.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [11/169] END
-echo [12/169] START
-cd "$PROJECT_ROOT/src/ansiada"
-echo "[START] process src/ansiada: src/ansiada/ansiada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ansiada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ansiada/ansiada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ansiada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ansiada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ansiada-$xpNum-j$max_procs.time.json
-echo "[END] process src/ansiada: src/ansiada/ansiada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [12/169] END
-echo [13/169] START
-cd "$PROJECT_ROOT/src/apdf"
-echo "[START] process src/apdf: src/apdf/pdf_out_gnat_w_gid.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-pdf_out_gnat_w_gid-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/apdf/pdf_out_gnat_w_gid.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-pdf_out_gnat_w_gid-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-pdf_out_gnat_w_gid-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-pdf_out_gnat_w_gid-$xpNum-j$max_procs.time.json
-echo "[END] process src/apdf: src/apdf/pdf_out_gnat_w_gid.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [13/169] END
-echo [14/169] START
-cd "$PROJECT_ROOT/src/asfml"
-echo "[START] process src/asfml: src/asfml/asfml.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-asfml-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/asfml/asfml.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-asfml-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-asfml-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-asfml-$xpNum-j$max_procs.time.json
-echo "[END] process src/asfml: src/asfml/asfml.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [14/169] END
-echo [15/169] START
-cd "$PROJECT_ROOT/src/atomic"
-echo "[START] process src/atomic: src/atomic/atomic.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-atomic-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/atomic/atomic.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-atomic-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-atomic-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-atomic-$xpNum-j$max_procs.time.json
-echo "[END] process src/atomic: src/atomic/atomic.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [15/169] END
-echo [16/169] START
-cd "$PROJECT_ROOT/src/audio_base"
-echo "[START] process src/audio_base: src/audio_base/audio_base.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-audio_base-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/audio_base/audio_base.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-audio_base-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-audio_base-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-audio_base-$xpNum-j$max_procs.time.json
-echo "[END] process src/audio_base: src/audio_base/audio_base.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [16/169] END
-echo [17/169] START
-cd "$PROJECT_ROOT/src/audio_wavefiles"
-echo "[START] process src/audio_wavefiles: src/audio_wavefiles/audio_wavefiles.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-audio_wavefiles-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/audio_wavefiles/audio_wavefiles.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-audio_wavefiles-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-audio_wavefiles-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-audio_wavefiles-$xpNum-j$max_procs.time.json
-echo "[END] process src/audio_wavefiles: src/audio_wavefiles/audio_wavefiles.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [17/169] END
-echo [18/169] START
-cd "$PROJECT_ROOT/src/aunit"
-echo "[START] process src/aunit: src/aunit/lib/gnat/aunit.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-aunit-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/aunit/lib/gnat/aunit.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-aunit-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-aunit-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-aunit-$xpNum-j$max_procs.time.json
-echo "[END] process src/aunit: src/aunit/lib/gnat/aunit.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [18/169] END
-echo [19/169] START
-cd "$PROJECT_ROOT/src/automate"
-echo "[START] process src/automate: src/automate/automate.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-automate-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/automate/automate.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-automate-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-automate-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-automate-$xpNum-j$max_procs.time.json
-echo "[END] process src/automate: src/automate/automate.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [19/169] END
-echo [20/169] START
-cd "$PROJECT_ROOT/src/avltrees"
-echo "[START] process src/avltrees: src/avltrees/avltrees.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-avltrees-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/avltrees/avltrees.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-avltrees-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-avltrees-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-avltrees-$xpNum-j$max_procs.time.json
-echo "[END] process src/avltrees: src/avltrees/avltrees.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [20/169] END
-echo [21/169] START
-cd "$PROJECT_ROOT/src/aws"
-echo "[START] process src/aws: src/aws/aws.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-aws-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/aws/aws.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-aws-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-aws-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-aws-$xpNum-j$max_procs.time.json
-echo "[END] process src/aws: src/aws/aws.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [21/169] END
-echo [22/169] START
-cd "$PROJECT_ROOT/src/axmpp"
-echo "[START] process src/axmpp: src/axmpp/gnat/axmpp.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-axmpp-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/axmpp/gnat/axmpp.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-axmpp-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-axmpp-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-axmpp-$xpNum-j$max_procs.time.json
-echo "[END] process src/axmpp: src/axmpp/gnat/axmpp.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [22/169] END
-echo [23/169] START
-cd "$PROJECT_ROOT/src/ayacc"
-echo "[START] process src/ayacc: src/ayacc/ayacc.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ayacc-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ayacc/ayacc.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ayacc-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ayacc-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ayacc-$xpNum-j$max_procs.time.json
-echo "[END] process src/ayacc: src/ayacc/ayacc.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [23/169] END
-echo [24/169] START
-cd "$PROJECT_ROOT/src/b2ssum"
-echo "[START] process src/b2ssum: src/b2ssum/b2ssum.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-b2ssum-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/b2ssum/b2ssum.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-b2ssum-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-b2ssum-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-b2ssum-$xpNum-j$max_procs.time.json
-echo "[END] process src/b2ssum: src/b2ssum/b2ssum.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [24/169] END
-echo [25/169] START
-cd "$PROJECT_ROOT/src/bar_codes"
-echo "[START] process src/bar_codes: src/bar_codes/bar_codes_gnat.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-bar_codes_gnat-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/bar_codes/bar_codes_gnat.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-bar_codes_gnat-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-bar_codes_gnat-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-bar_codes_gnat-$xpNum-j$max_procs.time.json
-echo "[END] process src/bar_codes: src/bar_codes/bar_codes_gnat.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [25/169] END
-echo [26/169] START
-cd "$PROJECT_ROOT/src/basalt"
-echo "[START] process src/basalt: src/basalt/basalt.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-basalt-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/basalt/basalt.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-basalt-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-basalt-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-basalt-$xpNum-j$max_procs.time.json
-echo "[END] process src/basalt: src/basalt/basalt.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [26/169] END
-echo [27/169] START
-cd "$PROJECT_ROOT/src/bingada"
-echo "[START] process src/bingada: src/bingada/bingada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-bingada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/bingada/bingada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-bingada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-bingada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-bingada-$xpNum-j$max_procs.time.json
-echo "[END] process src/bingada: src/bingada/bingada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [27/169] END
-echo [28/169] START
-cd "$PROJECT_ROOT/src/blake2s"
-echo "[START] process src/blake2s: src/blake2s/blake2s.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-blake2s-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/blake2s/blake2s.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-blake2s-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-blake2s-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-blake2s-$xpNum-j$max_procs.time.json
-echo "[END] process src/blake2s: src/blake2s/blake2s.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [28/169] END
-echo [29/169] START
-cd "$PROJECT_ROOT/src/brackelib"
-echo "[START] process src/brackelib: src/brackelib/brackelib.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-brackelib-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/brackelib/brackelib.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-brackelib-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-brackelib-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-brackelib-$xpNum-j$max_procs.time.json
-echo "[END] process src/brackelib: src/brackelib/brackelib.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [29/169] END
-echo [30/169] START
-cd "$PROJECT_ROOT/src/c_strings"
-echo "[START] process src/c_strings: src/c_strings/c_strings.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-c_strings-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/c_strings/c_strings.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-c_strings-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-c_strings-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-c_strings-$xpNum-j$max_procs.time.json
-echo "[END] process src/c_strings: src/c_strings/c_strings.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [30/169] END
-echo [31/169] START
-cd "$PROJECT_ROOT/src/canberra_ada"
-echo "[START] process src/canberra_ada: src/canberra_ada/canberra_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-canberra_ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/canberra_ada/canberra_ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-canberra_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-canberra_ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-canberra_ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/canberra_ada: src/canberra_ada/canberra_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [31/169] END
-echo [32/169] START
-cd "$PROJECT_ROOT/src/cbsg"
-echo "[START] process src/cbsg: src/cbsg/cbsg.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-cbsg-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/cbsg/cbsg.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-cbsg-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-cbsg-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-cbsg-$xpNum-j$max_procs.time.json
-echo "[END] process src/cbsg: src/cbsg/cbsg.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [32/169] END
-echo [33/169] START
-cd "$PROJECT_ROOT/src/chacha20"
-echo "[START] process src/chacha20: src/chacha20/chacha20.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-chacha20-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/chacha20/chacha20.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-chacha20-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-chacha20-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-chacha20-$xpNum-j$max_procs.time.json
-echo "[END] process src/chacha20: src/chacha20/chacha20.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [33/169] END
-echo [34/169] START
-cd "$PROJECT_ROOT/src/chests"
-echo "[START] process src/chests: src/chests/chests.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-chests-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/chests/chests.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-chests-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-chests-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-chests-$xpNum-j$max_procs.time.json
-echo "[END] process src/chests: src/chests/chests.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [34/169] END
-echo [35/169] START
-cd "$PROJECT_ROOT/src/cmd_ada"
-echo "[START] process src/cmd_ada: src/cmd_ada/cmd_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-cmd_ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/cmd_ada/cmd_ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-cmd_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-cmd_ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-cmd_ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/cmd_ada: src/cmd_ada/cmd_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [35/169] END
-echo [36/169] START
-cd "$PROJECT_ROOT/src/cobs"
-echo "[START] process src/cobs: src/cobs/cobs.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-cobs-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/cobs/cobs.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-cobs-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-cobs-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-cobs-$xpNum-j$max_procs.time.json
-echo "[END] process src/cobs: src/cobs/cobs.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [36/169] END
-echo [37/169] START
-cd "$PROJECT_ROOT/src/dashera"
-echo "[START] process src/dashera: src/dashera/dashera.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-dashera-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/dashera/dashera.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-dashera-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-dashera-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-dashera-$xpNum-j$max_procs.time.json
-echo "[END] process src/dashera: src/dashera/dashera.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [37/169] END
-echo [38/169] START
-cd "$PROJECT_ROOT/src/dcf"
-echo "[START] process src/dcf: src/dcf/zipdcf/zipdcf.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-zipdcf-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/dcf/zipdcf/zipdcf.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-zipdcf-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-zipdcf-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-zipdcf-$xpNum-j$max_procs.time.json
-echo "[END] process src/dcf: src/dcf/zipdcf/zipdcf.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [38/169] END
-echo [39/169] START
-cd "$PROJECT_ROOT/src/dg_loada"
-echo "[START] process src/dg_loada: src/dg_loada/dg_loada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-dg_loada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/dg_loada/dg_loada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-dg_loada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-dg_loada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-dg_loada-$xpNum-j$max_procs.time.json
-echo "[END] process src/dg_loada: src/dg_loada/dg_loada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [39/169] END
-echo [40/169] START
-cd "$PROJECT_ROOT/src/dir_iterators"
-echo "[START] process src/dir_iterators: src/dir_iterators/dir_iterators.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-dir_iterators-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/dir_iterators/dir_iterators.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-dir_iterators-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-dir_iterators-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-dir_iterators-$xpNum-j$max_procs.time.json
-echo "[END] process src/dir_iterators: src/dir_iterators/dir_iterators.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [40/169] END
-echo [41/169] START
-cd "$PROJECT_ROOT/src/dotenv"
-echo "[START] process src/dotenv: src/dotenv/dotenv.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-dotenv-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/dotenv/dotenv.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-dotenv-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-dotenv-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-dotenv-$xpNum-j$max_procs.time.json
-echo "[END] process src/dotenv: src/dotenv/dotenv.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [41/169] END
-echo [42/169] START
-cd "$PROJECT_ROOT/src/eagle_lander"
-echo "[START] process src/eagle_lander: src/eagle_lander/eagle_lander.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-eagle_lander-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/eagle_lander/eagle_lander.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-eagle_lander-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-eagle_lander-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-eagle_lander-$xpNum-j$max_procs.time.json
-echo "[END] process src/eagle_lander: src/eagle_lander/eagle_lander.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [42/169] END
-echo [43/169] START
-cd "$PROJECT_ROOT/src/edc_client"
-echo "[START] process src/edc_client: src/edc_client/edc_client.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-edc_client-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/edc_client/edc_client.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-edc_client-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-edc_client-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-edc_client-$xpNum-j$max_procs.time.json
-echo "[END] process src/edc_client: src/edc_client/edc_client.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [43/169] END
-echo [44/169] START
-cd "$PROJECT_ROOT/src/eeprom_i2c"
-echo "[START] process src/eeprom_i2c: src/eeprom_i2c/eeprom_i2c.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-eeprom_i2c-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/eeprom_i2c/eeprom_i2c.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-eeprom_i2c-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-eeprom_i2c-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-eeprom_i2c-$xpNum-j$max_procs.time.json
-echo "[END] process src/eeprom_i2c: src/eeprom_i2c/eeprom_i2c.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [44/169] END
-echo [45/169] START
-cd "$PROJECT_ROOT/src/elevator"
-echo "[START] process src/elevator: src/elevator/elevator.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-elevator-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/elevator/elevator.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-elevator-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-elevator-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-elevator-$xpNum-j$max_procs.time.json
-echo "[END] process src/elevator: src/elevator/elevator.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [45/169] END
-echo [46/169] START
-cd "$PROJECT_ROOT/src/emacs_gpr_query"
-echo "[START] process src/emacs_gpr_query: src/emacs_gpr_query/emacs_gpr_query.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-emacs_gpr_query-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/emacs_gpr_query/emacs_gpr_query.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-emacs_gpr_query-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-emacs_gpr_query-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-emacs_gpr_query-$xpNum-j$max_procs.time.json
-echo "[END] process src/emacs_gpr_query: src/emacs_gpr_query/emacs_gpr_query.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [46/169] END
-echo [47/169] START
-cd "$PROJECT_ROOT/src/emojis"
-echo "[START] process src/emojis: src/emojis/emojis.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-emojis-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/emojis/emojis.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-emojis-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-emojis-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-emojis-$xpNum-j$max_procs.time.json
-echo "[END] process src/emojis: src/emojis/emojis.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [47/169] END
-echo [48/169] START
-cd "$PROJECT_ROOT/src/endianness"
-echo "[START] process src/endianness: src/endianness/endianness.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-endianness-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/endianness/endianness.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-endianness-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-endianness-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-endianness-$xpNum-j$max_procs.time.json
-echo "[END] process src/endianness: src/endianness/endianness.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [48/169] END
-echo [49/169] START
-cd "$PROJECT_ROOT/src/epoll"
-echo "[START] process src/epoll: src/epoll/epoll.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-epoll-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/epoll/epoll.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-epoll-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-epoll-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-epoll-$xpNum-j$max_procs.time.json
-echo "[END] process src/epoll: src/epoll/epoll.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [49/169] END
-echo [50/169] START
-cd "$PROJECT_ROOT/src/esp_idf"
-echo "[START] process src/esp_idf: src/esp_idf/esp_idf.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-esp_idf-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/esp_idf/esp_idf.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-esp_idf-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-esp_idf-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-esp_idf-$xpNum-j$max_procs.time.json
-echo "[END] process src/esp_idf: src/esp_idf/esp_idf.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [50/169] END
-echo [51/169] START
-cd "$PROJECT_ROOT/src/evdev"
-echo "[START] process src/evdev: src/evdev/evdev_info.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-evdev_info-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/evdev/evdev_info.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-evdev_info-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-evdev_info-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-evdev_info-$xpNum-j$max_procs.time.json
-echo "[END] process src/evdev: src/evdev/evdev_info.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [51/169] END
-echo [52/169] START
-cd "$PROJECT_ROOT/src/ews"
-echo "[START] process src/ews: src/ews/ews.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ews-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ews/ews.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ews-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ews-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ews-$xpNum-j$max_procs.time.json
-echo "[END] process src/ews: src/ews/ews.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [52/169] END
-echo [53/169] START
-cd "$PROJECT_ROOT/src/excel_writer"
-echo "[START] process src/excel_writer: src/excel_writer/excel_out_gnat.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-excel_out_gnat-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/excel_writer/excel_out_gnat.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-excel_out_gnat-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-excel_out_gnat-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-excel_out_gnat-$xpNum-j$max_procs.time.json
-echo "[END] process src/excel_writer: src/excel_writer/excel_out_gnat.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [53/169] END
-echo [54/169] START
-cd "$PROJECT_ROOT/src/fastpbkdf2_ada"
-echo "[START] process src/fastpbkdf2_ada: src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-fastpbkdf2_ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/fastpbkdf2_ada/fastpbkdf2_ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-fastpbkdf2_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-fastpbkdf2_ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-fastpbkdf2_ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/fastpbkdf2_ada: src/fastpbkdf2_ada/fastpbkdf2_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [54/169] END
-echo [55/169] START
-cd "$PROJECT_ROOT/src/felix"
-echo "[START] process src/felix: src/felix/felix.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-felix-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/felix/felix.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-felix-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-felix-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-felix-$xpNum-j$max_procs.time.json
-echo "[END] process src/felix: src/felix/felix.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [55/169] END
-echo [56/169] START
-cd "$PROJECT_ROOT/src/freetypeada"
-echo "[START] process src/freetypeada: src/freetypeada/freetype.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-freetype-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/freetypeada/freetype.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-freetype-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-freetype-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-freetype-$xpNum-j$max_procs.time.json
-echo "[END] process src/freetypeada: src/freetypeada/freetype.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [56/169] END
-echo [57/169] START
-cd "$PROJECT_ROOT/src/garlic"
-echo "[START] process src/garlic: src/garlic/gnat/gnatdist.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gnatdist-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/garlic/gnat/gnatdist.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gnatdist-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gnatdist-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gnatdist-$xpNum-j$max_procs.time.json
-echo "[END] process src/garlic: src/garlic/gnat/gnatdist.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [57/169] END
-echo [58/169] START
-cd "$PROJECT_ROOT/src/geo_coords"
-echo "[START] process src/geo_coords: src/geo_coords/geo_coords.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-geo_coords-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/geo_coords/geo_coords.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-geo_coords-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-geo_coords-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-geo_coords-$xpNum-j$max_procs.time.json
-echo "[END] process src/geo_coords: src/geo_coords/geo_coords.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [58/169] END
-echo [59/169] START
-cd "$PROJECT_ROOT/src/get_password"
-echo "[START] process src/get_password: src/get_password/get_password.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-get_password-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/get_password/get_password.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-get_password-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-get_password-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-get_password-$xpNum-j$max_procs.time.json
-echo "[END] process src/get_password: src/get_password/get_password.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [59/169] END
-echo [60/169] START
-cd "$PROJECT_ROOT/src/getopt"
-echo "[START] process src/getopt: src/getopt/getopt.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-getopt-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/getopt/getopt.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-getopt-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-getopt-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-getopt-$xpNum-j$max_procs.time.json
-echo "[END] process src/getopt: src/getopt/getopt.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [60/169] END
-echo [61/169] START
-cd "$PROJECT_ROOT/src/gid"
-echo "[START] process src/gid: src/gid/gid.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gid-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gid/gid.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gid-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gid-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gid-$xpNum-j$max_procs.time.json
-echo "[END] process src/gid: src/gid/gid.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [61/169] END
-echo [62/169] START
-cd "$PROJECT_ROOT/src/gnat_math_extensions"
-echo "[START] process src/gnat_math_extensions: src/gnat_math_extensions/gnat_math_extensions.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gnat_math_extensions-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gnat_math_extensions/gnat_math_extensions.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gnat_math_extensions-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gnat_math_extensions-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gnat_math_extensions-$xpNum-j$max_procs.time.json
-echo "[END] process src/gnat_math_extensions: src/gnat_math_extensions/gnat_math_extensions.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [62/169] END
-echo [63/169] START
-cd "$PROJECT_ROOT/src/gnatcoll-bindings/lzma"
-echo "[START] process src/gnatcoll-bindings/lzma: src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gnatcoll_lzma-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gnatcoll_lzma-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gnatcoll_lzma-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gnatcoll_lzma-$xpNum-j$max_procs.time.json
-echo "[END] process src/gnatcoll-bindings/lzma: src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [63/169] END
-echo [64/169] START
-cd "$PROJECT_ROOT/src/gnatcoll-bindings/omp"
-echo "[START] process src/gnatcoll-bindings/omp: src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gnatcoll_omp-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gnatcoll-bindings/omp/gnatcoll_omp.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gnatcoll_omp-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gnatcoll_omp-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gnatcoll_omp-$xpNum-j$max_procs.time.json
-echo "[END] process src/gnatcoll-bindings/omp: src/gnatcoll-bindings/omp/gnatcoll_omp.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [64/169] END
-echo [65/169] START
-cd "$PROJECT_ROOT/src/gnatcoll-bindings/readline"
-echo "[START] process src/gnatcoll-bindings/readline: src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gnatcoll_readline-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gnatcoll-bindings/readline/gnatcoll_readline.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gnatcoll_readline-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gnatcoll_readline-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gnatcoll_readline-$xpNum-j$max_procs.time.json
-echo "[END] process src/gnatcoll-bindings/readline: src/gnatcoll-bindings/readline/gnatcoll_readline.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [65/169] END
-echo [66/169] START
-cd "$PROJECT_ROOT/src/gnatcoll-bindings/zlib"
-echo "[START] process src/gnatcoll-bindings/zlib: src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gnatcoll_zlib-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gnatcoll_zlib-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gnatcoll_zlib-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gnatcoll_zlib-$xpNum-j$max_procs.time.json
-echo "[END] process src/gnatcoll-bindings/zlib: src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [66/169] END
-echo [67/169] START
-cd "$PROJECT_ROOT/src/gtkada"
-echo "[START] process src/gtkada: src/gtkada/src/gtkada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gtkada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gtkada/src/gtkada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gtkada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gtkada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gtkada-$xpNum-j$max_procs.time.json
-echo "[END] process src/gtkada: src/gtkada/src/gtkada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [67/169] END
-echo [68/169] START
-cd "$PROJECT_ROOT/src/hac"
-echo "[START] process src/hac: src/hac/hac.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-hac-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/hac/hac.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-hac-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-hac-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-hac-$xpNum-j$max_procs.time.json
-echo "[END] process src/hac: src/hac/hac.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [68/169] END
-echo [69/169] START
-cd "$PROJECT_ROOT/src/hal"
-echo "[START] process src/hal: src/hal/hal.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-hal-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/hal/hal.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-hal-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-hal-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-hal-$xpNum-j$max_procs.time.json
-echo "[END] process src/hal: src/hal/hal.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [69/169] END
-echo [70/169] START
-cd "$PROJECT_ROOT/src/hangman"
-echo "[START] process src/hangman: src/hangman/hangman.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-hangman-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/hangman/hangman.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-hangman-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-hangman-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-hangman-$xpNum-j$max_procs.time.json
-echo "[END] process src/hangman: src/hangman/hangman.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [70/169] END
-echo [71/169] START
-cd "$PROJECT_ROOT/src/hello"
-echo "[START] process src/hello: src/hello/hello.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-hello-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/hello/hello.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-hello-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-hello-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-hello-$xpNum-j$max_procs.time.json
-echo "[END] process src/hello: src/hello/hello.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [71/169] END
-echo [72/169] START
-cd "$PROJECT_ROOT/src/hmac"
-echo "[START] process src/hmac: src/hmac/hmac.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-hmac-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/hmac/hmac.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-hmac-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-hmac-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-hmac-$xpNum-j$max_procs.time.json
-echo "[END] process src/hmac: src/hmac/hmac.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [72/169] END
-echo [73/169] START
-cd "$PROJECT_ROOT/src/hungarian"
-echo "[START] process src/hungarian: src/hungarian/hungarian.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-hungarian-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/hungarian/hungarian.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-hungarian-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-hungarian-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-hungarian-$xpNum-j$max_procs.time.json
-echo "[END] process src/hungarian: src/hungarian/hungarian.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [73/169] END
-echo [74/169] START
-cd "$PROJECT_ROOT/src/ini_files"
-echo "[START] process src/ini_files: src/ini_files/ini_files.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-ini_files-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/ini_files/ini_files.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-ini_files-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-ini_files-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-ini_files-$xpNum-j$max_procs.time.json
-echo "[END] process src/ini_files: src/ini_files/ini_files.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [74/169] END
-echo [75/169] START
-cd "$PROJECT_ROOT/src/inotify"
-echo "[START] process src/inotify: src/inotify/monitor.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-monitor-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/inotify/monitor.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-monitor-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-monitor-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-monitor-$xpNum-j$max_procs.time.json
-echo "[END] process src/inotify: src/inotify/monitor.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [75/169] END
-echo [76/169] START
-cd "$PROJECT_ROOT/src/j2ada"
-echo "[START] process src/j2ada: src/j2ada/j2ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-j2ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/j2ada/j2ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-j2ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-j2ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-j2ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/j2ada: src/j2ada/j2ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [76/169] END
-echo [77/169] START
-cd "$PROJECT_ROOT/src/json/json"
-echo "[START] process src/json/json: src/json/json/json_pretty_print.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-json_pretty_print-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/json/json/json_pretty_print.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-json_pretty_print-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-json_pretty_print-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-json_pretty_print-$xpNum-j$max_procs.time.json
-echo "[END] process src/json/json: src/json/json/json_pretty_print.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [77/169] END
-echo [78/169] START
-cd "$PROJECT_ROOT/src/json/json"
-echo "[START] process src/json/json: src/json/json/json.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-json-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/json/json/json.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-json-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-json-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-json-$xpNum-j$max_procs.time.json
-echo "[END] process src/json/json: src/json/json/json.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [78/169] END
-echo [79/169] START
-cd "$PROJECT_ROOT/src/jupyter_kernel"
-echo "[START] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-jupyter_ada_driver-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_driver.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-jupyter_ada_driver-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-jupyter_ada_driver-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-jupyter_ada_driver-$xpNum-j$max_procs.time.json
-echo "[END] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_driver.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [79/169] END
-echo [80/169] START
-cd "$PROJECT_ROOT/src/jupyter_kernel"
-echo "[START] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-jupyter_ada_kernel-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-jupyter_ada_kernel-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-jupyter_ada_kernel-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-jupyter_ada_kernel-$xpNum-j$max_procs.time.json
-echo "[END] process src/jupyter_kernel: src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [80/169] END
-echo [81/169] START
-cd "$PROJECT_ROOT/src/jwt"
-echo "[START] process src/jwt: src/jwt/gnat/jwt.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-jwt-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/jwt/gnat/jwt.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-jwt-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-jwt-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-jwt-$xpNum-j$max_procs.time.json
-echo "[END] process src/jwt: src/jwt/gnat/jwt.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [81/169] END
-echo [82/169] START
-cd "$PROJECT_ROOT/src/labs_radar"
-echo "[START] process src/labs_radar: src/labs_radar/labs_standalone/labs_standalone.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-labs_standalone-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/labs_radar/labs_standalone/labs_standalone.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-labs_standalone-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-labs_standalone-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-labs_standalone-$xpNum-j$max_procs.time.json
-echo "[END] process src/labs_radar: src/labs_radar/labs_standalone/labs_standalone.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [82/169] END
-echo [83/169] START
-cd "$PROJECT_ROOT/src/lal_highlight"
-echo "[START] process src/lal_highlight: src/lal_highlight/highlight.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-highlight-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/lal_highlight/highlight.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-highlight-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-highlight-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-highlight-$xpNum-j$max_procs.time.json
-echo "[END] process src/lal_highlight: src/lal_highlight/highlight.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [83/169] END
-echo [84/169] START
-cd "$PROJECT_ROOT/src/langkit_support"
-echo "[START] process src/langkit_support: src/langkit_support/langkit_support.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-langkit_support-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/langkit_support/langkit_support.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-langkit_support-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-langkit_support-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-langkit_support-$xpNum-j$max_procs.time.json
-echo "[END] process src/langkit_support: src/langkit_support/langkit_support.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [84/169] END
-echo [85/169] START
-cd "$PROJECT_ROOT/src/gprbuild"
-echo "[START] process src/gprbuild: src/gprbuild/gpr/gpr.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-gpr-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/gprbuild/gpr/gpr.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-gpr-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-gpr-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-gpr-$xpNum-j$max_procs.time.json
-echo "[END] process src/gprbuild: src/gprbuild/gpr/gpr.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [85/169] END
-echo [86/169] START
-cd "$PROJECT_ROOT/src/libhello"
-echo "[START] process src/libhello: src/libhello/libhello.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-libhello-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/libhello/libhello.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-libhello-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-libhello-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-libhello-$xpNum-j$max_procs.time.json
-echo "[END] process src/libhello: src/libhello/libhello.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [86/169] END
-echo [87/169] START
-cd "$PROJECT_ROOT/src/libsimpleio"
-echo "[START] process src/libsimpleio: src/libsimpleio/libsimpleio.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-libsimpleio-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/libsimpleio/libsimpleio.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-libsimpleio-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-libsimpleio-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-libsimpleio-$xpNum-j$max_procs.time.json
-echo "[END] process src/libsimpleio: src/libsimpleio/libsimpleio.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [87/169] END
-echo [88/169] START
-cd "$PROJECT_ROOT/src/linenoise_ada"
-echo "[START] process src/linenoise_ada: src/linenoise_ada/linenoise.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-linenoise-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/linenoise_ada/linenoise.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-linenoise-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-linenoise-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-linenoise-$xpNum-j$max_procs.time.json
-echo "[END] process src/linenoise_ada: src/linenoise_ada/linenoise.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [88/169] END
-echo [89/169] START
-cd "$PROJECT_ROOT/src/littlefs"
-echo "[START] process src/littlefs: src/littlefs/littlefs.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-littlefs-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/littlefs/littlefs.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-littlefs-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-littlefs-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-littlefs-$xpNum-j$max_procs.time.json
-echo "[END] process src/littlefs: src/littlefs/littlefs.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [89/169] END
-echo [90/169] START
-cd "$PROJECT_ROOT/src/loga"
-echo "[START] process src/loga: src/loga/loga.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-loga-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/loga/loga.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-loga-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-loga-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-loga-$xpNum-j$max_procs.time.json
-echo "[END] process src/loga: src/loga/loga.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [90/169] END
-echo [91/169] START
-cd "$PROJECT_ROOT/src/lvgl_ada"
-echo "[START] process src/lvgl_ada: src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-lvgl_ada_simulator-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-lvgl_ada_simulator-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-lvgl_ada_simulator-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-lvgl_ada_simulator-$xpNum-j$max_procs.time.json
-echo "[END] process src/lvgl_ada: src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [91/169] END
-echo [92/169] START
-cd "$PROJECT_ROOT/src/mandelbrot_ascii"
-echo "[START] process src/mandelbrot_ascii: src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-mandelbrot_ascii-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/mandelbrot_ascii/mandelbrot_ascii.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-mandelbrot_ascii-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-mandelbrot_ascii-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-mandelbrot_ascii-$xpNum-j$max_procs.time.json
-echo "[END] process src/mandelbrot_ascii: src/mandelbrot_ascii/mandelbrot_ascii.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [92/169] END
-echo [93/169] START
-cd "$PROJECT_ROOT/src/markdown"
-echo "[START] process src/markdown: src/markdown/gnat/markdown.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-markdown-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/markdown/gnat/markdown.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-markdown-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-markdown-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-markdown-$xpNum-j$max_procs.time.json
-echo "[END] process src/markdown: src/markdown/gnat/markdown.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [93/169] END
-echo [94/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_fastcgi"
-echo "[START] process src/matreshka/packages/alire/matreshka_fastcgi: src/matreshka/gnat/matreshka_fastcgi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-matreshka_fastcgi-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_fastcgi.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-matreshka_fastcgi-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-matreshka_fastcgi-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-matreshka_fastcgi-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_fastcgi: src/matreshka/gnat/matreshka_fastcgi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [94/169] END
-echo [95/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league"
-echo "[START] process src/matreshka/packages/alire/matreshka_league: src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-build_matreshka_league-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-build_matreshka_league-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-build_matreshka_league-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-build_matreshka_league-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_league: src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [95/169] END
-echo [96/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_servlet"
-echo "[START] process src/matreshka/packages/alire/matreshka_servlet: src/matreshka/gnat/matreshka_servlet.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-matreshka_servlet-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_servlet.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-matreshka_servlet-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-matreshka_servlet-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-matreshka_servlet-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_servlet: src/matreshka/gnat/matreshka_servlet.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [96/169] END
-echo [97/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_soap"
-echo "[START] process src/matreshka/packages/alire/matreshka_soap: src/matreshka/gnat/matreshka_soap_wsse.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-matreshka_soap_wsse-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_soap_wsse.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-matreshka_soap_wsse-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-matreshka_soap_wsse-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-matreshka_soap_wsse-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_soap: src/matreshka/gnat/matreshka_soap_wsse.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [97/169] END
-echo [98/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_spikedog_api"
-echo "[START] process src/matreshka/packages/alire/matreshka_spikedog_api: src/matreshka/gnat/matreshka_spikedog_api.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-matreshka_spikedog_api-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_api.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-matreshka_spikedog_api-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-matreshka_spikedog_api-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-matreshka_spikedog_api-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_spikedog_api: src/matreshka/gnat/matreshka_spikedog_api.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [98/169] END
-echo [99/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_spikedog_core"
-echo "[START] process src/matreshka/packages/alire/matreshka_spikedog_core: src/matreshka/gnat/matreshka_spikedog_core.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-matreshka_spikedog_core-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_spikedog_core.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-matreshka_spikedog_core-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-matreshka_spikedog_core-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-matreshka_spikedog_core-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_spikedog_core: src/matreshka/gnat/matreshka_spikedog_core.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [99/169] END
-echo [100/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_sql"
-echo "[START] process src/matreshka/packages/alire/matreshka_sql: src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-matreshka_sql_sqlite3-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/gnat/matreshka_sql_sqlite3.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-matreshka_sql_sqlite3-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-matreshka_sql_sqlite3-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-matreshka_sql_sqlite3-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_sql: src/matreshka/gnat/matreshka_sql_sqlite3.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [100/169] END
-echo [101/169] START
-cd "$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml"
-echo "[START] process src/matreshka/packages/alire/matreshka_xml: src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-build_matreshka_xml-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-build_matreshka_xml-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-build_matreshka_xml-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-build_matreshka_xml-$xpNum-j$max_procs.time.json
-echo "[END] process src/matreshka/packages/alire/matreshka_xml: src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [101/169] END
-echo [102/169] START
-cd "$PROJECT_ROOT/src/mcp2221"
-echo "[START] process src/mcp2221: src/mcp2221/mcp2221.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-mcp2221-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/mcp2221/mcp2221.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-mcp2221-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-mcp2221-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-mcp2221-$xpNum-j$max_procs.time.json
-echo "[END] process src/mcp2221: src/mcp2221/mcp2221.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [102/169] END
-echo [103/169] START
-cd "$PROJECT_ROOT/src/midi"
-echo "[START] process src/midi: src/midi/midi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-midi-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/midi/midi.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-midi-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-midi-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-midi-$xpNum-j$max_procs.time.json
-echo "[END] process src/midi: src/midi/midi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [103/169] END
-echo [104/169] START
-cd "$PROJECT_ROOT/src/minirest"
-echo "[START] process src/minirest: src/minirest/minirest.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-minirest-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/minirest/minirest.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-minirest-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-minirest-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-minirest-$xpNum-j$max_procs.time.json
-echo "[END] process src/minirest: src/minirest/minirest.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [104/169] END
-echo [105/169] START
-cd "$PROJECT_ROOT/src/openglada"
-echo "[START] process src/openglada: src/openglada/openglada_text/opengl-text.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-opengl-text-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/openglada/openglada_text/opengl-text.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-opengl-text-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-opengl-text-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-opengl-text-$xpNum-j$max_procs.time.json
-echo "[END] process src/openglada: src/openglada/openglada_text/opengl-text.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [105/169] END
-echo [106/169] START
-cd "$PROJECT_ROOT/src/parse_args"
-echo "[START] process src/parse_args: src/parse_args/parse_args.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-parse_args-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/parse_args/parse_args.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-parse_args-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-parse_args-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-parse_args-$xpNum-j$max_procs.time.json
-echo "[END] process src/parse_args: src/parse_args/parse_args.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [106/169] END
-echo [107/169] START
-cd "$PROJECT_ROOT/src/partord"
-echo "[START] process src/partord: src/partord/partord.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-partord-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/partord/partord.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-partord-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-partord-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-partord-$xpNum-j$max_procs.time.json
-echo "[END] process src/partord: src/partord/partord.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [107/169] END
-echo [108/169] START
-cd "$PROJECT_ROOT/src/pbkdf2"
-echo "[START] process src/pbkdf2: src/pbkdf2/pbkdf2.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-pbkdf2-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/pbkdf2/pbkdf2.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-pbkdf2-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-pbkdf2-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-pbkdf2-$xpNum-j$max_procs.time.json
-echo "[END] process src/pbkdf2: src/pbkdf2/pbkdf2.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [108/169] END
-echo [109/169] START
-cd "$PROJECT_ROOT/src/play_2048"
-echo "[START] process src/play_2048: src/play_2048/play_2048.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-play_2048-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/play_2048/play_2048.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-play_2048-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-play_2048-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-play_2048-$xpNum-j$max_procs.time.json
-echo "[END] process src/play_2048: src/play_2048/play_2048.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [109/169] END
-echo [110/169] START
-cd "$PROJECT_ROOT/src/powerjoular"
-echo "[START] process src/powerjoular: src/powerjoular/powerjoular.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-powerjoular-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/powerjoular/powerjoular.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-powerjoular-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-powerjoular-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-powerjoular-$xpNum-j$max_procs.time.json
-echo "[END] process src/powerjoular: src/powerjoular/powerjoular.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [110/169] END
-echo [111/169] START
-cd "$PROJECT_ROOT/src/protobuf"
-echo "[START] process src/protobuf: src/protobuf/gnat/protoc_gen_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-protoc_gen_ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-protoc_gen_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-protoc_gen_ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-protoc_gen_ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/protobuf: src/protobuf/gnat/protoc_gen_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [111/169] END
-echo [112/169] START
-cd "$PROJECT_ROOT/src/qoi"
-echo "[START] process src/qoi: src/qoi/qoi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-qoi-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/qoi/qoi.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-qoi-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-qoi-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-qoi-$xpNum-j$max_procs.time.json
-echo "[END] process src/qoi: src/qoi/qoi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [112/169] END
-echo [113/169] START
-cd "$PROJECT_ROOT/src/raspberry_bsp"
-echo "[START] process src/raspberry_bsp: src/raspberry_bsp/raspberry_bsp.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-raspberry_bsp-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/raspberry_bsp/raspberry_bsp.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-raspberry_bsp-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-raspberry_bsp-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-raspberry_bsp-$xpNum-j$max_procs.time.json
-echo "[END] process src/raspberry_bsp: src/raspberry_bsp/raspberry_bsp.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [113/169] END
-echo [114/169] START
-cd "$PROJECT_ROOT/src/rejuvenation"
-echo "[START] process src/rejuvenation: src/rejuvenation/rejuvenation.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-rejuvenation-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/rejuvenation/rejuvenation.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-rejuvenation-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-rejuvenation-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-rejuvenation-$xpNum-j$max_procs.time.json
-echo "[END] process src/rejuvenation: src/rejuvenation/rejuvenation.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [114/169] END
-echo [115/169] START
-cd "$PROJECT_ROOT/src/remoteio"
-echo "[START] process src/remoteio: src/remoteio/remoteio.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-remoteio-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/remoteio/remoteio.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-remoteio-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-remoteio-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-remoteio-$xpNum-j$max_procs.time.json
-echo "[END] process src/remoteio: src/remoteio/remoteio.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [115/169] END
-echo [116/169] START
-cd "$PROJECT_ROOT/src/resources"
-echo "[START] process src/resources: src/resources/resources.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-resources-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/resources/resources.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-resources-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-resources-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-resources-$xpNum-j$max_procs.time.json
-echo "[END] process src/resources: src/resources/resources.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [116/169] END
-echo [117/169] START
-cd "$PROJECT_ROOT/src/rewriters"
-echo "[START] process src/rewriters: src/rewriters/rewriters.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-rewriters-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/rewriters/rewriters.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-rewriters-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-rewriters-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-rewriters-$xpNum-j$max_procs.time.json
-echo "[END] process src/rewriters: src/rewriters/rewriters.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [117/169] END
-echo [118/169] START
-cd "$PROJECT_ROOT/src/rsfile"
-echo "[START] process src/rsfile: src/rsfile/rsfile.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-rsfile-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/rsfile/rsfile.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-rsfile-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-rsfile-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-rsfile-$xpNum-j$max_procs.time.json
-echo "[END] process src/rsfile: src/rsfile/rsfile.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [118/169] END
-echo [119/169] START
-cd "$PROJECT_ROOT/src/rtmidi"
-echo "[START] process src/rtmidi: src/rtmidi/rtmidi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-rtmidi-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/rtmidi/rtmidi.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-rtmidi-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-rtmidi-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-rtmidi-$xpNum-j$max_procs.time.json
-echo "[END] process src/rtmidi: src/rtmidi/rtmidi.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [119/169] END
-echo [120/169] START
-cd "$PROJECT_ROOT/src/saatana"
-echo "[START] process src/saatana: src/saatana/saatana.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-saatana-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/saatana/saatana.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-saatana-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-saatana-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-saatana-$xpNum-j$max_procs.time.json
-echo "[END] process src/saatana: src/saatana/saatana.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [120/169] END
-echo [121/169] START
-cd "$PROJECT_ROOT/src/scripted_testing"
-echo "[START] process src/scripted_testing: src/scripted_testing/scripted_testing.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-scripted_testing-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/scripted_testing/scripted_testing.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-scripted_testing-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-scripted_testing-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-scripted_testing-$xpNum-j$max_procs.time.json
-echo "[END] process src/scripted_testing: src/scripted_testing/scripted_testing.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [121/169] END
-echo [122/169] START
-cd "$PROJECT_ROOT/src/sdlada"
-echo "[START] process src/sdlada: src/sdlada/build/gnat/sdlada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-sdlada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/sdlada/build/gnat/sdlada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-sdlada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-sdlada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-sdlada-$xpNum-j$max_procs.time.json
-echo "[END] process src/sdlada: src/sdlada/build/gnat/sdlada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [122/169] END
-echo [123/169] START
-cd "$PROJECT_ROOT/src/semantic_versioning"
-echo "[START] process src/semantic_versioning: src/semantic_versioning/semantic_versioning.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-semantic_versioning-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/semantic_versioning/semantic_versioning.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-semantic_versioning-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-semantic_versioning-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-semantic_versioning-$xpNum-j$max_procs.time.json
-echo "[END] process src/semantic_versioning: src/semantic_versioning/semantic_versioning.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [123/169] END
-echo [124/169] START
-cd "$PROJECT_ROOT/src/septum"
-echo "[START] process src/septum: src/septum/septum.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-septum-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/septum/septum.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-septum-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-septum-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-septum-$xpNum-j$max_procs.time.json
-echo "[END] process src/septum: src/septum/septum.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [124/169] END
-echo [125/169] START
-cd "$PROJECT_ROOT/src/si_units"
-echo "[START] process src/si_units: src/si_units/si_units.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-si_units-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/si_units/si_units.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-si_units-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-si_units-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-si_units-$xpNum-j$max_procs.time.json
-echo "[END] process src/si_units: src/si_units/si_units.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [125/169] END
-echo [126/169] START
-cd "$PROJECT_ROOT/src/simh_tapes"
-echo "[START] process src/simh_tapes: src/simh_tapes/simh_tapes.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-simh_tapes-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/simh_tapes/simh_tapes.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-simh_tapes-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-simh_tapes-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-simh_tapes-$xpNum-j$max_procs.time.json
-echo "[END] process src/simh_tapes: src/simh_tapes/simh_tapes.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [126/169] END
-echo [127/169] START
-cd "$PROJECT_ROOT/src/simple_components"
-echo "[START] process src/simple_components: src/simple_components/components-gnutls.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-components-gnutls-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/simple_components/components-gnutls.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-components-gnutls-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-components-gnutls-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-components-gnutls-$xpNum-j$max_procs.time.json
-echo "[END] process src/simple_components: src/simple_components/components-gnutls.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [127/169] END
-echo [128/169] START
-cd "$PROJECT_ROOT/src/simple_components"
-echo "[START] process src/simple_components: src/simple_components/components-sqlite.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-components-sqlite-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/simple_components/components-sqlite.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-components-sqlite-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-components-sqlite-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-components-sqlite-$xpNum-j$max_procs.time.json
-echo "[END] process src/simple_components: src/simple_components/components-sqlite.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [128/169] END
-echo [129/169] START
-cd "$PROJECT_ROOT/src/simple_components"
-echo "[START] process src/simple_components: src/simple_components/components.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-components-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/simple_components/components.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-components-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-components-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-components-$xpNum-j$max_procs.time.json
-echo "[END] process src/simple_components: src/simple_components/components.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [129/169] END
-echo [130/169] START
-cd "$PROJECT_ROOT/src/simple_components"
-echo "[START] process src/simple_components: src/simple_components/tables.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-tables-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/simple_components/tables.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-tables-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-tables-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-tables-$xpNum-j$max_procs.time.json
-echo "[END] process src/simple_components: src/simple_components/tables.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [130/169] END
-echo [131/169] START
-cd "$PROJECT_ROOT/src/simple_logging"
-echo "[START] process src/simple_logging: src/simple_logging/simple_logging.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-simple_logging-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/simple_logging/simple_logging.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-simple_logging-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-simple_logging-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-simple_logging-$xpNum-j$max_procs.time.json
-echo "[END] process src/simple_logging: src/simple_logging/simple_logging.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [131/169] END
-echo [132/169] START
-cd "$PROJECT_ROOT/src/slip"
-echo "[START] process src/slip: src/slip/slip.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-slip-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/slip/slip.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-slip-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-slip-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-slip-$xpNum-j$max_procs.time.json
-echo "[END] process src/slip: src/slip/slip.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [132/169] END
-echo [133/169] START
-cd "$PROJECT_ROOT/src/socketcan"
-echo "[START] process src/socketcan: src/socketcan/src/socketcan.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-socketcan-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/socketcan/src/socketcan.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-socketcan-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-socketcan-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-socketcan-$xpNum-j$max_procs.time.json
-echo "[END] process src/socketcan: src/socketcan/src/socketcan.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [133/169] END
-echo [134/169] START
-cd "$PROJECT_ROOT/src/spark_unbound"
-echo "[START] process src/spark_unbound: src/spark_unbound/spark_unbound.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-spark_unbound-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/spark_unbound/spark_unbound.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-spark_unbound-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-spark_unbound-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-spark_unbound-$xpNum-j$max_procs.time.json
-echo "[END] process src/spark_unbound: src/spark_unbound/spark_unbound.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [134/169] END
-echo [135/169] START
-cd "$PROJECT_ROOT/src/sparknacl"
-echo "[START] process src/sparknacl: src/sparknacl/sparknacl.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-sparknacl-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/sparknacl/sparknacl.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-sparknacl-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-sparknacl-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-sparknacl-$xpNum-j$max_procs.time.json
-echo "[END] process src/sparknacl: src/sparknacl/sparknacl.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [135/169] END
-echo [136/169] START
-cd "$PROJECT_ROOT/src/spdx"
-echo "[START] process src/spdx: src/spdx/spdx.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-spdx-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/spdx/spdx.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-spdx-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-spdx-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-spdx-$xpNum-j$max_procs.time.json
-echo "[END] process src/spdx: src/spdx/spdx.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [136/169] END
-echo [137/169] START
-cd "$PROJECT_ROOT/src/startup_gen"
-echo "[START] process src/startup_gen: src/startup_gen/startup_gen.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-startup_gen-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/startup_gen/startup_gen.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-startup_gen-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-startup_gen-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-startup_gen-$xpNum-j$max_procs.time.json
-echo "[END] process src/startup_gen: src/startup_gen/startup_gen.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [137/169] END
-echo [138/169] START
-cd "$PROJECT_ROOT/src/stopwatch"
-echo "[START] process src/stopwatch: src/stopwatch/stopwatch.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-stopwatch-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/stopwatch/stopwatch.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-stopwatch-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-stopwatch-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-stopwatch-$xpNum-j$max_procs.time.json
-echo "[END] process src/stopwatch: src/stopwatch/stopwatch.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [138/169] END
-echo [139/169] START
-cd "$PROJECT_ROOT/src/svd2ada"
-echo "[START] process src/svd2ada: src/svd2ada/svd2ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-svd2ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/svd2ada/svd2ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-svd2ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-svd2ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-svd2ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/svd2ada: src/svd2ada/svd2ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [139/169] END
-echo [140/169] START
-cd "$PROJECT_ROOT/src/system_random"
-echo "[START] process src/system_random: src/system_random/system_random.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-system_random-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/system_random/system_random.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-system_random-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-system_random-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-system_random-$xpNum-j$max_procs.time.json
-echo "[END] process src/system_random: src/system_random/system_random.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [140/169] END
-echo [141/169] START
-cd "$PROJECT_ROOT/src/tash"
-echo "[START] process src/tash: src/tash/tash.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-tash-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/tash/tash.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-tash-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-tash-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-tash-$xpNum-j$max_procs.time.json
-echo "[END] process src/tash: src/tash/tash.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [141/169] END
-echo [142/169] START
-cd "$PROJECT_ROOT/src/tiled_code_gen"
-echo "[START] process src/tiled_code_gen: src/tiled_code_gen/tiled_code_gen.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-tiled_code_gen-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/tiled_code_gen/tiled_code_gen.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-tiled_code_gen-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-tiled_code_gen-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-tiled_code_gen-$xpNum-j$max_procs.time.json
-echo "[END] process src/tiled_code_gen: src/tiled_code_gen/tiled_code_gen.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [142/169] END
-echo [143/169] START
-cd "$PROJECT_ROOT/src/tiny_text"
-echo "[START] process src/tiny_text: src/tiny_text/tiny_text.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-tiny_text-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/tiny_text/tiny_text.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-tiny_text-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-tiny_text-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-tiny_text-$xpNum-j$max_procs.time.json
-echo "[END] process src/tiny_text: src/tiny_text/tiny_text.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [143/169] END
-echo [144/169] START
-cd "$PROJECT_ROOT/src/tlsada"
-echo "[START] process src/tlsada: src/tlsada/tlsada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-tlsada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/tlsada/tlsada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-tlsada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-tlsada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-tlsada-$xpNum-j$max_procs.time.json
-echo "[END] process src/tlsada: src/tlsada/tlsada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [144/169] END
-echo [145/169] START
-cd "$PROJECT_ROOT/src/toml_slicer"
-echo "[START] process src/toml_slicer: src/toml_slicer/toml_slicer.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-toml_slicer-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/toml_slicer/toml_slicer.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-toml_slicer-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-toml_slicer-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-toml_slicer-$xpNum-j$max_procs.time.json
-echo "[END] process src/toml_slicer: src/toml_slicer/toml_slicer.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [145/169] END
-echo [146/169] START
-cd "$PROJECT_ROOT/src/trendy_terminal"
-echo "[START] process src/trendy_terminal: src/trendy_terminal/trendy_terminal.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-trendy_terminal-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/trendy_terminal/trendy_terminal.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-trendy_terminal-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-trendy_terminal-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-trendy_terminal-$xpNum-j$max_procs.time.json
-echo "[END] process src/trendy_terminal: src/trendy_terminal/trendy_terminal.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [146/169] END
-echo [147/169] START
-cd "$PROJECT_ROOT/src/trendy_test"
-echo "[START] process src/trendy_test: src/trendy_test/trendy_test.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-trendy_test-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/trendy_test/trendy_test.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-trendy_test-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-trendy_test-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-trendy_test-$xpNum-j$max_procs.time.json
-echo "[END] process src/trendy_test: src/trendy_test/trendy_test.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [147/169] END
-echo [148/169] START
-cd "$PROJECT_ROOT/src/uri_ada"
-echo "[START] process src/uri_ada: src/uri_ada/uri_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-uri_ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/uri_ada/uri_ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-uri_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-uri_ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-uri_ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/uri_ada: src/uri_ada/uri_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [148/169] END
-echo [149/169] START
-cd "$PROJECT_ROOT/src/uri_mime"
-echo "[START] process src/uri_mime: src/uri_mime/uri_mime.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-uri_mime-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/uri_mime/uri_mime.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-uri_mime-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-uri_mime-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-uri_mime-$xpNum-j$max_procs.time.json
-echo "[END] process src/uri_mime: src/uri_mime/uri_mime.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [149/169] END
-echo [150/169] START
-cd "$PROJECT_ROOT/src/utf8test"
-echo "[START] process src/utf8test: src/utf8test/utf8test.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-utf8test-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/utf8test/utf8test.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-utf8test-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-utf8test-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-utf8test-$xpNum-j$max_procs.time.json
-echo "[END] process src/utf8test: src/utf8test/utf8test.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [150/169] END
-echo [151/169] START
-cd "$PROJECT_ROOT/src/vaton"
-echo "[START] process src/vaton: src/vaton/vaton.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-vaton-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/vaton/vaton.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-vaton-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-vaton-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-vaton-$xpNum-j$max_procs.time.json
-echo "[END] process src/vaton: src/vaton/vaton.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [151/169] END
-echo [152/169] START
-cd "$PROJECT_ROOT/src/virtapu"
-echo "[START] process src/virtapu: src/virtapu/virtapu.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-virtapu-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/virtapu/virtapu.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-virtapu-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-virtapu-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-virtapu-$xpNum-j$max_procs.time.json
-echo "[END] process src/virtapu: src/virtapu/virtapu.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [152/169] END
-echo [153/169] START
-cd "$PROJECT_ROOT/src/weechat_ada"
-echo "[START] process src/weechat_ada: src/weechat_ada/weechat_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-weechat_ada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/weechat_ada/weechat_ada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-weechat_ada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-weechat_ada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-weechat_ada-$xpNum-j$max_procs.time.json
-echo "[END] process src/weechat_ada: src/weechat_ada/weechat_ada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [153/169] END
-echo [154/169] START
-cd "$PROJECT_ROOT/src/wordlist"
-echo "[START] process src/wordlist: src/wordlist/wordlist.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-wordlist-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/wordlist/wordlist.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-wordlist-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-wordlist-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-wordlist-$xpNum-j$max_procs.time.json
-echo "[END] process src/wordlist: src/wordlist/wordlist.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [154/169] END
-echo [155/169] START
-cd "$PROJECT_ROOT/src/workers"
-echo "[START] process src/workers: src/workers/workers.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-workers-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/workers/workers.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-workers-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-workers-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-workers-$xpNum-j$max_procs.time.json
-echo "[END] process src/workers: src/workers/workers.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [155/169] END
-echo [156/169] START
-cd "$PROJECT_ROOT/src/xdg_base_dir"
-echo "[START] process src/xdg_base_dir: src/xdg_base_dir/xdg_base_dir.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xdg_base_dir-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xdg_base_dir/xdg_base_dir.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xdg_base_dir-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xdg_base_dir-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xdg_base_dir-$xpNum-j$max_procs.time.json
-echo "[END] process src/xdg_base_dir: src/xdg_base_dir/xdg_base_dir.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [156/169] END
-echo [157/169] START
-cd "$PROJECT_ROOT/src/xia"
-echo "[START] process src/xia: src/xia/XIA.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-XIA-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xia/XIA.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-XIA-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-XIA-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-XIA-$xpNum-j$max_procs.time.json
-echo "[END] process src/xia: src/xia/XIA.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [157/169] END
-echo [158/169] START
-cd "$PROJECT_ROOT/src/xml_ez_out"
-echo "[START] process src/xml_ez_out: src/xml_ez_out/xml_ez_out.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xml_ez_out-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xml_ez_out/xml_ez_out.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xml_ez_out-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xml_ez_out-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xml_ez_out-$xpNum-j$max_procs.time.json
-echo "[END] process src/xml_ez_out: src/xml_ez_out/xml_ez_out.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [158/169] END
-echo [159/169] START
-cd "$PROJECT_ROOT/src/xmlada"
-echo "[START] process src/xmlada: src/xmlada/distrib/xmlada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xmlada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xmlada/distrib/xmlada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xmlada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xmlada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xmlada-$xpNum-j$max_procs.time.json
-echo "[END] process src/xmlada: src/xmlada/distrib/xmlada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [159/169] END
-echo [160/169] START
-cd "$PROJECT_ROOT/src/xmlada"
-echo "[START] process src/xmlada: src/xmlada/dom/xmlada_dom.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xmlada_dom-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xmlada/dom/xmlada_dom.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xmlada_dom-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xmlada_dom-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xmlada_dom-$xpNum-j$max_procs.time.json
-echo "[END] process src/xmlada: src/xmlada/dom/xmlada_dom.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [160/169] END
-echo [161/169] START
-cd "$PROJECT_ROOT/src/xmlada"
-echo "[START] process src/xmlada: src/xmlada/input_sources/xmlada_input.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xmlada_input-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xmlada/input_sources/xmlada_input.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xmlada_input-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xmlada_input-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xmlada_input-$xpNum-j$max_procs.time.json
-echo "[END] process src/xmlada: src/xmlada/input_sources/xmlada_input.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [161/169] END
-echo [162/169] START
-cd "$PROJECT_ROOT/src/xmlada"
-echo "[START] process src/xmlada: src/xmlada/sax/xmlada_sax.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xmlada_sax-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xmlada/sax/xmlada_sax.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xmlada_sax-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xmlada_sax-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xmlada_sax-$xpNum-j$max_procs.time.json
-echo "[END] process src/xmlada: src/xmlada/sax/xmlada_sax.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [162/169] END
-echo [163/169] START
-cd "$PROJECT_ROOT/src/xmlada"
-echo "[START] process src/xmlada: src/xmlada/schema/xmlada_schema.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xmlada_schema-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xmlada/schema/xmlada_schema.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xmlada_schema-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xmlada_schema-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xmlada_schema-$xpNum-j$max_procs.time.json
-echo "[END] process src/xmlada: src/xmlada/schema/xmlada_schema.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [163/169] END
-echo [164/169] START
-cd "$PROJECT_ROOT/src/xmlada"
-echo "[START] process src/xmlada: src/xmlada/unicode/xmlada_unicode.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xmlada_unicode-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xmlada/unicode/xmlada_unicode.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xmlada_unicode-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xmlada_unicode-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xmlada_unicode-$xpNum-j$max_procs.time.json
-echo "[END] process src/xmlada: src/xmlada/unicode/xmlada_unicode.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [164/169] END
-echo [165/169] START
-cd "$PROJECT_ROOT/src/xoshiro"
-echo "[START] process src/xoshiro: src/xoshiro/xoshiro.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-xoshiro-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/xoshiro/xoshiro.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-xoshiro-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-xoshiro-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-xoshiro-$xpNum-j$max_procs.time.json
-echo "[END] process src/xoshiro: src/xoshiro/xoshiro.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [165/169] END
-echo [166/169] START
-cd "$PROJECT_ROOT/src/yeison"
-echo "[START] process src/yeison: src/yeison/yeison.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-yeison-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/yeison/yeison.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-yeison-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-yeison-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-yeison-$xpNum-j$max_procs.time.json
-echo "[END] process src/yeison: src/yeison/yeison.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [166/169] END
-echo [167/169] START
-cd "$PROJECT_ROOT/src/zeromq_ada"
-echo "[START] process src/zeromq_ada: src/zeromq_ada/zmq.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-zmq-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/zeromq_ada/zmq.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-zmq-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-zmq-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-zmq-$xpNum-j$max_procs.time.json
-echo "[END] process src/zeromq_ada: src/zeromq_ada/zmq.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [167/169] END
-echo [168/169] START
-cd "$PROJECT_ROOT/src/zipada"
-echo "[START] process src/zipada: src/zipada/zipada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-zipada-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/zipada/zipada.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-zipada-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-zipada-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-zipada-$xpNum-j$max_procs.time.json
-echo "[END] process src/zipada: src/zipada/zipada.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [168/169] END
-echo [169/169] START
-cd "$PROJECT_ROOT/src/zlib_ada"
-echo "[START] process src/zlib_ada: src/zlib_ada/zlib.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo "" > gnatcheck-$xpNum-j$max_procs.log
-{ /usr/bin/time -v -o gnatcheck-zlib-$xpNum-j$max_procs.time alr exec -- gnatcheck  --brief -q -t -l --show-rule -o gnatcheck-$xpNum-j$max_procs.report -P$PROJECT_ROOT/src/zlib_ada/zlib.gpr -rules -from=$ruleFile; } &> >(tee -a gnatcheck-zlib-$xpNum-j$max_procs.log $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log > /dev/null)
-cat gnatcheck-zlib-$xpNum-j$max_procs.time | jc --time -p -r > gnatcheck-zlib-$xpNum-j$max_procs.time.json
-echo "[END] process src/zlib_ada: src/zlib_ada/zlib.gpr" >> $PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log
-echo [169/169] END
+# Prepare global variables
+globalLogFilePath="$PROJECT_ROOT/gnatcheck-all-$xpNum-j$max_procs.log"
+
+# Clear the global log file
+echo "" > "$globalLogFilePath"
+
+# Get total number of projects
+total_projects=${#projects[@]}
+
+# Process projects sequentially
+for i in "${!projects[@]}"; do
+    project_number=$((i+1))
+    process_project "${projects[$i]}" "$project_number" "$total_projects"
+done
+
+echo "All projects processed."
