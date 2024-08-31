@@ -45,6 +45,8 @@ PROJECT_ROOT=$PWD
 ruleFile="${ruleFile}"
 # Suffix of log file
 logSuffix=""
+# Extra arguments
+extraArgs=""
 `;
 }
 
@@ -62,6 +64,7 @@ function show_help() {
     echo "  -j <max_procs>            Set the maximum number of processes."
     echo "  --rule <path>             Set the path to the rule file."
     echo "  -s, --suffix <string>     Suffix used on the name of logs files."
+    echo "  --extra-args <args>       Additional arguments to pass to the command."
     echo "  -h, --help                Show help information."
 }
 
@@ -120,6 +123,8 @@ function generateProjectsArray(projects: extendedGPRProject[], command: string[]
             item.replace("%UNITS%", "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units")) : item)
         .map(item => item.includes("%PRJ_NAME%") ?
         item.replace("%PRJ_NAME%", basename(project.gprPath).replace(".gpr", "")) : item)
+        .map(item => item.includes("%EXTRA_ARGS%") ?
+        item.replace("%EXTRA_ARGS%", "$extraArgs") : item)
         .join(" ");
         projectsArray += `    "${project.crateName}|${project.alireTomlPath}|${project.gprPath}|${finalCommand}"\n`;
     }
@@ -135,6 +140,7 @@ while [[ "$#" -gt 0 ]]; do
         -j) max_procs="$2"; shift 2 ;;
         --rule) ruleFile="$2"; shift 2 ;;
         -s|--suffix) logSuffix="$2"; shift 2 ;;
+        --extra-args) extraArgs="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
         *) echo "Unknown option: $1"; show_help; exit 1 ;;
     esac
