@@ -31,12 +31,30 @@ while [[ "$#" -gt 0 ]]; do
     esac
 done
 
+# COMPUTE OVERHEAD #
+echo " ####################"
+echo " # Compute overhead #"
+echo " ####################\n"
+
+echo "# Compute GNATcheck overhead\n"
+
+# Loops to compute overhead of gnatcheck with -j1 and -j32
+for j_option in "1" "32"; do
+    for i in $(seq 1 $maxIteration); do
+        echo "Running GNATcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s) (overhead computation)"
+        ./GNATcheck_benchmark.sh --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation"
+    done
+    echo ""
+done
+
+exit 0
+
 # BENCHMARK #
 
 # Main loop to run benchmarks for Adactl_benchmark.sh
 for i in $(seq 1 $maxIteration); do
     echo "Running Adactl_benchmark.sh iteration $i/$maxIteration"
-    ./Adactl_benchmark.sh -xpNum "$i"
+    ./Adactl_benchmark.sh --xpNum "$i"
 done
 
 echo ""
@@ -45,7 +63,7 @@ echo ""
 for j_option in "1" "32"; do
     for i in $(seq 1 $maxIteration); do
         echo "Running GNATcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s)"
-        ./GNATcheck_benchmark.sh -xpNum "$i" -j "$j_option"
+        ./GNATcheck_benchmark.sh --xpNum "$i" -j "$j_option"
     done
     echo ""
 done
