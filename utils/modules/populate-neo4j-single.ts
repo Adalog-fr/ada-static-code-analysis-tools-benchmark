@@ -132,6 +132,7 @@ export function initializeModule(program: Command): void {
                 const progress: ProgressBar = new ProgressBar({
                     title,
                     total,
+                    display: ":title :percent :time :completed/:total"
                 });
 
                 progress.render(0);
