@@ -12,6 +12,9 @@ max_line_length = 120
 tab_width = 4
 indent_brace_style = K&R
 
+[*.json]
+indent_size = 2
+
 [*.md]
 trim_trailing_whitespace = false
 
