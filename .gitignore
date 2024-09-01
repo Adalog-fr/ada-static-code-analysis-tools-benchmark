@@ -199,3 +199,4 @@ scc_metrics.json
 *.time
 *.time.json
 *.size-adt.json
+*.size-cogralys.json

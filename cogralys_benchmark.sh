@@ -8,13 +8,18 @@
 # Initialize variables
 xpNum=0
 PROJECT_ROOT=$PWD
-# Inside a docker container, use: bolt://host.docker.internal:7687
+# If the benchmark is inside a docker container and the Neo4j DB on the host, use: bolt://host.docker.internal:7687
 # If directly running from the host computer, use: bolt://localhost:7687
-NEO4J_HOST="bolt://host.docker.internal:7687"
+NEO4J_HOST="bolt://localhost:7687"
 NEO4J_USER="neo4j"
 NEO4J_PASS="auieauie"
 DENO_RUN_ARGS="--config "$PROJECT_ROOT/deno.jsonc" --allow-all --unsafely-ignore-certificate-errors --unstable-ffi"
 
+
+# Function to get current date and time
+get_datetime() {
+    date "+%Y-%m-%d %H:%M:%S"
+}
 
 # Function to display help information
 show_help() {
@@ -36,29 +41,30 @@ process_project() {
     local base_name=$(basename "$gprPath" .gpr)
     local log_prefix="cogralys-$base_name-$xpNum"
 
-    echo "[$project_number/$total_projects] START processing $crateName" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$project_number/$total_projects] START processing $crateName" | tee -a "$globalLogFilePath"
 
     cd "$PROJECT_ROOT/$alireTomlPath"
-    echo "[START] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [START] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
 
     run_cogralys_init "$gprPath" "$log_prefix" "$cogralys_init_args"
     update_cratesDB "$crateName" "$alireTomlPath" "$gprPath" "$log_prefix"
     populate_neo4j "$alireTomlPath" "$gprPath" "$log_prefix"
     run_cogralys_cli "$log_prefix"
+    computeSize "$gprPath" "$log_prefix" "$alireTomlPath" "$cogralys_init_args"
     clean_db "$log_prefix"
 
-    echo "[END] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
-    echo "[$project_number/$total_projects] END processing $crateName" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [END] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$project_number/$total_projects] END processing $crateName" | tee -a "$globalLogFilePath"
 }
 
 run_cogralys_init() {
     local gprPath=$1
     local log_prefix=$2
     local init_args=$3
-    echo "[$gprPath] Start init" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] Start init" | tee -a "$globalLogFilePath"
     /usr/bin/time -v -o "$log_prefix-init.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/executeCogralysWithWatchdog.ts" "$init_args" 2>&1 | tee -a "$log_prefix-init.log" "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-init.time" > "$log_prefix-init.time.json"
-    echo "[$gprPath] End init" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] End init" | tee -a "$globalLogFilePath"
 }
 
 update_cratesDB() {
@@ -66,34 +72,51 @@ update_cratesDB() {
     local alireTomlPath=$2
     local gprPath=$3
     local log_prefix=$4
-    echo "[$gprPath] Start updating cratesDB for this project" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] Start updating cratesDB for this project" | tee -a "$globalLogFilePath"
     deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" update-cratesDB-neo4j-dir -c "$crateName" -w "$alireTomlPath" -g "$gprPath" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
-    echo "[$gprPath] End updating cratesDB for this project" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] End updating cratesDB for this project" | tee -a "$globalLogFilePath"
 }
 
 populate_neo4j() {
     local alireTomlPath=$1
     local gprPath=$2
     local log_prefix=$3
-    echo "[$gprPath] Start populate" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] Start populate" | tee -a "$globalLogFilePath"
     /usr/bin/time -v -o "$log_prefix-populate.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" populate-neo4j-single -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -w "$alireTomlPath" -g "$gprPath" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-populate.time" > "$log_prefix-populate.time.json"
-    echo "[$gprPath] End populate" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] End populate" | tee -a "$globalLogFilePath"
 }
 
 run_cogralys_cli() {
     local log_prefix=$1
-    echo "[$gprPath] Start run" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] Start run" | tee -a "$globalLogFilePath"
     /usr/bin/time -v -o "$log_prefix-run.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-cli/cogralys-cli.ts" -t -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -o "$log_prefix-run.report" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-run.time" > "$log_prefix-run.time.json"
-    echo "[$gprPath] End run" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] End run" | tee -a "$globalLogFilePath"
+}
+
+computeSize() {
+    local gprPath=$1
+    local log_prefix=$2
+    local alireTomlPath=$3
+    local cogralys_init_args=$4
+    echo "[$(get_datetime)] [$gprPath] Start computing size metrics" | tee -a "$globalLogFilePath"
+
+    total_size_adt=$(du -ch *.adt 2>/dev/null | tail -n 1 | cut -f 1)
+    echo "{ \"size\": \"$total_size_adt\" }" > "$log_prefix.size-adt.json"
+
+    neo4jPath=$PROJECT_ROOT/$alireTomlPath/$(echo "$cogralys_init_args" | jq -r '.command[2].env.NEO4J_RESULT_DIR')
+    total_size_cogralys=$(du -ch "$neo4jPath" 2>/dev/null | tail -n 1 | cut -f 1)
+    echo "{ \"size\": \"$total_size_cogralys\" }" > "$log_prefix.size-cogralys.json"
+
+    echo "[$(get_datetime)] [$gprPath] End computing size metrics" | tee -a "$globalLogFilePath"
 }
 
 clean_db() {
     local log_prefix=$1
-    echo "[$gprPath] Start cleaning DB" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] Start cleaning DB" | tee -a "$globalLogFilePath"
     deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" clean-neo4j -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS"
-    echo "[$gprPath] End cleaning DB" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$gprPath] End cleaning DB" | tee -a "$globalLogFilePath"
 }
 
 projects=(
@@ -205,6 +228,7 @@ projects=(
     "parse_args|src/parse_args|src/parse_args/parse_args.gpr|{\"path\":\"$PROJECT_ROOT/src/parse_args\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/parse_args/parse_args.gpr\",\"@$PROJECT_ROOT/src/parse_args/parse_args.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".parse_args/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
     "partord|src/partord|src/partord/partord.gpr|{\"path\":\"$PROJECT_ROOT/src/partord\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/partord/partord.gpr\",\"@$PROJECT_ROOT/src/partord/partord.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".partord/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
     "pbkdf2|src/pbkdf2|src/pbkdf2/pbkdf2.gpr|{\"path\":\"$PROJECT_ROOT/src/pbkdf2\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/pbkdf2/pbkdf2.gpr\",\"@$PROJECT_ROOT/src/pbkdf2/pbkdf2.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".pbkdf2/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
+    "phcpack|src/janverschelde__PHCpack|src/janverschelde__PHCpack/main.gpr|{\"path\":\"$PROJECT_ROOT/src/janverschelde__PHCpack\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/janverschelde__PHCpack/main.gpr\",\"@$PROJECT_ROOT/src/janverschelde__PHCpack/main.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".main/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
     "play_2048|src/play_2048|src/play_2048/play_2048.gpr|{\"path\":\"$PROJECT_ROOT/src/play_2048\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/play_2048/play_2048.gpr\",\"@$PROJECT_ROOT/src/play_2048/play_2048.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".play_2048/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
     "powerjoular|src/powerjoular|src/powerjoular/powerjoular.gpr|{\"path\":\"$PROJECT_ROOT/src/powerjoular\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/powerjoular/powerjoular.gpr\",\"@$PROJECT_ROOT/src/powerjoular/powerjoular.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".powerjoular/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
     "protobuf|src/protobuf|src/protobuf/gnat/protoc_gen_ada.gpr|{\"path\":\"$PROJECT_ROOT/src/protobuf\",\"command\":[\"atgdb\",[\"-dvx\",\"-p\",\"$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.gpr\",\"@$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.units\"],{\"env\":{\"DRY_RUN\":\"True\",\"LOGGER_CONFIG\":\"$PROJECT_ROOT/rootfs/home/bin/log4j.properties\",\"NEO4J_RESULT_DIR\":\".protoc_gen_ada/.cogralys\",\"NEO4J_HOST\":\"$NEO4J_HOST\"}}]}"
