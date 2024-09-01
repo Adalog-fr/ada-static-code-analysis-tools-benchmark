@@ -15,6 +15,7 @@ import * as CleanNeo4j from "./modules/clean-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
 import * as UpdateCratesDBneo4jComplete from "./modules/update_cratesDBNeo4jComplete.ts";
 import * as UpdateAllCratesDBneo4jComplete from "./modules/update_all_cratesDBNeo4jComplete.ts";
+import * as GenerateSCC from "./modules/generateSCC.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -99,5 +100,7 @@ CountResults.initializeModule(program, {
 })
 
 CogralysRun.initializeModule(program);
+
+GenerateSCC.initializeModule(program);
 
 program.parse(Deno.args);
