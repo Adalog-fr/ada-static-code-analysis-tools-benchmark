@@ -51,6 +51,7 @@ process_project() {
     echo "" > "$log_prefix.log"
 
     run_command "$gprPath" "$log_prefix" "$command"
+    computeSize "$gprPath" "$log_prefix"
     clean "$gprPath"
 
     echo "[$(get_datetime)] [END] processing $crateName > $alireTomlPath > $gprPath" | tee -a "$globalLogFilePath"
@@ -66,6 +67,15 @@ run_command() {
     /usr/bin/time -v -o "$log_prefix.time" alr exec -- $command 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix.time" > "$log_prefix.time.json"
     echo "[$(get_datetime)] [$gprPath] End xp" | tee -a "$globalLogFilePath"
+}
+
+computeSize() {
+    local gprPath=$1
+    local log_prefix=$2
+    echo "[$(get_datetime)] [$gprPath] Start computing ADT size" | tee -a "$globalLogFilePath"
+    total_size=$(du -ch *.adt 2>/dev/null | tail -n 1 | cut -f 1)
+    echo "{ \"size\": \"$total_size\" }" > "$log_prefix.size-adt.json"
+    echo "[$(get_datetime)] [$gprPath] End computing ADT size" | tee -a "$globalLogFilePath"
 }
 
 clean() {
@@ -198,6 +208,7 @@ projects=(
     "parse_args|src/parse_args|src/parse_args/parse_args.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/parse_args/parse_args.gpr @$PROJECT_ROOT/src/parse_args/parse_args.units -o adactl-parse_args-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
     "partord|src/partord|src/partord/partord.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/partord/partord.gpr @$PROJECT_ROOT/src/partord/partord.units -o adactl-partord-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
     "pbkdf2|src/pbkdf2|src/pbkdf2/pbkdf2.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/pbkdf2/pbkdf2.gpr @$PROJECT_ROOT/src/pbkdf2/pbkdf2.units -o adactl-pbkdf2-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
+    "phcpack|src/janverschelde__PHCpack|src/janverschelde__PHCpack/main.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/janverschelde__PHCpack/main.gpr @$PROJECT_ROOT/src/janverschelde__PHCpack/main.units -o adactl-main-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
     "play_2048|src/play_2048|src/play_2048/play_2048.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/play_2048/play_2048.gpr @$PROJECT_ROOT/src/play_2048/play_2048.units -o adactl-play_2048-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
     "powerjoular|src/powerjoular|src/powerjoular/powerjoular.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/powerjoular/powerjoular.gpr @$PROJECT_ROOT/src/powerjoular/powerjoular.units -o adactl-powerjoular-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
     "protobuf|src/protobuf|src/protobuf/gnat/protoc_gen_ada.gpr|$PROJECT_ROOT/rootfs/home/bin/adactl -f $ruleFile -p $PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.gpr @$PROJECT_ROOT/src/protobuf/gnat/protoc_gen_ada.units -o adactl-protoc_gen_ada-$xpNum-j$max_procs$logSuffix.report -w $extraArgs"
