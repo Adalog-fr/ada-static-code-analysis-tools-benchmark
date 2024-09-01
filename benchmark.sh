@@ -32,11 +32,22 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # COMPUTE OVERHEAD #
+
 echo " ####################"
 echo " # Compute overhead #"
-echo " ####################\n"
+echo " ####################"
 
-echo "# Compute GNATcheck overhead\n"
+echo -e "\n# Compute GNATcheck overhead\n"
+
+exit 0
+
+# Compute overhead of AdaControl
+for i in $(seq 1 $maxIteration); do
+    echo "Running Adactl_benchmark.sh iteration $i/$maxIteration (overhead computation)"
+    ./Adactl_benchmark.sh --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru
+done
+
+echo -e "\n# Compute GNATcheck overhead\n"
 
 # Loops to compute overhead of gnatcheck with -j1 and -j32
 for j_option in "1" "32"; do
@@ -47,9 +58,13 @@ for j_option in "1" "32"; do
     echo ""
 done
 
-exit 0
+# Note: Cogralys overhead is not computed here because it is already computed in its benchmark script.
 
 # BENCHMARK #
+
+echo -e "\n #############"
+echo " # Benchmark #"
+echo " #############\n"
 
 # Main loop to run benchmarks for Adactl_benchmark.sh
 for i in $(seq 1 $maxIteration); do
