@@ -1,5 +1,5 @@
-/workspaces/bench-source/src/parse_args/examples/src/generic_example_options.adb
-/workspaces/bench-source/src/parse_args/examples/src/generic_example_options.ads
-/workspaces/bench-source/src/parse_args/examples/src/generic_example.adb
-/workspaces/bench-source/src/parse_args/examples/src/simple_example.adb
-/workspaces/bench-source/src/parse_args/examples/src/trivial_example.adb
+src/generic_example_options.adb
+src/generic_example_options.ads
+src/generic_example.adb
+src/simple_example.adb
+src/trivial_example.adb

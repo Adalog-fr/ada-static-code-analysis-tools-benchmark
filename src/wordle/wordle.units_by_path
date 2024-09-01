@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/wordle/config/wordle_config.ads
-/workspaces/bench-source/src/wordle/src/wordle.adb
+config/wordle_config.ads
+src/wordle.adb

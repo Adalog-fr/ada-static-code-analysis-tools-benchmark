@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/dcf/zipdcf/src/unzipdcf.adb
-/workspaces/bench-source/src/dcf/zipdcf/src/zipdcf.adb
+src/unzipdcf.adb
+src/zipdcf.adb

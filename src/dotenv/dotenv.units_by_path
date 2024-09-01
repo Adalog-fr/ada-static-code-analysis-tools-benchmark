@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/dotenv/src/dotenv.adb
-/workspaces/bench-source/src/dotenv/src/dotenv.ads
+src/dotenv.adb
+src/dotenv.ads

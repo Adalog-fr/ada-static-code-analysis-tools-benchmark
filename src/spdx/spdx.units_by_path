@@ -1,6 +1,6 @@
-/workspaces/bench-source/src/spdx/src/spdx-exceptions.adb
-/workspaces/bench-source/src/spdx/src/spdx-exceptions.ads
-/workspaces/bench-source/src/spdx/src/spdx-licenses.adb
-/workspaces/bench-source/src/spdx/src/spdx-licenses.ads
-/workspaces/bench-source/src/spdx/src/spdx.adb
-/workspaces/bench-source/src/spdx/src/spdx.ads
+src/spdx-exceptions.adb
+src/spdx-exceptions.ads
+src/spdx-licenses.adb
+src/spdx-licenses.ads
+src/spdx.adb
+src/spdx.ads

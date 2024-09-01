@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/check/config/check_config.ads
-/workspaces/bench-source/src/lvgl_ada/lvgl_ada_simulator/check/src/check.adb
+config/check_config.ads
+src/check.adb

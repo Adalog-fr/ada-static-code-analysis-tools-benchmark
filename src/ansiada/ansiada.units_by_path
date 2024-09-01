@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/ansiada/config/ansiada_config.ads
-/workspaces/bench-source/src/ansiada/src/ansiada.ads
+config/ansiada_config.ads
+src/ansiada.ads

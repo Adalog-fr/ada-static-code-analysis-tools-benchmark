@@ -1,4 +1,4 @@
-/workspaces/bench-source/src/emojis/src/emojis.adb
-/workspaces/bench-source/src/emojis/src/emojis.ads
-/workspaces/bench-source/src/emojis/src/strings.adb
-/workspaces/bench-source/src/emojis/src/strings.ads
+src/emojis.adb
+src/emojis.ads
+src/strings.adb
+src/strings.ads

@@ -1,6 +1,6 @@
-/workspaces/bench-source/src/workers/config/workers_config.ads
-/workspaces/bench-source/src/workers/src/workers-mutexes.adb
-/workspaces/bench-source/src/workers/src/workers-mutexes.ads
-/workspaces/bench-source/src/workers/src/workers-once.adb
-/workspaces/bench-source/src/workers/src/workers-once.ads
-/workspaces/bench-source/src/workers/src/workers.ads
+config/workers_config.ads
+src/workers-mutexes.adb
+src/workers-mutexes.ads
+src/workers-once.adb
+src/workers-once.ads
+src/workers.ads

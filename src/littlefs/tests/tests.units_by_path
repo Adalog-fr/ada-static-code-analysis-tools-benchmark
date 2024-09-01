@@ -1,6 +1,6 @@
-/workspaces/bench-source/src/littlefs/tests/config/tests_config.ads
-/workspaces/bench-source/src/littlefs/tests/config/tests_config.h
-/workspaces/bench-source/src/littlefs/tests/src/ram_bd.adb
-/workspaces/bench-source/src/littlefs/tests/src/ram_bd.ads
-/workspaces/bench-source/src/littlefs/tests/src/test_lfs_sizes.c
-/workspaces/bench-source/src/littlefs/tests/src/tests.adb
+config/tests_config.ads
+config/tests_config.h
+src/ram_bd.adb
+src/ram_bd.ads
+src/test_lfs_sizes.c
+src/tests.adb

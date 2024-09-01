@@ -1,5 +1,5 @@
-/workspaces/bench-source/src/chests/src/chests-ring_buffers.adb
-/workspaces/bench-source/src/chests/src/chests-ring_buffers.ads
-/workspaces/bench-source/src/chests/src/chests-stacks.adb
-/workspaces/bench-source/src/chests/src/chests-stacks.ads
-/workspaces/bench-source/src/chests/src/chests.ads
+src/chests-ring_buffers.adb
+src/chests-ring_buffers.ads
+src/chests-stacks.adb
+src/chests-stacks.ads
+src/chests.ads

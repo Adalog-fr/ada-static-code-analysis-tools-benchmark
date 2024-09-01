@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/ansiada/demo/config/demo_config.ads
-/workspaces/bench-source/src/ansiada/demo/src/demo.adb
+config/demo_config.ads
+src/demo.adb

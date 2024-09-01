@@ -1,8 +1,8 @@
-/workspaces/bench-source/src/ada_toml/src/toml-file_io.adb
-/workspaces/bench-source/src/ada_toml/src/toml-file_io.ads
-/workspaces/bench-source/src/ada_toml/src/toml-generic_dump.adb
-/workspaces/bench-source/src/ada_toml/src/toml-generic_dump.ads
-/workspaces/bench-source/src/ada_toml/src/toml-generic_parse.adb
-/workspaces/bench-source/src/ada_toml/src/toml-generic_parse.ads
-/workspaces/bench-source/src/ada_toml/src/toml.adb
-/workspaces/bench-source/src/ada_toml/src/toml.ads
+src/toml-file_io.adb
+src/toml-file_io.ads
+src/toml-generic_dump.adb
+src/toml-generic_dump.ads
+src/toml-generic_parse.adb
+src/toml-generic_parse.ads
+src/toml.adb
+src/toml.ads

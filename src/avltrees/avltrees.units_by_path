@@ -1,5 +1,5 @@
-/workspaces/bench-source/src/avltrees/src/avarketr.adb
-/workspaces/bench-source/src/avltrees/src/avarketr.ads
-/workspaces/bench-source/src/avltrees/src/avltrees.adb
-/workspaces/bench-source/src/avltrees/src/avltrees.ads
-/workspaces/bench-source/src/avltrees/src/avtrehei.ads
+src/avarketr.adb
+src/avarketr.ads
+src/avltrees.adb
+src/avltrees.ads
+src/avtrehei.ads

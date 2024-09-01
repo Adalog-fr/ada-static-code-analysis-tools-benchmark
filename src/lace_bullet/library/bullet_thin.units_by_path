@@ -1,5 +1,5 @@
-/workspaces/bench-source/src/lace_bullet/source/thin/bullet_c-binding.ads
-/workspaces/bench-source/src/lace_bullet/source/thin/bullet_c-pointer_pointers.ads
-/workspaces/bench-source/src/lace_bullet/source/thin/bullet_c-pointers.ads
-/workspaces/bench-source/src/lace_bullet/source/thin/bullet_c-ray_collision.ads
-/workspaces/bench-source/src/lace_bullet/source/thin/bullet_c.ads
+../source/thin/bullet_c-binding.ads
+../source/thin/bullet_c-pointer_pointers.ads
+../source/thin/bullet_c-pointers.ads
+../source/thin/bullet_c-ray_collision.ads
+../source/thin/bullet_c.ads

@@ -1,4 +1,4 @@
-/workspaces/bench-source/src/openglada/openglada_text/src/gl-text-utf8.adb
-/workspaces/bench-source/src/openglada/openglada_text/src/gl-text-utf8.ads
-/workspaces/bench-source/src/openglada/openglada_text/src/gl-text.adb
-/workspaces/bench-source/src/openglada/openglada_text/src/gl-text.ads
+src/gl-text-utf8.adb
+src/gl-text-utf8.ads
+src/gl-text.adb
+src/gl-text.ads

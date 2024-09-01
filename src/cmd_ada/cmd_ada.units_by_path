@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/cmd_ada/src/cmd_ada.adb
-/workspaces/bench-source/src/cmd_ada/src/cmd_ada.ads
+src/cmd_ada.adb
+src/cmd_ada.ads

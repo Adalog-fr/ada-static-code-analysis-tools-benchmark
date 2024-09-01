@@ -1,5 +1,5 @@
-/workspaces/bench-source/src/brackelib/src/brackelib-queues.adb
-/workspaces/bench-source/src/brackelib/src/brackelib-queues.ads
-/workspaces/bench-source/src/brackelib/src/brackelib-stacks.adb
-/workspaces/bench-source/src/brackelib/src/brackelib-stacks.ads
-/workspaces/bench-source/src/brackelib/src/brackelib.ads
+src/brackelib-queues.adb
+src/brackelib-queues.ads
+src/brackelib-stacks.adb
+src/brackelib-stacks.ads
+src/brackelib.ads

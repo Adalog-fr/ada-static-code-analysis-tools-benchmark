@@ -1,8 +1,8 @@
-/workspaces/bench-source/src/spoon/src/knife.c
-/workspaces/bench-source/src/spoon/src/spoon-api.ads
-/workspaces/bench-source/src/spoon/src/spoon-output.adb
-/workspaces/bench-source/src/spoon/src/spoon-output.ads
-/workspaces/bench-source/src/spoon/src/spoon-pipes.adb
-/workspaces/bench-source/src/spoon/src/spoon-pipes.ads
-/workspaces/bench-source/src/spoon/src/spoon.adb
-/workspaces/bench-source/src/spoon/src/spoon.ads
+src/knife.c
+src/spoon-api.ads
+src/spoon-output.adb
+src/spoon-output.ads
+src/spoon-pipes.adb
+src/spoon-pipes.ads
+src/spoon.adb
+src/spoon.ads

@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/ajunitgen/src/ajunitgen.adb
-/workspaces/bench-source/src/ajunitgen/src/ajunitgen.ads
+src/ajunitgen.adb
+src/ajunitgen.ads

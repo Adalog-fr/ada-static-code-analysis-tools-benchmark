@@ -1,7 +1,7 @@
-/workspaces/bench-source/src/parse_args/tests/src/parse_args_suite-parse_args_tests.adb
-/workspaces/bench-source/src/parse_args/tests/src/parse_args_suite-parse_args_tests.ads
-/workspaces/bench-source/src/parse_args/tests/src/parse_args_suite.adb
-/workspaces/bench-source/src/parse_args/tests/src/parse_args_suite.ads
-/workspaces/bench-source/src/parse_args/tests/src/parse_args_tests.adb
-/workspaces/bench-source/src/parse_args/tests/src/parse_args-testable.adb
-/workspaces/bench-source/src/parse_args/tests/src/parse_args-testable.ads
+src/parse_args_suite-parse_args_tests.adb
+src/parse_args_suite-parse_args_tests.ads
+src/parse_args_suite.adb
+src/parse_args_suite.ads
+src/parse_args_tests.adb
+src/parse_args-testable.adb
+src/parse_args-testable.ads

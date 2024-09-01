@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/awa/ada-servlet/servlet_unit/servlet-tests.adb
-/workspaces/bench-source/src/awa/ada-servlet/servlet_unit/servlet-tests.ads
+../../servlet_unit/servlet-tests.adb
+../../servlet_unit/servlet-tests.ads

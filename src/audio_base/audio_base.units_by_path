@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/audio_base/src/audio-riff.ads
-/workspaces/bench-source/src/audio_base/src/audio.ads
+src/audio-riff.ads
+src/audio.ads

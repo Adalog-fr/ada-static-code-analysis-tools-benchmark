@@ -1,7 +1,7 @@
-/workspaces/bench-source/src/linenoise_ada/src/helpers.c
-/workspaces/bench-source/src/linenoise_ada/src/linenoise.adb
-/workspaces/bench-source/src/linenoise_ada/src/linenoise.ads
-/workspaces/bench-source/src/linenoise_ada/src/linenoise/linenoise-c.c
-/workspaces/bench-source/src/linenoise_ada/src/linenoise/linenoise.h
-/workspaces/bench-source/src/linenoise_ada/src/linenoise/utf8.c
-/workspaces/bench-source/src/linenoise_ada/src/linenoise/utf8.h
+src/helpers.c
+src/linenoise.adb
+src/linenoise.ads
+src/linenoise/linenoise-c.c
+src/linenoise/linenoise.h
+src/linenoise/utf8.c
+src/linenoise/utf8.h

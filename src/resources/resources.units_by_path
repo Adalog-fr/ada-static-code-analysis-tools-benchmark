@@ -1,4 +1,4 @@
-/workspaces/bench-source/src/resources/src/resources.adb
-/workspaces/bench-source/src/resources/src/resources.ads
-/workspaces/bench-source/src/resources/whereami/src/whereami.c
-/workspaces/bench-source/src/resources/whereami/src/whereami.h
+src/resources.adb
+src/resources.ads
+whereami/src/whereami.c
+whereami/src/whereami.h

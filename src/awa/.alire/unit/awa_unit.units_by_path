@@ -1,8 +1,8 @@
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests-helpers-contexts.adb
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests-helpers-contexts.ads
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests-helpers-users.adb
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests-helpers-users.ads
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests-helpers.adb
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests-helpers.ads
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests.adb
-/workspaces/bench-source/src/awa/awa/awaunit/awa-tests.ads
+../../awa/awaunit/awa-tests-helpers-contexts.adb
+../../awa/awaunit/awa-tests-helpers-contexts.ads
+../../awa/awaunit/awa-tests-helpers-users.adb
+../../awa/awaunit/awa-tests-helpers-users.ads
+../../awa/awaunit/awa-tests-helpers.adb
+../../awa/awaunit/awa-tests-helpers.ads
+../../awa/awaunit/awa-tests.adb
+../../awa/awaunit/awa-tests.ads

@@ -1,7 +1,7 @@
-/workspaces/bench-source/src/esp_idf/config/esp_idf_config.ads
-/workspaces/bench-source/src/esp_idf/src/esp-drivers-gpio.ads
-/workspaces/bench-source/src/esp_idf/src/esp-drivers-led_strip.ads
-/workspaces/bench-source/src/esp_idf/src/esp-drivers.ads
-/workspaces/bench-source/src/esp_idf/src/esp-error.ads
-/workspaces/bench-source/src/esp_idf/src/esp.adb
-/workspaces/bench-source/src/esp_idf/src/esp.ads
+config/esp_idf_config.ads
+src/esp-drivers-gpio.ads
+src/esp-drivers-led_strip.ads
+src/esp-drivers.ads
+src/esp-error.ads
+src/esp.adb
+src/esp.ads

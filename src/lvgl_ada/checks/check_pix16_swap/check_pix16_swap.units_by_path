@@ -1,2 +1,2 @@
-/workspaces/bench-source/src/lvgl_ada/checks/check_pix16_swap/config/check_pix16_swap_config.ads
-/workspaces/bench-source/src/lvgl_ada/checks/check_pix16_swap/src/check_pix16_swap.adb
+config/check_pix16_swap_config.ads
+src/check_pix16_swap.adb

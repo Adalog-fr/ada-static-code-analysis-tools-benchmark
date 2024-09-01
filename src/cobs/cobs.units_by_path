@@ -1,4 +1,4 @@
-/workspaces/bench-source/src/cobs/config/cobs_config.ads
-/workspaces/bench-source/src/cobs/src/cobs.ads
-/workspaces/bench-source/src/cobs/src/generic_cobs.adb
-/workspaces/bench-source/src/cobs/src/generic_cobs.ads
+config/cobs_config.ads
+src/cobs.ads
+src/generic_cobs.adb
+src/generic_cobs.ads

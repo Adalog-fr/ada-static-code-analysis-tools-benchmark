@@ -1,7 +1,7 @@
-/workspaces/bench-source/src/vaton/config/vaton_config.ads
-/workspaces/bench-source/src/vaton/src/vaton-float_conversions.adb
-/workspaces/bench-source/src/vaton/src/vaton-float_conversions.ads
-/workspaces/bench-source/src/vaton/src/vaton-integer_conversions.adb
-/workspaces/bench-source/src/vaton/src/vaton-integer_conversions.ads
-/workspaces/bench-source/src/vaton/src/vaton.adb
-/workspaces/bench-source/src/vaton/src/vaton.ads
+config/vaton_config.ads
+src/vaton-float_conversions.adb
+src/vaton-float_conversions.ads
+src/vaton-integer_conversions.adb
+src/vaton-integer_conversions.ads
+src/vaton.adb
+src/vaton.ads

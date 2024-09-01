@@ -1,5 +1,5 @@
-/workspaces/bench-source/src/dir_iterators/src/dir_iterators-ancestor.adb
-/workspaces/bench-source/src/dir_iterators/src/dir_iterators-ancestor.ads
-/workspaces/bench-source/src/dir_iterators/src/dir_iterators-recursive.adb
-/workspaces/bench-source/src/dir_iterators/src/dir_iterators-recursive.ads
-/workspaces/bench-source/src/dir_iterators/src/dir_iterators.ads
+src/dir_iterators-ancestor.adb
+src/dir_iterators-ancestor.ads
+src/dir_iterators-recursive.adb
+src/dir_iterators-recursive.ads
+src/dir_iterators.ads

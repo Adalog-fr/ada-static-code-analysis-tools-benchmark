@@ -1,8 +1,8 @@
-/workspaces/bench-source/src/littlefs/config/littlefs_config.ads
-/workspaces/bench-source/src/littlefs/config/littlefs_config.h
-/workspaces/bench-source/src/littlefs/littlefs/lfs_util.c
-/workspaces/bench-source/src/littlefs/littlefs/lfs_util.h
-/workspaces/bench-source/src/littlefs/littlefs/lfs.c
-/workspaces/bench-source/src/littlefs/littlefs/lfs.h
-/workspaces/bench-source/src/littlefs/src/littlefs.adb
-/workspaces/bench-source/src/littlefs/src/littlefs.ads
+config/littlefs_config.ads
+config/littlefs_config.h
+littlefs/lfs_util.c
+littlefs/lfs_util.h
+littlefs/lfs.c
+littlefs/lfs.h
+src/littlefs.adb
+src/littlefs.ads
