@@ -3370,6 +3370,23 @@
       "ignore": false,
       "path": "src/pbkdf2"
     },
+    "phcpack": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/janverschelde__PHCpack",
+          "projects": [
+            {
+              "gprPath": "src/janverschelde__PHCpack/main.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/janverschelde__PHCpack"
+    },
     "play_2048": {
       "alireProjects": [
         {
