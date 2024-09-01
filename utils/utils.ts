@@ -1,5 +1,7 @@
-import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
+// @deno-types="https://cdn.skypack.dev/@types/lodash?dts"
+import { isPlainObject } from "https://cdn.skypack.dev/lodash-es?dts";
 import { join } from "jsr:@std/path@^0.225.1";
+import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
 
 export function collectOptionList(value, previous) {
   return previous.concat([value]);
@@ -177,4 +179,121 @@ export function createBlock(content: string, borderChar: string = '#'): string {
         ...formattedLines,
         border
     ].join('\n');
+}
+
+/**
+ * Options for the sortKeys function.
+ */
+interface SortKeysOptions {
+    /** If true, sort keys deeply in nested objects and arrays. */
+    deep?: boolean;
+    /** Custom comparison function for sorting keys. */
+    compare?: (a: string, b: string) => number;
+  }
+
+  /**
+   * Sorts the keys of an object or elements of an array.
+   * @param input - The object or array to sort.
+   * @param options - Options for sorting.
+   * @returns A new object or array with sorted keys/elements.
+   * @throws {TypeError} If input is not a plain object or array.
+   * @see Inspired from {@link https://github.com/sindresorhus/sort-keys}
+   */
+export function sortKeys(
+  input: Record<string, any> | any[],
+  options: SortKeysOptions = {}
+): Record<string, any> | any[] {
+  // Check if input is a plain object or array
+  if (!isPlainObject(input) && !Array.isArray(input)) {
+    throw new TypeError('Expected a plain object or array');
+  }
+
+  // Destructure options with default values
+  const { deep = false, compare = (a: string, b: string) => a.localeCompare(b) } = options;
+
+  // Arrays to keep track of circular references
+  const seenInput: (Record<string, any> | any[])[] = [];
+  const seenOutput: (Record<string, any> | any[])[] = [];
+
+  /**
+   * Deeply sorts an array.
+   * @param array - The array to sort.
+   * @returns A new array with sorted elements.
+   */
+  const deepSortArray = (array: any[]): any[] => {
+    // Check for circular references
+    const seenIndex = seenInput.indexOf(array);
+    if (seenIndex !== -1) {
+      return seenOutput[seenIndex] as any[];
+    }
+
+    // Create a new array for the result
+    const result: any[] = [];
+    seenInput.push(array);
+    seenOutput.push(result);
+
+    // Map and process each item in the array
+    result.push(...array.map((item: any) => {
+      if (Array.isArray(item)) {
+        return deepSortArray(item);
+      }
+
+      if (isPlainObject(item)) {
+        return sortKeysInternal(item);
+      }
+
+      return item;
+    }));
+
+    return result;
+  };
+
+  /**
+   * Internal function to sort keys of an object.
+   * @param obj - The object to sort.
+   * @returns A new object with sorted keys.
+   */
+  const sortKeysInternal = (obj: Record<string, any>): Record<string, any> => {
+    // Check for circular references
+    const seenIndex = seenInput.indexOf(obj);
+    if (seenIndex !== -1) {
+      return seenOutput[seenIndex] as Record<string, any>;
+    }
+
+    // Create a new object for the result
+    const result: Record<string, any> = {};
+    const keys = Object.keys(obj).sort(compare);
+
+    seenInput.push(obj);
+    seenOutput.push(result);
+
+    // Process each key in the sorted order
+    for (const key of keys) {
+      const value = obj[key];
+      let newValue: any;
+
+      // Handle deep sorting for arrays and objects
+      if (deep && Array.isArray(value)) {
+        newValue = deepSortArray(value);
+      } else {
+        newValue = deep && isPlainObject(value) ? sortKeysInternal(value) : value;
+      }
+
+      // Define the property in the result object
+      Object.defineProperty(result, key, {
+        ...Object.getOwnPropertyDescriptor(obj, key),
+        value: newValue
+      });
+    }
+
+    return result;
+  };
+
+  // Handle array input
+  if (Array.isArray(input)) {
+    return deep ? deepSortArray(input) : [...input];
+  }
+
+  // Handle object input
+  return sortKeysInternal(input);
 }
