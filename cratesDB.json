@@ -8,9 +8,9 @@
           "projects": [
             {
               "gprPath": "src/aaa/aaa.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -29,9 +29,9 @@
           "projects": [
             {
               "gprPath": "src/ada_fuse/ada_fuse.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -56,9 +56,9 @@
           "projects": [
             {
               "gprPath": "src/ada_lua/ada_lua.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -73,9 +73,9 @@
           "projects": [
             {
               "gprPath": "src/ada_pretty/gnat/ada_pretty.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -90,9 +90,9 @@
           "projects": [
             {
               "gprPath": "src/ada_toml/ada_toml.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -107,10 +107,10 @@
           "projects": [
             {
               "gprPath": "src/ada_voxel_space_demo/ada_voxel_space_demo.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -125,9 +125,9 @@
           "projects": [
             {
               "gprPath": "src/adabots/adabots.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -156,31 +156,31 @@
           "projects": [
             {
               "gprPath": "src/adayaml/yaml-annotation_processor.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/adayaml/yaml-server.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/adayaml/yaml-utils.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/adayaml/yaml.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -195,9 +195,9 @@
           "projects": [
             {
               "gprPath": "src/adl_middleware/adl_middleware.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -222,10 +222,10 @@
           "projects": [
             {
               "gprPath": "src/awa/ada-ado/.alire/sqlite/ado_sqlite.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         },
@@ -276,10 +276,10 @@
           "projects": [
             {
               "gprPath": "src/aflex/aflex.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -294,10 +294,10 @@
           "projects": [
             {
               "gprPath": "src/agpl/agpl.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -312,15 +312,15 @@
           "projects": [
             {
               "gprPath": "src/aicwl/sources/aicwl-editor.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/aicwl/sources/aicwl.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -335,9 +335,9 @@
           "projects": [
             {
               "gprPath": "src/ajunitgen/ajunitgen.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -352,10 +352,10 @@
           "projects": [
             {
               "gprPath": "src/awa/ada-keystore/.alire/keystoreada_tools.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -370,9 +370,9 @@
           "projects": [
             {
               "gprPath": "src/anagram/gnat/anagram.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -387,9 +387,9 @@
           "projects": [
             {
               "gprPath": "src/ansiada/ansiada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -408,9 +408,9 @@
           "projects": [
             {
               "gprPath": "src/apdf/pdf_out_gnat_w_gid.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -425,9 +425,9 @@
           "projects": [
             {
               "gprPath": "src/asfml/asfml.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -466,9 +466,9 @@
           "projects": [
             {
               "gprPath": "src/atomic/atomic.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -487,9 +487,9 @@
           "projects": [
             {
               "gprPath": "src/audio_base/audio_base.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -504,9 +504,9 @@
           "projects": [
             {
               "gprPath": "src/audio_wavefiles/audio_wavefiles.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -521,9 +521,9 @@
           "projects": [
             {
               "gprPath": "src/aunit/lib/gnat/aunit.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -538,9 +538,9 @@
           "projects": [
             {
               "gprPath": "src/automate/automate.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -555,9 +555,9 @@
           "projects": [
             {
               "gprPath": "src/avltrees/avltrees.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -572,10 +572,10 @@
           "projects": [
             {
               "gprPath": "src/avrada_examples/avrada_rts/avrada_rts.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -590,10 +590,10 @@
           "projects": [
             {
               "gprPath": "src/awa/.alire/unit/awa_unit.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         },
@@ -697,9 +697,9 @@
           "projects": [
             {
               "gprPath": "src/aws/aws.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -714,9 +714,9 @@
           "projects": [
             {
               "gprPath": "src/axmpp/gnat/axmpp.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -731,9 +731,9 @@
           "projects": [
             {
               "gprPath": "src/ayacc/ayacc.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -748,9 +748,9 @@
           "projects": [
             {
               "gprPath": "src/b2ssum/b2ssum.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -765,9 +765,9 @@
           "projects": [
             {
               "gprPath": "src/bar_codes/bar_codes_gnat.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -782,9 +782,9 @@
           "projects": [
             {
               "gprPath": "src/basalt/basalt.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -813,9 +813,9 @@
           "projects": [
             {
               "gprPath": "src/bbqueue/bbqueue.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -835,9 +835,9 @@
           "projects": [
             {
               "gprPath": "src/bingada/bingada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -856,9 +856,9 @@
           "projects": [
             {
               "gprPath": "src/blake2s/blake2s.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -873,9 +873,9 @@
           "projects": [
             {
               "gprPath": "src/brackelib/brackelib.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -894,9 +894,9 @@
           "projects": [
             {
               "gprPath": "src/c_strings/c_strings.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -911,9 +911,9 @@
           "projects": [
             {
               "gprPath": "src/canberra_ada/canberra_ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -928,9 +928,9 @@
           "projects": [
             {
               "gprPath": "src/cbsg/cbsg.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -945,9 +945,9 @@
           "projects": [
             {
               "gprPath": "src/chacha20/chacha20.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -962,9 +962,9 @@
           "projects": [
             {
               "gprPath": "src/chests/chests.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -987,9 +987,9 @@
           "projects": [
             {
               "gprPath": "src/clic/clic.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1009,9 +1009,9 @@
           "projects": [
             {
               "gprPath": "src/cmd_ada/cmd_ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1030,9 +1030,9 @@
           "projects": [
             {
               "gprPath": "src/cobs/cobs.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1051,9 +1051,9 @@
           "projects": [
             {
               "gprPath": "src/dashera/dashera.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1068,9 +1068,9 @@
           "projects": [
             {
               "gprPath": "src/dcf/zipdcf/zipdcf.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1093,10 +1093,10 @@
           "projects": [
             {
               "gprPath": "src/dependency_graph_extractor/dependency_graph_extractor.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         },
@@ -1115,9 +1115,9 @@
           "projects": [
             {
               "gprPath": "src/dg_loada/dg_loada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1132,9 +1132,9 @@
           "projects": [
             {
               "gprPath": "src/dir_iterators/dir_iterators.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1149,9 +1149,9 @@
           "projects": [
             {
               "gprPath": "src/dotenv/dotenv.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1185,9 +1185,9 @@
           "projects": [
             {
               "gprPath": "src/eagle_lander/eagle_lander.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1202,9 +1202,9 @@
           "projects": [
             {
               "gprPath": "src/edc_client/edc_client.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1219,9 +1219,9 @@
           "projects": [
             {
               "gprPath": "src/eeprom_i2c/eeprom_i2c.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1241,9 +1241,9 @@
           "projects": [
             {
               "gprPath": "src/elevator/elevator.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1258,10 +1258,10 @@
           "projects": [
             {
               "gprPath": "src/emacs_ada_mode/emacs_ada_mode.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -1276,10 +1276,10 @@
           "projects": [
             {
               "gprPath": "src/emacs_gpr_mode/emacs_gpr_mode.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -1294,9 +1294,9 @@
           "projects": [
             {
               "gprPath": "src/emacs_gpr_query/emacs_gpr_query.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1311,10 +1311,10 @@
           "projects": [
             {
               "gprPath": "src/emacs_wisitoken_grammar_mode/emacs_wisitoken_grammar_mode.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         },
@@ -1338,10 +1338,10 @@
           "projects": [
             {
               "gprPath": "src/embedded_components/embedded_components.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1356,9 +1356,9 @@
           "projects": [
             {
               "gprPath": "src/emojis/emojis.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1377,9 +1377,9 @@
           "projects": [
             {
               "gprPath": "src/endianness/endianness.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1398,9 +1398,9 @@
           "projects": [
             {
               "gprPath": "src/epoll/epoll.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1419,9 +1419,9 @@
           "projects": [
             {
               "gprPath": "src/esp_idf/esp_idf.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1436,9 +1436,9 @@
           "projects": [
             {
               "gprPath": "src/euler_tools/euler_tools.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1458,16 +1458,16 @@
           "projects": [
             {
               "gprPath": "src/evdev/evdev_info.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/evdev/evdev.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1482,9 +1482,9 @@
           "projects": [
             {
               "gprPath": "src/ews/ews.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1507,9 +1507,9 @@
           "projects": [
             {
               "gprPath": "src/excel_writer/excel_out_gnat.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1524,9 +1524,9 @@
           "projects": [
             {
               "gprPath": "src/fastpbkdf2_ada/fastpbkdf2_ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1541,9 +1541,9 @@
           "projects": [
             {
               "gprPath": "src/felix/felix.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1558,10 +1558,10 @@
           "projects": [
             {
               "gprPath": "src/florist_blady/lib_florist.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1576,9 +1576,9 @@
           "projects": [
             {
               "gprPath": "src/freetypeada/freetype.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1593,9 +1593,9 @@
           "projects": [
             {
               "gprPath": "src/garlic/gnat/gnatdist.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1614,9 +1614,9 @@
           "projects": [
             {
               "gprPath": "src/geo_coords/geo_coords.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1670,9 +1670,9 @@
           "projects": [
             {
               "gprPath": "src/get_password/get_password.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1687,9 +1687,9 @@
           "projects": [
             {
               "gprPath": "src/getopt/getopt.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1704,9 +1704,9 @@
           "projects": [
             {
               "gprPath": "src/gid/gid.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1731,9 +1731,9 @@
           "projects": [
             {
               "gprPath": "src/gnat_math_extensions/gnat_math_extensions.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1757,10 +1757,10 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-core/gnatcoll.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1775,10 +1775,10 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/gmp/gnatcoll_gmp.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1793,9 +1793,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1811,9 +1811,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1828,9 +1828,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/omp/gnatcoll_omp.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1845,9 +1845,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-db/postgres/gnatcoll_postgres.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1863,9 +1863,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/python/gnatcoll_python.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1881,9 +1881,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/readline/gnatcoll_readline.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1898,9 +1898,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -1925,10 +1925,10 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/syslog/gnatcoll_syslog.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1943,10 +1943,10 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-db/xref/gnatcoll_xref.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -1961,9 +1961,9 @@
           "projects": [
             {
               "gprPath": "src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2003,14 +2003,19 @@
           "projects": [
             {
               "gprPath": "src/gnoga/lib_gnoga.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
       ],
+      "ignore": false
+    },
+    "gpr2": {
+      "path": "src/libgpr2/gpr2",
+      "alireProjects": [],
       "ignore": false
     },
     "gpr_unit_provider": {
@@ -2021,9 +2026,9 @@
           "projects": [
             {
               "gprPath": "src/gpr_unit_provider/gpr_unit_provider.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2039,9 +2044,9 @@
           "projects": [
             {
               "gprPath": "src/gtkada/src/gtkada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2056,9 +2061,9 @@
           "projects": [
             {
               "gprPath": "src/hac/hac.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2073,9 +2078,9 @@
           "projects": [
             {
               "gprPath": "src/hal/hal.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2090,9 +2095,9 @@
           "projects": [
             {
               "gprPath": "src/hangman/hangman.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2107,9 +2112,9 @@
           "projects": [
             {
               "gprPath": "src/hello/hello.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2124,9 +2129,9 @@
           "projects": [
             {
               "gprPath": "src/hmac/hmac.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2141,10 +2146,10 @@
           "projects": [
             {
               "gprPath": "src/honki_tonks_zivilisationen/honki_tonks_zivilisationen.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2159,9 +2164,9 @@
           "projects": [
             {
               "gprPath": "src/hungarian/hungarian.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2176,9 +2181,9 @@
           "projects": [
             {
               "gprPath": "src/ini_files/ini_files.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2193,16 +2198,16 @@
           "projects": [
             {
               "gprPath": "src/inotify/inotify.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/inotify/monitor.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2235,9 +2240,9 @@
           "projects": [
             {
               "gprPath": "src/j2ada/j2ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2252,15 +2257,15 @@
           "projects": [
             {
               "gprPath": "src/json/json/json_pretty_print.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/json/json/json.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2275,15 +2280,15 @@
           "projects": [
             {
               "gprPath": "src/jupyter_kernel/gnat/jupyter_ada_driver.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2298,9 +2303,9 @@
           "projects": [
             {
               "gprPath": "src/jwt/gnat/jwt.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2320,9 +2325,9 @@
           "projects": [
             {
               "gprPath": "src/labs_radar/labs_standalone/labs_standalone.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2346,9 +2351,9 @@
           "projects": [
             {
               "gprPath": "src/lace/lace_xml/library/xml.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2489,9 +2494,9 @@
           "projects": [
             {
               "gprPath": "src/lal_highlight/highlight.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2506,9 +2511,9 @@
           "projects": [
             {
               "gprPath": "src/langkit_support/langkit_support.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2523,9 +2528,9 @@
           "projects": [
             {
               "gprPath": "src/libadalang2xml/libadalang2xml.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2569,9 +2574,9 @@
           "projects": [
             {
               "gprPath": "src/gprbuild/gpr/gpr.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2586,10 +2591,10 @@
           "projects": [
             {
               "gprPath": "src/libgpr2/gpr2.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2600,11 +2605,6 @@
       ],
       "ignore": false
     },
-    "gpr2": {
-      "path": "src/libgpr2/gpr2",
-      "alireProjects": [],
-      "ignore": false
-    },
     "libhello": {
       "path": "src/libhello",
       "alireProjects": [
@@ -2613,9 +2613,9 @@
           "projects": [
             {
               "gprPath": "src/libhello/libhello.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2630,10 +2630,10 @@
           "projects": [
             {
               "gprPath": "src/libkeccak/libkeccak.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2660,9 +2660,9 @@
           "projects": [
             {
               "gprPath": "src/libsimpleio/libsimpleio.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2677,9 +2677,9 @@
           "projects": [
             {
               "gprPath": "src/linenoise_ada/linenoise.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2694,9 +2694,9 @@
           "projects": [
             {
               "gprPath": "src/littlefs/littlefs.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2715,9 +2715,9 @@
           "projects": [
             {
               "gprPath": "src/lmdb_ada/lmdb.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2733,9 +2733,9 @@
           "projects": [
             {
               "gprPath": "src/loga/loga.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2750,9 +2750,9 @@
           "projects": [
             {
               "gprPath": "src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2805,9 +2805,9 @@
           "projects": [
             {
               "gprPath": "src/mage_hat/mage_hat.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -2832,9 +2832,9 @@
           "projects": [
             {
               "gprPath": "src/mandelbrot_ascii/mandelbrot_ascii.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2849,9 +2849,9 @@
           "projects": [
             {
               "gprPath": "src/markdown/gnat/markdown.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2866,10 +2866,10 @@
           "projects": [
             {
               "gprPath": "src/mathpaqs/mathpaqs.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2884,10 +2884,10 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_amf_utp.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         },
@@ -2947,9 +2947,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_fastcgi.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2964,9 +2964,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2981,9 +2981,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_servlet.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -2998,9 +2998,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_soap_wsse.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3024,9 +3024,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_spikedog_api.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3041,9 +3041,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_spikedog_core.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3058,9 +3058,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/gnat/matreshka_sql_sqlite3.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3111,9 +3111,9 @@
           "projects": [
             {
               "gprPath": "src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3128,9 +3128,9 @@
           "projects": [
             {
               "gprPath": "src/mcp2221/mcp2221.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3145,9 +3145,9 @@
           "projects": [
             {
               "gprPath": "src/midi/midi.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3166,9 +3166,9 @@
           "projects": [
             {
               "gprPath": "src/minirest/minirest.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3225,10 +3225,10 @@
           "projects": [
             {
               "gprPath": "src/ncursesada/Ada95/lib_adacurses.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -3253,9 +3253,9 @@
           "projects": [
             {
               "gprPath": "src/openglada/openglada_text/opengl-text.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3297,9 +3297,9 @@
           "projects": [
             {
               "gprPath": "src/optional/optional.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3315,9 +3315,9 @@
           "projects": [
             {
               "gprPath": "src/parse_args/parse_args.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3340,9 +3340,9 @@
           "projects": [
             {
               "gprPath": "src/partord/partord.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3357,9 +3357,9 @@
           "projects": [
             {
               "gprPath": "src/pbkdf2/pbkdf2.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3378,9 +3378,9 @@
           "projects": [
             {
               "gprPath": "src/play_2048/play_2048.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3395,9 +3395,9 @@
           "projects": [
             {
               "gprPath": "src/powerjoular/powerjoular.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3412,10 +3412,10 @@
           "projects": [
             {
               "gprPath": "src/ppag/ppag.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -3430,9 +3430,9 @@
           "projects": [
             {
               "gprPath": "src/progress_indicators/progress_indicators.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3448,9 +3448,9 @@
           "projects": [
             {
               "gprPath": "src/protobuf/gnat/protoc_gen_ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3465,10 +3465,10 @@
           "projects": [
             {
               "gprPath": "src/pygamer_simulator/pygamer_simulator.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -3483,9 +3483,9 @@
           "projects": [
             {
               "gprPath": "src/qoi/qoi.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3504,9 +3504,9 @@
           "projects": [
             {
               "gprPath": "src/raspberry_bsp/raspberry_bsp.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3521,9 +3521,9 @@
           "projects": [
             {
               "gprPath": "src/rejuvenation/rejuvenation.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3566,9 +3566,9 @@
           "projects": [
             {
               "gprPath": "src/remoteio/remoteio.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3583,9 +3583,9 @@
           "projects": [
             {
               "gprPath": "src/resources/resources.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3608,9 +3608,9 @@
           "projects": [
             {
               "gprPath": "src/rewriters/rewriters.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3633,9 +3633,9 @@
           "projects": [
             {
               "gprPath": "src/rsfile/rsfile.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3650,9 +3650,9 @@
           "projects": [
             {
               "gprPath": "src/rtmidi/rtmidi.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3671,10 +3671,10 @@
           "projects": [
             {
               "gprPath": "src/rxada/rxada.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3689,9 +3689,9 @@
           "projects": [
             {
               "gprPath": "src/saatana/saatana.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3706,9 +3706,9 @@
           "projects": [
             {
               "gprPath": "src/scripted_testing/scripted_testing.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3727,9 +3727,9 @@
           "projects": [
             {
               "gprPath": "src/sdlada/build/gnat/sdlada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3749,9 +3749,9 @@
           "projects": [
             {
               "gprPath": "src/semantic_versioning/semantic_versioning.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3766,9 +3766,9 @@
           "projects": [
             {
               "gprPath": "src/septum/septum.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3817,9 +3817,9 @@
           "projects": [
             {
               "gprPath": "src/sha1/sha1.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3839,9 +3839,9 @@
           "projects": [
             {
               "gprPath": "src/sha2/sha2.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3861,9 +3861,9 @@
           "projects": [
             {
               "gprPath": "src/si_units/si_units.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -3878,9 +3878,9 @@
           "projects": [
             {
               "gprPath": "src/simh_tapes/simh_tapes.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -3899,98 +3899,98 @@
           "projects": [
             {
               "gprPath": "src/simple_components/components-connections_server-elv_max_cube.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server-http_server-sqlite_browser.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server-http_server.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server-modbus.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server-mqtt.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server-secure.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server-smtp.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-connections_server.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-gnutls.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/simple_components/components-ntp.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
+              "ignore": true,
               "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
-              "ignore": true
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/simple_components/components-sqlite.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/simple_components/components.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": true,
+              "ignore": false,
               "ignoreReason": "AdaCtl issue: thick_queries.adb:6692 length check failed",
-              "ignore": false
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/simple_components/strings_edit.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/simple_components/tables.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4005,9 +4005,9 @@
           "projects": [
             {
               "gprPath": "src/simple_logging/simple_logging.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4022,9 +4022,9 @@
           "projects": [
             {
               "gprPath": "src/slip/slip.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4039,9 +4039,9 @@
           "projects": [
             {
               "gprPath": "src/socketcan/src/socketcan.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4056,9 +4056,9 @@
           "projects": [
             {
               "gprPath": "src/spark_unbound/spark_unbound.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4077,9 +4077,9 @@
           "projects": [
             {
               "gprPath": "src/sparknacl/sparknacl.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4094,10 +4094,10 @@
           "projects": [
             {
               "gprPath": "src/spat/spat.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4139,9 +4139,9 @@
           "projects": [
             {
               "gprPath": "src/spdx/spdx.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4156,10 +4156,10 @@
           "projects": [
             {
               "gprPath": "src/specfun/specfun.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -4174,10 +4174,10 @@
           "projects": [
             {
               "gprPath": "src/spoon/spoon.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4192,9 +4192,9 @@
           "projects": [
             {
               "gprPath": "src/startup_gen/startup_gen.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4209,10 +4209,10 @@
           "projects": [
             {
               "gprPath": "src/stephes_ada_library/build/stephes_ada_library.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4227,9 +4227,9 @@
           "projects": [
             {
               "gprPath": "src/stopwatch/stopwatch.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4244,9 +4244,9 @@
           "projects": [
             {
               "gprPath": "src/svd2ada/svd2ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4261,9 +4261,9 @@
           "projects": [
             {
               "gprPath": "src/system_random/system_random.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4282,9 +4282,9 @@
           "projects": [
             {
               "gprPath": "src/tash/tash.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4321,10 +4321,10 @@
           "projects": [
             {
               "gprPath": "src/templates_parser/templates_parser.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4339,9 +4339,9 @@
           "projects": [
             {
               "gprPath": "src/tiled_code_gen/tiled_code_gen.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4356,9 +4356,9 @@
           "projects": [
             {
               "gprPath": "src/tiny_text/tiny_text.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4373,9 +4373,9 @@
           "projects": [
             {
               "gprPath": "src/tlsada/tlsada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4390,9 +4390,9 @@
           "projects": [
             {
               "gprPath": "src/toml_slicer/toml_slicer.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4407,9 +4407,9 @@
           "projects": [
             {
               "gprPath": "src/trendy_terminal/trendy_terminal.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4432,9 +4432,9 @@
           "projects": [
             {
               "gprPath": "src/trendy_test/trendy_test.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4449,9 +4449,9 @@
           "projects": [
             {
               "gprPath": "src/uri_ada/uri_ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4466,9 +4466,9 @@
           "projects": [
             {
               "gprPath": "src/uri_mime/uri_mime.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4483,10 +4483,10 @@
           "projects": [
             {
               "gprPath": "src/usb_embedded/usb_embedded.gpr",
-              "isNeo4jDbFilesComplete": true,
-              "isAdaCtlComplete": false,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4505,9 +4505,9 @@
           "projects": [
             {
               "gprPath": "src/utf8test/utf8test.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4552,24 +4552,24 @@
           "projects": [
             {
               "gprPath": "src/uxstrings/lib_uxstrings1.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/uxstrings/lib_uxstrings2.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             },
             {
               "gprPath": "src/uxstrings/lib_uxstrings3.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -4584,9 +4584,9 @@
           "projects": [
             {
               "gprPath": "src/vaton/vaton.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4605,9 +4605,9 @@
           "projects": [
             {
               "gprPath": "src/virtapu/virtapu.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4636,9 +4636,9 @@
           "projects": [
             {
               "gprPath": "src/weechat_ada/weechat_ada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4658,16 +4658,16 @@
           "projects": [
             {
               "gprPath": "src/wisitoken/build/wisitoken_alire_mains.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/wisitoken/build/wisitoken_alire.gpr",
-              "isNeo4jDbFilesComplete": false,
-              "isAdaCtlComplete": true,
               "ignore": true,
-              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error"
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
             }
           ]
         }
@@ -4683,9 +4683,9 @@
           "projects": [
             {
               "gprPath": "src/wordlelib/wordlelib.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4711,9 +4711,9 @@
           "projects": [
             {
               "gprPath": "src/wordlist/wordlist.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4732,9 +4732,9 @@
           "projects": [
             {
               "gprPath": "src/workers/workers.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4749,9 +4749,9 @@
           "projects": [
             {
               "gprPath": "src/xdg_base_dir/xdg_base_dir.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4766,9 +4766,9 @@
           "projects": [
             {
               "gprPath": "src/xia/XIA.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4787,9 +4787,9 @@
           "projects": [
             {
               "gprPath": "src/xml_ez_out/xml_ez_out.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4804,39 +4804,39 @@
           "projects": [
             {
               "gprPath": "src/xmlada/distrib/xmlada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/xmlada/dom/xmlada_dom.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/xmlada/input_sources/xmlada_input.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/xmlada/sax/xmlada_sax.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/xmlada/schema/xmlada_schema.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             },
             {
               "gprPath": "src/xmlada/unicode/xmlada_unicode.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4851,9 +4851,9 @@
           "projects": [
             {
               "gprPath": "src/xoshiro/xoshiro.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4868,9 +4868,9 @@
           "projects": [
             {
               "gprPath": "src/yeison/yeison.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         },
@@ -4889,9 +4889,9 @@
           "projects": [
             {
               "gprPath": "src/zeromq_ada/zmq.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4906,9 +4906,9 @@
           "projects": [
             {
               "gprPath": "src/zipada/zipada.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
@@ -4928,9 +4928,9 @@
           "projects": [
             {
               "gprPath": "src/zlib_ada/zlib.gpr",
-              "isNeo4jDbFilesComplete": true,
+              "ignore": false,
               "isAdaCtlComplete": true,
-              "ignore": false
+              "isNeo4jDbFilesComplete": true
             }
           ]
         }
