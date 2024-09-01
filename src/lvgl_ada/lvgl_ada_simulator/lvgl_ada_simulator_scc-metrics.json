@@ -1,0 +1,84 @@
+{
+  "Name": "Ada",
+  "Bytes": 21562,
+  "CodeBytes": 0,
+  "Lines": 722,
+  "Code": 524,
+  "Comment": 57,
+  "Blank": 141,
+  "Complexity": 30,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/lvgl_ada_simulator_config.ads",
+      "Extension": "ads",
+      "Location": "config/lvgl_ada_simulator_config.ads",
+      "Symlocation": "",
+      "Bytes": 599,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lvgl_ada_simulator.ads",
+      "Extension": "ads",
+      "Location": "src/lvgl_ada_simulator.ads",
+      "Symlocation": "",
+      "Bytes": 530,
+      "Lines": 18,
+      "Code": 8,
+      "Comment": 3,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lvgl_ada_simulator.adb",
+      "Extension": "adb",
+      "Location": "src/lvgl_ada_simulator.adb",
+      "Symlocation": "",
+      "Bytes": 20433,
+      "Lines": 684,
+      "Code": 504,
+      "Comment": 53,
+      "Blank": 127,
+      "Complexity": 30,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0
+    }
+  ],
+  "LineLength": null
+}

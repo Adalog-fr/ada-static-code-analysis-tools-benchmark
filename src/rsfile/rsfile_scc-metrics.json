@@ -1,0 +1,38 @@
+{
+  "Name": "Ada",
+  "Bytes": 4074,
+  "CodeBytes": 0,
+  "Lines": 159,
+  "Code": 115,
+  "Comment": 16,
+  "Blank": 28,
+  "Complexity": 3,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rsfile.adb",
+      "Extension": "adb",
+      "Location": "src/rsfile.adb",
+      "Symlocation": "",
+      "Bytes": 4074,
+      "Lines": 159,
+      "Code": 115,
+      "Comment": 16,
+      "Blank": 28,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0
+    }
+  ],
+  "LineLength": null
+}

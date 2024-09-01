@@ -20,7 +20,7 @@ project Septum is
    Contracts_Checks : Enabled_Kind := External ("SEPTUM_CONTRACTS",      Checks_Enabled);
 
    type Platform_Type is ("windows", "linux", "macos");
-   Platform : Platform_Type := external ("Septum_Platform");
+   Platform : Platform_Type := "linux";
    case Platform is
       when "windows" => Septum_Sources := Septum_Sources & "src/windows";
       when "linux"   => Septum_Sources := Septum_Sources & "src/linux";
