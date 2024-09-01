@@ -1,7 +1,6 @@
 {
   "crates": {
     "aaa": {
-      "path": "src/aaa",
       "alireProjects": [
         {
           "alireTomlPath": "src/aaa",
@@ -19,10 +18,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/aaa"
     },
     "ada_fuse": {
-      "path": "src/ada_fuse",
       "alireProjects": [
         {
           "alireTomlPath": "src/ada_fuse",
@@ -36,20 +35,20 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ada_fuse"
     },
     "ada_language_server": {
-      "path": "src/ada_language_server",
       "alireProjects": [
         {
           "alireTomlPath": "src/ada_language_server",
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/ada_language_server"
     },
     "ada_lua": {
-      "path": "src/ada_lua",
       "alireProjects": [
         {
           "alireTomlPath": "src/ada_lua",
@@ -63,10 +62,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ada_lua"
     },
     "ada_pretty": {
-      "path": "src/ada_pretty",
       "alireProjects": [
         {
           "alireTomlPath": "src/ada_pretty",
@@ -80,10 +79,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ada_pretty"
     },
     "ada_toml": {
-      "path": "src/ada_toml",
       "alireProjects": [
         {
           "alireTomlPath": "src/ada_toml",
@@ -97,10 +96,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ada_toml"
     },
     "ada_voxel_space_demo": {
-      "path": "src/ada_voxel_space_demo",
       "alireProjects": [
         {
           "alireTomlPath": "src/ada_voxel_space_demo",
@@ -115,10 +114,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ada_voxel_space_demo"
     },
     "adabots": {
-      "path": "src/adabots",
       "alireProjects": [
         {
           "alireTomlPath": "src/adabots",
@@ -132,10 +131,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/adabots"
     },
     "adacl": {
-      "path": "src/adacl",
       "alireProjects": [
         {
           "alireTomlPath": "src/adacl",
@@ -146,10 +145,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/adacl"
     },
     "adayaml": {
-      "path": "src/adayaml",
       "alireProjects": [
         {
           "alireTomlPath": "src/adayaml",
@@ -185,10 +184,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/adayaml"
     },
     "adl_middleware": {
-      "path": "src/adl_middleware",
       "alireProjects": [
         {
           "alireTomlPath": "src/adl_middleware",
@@ -202,20 +201,20 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/adl_middleware"
     },
     "admpfr": {
-      "path": "src/admpfr",
       "alireProjects": [
         {
           "alireTomlPath": "src/admpfr",
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/admpfr"
     },
     "ado": {
-      "path": "src/awa/ada-ado",
       "alireProjects": [
         {
           "alireTomlPath": "src/awa/ada-ado",
@@ -246,30 +245,30 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-ado"
     },
     "ado_all": {
-      "path": "src/awa/ada-ado/all",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-ado/all"
     },
     "ado_mysql": {
-      "path": "src/awa/ada-ado/mysql",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-ado/mysql"
     },
     "ado_postgresql": {
-      "path": "src/awa/ada-ado/postgresql",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-ado/postgresql"
     },
     "ado_sqlite": {
-      "path": "src/awa/ada-ado/sqlite",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-ado/sqlite"
     },
     "aflex": {
-      "path": "src/aflex",
       "alireProjects": [
         {
           "alireTomlPath": "src/aflex",
@@ -284,10 +283,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/aflex"
     },
     "agpl": {
-      "path": "src/agpl",
       "alireProjects": [
         {
           "alireTomlPath": "src/agpl",
@@ -302,10 +301,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/agpl"
     },
     "aicwl": {
-      "path": "src/aicwl",
       "alireProjects": [
         {
           "alireTomlPath": "src/aicwl",
@@ -325,10 +324,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/aicwl"
     },
     "ajunitgen": {
-      "path": "src/ajunitgen",
       "alireProjects": [
         {
           "alireTomlPath": "src/ajunitgen",
@@ -342,10 +341,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ajunitgen"
     },
     "akt": {
-      "path": "src/awa/ada-keystore/akt",
       "alireProjects": [
         {
           "alireTomlPath": "src/awa/ada-keystore/akt",
@@ -360,10 +359,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-keystore/akt"
     },
     "anagram": {
-      "path": "src/anagram",
       "alireProjects": [
         {
           "alireTomlPath": "src/anagram",
@@ -377,10 +376,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/anagram"
     },
     "ansiada": {
-      "path": "src/ansiada",
       "alireProjects": [
         {
           "alireTomlPath": "src/ansiada",
@@ -398,10 +397,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ansiada"
     },
     "apdf": {
-      "path": "src/apdf",
       "alireProjects": [
         {
           "alireTomlPath": "src/apdf",
@@ -415,10 +414,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/apdf"
     },
     "asfml": {
-      "path": "src/asfml",
       "alireProjects": [
         {
           "alireTomlPath": "src/asfml",
@@ -432,20 +431,20 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/asfml"
     },
     "asis": {
-      "path": "src/asis",
       "alireProjects": [
         {
           "alireTomlPath": "src/asis",
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/asis"
     },
     "atari_atr_tools": {
-      "path": "src/atari_atr_tools",
       "alireProjects": [
         {
           "alireTomlPath": "src/atari_atr_tools",
@@ -456,10 +455,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/atari_atr_tools"
     },
     "atomic": {
-      "path": "src/atomic",
       "alireProjects": [
         {
           "alireTomlPath": "src/atomic",
@@ -477,10 +476,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/atomic"
     },
     "audio_base": {
-      "path": "src/audio_base",
       "alireProjects": [
         {
           "alireTomlPath": "src/audio_base",
@@ -494,10 +493,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/audio_base"
     },
     "audio_wavefiles": {
-      "path": "src/audio_wavefiles",
       "alireProjects": [
         {
           "alireTomlPath": "src/audio_wavefiles",
@@ -511,10 +510,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/audio_wavefiles"
     },
     "aunit": {
-      "path": "src/aunit",
       "alireProjects": [
         {
           "alireTomlPath": "src/aunit",
@@ -528,10 +527,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/aunit"
     },
     "automate": {
-      "path": "src/automate",
       "alireProjects": [
         {
           "alireTomlPath": "src/automate",
@@ -545,10 +544,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/automate"
     },
     "avltrees": {
-      "path": "src/avltrees",
       "alireProjects": [
         {
           "alireTomlPath": "src/avltrees",
@@ -562,10 +561,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/avltrees"
     },
     "avrada_rts": {
-      "path": "src/avrada_examples/avrada_rts",
       "alireProjects": [
         {
           "alireTomlPath": "src/avrada_examples/avrada_rts",
@@ -580,10 +579,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/avrada_examples/avrada_rts"
     },
     "awa": {
-      "path": "src/awa",
       "alireProjects": [
         {
           "alireTomlPath": "src/awa",
@@ -682,15 +681,15 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa"
     },
     "awa_unit": {
-      "path": "src/awa/unit",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/unit"
     },
     "aws": {
-      "path": "src/aws",
       "alireProjects": [
         {
           "alireTomlPath": "src/aws",
@@ -704,10 +703,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/aws"
     },
     "axmpp": {
-      "path": "src/axmpp",
       "alireProjects": [
         {
           "alireTomlPath": "src/axmpp",
@@ -721,10 +720,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/axmpp"
     },
     "ayacc": {
-      "path": "src/ayacc",
       "alireProjects": [
         {
           "alireTomlPath": "src/ayacc",
@@ -738,10 +737,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ayacc"
     },
     "b2ssum": {
-      "path": "src/b2ssum",
       "alireProjects": [
         {
           "alireTomlPath": "src/b2ssum",
@@ -755,10 +754,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/b2ssum"
     },
     "bar_codes": {
-      "path": "src/bar_codes",
       "alireProjects": [
         {
           "alireTomlPath": "src/bar_codes",
@@ -772,10 +771,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/bar_codes"
     },
     "basalt": {
-      "path": "src/basalt",
       "alireProjects": [
         {
           "alireTomlPath": "src/basalt",
@@ -789,10 +788,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/basalt"
     },
     "base64": {
-      "path": "src/base64",
       "alireProjects": [
         {
           "alireTomlPath": "src/base64",
@@ -803,10 +802,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/base64"
     },
     "bbqueue": {
-      "path": "src/bbqueue",
       "alireProjects": [
         {
           "alireTomlPath": "src/bbqueue",
@@ -825,10 +824,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/bbqueue"
     },
     "bingada": {
-      "path": "src/bingada",
       "alireProjects": [
         {
           "alireTomlPath": "src/bingada",
@@ -846,10 +845,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/bingada"
     },
     "blake2s": {
-      "path": "src/blake2s",
       "alireProjects": [
         {
           "alireTomlPath": "src/blake2s",
@@ -863,10 +862,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/blake2s"
     },
     "brackelib": {
-      "path": "src/brackelib",
       "alireProjects": [
         {
           "alireTomlPath": "src/brackelib",
@@ -884,10 +883,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/brackelib"
     },
     "c_strings": {
-      "path": "src/c_strings",
       "alireProjects": [
         {
           "alireTomlPath": "src/c_strings",
@@ -901,10 +900,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/c_strings"
     },
     "canberra_ada": {
-      "path": "src/canberra_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/canberra_ada",
@@ -918,10 +917,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/canberra_ada"
     },
     "cbsg": {
-      "path": "src/cbsg",
       "alireProjects": [
         {
           "alireTomlPath": "src/cbsg",
@@ -935,10 +934,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/cbsg"
     },
     "chacha20": {
-      "path": "src/chacha20",
       "alireProjects": [
         {
           "alireTomlPath": "src/chacha20",
@@ -952,10 +951,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/chacha20"
     },
     "chests": {
-      "path": "src/chests",
       "alireProjects": [
         {
           "alireTomlPath": "src/chests",
@@ -977,10 +976,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/chests"
     },
     "clic": {
-      "path": "src/clic",
       "alireProjects": [
         {
           "alireTomlPath": "src/clic",
@@ -999,10 +998,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/clic"
     },
     "cmd_ada": {
-      "path": "src/cmd_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/cmd_ada",
@@ -1020,10 +1019,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/cmd_ada"
     },
     "cobs": {
-      "path": "src/cobs",
       "alireProjects": [
         {
           "alireTomlPath": "src/cobs",
@@ -1041,10 +1040,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/cobs"
     },
     "dashera": {
-      "path": "src/dashera",
       "alireProjects": [
         {
           "alireTomlPath": "src/dashera",
@@ -1058,10 +1057,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dashera"
     },
     "dcf": {
-      "path": "src/dcf",
       "alireProjects": [
         {
           "alireTomlPath": "src/dcf",
@@ -1083,10 +1082,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dcf"
     },
     "dependency_graph_extractor": {
-      "path": "src/dependency_graph_extractor",
       "alireProjects": [
         {
           "alireTomlPath": "src/dependency_graph_extractor",
@@ -1105,10 +1104,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dependency_graph_extractor"
     },
     "dg_loada": {
-      "path": "src/dg_loada",
       "alireProjects": [
         {
           "alireTomlPath": "src/dg_loada",
@@ -1122,10 +1121,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dg_loada"
     },
     "dir_iterators": {
-      "path": "src/dir_iterators",
       "alireProjects": [
         {
           "alireTomlPath": "src/dir_iterators",
@@ -1139,10 +1138,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dir_iterators"
     },
     "dotenv": {
-      "path": "src/dotenv",
       "alireProjects": [
         {
           "alireTomlPath": "src/dotenv",
@@ -1160,25 +1159,25 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dotenv"
     },
     "dummyserver": {
-      "path": "src/dummyserver",
       "alireProjects": [
         {
           "alireTomlPath": "src/dummyserver",
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/dummyserver"
     },
     "dynamo": {
-      "path": "src/awa/dynamo",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/dynamo"
     },
     "eagle_lander": {
-      "path": "src/eagle_lander",
       "alireProjects": [
         {
           "alireTomlPath": "src/eagle_lander",
@@ -1192,10 +1191,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/eagle_lander"
     },
     "edc_client": {
-      "path": "src/edc_client",
       "alireProjects": [
         {
           "alireTomlPath": "src/edc_client",
@@ -1209,10 +1208,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/edc_client"
     },
     "eeprom_i2c": {
-      "path": "src/eeprom_i2c",
       "alireProjects": [
         {
           "alireTomlPath": "src/eeprom_i2c",
@@ -1226,15 +1225,15 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/eeprom_i2c"
     },
     "elada": {
-      "path": "src/awa/ada-el",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-el"
     },
     "elevator": {
-      "path": "src/elevator",
       "alireProjects": [
         {
           "alireTomlPath": "src/elevator",
@@ -1248,10 +1247,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/elevator"
     },
     "emacs_ada_mode": {
-      "path": "src/emacs_ada_mode",
       "alireProjects": [
         {
           "alireTomlPath": "src/emacs_ada_mode",
@@ -1266,10 +1265,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/emacs_ada_mode"
     },
     "emacs_gpr_mode": {
-      "path": "src/emacs_gpr_mode",
       "alireProjects": [
         {
           "alireTomlPath": "src/emacs_gpr_mode",
@@ -1284,10 +1283,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/emacs_gpr_mode"
     },
     "emacs_gpr_query": {
-      "path": "src/emacs_gpr_query",
       "alireProjects": [
         {
           "alireTomlPath": "src/emacs_gpr_query",
@@ -1301,10 +1300,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/emacs_gpr_query"
     },
     "emacs_wisi": {
-      "path": "src/emacs_wisi",
       "alireProjects": [
         {
           "alireTomlPath": "src/emacs_wisi",
@@ -1323,15 +1322,15 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/emacs_wisi"
     },
     "emacs_wisitoken_grammar_mode": {
-      "path": "src/emacs_wisitoken_grammar_mode",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/emacs_wisitoken_grammar_mode"
     },
     "embedded_components": {
-      "path": "src/embedded_components",
       "alireProjects": [
         {
           "alireTomlPath": "src/embedded_components",
@@ -1346,10 +1345,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/embedded_components"
     },
     "emojis": {
-      "path": "src/emojis",
       "alireProjects": [
         {
           "alireTomlPath": "src/emojis",
@@ -1367,10 +1366,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/emojis"
     },
     "endianness": {
-      "path": "src/endianness",
       "alireProjects": [
         {
           "alireTomlPath": "src/endianness",
@@ -1388,10 +1387,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/endianness"
     },
     "epoll": {
-      "path": "src/epoll",
       "alireProjects": [
         {
           "alireTomlPath": "src/epoll",
@@ -1409,10 +1408,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/epoll"
     },
     "esp_idf": {
-      "path": "src/esp_idf",
       "alireProjects": [
         {
           "alireTomlPath": "src/esp_idf",
@@ -1426,10 +1425,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/esp_idf"
     },
     "euler_tools": {
-      "path": "src/euler_tools",
       "alireProjects": [
         {
           "alireTomlPath": "src/euler_tools",
@@ -1448,10 +1447,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "Ada 2022 feature"
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/euler_tools"
     },
     "evdev": {
-      "path": "src/evdev",
       "alireProjects": [
         {
           "alireTomlPath": "src/evdev",
@@ -1472,10 +1471,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/evdev"
     },
     "ews": {
-      "path": "src/ews",
       "alireProjects": [
         {
           "alireTomlPath": "src/ews",
@@ -1497,10 +1496,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ews"
     },
     "excel_writer": {
-      "path": "src/excel_writer",
       "alireProjects": [
         {
           "alireTomlPath": "src/excel_writer",
@@ -1514,10 +1513,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/excel_writer"
     },
     "fastpbkdf2_ada": {
-      "path": "src/fastpbkdf2_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/fastpbkdf2_ada",
@@ -1531,10 +1530,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/fastpbkdf2_ada"
     },
     "felix": {
-      "path": "src/felix",
       "alireProjects": [
         {
           "alireTomlPath": "src/felix",
@@ -1548,10 +1547,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/felix"
     },
     "florist_blady": {
-      "path": "src/florist_blady",
       "alireProjects": [
         {
           "alireTomlPath": "src/florist_blady",
@@ -1566,10 +1565,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/florist_blady"
     },
     "freetypeada": {
-      "path": "src/freetypeada",
       "alireProjects": [
         {
           "alireTomlPath": "src/freetypeada",
@@ -1583,10 +1582,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/freetypeada"
     },
     "garlic": {
-      "path": "src/garlic",
       "alireProjects": [
         {
           "alireTomlPath": "src/garlic",
@@ -1604,10 +1603,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/garlic"
     },
     "geo_coords": {
-      "path": "src/geo_coords",
       "alireProjects": [
         {
           "alireTomlPath": "src/geo_coords",
@@ -1633,10 +1632,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/geo_coords"
     },
     "geste": {
-      "path": "src/geste",
       "alireProjects": [
         {
           "alireTomlPath": "src/geste/examples/platformer",
@@ -1655,15 +1654,15 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/geste"
     },
     "geste_examples": {
-      "path": "src/geste/geste_examples",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/geste/geste_examples"
     },
     "get_password": {
-      "path": "src/get_password",
       "alireProjects": [
         {
           "alireTomlPath": "src/get_password",
@@ -1677,10 +1676,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/get_password"
     },
     "getopt": {
-      "path": "src/getopt",
       "alireProjects": [
         {
           "alireTomlPath": "src/getopt",
@@ -1694,10 +1693,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/getopt"
     },
     "gid": {
-      "path": "src/gid",
       "alireProjects": [
         {
           "alireTomlPath": "src/gid",
@@ -1711,20 +1710,20 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gid"
     },
     "gnat_arm_elf": {
-      "path": "compilers/gnat_arm_elf",
       "alireProjects": [],
-      "ignore": true
+      "ignore": true,
+      "path": "compilers/gnat_arm_elf"
     },
     "gnat_avr_elf": {
-      "path": "compilers/gnat_avr_elf",
       "alireProjects": [],
-      "ignore": true
+      "ignore": true,
+      "path": "compilers/gnat_avr_elf"
     },
     "gnat_math_extensions": {
-      "path": "src/gnat_math_extensions",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnat_math_extensions",
@@ -1742,15 +1741,15 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnat_math_extensions"
     },
     "gnat_native": {
-      "path": "compilers/gnat_native",
       "alireProjects": [],
-      "ignore": true
+      "ignore": true,
+      "path": "compilers/gnat_native"
     },
     "gnatcoll": {
-      "path": "src/gnatcoll-core",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-core",
@@ -1765,10 +1764,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-core"
     },
     "gnatcoll_gmp": {
-      "path": "src/gnatcoll-bindings/gmp",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/gmp",
@@ -1783,10 +1782,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/gmp"
     },
     "gnatcoll_iconv": {
-      "path": "src/gnatcoll-bindings/iconv",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/iconv",
@@ -1801,10 +1800,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-bindings/iconv"
     },
     "gnatcoll_lzma": {
-      "path": "src/gnatcoll-bindings/lzma",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/lzma",
@@ -1818,10 +1817,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/lzma"
     },
     "gnatcoll_omp": {
-      "path": "src/gnatcoll-bindings/omp",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/omp",
@@ -1835,10 +1834,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/omp"
     },
     "gnatcoll_postgres": {
-      "path": "src/gnatcoll-db/postgres",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-db/postgres",
@@ -1853,10 +1852,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-db/postgres"
     },
     "gnatcoll_python": {
-      "path": "src/gnatcoll-bindings/python",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/python",
@@ -1871,10 +1870,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-bindings/python"
     },
     "gnatcoll_readline": {
-      "path": "src/gnatcoll-bindings/readline",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/readline",
@@ -1888,10 +1887,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/readline"
     },
     "gnatcoll_sql": {
-      "path": "src/gnatcoll-db/sql",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-db/sql",
@@ -1910,15 +1909,15 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-db/sql"
     },
     "gnatcoll_sqlite": {
-      "path": "src/gnatcoll-db/sqlite",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-db/sqlite"
     },
     "gnatcoll_syslog": {
-      "path": "src/gnatcoll-bindings/syslog",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/syslog",
@@ -1933,10 +1932,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/syslog"
     },
     "gnatcoll_xref": {
-      "path": "src/gnatcoll-db/xref",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-db/xref",
@@ -1951,10 +1950,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-db/xref"
     },
     "gnatcoll_zlip": {
-      "path": "src/gnatcoll-bindings/zlib",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatcoll-bindings/zlib",
@@ -1968,35 +1967,35 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/zlib"
     },
     "gnatcov": {
-      "path": "src/gnatcov",
       "alireProjects": [],
-      "ignore": true
+      "ignore": true,
+      "path": "src/gnatcov"
     },
     "gnatdist_garlic": {
-      "path": "src/garlic/Dist",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/garlic/Dist"
     },
     "gnatdoc": {
-      "path": "src/gnatdoc",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnatdoc",
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/gnatdoc"
     },
     "gnatprove": {
-      "path": "src/gnatprove",
       "alireProjects": [],
-      "ignore": true
+      "ignore": true,
+      "path": "src/gnatprove"
     },
     "gnoga": {
-      "path": "src/gnoga",
       "alireProjects": [
         {
           "alireTomlPath": "src/gnoga",
@@ -2011,15 +2010,10 @@
           ]
         }
       ],
-      "ignore": false
-    },
-    "gpr2": {
-      "path": "src/libgpr2/gpr2",
-      "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gnoga"
     },
     "gpr_unit_provider": {
-      "path": "src/gpr_unit_provider",
       "alireProjects": [
         {
           "alireTomlPath": "src/gpr_unit_provider",
@@ -2034,10 +2028,15 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "GNAT BUG DETECTED"
+      "ignoreReason": "GNAT BUG DETECTED",
+      "path": "src/gpr_unit_provider"
+    },
+    "gpr2": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/libgpr2/gpr2"
     },
     "gtkada": {
-      "path": "src/gtkada",
       "alireProjects": [
         {
           "alireTomlPath": "src/gtkada",
@@ -2051,10 +2050,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gtkada"
     },
     "hac": {
-      "path": "src/hac",
       "alireProjects": [
         {
           "alireTomlPath": "src/hac",
@@ -2068,10 +2067,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/hac"
     },
     "hal": {
-      "path": "src/hal",
       "alireProjects": [
         {
           "alireTomlPath": "src/hal",
@@ -2085,10 +2084,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/hal"
     },
     "hangman": {
-      "path": "src/hangman",
       "alireProjects": [
         {
           "alireTomlPath": "src/hangman",
@@ -2102,10 +2101,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/hangman"
     },
     "hello": {
-      "path": "src/hello",
       "alireProjects": [
         {
           "alireTomlPath": "src/hello",
@@ -2119,10 +2118,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/hello"
     },
     "hmac": {
-      "path": "src/hmac",
       "alireProjects": [
         {
           "alireTomlPath": "src/hmac",
@@ -2136,10 +2135,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/hmac"
     },
     "honki_tonks_zivilisationen": {
-      "path": "src/honki_tonks_zivilisationen",
       "alireProjects": [
         {
           "alireTomlPath": "src/honki_tonks_zivilisationen",
@@ -2154,10 +2153,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/honki_tonks_zivilisationen"
     },
     "hungarian": {
-      "path": "src/hungarian",
       "alireProjects": [
         {
           "alireTomlPath": "src/hungarian",
@@ -2171,10 +2170,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/hungarian"
     },
     "ini_files": {
-      "path": "src/ini_files",
       "alireProjects": [
         {
           "alireTomlPath": "src/ini_files",
@@ -2188,10 +2187,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ini_files"
     },
     "inotify": {
-      "path": "src/inotify",
       "alireProjects": [
         {
           "alireTomlPath": "src/inotify",
@@ -2212,10 +2211,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/inotify"
     },
     "iso": {
-      "path": "src/iso",
       "alireProjects": [
         {
           "alireTomlPath": "src/iso",
@@ -2230,10 +2229,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/iso"
     },
     "j2ada": {
-      "path": "src/j2ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/j2ada",
@@ -2247,10 +2246,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/j2ada"
     },
     "json": {
-      "path": "src/json/json",
       "alireProjects": [
         {
           "alireTomlPath": "src/json/json",
@@ -2270,10 +2269,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/json/json"
     },
     "jupyter_kernel": {
-      "path": "src/jupyter_kernel",
       "alireProjects": [
         {
           "alireTomlPath": "src/jupyter_kernel",
@@ -2293,10 +2292,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/jupyter_kernel"
     },
     "jwt": {
-      "path": "src/jwt",
       "alireProjects": [
         {
           "alireTomlPath": "src/jwt",
@@ -2310,15 +2309,15 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/jwt"
     },
     "keystoreada": {
-      "path": "src/awa/ada-keystore",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-keystore"
     },
     "labs_radar": {
-      "path": "src/labs_radar",
       "alireProjects": [
         {
           "alireTomlPath": "src/labs_radar",
@@ -2336,15 +2335,15 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/labs_radar"
     },
     "labs_standalone": {
-      "path": "src/labs_radar/labs_standalone",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/labs_radar/labs_standalone"
     },
     "lace": {
-      "path": "src/lace",
       "alireProjects": [
         {
           "alireTomlPath": "src/lace",
@@ -2419,75 +2418,75 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/lace"
     },
     "lace_box2d": {
-      "path": "src/lace_box2d",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace_box2d"
     },
     "lace_bullet": {
-      "path": "src/lace_bullet",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace_bullet"
     },
     "lace_c_math": {
-      "path": "src/lace_c_math",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace_c_math"
     },
     "lace_collada": {
-      "path": "src/lace/lace_collada",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_collada"
     },
     "lace_gel": {
-      "path": "src/lace/lace_gel",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_gel"
     },
     "lace_gel_animation_demo": {
-      "path": "src/lace_gel_animation_demo",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace_gel_animation_demo"
     },
     "lace_gel_full_demo": {
-      "path": "src/lace_gel_full_demo",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace_gel_full_demo"
     },
     "lace_math": {
-      "path": "src/lace/lace_math",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_math"
     },
     "lace_opengl": {
-      "path": "src/lace/lace_opengl",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_opengl"
     },
     "lace_physics": {
-      "path": "src/lace/lace_physics",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_physics"
     },
     "lace_shared": {
-      "path": "src/lace_shared",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace_shared"
     },
     "lace_swig": {
-      "path": "src/lace/lace_swig",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_swig"
     },
     "lace_xml": {
-      "path": "src/lace/lace_xml",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lace/lace_xml"
     },
     "lal_highlight": {
-      "path": "src/lal_highlight",
       "alireProjects": [
         {
           "alireTomlPath": "src/lal_highlight",
@@ -2501,10 +2500,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lal_highlight"
     },
     "langkit_support": {
-      "path": "src/langkit_support",
       "alireProjects": [
         {
           "alireTomlPath": "src/langkit_support",
@@ -2518,10 +2517,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/langkit_support"
     },
     "libadalang": {
-      "path": "src/libadalang",
       "alireProjects": [
         {
           "alireTomlPath": "src/libadalang",
@@ -2544,30 +2543,30 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "Contains a file with more than 100k LoC that make huge tree swapping with ASIS."
-    },
-    "libadalang2xml": {
-      "path": "src/libadalang2xml",
-      "alireProjects": [],
-      "ignore": false
+      "ignoreReason": "Contains a file with more than 100k LoC that make huge tree swapping with ASIS.",
+      "path": "src/libadalang"
     },
     "libadalang_tools": {
-      "path": "src/libadalang_tools",
       "alireProjects": [],
-      "ignore": true
+      "ignore": true,
+      "path": "src/libadalang_tools"
+    },
+    "libadalang2xml": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/libadalang2xml"
     },
     "libgnatdoc": {
-      "path": "src/libgnatdoc",
       "alireProjects": [
         {
           "alireTomlPath": "src/libgnatdoc",
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/libgnatdoc"
     },
     "libgpr": {
-      "path": "src/gprbuild",
       "alireProjects": [
         {
           "alireTomlPath": "src/gprbuild",
@@ -2581,10 +2580,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/gprbuild"
     },
     "libgpr2": {
-      "path": "src/libgpr2",
       "alireProjects": [
         {
           "alireTomlPath": "src/libgpr2",
@@ -2603,10 +2602,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/libgpr2"
     },
     "libhello": {
-      "path": "src/libhello",
       "alireProjects": [
         {
           "alireTomlPath": "src/libhello",
@@ -2620,10 +2619,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/libhello"
     },
     "libkeccak": {
-      "path": "src/libkeccak",
       "alireProjects": [
         {
           "alireTomlPath": "src/libkeccak",
@@ -2650,10 +2649,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/libkeccak"
     },
     "libsimpleio": {
-      "path": "src/libsimpleio",
       "alireProjects": [
         {
           "alireTomlPath": "src/libsimpleio",
@@ -2667,10 +2666,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/libsimpleio"
     },
     "linenoise_ada": {
-      "path": "src/linenoise_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/linenoise_ada",
@@ -2684,10 +2683,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/linenoise_ada"
     },
     "littlefs": {
-      "path": "src/littlefs",
       "alireProjects": [
         {
           "alireTomlPath": "src/littlefs",
@@ -2705,10 +2704,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/littlefs"
     },
     "lmdb_ada": {
-      "path": "src/lmdb_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/lmdb_ada",
@@ -2723,10 +2722,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/lmdb_ada"
     },
     "loga": {
-      "path": "src/loga",
       "alireProjects": [
         {
           "alireTomlPath": "src/loga",
@@ -2740,10 +2739,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/loga"
     },
     "lvgl_ada": {
-      "path": "src/lvgl_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/lvgl_ada",
@@ -2785,20 +2784,20 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lvgl_ada"
     },
     "lvgl_ada_simulator": {
-      "path": "src/lvgl_ada/lvgl_ada_simulator",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/lvgl_ada/lvgl_ada_simulator"
     },
     "lzmada": {
-      "path": "src/awa/ada-lzma",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-lzma"
     },
     "mage": {
-      "path": "src/mage",
       "alireProjects": [
         {
           "alireTomlPath": "src/mage",
@@ -2817,15 +2816,15 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/mage"
     },
     "mage_hat": {
-      "path": "src/mage_hat",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/mage_hat"
     },
     "mandelbrot_ascii": {
-      "path": "src/mandelbrot_ascii",
       "alireProjects": [
         {
           "alireTomlPath": "src/mandelbrot_ascii",
@@ -2839,10 +2838,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/mandelbrot_ascii"
     },
     "markdown": {
-      "path": "src/markdown",
       "alireProjects": [
         {
           "alireTomlPath": "src/markdown",
@@ -2856,10 +2855,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/markdown"
     },
     "mathpaqs": {
-      "path": "src/mathpaqs",
       "alireProjects": [
         {
           "alireTomlPath": "src/mathpaqs",
@@ -2874,10 +2873,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/mathpaqs"
     },
     "matreshka_amf": {
-      "path": "src/matreshka/packages/alire/matreshka_amf",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf",
@@ -2912,35 +2911,35 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf"
     },
     "matreshka_amf_dd": {
-      "path": "src/matreshka/packages/alire/matreshka_amf_dd",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_dd"
     },
     "matreshka_amf_mofext": {
-      "path": "src/matreshka/packages/alire/matreshka_amf_mofext",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_mofext"
     },
     "matreshka_amf_ocl": {
-      "path": "src/matreshka/packages/alire/matreshka_amf_ocl",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_ocl"
     },
     "matreshka_amf_uml": {
-      "path": "src/matreshka/packages/alire/matreshka_amf_uml",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_uml"
     },
     "matreshka_amf_utp": {
-      "path": "src/matreshka/packages/alire/matreshka_amf_utp",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_utp"
     },
     "matreshka_fastcgi": {
-      "path": "src/matreshka/packages/alire/matreshka_fastcgi",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_fastcgi",
@@ -2954,10 +2953,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_fastcgi"
     },
     "matreshka_league": {
-      "path": "src/matreshka/packages/alire/matreshka_league",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_league",
@@ -2971,10 +2970,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_league"
     },
     "matreshka_servlet": {
-      "path": "src/matreshka/packages/alire/matreshka_servlet",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_servlet",
@@ -2988,10 +2987,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_servlet"
     },
     "matreshka_soap": {
-      "path": "src/matreshka/packages/alire/matreshka_soap",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_soap",
@@ -3009,15 +3008,15 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_soap"
     },
     "matreshka_soap_wsse": {
-      "path": "src/matreshka/packages/alire/matreshka_soap_wsse",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_soap_wsse"
     },
     "matreshka_spikedog_api": {
-      "path": "src/matreshka/packages/alire/matreshka_spikedog_api",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_spikedog_api",
@@ -3031,10 +3030,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_spikedog_api"
     },
     "matreshka_spikedog_core": {
-      "path": "src/matreshka/packages/alire/matreshka_spikedog_core",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_spikedog_core",
@@ -3048,10 +3047,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_spikedog_core"
     },
     "matreshka_sql": {
-      "path": "src/matreshka/packages/alire/matreshka_sql",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_sql",
@@ -3081,30 +3080,30 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql"
     },
     "matreshka_sql_firebird": {
-      "path": "src/matreshka/packages/alire/matreshka_sql_firebird",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_firebird"
     },
     "matreshka_sql_mysql": {
-      "path": "src/matreshka/packages/alire/matreshka_sql_mysql",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_mysql"
     },
     "matreshka_sql_postgresql": {
-      "path": "src/matreshka/packages/alire/matreshka_sql_postgresql",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_postgresql"
     },
     "matreshka_sql_sqlite3": {
-      "path": "src/matreshka/packages/alire/matreshka_sql_sqlite3",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_sqlite3"
     },
     "matreshka_xml": {
-      "path": "src/matreshka/packages/alire/matreshka_xml",
       "alireProjects": [
         {
           "alireTomlPath": "src/matreshka/packages/alire/matreshka_xml",
@@ -3118,10 +3117,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_xml"
     },
     "mcp2221": {
-      "path": "src/mcp2221",
       "alireProjects": [
         {
           "alireTomlPath": "src/mcp2221",
@@ -3135,10 +3134,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/mcp2221"
     },
     "midi": {
-      "path": "src/midi",
       "alireProjects": [
         {
           "alireTomlPath": "src/midi",
@@ -3156,10 +3155,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/midi"
     },
     "minirest": {
-      "path": "src/minirest",
       "alireProjects": [
         {
           "alireTomlPath": "src/minirest",
@@ -3173,10 +3172,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/minirest"
     },
     "mos6502_create_led": {
-      "path": "src/mos6502_create_led",
       "alireProjects": [
         {
           "alireTomlPath": "src/mos6502_create_led",
@@ -3187,10 +3186,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/mos6502_create_led"
     },
     "mos6502_create_nop": {
-      "path": "src/mos6502_create_nop",
       "alireProjects": [
         {
           "alireTomlPath": "src/mos6502_create_nop",
@@ -3201,10 +3200,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/mos6502_create_nop"
     },
     "mos6502_create_reset": {
-      "path": "src/mos6502_create_reset",
       "alireProjects": [
         {
           "alireTomlPath": "src/mos6502_create_reset",
@@ -3215,10 +3214,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/mos6502_create_reset"
     },
     "ncursesada": {
-      "path": "src/ncursesada",
       "alireProjects": [
         {
           "alireTomlPath": "src/ncursesada",
@@ -3233,20 +3232,20 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ncursesada"
     },
     "openapi": {
-      "path": "src/awa/openapi-ada",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/openapi-ada"
     },
     "openapi_server": {
-      "path": "src/awa/openapi-ada/server",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/openapi-ada/server"
     },
     "openglada": {
-      "path": "src/openglada",
       "alireProjects": [
         {
           "alireTomlPath": "src/openglada",
@@ -3272,25 +3271,25 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/openglada"
     },
     "openglada_glfw": {
-      "path": "src/openglada_glfw",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/openglada_glfw"
     },
     "openglada_images": {
-      "path": "src/openglada_images",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/openglada_images"
     },
     "openglada_text": {
-      "path": "src/openglada/openglada_text",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/openglada/openglada_text"
     },
     "optional": {
-      "path": "src/optional",
       "alireProjects": [
         {
           "alireTomlPath": "src/optional",
@@ -3305,10 +3304,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/optional"
     },
     "parse_args": {
-      "path": "src/parse_args",
       "alireProjects": [
         {
           "alireTomlPath": "src/parse_args",
@@ -3330,10 +3329,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/parse_args"
     },
     "partord": {
-      "path": "src/partord",
       "alireProjects": [
         {
           "alireTomlPath": "src/partord",
@@ -3347,10 +3346,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/partord"
     },
     "pbkdf2": {
-      "path": "src/pbkdf2",
       "alireProjects": [
         {
           "alireTomlPath": "src/pbkdf2",
@@ -3368,10 +3367,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/pbkdf2"
     },
     "play_2048": {
-      "path": "src/play_2048",
       "alireProjects": [
         {
           "alireTomlPath": "src/play_2048",
@@ -3385,10 +3384,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/play_2048"
     },
     "powerjoular": {
-      "path": "src/powerjoular",
       "alireProjects": [
         {
           "alireTomlPath": "src/powerjoular",
@@ -3402,10 +3401,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/powerjoular"
     },
     "ppag": {
-      "path": "src/ppag",
       "alireProjects": [
         {
           "alireTomlPath": "src/ppag",
@@ -3420,10 +3419,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/ppag"
     },
     "progress_indicators": {
-      "path": "src/progress_indicators",
       "alireProjects": [
         {
           "alireTomlPath": "src/progress_indicators",
@@ -3438,10 +3437,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/progress_indicators"
     },
     "protobuf": {
-      "path": "src/protobuf",
       "alireProjects": [
         {
           "alireTomlPath": "src/protobuf",
@@ -3455,10 +3454,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/protobuf"
     },
     "pygamer_simulator": {
-      "path": "src/pygamer_simulator",
       "alireProjects": [
         {
           "alireTomlPath": "src/pygamer_simulator",
@@ -3473,10 +3472,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/pygamer_simulator"
     },
     "qoi": {
-      "path": "src/qoi",
       "alireProjects": [
         {
           "alireTomlPath": "src/qoi",
@@ -3494,10 +3493,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/qoi"
     },
     "raspberry_bsp": {
-      "path": "src/raspberry_bsp",
       "alireProjects": [
         {
           "alireTomlPath": "src/raspberry_bsp",
@@ -3511,10 +3510,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/raspberry_bsp"
     },
     "rejuvenation": {
-      "path": "src/rejuvenation",
       "alireProjects": [
         {
           "alireTomlPath": "src/rejuvenation",
@@ -3556,10 +3555,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/rejuvenation"
     },
     "remoteio": {
-      "path": "src/remoteio",
       "alireProjects": [
         {
           "alireTomlPath": "src/remoteio",
@@ -3573,10 +3572,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/remoteio"
     },
     "resources": {
-      "path": "src/resources",
       "alireProjects": [
         {
           "alireTomlPath": "src/resources",
@@ -3598,10 +3597,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/resources"
     },
     "rewriters": {
-      "path": "src/rewriters",
       "alireProjects": [
         {
           "alireTomlPath": "src/rewriters",
@@ -3623,10 +3622,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/rewriters"
     },
     "rsfile": {
-      "path": "src/rsfile",
       "alireProjects": [
         {
           "alireTomlPath": "src/rsfile",
@@ -3640,10 +3639,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/rsfile"
     },
     "rtmidi": {
-      "path": "src/rtmidi",
       "alireProjects": [
         {
           "alireTomlPath": "src/rtmidi",
@@ -3661,10 +3660,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/rtmidi"
     },
     "rxada": {
-      "path": "src/rxada",
       "alireProjects": [
         {
           "alireTomlPath": "src/rxada",
@@ -3679,10 +3678,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/rxada"
     },
     "saatana": {
-      "path": "src/saatana",
       "alireProjects": [
         {
           "alireTomlPath": "src/saatana",
@@ -3696,10 +3695,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/saatana"
     },
     "scripted_testing": {
-      "path": "src/scripted_testing",
       "alireProjects": [
         {
           "alireTomlPath": "src/scripted_testing",
@@ -3717,10 +3716,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/scripted_testing"
     },
     "sdlada": {
-      "path": "src/sdlada",
       "alireProjects": [
         {
           "alireTomlPath": "src/sdlada",
@@ -3734,15 +3733,15 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/sdlada"
     },
     "security": {
-      "path": "src/awa/ada-security",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-security"
     },
     "semantic_versioning": {
-      "path": "src/semantic_versioning",
       "alireProjects": [
         {
           "alireTomlPath": "src/semantic_versioning",
@@ -3756,10 +3755,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/semantic_versioning"
     },
     "septum": {
-      "path": "src/septum",
       "alireProjects": [
         {
           "alireTomlPath": "src/septum",
@@ -3777,40 +3776,40 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/septum"
     },
     "serverfaces": {
-      "path": "src/awa/ada-asf",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-asf"
     },
     "serverfaces_unit": {
-      "path": "src/awa/ada-asf/unit",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-asf/unit"
     },
     "servletada": {
-      "path": "src/awa/ada-servlet",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-servlet"
     },
     "servletada_aws": {
-      "path": "src/awa/ada-servlet/aws",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-servlet/aws"
     },
     "servletada_ews": {
-      "path": "src/awa/ada-servlet/ews",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-servlet/ews"
     },
     "servletada_unit": {
-      "path": "src/awa/ada-servlet/unit",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-servlet/unit"
     },
     "sha1": {
-      "path": "src/sha1",
       "alireProjects": [
         {
           "alireTomlPath": "src/sha1",
@@ -3829,10 +3828,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/sha1"
     },
     "sha2": {
-      "path": "src/sha2",
       "alireProjects": [
         {
           "alireTomlPath": "src/sha2",
@@ -3851,10 +3850,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "ASIS BUG DETECTED"
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/sha2"
     },
     "si_units": {
-      "path": "src/si_units",
       "alireProjects": [
         {
           "alireTomlPath": "src/si_units",
@@ -3868,10 +3867,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/si_units"
     },
     "simh_tapes": {
-      "path": "src/simh_tapes",
       "alireProjects": [
         {
           "alireTomlPath": "src/simh_tapes",
@@ -3889,10 +3888,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/simh_tapes"
     },
     "simple_components": {
-      "path": "src/simple_components",
       "alireProjects": [
         {
           "alireTomlPath": "src/simple_components",
@@ -3995,10 +3994,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/simple_components"
     },
     "simple_logging": {
-      "path": "src/simple_logging",
       "alireProjects": [
         {
           "alireTomlPath": "src/simple_logging",
@@ -4012,10 +4011,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/simple_logging"
     },
     "slip": {
-      "path": "src/slip",
       "alireProjects": [
         {
           "alireTomlPath": "src/slip",
@@ -4029,10 +4028,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/slip"
     },
     "socketcan": {
-      "path": "src/socketcan",
       "alireProjects": [
         {
           "alireTomlPath": "src/socketcan",
@@ -4046,10 +4045,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/socketcan"
     },
     "spark_unbound": {
-      "path": "src/spark_unbound",
       "alireProjects": [
         {
           "alireTomlPath": "src/spark_unbound",
@@ -4067,10 +4066,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/spark_unbound"
     },
     "sparknacl": {
-      "path": "src/sparknacl",
       "alireProjects": [
         {
           "alireTomlPath": "src/sparknacl",
@@ -4084,10 +4083,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/sparknacl"
     },
     "spat": {
-      "path": "src/spat",
       "alireProjects": [
         {
           "alireTomlPath": "src/spat",
@@ -4102,10 +4101,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/spat"
     },
     "spawn": {
-      "path": "src/spawn",
       "alireProjects": [
         {
           "alireTomlPath": "src/spawn",
@@ -4124,15 +4123,15 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/spawn"
     },
     "spawn_glib": {
-      "path": "src/spawn/spawn_glib",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/spawn/spawn_glib"
     },
     "spdx": {
-      "path": "src/spdx",
       "alireProjects": [
         {
           "alireTomlPath": "src/spdx",
@@ -4146,10 +4145,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/spdx"
     },
     "specfun": {
-      "path": "src/specfun",
       "alireProjects": [
         {
           "alireTomlPath": "src/specfun",
@@ -4164,10 +4163,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/specfun"
     },
     "spoon": {
-      "path": "src/spoon",
       "alireProjects": [
         {
           "alireTomlPath": "src/spoon",
@@ -4182,10 +4181,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/spoon"
     },
     "startup_gen": {
-      "path": "src/startup_gen",
       "alireProjects": [
         {
           "alireTomlPath": "src/startup_gen",
@@ -4199,10 +4198,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/startup_gen"
     },
     "stephes_ada_library": {
-      "path": "src/stephes_ada_library",
       "alireProjects": [
         {
           "alireTomlPath": "src/stephes_ada_library",
@@ -4217,10 +4216,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/stephes_ada_library"
     },
     "stopwatch": {
-      "path": "src/stopwatch",
       "alireProjects": [
         {
           "alireTomlPath": "src/stopwatch",
@@ -4234,10 +4233,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/stopwatch"
     },
     "svd2ada": {
-      "path": "src/svd2ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/svd2ada",
@@ -4251,10 +4250,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/svd2ada"
     },
     "system_random": {
-      "path": "src/system_random",
       "alireProjects": [
         {
           "alireTomlPath": "src/system_random",
@@ -4272,10 +4271,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/system_random"
     },
     "tash": {
-      "path": "src/tash",
       "alireProjects": [
         {
           "alireTomlPath": "src/tash",
@@ -4297,10 +4296,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/tash"
     },
     "task_coroutines": {
-      "path": "src/task_coroutines",
       "alireProjects": [
         {
           "alireTomlPath": "src/task_coroutines",
@@ -4311,10 +4310,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/task_coroutines"
     },
     "templates_parser": {
-      "path": "src/templates_parser",
       "alireProjects": [
         {
           "alireTomlPath": "src/templates_parser",
@@ -4329,10 +4328,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/templates_parser"
     },
     "tiled_code_gen": {
-      "path": "src/tiled_code_gen",
       "alireProjects": [
         {
           "alireTomlPath": "src/tiled_code_gen",
@@ -4346,10 +4345,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/tiled_code_gen"
     },
     "tiny_text": {
-      "path": "src/tiny_text",
       "alireProjects": [
         {
           "alireTomlPath": "src/tiny_text",
@@ -4363,10 +4362,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/tiny_text"
     },
     "tlsada": {
-      "path": "src/tlsada",
       "alireProjects": [
         {
           "alireTomlPath": "src/tlsada",
@@ -4380,10 +4379,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/tlsada"
     },
     "toml_slicer": {
-      "path": "src/toml_slicer",
       "alireProjects": [
         {
           "alireTomlPath": "src/toml_slicer",
@@ -4397,10 +4396,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/toml_slicer"
     },
     "trendy_terminal": {
-      "path": "src/trendy_terminal",
       "alireProjects": [
         {
           "alireTomlPath": "src/trendy_terminal",
@@ -4422,10 +4421,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/trendy_terminal"
     },
     "trendy_test": {
-      "path": "src/trendy_test",
       "alireProjects": [
         {
           "alireTomlPath": "src/trendy_test",
@@ -4439,10 +4438,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/trendy_test"
     },
     "uri_ada": {
-      "path": "src/uri_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/uri_ada",
@@ -4456,10 +4455,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/uri_ada"
     },
     "uri_mime": {
-      "path": "src/uri_mime",
       "alireProjects": [
         {
           "alireTomlPath": "src/uri_mime",
@@ -4473,10 +4472,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/uri_mime"
     },
     "usb_embedded": {
-      "path": "src/usb_embedded",
       "alireProjects": [
         {
           "alireTomlPath": "src/usb_embedded",
@@ -4495,10 +4494,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/usb_embedded"
     },
     "utf8test": {
-      "path": "src/utf8test",
       "alireProjects": [
         {
           "alireTomlPath": "src/utf8test",
@@ -4512,40 +4511,40 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/utf8test"
     },
     "utilada": {
-      "path": "src/awa/ada-util",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-util"
     },
     "utilada_aws": {
-      "path": "src/awa/ada-util/aws",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-util/aws"
     },
     "utilada_curl": {
-      "path": "src/awa/ada-util/curl",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-util/curl"
     },
     "utilada_lzma": {
-      "path": "src/awa/ada-util/lzma",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-util/lzma"
     },
     "utilada_unit": {
-      "path": "src/awa/ada-util/unit",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-util/unit"
     },
     "utilada_xml": {
-      "path": "src/awa/ada-util/xml",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-util/xml"
     },
     "uxstrings": {
-      "path": "src/uxstrings",
       "alireProjects": [
         {
           "alireTomlPath": "src/uxstrings",
@@ -4574,10 +4573,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/uxstrings"
     },
     "vaton": {
-      "path": "src/vaton",
       "alireProjects": [
         {
           "alireTomlPath": "src/vaton",
@@ -4595,10 +4594,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/vaton"
     },
     "virtapu": {
-      "path": "src/virtapu",
       "alireProjects": [
         {
           "alireTomlPath": "src/virtapu",
@@ -4612,10 +4611,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/virtapu"
     },
     "vss": {
-      "path": "src/vss",
       "alireProjects": [
         {
           "alireTomlPath": "src/vss",
@@ -4626,10 +4625,10 @@
           "projects": []
         }
       ],
-      "ignore": true
+      "ignore": true,
+      "path": "src/vss"
     },
     "weechat_ada": {
-      "path": "src/weechat_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/weechat_ada",
@@ -4643,15 +4642,15 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/weechat_ada"
     },
     "wikiada": {
-      "path": "src/awa/ada-wiki",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/awa/ada-wiki"
     },
     "wisitoken": {
-      "path": "src/wisitoken",
       "alireProjects": [
         {
           "alireTomlPath": "src/wisitoken",
@@ -4673,10 +4672,10 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "Ada 2022 feature"
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/wisitoken"
     },
     "wordle": {
-      "path": "src/wordle",
       "alireProjects": [
         {
           "alireTomlPath": "src/wordle",
@@ -4695,16 +4694,16 @@
         }
       ],
       "ignore": true,
-      "ignoreReason": "Ada 2022 feature"
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/wordle"
     },
     "wordlelib": {
-      "path": "src/wordlelib",
       "alireProjects": [],
       "ignore": true,
-      "ignoreReason": "Ada 2022 feature"
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/wordlelib"
     },
     "wordlist": {
-      "path": "src/wordlist",
       "alireProjects": [
         {
           "alireTomlPath": "src/wordlist",
@@ -4722,10 +4721,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/wordlist"
     },
     "workers": {
-      "path": "src/workers",
       "alireProjects": [
         {
           "alireTomlPath": "src/workers",
@@ -4739,10 +4738,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/workers"
     },
     "xdg_base_dir": {
-      "path": "src/xdg_base_dir",
       "alireProjects": [
         {
           "alireTomlPath": "src/xdg_base_dir",
@@ -4756,10 +4755,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/xdg_base_dir"
     },
     "xia": {
-      "path": "src/xia",
       "alireProjects": [
         {
           "alireTomlPath": "src/xia",
@@ -4777,10 +4776,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/xia"
     },
     "xml_ez_out": {
-      "path": "src/xml_ez_out",
       "alireProjects": [
         {
           "alireTomlPath": "src/xml_ez_out",
@@ -4794,10 +4793,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/xml_ez_out"
     },
     "xmlada": {
-      "path": "src/xmlada",
       "alireProjects": [
         {
           "alireTomlPath": "src/xmlada",
@@ -4841,10 +4840,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/xmlada"
     },
     "xoshiro": {
-      "path": "src/xoshiro",
       "alireProjects": [
         {
           "alireTomlPath": "src/xoshiro",
@@ -4858,10 +4857,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/xoshiro"
     },
     "yeison": {
-      "path": "src/yeison",
       "alireProjects": [
         {
           "alireTomlPath": "src/yeison",
@@ -4879,10 +4878,10 @@
           "projects": []
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/yeison"
     },
     "zeromq_ada": {
-      "path": "src/zeromq_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/zeromq_ada",
@@ -4896,10 +4895,10 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/zeromq_ada"
     },
     "zipada": {
-      "path": "src/zipada",
       "alireProjects": [
         {
           "alireTomlPath": "src/zipada",
@@ -4913,15 +4912,15 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/zipada"
     },
     "zipdcf": {
-      "path": "src/dcf/zipdcf",
       "alireProjects": [],
-      "ignore": false
+      "ignore": false,
+      "path": "src/dcf/zipdcf"
     },
     "zlib_ada": {
-      "path": "src/zlib_ada",
       "alireProjects": [
         {
           "alireTomlPath": "src/zlib_ada",
@@ -4935,7 +4934,8 @@
           ]
         }
       ],
-      "ignore": false
+      "ignore": false,
+      "path": "src/zlib_ada"
     }
   },
   "ignoredCrates": [
