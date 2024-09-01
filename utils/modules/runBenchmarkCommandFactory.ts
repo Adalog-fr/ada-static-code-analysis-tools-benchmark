@@ -18,7 +18,7 @@ export function initializeModule(program: Command, settings: {
             const crates: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
             const projects : extendedGPRProject[] = filterCompleteCrates(crates.crates);
 
-            const commandName = settings.command[0];
+            const commandName = basename(settings.command[0]);
             const globalLogFilePath = `$PROJECT_ROOT/${commandName}-all-$xpNum-j$max_procs.log`;
 
             let resultFile = generateScriptHeader(commandName, settings.ruleFile);

@@ -52,7 +52,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
     description: "Run Adactl benchmark",
     ruleFile: "$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru",
     command: [
-        "adactl",
+        "$PROJECT_ROOT/rootfs/home/bin/adactl",
         "-f",
         "$ruleFile",
         "-p",
