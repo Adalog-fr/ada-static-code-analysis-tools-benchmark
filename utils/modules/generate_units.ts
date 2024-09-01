@@ -1,5 +1,5 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { parse, isGlob, basename, join, dirname, format } from "jsr:@std/path@^0.225.1";
+import { parse, isGlob, basename, join, dirname, format, relative } from "jsr:@std/path@^0.225.1";
 import { parse as parseToml } from "jsr:@std/toml@^1.0.1";
 import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
@@ -127,11 +127,11 @@ export function initializeModule(program: Command): void {
                     // Configure logs
                     log.setup({
                         handlers: {
-                            console: new log.handlers.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
+                            console: new log.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
 
-                            file: new log.handlers.FileHandler("WARNING", {
+                            file: new log.FileHandler("WARN", {
                                 filename: join(PROJECT_ROOT,`cogralysRunCommand-generate_units.log`),
-                                formatter: "[{levelName}] {msg}",
+                                formatter: (logRecord) => `[${logRecord.levelName}] ${logRecord.msg}`,
                                 mode: "a"
                             }),
                         },
@@ -171,12 +171,8 @@ export function initializeModule(program: Command): void {
                                         "run",
                                         "--config",
                                         join(PROJECT_ROOT, "deno.jsonc"),
-                                        "--allow-read",
-                                        "--allow-write",
-                                        "--allow-env",
-                                        "--allow-run",
-                                        "--allow-ffi",
-                                        "--unstable",
+                                        "--allow-all",
+                                        "--unstable-ffi",
                                         join(PROJECT_ROOT, "utils/cogralys-bench-util.ts"),
                                         "units", "-P", "gpr", "-f", options.resultingUnitKind,
                                         "-i", options.ignoredUnknownCrates, path
@@ -232,7 +228,7 @@ export function initializeModule(program: Command): void {
                         libgpr2.unloadTree({ tree_id: tree.id });
 
                         const localUnits = Array.from(localUnitSet);
-                        const localUnitsList = localUnits.sort((a, b) => a.localeCompare(b)).join("\n");
+                        const localUnitsList = localUnits.map(e => relative(Deno.cwd(), e)).sort((a, b) => a.localeCompare(b)).join("\n");
                         Deno.writeTextFileSync(basename(path).replace(".gpr", `.units${options.resultingUnitKind === "unit" ? "" : options.resultingUnitKind === "path" ? "_by_path" : "_by_filename"}`), localUnitsList);
 
                     }
