@@ -52,11 +52,11 @@ export function initializeModule(program: Command): void {
                 // Configure logs
                 log.setup({
                     handlers: {
-                        console: new log.handlers.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
+                        console: new log.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
 
-                        file: new log.handlers.FileHandler("INFO", {
+                        file: new log.FileHandler("INFO", {
                             filename: joinPath(PROJECT_ROOT,`cogralysRunCommand-populate-neo4j.log`),
-                            formatter: "[{levelName}] {msg}",
+                            formatter: (entry) => `[${entry.levelName}] ${entry.msg}`,
                             mode: "w"
                         }),
                     },

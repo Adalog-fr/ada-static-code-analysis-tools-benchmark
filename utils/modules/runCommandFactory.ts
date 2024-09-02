@@ -43,11 +43,11 @@ export function initializeModule(program: Command, settings: {
             // Configure logs
             log.setup({
                 handlers: {
-                    console: new log.handlers.ConsoleHandler("DEBUG"),
+                    console: new log.ConsoleHandler("DEBUG"),
 
-                    file: new log.handlers.FileHandler("WARNING", {
+                    file: new log.FileHandler("WARN", {
                         filename: join(PROJECT_ROOT, `cogralysRunCommand-${settings.commandName}.log`),
-                        formatter: "[{levelName}] {msg}",
+                        formatter: (entry) => `[${entry.levelName}] ${entry.msg}`,
                         mode: options.logAppendMode ? "a" : settings.logAppendMode ? "a" : "w"
                     }),
                 },

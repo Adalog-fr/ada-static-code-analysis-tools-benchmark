@@ -40,11 +40,11 @@ export function initializeModule(program: Command): void {
                 // Configure logs
                 log.setup({
                     handlers: {
-                        console: new log.handlers.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
+                        console: new log.ConsoleHandler(options.verbose ? "DEBUG" : "INFO"),
 
-                        file: new log.handlers.FileHandler("WARNING", {
+                        file: new log.FileHandler("WARN", {
                             filename: join(PROJECT_ROOT, "cogralysRunCommand-run.log"),
-                            formatter: "[{levelName}] {msg}",
+                            formatter: (entry) => `[${entry.levelName}] ${entry.msg}`,
                             mode: "w"
                         }),
                     },
