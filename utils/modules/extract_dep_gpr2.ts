@@ -1,7 +1,6 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { parse, isGlob, join } from "jsr:@std/path@^0.225.1";
 import fg from "npm:fast-glob@3.3.2";
-import * as libgpr2 from "../lib/gpr2/libgpr2.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
 function generateFromDir(paths: string[], setFileName: boolean): string[] {
@@ -50,7 +49,7 @@ export function initializeModule(program: Command): void {
         //   "Treat the command entries (paths) as project (.gpr) paths rather than as directories to search files (.ads, abd)."
         // )
         .action(
-            (
+            async (
                 paths: string[],
                 options: { filenameUnit: boolean; output: string; project: boolean }
             ) => {
@@ -58,6 +57,7 @@ export function initializeModule(program: Command): void {
                     console.error("Please set one or several path");
                     Deno.exit(1);
                 }
+                const libgpr2 = await import("../lib/gpr2/libgpr2.ts");
 
                 let units: string[] = [];
                 const unitSet = new Set<string>();

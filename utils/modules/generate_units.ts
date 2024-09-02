@@ -5,7 +5,6 @@ import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "jsr:@std/log@^0.224.6";
 import fg from "npm:fast-glob@3.3.2";
-import * as libgpr2 from "../lib/gpr2/libgpr2.ts";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
@@ -71,6 +70,7 @@ export function initializeModule(program: Command): void {
                     console.error("Please set one or several path");
                     Deno.exit(1);
                 }
+                const libgpr2 = await import("../lib/gpr2/libgpr2.ts");
 
                 let units: string[] = [];
                 const CWD = Deno.cwd();
