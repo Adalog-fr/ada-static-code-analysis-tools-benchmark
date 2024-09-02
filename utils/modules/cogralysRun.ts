@@ -100,6 +100,7 @@ process_project() {
     run_cogralys_cli "$log_prefix"
     computeSize "$gprPath" "$log_prefix" "$alireTomlPath" "$cogralys_init_args"
     clean_db "$log_prefix"
+    clean "$log_prefix"
 
     echo "[$(get_datetime)] [END] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
     echo "[$(get_datetime)] [$project_number/$total_projects] END processing $crateName" | tee -a "$globalLogFilePath"
@@ -165,6 +166,14 @@ clean_db() {
     echo "[$(get_datetime)] [$gprPath] Start cleaning DB" | tee -a "$globalLogFilePath"
     deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" clean-neo4j -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS"
     echo "[$(get_datetime)] [$gprPath] End cleaning DB" | tee -a "$globalLogFilePath"
+}
+
+clean() {
+    local gprPath=$1
+    echo "[$(get_datetime)] [$gprPath] Start cleaning" | tee -a "$globalLogFilePath"
+    # Remove ASIS AST
+    rm -f *.ali *.adt
+    echo "[$(get_datetime)] [$gprPath] End cleaning" | tee -a "$globalLogFilePath"
 }
 
 `;
