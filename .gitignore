@@ -200,3 +200,4 @@ scc_metrics.json
 *.time.json
 *.size-adt.json
 *.size-cogralys.json
+*.checkpoint

@@ -19,11 +19,10 @@ export function initializeModule(program: Command, settings: {
             const projects : extendedGPRProject[] = filterCompleteCrates(crates.crates);
 
             const commandName = basename(settings.command[0]);
-            const globalLogFilePath = `$PROJECT_ROOT/${commandName}-all-$xpNum-j$max_procs.log`;
 
             let resultFile = generateScriptHeader(commandName, settings.ruleFile);
             resultFile += generateHelperFunctions(commandName);
-            resultFile += generateMainLogic(globalLogFilePath, generateProjectsArray(projects, settings.command));
+            resultFile += generateMainLogic(commandName, generateProjectsArray(projects, settings.command));
 
             Deno.writeTextFileSync(join(PROJECT_ROOT, `${commandName}_benchmark.sh`), resultFile);
         });
@@ -52,6 +51,13 @@ extraArgs=""
 
 function generateHelperFunctions(commandName: string): string {
     return `
+# Function to handle signal (CTRL+C, CTRL+\\)
+function signalHandler()
+{
+  echo "Signal recieved, safely end the script"
+  exit 1
+}
+
 # Function to get current date and time
 get_datetime() {
     date "+%Y-%m-%d %H:%M:%S"
@@ -60,12 +66,28 @@ get_datetime() {
 # Function to display help information
 function show_help() {
     echo "Usage: $0 [--xpNum <number>] [-j <max_procs>] [-h|--help]"
-    echo "  --xpNum <number>          Set the experience number."
-    echo "  -j <max_procs>            Set the maximum number of processes."
-    echo "  --rule <path>             Set the path to the rule file."
-    echo "  -s, --suffix <string>     Suffix used on the name of logs files."
-    echo "  --extra-args <args>       Additional arguments to pass to the command."
-    echo "  -h, --help                Show help information."
+    echo "  --xpNum <number>                   Set the experience number."
+    echo "  -j <max_procs>                     Set the maximum number of processes."
+    echo "  --rule <path>                      Set the path to the rule file."
+    echo "  -s, --suffix <string>              Suffix used on the name of logs files."
+    echo "  --extra-args <args>                Additional arguments to pass to the command."
+    echo "  -r, --resume <step:projectStep>    Resume from a specific step and project step (e.g., 3:2)."
+    echo "  -h, --help                         Show help information."
+}
+
+# Save the current state of the script. Useful to resume the script later.
+save_checkpoint() {
+  echo "$current_step:$current_project_step" > "$checkpoint_file"
+}
+
+# Load the script to the latest state (if exists)
+load_checkpoint() {
+  if [ -f "$checkpoint_file" ]; then
+      IFS=':' read -r current_step current_project_step < "$checkpoint_file"
+  else
+      current_step=1
+      current_project_step=1
+  fi
 }
 
 # Function to process a single project
@@ -82,11 +104,35 @@ process_project() {
     cd "$PROJECT_ROOT/$alireTomlPath"
 
     echo "[$(get_datetime)] [START] processing $crateName > $alireTomlPath > $gprPath" | tee -a "$globalLogFilePath"
-    echo "" > "$log_prefix.log"
 
-    run_command "$gprPath" "$log_prefix" "$command"
-    computeSize "$gprPath" "$log_prefix"
-    clean "$gprPath"
+    # Clear the log file only if not resuming
+    if [ "$resume_requested" = false ]; then
+        echo "" > "$log_prefix.log"
+    else
+        echo -e "\\n## RESUME ##\\n" >> "$log_prefix.log"
+    fi
+
+    # Set current_project_step to 1 if it's empty or not a number
+    if ! [[ "$current_project_step" =~ ^[0-9]+$ ]] ; then
+        current_project_step=1
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 1 ]; then
+        run_command "$gprPath" "$log_prefix" "$command"
+        current_project_step=2
+        save_checkpoint
+    fi
+    if [ $current_project_step -eq 2 ]; then
+        computeSize "$gprPath" "$log_prefix"
+        current_project_step=3
+        save_checkpoint
+    fi
+    if [ $current_project_step -eq 3 ]; then
+        clean "$gprPath"
+        current_project_step=1
+        save_checkpoint
+    fi
 
     echo "[$(get_datetime)] [END] processing $crateName > $alireTomlPath > $gprPath" | tee -a "$globalLogFilePath"
     echo "[$(get_datetime)] [$project_number/$total_projects] END" | tee -a "$globalLogFilePath"
@@ -142,8 +188,10 @@ function generateProjectsArray(projects: extendedGPRProject[], command: string[]
     return projectsArray;
 }
 
-function generateMainLogic(globalLogFilePath: string, projects: string): string {
-    return `# Loop through arguments and handle options
+function generateMainLogic(commandName: string, projects: string): string {
+    return `# Initialize resume variables
+resume_requested=false
+# Loop through arguments and handle options
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         --xpNum) xpNum="$2"; shift 2 ;;
@@ -152,26 +200,55 @@ while [[ "$#" -gt 0 ]]; do
         -s|--suffix) logSuffix="$2"; shift 2 ;;
         --extra-args) extraArgs="$2"; shift 2 ;;
         -h|--help) show_help; exit 0 ;;
+        -r|--resume)
+          IFS=':' read -r resume_step resume_iteration <<< "$2"
+          current_step=$resume_step
+          current_project_step=$resume_iteration
+          resume_requested=true
+          shift 2 ;;
         *) echo "Unknown option: $1"; show_help; exit 1 ;;
     esac
 done
 
 ${projects}
 # Prepare global variables
-globalLogFilePath="${globalLogFilePath}"
-
-# Clear the global log file
-echo "" > "$globalLogFilePath"
+globalLogFilePath="$PROJECT_ROOT/${commandName}-all-$xpNum-j$max_procs$logSuffix.log"
 
 # Get total number of projects
 total_projects=\${#projects[@]}
 
+checkpoint_file="$PROJECT_ROOT/benchmark-${commandName}-$xpNum-$max_procs$logSuffix.checkpoint"
+
+# Load the current state if not set by resume option
+if [ "$resume_requested" = false ] && [ -f "$checkpoint_file" ]; then
+    load_checkpoint
+    resume_requested=true
+fi
+
+# Clear the global log file only if not resuming
+if [ "$resume_requested" = false ]; then
+    echo "" > "$globalLogFilePath"
+else
+    echo -e "\\n## RESUME ##\\n" >> "$globalLogFilePath"
+fi
+
+current_step=$((current_step-1))
+
+trap 'signalHandler' SIGINT
+trap 'signalHandler' SIGQUIT
+
 # Process projects sequentially
 for i in "\${!projects[@]}"; do
+    if [ $i -lt $current_step ]; then
+        continue
+    fi
     project_number=$((i+1))
+    current_step=$project_number
+    save_checkpoint
     process_project "\${projects[$i]}" "$project_number" "$total_projects"
 done
 
-echo "All projects processed."
+echo "All projects ($total_projects) processed."
+rm "$checkpoint_file"
 `
 }

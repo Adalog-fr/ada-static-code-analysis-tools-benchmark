@@ -35,8 +35,7 @@ export function initializeModule(program: Command): void {
 
                 let resultFile = generateScriptHeader();
                 resultFile += generateHelperFunctions();
-                resultFile += generateProjectsArray(projects, options);
-                resultFile += generateMainLogic();
+                resultFile += generateMainLogic(generateProjectsArray(projects, options));
 
                 Deno.writeTextFileSync(join(PROJECT_ROOT, "cogralys_benchmark.sh"), resultFile);
             }
@@ -64,6 +63,13 @@ DENO_RUN_ARGS="--config "$PROJECT_ROOT/deno.jsonc" --allow-all --unsafely-ignore
 
 function generateHelperFunctions(): string {
     return `
+# Function to handle signal (CTRL+C, CTRL+\\)
+function signalHandler()
+{
+  echo "Signal recieved, safely end the script"
+  exit 1
+}
+
 # Function to get current date and time
 get_datetime() {
     date "+%Y-%m-%d %H:%M:%S"
@@ -72,11 +78,27 @@ get_datetime() {
 # Function to display help information
 show_help() {
     echo "Usage: $0 [-xpNum <number>] [-h|--help]"
-    echo "  -xpNum <number>           Set the experience number."
-    echo "  -n, --neo4jHost <URI>     Bolt URI of Neo4j database, with port (e.g.: bolt://domain.com:7687)."
-    echo "  --username <userName>     Username used to login to Neo4j database."
-    echo "  --password <password>     Password used to login to Neo4j database."
-    echo "  -h, --help                Show help information."
+    echo "  -xpNum <number>                    Set the experience number."
+    echo "  -n, --neo4jHost <URI>              Bolt URI of Neo4j database, with port (e.g.: bolt://domain.com:7687)."
+    echo "  --username <userName>              Username used to login to Neo4j database."
+    echo "  --password <password>              Password used to login to Neo4j database."
+    echo "  -r, --resume <step:projectStep>    Resume from a specific step and project step (e.g., 3:2)."
+    echo "  -h, --help                         Show help information."
+}
+
+# Save the current state of the script. Useful to resume the script later.
+save_checkpoint() {
+  echo "$current_step:$current_project_step" > "$checkpoint_file"
+}
+
+# Load the script to the latest state (if exists)
+load_checkpoint() {
+  if [ -f "$checkpoint_file" ]; then
+      IFS=':' read -r current_step current_project_step < "$checkpoint_file"
+  else
+      current_step=1
+      current_project_step=1
+  fi
 }
 
 # Function to process a single project
@@ -94,13 +116,60 @@ process_project() {
     cd "$PROJECT_ROOT/$alireTomlPath"
     echo "[$(get_datetime)] [START] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
 
-    run_cogralys_init "$gprPath" "$log_prefix" "$cogralys_init_args"
-    update_cratesDB "$crateName" "$alireTomlPath" "$gprPath" "$log_prefix"
-    populate_neo4j "$alireTomlPath" "$gprPath" "$log_prefix"
-    run_cogralys_cli "$log_prefix"
-    computeSize "$gprPath" "$log_prefix" "$alireTomlPath" "$cogralys_init_args"
-    clean_db "$log_prefix"
-    clean "$log_prefix"
+    # Clear the log file only if not resuming
+    if [ "$resume_requested" = false ]; then
+        echo "" > "$log_prefix.log"
+    else
+        echo -e "\\n## RESUME ##\\n" >> "$log_prefix.log"
+    fi
+
+    # Set current_project_step to 1 if it's empty or not a number
+    if ! [[ "$current_project_step" =~ ^[0-9]+$ ]] ; then
+        current_project_step=1
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 1 ]; then
+        run_cogralys_init "$gprPath" "$log_prefix" "$cogralys_init_args"
+        current_project_step=2
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 2 ]; then
+        update_cratesDB "$crateName" "$alireTomlPath" "$gprPath" "$log_prefix"
+        current_project_step=3
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 3 ]; then
+        populate_neo4j "$alireTomlPath" "$gprPath" "$log_prefix"
+        current_project_step=4
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 4 ]; then
+        run_cogralys_cli "$log_prefix"
+        current_project_step=5
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 5 ]; then
+        computeSize "$gprPath" "$log_prefix" "$alireTomlPath" "$cogralys_init_args"
+        current_project_step=6
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 6 ]; then
+        clean_db "$log_prefix"
+        current_project_step=7
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 7 ]; then
+        clean "$log_prefix"
+        current_project_step=1
+        save_checkpoint
+    fi
 
     echo "[$(get_datetime)] [END] processing $crateName > $alireTomlPath: $gprPath" | tee -a "$globalLogFilePath"
     echo "[$(get_datetime)] [$project_number/$total_projects] END processing $crateName" | tee -a "$globalLogFilePath"
@@ -207,12 +276,13 @@ function generateProjectsArray(projects: extendedGPRProject[], options: optionsT
         }).replace(/"/g, '\\"');
         projectsArray += `    "${project.crateName}|${project.alireTomlPath}|${project.gprPath}|${cogralysInitArgs}"\n`;
     }
-    projectsArray += ")\n\n";
+    projectsArray += ")\n";
     return projectsArray;
 }
 
-function generateMainLogic(): string {
-    return `
+function generateMainLogic(projects: string): string {
+    return `# Initialize resume variables
+resume_requested=false
 # Parse command line arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -221,25 +291,55 @@ while [[ "$#" -gt 0 ]]; do
         -n|--neo4jHost) NEO4J_HOST="$2"; shift 2 ;;
         --username) NEO4J_USER="$2"; shift 2 ;;
         --password) NEO4J_PASS="$2"; shift 2 ;;
+        -r|--resume)
+          IFS=':' read -r resume_step resume_iteration <<< "$2"
+          current_step=$resume_step
+          current_project_step=$resume_iteration
+          resume_requested=true
+          shift 2 ;;
         *) echo "Unknown option: $1"; show_help; exit 1 ;;
     esac
 done
 
+${projects}
 # Prepare global variables
 globalLogFilePath="$PROJECT_ROOT/cogralys-run-all-$xpNum.log"
-
-# Clear the global log file
-echo "" > "$globalLogFilePath"
 
 # Get total number of projects
 total_projects=\${#projects[@]}
 
+checkpoint_file="$PROJECT_ROOT/benchmark-cogralys-$xpNum.checkpoint"
+
+# Load the current state if not set by resume option
+if [ "$resume_requested" = false ] && [ -f "$checkpoint_file" ]; then
+    load_checkpoint
+    resume_requested=true
+fi
+
+# Clear the global log file only if not resuming
+if [ "$resume_requested" = false ]; then
+    echo "" > "$globalLogFilePath"
+else
+    echo -e "\\n## RESUME ##\\n" >> "$globalLogFilePath"
+fi
+
+current_step=$((current_step-1))
+
+trap 'signalHandler' SIGINT
+trap 'signalHandler' SIGQUIT
+
 # Process projects sequentially
 for i in "\${!projects[@]}"; do
+    if [ $i -lt $current_step ]; then
+        continue
+    fi
     project_number=$((i+1))
+    current_step=$project_number
+    save_checkpoint
     process_project "\${projects[$i]}" "$project_number" "$total_projects"
 done
 
-echo "All projects processed."
+echo "All projects ($total_projects) processed."
+rm "$checkpoint_file"
 `;
 }
