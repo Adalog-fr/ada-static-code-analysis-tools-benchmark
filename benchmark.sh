@@ -8,6 +8,9 @@
 
 maxIteration=10
 PROJECT_ROOT=$PWD
+NEO4J_HOST="bolt://localhost:7687"
+NEO4J_USER="neo4j"
+NEO4J_PASS="auieauie"
 
 # Function to display help information
 show_help() {
@@ -35,27 +38,24 @@ done
 
 echo " ####################"
 echo " # Compute overhead #"
-echo " ####################"
+echo -e " ####################\n"
 
-echo -e "\n# Compute GNATcheck overhead\n"
-
-exit 0
+echo -e "# Compute GNATcheck overhead"
 
 # Compute overhead of AdaControl
 for i in $(seq 1 $maxIteration); do
-    echo "Running Adactl_benchmark.sh iteration $i/$maxIteration (overhead computation)"
-    ./Adactl_benchmark.sh --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru
+    echo -e "\n## Running adactl_benchmark.sh iteration $i/$maxIteration (overhead computation)\n"
+    ./adactl_benchmark.sh --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru
 done
 
-echo -e "\n# Compute GNATcheck overhead\n"
+echo -e "\n# Compute GNATcheck overhead"
 
 # Loops to compute overhead of gnatcheck with -j1 and -j32
 for j_option in "1" "32"; do
     for i in $(seq 1 $maxIteration); do
-        echo "Running GNATcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s) (overhead computation)"
-        ./GNATcheck_benchmark.sh --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation"
+        echo -e "\n## Running gnatcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s) (overhead computation)\n"
+        ./gnatcheck_benchmark.sh --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation"
     done
-    echo ""
 done
 
 # Note: Cogralys overhead is not computed here because it is already computed in its benchmark script.
@@ -64,29 +64,30 @@ done
 
 echo -e "\n #############"
 echo " # Benchmark #"
-echo " #############\n"
+echo -e " #############\n"
+
+echo -e "# Benchmark AdaControl"
 
 # Main loop to run benchmarks for Adactl_benchmark.sh
 for i in $(seq 1 $maxIteration); do
-    echo "Running Adactl_benchmark.sh iteration $i/$maxIteration"
-    ./Adactl_benchmark.sh --xpNum "$i"
+    echo -e "\n## Running adactl_benchmark.sh iteration $i/$maxIteration\n"
+    ./adactl_benchmark.sh --xpNum "$i"
 done
 
-echo ""
+echo -e "\n# Benchmark GNATcheck"
 
 # Main loops to run benchmarks for GNATcheck_benchmark.sh with -j1 and -j32
 for j_option in "1" "32"; do
     for i in $(seq 1 $maxIteration); do
-        echo "Running GNATcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s)"
-        ./GNATcheck_benchmark.sh --xpNum "$i" -j "$j_option"
+        echo -e "\n## Running gnatcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s)\n"
+        ./gnatcheck_benchmark.sh --xpNum "$i" -j "$j_option"
     done
-    echo ""
 done
 
-echo ""
+echo -e "\n# Benchmark Cogralys"
 
 # Main loop to run benchmarks for cogralys_benchmark.sh
 for i in $(seq 1 $maxIteration); do
-    echo "Running cogralys_benchmark.sh iteration $i/$maxIteration"
-    ./cogralys_benchmark.sh -xpNum "$i" --neo4jHost "$neo4jHost" --username $username --password $password
+    echo -e "\n## Running cogralys_benchmark.sh iteration $i/$maxIteration \n"
+    ./cogralys_benchmark.sh -xpNum "$i" --neo4jHost "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS"
 done
