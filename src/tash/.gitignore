@@ -10,7 +10,7 @@ auto.cgpr
 include*
 lib-*
 
-src/tcl_record_sizes*
+#src/tcl_record_sizes*
 
 alire
-config
+# config

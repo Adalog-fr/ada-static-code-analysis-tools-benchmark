@@ -1,7 +1,7 @@
 .libs
 .objs
 config.log
-configure
+./configure
 gnat/install/matreshka_config.gpr
 gnat/matreshka_config.gpr
 Makefile.config
