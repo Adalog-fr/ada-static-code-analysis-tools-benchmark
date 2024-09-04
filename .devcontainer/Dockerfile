@@ -36,6 +36,12 @@ RUN apt-get install -y build-essential libssl-dev \
     # Install jc to transform output of time in JSON format
     jc
 
+# Install Neo4J: cypher-shell
+
+RUN wget --no-check-certificate https://dist.neo4j.org/cypher-shell/cypher-shell_5.23.0_all.deb && \
+    sudo apt install -y ./cypher-shell_5.23.0_all.deb && \
+    rm cypher-shell_5.23.0_all.deb
+
 # Install Oh My Posh for a better prompt
 RUN curl -s https://ohmyposh.dev/install.sh | bash -s
 

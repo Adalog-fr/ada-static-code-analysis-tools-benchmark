@@ -3,14 +3,17 @@
   "packages": {
     "specifiers": {
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
+      "jsr:@std/bytes@^1.0.2": "jsr:@std/bytes@1.0.2",
       "jsr:@std/collections@^1.0.5": "jsr:@std/collections@1.0.5",
       "jsr:@std/dotenv@^0.225.1": "jsr:@std/dotenv@0.225.1",
       "jsr:@std/fmt@^1.0.1": "jsr:@std/fmt@1.0.1",
-      "jsr:@std/fs@^1.0.2": "jsr:@std/fs@1.0.2",
+      "jsr:@std/fs@^1.0.2": "jsr:@std/fs@1.0.3",
       "jsr:@std/io@^0.224.6": "jsr:@std/io@0.224.6",
+      "jsr:@std/io@^0.224.7": "jsr:@std/io@0.224.7",
       "jsr:@std/log@^0.224.6": "jsr:@std/log@0.224.6",
       "jsr:@std/path@^0.225.1": "jsr:@std/path@0.225.2",
       "jsr:@std/path@^1.0.3": "jsr:@std/path@1.0.3",
+      "jsr:@std/path@^1.0.4": "jsr:@std/path@1.0.4",
       "jsr:@std/toml@^1.0.1": "jsr:@std/toml@1.0.1",
       "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:fast-glob@3.2.12": "npm:fast-glob@3.2.12",
@@ -21,6 +24,9 @@
     "jsr": {
       "@std/assert@0.226.0": {
         "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3"
+      },
+      "@std/bytes@1.0.2": {
+        "integrity": "fbdee322bbd8c599a6af186a1603b3355e59a5fb1baa139f8f4c3c9a1b3e3d57"
       },
       "@std/collections@1.0.5": {
         "integrity": "ab9eac23b57a0c0b89ba45134e61561f69f3d001f37235a248ed40be260c0c10"
@@ -37,8 +43,20 @@
           "jsr:@std/path@^1.0.3"
         ]
       },
+      "@std/fs@1.0.3": {
+        "integrity": "3cb839b1360b0a42d8b367c3093bfe4071798e6694fa44cf1963e04a8edba4fe",
+        "dependencies": [
+          "jsr:@std/path@^1.0.4"
+        ]
+      },
       "@std/io@0.224.6": {
         "integrity": "eefe034a370be34daf066c8634dd645635d099bb21eccf110f0bdc28d9040891"
+      },
+      "@std/io@0.224.7": {
+        "integrity": "a70848793c44a7c100926571a8c9be68ba85487bfcd4d0540d86deabe1123dc9",
+        "dependencies": [
+          "jsr:@std/bytes@^1.0.2"
+        ]
       },
       "@std/log@0.224.6": {
         "integrity": "c34e7b69fe84b2152ce2b0a1b5e211b26e6a1ce6a6b68a217b9342fd13ed95a4",
@@ -56,6 +74,9 @@
       },
       "@std/path@1.0.3": {
         "integrity": "cd89d014ce7eb3742f2147b990f6753ee51d95276bfc211bc50c860c1bc7df6f"
+      },
+      "@std/path@1.0.4": {
+        "integrity": "48dd5d8389bcfcd619338a01bdf862cb7799933390146a54ae59356a0acc7105"
       },
       "@std/toml@1.0.1": {
         "integrity": "b55b407159930f338d384b1f8fd317c8e8a35e27ebb8946155f49e3a158d16c4",
@@ -238,10 +259,14 @@
     }
   },
   "redirects": {
+    "https://cdn.skypack.dev/-/@types/lodash@v4.17.7-qrTq9kD2F608E3eFfNYR/dist=es2019,mode=types/index.js": "https://cdn.skypack.dev/-/@types/lodash@v4.17.7-qrTq9kD2F608E3eFfNYR/dist=es2019,mode=types/index.d.ts",
     "https://deno.land/std/path/mod.ts": "https://deno.land/std@0.177.1/path/mod.ts"
   },
   "remote": {
+    "https://cdn.skypack.dev/-/@types/lodash@v4.17.7-qrTq9kD2F608E3eFfNYR/dist=es2019,mode=imports/optimized/@types/lodash.js": "5d71afac9a0636b438aff7daa03026bc53a42b37fb59459792dee56119b9ae05",
     "https://cdn.skypack.dev/-/lodash-es@v4.17.21-rDGl8YjBUjcrrAbjNrmo/dist=es2019,mode=imports/optimized/lodash-es.js": "4a1b35d34b5e0d3ae68aa46ddaabb9700ccecb75b830974db7c46a271f10daa8",
+    "https://cdn.skypack.dev/@types/lodash?dts": "4debfc349541365eebcbb60c1e13b43db97f8bd18a7045ec73e8737d0450b880",
+    "https://cdn.skypack.dev/error/unknown:lodash?from=lodash-es": "c042c6105b8140042d5fe8fc6406d0a2296b10a94e5e0a31c0c68bc9b84e6ec5",
     "https://cdn.skypack.dev/lodash-es?dts": "7dc1d11c01e46bf442774791267f7ca93f6cc204451ac648f2560b0cd6c91524",
     "https://deno.land/std@0.119.0/_util/assert.ts": "2f868145a042a11d5ad0a3c748dcf580add8a0dbc0e876eaa0026303a5488f58",
     "https://deno.land/std@0.119.0/_util/os.ts": "dfb186cc4e968c770ab6cc3288bd65f4871be03b93beecae57d657232ecffcac",
