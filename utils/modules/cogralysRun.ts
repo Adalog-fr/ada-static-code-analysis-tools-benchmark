@@ -4,7 +4,6 @@ import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, createBlock, getCogralysEnginePath } from "../utils.ts";
 import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
-const globalLogFilePath = `$PROJECT_ROOT/cogralys-run-all-$xpNum.log`;
 let defaultCogralysEnginePath = "";
 try {
     defaultCogralysEnginePath = getCogralysEnginePath()
@@ -135,38 +134,45 @@ process_project() {
         save_checkpoint
     fi
 
+    # Clean ADT files in order to quickly free space
     if [ $current_project_step -eq 2 ]; then
-        update_cratesDB "$crateName" "$alireTomlPath" "$gprPath" "$log_prefix"
+        clean "$log_prefix"
         current_project_step=3
         save_checkpoint
     fi
 
     if [ $current_project_step -eq 3 ]; then
-        populate_neo4j "$alireTomlPath" "$gprPath" "$log_prefix"
+        update_cratesDB "$crateName" "$alireTomlPath" "$gprPath" "$log_prefix"
         current_project_step=4
         save_checkpoint
     fi
 
     if [ $current_project_step -eq 4 ]; then
-        run_cogralys_cli "$log_prefix"
+        convert_json_to_cypher "$alireTomlPath" "$gprPath"
         current_project_step=5
         save_checkpoint
     fi
 
     if [ $current_project_step -eq 5 ]; then
-        computeSize "$gprPath" "$log_prefix" "$alireTomlPath" "$cogralys_init_args"
+        populate_neo4j "$alireTomlPath" "$gprPath" "$log_prefix"
         current_project_step=6
         save_checkpoint
     fi
 
     if [ $current_project_step -eq 6 ]; then
-        clean_db "$log_prefix"
+        run_cogralys_cli "$log_prefix"
         current_project_step=7
         save_checkpoint
     fi
 
     if [ $current_project_step -eq 7 ]; then
-        clean "$log_prefix"
+        computeSize "$gprPath" "$log_prefix" "$alireTomlPath" "$cogralys_init_args"
+        current_project_step=8
+        save_checkpoint
+    fi
+
+    if [ $current_project_step -eq 8 ]; then
+        clean_db "$log_prefix"
         current_project_step=1
         save_checkpoint
     fi
@@ -195,12 +201,20 @@ update_cratesDB() {
     echo "[$(get_datetime)] [$gprPath] End updating cratesDB for this project" | tee -a "$globalLogFilePath"
 }
 
+convert_json_to_cypher() {
+    local alireTomlPath=$1
+    local gprPath=$2
+    echo "[$(get_datetime)] [$gprPath] Start converting Cypher commands from JSON files to a single .cypher file" | tee -a "$globalLogFilePath"
+    deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" convert-neo4j-json-to-cypher-file -w "$alireTomlPath" -g "$gprPath"
+    echo "[$(get_datetime)] [$gprPath] End converting Cypher commands from JSON files to a single .cypher file" | tee -a "$globalLogFilePath"
+}
+
 populate_neo4j() {
     local alireTomlPath=$1
     local gprPath=$2
     local log_prefix=$3
     echo "[$(get_datetime)] [$gprPath] Start populate" | tee -a "$globalLogFilePath"
-    /usr/bin/time -v -o "$log_prefix-populate.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" populate-neo4j-single -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -w "$alireTomlPath" -g "$gprPath" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
+    /usr/bin/time -v -o "$log_prefix-populate.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" populate-neo4j-single -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -m "cogralys" -w "$alireTomlPath" -g "$gprPath" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-populate.time" > "$log_prefix-populate.time.json"
     echo "[$(get_datetime)] [$gprPath] End populate" | tee -a "$globalLogFilePath"
 }
