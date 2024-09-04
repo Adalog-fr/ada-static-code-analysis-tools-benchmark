@@ -17,6 +17,7 @@ import * as UpdateCratesDBneo4jComplete from "./modules/update_cratesDBNeo4jComp
 import * as UpdateAllCratesDBneo4jComplete from "./modules/update_all_cratesDBNeo4jComplete.ts";
 import * as GenerateSCC from "./modules/generateSCC.ts";
 import * as AddProject from "./modules/addProject.ts";
+import * as convertNeo4jJsonToCypherFile from "./modules/convert-neo4j-json-to-cypher-file.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -105,5 +106,6 @@ CogralysRun.initializeModule(program);
 GenerateSCC.initializeModule(program);
 
 AddProject.initializeModule(program);
+convertNeo4jJsonToCypherFile.initializeModule(program);
 
 program.parse(Deno.args);
