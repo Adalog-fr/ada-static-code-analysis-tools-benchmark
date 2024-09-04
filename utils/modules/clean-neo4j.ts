@@ -12,9 +12,9 @@ export function initializeModule(program: Command): void {
             "Clean a Neo4j database by removing all data (nodes and edges) and all indexes and constraints"
         )
         .option(
-            "-h, --host <host:port>",
-            "Host path used to communicate with the database, using HTTP requests. If you use this script inside a Docker container, and have Neo4j on your host, you can use `host.docker.internal`.",
-            "127.0.0.1:7474"
+            "-h, --host <protocol:host:port>",
+            "Host path used to communicate with the database, using HTTP requests. If you use this script inside a Docker container, and have Neo4j on your host, you can use `bolt://host.docker.internal:7687`.",
+            "bolt://127.0.0.1:7687"
         )
         .option(
             "--username <string>",
