@@ -38,6 +38,16 @@ load_checkpoint() {
   fi
 }
 
+# Function to handle signal (CTRL+C, CTRL+\)
+function signalHandler()
+{
+  echo "Signal recieved, safely end the script"
+  exit 1
+}
+
+trap 'signalHandler' SIGINT
+trap 'signalHandler' SIGQUIT
+
 # Parse command line arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
