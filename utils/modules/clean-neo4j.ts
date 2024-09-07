@@ -32,7 +32,7 @@ export function initializeModule(program: Command): void {
 
                 taskRunner.addTask("clean", [], {
                     query: JSON.stringify({ "statements": [
-                        { "statement": "match (n) detach delete n" },
+                        { "statement": "CALL apoc.periodic.iterate( 'MATCH (n) RETURN n', 'DETACH DELETE n', {batchSize:100000} )" },
                         { "statement": "CALL apoc.schema.assert({}, {})" },
                     ] }),
                     url: options.host,
