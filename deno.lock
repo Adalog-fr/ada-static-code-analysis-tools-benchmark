@@ -281,7 +281,8 @@
   },
   "redirects": {
     "https://cdn.skypack.dev/-/@types/lodash@v4.17.7-qrTq9kD2F608E3eFfNYR/dist=es2019,mode=types/index.js": "https://cdn.skypack.dev/-/@types/lodash@v4.17.7-qrTq9kD2F608E3eFfNYR/dist=es2019,mode=types/index.d.ts",
-    "https://deno.land/std/path/mod.ts": "https://deno.land/std@0.177.1/path/mod.ts"
+    "https://deno.land/std/path/mod.ts": "https://deno.land/std@0.177.1/path/mod.ts",
+    "https://esm.sh/@boywithkeyboard/bytes": "https://esm.sh/@boywithkeyboard/bytes@6.0.1"
   },
   "remote": {
     "https://cdn.skypack.dev/-/@types/lodash@v4.17.7-qrTq9kD2F608E3eFfNYR/dist=es2019,mode=imports/optimized/@types/lodash.js": "5d71afac9a0636b438aff7daa03026bc53a42b37fb59459792dee56119b9ae05",
@@ -532,7 +533,9 @@
     "https://deno.land/x/progress@v1.3.8/multi.ts": "670712f0705ecb9b9e5f38d9770f4a5492171cf0f1b268ed55535cbf7d1789a1",
     "https://deno.land/x/progress@v1.3.8/time.ts": "f5b302425cef076958c9352030f48a79bd7b54316b4057f99192884b5e140ea0",
     "https://deno.land/x/sleep@v1.2.1/mod.ts": "f2d3c9e1ef1fb2852f580f6960384bed36bc18a2da357c35f11a089fcca44273",
-    "https://deno.land/x/sleep@v1.2.1/sleep.ts": "2426efe5d3ce5de0b8af08bd36a8700deb5dc60e752f5f8f05d5e815a7e8cb0e"
+    "https://deno.land/x/sleep@v1.2.1/sleep.ts": "2426efe5d3ce5de0b8af08bd36a8700deb5dc60e752f5f8f05d5e815a7e8cb0e",
+    "https://esm.sh/@boywithkeyboard/bytes@6.0.1": "a964b3fc179e32e1b925bdb5745027e1b98c31adfeec5521177bec619e9a34fd",
+    "https://esm.sh/v135/@boywithkeyboard/bytes@6.0.1/denonext/bytes.mjs": "013eb10b57dc2bebc5ef8a7fb65265db0d96e7fe5d767073702e28a6300e9395"
   },
   "workspace": {
     "dependencies": [
