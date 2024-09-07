@@ -12,7 +12,6 @@ function removeQuotesFromKeys(jsonString: string): string {
 
 // Function to process JSON files and write Cypher statements in real-time
 async function processCypherFiles(directoryPath: string, fileName: string) {
-    console.log("searchPath: ", directoryPath)
     // Get all json files
     const jsonPaths = fg.sync(`${directoryPath}/*.json`, { onlyFiles: true }).sort((a: string, b: string) => a.localeCompare(b));
 
