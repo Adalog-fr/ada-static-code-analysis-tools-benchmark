@@ -1,5 +1,5 @@
 import { join } from "jsr:@std/path@^0.225.1";
-import neo4j from "https://deno.land/x/neo4j_driver_lite@5.18.0/mod.ts";
+import neo4j from "npm:neo4j-driver@5.23.0";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { formatDuration } from "../utils.ts";
 import * as allRules from "./allRules.ts";
