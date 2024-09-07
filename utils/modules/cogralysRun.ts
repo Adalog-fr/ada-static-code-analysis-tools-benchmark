@@ -136,7 +136,7 @@ process_project() {
 
     # Clean ADT files in order to quickly free space
     if [ $current_project_step -eq 2 ]; then
-        clean "$log_prefix"
+        clean "$alireTomlPath"
         current_project_step=3
         save_checkpoint
     fi
@@ -214,7 +214,7 @@ populate_neo4j() {
     local gprPath=$2
     local log_prefix=$3
     echo "[$(get_datetime)] [$gprPath] Start populate" | tee -a "$globalLogFilePath"
-    /usr/bin/time -v -o "$log_prefix-populate.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" populate-neo4j-single -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -m "cogralys" -w "$alireTomlPath" -g "$gprPath" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
+    /usr/bin/time -v -o "$log_prefix-populate.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-bench-util.ts" populate-neo4j-single -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -m "cypher" -w "$alireTomlPath" -g "$gprPath" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-populate.time" > "$log_prefix-populate.time.json"
     echo "[$(get_datetime)] [$gprPath] End populate" | tee -a "$globalLogFilePath"
 }
@@ -252,11 +252,11 @@ clean_db() {
 }
 
 clean() {
-    local gprPath=$1
-    echo "[$(get_datetime)] [$gprPath] Start cleaning" | tee -a "$globalLogFilePath"
+    local alireTomlPath=$1
+    echo "[$(get_datetime)] [$alireTomlPath] Start cleaning" | tee -a "$globalLogFilePath"
     # Remove ASIS AST
     rm -f *.ali *.adt
-    echo "[$(get_datetime)] [$gprPath] End cleaning" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$alireTomlPath] End cleaning" | tee -a "$globalLogFilePath"
 }
 
 `;
@@ -334,7 +334,7 @@ fi
 if [ "$resume_requested" = false ]; then
     echo "" > "$globalLogFilePath"
 else
-    echo -e "\\n## RESUME ##\\n" >> "$globalLogFilePath"
+    echo -e "\\n## RESUME ##\\n" | tee -a "$globalLogFilePath"
 fi
 
 current_step=$((current_step-1))
