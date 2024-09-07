@@ -129,7 +129,7 @@ process_project() {
         save_checkpoint
     fi
     if [ $current_project_step -eq 3 ]; then
-        clean "$gprPath"
+        clean "$alireTomlPath"
         current_project_step=1
         save_checkpoint
     fi
@@ -159,11 +159,11 @@ computeSize() {
 }
 
 clean() {
-    local gprPath=$1
-    echo "[$(get_datetime)] [$gprPath] Start cleaning" | tee -a "$globalLogFilePath"
+    local alireTomlPath=$1
+    echo "[$(get_datetime)] [$alireTomlPath] Start cleaning" | tee -a "$globalLogFilePath"
     # Remove ASIS AST
     rm -f *.ali *.adt
-    echo "[$(get_datetime)] [$gprPath] End cleaning" | tee -a "$globalLogFilePath"
+    echo "[$(get_datetime)] [$alireTomlPath] End cleaning" | tee -a "$globalLogFilePath"
 }
 
 `;
