@@ -1,4 +1,4 @@
-import { FileJob, LanguageSummary } from "./scc-types.ts";
+import { FileJob, LanguageSummary } from "../utils/scc-types.ts";
 
 export type repoInfo = {
     /**

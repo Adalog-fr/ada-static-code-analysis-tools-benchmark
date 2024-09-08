@@ -2,7 +2,7 @@ import { join, dirname, basename } from "https://deno.land/std/path/mod.ts";
 import { existsSync } from "https://deno.land/std/fs/mod.ts";
 import fg from "npm:fast-glob@3.2.12";
 import { exec } from "../utils/utils.ts"
-import { LanguageSummary, FileJob } from "./scc-types.ts";
+import { LanguageSummary, FileJob } from "../utils/scc-types.ts";
 import { GhRepoSearchResultItem } from "./github-api.ts"
 import * as log from "https://deno.land/std/log/mod.ts";
 import { repoInfo } from "./types.ts";
