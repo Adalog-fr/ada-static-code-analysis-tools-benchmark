@@ -1,7 +1,7 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, GPRProject } from "../utils.ts";
+import { UnifiedCrateData, GPRProject } from "../types.ts";
 import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 const OUTPUT_FILENAME = "cratesDB.json";

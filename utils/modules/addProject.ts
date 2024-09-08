@@ -1,6 +1,7 @@
 import { join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { UnifiedCrateData, GPRProject, sortKeys } from "../utils.ts";
+import { sortKeys } from "../utils.ts";
+import { UnifiedCrateData, GPRProject } from "../types.ts"
 import { PROJECT_ROOT } from "../../config.ts";
 
 const OUTPUT_FILENAME = "cratesDB.json";

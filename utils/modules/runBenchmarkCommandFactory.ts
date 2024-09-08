@@ -1,6 +1,7 @@
 import { basename, join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { extendedGPRProject, UnifiedCrateData, filterCompleteCrates, createBlock } from "../utils.ts";
+import { filterCompleteCrates, createBlock } from "../utils.ts";
+import { extendedGPRProject, UnifiedCrateData } from "../types.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
 export function initializeModule(program: Command, settings: {

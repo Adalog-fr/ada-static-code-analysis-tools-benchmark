@@ -2,6 +2,7 @@
 import { isPlainObject } from "https://cdn.skypack.dev/lodash-es?dts";
 import { join } from "jsr:@std/path@^0.225.1";
 import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
+import { Crate, extendedGPRProject, UnifiedCrateData } from "./types.ts";
 
 export function collectOptionList(value, previous) {
   return previous.concat([value]);
@@ -76,43 +77,6 @@ export function formatDuration(milliseconds: number): string {
   }
 
   return durationParts.join(" ");
-}
-
-export interface UnifiedCrateData {
-    crates: { [key: string]: Crate };
-    ignoredCrates: string[];
-}
-
-export interface Crate {
-    path: string;
-    alireProjects: CrateInfo[];
-    ignore: boolean;
-    ignoreReason?: string;
-}
-
-export interface CrateInfo {
-    alireTomlPath: string;
-    projects: GPRProject[];
-}
-
-export interface CratesInNeo4j {
-    workDir: string;
-    projects: GPRProject[];
-    isNeo4jDbFilesFullyComplete: boolean;
-    isAdaCtlComplete: boolean;
-}
-
-export interface GPRProject {
-    gprPath: string;
-    isNeo4jDbFilesComplete: boolean;
-    isAdaCtlComplete: boolean;
-    ignore: boolean;
-    ignoreReason?: string;
-}
-
-export interface extendedGPRProject extends GPRProject {
-    alireTomlPath: string;
-    crateName: string;
 }
 
 /** Filters crates to include only those with all projects meeting complete criteria */

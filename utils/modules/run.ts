@@ -5,7 +5,8 @@ import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
-import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, getAllIgnoredCrates, getCogralysEnginePath } from "../utils.ts";
+import { filterCompleteCrates, getAllIgnoredCrates, getCogralysEnginePath } from "../utils.ts";
+import { UnifiedCrateData, extendedGPRProject } from "../types.ts";
 import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 type commandType = [string, string[], Record<string, string>];

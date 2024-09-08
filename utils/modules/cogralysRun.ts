@@ -1,7 +1,8 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join, basename } from "jsr:@std/path@^0.225.1";
 import * as dotenv from "jsr:@std/dotenv@^0.225.1";
-import { UnifiedCrateData, extendedGPRProject, filterCompleteCrates, createBlock, getCogralysEnginePath } from "../utils.ts";
+import { filterCompleteCrates, createBlock, getCogralysEnginePath } from "../utils.ts";
+import { UnifiedCrateData, extendedGPRProject } from "../types.ts";
 import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 let defaultCogralysEnginePath = "";

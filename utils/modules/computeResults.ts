@@ -9,35 +9,6 @@ const PROJECT_ROOT = "/Volumes/Data/programmation_pro/These/codegralys/bench-fro
 
 const OUTPUT_FILENAME = "benchmarkResults.json";
 
-interface TimeData {
-    user_time: string;
-    system_time: string;
-    cpu_percent: string;
-    elapsed_time: string;
-    average_shared_text_size: string;
-    average_unshared_data_size: string;
-    average_stack_size: string;
-    average_total_size: string;
-    maximum_resident_set_size: string;
-    average_resident_set_size: string;
-    major_pagefaults: string;
-    minor_pagefaults: string;
-    voluntary_context_switches: string;
-    involuntary_context_switches: string;
-    swaps: string;
-    block_input_operations: string;
-    block_output_operations: string;
-    messages_sent: string;
-    messages_received: string;
-    signals_delivered: string;
-    page_size: string;
-    exit_status: string;
-}
-
-interface TimeDataWithCommand extends TimeData {
-    command_being_timed: string;
-}
-
 /**
  * Convert a string representation of a computer size (B for Byte, M for Megabyte, etc.) into the corresponding byte
  * value.
