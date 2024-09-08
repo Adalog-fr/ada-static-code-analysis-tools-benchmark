@@ -1,6 +1,6 @@
 // @deno-types="https://cdn.skypack.dev/@types/lodash?dts"
 import { isPlainObject } from "https://cdn.skypack.dev/lodash-es?dts";
-import { join } from "jsr:@std/path@^0.225.1";
+import { join, basename } from "jsr:@std/path@^0.225.1";
 import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
 import { Crate, extendedGPRProject, UnifiedCrateData } from "./types.ts";
 
@@ -260,4 +260,52 @@ export function sortKeys(
 
   // Handle object input
   return sortKeysInternal(input);
+}
+
+/**
+ * Get a list of blob pattern of benchmark log files.
+ * @param crates List of crates
+ * @param maxIteration Maximum number of iteration of the processed benchmark
+ * @returns List of blob pattern
+ */
+export function getBlob(crates: { [key: string]: Crate }, maxIteration: number): string[] {
+    const result: string[] = [];
+    const maxIterationPattern = `{1..${maxIteration}}`;
+
+    result.push("./benchmarkResults.json");
+    result.push("./cratesDB.json");
+    // `{1..1000}` is to prevent a fg bug. In the following string, I got an infinite loop if I add -j* or -j+([0-9])
+    result.push(`./gnatcheck-all-${maxIterationPattern}-j{1..1000}.log`);
+    result.push(`./adactl-all-${maxIterationPattern}-j0.log`);
+    result.push(`./cogralys-run-all-${maxIterationPattern}.log`);
+
+
+    for (const [_, crate] of Object.entries(crates)) {
+        if (crate.ignore) {
+            continue;
+        }
+
+        for (const project of crate.alireProjects) {
+            for (const gprProject of project.projects) {
+                if (gprProject.ignore) {
+                    continue;
+                }
+
+                const gprName = basename(gprProject.gprPath, ".gpr");
+
+                // gnatcheck pattern
+                result.push(`${join(crate.path)}/**/gnatcheck-${gprName}-${maxIterationPattern}-j+([0-9])(-overhead|).+(log|report|*json|time)`);
+                result.push(`${join(crate.path)}/**/gnatcheck*.report`);
+
+                // adactl pattern
+                result.push(`${join(crate.path)}/**/adactl-${gprName}-${maxIterationPattern}-j+([0-9])(-overhead|).+(log|report|*json|time)`);
+
+                // cogralys pattern
+                result.push(`${join(crate.path)}/**/cogralys-${gprName}-${maxIterationPattern}(-init|-populate|-run|).+(log|report|*json|time)`);
+                result.push(`${join(crate.path)}/**/cogralys-${gprName}.cypher`);
+            }
+        }
+    }
+
+    return result;
 }
