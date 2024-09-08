@@ -19,6 +19,7 @@ import * as GenerateSCC from "./modules/generateSCC.ts";
 import * as AddProject from "./modules/addProject.ts";
 import * as convertNeo4jJsonToCypherFile from "./modules/convert-neo4j-json-to-cypher-file.ts";
 import * as computeResults from "./modules/computeResults.ts";
+import * as compressResults from "./modules/compressResults.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -81,7 +82,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "-l",
         "--show-rule",
         "-o",
-        "gnatcheck-$xpNum-j$max_procs$logSuffix.report",
+        "gnatcheck-%PRJ_NAME%-$xpNum-j$max_procs$logSuffix.report",
         "-P%PRJ%",
         "%EXTRA_ARGS%",
         "-rules",
@@ -109,5 +110,6 @@ GenerateSCC.initializeModule(program);
 AddProject.initializeModule(program);
 convertNeo4jJsonToCypherFile.initializeModule(program);
 computeResults.initializeModule(program);
+compressResults.initializeModule(program);
 
 program.parse(Deno.args);

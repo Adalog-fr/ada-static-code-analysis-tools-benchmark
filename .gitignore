@@ -202,3 +202,6 @@ scc_metrics.json
 *.size-cogralys.json
 *.checkpoint
 src/apdf/obj_debug
+benchmark-results.7z
+benchmark-results.7z.tmp
+listOfAllResultFilesToCompress.txt
