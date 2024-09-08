@@ -20,6 +20,7 @@ import * as AddProject from "./modules/addProject.ts";
 import * as convertNeo4jJsonToCypherFile from "./modules/convert-neo4j-json-to-cypher-file.ts";
 import * as computeResults from "./modules/computeResults.ts";
 import * as compressResults from "./modules/compressResults.ts";
+import * as deleteBenchmarkLogs from "./modules/deleteBenchmarkLogs.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -111,5 +112,6 @@ AddProject.initializeModule(program);
 convertNeo4jJsonToCypherFile.initializeModule(program);
 computeResults.initializeModule(program);
 compressResults.initializeModule(program);
+deleteBenchmarkLogs.initializeModule(program);
 
 program.parse(Deno.args);
