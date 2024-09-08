@@ -1,0 +1,291 @@
+import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
+import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
+import fg from "npm:fast-glob@3.3.2";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult } from "../types.ts";
+import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
+import { LanguageSummary } from "../scc-types.ts";
+import { PROJECT_ROOT } from "../../config.ts";
+
+const OUTPUT_FILENAME = "benchmarkResults.json";
+
+/**
+ * Convert a string representation of a aggregater size (B for Byte, M for Megabyte, etc.) into the corresponding byte
+ * value.
+ * @param value A size unit formatted with `du -ch`, like "7M" or "21,42G"
+ * @returns Return the corresponding value in byte
+ */
+function parseUnitValue(value: string): number {
+    const valueFormatted = value
+    .replace(',', '.') // Convert ',' to '.'
+    .replace(/([a-zA-Z])$/, ' $1') // Add space before unit
+    .replace(/\s([KMGTPEZY])$/, (_, unit) => ` ${unit}B`) // Add 'B' to units except for 'B' itself
+    .toUpperCase(); // Convert to uppercase
+
+    return bytes(valueFormatted);
+}
+
+function parseTimeToSeconds(time: string): number {
+    const parts = time.split(':').map(Number);
+    if (parts.length === 3) {
+      return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    } else if (parts.length === 2) {
+      return parts[0] * 60 + parts[1];
+    }
+    return Number(time);
+}
+
+function interpolateLogPrefix(logPrefix: string, commandName: string, xpNum: number | string, cores: number | string, logSuffix: string) {
+    return logPrefix
+        .replace("$commandName", commandName)
+        .replace("$xpNum", xpNum + "")
+        .replace("$max_procs", cores + "")
+        .replace("$logSuffix", logSuffix);
+}
+
+// Helper function to process time data
+function processTimeData(timeFiles: string[], gprPath: string) {
+    const timesData: TimeData<number>[] = [];
+    let count = 0;
+    const sum: TimeData<number> = {
+      user_time: 0,
+      system_time: 0,
+      cpu_percent: 0,
+      elapsed_time: 0,
+      average_shared_text_size: 0,
+      average_unshared_data_size: 0,
+      average_stack_size: 0,
+      average_total_size: 0,
+      maximum_resident_set_size: 0,
+      average_resident_set_size: 0,
+      major_pagefaults: 0,
+      minor_pagefaults: 0,
+      voluntary_context_switches: 0,
+      involuntary_context_switches: 0,
+      swaps: 0,
+      block_input_operations: 0,
+      block_output_operations: 0,
+      messages_sent: 0,
+      messages_received: 0,
+      signals_delivered: 0,
+      page_size: 0,
+      exit_status: 0
+    };
+
+    // Process each time file
+    for (const path of timeFiles) {
+        let timeData: TimeDataWithCommand;
+        try {
+            timeData = JSON.parse(Deno.readTextFileSync(path));
+        } catch (e) {
+            console.error("Error with: ", path);
+            throw e;
+        }
+        const { command_being_timed, ...data } = timeData;
+
+        // Check for execution errors
+        if (data.exit_status !== "0") {
+            console.error(`${gprPath} > '${path}': execution error with the following command => ${command_being_timed}`);
+            continue;
+        }
+
+        count++;
+
+        // Process each key-value pair in the data
+        const parsedData : TimeData<number> = {
+          user_time: 0,
+          system_time: 0,
+          cpu_percent: 0,
+          elapsed_time: 0,
+          average_shared_text_size: 0,
+          average_unshared_data_size: 0,
+          average_stack_size: 0,
+          average_total_size: 0,
+          maximum_resident_set_size: 0,
+          average_resident_set_size: 0,
+          major_pagefaults: 0,
+          minor_pagefaults: 0,
+          voluntary_context_switches: 0,
+          involuntary_context_switches: 0,
+          swaps: 0,
+          block_input_operations: 0,
+          block_output_operations: 0,
+          messages_sent: 0,
+          messages_received: 0,
+          signals_delivered: 0,
+          page_size: 0,
+          exit_status: 0
+        };
+        for (const [key, value] of Object.entries(data)) {
+            let numValue: number = key === 'elapsed_time' ? parseTimeToSeconds(value) : parseFloat(value);
+            if (!isNaN(numValue)) {
+                sum[key as TimeDataKeyNumber] = (sum[key as TimeDataKeyNumber] || 0) + numValue;
+            }
+            parsedData[key as TimeDataKeyNumber] = numValue;
+        }
+        timesData.push(parsedData);
+    }
+
+    // Calculate averages
+    const average: TimeData<number> = Object.fromEntries(
+      Object.entries(sum).map(([key, value]) => [key, value / count])
+    ) as unknown as TimeData<number>;
+
+    return { timesData, count, average };
+}
+
+// Function to aggregate Ada Control results
+function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, logSuffix: string): AdaControlResult {
+    // Generate log prefix for Ada Control
+    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "adactl", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "0", logSuffix);
+
+    // Find and sort ADT size files
+    const adtSizeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.size-adt.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+
+    // Parse ADT size from the last file
+    const adtSize = parseUnitValue(JSON.parse(Deno.readTextFileSync(adtSizeFiles[adtSizeFiles.length - 1])).size);
+
+    // Find and sort time files
+    const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+
+    // Process time data
+    const { timesData, count, average } = processTimeData(timeFiles, gprPath);
+
+    // Return the results
+    return {
+        adtSize,
+        allRuns: timesData,
+        nbValidRuns: count,
+        average
+    };
+}
+
+// Function to aggregate GNATcheck results
+function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, cores: number, logSuffix: string): GNATcheckResult {
+    // Generate log prefix for GNATcheck
+    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "gnatcheck", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, cores, logSuffix);
+
+    // Find and sort time files
+    const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+
+    // Process time data
+    const { timesData, count, average } = processTimeData(timeFiles, gprPath);
+
+    // Return the results
+    return {
+        allRuns: timesData,
+        nbValidRuns: count,
+        average
+    };
+}
+
+// Function to aggregate Cogralys results
+function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number): CogralysResults {
+    // Define log suffixes
+    const logSuffixes = ['-init', '-populate', '-run'];
+
+    // Process data for each log suffix
+    const results = logSuffixes.map(suffix => {
+        // Generate log prefix for Cogralys with specific suffix
+        const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "", suffix);
+
+        // Find and sort time files
+        const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+
+        // Process time data
+        const data = processTimeData(timeFiles, gprPath);
+        return {
+            allRuns: data.timesData,
+            count: data.count,
+            average: data.average,
+        };
+    });
+
+    // Construct and return the result object
+    return {
+        overhead: {
+            parsing: results[0],
+            populatingDB: results[1]
+        },
+        run: results[2]
+    };
+}
+
+function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: number): BenchmarkResult {
+    const gprName = basename(gprPath, ".gpr");
+
+    const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs$logSuffix`;
+
+    const adactlOverhead = aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "-overhead");
+    const adactlRun = aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "");
+
+    return {
+        adactl: {
+            overhead: { parsing: adactlOverhead },
+            run: adactlRun
+        },
+        gnatcheck_1cores: {
+            overhead: {
+                parsing: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "-overhead")
+            },
+            run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "")
+        },
+        gnatcheck_32cores: {
+            overhead: {
+                parsing: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "-overhead")
+            },
+            run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
+        },
+        cogralys: aggregateCogralysResults(alireTomlPath, gprPath, logPrefix.replace("-j$max_procs", ""), maxIteration)
+    };
+}
+
+export function initializeModule(program: Command): void {
+    program
+        .command("aggregate-results")
+        .description(
+            "Aggregate the benchmark results. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys."
+        )
+        .option(
+            "--maxIteration <number>",
+            "Maximum number of iteration of the processed benchmark",
+            10
+        )
+        .action(
+            (options: { maxIteration: number }) => {
+                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
+
+                const result = [];
+                for (const [crateName, crate] of Object.entries(cratesDB.crates)) {
+                    if (crate.ignore) {
+                        continue;
+                    }
+
+                    for (const project of crate.alireProjects) {
+                        for (const gprProject of project.projects) {
+                            if (gprProject.ignore) {
+                                continue;
+                            }
+
+                            const { Files: _, ...sccMetrics} = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, dirname(gprProject.gprPath), basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json"))) as LanguageSummary;
+
+                            try {
+                                const projectResult: benchmarkResultDB = {
+                                    crateName,
+                                    workDir: project.alireTomlPath,
+                                    gprPath: gprProject.gprPath,
+                                    benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration),
+                                    scc: sccMetrics
+                                };
+
+                                result.push(projectResult)
+                            } catch (e) {
+                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to the following error: `, e);
+                            }
+                        }
+                    }
+                }
+
+                Deno.writeTextFileSync(join(PROJECT_ROOT, OUTPUT_FILENAME), JSON.stringify(result, null, 2));
+            }
+        );
+}

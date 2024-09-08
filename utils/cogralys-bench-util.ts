@@ -18,6 +18,7 @@ import * as UpdateAllCratesDBneo4jComplete from "./modules/update_all_cratesDBNe
 import * as GenerateSCC from "./modules/generateSCC.ts";
 import * as AddProject from "./modules/addProject.ts";
 import * as convertNeo4jJsonToCypherFile from "./modules/convert-neo4j-json-to-cypher-file.ts";
+import * as aggregateResults from "./modules/aggregateResults.ts";
 import * as computeResults from "./modules/computeResults.ts";
 import * as compressResults from "./modules/compressResults.ts";
 import * as deleteBenchmarkLogs from "./modules/deleteBenchmarkLogs.ts";
@@ -110,6 +111,7 @@ GenerateSCC.initializeModule(program);
 
 AddProject.initializeModule(program);
 convertNeo4jJsonToCypherFile.initializeModule(program);
+aggregateResults.initializeModule(program);
 computeResults.initializeModule(program);
 compressResults.initializeModule(program);
 deleteBenchmarkLogs.initializeModule(program);
