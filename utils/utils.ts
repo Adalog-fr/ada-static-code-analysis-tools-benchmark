@@ -4,7 +4,7 @@ import { join } from "jsr:@std/path@^0.225.1";
 import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
 import { Crate, extendedGPRProject, UnifiedCrateData } from "./types.ts";
 
-export function collectOptionList(value, previous) {
+export function collectOptionList(value: any, previous: any[]) {
   return previous.concat([value]);
 }
 

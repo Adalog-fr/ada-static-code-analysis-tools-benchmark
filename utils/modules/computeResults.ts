@@ -1,9 +1,9 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, GPRProject } from "../utils.ts";
-import { COGRALYS_DIR_NAME } from "../../config.ts";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
+import { LanguageSummary } from "../scc-types.ts";
 
 const PROJECT_ROOT = "/Volumes/Data/programmation_pro/These/codegralys/bench-from-PC-Full-AMD/bench-from-gitlab/ada-static-code-analysis-benchmark"
 
@@ -45,9 +45,32 @@ function interpolateLogPrefix(logPrefix: string, commandName: string, xpNum: num
 
 // Helper function to process time data
 function processTimeData(timeFiles: string[], gprPath: string) {
-    const timesData: TimeData[] = [];
+    const timesData: TimeData<number>[] = [];
     let count = 0;
-    const sum: Record<string, number> = {};
+    const sum: TimeData<number> = {
+      user_time: 0,
+      system_time: 0,
+      cpu_percent: 0,
+      elapsed_time: 0,
+      average_shared_text_size: 0,
+      average_unshared_data_size: 0,
+      average_stack_size: 0,
+      average_total_size: 0,
+      maximum_resident_set_size: 0,
+      average_resident_set_size: 0,
+      major_pagefaults: 0,
+      minor_pagefaults: 0,
+      voluntary_context_switches: 0,
+      involuntary_context_switches: 0,
+      swaps: 0,
+      block_input_operations: 0,
+      block_output_operations: 0,
+      messages_sent: 0,
+      messages_received: 0,
+      signals_delivered: 0,
+      page_size: 0,
+      exit_status: 0
+    };
 
     // Process each time file
     for (const path of timeFiles) {
@@ -69,25 +92,50 @@ function processTimeData(timeFiles: string[], gprPath: string) {
         count++;
 
         // Process each key-value pair in the data
+        const parsedData : TimeData<number> = {
+          user_time: 0,
+          system_time: 0,
+          cpu_percent: 0,
+          elapsed_time: 0,
+          average_shared_text_size: 0,
+          average_unshared_data_size: 0,
+          average_stack_size: 0,
+          average_total_size: 0,
+          maximum_resident_set_size: 0,
+          average_resident_set_size: 0,
+          major_pagefaults: 0,
+          minor_pagefaults: 0,
+          voluntary_context_switches: 0,
+          involuntary_context_switches: 0,
+          swaps: 0,
+          block_input_operations: 0,
+          block_output_operations: 0,
+          messages_sent: 0,
+          messages_received: 0,
+          signals_delivered: 0,
+          page_size: 0,
+          exit_status: 0
+        };
         for (const [key, value] of Object.entries(data)) {
             let numValue: number = key === 'elapsed_time' ? parseTimeToSeconds(value) : parseFloat(value);
             if (!isNaN(numValue)) {
-                sum[key] = (sum[key] || 0) + numValue;
+                sum[key as TimeDataKeyNumber] = (sum[key as TimeDataKeyNumber] || 0) + numValue;
             }
+            parsedData[key as TimeDataKeyNumber] = numValue;
         }
-        timesData.push(data);
+        timesData.push(parsedData);
     }
 
     // Calculate averages
-    const average: Record<string, number> = Object.fromEntries(
-        Object.entries(sum).map(([key, value]) => [key, value / count])
-    );
+    const average: TimeData<number> = Object.fromEntries(
+      Object.entries(sum).map(([key, value]) => [key, value / count])
+    ) as unknown as TimeData<number>;
 
     return { timesData, count, average };
 }
 
 // Function to compute Ada Control results
-function computeAdaControlResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, logSuffix: string) {
+function computeAdaControlResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, logSuffix: string): AdaControlResult {
     // Generate log prefix for Ada Control
     const logPrefix = interpolateLogPrefix(logPrefixTemplate, "adactl", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "0", logSuffix);
 
@@ -113,7 +161,7 @@ function computeAdaControlResults(alireTomlPath: string, gprPath: string, logPre
 }
 
 // Function to compute GNATcheck results
-function computeGNATcheckResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, cores: number, logSuffix: string) {
+function computeGNATcheckResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, cores: number, logSuffix: string): GNATcheckResult {
     // Generate log prefix for GNATcheck
     const logPrefix = interpolateLogPrefix(logPrefixTemplate, "gnatcheck", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, cores, logSuffix);
 
@@ -145,7 +193,12 @@ function computeCogralysResults(alireTomlPath: string, gprPath: string, logPrefi
         const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
 
         // Process time data
-        return processTimeData(timeFiles, gprPath);
+        const data = processTimeData(timeFiles, gprPath);
+        return {
+            allRuns: data.timesData,
+            count: data.count,
+            average: data.average,
+        };
     });
 
     // Construct and return the result object
@@ -158,7 +211,7 @@ function computeCogralysResults(alireTomlPath: string, gprPath: string, logPrefi
     };
 }
 
-function computeResults(alireTomlPath: string, gprPath: string, maxIteration: number) {
+function computeResults(alireTomlPath: string, gprPath: string, maxIteration: number): BenchmarkResult {
     const gprName = basename(gprPath, ".gpr");
 
     const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs$logSuffix`;
@@ -214,19 +267,21 @@ export function initializeModule(program: Command): void {
                                 continue;
                             }
 
+                            const { Files: _, ...sccMetrics} = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, dirname(gprProject.gprPath), basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json"))) as LanguageSummary;
+
                             try {
-                                result.push({
+                                const projectResult: benchmarkResultDB = {
                                     crateName,
                                     workDir: project.alireTomlPath,
                                     gprPath: gprProject.gprPath,
-                                    benchmarkResult: computeResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration)
-                                })
-                                // TODO: add LoC and complexity for each projects
+                                    benchmarkResults: computeResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration),
+                                    scc: sccMetrics
+                                };
+
+                                result.push(projectResult)
                             } catch (e) {
                                 console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to the following error: `, e);
                             }
-
-                            // Deno.exit();
                         }
                     }
                 }
