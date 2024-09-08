@@ -201,3 +201,4 @@ scc_metrics.json
 *.size-adt.json
 *.size-cogralys.json
 *.checkpoint
+src/apdf/obj_debug
