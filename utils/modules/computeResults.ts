@@ -4,8 +4,7 @@ import fg from "npm:fast-glob@3.3.2";
 import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
-
-const PROJECT_ROOT = "/Volumes/Data/programmation_pro/These/codegralys/bench-from-PC-Full-AMD/bench-from-gitlab/ada-static-code-analysis-benchmark"
+import { PROJECT_ROOT } from "../../config.ts";
 
 const OUTPUT_FILENAME = "benchmarkResults.json";
 
