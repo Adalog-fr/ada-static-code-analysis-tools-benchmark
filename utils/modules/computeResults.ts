@@ -3,9 +3,25 @@ import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { formatDuration } from "../utils.ts";
+import { PROJECT_ROOT } from "../../config.ts";
 
 type globalResultTime = { overheadParsing: number, overheadPopulating: number, executionTime: number };
-type entryData = {
+
+type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
+type summaryType = Record<toolKey, globalResultTime>;
+type detailedResultType = {
+    crateName: string;
+    workDir: string;
+    gprPath: string;
+    scc: {
+        loc: number;
+        complexity: number;
+        nbFiles: number;
+    };
+    results: summaryType;
+ };
+
+ type entryData = {
     overhead: {
         parsing: AdaControlResult | GNATcheckResult;
     };
@@ -62,12 +78,14 @@ export function initializeModule(program: Command): void {
             () => {
                 const results: benchmarkResultDB[] = JSON.parse(Deno.readTextFileSync("./benchmarkResults.json"));
 
-                const summary: Record<string, globalResultTime> = {
+                const summary: summaryType = {
                     adactl: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
                     gnatcheck_1cores: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
                     gnatcheck_32cores: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
                     cogralys: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
                 };
+
+                let projctsResults: detailedResultType[] = [];
 
                 // Aggregate data
                 for (const result of results) {
@@ -75,35 +93,48 @@ export function initializeModule(program: Command): void {
 
                     const benchmarkResults = result.benchmarkResults;
 
-                    // AdaControl
-                    console.log("adactl");
+                    const detailedResult : detailedResultType = {
+                      crateName: result.crateName,
+                      workDir: result.workDir,
+                      gprPath: result.gprPath,
+                      scc: {
+                        loc: result.scc.Code,
+                        complexity: result.scc.Complexity,
+                        nbFiles: result.scc.Count
+                      },
+                      results: {
+                        adactl: calculateExecutionTime(benchmarkResults.adactl),
+                        cogralys: calculateExecutionTime(benchmarkResults.cogralys),
+                        gnatcheck_1cores: calculateExecutionTime(benchmarkResults.gnatcheck_1cores),
+                        gnatcheck_32cores: calculateExecutionTime(benchmarkResults.gnatcheck_32cores)
+                      }
+                    };
+                    projctsResults.push(detailedResult);
 
-                    let tmp = calculateExecutionTime(benchmarkResults.adactl);
-                    summary.adactl.overheadParsing += tmp.overheadParsing;
-                    summary.adactl.overheadPopulating += tmp.overheadPopulating;
-                    summary.adactl.executionTime += tmp.executionTime;
+                    // Make a global aggregate result
+
+                    // AdaControl
+                    summary.adactl.overheadParsing += detailedResult.results.adactl.overheadParsing;
+                    summary.adactl.overheadPopulating += detailedResult.results.adactl.overheadPopulating;
+                    summary.adactl.executionTime += detailedResult.results.adactl.executionTime;
 
                     // Gnatcheck 1 core
-                    console.log("gnatcheck_1cores");
-                    tmp = calculateExecutionTime(benchmarkResults.gnatcheck_1cores);
-                    summary.gnatcheck_1cores.overheadParsing += tmp.overheadParsing;
-                    summary.gnatcheck_1cores.overheadPopulating += tmp.overheadPopulating;
-                    summary.gnatcheck_1cores.executionTime += tmp.executionTime;
+                    summary.gnatcheck_1cores.overheadParsing += detailedResult.results.gnatcheck_1cores.overheadParsing;
+                    summary.gnatcheck_1cores.overheadPopulating += detailedResult.results.gnatcheck_1cores.overheadPopulating;
+                    summary.gnatcheck_1cores.executionTime += detailedResult.results.gnatcheck_1cores.executionTime;
 
                     // Gnatcheck 32 cores
-                    console.log("gnatcheck_32cores");
-                    tmp = calculateExecutionTime(benchmarkResults.gnatcheck_32cores);
-                    summary.gnatcheck_32cores.overheadParsing += tmp.overheadParsing;
-                    summary.gnatcheck_32cores.overheadPopulating += tmp.overheadPopulating;
-                    summary.gnatcheck_32cores.executionTime += tmp.executionTime;
+                    summary.gnatcheck_32cores.overheadParsing += detailedResult.results.gnatcheck_32cores.overheadParsing;
+                    summary.gnatcheck_32cores.overheadPopulating += detailedResult.results.gnatcheck_32cores.overheadPopulating;
+                    summary.gnatcheck_32cores.executionTime += detailedResult.results.gnatcheck_32cores.executionTime;
 
                     // Cogralys
-                    console.log("cogralys");
-                    tmp = calculateExecutionTime(benchmarkResults.cogralys);
-                    summary.cogralys.overheadParsing += tmp.overheadParsing;
-                    summary.cogralys.overheadPopulating += tmp.overheadPopulating;
-                    summary.cogralys.executionTime += tmp.executionTime;
+                    summary.cogralys.overheadParsing += detailedResult.results.cogralys.overheadParsing;
+                    summary.cogralys.overheadPopulating += detailedResult.results.cogralys.overheadPopulating;
+                    summary.cogralys.executionTime += detailedResult.results.cogralys.executionTime;
                 }
+
+                Deno.writeTextFileSync(join(PROJECT_ROOT, "benchmarkResultByProject.json"), JSON.stringify(projctsResults, null, 2));
 
                 // Calculate percentages
                 const fastestExecutionTime = Math.min(

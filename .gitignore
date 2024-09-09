@@ -206,3 +206,4 @@ benchmarkResults.json
 benchmark-results.7z
 benchmark-results.7z.tmp
 listOfAllResultFilesToCompress.txt
+benchmarkResultByProject.json

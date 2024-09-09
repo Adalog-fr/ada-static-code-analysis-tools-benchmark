@@ -273,6 +273,7 @@ export function getBlob(crates: { [key: string]: Crate }, maxIteration: number):
     const maxIterationPattern = `{1..${maxIteration}}`;
 
     result.push("./benchmarkResults.json");
+    result.push("./benchmarkResultByProject.json");
     result.push("./cratesDB.json");
     // `{1..1000}` is to prevent a fg bug. In the following string, I got an infinite loop if I add -j* or -j+([0-9])
     result.push(`./gnatcheck-all-${maxIterationPattern}-j{1..1000}.log`);
