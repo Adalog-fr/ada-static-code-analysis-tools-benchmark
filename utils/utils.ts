@@ -61,19 +61,19 @@ export function formatDuration(milliseconds: number): string {
 
   const durationParts = [];
   if (days > 0) {
-      durationParts.push(`${days}d`);
+      durationParts.push(`${Number(days).toLocaleString(undefined, { style: 'unit', unit: 'day' })}`);
   }
   if (hours > 0) {
-      durationParts.push(`${hours % 24}h`);
+      durationParts.push(`${Number(hours % 24).toLocaleString(undefined, { style: 'unit', unit: 'hour' })}`);
   }
   if (minutes > 0) {
-      durationParts.push(`${minutes % 60}m`);
+      durationParts.push(`${Number(minutes % 60).toLocaleString(undefined, { style: 'unit', unit: 'minute' })}`);
   }
   if (seconds > 0) {
-      durationParts.push(`${seconds % 60}s`);
+      durationParts.push(`${Number(seconds % 60).toLocaleString(undefined, { style: 'unit', unit: 'second' })}`);
   }
   if (milliseconds > 0) {
-      durationParts.push(`${milliseconds % 1000}ms`);
+      durationParts.push(`${Number(milliseconds % 1000).toLocaleString(undefined, { maximumSignificantDigits: 1, style: 'unit', unit: 'millisecond' })}`);
   }
 
   return durationParts.join(" ");
