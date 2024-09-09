@@ -78,7 +78,7 @@ function processTimeData(timeFiles: string[], gprPath: string) {
             timeData = JSON.parse(Deno.readTextFileSync(path));
         } catch (e) {
             console.error("Error with: ", path);
-            throw e;
+            continue;
         }
         const { command_being_timed, ...data } = timeData;
 
@@ -123,6 +123,10 @@ function processTimeData(timeFiles: string[], gprPath: string) {
             parsedData[key as TimeDataKeyNumber] = numValue;
         }
         timesData.push(parsedData);
+    }
+
+    if (count < timeFiles.length / 2) {
+        throw new Error(`Error with '${path}': not enough data to compute metrics.`);
     }
 
     // Calculate averages
@@ -266,7 +270,15 @@ export function initializeModule(program: Command): void {
                                 continue;
                             }
 
-                            const { Files: _, ...sccMetrics} = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, dirname(gprProject.gprPath), basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json"))) as LanguageSummary;
+                            let sccMetrics: Omit<LanguageSummary, "Files">;
+                            try {
+                                const { Files: _, ...scc} = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, dirname(gprProject.gprPath), basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json"))) as LanguageSummary;
+                                sccMetrics = scc;
+                            } catch (e) {
+                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to the following error: `, e);
+
+                                continue;
+                            }
 
                             try {
                                 const projectResult: benchmarkResultDB = {
