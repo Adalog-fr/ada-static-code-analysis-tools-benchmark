@@ -1,25 +1,8 @@
-import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
+import { join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult } from "../types.ts";
-import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
+import { benchmarkResultDB, AdaControlResult, CogralysResults, GNATcheckResult, detailedResultType, globalResultTime, summaryType } from "../types.ts";
 import { formatDuration } from "../utils.ts";
 import { PROJECT_ROOT } from "../../config.ts";
-
-type globalResultTime = { overheadParsing: number, overheadPopulating: number, executionTime: number };
-
-type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
-type summaryType = Record<toolKey, globalResultTime>;
-type detailedResultType = {
-    crateName: string;
-    workDir: string;
-    gprPath: string;
-    scc: {
-        loc: number;
-        complexity: number;
-        nbFiles: number;
-    };
-    results: summaryType;
- };
 
  type entryData = {
     overhead: {
@@ -174,7 +157,7 @@ export function initializeModule(program: Command): void {
                     }
                 }
 
-                for (const tool in result) {
+                for (const tool in toolKey) {
                     result[tool].slowerPercentage = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
                     result[tool].fastestOverheadPercentage = (((summary[tool].overheadParsing - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
                 }

@@ -146,3 +146,21 @@ export interface benchmarkResultDB {
     benchmarkResults: BenchmarkResult;
     scc: Omit<LanguageSummary, 'Files'>;
 }
+
+// Computed results
+
+export type globalResultTime = { overheadParsing: number, overheadPopulating: number, executionTime: number };
+
+export type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
+export type summaryType = Record<toolKey, globalResultTime>;
+export type detailedResultType = {
+    crateName: string;
+    workDir: string;
+    gprPath: string;
+    scc: {
+        loc: number;
+        complexity: number;
+        nbFiles: number;
+    };
+    results: summaryType;
+ };
