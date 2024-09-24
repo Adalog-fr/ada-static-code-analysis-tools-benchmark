@@ -20,16 +20,12 @@ function calculateExecutionTime(element: entryData): globalResultTime {
     };
     const maxOverhead = element.run.average.elapsed_time * 0.95; // Assuming overhead threshold
 
-    console.log("elapsed_time: ", element.run.average.elapsed_time);
-
     let overhead = 0;
 
     let tmpParsingOverhead = 0;
     for (const [overheadName, value] of Object.entries(element.overhead)) {
         const currentOverhead = value.average.elapsed_time;
         if (overheadName === "parsing") {
-            console.log("currentOverhead: ", currentOverhead);
-
             tmpParsingOverhead = currentOverhead;
             result.overheadParsing = currentOverhead <= maxOverhead ? currentOverhead : 0;
         } else if (overheadName === "populatingDB") {
@@ -39,8 +35,6 @@ function calculateExecutionTime(element: entryData): globalResultTime {
         }
     }
     overhead += result.overheadParsing;
-
-    console.log("overheadParsing: ", result.overheadParsing);
 
     if (overhead > maxOverhead) {
         overhead = 0;
@@ -69,11 +63,10 @@ export function initializeModule(program: Command): void {
                 };
 
                 let projctsResults: detailedResultType[] = [];
+                let totalLoC = 0;
 
                 // Aggregate data
                 for (const result of results) {
-                    console.log(result.gprPath);
-
                     const benchmarkResults = result.benchmarkResults;
 
                     const detailedResult : detailedResultType = {
@@ -93,6 +86,7 @@ export function initializeModule(program: Command): void {
                       }
                     };
                     projctsResults.push(detailedResult);
+                    totalLoC += result.scc.Code;
 
                     // Make a global aggregate result
 
@@ -157,14 +151,17 @@ export function initializeModule(program: Command): void {
                     }
                 }
 
-                for (const tool in toolKey) {
-                    result[tool].slowerPercentage = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
+                for (const tool in result) {
+                    result[tool as string].slowerPercentage = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
                     result[tool].fastestOverheadPercentage = (((summary[tool].overheadParsing - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
                 }
 
                 // Log the summary table
                 console.table(result);
                 console.log(summary);
+                console.log("Number of projects: ", results.length);
+                console.log("Total number of line of codes: ", totalLoC);
+
             }
         );
 }
