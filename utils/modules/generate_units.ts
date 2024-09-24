@@ -228,7 +228,13 @@ export function initializeModule(program: Command): void {
                         libgpr2.unloadTree({ tree_id: tree.id });
 
                         const localUnits = Array.from(localUnitSet);
-                        const localUnitsList = localUnits.map(e => relative(Deno.cwd(), e)).sort((a, b) => a.localeCompare(b)).join("\n");
+                        const localUnitsList = localUnits
+                            .map(e => relative(Deno.cwd(), e))
+                            .filter(e => e.toLocaleLowerCase().endsWith(".ada")
+                                || e.toLocaleLowerCase().endsWith(".adb")
+                                || e.toLocaleLowerCase().endsWith(".ads"))
+                            .sort((a, b) => a.localeCompare(b))
+                            .join("\n");
                         Deno.writeTextFileSync(basename(path).replace(".gpr", `.units${options.resultingUnitKind === "unit" ? "" : options.resultingUnitKind === "path" ? "_by_path" : "_by_filename"}`), localUnitsList);
 
                     }
