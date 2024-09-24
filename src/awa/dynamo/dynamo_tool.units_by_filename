@@ -1,5 +1,3 @@
-adaint.c
-adaint.h
 ali.adb
 ali.ads
 alloc.ads
@@ -7,12 +5,10 @@ aspects.adb
 aspects.ads
 atree.adb
 atree.ads
-auto-host.h
 butil.adb
 butil.ads
 casing.adb
 casing.ads
-config.h
 csets.adb
 csets.ads
 debug.adb
@@ -130,7 +126,6 @@ gen.ads
 gnatvsn.adb
 gnatvsn.ads
 hostparm.ads
-hwint.h
 krunch.adb
 krunch.ads
 lexer-base.adb
@@ -143,10 +138,8 @@ lib-list.adb
 lib-sort.adb
 lib.adb
 lib.ads
-link.c
 makeutl.adb
 makeutl.ads
-mingw32.h
 mlib-fil.adb
 mlib-fil.ads
 mlib-tgt-specific.adb
@@ -167,8 +160,6 @@ osint.adb
 osint.ads
 output.adb
 output.ads
-prefix.c
-prefix.h
 prj-attr-pm.adb
 prj-attr-pm.ads
 prj-attr.adb
@@ -233,7 +224,6 @@ styleg.adb
 styleg.ads
 stylesw.adb
 stylesw.ads
-system.h
 table.adb
 table.ads
 targparm.adb
@@ -258,8 +248,6 @@ uname.adb
 uname.ads
 urealp.adb
 urealp.ads
-version.c
-version.h
 widechar.adb
 widechar.ads
 yaml-lexer-evaluation.adb

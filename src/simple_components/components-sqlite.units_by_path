@@ -8,7 +8,5 @@ persistent-sqlite-text_io.adb
 persistent-sqlite-text_io.ads
 persistent-sqlite.adb
 persistent-sqlite.ads
-sqlite-sources/sqlite3.c
-sqlite-sources/sqlite3.h
 sqlite.adb
 sqlite.ads

@@ -18,7 +18,6 @@ libadalang-env_hooks.adb
 libadalang-env_hooks.ads
 libadalang-expr_eval.adb
 libadalang-expr_eval.ads
-libadalang-gdb.c
 libadalang-generic_api-introspection.ads
 libadalang-generic_api.adb
 libadalang-generic_api.ads
@@ -78,4 +77,3 @@ libadalang-unparsing_implementation.ads
 libadalang-unparsing.adb
 libadalang-unparsing.ads
 libadalang.ads
-libadalang.h

@@ -83,7 +83,6 @@ gpr_parser-common.adb
 gpr_parser-common.ads
 gpr_parser-debug.adb
 gpr_parser-debug.ads
-gpr_parser-gdb.c
 gpr_parser-generic_api-introspection.ads
 gpr_parser-generic_api.adb
 gpr_parser-generic_api.ads

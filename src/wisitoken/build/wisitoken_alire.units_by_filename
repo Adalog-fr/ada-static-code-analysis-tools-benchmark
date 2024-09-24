@@ -1,7 +1,6 @@
 recover_stats.adb
 s-memory.adb
 wisitoken_config.ads
-wisitoken_config.h
 wisitoken_grammar_actions.adb
 wisitoken_grammar_actions.ads
 wisitoken_grammar_editing.adb
@@ -9,7 +8,6 @@ wisitoken_grammar_editing.ads
 wisitoken_grammar_main.adb
 wisitoken_grammar_main.ads
 wisitoken_grammar_re2c_c.ads
-wisitoken_grammar_re2c.c
 wisitoken_grammar_runtime.adb
 wisitoken_grammar_runtime.ads
 wisitoken-bnf-generate_grammar.adb

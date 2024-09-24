@@ -97,6 +97,3 @@ sdl-video.adb
 sdl-video.ads
 sdl.adb
 sdl.ads
-version_images.c
-version_ttf.c
-version.c

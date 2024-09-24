@@ -13,5 +13,3 @@ src/tcl-tk.adb
 src/tcl-tk.ads
 src/tcl.adb
 src/tcl.ads
-src/tclmacro.c
-src/tkmacro.c

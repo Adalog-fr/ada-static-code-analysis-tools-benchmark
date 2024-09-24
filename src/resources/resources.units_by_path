@@ -1,4 +1,2 @@
 src/resources.adb
 src/resources.ads
-whereami/src/whereami.c
-whereami/src/whereami.h

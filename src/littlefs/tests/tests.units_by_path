@@ -1,6 +1,4 @@
 config/tests_config.ads
-config/tests_config.h
 src/ram_bd.adb
 src/ram_bd.ads
-src/test_lfs_sizes.c
 src/tests.adb

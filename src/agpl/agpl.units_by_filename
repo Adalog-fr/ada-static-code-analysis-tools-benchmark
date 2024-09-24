@@ -1,7 +1,3 @@
-agpl__interfaces__c.h
-agpl__random__c.c
-agpl__trace_c++.h
-agpl__utils_c++.h
 agpl-aux-indexer_string_integer.ads
 agpl-aux.ads
 agpl-average_queue_float.ads
@@ -316,7 +312,6 @@ asl-semaphore-counting.adb
 asl-semaphore-counting.ads
 asl-semaphore.ads
 asl.ads
-bellman_ford.c
 dom-core-attrs.adb
 dom-core-attrs.ads
 dom-core-cdata_sections.ads

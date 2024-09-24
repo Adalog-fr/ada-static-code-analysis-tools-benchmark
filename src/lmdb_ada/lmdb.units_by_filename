@@ -3,7 +3,3 @@ lmdb-utils.adb
 lmdb-utils.ads
 lmdb.adb
 lmdb.ads
-lmdb.h
-mdb.c
-midl.c
-midl.h

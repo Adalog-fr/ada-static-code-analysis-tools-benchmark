@@ -12,10 +12,6 @@ affine_sampling_machine.adb
 affine_sampling_machine.ads
 affine_transformations.adb
 affine_transformations.ads
-append_dcmatrix.c
-append_dcmatrix.h
-append_polymatrix.c
-append_polymatrix.h
 apply_induced_permutations.adb
 apply_induced_permutations.ads
 arrays_of_floating_vector_lists_io.ads
@@ -107,10 +103,6 @@ c_to_ada_arrays.adb
 c_to_ada_arrays.ads
 c_to_phcpack.adb
 c_to_phcpack.ads
-c2ada_dc_matrix.c
-c2ada_dc_matrix.h
-c2ada_poly_matrix.c
-c2ada_poly_matrix.h
 cascade_homotopies_io.adb
 cascade_homotopies_io.ads
 cascade_homotopies.adb
@@ -129,8 +121,6 @@ cayley_trick.adb
 cayley_trick.ads
 cell_stack.adb
 cell_stack.ads
-cell_stack1.c
-cell_stack1.h
 cells_container.adb
 cells_container.ads
 cells_interface.adb
@@ -197,9 +187,7 @@ convex_hull_methods.adb
 convex_hull_methods.ads
 corrector_convolutions.adb
 corrector_convolutions.ads
-cosupoly_to_c.c
 cosupoly.adb
-cosupsys_to_c.c
 cosupsys.adb
 crude_path_trackers.adb
 crude_path_trackers.ads
@@ -209,16 +197,6 @@ curves_into_grassmannian.adb
 curves_into_grassmannian.ads
 cyclic_roots_system.adb
 cyclic_roots_system.ads
-dc_interpolation.c
-dc_interpolation.h
-dc_inverse.c
-dc_inverse.h
-dc_matrix.c
-dc_matrix.h
-dc_roots.c
-dc_roots.h
-dcmplx.c
-dcmplx.h
 deca_double_constants.ads
 deca_double_linear_solvers.ads
 deca_double_matrices_io.ads
@@ -413,8 +391,6 @@ demics_output_convertors.adb
 demics_output_convertors.ads
 demics_output_data.adb
 demics_output_data.ads
-demicsrun.cpp
-demicsrun.h
 determinantal_systems.adb
 determinantal_systems.ads
 diagonal_homotopy_interface.adb
@@ -1110,7 +1086,6 @@ factored_witness_vectors.adb
 factored_witness_vectors.ads
 fast_double_renormalizations.adb
 fast_double_renormalizations.ads
-feedback.c
 file_management_interface.adb
 file_management_interface.ads
 file_management.adb
@@ -1151,12 +1126,8 @@ flow_tables.adb
 flow_tables.ads
 form_lp.adb
 form_lp.ads
-form_lp1.c
-form_lp1.h
 frequency_graph.adb
 frequency_graph.ads
-fTest.cpp
-fTest.h
 generate_unions.adb
 generate_unions.ads
 generating_mixed_cells.adb
@@ -1235,7 +1206,6 @@ generic_vecvecs_io.ads
 generic_vecvecs.adb
 generic_vecvecs.ads
 getsys1.adb
-getsys2.c
 getsys3.adb
 giftwrap_interface.adb
 giftwrap_interface.ads
@@ -1246,7 +1216,6 @@ global_dynamic32_triangulation.adb
 global_dynamic32_triangulation.ads
 global_dynamic64_triangulation.adb
 global_dynamic64_triangulation.ads
-global.h
 graded_lexicographic_order.adb
 graded_lexicographic_order.ads
 greatest_common_divisors.adb
@@ -1464,16 +1433,12 @@ hypersurfaces_and_filters.adb
 hypersurfaces_and_filters.ads
 index_tree_lp.adb
 index_tree_lp.ads
-index_tree_lp1.c
-index_tree_lp1.h
 induced_permutations.adb
 induced_permutations.ads
 initial_mixed_cell.adb
 initial_mixed_cell.ads
 inner_normal_cones.adb
 inner_normal_cones.ads
-inputData.cpp
-inputData.h
 integer_cells_container.adb
 integer_cells_container.ads
 integer_face_enumerators.adb
@@ -1545,8 +1510,6 @@ irreducible_decompositions_io.adb
 irreducible_decompositions_io.ads
 irreducible_decompositions.adb
 irreducible_decompositions.ads
-iTest.cpp
-iTest.h
 jacobian_convolution_circuits.adb
 jacobian_convolution_circuits.ads
 jacobian_rabinowitsch_trick.adb
@@ -1665,7 +1628,6 @@ main_verification.adb
 main_verification.ads
 main_vertex_points.adb
 main_vertex_points.ads
-main.cpp
 make_input_planes.adb
 make_input_planes.ads
 make_sample_grids.adb
@@ -1698,8 +1660,6 @@ mixed_volume_computation.adb
 mixed_volume_computation.ads
 mixed_volume.adb
 mixed_volume.ads
-mixed_volume1.c
-mixed_volume1.h
 mixedvol_algorithm.adb
 mixedvol_algorithm.ads
 monodromy_actions_breakup.adb
@@ -2158,10 +2118,6 @@ multprec_write_numbers.ads
 multprec64_common_divisors.ads
 mv.adb
 mv.ads
-mv1.c
-mv1.h
-mvc.cpp
-mvc.h
 natural_io.ads
 newton_coefficient_convolutions.adb
 newton_coefficient_convolutions.ads
@@ -2361,8 +2317,6 @@ octodobl_vector_splitters.adb
 octodobl_vector_splitters.ads
 one_level_lp.adb
 one_level_lp.ads
-one_level_lp1.c
-one_level_lp1.h
 option_handlers.adb
 option_handlers.ads
 orbits_of_solutions_io.adb
@@ -2371,8 +2325,6 @@ orbits_of_solutions.adb
 orbits_of_solutions.ads
 osculating_planes.adb
 osculating_planes.ads
-outputData.cpp
-outputData.h
 pack_continuation_parameters.adb
 pack_continuation_parameters.ads
 pade_continuation_interface.adb
@@ -2392,7 +2344,6 @@ partitions_of_sets_of_unknowns.adb
 partitions_of_sets_of_unknowns.ads
 partitions_of_sets_strings.adb
 partitions_of_sets_strings.ads
-pass_poly.c
 path_counts_table.adb
 path_counts_table.ads
 path_trackers_interface.adb
@@ -2599,8 +2550,6 @@ pieri_root_count.adb
 pieri_root_count.ads
 pieri_root_counts.adb
 pieri_root_counts.ads
-pieri_sols.c
-pieri_sols.h
 pieri_solver.adb
 pieri_solver.ads
 pieri_trees_io.adb
@@ -2627,16 +2576,6 @@ planes_and_polynomials.adb
 planes_and_polynomials.ads
 point_lists_and_strings.adb
 point_lists_and_strings.ads
-poly_dcmplx.c
-poly_dcmplx.h
-poly_gcd.c
-poly_gcd.h
-poly_hermite.c
-poly_hermite.h
-poly_matrix.c
-poly_matrix.h
-poly_smith.c
-poly_smith.h
 polyhedral_coefficient_correctors.adb
 polyhedral_coefficient_correctors.ads
 polyhedral_coefficient_homotopies.adb
@@ -2667,8 +2606,6 @@ predictor_corrector_trackers.adb
 predictor_corrector_trackers.ads
 prepare_for_mv.adb
 prepare_for_mv.ads
-prepare_for_mv1.c
-prepare_for_mv1.h
 print_poly.adb
 process_io.adb
 process_io.ads
@@ -3243,9 +3180,6 @@ random_series_vectors.adb
 random_series_vectors.ads
 random_test_points.adb
 random_test_points.ads
-read_input.c
-realization.c
-realization.h
 recondition_swap_homotopies.adb
 recondition_swap_homotopies.ads
 rectangular_sample_grids.adb
@@ -3264,10 +3198,6 @@ regular_solution_curves_series.adb
 regular_solution_curves_series.ads
 relation_table.adb
 relation_table.ads
-relation_table1.c
-relation_table1.h
-reltab.cpp
-reltab.h
 remember_numeric_minors.adb
 remember_numeric_minors.ads
 remember_symbolic_minors.adb
@@ -3276,7 +3206,6 @@ residual_convolution_circuits.adb
 residual_convolution_circuits.ads
 resolve_schubert_problems.adb
 resolve_schubert_problems.ads
-root_count.c
 root_counters_output.adb
 root_counters_output.ads
 root_refining_parameters.adb
@@ -3366,8 +3295,6 @@ sigint_handler.adb
 sigint_handler.ads
 simplex_pivoting.adb
 simplex_pivoting.ads
-simplex.cpp
-simplex.h
 single_polyhedral_trackers.adb
 single_polyhedral_trackers.ads
 singular_values_of_hessians.adb
@@ -4785,8 +4712,6 @@ three_way_minima.adb
 three_way_minima.ads
 time_stamps.adb
 time_stamps.ads
-timer.c
-timer.h
 timing_package.adb
 timing_package.ads
 total_degree_start_systems.adb
@@ -5001,9 +4926,6 @@ ts_brackmons.adb
 ts_brackpols.adb
 ts_breakup.adb
 ts_byemess.adb
-ts_c2ada.c
-ts_c2phc.c
-ts_c2str.c
 ts_calldemics.adb
 ts_canocurv.adb
 ts_cascade.adb
@@ -5031,8 +4953,6 @@ ts_corcnv.adb
 ts_corecount.adb
 ts_correct.adb
 ts_cosup.adb
-ts_cosupoly.c
-ts_cosupsys.c
 ts_cosuptoc.adb
 ts_cpm.adb
 ts_cprintf.adb
@@ -5058,9 +4978,6 @@ ts_daqrd.adb
 ts_dasvd.adb
 ts_davec.adb
 ts_dbldbl.adb
-ts_dc_determinant.c
-ts_dc_inverse.c
-ts_dcmplx.c
 ts_ddcmplx.adb
 ts_ddfun.adb
 ts_ddlu.adb
@@ -5086,7 +5003,6 @@ ts_diclp.adb
 ts_dicsols_io.adb
 ts_dimred.adb
 ts_divdif.adb
-ts_divide.c
 ts_dqrd.adb
 ts_drivcrit.adb
 ts_drivdynl.adb
@@ -5112,8 +5028,6 @@ ts_evalpoly.adb
 ts_evddpol.adb
 ts_exp.adb
 ts_expand.adb
-ts_explore_Cpoles.c
-ts_explore_poles.c
 ts_exptrack.adb
 ts_expvec.adb
 ts_extran.adb
@@ -5123,7 +5037,6 @@ ts_fabry.adb
 ts_fabryhom.adb
 ts_factor.adb
 ts_feasi.adb
-ts_feedback.c
 ts_filescan.adb
 ts_filfac.adb
 ts_filman.adb
@@ -5139,7 +5052,6 @@ ts_fltvec.adb
 ts_fvector.adb
 ts_gcd.adb
 ts_getstart.adb
-ts_getsys.c
 ts_giftwcon.adb
 ts_giftwrap.adb
 ts_givrot.adb
@@ -5156,7 +5068,6 @@ ts_hdnorm.adb
 ts_hdqrd.adb
 ts_hdsvd.adb
 ts_hdvec.adb
-ts_hermite.c
 ts_hesscnv.adb
 ts_hesscrit.adb
 ts_hessian.adb
@@ -5176,9 +5087,7 @@ ts_impvol.adb
 ts_incols.adb
 ts_induce.adb
 ts_inform.adb
-ts_inputData.cpp
 ts_intdia.adb
-ts_interpolation.c
 ts_intinv.adb
 ts_intlina.adb
 ts_intmat.adb
@@ -5268,7 +5177,6 @@ ts_mtvol.adb
 ts_mtvolcon.adb
 ts_muldef.adb
 ts_multip.adb
-ts_multiply.c
 ts_multproj.adb
 ts_mupolin.adb
 ts_mutex.adb
@@ -5305,7 +5213,6 @@ ts_opthand.adb
 ts_org_pieri.adb
 ts_ortocor.adb
 ts_outdata.adb
-ts_outputData.cpp
 ts_pactun.adb
 ts_padepcnv.adb
 ts_padepred.adb
@@ -5336,9 +5243,6 @@ ts_perfqdvc.adb
 ts_perfserlin.adb
 ts_permanent.adb
 ts_permstar.adb
-ts_phc_sol_rw.c
-ts_phc_sys_rw.c
-ts_pieri_solver.c
 ts_pieri.adb
 ts_pirhom.adb
 ts_piroco.adb
@@ -5348,7 +5252,6 @@ ts_plrexp.adb
 ts_poco.adb
 ts_poldrop.adb
 ts_polmat.adb
-ts_poly_inverse.c
 ts_poly.adb
 ts_polyflat.adb
 ts_posets.adb
@@ -5384,7 +5287,6 @@ ts_random.adb
 ts_randpoly.adb
 ts_ratapp.adb
 ts_realcont.adb
-ts_realization.c
 ts_realnewt.adb
 ts_reduce.adb
 ts_rho.adb
@@ -5501,15 +5403,8 @@ ts_tropisms.adb
 ts_unimod.adb
 ts_unisam.adb
 ts_unisolve.adb
-ts_use_c2fac.c
-ts_use_c2phc.c
-ts_use_c2pieri.c
-ts_use_celcon.c
 ts_use_giftwrap.adb
-ts_use_solcon.c
-ts_use_solpool.c
 ts_use_sweep.adb
-ts_use_syspool.c
 ts_userlift.adb
 ts_vlprs.adb
 ts_vmpdiff.adb
@@ -5643,5 +5538,3 @@ write_witness_solutions.adb
 write_witness_solutions.ads
 zero_index_tree.adb
 zero_index_tree.ads
-zero_index_tree1.c
-zero_index_tree1.h

@@ -13,5 +13,3 @@ tcl-tk.adb
 tcl-tk.ads
 tcl.adb
 tcl.ads
-tclmacro.c
-tkmacro.c

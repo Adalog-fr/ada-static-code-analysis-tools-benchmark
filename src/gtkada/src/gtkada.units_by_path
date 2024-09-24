@@ -693,9 +693,6 @@ gtkada-style.ads
 gtkada-types.adb
 gtkada-types.ads
 gtkada.ads
-misc_generated.c
-misc_osx.h
-misc.c
 pango-cairo.adb
 pango-cairo.ads
 pango.ads

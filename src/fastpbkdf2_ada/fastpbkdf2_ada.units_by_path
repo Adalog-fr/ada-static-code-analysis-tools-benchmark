@@ -1,6 +1,3 @@
-fastpbkdf2/benchutil.h
-fastpbkdf2/fastpbkdf2.c
-fastpbkdf2/fastpbkdf2.h
 src/fastpbkdf2_ada.ads
 src/fastpbkdf2_generic.adb
 src/fastpbkdf2_generic.ads

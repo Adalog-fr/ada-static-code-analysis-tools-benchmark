@@ -82,7 +82,6 @@
 .build/lkparser/src/gpr_parser-common.ads
 .build/lkparser/src/gpr_parser-debug.adb
 .build/lkparser/src/gpr_parser-debug.ads
-.build/lkparser/src/gpr_parser-gdb.c
 .build/lkparser/src/gpr_parser-generic_api-introspection.ads
 .build/lkparser/src/gpr_parser-generic_api.adb
 .build/lkparser/src/gpr_parser-generic_api.ads

@@ -161,10 +161,6 @@
 3rdparty/xmlada/unicode-names.ads
 3rdparty/xmlada/unicode.adb
 3rdparty/xmlada/unicode.ads
-src/agpl__interfaces__c.h
-src/agpl__random__c.c
-src/agpl__trace_c++.h
-src/agpl__utils_c++.h
 src/agpl-aux-indexer_string_integer.ads
 src/agpl-aux.ads
 src/agpl-average_queue_float.ads
@@ -474,7 +470,6 @@ src/agpl-xml-utils.ads
 src/agpl-xml.adb
 src/agpl-xml.ads
 src/agpl.ads
-src/bellman_ford.c
 src/dom-core-nodes-output.adb
 src/dom-core-nodes-output.ads
 src/trace_true/agpl-trace_is.ads

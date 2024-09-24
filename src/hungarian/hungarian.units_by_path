@@ -1,4 +1,2 @@
-3rdparty/hungarian.c
-3rdparty/hungarian.h
 hungarian_solver.adb
 hungarian_solver.ads

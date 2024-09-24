@@ -10,5 +10,3 @@ persistent-sqlite.adb
 persistent-sqlite.ads
 sqlite.adb
 sqlite.ads
-sqlite3.c
-sqlite3.h

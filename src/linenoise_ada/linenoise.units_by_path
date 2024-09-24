@@ -1,7 +1,2 @@
-src/helpers.c
 src/linenoise.adb
 src/linenoise.ads
-src/linenoise/linenoise-c.c
-src/linenoise/linenoise.h
-src/linenoise/utf8.c
-src/linenoise/utf8.h

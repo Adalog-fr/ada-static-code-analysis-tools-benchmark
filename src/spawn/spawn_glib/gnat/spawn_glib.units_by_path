@@ -1,5 +1,3 @@
-/workspaces/bench-source/src/spawn/spawn_glib/source/spawn/pipe2.c
-/workspaces/bench-source/src/spawn/spawn_glib/source/spawn/posix_const.c
 /workspaces/bench-source/src/spawn/spawn_glib/source/spawn/spawn-channels.adb
 /workspaces/bench-source/src/spawn/spawn_glib/source/spawn/spawn-channels.ads
 /workspaces/bench-source/src/spawn/spawn_glib/source/spawn/spawn-environments-initialize_default__glib.adb

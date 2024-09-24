@@ -1,6 +1,5 @@
 src/gpr_build_util.adb
 src/gpr_build_util.ads
-src/gpr_imports.c
 src/gpr-ali.adb
 src/gpr-ali.ads
 src/gpr-attr-pm.adb

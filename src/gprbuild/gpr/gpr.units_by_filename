@@ -1,6 +1,5 @@
 gpr_build_util.adb
 gpr_build_util.ads
-gpr_imports.c
 gpr-ali.adb
 gpr-ali.ads
 gpr-attr-pm.adb

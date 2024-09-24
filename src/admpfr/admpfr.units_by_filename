@@ -1,5 +1,3 @@
-admpfr_stubs.c
-admpfr_stubs.h
 admpfr-bindings.ads
 admpfr-custom_bindings.ads
 admpfr.adb

@@ -89,8 +89,6 @@ src/gen-utils-gnat.ads
 src/gen-utils.adb
 src/gen-utils.ads
 src/gen.ads
-src/gnat/adaint.c
-src/gnat/adaint.h
 src/gnat/ali.adb
 src/gnat/ali.ads
 src/gnat/alloc.ads
@@ -98,12 +96,10 @@ src/gnat/aspects.adb
 src/gnat/aspects.ads
 src/gnat/atree.adb
 src/gnat/atree.ads
-src/gnat/auto-host.h
 src/gnat/butil.adb
 src/gnat/butil.ads
 src/gnat/casing.adb
 src/gnat/casing.ads
-src/gnat/config.h
 src/gnat/csets.adb
 src/gnat/csets.ads
 src/gnat/debug.adb
@@ -129,17 +125,14 @@ src/gnat/gen-utils-gnat.adb
 src/gnat/gnatvsn.adb
 src/gnat/gnatvsn.ads
 src/gnat/hostparm.ads
-src/gnat/hwint.h
 src/gnat/krunch.adb
 src/gnat/krunch.ads
 src/gnat/lib-list.adb
 src/gnat/lib-sort.adb
 src/gnat/lib.adb
 src/gnat/lib.ads
-src/gnat/link.c
 src/gnat/makeutl.adb
 src/gnat/makeutl.ads
-src/gnat/mingw32.h
 src/gnat/mlib-fil.adb
 src/gnat/mlib-fil.ads
 src/gnat/mlib-tgt-specific.adb
@@ -160,8 +153,6 @@ src/gnat/osint.adb
 src/gnat/osint.ads
 src/gnat/output.adb
 src/gnat/output.ads
-src/gnat/prefix.c
-src/gnat/prefix.h
 src/gnat/prj-attr-pm.adb
 src/gnat/prj-attr-pm.ads
 src/gnat/prj-attr.adb
@@ -226,7 +217,6 @@ src/gnat/styleg.adb
 src/gnat/styleg.ads
 src/gnat/stylesw.adb
 src/gnat/stylesw.ads
-src/gnat/system.h
 src/gnat/table.adb
 src/gnat/table.ads
 src/gnat/targparm.adb
@@ -245,8 +235,6 @@ src/gnat/uname.adb
 src/gnat/uname.ads
 src/gnat/urealp.adb
 src/gnat/urealp.ads
-src/gnat/version.c
-src/gnat/version.h
 src/gnat/widechar.adb
 src/gnat/widechar.ads
 src/model/gen-database-model.ads

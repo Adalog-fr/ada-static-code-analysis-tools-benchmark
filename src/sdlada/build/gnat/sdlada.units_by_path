@@ -4,7 +4,6 @@
 ../../src/image/sdl-images-versions.ads
 ../../src/image/sdl-images.adb
 ../../src/image/sdl-images.ads
-../../src/image/version_images.c
 ../../src/linux/sdl-platform-get.adb
 ../../src/sdl-c_pointers.ads
 ../../src/sdl-clipboard.adb
@@ -97,6 +96,4 @@
 ../../src/ttf/sdl-ttfs-versions.ads
 ../../src/ttf/sdl-ttfs.adb
 ../../src/ttf/sdl-ttfs.ads
-../../src/ttf/version_ttf.c
-../../src/version.c
 gen/src/sdl-events-keyboards.ads

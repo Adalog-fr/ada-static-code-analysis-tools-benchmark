@@ -5,14 +5,12 @@ ada_annex_p_process_lalr_main.ads
 ada_annex_p_process_lr1_main.adb
 ada_annex_p_process_lr1_main.ads
 ada_annex_p_re2c_c.ads
-ada_annex_p_re2c.c
 ada_mode_wisi_lalr_parse.ads
 ada_mode_wisi_lr1_parse.ads
 annex_p_to_wy.adb
 compare_annex_p.adb
 compare_lengths.adb
 config/emacs_ada_mode_config.ads
-config/emacs_ada_mode_config.h
 dump_libadalang_corrected.adb
 dump_wisitoken_corrected.adb
 run_ada_lalr_parse.ads

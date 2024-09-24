@@ -1,8 +1,3 @@
-c_threaded_variables.c
-c_threaded_variables.h
-c_varargs_to_ada.c
-c_varargs_to_ada.h
-ncurses_compat.c
 terminal_interface-curses_constants.ads
 terminal_interface-curses-aux.adb
 terminal_interface-curses-aux.ads

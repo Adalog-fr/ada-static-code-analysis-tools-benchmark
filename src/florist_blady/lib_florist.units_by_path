@@ -1,5 +1,3 @@
-confsrc/config.h
-confsrc/pconfig.h
 gensrc/posix-c.ads
 gensrc/posix-implementation-ok_signals.ads
 gensrc/posix-implementation.adb
@@ -12,7 +10,6 @@ gensrc/posix-xti.adb
 gensrc/posix.ads
 gensrc/threads/posix-timers-extensions.adb
 libsrc/ada_streams.ads
-libsrc/c_inet_ntoa.c
 libsrc/posix_c.ads
 libsrc/posix_calendar.ads
 libsrc/posix_configurable_file_limits.ads
@@ -75,10 +72,6 @@ libsrc/posix-group_database.ads
 libsrc/posix-implementation.ads
 libsrc/posix-io.adb
 libsrc/posix-io.ads
-libsrc/posix-macros-select.c
-libsrc/posix-macros-sockets.c
-libsrc/posix-macros-xti.c
-libsrc/posix-macros.c
 libsrc/posix-memory_locking.adb
 libsrc/posix-memory_locking.ads
 libsrc/posix-memory_mapping.adb

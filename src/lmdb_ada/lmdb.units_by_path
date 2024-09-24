@@ -1,7 +1,3 @@
-src/liblmdb/lmdb.h
-src/liblmdb/mdb.c
-src/liblmdb/midl.c
-src/liblmdb/midl.h
 src/lmdb_h.ads
 src/lmdb-utils.adb
 src/lmdb-utils.ads

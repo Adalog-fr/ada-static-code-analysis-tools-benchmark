@@ -1,4 +1,3 @@
-src/errno.c
 src/event_device-force_feedbacks.adb
 src/event_device-force_feedbacks.ads
 src/event_device-input_dev.adb

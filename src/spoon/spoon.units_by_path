@@ -1,4 +1,3 @@
-src/knife.c
 src/spoon-api.ads
 src/spoon-output.adb
 src/spoon-output.ads

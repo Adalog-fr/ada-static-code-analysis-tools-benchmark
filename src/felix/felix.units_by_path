@@ -1,9 +1,7 @@
-src/cio.c
 src/cstandio.adb
 src/cstandio.ads
 src/nalansys.adb
 src/nalansys.ads
-src/nls.c
 src/posix/csioopnu.adb
 src/stantext.adb
 src/stantext.ads

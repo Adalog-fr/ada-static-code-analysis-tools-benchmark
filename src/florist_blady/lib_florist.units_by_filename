@@ -1,8 +1,5 @@
 ada_streams.ads
 ada_task_identification.ads
-c_inet_ntoa.c
-config.h
-pconfig.h
 posix_asynchronous_io.ads
 posix_c.ads
 posix_calendar.ads
@@ -80,10 +77,6 @@ posix-implementation.ads
 posix-io.adb
 posix-io.ads
 posix-limits.ads
-posix-macros-select.c
-posix-macros-sockets.c
-posix-macros-xti.c
-posix-macros.c
 posix-memory_locking.adb
 posix-memory_locking.ads
 posix-memory_mapping.adb
