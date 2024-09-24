@@ -234,7 +234,6 @@ export function initializeModule(program: Command): void {
                     }
                     taskRunner.run().then(() => {
                         taskRunner.terminate();
-                        progress.render(completed++);
                     }).catch((e) => {
                         taskRunner.terminate();
                         throw e;
