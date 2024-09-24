@@ -85,6 +85,8 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "--show-rule",
         "-o",
         "gnatcheck-%PRJ_NAME%-$xpNum-j$max_procs$logSuffix.report",
+        "--no_objects_dir",
+        "-files=%UNITS_BY_FILENAME%",
         "-P%PRJ%",
         "%EXTRA_ARGS%",
         "-rules",
