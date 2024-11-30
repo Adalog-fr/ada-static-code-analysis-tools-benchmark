@@ -1,12 +1,32 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult } from "../types.ts";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
 const OUTPUT_FILENAME = "benchmarkResults.json";
+
+/**
+ * Helper function to calculate standard deviation
+ * @param values
+ * @param mean
+ * @returns return the standard deviation of values based on mean
+ */
+function calculateStandardDeviation(values: number[], mean: number): { value: number, percentage: number } {
+    // Calculate sum of squared differences from mean
+    const squaredDifferences = values.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0);
+    // Calculate variance by dividing sum by count of values
+    const variance = squaredDifferences / values.length;
+    // Calculate standard deviation
+    const stdDev = Math.sqrt(variance);
+    // Calculate standard deviation as percentage of mean
+    const stdDevPercent = mean !== 0 ? (stdDev / mean) * 100 : 0;
+
+    // Return square root of variance (standard deviation)
+    return { value: stdDev, percentage: stdDevPercent };
+}
 
 /**
  * Convert a string representation of a aggregater size (B for Byte, M for Megabyte, etc.) into the corresponding byte
@@ -71,6 +91,32 @@ function processTimeData(timeFiles: string[], gprPath: string) {
       exit_status: 0
     };
 
+    // Initialize arrays to store values for standard deviation calculation
+    const valuesForStdDev: { [K in TimeDataKeyNumber]: number[] } = {
+        user_time: [],
+        system_time: [],
+        cpu_percent: [],
+        elapsed_time: [],
+        average_shared_text_size: [],
+        average_unshared_data_size: [],
+        average_stack_size: [],
+        average_total_size: [],
+        maximum_resident_set_size: [],
+        average_resident_set_size: [],
+        major_pagefaults: [],
+        minor_pagefaults: [],
+        voluntary_context_switches: [],
+        involuntary_context_switches: [],
+        swaps: [],
+        block_input_operations: [],
+        block_output_operations: [],
+        messages_sent: [],
+        messages_received: [],
+        signals_delivered: [],
+        page_size: [],
+        exit_status: []
+    };
+
     // Process each time file
     for (const path of timeFiles) {
         let timeData: TimeDataWithCommand;
@@ -115,10 +161,16 @@ function processTimeData(timeFiles: string[], gprPath: string) {
           page_size: 0,
           exit_status: 0
         };
+
+        // Process each key-value pair in the data
         for (const [key, value] of Object.entries(data)) {
+            // Parse value based on key type
             let numValue: number = key === 'elapsed_time' ? parseTimeToSeconds(value) : parseFloat(value);
             if (!isNaN(numValue)) {
+                // Add to sum for average calculation
                 sum[key as TimeDataKeyNumber] = (sum[key as TimeDataKeyNumber] || 0) + numValue;
+                // Store value for standard deviation calculation
+                valuesForStdDev[key as TimeDataKeyNumber].push(numValue);
             }
             parsedData[key as TimeDataKeyNumber] = numValue;
         }
@@ -134,7 +186,16 @@ function processTimeData(timeFiles: string[], gprPath: string) {
       Object.entries(sum).map(([key, value]) => [key, value / count])
     ) as unknown as TimeData<number>;
 
-    return { timesData, count, average };
+    // Calculate standard deviations
+    const standardDeviation: TimeData<StandardDeviationResult> = {} as TimeData<StandardDeviationResult>;
+    for (const key in valuesForStdDev) {
+        standardDeviation[key as TimeDataKeyNumber] = calculateStandardDeviation(
+            valuesForStdDev[key as TimeDataKeyNumber],
+            average[key as TimeDataKeyNumber]
+        );
+    }
+
+    return { timesData, count, average, standardDeviation };
 }
 
 // Function to aggregate Ada Control results
@@ -152,14 +213,15 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
     const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
 
     // Process time data
-    const { timesData, count, average } = processTimeData(timeFiles, gprPath);
+    const { timesData, count, average, standardDeviation } = processTimeData(timeFiles, gprPath);
 
     // Return the results
     return {
         adtSize,
         allRuns: timesData,
         nbValidRuns: count,
-        average
+        average,
+        standardDeviation
     };
 }
 
@@ -172,13 +234,14 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
     const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
 
     // Process time data
-    const { timesData, count, average } = processTimeData(timeFiles, gprPath);
+    const { timesData, count, average, standardDeviation } = processTimeData(timeFiles, gprPath);
 
     // Return the results
     return {
         allRuns: timesData,
         nbValidRuns: count,
-        average
+        average,
+        standardDeviation
     };
 }
 
@@ -201,6 +264,7 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
             allRuns: data.timesData,
             count: data.count,
             average: data.average,
+            standardDeviation: data.standardDeviation
         };
     });
 

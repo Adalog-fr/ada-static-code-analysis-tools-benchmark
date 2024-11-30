@@ -16,7 +16,9 @@ function calculateExecutionTime(element: entryData): globalResultTime {
     const result : globalResultTime = {
       overheadParsing: 0,
       overheadPopulating: 0,
-      executionTime: 0
+      executionTime: 0,
+      timeData: element.run.average,
+      overheadTimeData: element.overhead.parsing.average
     };
     const maxOverhead = element.run.average.elapsed_time * 0.95; // Assuming overhead threshold
 
@@ -45,6 +47,33 @@ function calculateExecutionTime(element: entryData): globalResultTime {
     return result;
 }
 
+function emptyTimeData() {
+    return {
+        user_time: 0,
+        system_time: 0,
+        cpu_percent: 0,
+        elapsed_time: 0,
+        average_shared_text_size: 0,
+        average_unshared_data_size: 0,
+        average_stack_size: 0,
+        average_total_size: 0,
+        maximum_resident_set_size: 0,
+        average_resident_set_size: 0,
+        major_pagefaults: 0,
+        minor_pagefaults: 0,
+        voluntary_context_switches: 0,
+        involuntary_context_switches: 0,
+        swaps: 0,
+        block_input_operations: 0,
+        block_output_operations: 0,
+        messages_sent: 0,
+        messages_received: 0,
+        signals_delivered: 0,
+        page_size: 0,
+        exit_status: 0,
+    }
+}
+
 export function initializeModule(program: Command): void {
     program
         .command("compute-results")
@@ -56,10 +85,26 @@ export function initializeModule(program: Command): void {
                 const results: benchmarkResultDB[] = JSON.parse(Deno.readTextFileSync("./benchmarkResults.json"));
 
                 const summary: summaryType = {
-                    adactl: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
-                    gnatcheck_1cores: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
-                    gnatcheck_32cores: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
-                    cogralys: { overheadParsing: 0, overheadPopulating: 0, executionTime: 0 },
+                    adactl: {
+                      overheadParsing: 0, overheadPopulating: 0, executionTime: 0,
+                      timeData: emptyTimeData(),
+                      overheadTimeData: emptyTimeData()
+                    },
+                    gnatcheck_1cores: {
+                      overheadParsing: 0, overheadPopulating: 0, executionTime: 0,
+                      timeData: emptyTimeData(),
+                      overheadTimeData: emptyTimeData()
+                    },
+                    gnatcheck_32cores: {
+                      overheadParsing: 0, overheadPopulating: 0, executionTime: 0,
+                      timeData: emptyTimeData(),
+                      overheadTimeData: emptyTimeData()
+                    },
+                    cogralys: {
+                      overheadParsing: 0, overheadPopulating: 0, executionTime: 0,
+                      timeData: emptyTimeData(),
+                      overheadTimeData: emptyTimeData()
+                    },
                 };
 
                 let projctsResults: detailedResultType[] = [];
@@ -122,10 +167,10 @@ export function initializeModule(program: Command): void {
                 );
 
                 const fastestOverhead = Math.min(
-                    summary.adactl.overheadParsing,
-                    summary.gnatcheck_1cores.overheadParsing,
-                    summary.gnatcheck_32cores.overheadParsing,
-                    summary.cogralys.overheadParsing
+                    summary.adactl.overheadParsing + summary.adactl.overheadPopulating,
+                    summary.gnatcheck_1cores.overheadParsing + summary.gnatcheck_1cores.overheadPopulating,
+                    summary.gnatcheck_32cores.overheadParsing + summary.gnatcheck_32cores.overheadPopulating,
+                    summary.cogralys.overheadParsing + summary.cogralys.overheadPopulating
                 );
 
                 const result = {
@@ -153,7 +198,7 @@ export function initializeModule(program: Command): void {
 
                 for (const tool in result) {
                     result[tool as string].slowerPercentage = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
-                    result[tool].fastestOverheadPercentage = (((summary[tool].overheadParsing - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
+                    result[tool].fastestOverheadPercentage = ((((summary[tool].overheadParsing + summary[tool].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
                 }
 
                 // Log the summary table
