@@ -180,6 +180,8 @@ function generateProjectsArray(projects: extendedGPRProject[], command: string[]
             item.replace("%UNITS%", "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units")) : item)
         .map(item => item.includes("%UNITS_BY_FILENAME%") ?
             item.replace("%UNITS_BY_FILENAME%", "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units_by_filename")) : item)
+        .map(item => item.includes("%UNITS_BY_PATH%") ?
+            item.replace("%UNITS_BY_PATH%", "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units_by_path")) : item)
         .map(item => item.includes("%PRJ_NAME%") ?
         item.replace("%PRJ_NAME%", basename(project.gprPath).replace(".gpr", "")) : item)
         .map(item => item.includes("%EXTRA_ARGS%") ?

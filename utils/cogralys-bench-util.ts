@@ -94,6 +94,22 @@ CreateRunBenchmarkCommand.initializeModule(program, {
     ]
 })
 
+CreateRunBenchmarkCommand.initializeModule(program, {
+    commandName: "gnatmetrics",
+    description: "Run GNATmetrics",
+    ruleFile: "",
+    command: [
+        "/opt/gnatsas/bin/gnatmetric",
+        "--generate-xml-output",
+        "--generate-xml-schema",
+        "--wide-character-encoding=8",
+        "--files=%UNITS_BY_PATH%",
+        "-P%PRJ%",
+        "--output-dir=gnatmetric-%PRJ_NAME%",
+        "--xml-file-name=gnatmetric-%PRJ_NAME%.xml",
+    ]
+})
+
 CountResults.initializeModule(program, {
     commandName: "count-results-gnatcheck",
     description: "Count reported results analysis from GNATcheck",
