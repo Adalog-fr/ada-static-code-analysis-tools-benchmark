@@ -45,7 +45,7 @@ export interface extendedGPRProject extends GPRProject {
 // Time (/usr/bin/time) type //
 ///////////////////////////////
 
-export interface TimeData<T extends string | number> {
+export interface TimeData<T extends string | number | StandardDeviationResult> {
     user_time: T;
     system_time: T;
     cpu_percent: T;
@@ -80,12 +80,18 @@ export interface TimeDataWithCommand extends TimeData<string> {
 // Benchmark Types //
 /////////////////////
 
+export interface StandardDeviationResult {
+    value: number;      // The standard deviation value
+    percentage: number; // The standard deviation as percentage of mean
+}
+
 // Define the structure for Ada Control results
 export type AdaControlResult = {
     adtSize: number;
     allRuns: TimeData<number>[];
     nbValidRuns: number;
     average: TimeData<number>;
+    standardDeviation: TimeData<StandardDeviationResult>;
 };
 
 // Define the structure for GNATcheck results
@@ -93,6 +99,7 @@ export type GNATcheckResult = {
     allRuns: TimeData<number>[];
     nbValidRuns: number;
     average: TimeData<number>;
+    standardDeviation: TimeData<StandardDeviationResult>;
 };
 
 // Define the structure for Cogralys results
@@ -102,17 +109,20 @@ export type CogralysResults = {
             allRuns: TimeData<number>[];
             count: number;
             average: TimeData<number>;
+            standardDeviation: TimeData<StandardDeviationResult>;
         };
         populatingDB: {
             allRuns: TimeData<number>[];
             count: number;
             average: TimeData<number>;
+            standardDeviation: TimeData<StandardDeviationResult>;
         };
     };
     run: {
         allRuns: TimeData<number>[];
         count: number;
         average: TimeData<number>;
+        standardDeviation: TimeData<StandardDeviationResult>;
     };
 };
 
@@ -149,7 +159,7 @@ export interface benchmarkResultDB {
 
 // Computed results
 
-export type globalResultTime = { overheadParsing: number, overheadPopulating: number, executionTime: number };
+export type globalResultTime = { overheadParsing: number, overheadPopulating: number, executionTime: number, timeData: TimeData<number>, overheadTimeData: TimeData<number> };
 
 export type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
 export type summaryType = Record<toolKey, globalResultTime>;
