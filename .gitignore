@@ -207,3 +207,9 @@ benchmark-results.7z
 benchmark-results.7z.tmp
 listOfAllResultFilesToCompress.txt
 benchmarkResultByProject.json
+scatter*.eps
+scatter*.pdf
+scatter*.png
+scatter*.svg
+phdBenchmark
+*.metrix
