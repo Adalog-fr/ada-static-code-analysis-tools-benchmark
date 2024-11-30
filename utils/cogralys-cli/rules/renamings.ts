@@ -1,9 +1,8 @@
 import { join } from "jsr:@std/path@^0.225.1";
-import { Query } from "https://deno.land/x/neo4j_driver_lite@5.18.0/core/types.ts";
-import { RuleType, responseRecords, ruleConstructorParamsExtended } from "./types/rules.ts";
+import { RuleType, responseRecords, ruleConstructorParamsExtended, type Query } from "./types/rules.ts";
 
 export default class Renamings extends RuleType {
-    static readonly ruleName = 'Renamings';
+    static override readonly ruleName = 'Renamings';
     query: string;
 
     constructor(cypherQueriesPath: string, timing: boolean, resultFile: Deno.FsFile) {
@@ -11,7 +10,7 @@ export default class Renamings extends RuleType {
         this.query = Deno.readTextFileSync(join(cypherQueriesPath, "renamings.cyp"));
     }
 
-    static initialize(params: ruleConstructorParamsExtended): Renamings {
+    static override initialize(params: ruleConstructorParamsExtended): Renamings {
         return new Renamings(params.cypherQueriesPath, params.timing, params.resultFile);
     }
 

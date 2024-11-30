@@ -44,6 +44,7 @@ const { timing, host, path: directoryPath, username, password, output: resultFil
 const ruleFileParsed: ruleFile = JSON.parse(Deno.readTextFileSync(rulePath));
 const rulesToControl: RuleType[] = [];
 const driver = neo4j.driver(host, neo4j.auth.basic(username, password));
+const session = driver.session({ defaultAccessMode: neo4j.session.READ });
 
 // Open the result file in write mode
 const file = await Deno.open(resultFile, { write: true, create: true, truncate: true });
@@ -66,7 +67,7 @@ for (const rule of ruleFileParsed) {
 // Execute rules
 let totalDuration = 0;
 for (const rule of rulesToControl) {
-    totalDuration += await rule.executeRule(driver);
+    totalDuration += await rule.executeRule(session);
 }
 
 // Report timing, if enabled

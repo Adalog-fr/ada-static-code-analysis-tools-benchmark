@@ -43,12 +43,11 @@ generate_ts_file() {
 
   # Create the TypeScript file with the corresponding content
   cat <<EOF > "$ts_file_path"
-import { join } from "https://deno.land/std/path/mod.ts";
-import { Query } from "https://deno.land/x/neo4j_driver_lite@5.18.0/core/types.ts";
-import { RuleType, responseRecords, ruleConstructorParamsExtended } from "./types/rules.ts";
+import { join } from "jsr:@std/path@^0.225.1";
+import { RuleType, responseRecords, ruleConstructorParamsExtended, type Query } from "./types/rules.ts";
 
 export default class $pascal_case_class_name extends RuleType {
-    static readonly ruleName = '$pascal_snake_case_rule_name';
+    static override readonly ruleName = '$pascal_snake_case_rule_name';
     query: string;
 
     constructor(cypherQueriesPath: string, timing: boolean, resultFile: Deno.FsFile) {
@@ -56,7 +55,7 @@ export default class $pascal_case_class_name extends RuleType {
         this.query = Deno.readTextFileSync(join(cypherQueriesPath, "$base_name.cyp"));
     }
 
-    static initialize(params: ruleConstructorParamsExtended): $pascal_case_class_name {
+    static override initialize(params: ruleConstructorParamsExtended): $pascal_case_class_name {
         return new $pascal_case_class_name(params.cypherQueriesPath, params.timing, params.resultFile);
     }
 

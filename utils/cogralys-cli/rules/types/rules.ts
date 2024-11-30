@@ -1,8 +1,9 @@
-import { Query } from "https://deno.land/x/neo4j_driver_lite@5.18.0/core/types.ts";
-import { RecordShape, Record, Driver } from "https://deno.land/x/neo4j_driver_lite@5.18.0/mod.ts";
+import { Session, RecordShape, Record } from "npm:neo4j-driver@5.23.0";
 import { formatDuration } from "../../../utils.ts";
 
 export type responseRecords = Record<RecordShape, PropertyKey, RecordShape<PropertyKey, number>>[];
+
+export type Query = string | String | { text: string, parameters?: any }
 
 export type ruleConstructorParams = {
     cypherQueriesPath: string,
@@ -75,9 +76,10 @@ export abstract class RuleType<T extends typeof RuleType = typeof RuleType> {
      * @see {timing}
      * @see {saveResult}
      */
-    async executeRule(driver: Driver): Promise<number> {
+    async executeRule(session: Session): Promise<number> {
+
         performance.mark('queryStart');
-        const { records } = await driver.executeQuery(this.getQuery(), this.getQueryParameters());
+        const { records } = await session.run(this.getQuery(), this.getQueryParameters());
         performance.mark('queryEnd');
 
         if (this.timing) {

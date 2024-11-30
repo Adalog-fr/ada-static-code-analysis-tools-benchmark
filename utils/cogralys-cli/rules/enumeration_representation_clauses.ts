@@ -1,9 +1,8 @@
 import { join } from "jsr:@std/path@^0.225.1";
-import { Query } from "https://deno.land/x/neo4j_driver_lite@5.18.0/core/types.ts";
-import { RuleType, responseRecords, ruleConstructorParamsExtended } from "./types/rules.ts";
+import { RuleType, responseRecords, ruleConstructorParamsExtended, type Query } from "./types/rules.ts";
 
 export default class EnumerationRepresentationClauses extends RuleType {
-    static readonly ruleName = 'Enumeration_Representation_Clauses';
+    static override readonly ruleName = 'Enumeration_Representation_Clauses';
     query: string;
 
     constructor(cypherQueriesPath: string, timing: boolean, resultFile: Deno.FsFile) {
@@ -11,7 +10,7 @@ export default class EnumerationRepresentationClauses extends RuleType {
         this.query = Deno.readTextFileSync(join(cypherQueriesPath, "enumeration_representation_clauses.cyp"));
     }
 
-    static initialize(params: ruleConstructorParamsExtended): EnumerationRepresentationClauses {
+    static override initialize(params: ruleConstructorParamsExtended): EnumerationRepresentationClauses {
         return new EnumerationRepresentationClauses(params.cypherQueriesPath, params.timing, params.resultFile);
     }
 

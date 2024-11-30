@@ -1,9 +1,8 @@
 import { join } from "jsr:@std/path@^0.225.1";
-import { Query } from "https://deno.land/x/neo4j_driver_lite@5.18.0/core/types.ts";
-import { RuleType, responseRecords, ruleConstructorParamsExtended } from "./types/rules.ts";
+import { RuleType, responseRecords, ruleConstructorParamsExtended, type Query } from "./types/rules.ts";
 
 export default class TooManyParents extends RuleType {
-    static readonly ruleName = 'Too_Many_Parents';
+    static override readonly ruleName = 'Too_Many_Parents';
     query: string;
     minNbParents: number;
 
@@ -13,7 +12,7 @@ export default class TooManyParents extends RuleType {
         this.minNbParents = minNbParents;
     }
 
-    static initialize(params: ruleConstructorParamsExtended): TooManyParents {
+    static override initialize(params: ruleConstructorParamsExtended): TooManyParents {
         return new TooManyParents(params.cypherQueriesPath, params.timing, params.resultFile, params.minNbParents);
     }
 
@@ -21,7 +20,7 @@ export default class TooManyParents extends RuleType {
       return this.query;
     }
 
-    getQueryParameters(): any {
+    override getQueryParameters(): any {
         return {
             minNbParents: this.minNbParents
         };
