@@ -2,5 +2,6 @@
     "deno.enable": true,
     "todo-tree.regex.regex": "(--|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
     "deno.unstable": true,
-    "terminal.integrated.cursorStyle": "underline"
+    "terminal.integrated.cursorStyle": "underline",
+    "vue.server.hybridMode": false
 }
