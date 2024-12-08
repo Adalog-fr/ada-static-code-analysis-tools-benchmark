@@ -6,3 +6,4 @@ export { default as Enumeration_Representation_Clauses } from "./rules/enumerati
 export { default as Renamings } from "./rules/renamings.ts";
 export { default as Slices } from "./rules/slices.ts";
 export { default as Too_Many_Parents } from "./rules/too_many_parents.ts";
+export { default as Variable_Usage } from "./rules/variable_usage.ts";

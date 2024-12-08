@@ -6,5 +6,6 @@
     ["Enumeration_Representation_Clauses"],
     ["Renamings"],
     ["Slices"],
-    ["Too_Many_Parents", { "minNbParents": 2 }]
+    ["Too_Many_Parents", { "minNbParents": 2 }],
+    ["Variable_Usage"]
 ]

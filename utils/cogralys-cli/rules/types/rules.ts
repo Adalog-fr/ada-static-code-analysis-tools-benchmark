@@ -3,7 +3,7 @@ import { formatDuration } from "../../../utils.ts";
 
 export type responseRecords = Record<RecordShape, PropertyKey, RecordShape<PropertyKey, number>>[];
 
-export type Query = string | String | { text: string, parameters?: any }
+export type Query = string | { text: string, parameters?: any } | string[] | { text: string, parameters?: any }[];
 
 export type ruleConstructorParams = {
     cypherQueriesPath: string,
