@@ -3,6 +3,7 @@ FROM gnatpro-asis:24.0
 # ENV OS=unix
 
 # Dependencies for compiling Ada files
+RUN apt update
 RUN apt-get install -y build-essential libssl-dev \
     unzip liblzma-dev libcurl4-openssl-dev \
     default-libmysqlclient-dev \
@@ -42,29 +43,52 @@ RUN wget --no-check-certificate https://dist.neo4j.org/cypher-shell/cypher-shell
     sudo apt install -y ./cypher-shell_5.23.0_all.deb && \
     rm cypher-shell_5.23.0_all.deb
 
-# Install Oh My Posh for a better prompt
-RUN curl -s https://ohmyposh.dev/install.sh | bash -s
+# Create linuxbrew user and group
+RUN groupadd -f --gid 1001 linuxbrew && \
+    useradd -m --uid 1001 --gid 1001 -s /bin/bash linuxbrew && \
+    usermod -aG sudo linuxbrew &&  \
+    mkdir -p /home/linuxbrew/.linuxbrew && \
+    chown -R linuxbrew: /home/linuxbrew/.linuxbrew && \
+    echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# Install SCC to count lines of codes
-RUN brew install scc
+# RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 
+USER linuxbrew
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
+USER root
+
+# Create the user
 ARG USERNAME=devy
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-# Create the user
-RUN groupadd --gid $USER_GID $USERNAME \
+# Create the group and user
+RUN groupadd -f --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m --no-log-init -G sudo -s /usr/bin/zsh -r $USERNAME \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
-
-# Set the default user
+    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL >> /etc/sudoers
 USER $USERNAME
 
-# Install tokei to count lines of codes
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN $HOME/.cargo/bin/cargo install --git https://github.com/XAMPPRocky/tokei.git tokei
+# Set up Homebrew environment variables
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:${PATH}"
+ENV HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+ENV HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+ENV HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+ENV MANPATH="/home/linuxbrew/.linuxbrew/share/man:${MANPATH}"
+ENV INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH}"
+
+# Add devy user to linuxbrew group
+USER root
+RUN usermod -aG linuxbrew $USERNAME && \
+    chown -R devy /home/linuxbrew/.linuxbrew
+
+USER $USERNAME
+
+# Install Oh My Posh for a better prompt
+RUN curl -s https://ohmyposh.dev/install.sh | bash -s
+
+# Install SCC to count lines of codes
+RUN brew install scc
 
 # Install sed version 4.9 to prevent `sed -i` issues
 RUN cd /tmp \

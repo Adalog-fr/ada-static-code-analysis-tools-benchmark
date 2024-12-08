@@ -1,7 +1,10 @@
 {
     "deno.enable": true,
     "todo-tree.regex.regex": "(--|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
-    "deno.unstable": true,
     "terminal.integrated.cursorStyle": "underline",
-    "vue.server.hybridMode": false
+    "vue.server.hybridMode": false,
+    "files.watcherExclude": {
+        "**/src/**": true
+    },
+    "search.followSymlinks": false
 }
