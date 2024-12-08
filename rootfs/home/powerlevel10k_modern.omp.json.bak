@@ -1,0 +1,145 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "palette": {
+      "black": "#282c34",
+      "white": "#abb2bf",
+      "true-white": "#FFFFFF",
+      "lightRed": "#e06c75",
+      "darkRed": "#be5046",
+      "green": "#98c379",
+      "lightYellow": "#e5c07b",
+      "darkYellow": "#d19a66",
+      "blue": "#61afef",
+      "magenta": "#c678dd",
+      "cyan": "#56b6c2",
+      "darkGrey": "#5c6370"
+    },
+    "blocks": [
+      {
+        "alignment": "left",
+        "segments": [
+          {
+            "background": "p:true-white",
+            "foreground": "p:black",
+            "leading_diamond": "\ue0b6",
+            "style": "diamond",
+            "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+            "trailing_diamond": "\ue0b4",
+            "type": "os"
+          },
+          {
+            "background": "p:blue",
+            "foreground": "p:true-white",
+            "powerline_symbol": "\ue0b4",
+            "properties": {
+              "style": "full"
+            },
+            "style": "powerline",
+            "template": " \uf0e7 ",
+            "type": "root"
+          },
+          {
+            "background": "p:blue",
+            "foreground": "p:true-white",
+            "powerline_symbol": "\ue0b4",
+            "properties": {
+              "folder_separator_icon": " \ue0b1 ",
+              "style": "full"
+            },
+            "style": "diamond",
+            "template": " {{ .Path }} ",
+            "type": "path"
+          },
+          {
+            "background": "p:lightYellow",
+            "foreground": "p:black",
+            "powerline_symbol": "\ue0b4",
+            "style": "powerline",
+            "template": " {{ .HEAD }} ",
+            "type": "git"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "right",
+        "segments": [
+          {
+            "type": "exit",
+            "style": "diamond",
+            "foreground": "p:green",
+            "foreground_templates": [
+              "{{ if gt .Code 0 }}p:lightRed{{ end }}"
+            ],
+            "trailing_diamond": "\ue0b4",
+            "template": " {{ if gt .Code 0 }}\uf057{{else}}\uf058{{ end }} ",
+            "properties": {
+              "always_enabled": true
+            }
+          },
+          {
+            "type": "executiontime",
+            "style": "powerline",
+            "foreground": "p:true-white",
+            "background": "p:magenta",
+            "powerline_symbol": "\ue0b4",
+            "properties": {
+              "threshold": 3000,
+              "style": "roundrock",
+              "always_enabled": false
+            }
+          },
+          {
+            "background": "p:lightYellow",
+            "foreground": "p:black",
+            "powerline_symbol": "\ue0b4",
+            "style": "diamond",
+            "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} <transparent>\ue0b6</>",
+            "type": "python"
+          },
+          {
+            "background": "p:cyan",
+            "foreground": "p:true-white",
+            "powerline_symbol": "\ue0b4",
+            "style": "diamond",
+            "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} <transparent>\ue0b6</>",
+            "type": "go"
+          },
+          {
+            "background": "p:white",
+            "foreground": "p:black",
+            "properties": {
+              "time_format": "15:04:05"
+            },
+            "style": "powerline",
+            "template": " {{ .CurrentDate | date .Format }}",
+            "trailing_diamond": "\ue0b4",
+            "leading_diamond": "\ue0b6",
+            "powerline_symbol": "\ue0b4",
+            "type": "time"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "newline": true,
+        "segments": [
+          {
+            "foreground": "#98C379",
+            "foreground_templates": [
+              "{{ if gt .Code 0 }}p:lightRed{{ end }}"
+            ],
+            "properties": {
+              "always_enabled": true
+            },
+            "style": "plain",
+            "template": " \u276f ",
+            "type": "exit"
+          }
+        ],
+        "type": "prompt"
+      }
+    ],
+    "version": 2
+  }
