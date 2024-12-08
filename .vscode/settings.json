@@ -6,5 +6,6 @@
     "files.watcherExclude": {
         "**/src/**": true
     },
-    "search.followSymlinks": false
+    "search.followSymlinks": false,
+    "git.enabled": false
 }
