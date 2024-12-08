@@ -8,7 +8,6 @@ import * as CreateRunCommand from "./modules/runCommandFactory.ts";
 import * as CreateRunBenchmarkCommand from "./modules/runBenchmarkCommandFactory.ts";
 import * as GenerateEnv from "./modules/generate_env.ts";
 import * as Run from "./modules/run.ts";
-import * as CogralysRun from "./modules/cogralysRun.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as PopulateNeo4jSingle from "./modules/populate-neo4j-single.ts";
 import * as CleanNeo4j from "./modules/clean-neo4j.ts";
@@ -123,7 +122,11 @@ CountResults.initializeModule(program, {
     filePattern: "adactl.report"
 })
 
-CogralysRun.initializeModule(program);
+CreateRunBenchmarkCommand.initializeModule(program, {
+    commandName: "bench-cogralys",
+    description: "Run Cogralys benchmark",
+    isCogralys: true
+})
 
 GenerateSCC.initializeModule(program);
 

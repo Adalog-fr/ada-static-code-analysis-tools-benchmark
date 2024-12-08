@@ -6,7 +6,7 @@
 #  - GNATcheck, 32 threads
 #  - cogralys
 
-maxIteration=10
+maxIteration=3
 PROJECT_ROOT=$PWD
 NEO4J_HOST="bolt://localhost:7687"
 NEO4J_USER="neo4j"
@@ -48,6 +48,11 @@ function signalHandler()
 trap 'signalHandler' SIGINT
 trap 'signalHandler' SIGQUIT
 
+benchOnly=false
+use_cache=false
+MIN_LOC=0
+MAX_LOC=0
+
 # Parse command line arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -56,6 +61,10 @@ while [[ "$#" -gt 0 ]]; do
         -n|--neo4jHost) NEO4J_HOST="$2"; shift 2 ;;
         --username) NEO4J_USER="$2"; shift 2 ;;
         --password) NEO4J_PASS="$2"; shift 2 ;;
+        --bench-only) benchOnly=true; shift ;;
+        --use-cache) use_cache=true; shift ;;
+        --min-loc) MIN_LOC="$2"; shift 2 ;;
+        --max-loc) MAX_LOC="$2"; shift 2 ;;
         -r|--resume)
           IFS=':' read -r resume_step resume_iteration <<< "$2"
           current_step=$resume_step
@@ -69,7 +78,10 @@ checkpoint_file="benchmark-$maxIteration.checkpoint"
 
 # Load the current state if not set by resume option
 if [ -z "$current_step" ] || [ -z "$current_iteration" ]; then
-    load_checkpoint
+  load_checkpoint
+  if ! [ -f "$checkpoint_file" ] && [ "$benchOnly" = true ]; then
+    current_step=3
+  fi
 fi
 
 # COMPUTE OVERHEAD #
@@ -86,8 +98,8 @@ if [[ $current_step -ge 0 && $current_step -le 2 ]]; then
     for i in $(seq $current_iteration $maxIteration); do
       current_iteration=$i
       save_checkpoint
-      echo -e "\n## Running adactl_benchmark.sh iteration $i/$maxIteration (overhead computation)\n"
-      ./adactl_benchmark.sh --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru
+      echo -e "\n## Running adactl iteration $i/$maxIteration (overhead computation)\n"
+      ./benchmark-base.sh adactl --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru --min-loc $MIN_LOC --max-loc $MAX_LOC
     done
 
     current_step=1
@@ -107,8 +119,8 @@ if [[ $current_step -ge 0 && $current_step -le 2 ]]; then
     for i in $(seq $current_iteration $maxIteration); do
       current_iteration=$i
       save_checkpoint
-      echo -e "\n## Running gnatcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s) (overhead computation)\n"
-      ./gnatcheck_benchmark.sh --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation"
+      echo -e "\n## Running gnatcheck iteration $i/$maxIteration with $j_option thread(s) (overhead computation)\n"
+      ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation" --min-loc $MIN_LOC --max-loc $MAX_LOC
     done
     current_step=$((current_step+1))
     current_iteration=1
@@ -128,12 +140,12 @@ if [ $current_step -eq 3 ]; then
 
   echo -e "# Benchmark AdaControl"
 
-  # Main loop to run benchmarks for Adactl_benchmark.sh
+  # Main loop to run benchmarks for adactl
   for i in $(seq $current_iteration $maxIteration); do
     current_iteration=$i
     save_checkpoint
-    echo -e "\n## Running adactl_benchmark.sh iteration $i/$maxIteration\n"
-    ./adactl_benchmark.sh --xpNum "$i"
+    echo -e "\n## Running adactl iteration $i/$maxIteration\n"
+    ./benchmark-base.sh adactl --xpNum "$i" --min-loc $MIN_LOC --max-loc $MAX_LOC
   done
 
   current_step=4
@@ -147,7 +159,7 @@ if [[ $current_step -ge 4 && $current_step -le 5 ]]; then
 
   nbCores=(1 32)
 
-  # Main loops to run benchmarks for GNATcheck_benchmark.sh with -j1 and -j32
+  # Main loops to run benchmarks for gnatcheck with -j1 and -j32
   for j_option in "${nbCores[@]}"; do
     if [ $current_step -eq 5 ] && [ $j_option -eq 1 ]; then
       continue
@@ -155,8 +167,8 @@ if [[ $current_step -ge 4 && $current_step -le 5 ]]; then
     for i in $(seq $current_iteration $maxIteration); do
       current_iteration=$i
       save_checkpoint
-      echo -e "\n## Running gnatcheck_benchmark.sh iteration $i/$maxIteration with $j_option thread(s)\n"
-      ./gnatcheck_benchmark.sh --xpNum "$i" -j "$j_option"
+      echo -e "\n## Running gnatcheck iteration $i/$maxIteration with $j_option thread(s)\n"
+      ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" --min-loc $MIN_LOC --max-loc $MAX_LOC
     done
     current_step=$((current_step+1))
     current_iteration=1
@@ -167,12 +179,12 @@ fi
 
 echo -e "\n# Benchmark Cogralys"
 
-# Main loop to run benchmarks for cogralys_benchmark.sh
+# Main loop to run benchmarks for cogralys
 for i in $(seq $current_iteration $maxIteration); do
   current_iteration=$i
   save_checkpoint
-  echo -e "\n## Running cogralys_benchmark.sh iteration $i/$maxIteration \n"
-  ./cogralys_benchmark.sh -xpNum "$i" --neo4jHost "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS"
+  echo -e "\n## Running cogralys iteration $i/$maxIteration \n"
+  ./benchmark-base.sh cogralys --xpNum "$i" --neo4jHost "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" --min-loc $MIN_LOC --max-loc $MAX_LOC ${use_cache:+'--use-cache'}
 done
 
 rm "$checkpoint_file"
