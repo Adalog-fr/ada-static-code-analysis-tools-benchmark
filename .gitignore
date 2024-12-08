@@ -213,5 +213,6 @@ scatter*.png
 scatter*.svg
 phdBenchmark
 *.metrix
+metrix.*
 rootfs/home/.als
 rootfs/home/.gk
