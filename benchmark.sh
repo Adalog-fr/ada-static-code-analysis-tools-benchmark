@@ -14,13 +14,18 @@ NEO4J_PASS="auieauie"
 
 # Function to display help information
 show_help() {
-    echo "Usage: $0 [--maxIteration <number>] [-h|--help]"
-    echo "  --maxIteration <number>          How many times the script should run the benchmark."
-    echo "  -n, --neo4jHost <URI>            Bolt URI of Neo4j database, with port (e.g.: bolt://domain.com:7687)."
-    echo "  --username <userName>            Username used to login to Neo4j database."
-    echo "  --password <password>            Password used to login to Neo4j database."
-    echo "  -r, --resume <step:iteration>    Resume from a specific step and iteration (e.g., 3:5)."
-    echo "  -h, --help                       Show help information."
+    echo "Usage: $0 [OPTIONS]"
+    echo "Options:"
+    echo "  --maxIteration <number>          How many times the script should run the benchmark (default: 3)"
+    echo "  -n, --neo4jHost <URI>            Bolt URI of Neo4j database, with port (e.g.: bolt://domain.com:7687)"
+    echo "  --username <userName>            Username used to login to Neo4j database"
+    echo "  --password <password>            Password used to login to Neo4j database"
+    echo "  -r, --resume <step:iteration>    Resume from a specific step and iteration (e.g., 3:5)"
+    echo "  --bench-only                     Skip overhead computation and run only benchmarks"
+    echo "  --use-cache                      Enable cache usage for Cogralys benchmarks"
+    echo "  --min-loc <number>               Minimum lines of code filter for projects (0 for no limit)"
+    echo "  --max-loc <number>               Maximum lines of code filter for projects (0 for no limit)"
+    echo "  -h, --help                       Show help information"
 }
 
 # Save the current state of the script. Useful to resume the script later.
