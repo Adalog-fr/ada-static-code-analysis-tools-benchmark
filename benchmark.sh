@@ -11,6 +11,8 @@ PROJECT_ROOT=$PWD
 NEO4J_HOST="bolt://localhost:7687"
 NEO4J_USER="neo4j"
 NEO4J_PASS="auieauie"
+adactl_rule_file=""
+gnatcheck_rule_file=""
 
 # Function to display help information
 show_help() {
@@ -25,6 +27,8 @@ show_help() {
     echo "  --use-cache                      Enable cache usage for Cogralys benchmarks"
     echo "  --min-loc <number>               Minimum lines of code filter for projects (0 for no limit)"
     echo "  --max-loc <number>               Maximum lines of code filter for projects (0 for no limit)"
+    echo "  --adactl-rule-file <path>        Path to AdaControl rule file for benchmarks"
+    echo "  --gnatcheck-rule-file <path>     Path to GNATcheck rule file for benchmarks"
     echo "  -h, --help                       Show help information"
 }
 
@@ -75,6 +79,8 @@ while [[ "$#" -gt 0 ]]; do
           current_step=$resume_step
           current_iteration=$resume_iteration
           shift 2 ;;
+        --adactl-rule-file) adactl_rule_file="$2"; shift 2 ;;
+        --gnatcheck-rule-file) gnatcheck_rule_file="$2"; shift 2 ;;
         *) echo "Unknown option: $1"; show_help; exit 1 ;;
     esac
 done
@@ -150,7 +156,7 @@ if [ $current_step -eq 3 ]; then
     current_iteration=$i
     save_checkpoint
     echo -e "\n## Running adactl iteration $i/$maxIteration\n"
-    ./benchmark-base.sh adactl --xpNum "$i" --min-loc $MIN_LOC --max-loc $MAX_LOC
+    ./benchmark-base.sh adactl --xpNum "$i" --min-loc $MIN_LOC --max-loc $MAX_LOC ${adactl_rule_file:+--rule "$adactl_rule_file"}
   done
 
   current_step=4
@@ -173,7 +179,7 @@ if [[ $current_step -ge 4 && $current_step -le 5 ]]; then
       current_iteration=$i
       save_checkpoint
       echo -e "\n## Running gnatcheck iteration $i/$maxIteration with $j_option thread(s)\n"
-      ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" --min-loc $MIN_LOC --max-loc $MAX_LOC
+      ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" --min-loc $MIN_LOC --max-loc $MAX_LOC ${gnatcheck_rule_file:+--rule "$gnatcheck_rule_file"}
     done
     current_step=$((current_step+1))
     current_iteration=1
