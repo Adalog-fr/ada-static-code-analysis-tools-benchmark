@@ -40,16 +40,6 @@ process_standard_project() {
     local total_projects=$3
     IFS='|' read -r crateName alireTomlPath gprPath command loc <<< "$project_info"
 
-    # Apply LoC filters if set
-    if [ $MIN_LOC -gt 0 ] && [ $loc -lt $MIN_LOC ]; then
-        echo "[$(get_datetime)] Skipping $crateName (LoC: $loc < minimum: $MIN_LOC)" | tee -a "$globalLogFilePath"
-        return
-    fi
-    if [ $MAX_LOC -gt 0 ] && [ $loc -gt $MAX_LOC ]; then
-        echo "[$(get_datetime)] Skipping $crateName (LoC: $loc > maximum: $MAX_LOC)" | tee -a "$globalLogFilePath"
-        return
-    fi
-
     local base_name=$(basename "$gprPath" .gpr)
     local log_prefix="${commandName}-$base_name-$xpNum-j$max_procs$logSuffix"
 
@@ -130,16 +120,6 @@ process_cogralys_project() {
     local project_number=$2
     local total_projects=$3
     IFS='|' read -r crateName alireTomlPath gprPath cogralys_init_args loc <<< "$project_info"
-
-    # Apply LoC filters if set
-    if [ $MIN_LOC -gt 0 ] && [ $loc -lt $MIN_LOC ]; then
-        echo "[$(get_datetime)] Skipping $crateName (LoC: $loc < minimum: $MIN_LOC)" | tee -a "$globalLogFilePath"
-        return
-    fi
-    if [ $MAX_LOC -gt 0 ] && [ $loc -gt $MAX_LOC ]; then
-        echo "[$(get_datetime)] Skipping $crateName (LoC: $loc > maximum: $MAX_LOC)" | tee -a "$globalLogFilePath"
-        return
-    fi
 
     local base_name=$(basename "$gprPath" .gpr)
     local log_prefix="cogralys-$base_name-$xpNum"
@@ -333,9 +313,24 @@ fi
 # Source the projects array
 source "./${benchmark_type}_projects.sh"
 
+# Filter projects based on LoC criteria
+filtered_projects=()
+for project in "${projects[@]}"; do
+    IFS='|' read -r crateName alireTomlPath gprPath command loc <<< "$project"
+    if [ $MIN_LOC -eq 0 ] || [ $loc -ge $MIN_LOC ]; then
+        if [ $MAX_LOC -eq 0 ] || [ $loc -le $MAX_LOC ]; then
+            filtered_projects+=("$project")
+        else
+            echo "[$(get_datetime)] Skipping $crateName (LoC: $loc > maximum: $MAX_LOC)" | tee -a "$globalLogFilePath"
+        fi
+    else
+        echo "[$(get_datetime)] Skipping $crateName (LoC: $loc < minimum: $MIN_LOC)" | tee -a "$globalLogFilePath"
+    fi
+done
+
 # Setup global variables
 globalLogFilePath="$PROJECT_ROOT/${benchmark_type}-run-all-$xpNum.log"
-total_projects=${#projects[@]}
+total_projects=${#filtered_projects[@]}
 checkpoint_file="$PROJECT_ROOT/benchmark-${benchmark_type}-$xpNum.checkpoint"
 
 # Load checkpoint if not resuming
@@ -357,8 +352,8 @@ current_step=$((current_step-1))
 trap 'signalHandler' SIGINT SIGQUIT
 
 # Process all projects
-for i in "${!projects[@]}"; do
-    echo "${projects[$i]}"
+for i in "${!filtered_projects[@]}"; do
+    echo "${filtered_projects[$i]}"
     exit 0
     if [ $i -lt $current_step ]; then
         continue
@@ -371,9 +366,9 @@ for i in "${!projects[@]}"; do
     fi
     save_checkpoint
     if [[ "$benchmark_type" == "cogralys" ]]; then
-        process_cogralys_project "${projects[$i]}" "$project_number" "$total_projects"
+        process_cogralys_project "${filtered_projects[$i]}" "$project_number" "$total_projects"
     else
-        process_standard_project "${projects[$i]}" "$project_number" "$total_projects"
+        process_standard_project "${filtered_projects[$i]}" "$project_number" "$total_projects"
     fi
 done
 
