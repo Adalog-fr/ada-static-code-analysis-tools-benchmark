@@ -100,6 +100,7 @@ parse_standard_arguments() {
             --rule) ruleFile="$2"; shift 2 ;;
             -s|--suffix) logSuffix="$2"; shift 2 ;;
             --extra-args) extraArgs="$2"; shift 2 ;;
+            --project-list) projectListFile="$2"; shift 2 ;;
             -r|--resume)
                 IFS=':' read -r resume_step resume_iteration <<< "$2"
                 current_step=$resume_step
@@ -262,6 +263,7 @@ parse_cogralys_arguments() {
             --use-cache) use_cache=true; shift ;;
             --min-loc) MIN_LOC="$2"; shift 2 ;;
             --max-loc) MAX_LOC="$2"; shift 2 ;;
+            --project-list) projectListFile="$2"; shift 2 ;;
             -r|--resume)
                 IFS=':' read -r resume_step resume_iteration <<< "$2"
                 current_step=$resume_step
@@ -292,6 +294,7 @@ DENO_RUN_ARGS="--config "$PROJECT_ROOT/deno.jsonc" --allow-all --unsafely-ignore
 logSuffix=""
 extraArgs=""
 ruleFile=""
+projectListFile=""
 
 # Get benchmark type from first argument
 benchmark_type=$1
@@ -313,9 +316,32 @@ fi
 # Source the projects array
 source "./${benchmark_type}_projects.sh"
 
+# Load project list if provided
+selected_projects=()
+if [ -n "$projectListFile" ] && [ -f "$projectListFile" ]; then
+    while IFS= read -r gpr_path || [ -n "$gpr_path" ]; do
+        # Trim whitespace
+        gpr_path=$(echo "$gpr_path" | tr -d '[:space:]')
+        [ -z "$gpr_path" ] && continue  # Skip empty lines
+        # Find matching project from projects array
+        for project in "${projects[@]}"; do
+            IFS='|' read -r pCrateName pAlireTomlPath pGprPath pCommand pLoc <<< "$project"
+            if [ "$pGprPath" = "$gpr_path" ]; then
+                selected_projects+=("$project")
+                break
+            fi
+        done
+    done < "$projectListFile"
+fi
+
+# If no project list provided, use all projects
+if [ ${#selected_projects[@]} -eq 0 ]; then
+    selected_projects=("${projects[@]}")
+fi
+
 # Filter projects based on LoC criteria
 filtered_projects=()
-for project in "${projects[@]}"; do
+for project in "${selected_projects[@]}"; do
     IFS='|' read -r crateName alireTomlPath gprPath command loc <<< "$project"
     if [ $MIN_LOC -eq 0 ] || [ $loc -ge $MIN_LOC ]; then
         if [ $MAX_LOC -eq 0 ] || [ $loc -le $MAX_LOC ]; then

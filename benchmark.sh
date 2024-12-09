@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# By default, this script run 10 times the following configurations:
+# By default, this script run 3 times the following configurations:
 #  - AdaControl
 #  - GNATcheck, monothread
 #  - GNATcheck, 32 threads
@@ -22,8 +22,8 @@ logSuffix=""
 show_help() {
     echo "Usage: $0 [OPTIONS]"
     echo "Options:"
-    echo "  --maxIteration <number>          How many times the script should run the benchmark (default: 3)"
-    echo "  -n, --neo4jHost <URI>            Bolt URI of Neo4j database, with port (e.g.: bolt://domain.com:7687)"
+    echo "  --maxIteration <number>          How many times the script should run the benchmark (default: $maxIteration)"
+    echo "  -n, --neo4jHost <URI>            Bolt URI of Neo4j database, with port (e.g.: $NEO4J_HOST)"
     echo "  --username <userName>            Username used to login to Neo4j database"
     echo "  --password <password>            Password used to login to Neo4j database"
     echo "  -r, --resume <step:iteration>    Resume from a specific step and iteration (e.g., 3:5)"
@@ -36,6 +36,7 @@ show_help() {
     echo "  --skip-adactl                    Skip AdaControl benchmarks (default: false)"
     echo "  --skip-gnatcheck                 Skip GNATcheck benchmarks (default: false)"
     echo "  --skip-cogralys                  Skip Cogralys benchmarks (default: false)"
+    echo "  --project-list <path>            File containing list of project GPR paths to analyze"
     echo "  -s, --suffix <suffix>            Add a suffix to the benchmark log files"
     echo "  -h, --help                       Show help information"
 }
@@ -92,6 +93,7 @@ while [[ "$#" -gt 0 ]]; do
         --skip-adactl) skip_adactl=true; shift ;;
         --skip-gnatcheck) skip_gnatcheck=true; shift ;;
         --skip-cogralys) skip_cogralys=true; shift ;;
+        --project-list) projectListFile="$2"; shift 2 ;;
         -s|--suffix) logSuffix="$2"; shift 2 ;;
         *) echo "Unknown option: $1"; show_help; exit 1 ;;
     esac
@@ -123,7 +125,7 @@ if [[ $current_step -ge 0 && $current_step -le 2 ]]; then
         current_iteration=$i
         save_checkpoint
         echo -e "\n## Running adactl iteration $i/$maxIteration (overhead computation)\n"
-        ./benchmark-base.sh adactl --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru --min-loc $MIN_LOC --max-loc $MAX_LOC ${logSuffix:+-s "$logSuffix"}
+        ./benchmark-base.sh adactl --xpNum "$i" -s "-overhead" --rule $PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.aru --min-loc $MIN_LOC --max-loc $MAX_LOC ${logSuffix:+-s "$logSuffix"} ${projectListFile:+--project-list "$projectListFile"}
       done
     fi
 
@@ -146,7 +148,7 @@ if [[ $current_step -ge 0 && $current_step -le 2 ]]; then
         current_iteration=$i
         save_checkpoint
         echo -e "\n## Running gnatcheck iteration $i/$maxIteration with $j_option thread(s) (overhead computation)\n"
-        ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation" --min-loc $MIN_LOC --max-loc $MAX_LOC ${logSuffix:+-s "$logSuffix"}
+        ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" -s "-overhead" --rule "$PROJECT_ROOT/benchmark-rules/overheadComputation/compute_overhead.rules" --extra-args "--rules-dir=$PROJECT_ROOT/benchmark-rules/overheadComputation" --min-loc $MIN_LOC --max-loc $MAX_LOC ${logSuffix:+-s "$logSuffix"} ${projectListFile:+--project-list "$projectListFile"}
       done
       current_step=$((current_step+1))
       current_iteration=1
@@ -178,7 +180,7 @@ if [ $current_step -eq 3 ]; then
       current_iteration=$i
       save_checkpoint
       echo -e "\n## Running adactl iteration $i/$maxIteration\n"
-      ./benchmark-base.sh adactl --xpNum "$i" --min-loc $MIN_LOC --max-loc $MAX_LOC ${adactl_rule_file:+--rule "$adactl_rule_file"} ${logSuffix:+-s "$logSuffix"}
+      ./benchmark-base.sh adactl --xpNum "$i" --min-loc $MIN_LOC --max-loc $MAX_LOC ${adactl_rule_file:+--rule "$adactl_rule_file"} ${logSuffix:+-s "$logSuffix"} ${projectListFile:+--project-list "$projectListFile"}
     done
   fi
   current_step=4
@@ -202,7 +204,7 @@ if [[ $current_step -ge 4 && $current_step -le 5 ]]; then
         current_iteration=$i
         save_checkpoint
         echo -e "\n## Running gnatcheck iteration $i/$maxIteration with $j_option thread(s)\n"
-        ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" --min-loc $MIN_LOC --max-loc $MAX_LOC ${gnatcheck_rule_file:+--rule "$gnatcheck_rule_file"} ${logSuffix:+-s "$logSuffix"}
+        ./benchmark-base.sh gnatcheck --xpNum "$i" -j "$j_option" --min-loc $MIN_LOC --max-loc $MAX_LOC ${gnatcheck_rule_file:+--rule "$gnatcheck_rule_file"} ${logSuffix:+-s "$logSuffix"} ${projectListFile:+--project-list "$projectListFile"}
       done
       current_step=$((current_step+1))
       current_iteration=1
@@ -225,7 +227,7 @@ if [ "$skip_cogralys" = false ]; then
     current_iteration=$i
     save_checkpoint
     echo -e "\n## Running cogralys iteration $i/$maxIteration \n"
-    ./benchmark-base.sh cogralys --xpNum "$i" --neo4jHost "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" --min-loc $MIN_LOC --max-loc $MAX_LOC ${use_cache:+'--use-cache'} ${logSuffix:+-s "$logSuffix"}
+    ./benchmark-base.sh cogralys --xpNum "$i" --neo4jHost "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" --min-loc $MIN_LOC --max-loc $MAX_LOC ${use_cache:+'--use-cache'} ${logSuffix:+-s "$logSuffix"} ${projectListFile:+--project-list "$projectListFile"}
   done
 
 fi
