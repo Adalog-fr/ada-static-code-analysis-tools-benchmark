@@ -32,8 +32,9 @@ export function initializeModule(program: Command, settings: {
         .option("-e, --execPath <path>", "Path to cogralys bin/exec file", defaultCogralysEnginePath)
         .option("-l, --log4jSettingsPath <path>", "Path to log4j settings", "$PROJECT_ROOT/rootfs/home/bin/log4j.properties")
         .action((options: optionsType) => {
-            // options.execPath = getCogralysEnginePath(options.execPath);
-            options.execPath = "atgdb";
+            if (settings.isCogralys) {
+                options.execPath = getCogralysEnginePath(options.execPath);
+            }
             const crates: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
             const projects: extendedGPRProject[] = filterCompleteCrates(crates.crates);
             let finalProjects: finalProjectArrayType = [];
