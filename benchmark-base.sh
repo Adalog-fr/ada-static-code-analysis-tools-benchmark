@@ -30,6 +30,141 @@ load_checkpoint() {
     fi
 }
 
+# Function to show help message
+show_help() {
+    cat << EOF
+Usage: $0 <benchmark_type> [options]
+
+Benchmark Types:
+    cogralys     Run Cogralys benchmarks
+    adactl       Run AdaControl benchmarks
+    gnatcheck    Run GNATcheck benchmarks
+    gnatmetrics  Run GNATmetric
+
+Common Options:
+    --xpNum NUMBER           Experiment number
+    --min-loc NUMBER         Minimum lines of code filter
+    --max-loc NUMBER         Maximum lines of code filter
+    --project-list FILE      File containing list of project GPR paths to analyze
+    -s, --suffix STRING      Log file suffix
+    -r, --resume STEP:ITER   Resume from specific step and iteration
+
+Standard Benchmark Options (adactl, gnatcheck, gnatmetrics):
+    -j NUMBER                Number of parallel processes
+    --rule FILE              Rules file path
+    --extra-args STRING      Additional arguments
+
+Cogralys Specific Options:
+    -n, --neo4jHost HOST     Neo4j host address
+    --username USER          Neo4j username
+    --password PASS          Neo4j password
+    --use-cache              Use cache for Cogralys
+
+Example:
+    $0 cogralys --xpNum 1 --min-loc 1000 --project-list projects.txt
+    $0 adactl --xpNum 1 -j 4 --rule rules.aru
+EOF
+}
+
+# Function to parse all arguments
+parse_arguments() {
+    # First argument is benchmark type
+    benchmark_type=$1
+    shift
+
+    # Show help if requested
+    if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]] || [[ -z "$benchmark_type" ]]; then
+        show_help
+        exit 0
+    fi
+
+    # Initialize default values
+    xpNum=0
+    MIN_LOC=0
+    MAX_LOC=0
+    projectListFile=""
+    resume_requested=false
+    current_step=1
+    current_project_step=1
+    logSuffix=""
+
+    # Standard benchmark defaults
+    max_procs=0
+    ruleFile=""
+    extraArgs=""
+
+    # Cogralys defaults
+    NEO4J_HOST="bolt://localhost:7687"
+    NEO4J_USER="neo4j"
+    NEO4J_PASS="auieauie"
+    use_cache=false
+
+    # Parse all arguments
+    while [[ "$#" -gt 0 ]]; do
+        case $1 in
+            # Common arguments
+            --xpNum) xpNum="$2"; shift 2 ;;
+            --min-loc) MIN_LOC="$2"; shift 2 ;;
+            --max-loc) MAX_LOC="$2"; shift 2 ;;
+            --project-list) projectListFile="$2"; shift 2 ;;
+            -s|--suffix) logSuffix="$2"; shift 2 ;;
+            -r|--resume)
+                IFS=':' read -r current_step current_project_step <<< "$2"
+                resume_requested=true
+                shift 2 ;;
+
+            # Standard benchmark arguments
+            -j)
+                if [[ "$benchmark_type" != "cogralys" ]]; then
+                    max_procs="$2"; shift 2
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+            --rule)
+                if [[ "$benchmark_type" != "cogralys" ]]; then
+                    ruleFile="$2"; shift 2
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+            --extra-args)
+                if [[ "$benchmark_type" != "cogralys" ]]; then
+                    extraArgs="$2"; shift 2
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+
+            # Cogralys specific arguments
+            -n|--neo4jHost)
+                if [[ "$benchmark_type" == "cogralys" ]]; then
+                    NEO4J_HOST="$2"; shift 2
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+            --username)
+                if [[ "$benchmark_type" == "cogralys" ]]; then
+                    NEO4J_USER="$2"; shift 2
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+            --password)
+                if [[ "$benchmark_type" == "cogralys" ]]; then
+                    NEO4J_PASS="$2"; shift 2
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+            --use-cache)
+                if [[ "$benchmark_type" == "cogralys" ]]; then
+                    use_cache=true; shift
+                else
+                    echo "Unknown option: $1"; exit 1
+                fi ;;
+
+            # Unknown option
+            *) echo "Unknown option: $1"; exit 1 ;;
+        esac
+    done
+}
+
 ########################
 # Standard Functions   #
 ########################
@@ -41,7 +176,7 @@ process_standard_project() {
     IFS='|' read -r crateName alireTomlPath gprPath command loc <<< "$project_info"
 
     local base_name=$(basename "$gprPath" .gpr)
-    local log_prefix="${commandName}-$base_name-$xpNum-j$max_procs$logSuffix"
+    local log_prefix="${commandName}-$base_name-$xpNum-j$max_procs${logSuffix:+"-$logSuffix"}"
 
     echo "[$(get_datetime)] [$project_number/$total_projects] START" | tee -a "$globalLogFilePath"
     cd "$PROJECT_ROOT/$alireTomlPath"
@@ -88,28 +223,6 @@ clean_files() {
     echo "[$(get_datetime)] [$alireTomlPath] Start cleaning" | tee -a "$globalLogFilePath"
     rm -f *.ali *.adt
     echo "[$(get_datetime)] [$alireTomlPath] End cleaning" | tee -a "$globalLogFilePath"
-}
-
-parse_standard_arguments() {
-    while [[ "$#" -gt 0 ]]; do
-        case $1 in
-            --xpNum) xpNum="$2"; shift 2 ;;
-            --min-loc) MIN_LOC="$2"; shift 2 ;;
-            --max-loc) MAX_LOC="$2"; shift 2 ;;
-            -j) max_procs="$2"; shift 2 ;;
-            --rule) ruleFile="$2"; shift 2 ;;
-            -s|--suffix) logSuffix="$2"; shift 2 ;;
-            --extra-args) extraArgs="$2"; shift 2 ;;
-            --project-list) projectListFile="$2"; shift 2 ;;
-            -r|--resume)
-                IFS=':' read -r resume_step resume_iteration <<< "$2"
-                current_step=$resume_step
-                current_project_step=$resume_iteration
-                resume_requested=true
-                shift 2 ;;
-            *) echo "Unknown option: $1"; exit 1 ;;
-        esac
-    done
 }
 
 ########################
@@ -252,65 +365,27 @@ clean_db() {
     echo "[$(get_datetime)] [$gprPath] End cleaning DB" | tee -a "$globalLogFilePath"
 }
 
-parse_cogralys_arguments() {
-    while [[ "$#" -gt 0 ]]; do
-        case $1 in
-            --xpNum) xpNum="$2"; shift 2 ;;
-            -h|--help) show_help; exit 0 ;;
-            -n|--neo4jHost) NEO4J_HOST="$2"; shift 2 ;;
-            --username) NEO4J_USER="$2"; shift 2 ;;
-            --password) NEO4J_PASS="$2"; shift 2 ;;
-            --use-cache) use_cache=true; shift ;;
-            --min-loc) MIN_LOC="$2"; shift 2 ;;
-            --max-loc) MAX_LOC="$2"; shift 2 ;;
-            --project-list) projectListFile="$2"; shift 2 ;;
-            -r|--resume)
-                IFS=':' read -r resume_step resume_iteration <<< "$2"
-                current_step=$resume_step
-                current_project_step=$resume_iteration
-                resume_requested=true
-                shift 2 ;;
-            *) echo "Unknown option: $1"; exit 1 ;;
-        esac
-    done
-}
-
 ####################
 # Main Execution   #
 ####################
 
 # Initialize common variables
-resume_requested=false
-use_cache=false
-MIN_LOC=0
-MAX_LOC=0
-xpNum=0
-max_procs=0
 PROJECT_ROOT=$PWD
-NEO4J_HOST="bolt://localhost:7687"
-NEO4J_USER="neo4j"
-NEO4J_PASS="auieauie"
 DENO_RUN_ARGS="--config "$PROJECT_ROOT/deno.jsonc" --allow-all --unsafely-ignore-certificate-errors --unstable-ffi"
-logSuffix=""
-extraArgs=""
-ruleFile=""
-projectListFile=""
 
-# Get benchmark type from first argument
-benchmark_type=$1
-shift
+# Get benchmark type and parse arguments
+parse_arguments "$@"
 
-# Parse arguments based on benchmark type
-if [[ "$benchmark_type" == "cogralys" ]]; then
-    parse_cogralys_arguments "$@"
-else
+globalLogFilePath="$PROJECT_ROOT/${benchmark_type}-run-all-$xpNum${logSuffix:+"-$logSuffix"}.log"
+
+# Set default rule file based on benchmark type
+if [[ "$benchmark_type" != "cogralys" ]] && [[ -z "$ruleFile" ]]; then
     case $benchmark_type in
         adactl) ruleFile="$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru" ;;
         gnatcheck) ruleFile="$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/gnatcheck.rules" ;;
         gnatmetrics) ruleFile="" ;;
         *) echo "Unknown benchmark type: $benchmark_type"; exit 1 ;;
     esac
-    parse_standard_arguments "$@"
 fi
 
 # Source the projects array
@@ -355,7 +430,6 @@ for project in "${selected_projects[@]}"; do
 done
 
 # Setup global variables
-globalLogFilePath="$PROJECT_ROOT/${benchmark_type}-run-all-$xpNum.log"
 total_projects=${#filtered_projects[@]}
 checkpoint_file="$PROJECT_ROOT/benchmark-${benchmark_type}-$xpNum.checkpoint"
 
@@ -379,8 +453,6 @@ trap 'signalHandler' SIGINT SIGQUIT
 
 # Process all projects
 for i in "${!filtered_projects[@]}"; do
-    echo "${filtered_projects[$i]}"
-    exit 0
     if [ $i -lt $current_step ]; then
         continue
     fi
