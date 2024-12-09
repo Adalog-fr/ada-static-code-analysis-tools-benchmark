@@ -176,7 +176,7 @@ process_standard_project() {
     IFS='|' read -r crateName alireTomlPath gprPath command loc <<< "$project_info"
 
     local base_name=$(basename "$gprPath" .gpr)
-    local log_prefix="${commandName}-$base_name-$xpNum-j$max_procs${logSuffix:+"-$logSuffix"}"
+    local log_prefix="$benchmark_type-$base_name-$xpNum-j$max_procs${logSuffix:+"-$logSuffix"}"
 
     echo "[$(get_datetime)] [$project_number/$total_projects] START" | tee -a "$globalLogFilePath"
     cd "$PROJECT_ROOT/$alireTomlPath"
