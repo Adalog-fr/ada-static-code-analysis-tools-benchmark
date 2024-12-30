@@ -336,7 +336,7 @@ populate_neo4j() {
 run_cogralys_cli() {
     local log_prefix=$1
     echo "[$(get_datetime)] [$gprPath] Start run" | tee -a "$globalLogFilePath"
-    /usr/bin/time -v -o "$log_prefix-run.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-cli/cogralys-cli.ts" -t -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -o "$log_prefix-run.report" 2>&1 | tee -a "$globalLogFilePath" > /dev/null
+    /usr/bin/time -v -o "$log_prefix-run.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/cogralys-cli/cogralys-cli.ts" -t -h "$NEO4J_HOST" --username "$NEO4J_USER" --password "$NEO4J_PASS" -o "$log_prefix-run.report" 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-run.time" > "$log_prefix-run.time.json"
     echo "[$(get_datetime)] [$gprPath] End run" | tee -a "$globalLogFilePath"
 }
