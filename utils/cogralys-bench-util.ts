@@ -65,7 +65,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "%PRJ%",
         "@%UNITS%",
         "-o",
-        "adactl-%PRJ_NAME%-$xpNum-j$max_procs$logSuffix.report",
+        "$log_prefix.report",
         "-w",
         "%EXTRA_ARGS%",
     ]
@@ -83,7 +83,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
         "-l",
         "--show-rule",
         "-o",
-        "gnatcheck-%PRJ_NAME%-$xpNum-j$max_procs$logSuffix.report",
+        "$log_prefix.report",
         "--no_objects_dir",
         "-files=%UNITS_BY_FILENAME%",
         "-P%PRJ%",
