@@ -4,9 +4,10 @@ import fg from "npm:fast-glob@3.3.2";
 import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
-import { PROJECT_ROOT } from "../../config.ts";
+import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
 const OUTPUT_FILENAME = "benchmarkResults.json";
+let PROJECT_ROOT: string;
 
 /**
  * Helper function to calculate standard deviation
@@ -42,6 +43,41 @@ function parseUnitValue(value: string): number {
     .toUpperCase(); // Convert to uppercase
 
     return bytes(valueFormatted);
+}
+
+/**
+ * Function to detect coding rule from file path
+ * @param filePath
+ * @returns name of the coding rule, null otherwise
+ */
+function detectCodingRule(filePath: string): string | null {
+    console.log("detecting rule for path: ", filePath);
+
+    const match = filePath.match(/-j\d+(-[^.]+)?[.]/);
+    if (!match) return null;
+    return match[1] ? match[1].substring(1) : null;
+}
+
+/**
+ * Function to get global overhead results
+ * @param alireTomlPath
+ * @param gprPath
+ * @param maxIteration
+ * @returns
+ */
+function getGlobalOverhead(alireTomlPath: string, gprPath: string, maxIteration: number): {
+    adactl: AdaControlResult;
+    gnatcheck1: GNATcheckResult;
+    gnatcheck32: GNATcheckResult;
+} {
+    const gprName = basename(gprPath, ".gpr");
+    const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs-overhead`;
+
+    return {
+        adactl: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, ""),
+        gnatcheck1: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, ""),
+        gnatcheck32: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
+    };
 }
 
 function parseTimeToSeconds(time: string): number {
@@ -278,29 +314,25 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
     };
 }
 
-function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: number): BenchmarkResult {
+function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: number, codingRule?: string): BenchmarkResult {
     const gprName = basename(gprPath, ".gpr");
+    const ruleSuffix = codingRule ? `-${codingRule}` : '';
+    const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs${ruleSuffix}`;
 
-    const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs$logSuffix`;
-
-    const adactlOverhead = aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "-overhead");
-    const adactlRun = aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "");
+    // Get global overhead (same for all rules)
+    const overhead = getGlobalOverhead(alireTomlPath, gprPath, maxIteration);
 
     return {
         adactl: {
-            overhead: { parsing: adactlOverhead },
-            run: adactlRun
+            overhead: { parsing: overhead.adactl },
+            run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "")
         },
         gnatcheck_1cores: {
-            overhead: {
-                parsing: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "-overhead")
-            },
+            overhead: { parsing: overhead.gnatcheck1 },
             run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "")
         },
         gnatcheck_32cores: {
-            overhead: {
-                parsing: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "-overhead")
-            },
+            overhead: { parsing: overhead.gnatcheck32 },
             run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
         },
         cogralys: aggregateCogralysResults(alireTomlPath, gprPath, logPrefix.replace("-j$max_procs", ""), maxIteration)
@@ -316,52 +348,91 @@ export function initializeModule(program: Command): void {
         .option(
             "--maxIteration <number>",
             "Maximum number of iteration of the processed benchmark",
-            10
+            4
+        )
+        .option(
+            "--rootDir <string>",
+            "Path to the root of the result files",
+            PROJECT_ROOT
         )
         .action(
-            (options: { maxIteration: number }) => {
-                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
+            (options: { maxIteration: number, rootDir: string }) => {
+                PROJECT_ROOT = options.rootDir;
 
-                const result = [];
+                const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
+                const resultsByRule = new Map<string, benchmarkResultDB[]>();
+                resultsByRule.set('global', []);
+
                 for (const [crateName, crate] of Object.entries(cratesDB.crates)) {
-                    if (crate.ignore) {
-                        continue;
-                    }
+                    if (crate.ignore) continue;
 
                     for (const project of crate.alireProjects) {
                         for (const gprProject of project.projects) {
-                            if (gprProject.ignore) {
-                                continue;
-                            }
+                            if (gprProject.ignore) continue;
 
                             let sccMetrics: Omit<LanguageSummary, "Files">;
                             try {
-                                const { Files: _, ...scc} = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, dirname(gprProject.gprPath), basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json"))) as LanguageSummary;
+                                const { Files: _, ...scc} = JSON.parse(
+                                    Deno.readTextFileSync(
+                                        join(defaultProjectRoot, dirname(gprProject.gprPath),
+                                            basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json")
+                                    )
+                                ) as LanguageSummary;
                                 sccMetrics = scc;
                             } catch (e) {
-                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to the following error: `, e);
-
+                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to error: `, e);
                                 continue;
                             }
 
+                            // Detect coding rules from existing files
+                            const timeFiles = fg.sync(
+                                `${PROJECT_ROOT}/${project.alireTomlPath}/**/*.time.json`,
+                                { onlyFiles: true }
+                            );
+
+                            const rules = new Set(timeFiles.map(f => detectCodingRule(f)).filter(r => r !== null && r !== "overhead"));
+
                             try {
-                                const projectResult: benchmarkResultDB = {
+                                // Process global results
+                                const globalResult: benchmarkResultDB = {
                                     crateName,
                                     workDir: project.alireTomlPath,
                                     gprPath: gprProject.gprPath,
                                     benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration),
                                     scc: sccMetrics
                                 };
+                                resultsByRule.get('global')!.push(globalResult);
 
-                                result.push(projectResult)
+                                // Process rule-specific results
+                                for (const rule of rules) {
+                                    if (!rule) continue;
+                                    if (!resultsByRule.has(rule)) {
+                                        resultsByRule.set(rule, []);
+                                    }
+                                    const ruleResult: benchmarkResultDB = {
+                                        crateName,
+                                        workDir: project.alireTomlPath,
+                                        gprPath: gprProject.gprPath,
+                                        benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration, rule),
+                                        scc: sccMetrics
+                                    };
+                                    resultsByRule.get(rule)!.push(ruleResult);
+                                }
                             } catch (e) {
-                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to the following error: `, e);
+                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to error: `, e);
                             }
                         }
                     }
                 }
 
-                Deno.writeTextFileSync(join(PROJECT_ROOT, OUTPUT_FILENAME), JSON.stringify(result, null, 2));
+                // Write results to separate files
+                for (const [rule, results] of resultsByRule.entries()) {
+                    const fileName = rule === 'global' ? OUTPUT_FILENAME : OUTPUT_FILENAME.replace(".json", `-${rule}.json`);
+                    Deno.writeTextFileSync(
+                        join(PROJECT_ROOT, fileName),
+                        JSON.stringify(results, null, 2)
+                    );
+                }
             }
         );
 }

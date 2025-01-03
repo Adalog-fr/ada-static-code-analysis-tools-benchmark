@@ -295,15 +295,18 @@ export function getBlob(crates: { [key: string]: Crate }, maxIteration: number):
                 const gprName = basename(gprProject.gprPath, ".gpr");
 
                 // gnatcheck pattern
-                result.push(`${join(crate.path)}/**/gnatcheck-${gprName}-${maxIterationPattern}-j+([0-9])(-overhead|).+(log|report|*json|time)`);
-                result.push(`${join(crate.path)}/**/gnatcheck*.report`);
+                // result.push(`${join(crate.path)}/**/gnatcheck-${gprName}-${maxIterationPattern}-j+([0-9])(-overhead|).+(log|report|*json|time)`);
+                result.push(`${join(crate.path)}/**/gnatcheck*.+(log|report|*json|time)`);
+                // result.push(`${join(crate.path)}/**/gnatcheck*.report`);
 
                 // adactl pattern
-                result.push(`${join(crate.path)}/**/adactl-${gprName}-${maxIterationPattern}-j+([0-9])(-overhead|).+(log|report|*json|time)`);
+                // result.push(`${join(crate.path)}/**/adactl-${gprName}-${maxIterationPattern}-j+([0-9])(-overhead|).+(log|report|*json|time)`);
+                result.push(`${join(crate.path)}/**/adactl*.+(log|report|*json|time)`);
 
                 // cogralys pattern
-                result.push(`${join(crate.path)}/**/cogralys-${gprName}-${maxIterationPattern}(-init|-populate|-run|).+(log|report|*json|time)`);
+                // result.push(`${join(crate.path)}/**/cogralys-${gprName}-${maxIterationPattern}(-init|-populate|-run|).+(log|report|*json|time)`);
                 result.push(`${join(crate.path)}/**/cogralys-${gprName}.cypher`);
+                result.push(`${join(crate.path)}/**/cogralys*.+(log|report|*json|time)`);
             }
         }
     }
