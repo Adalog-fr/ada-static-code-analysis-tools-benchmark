@@ -13,8 +13,8 @@ Deno.chdir(args.path);
 function readEndOfTextFile(fileName: string, nBytesToRead = 21): string {
     const file = Deno.openSync(fileName, {read: true});
     const buf = new Uint8Array(nBytesToRead);
-    Deno.seekSync(file.rid, 0-nBytesToRead, Deno.SeekMode.End);
-    Deno.readSync(file.rid, buf);
+    file.seekSync(0-nBytesToRead, Deno.SeekMode.End);
+    file.readSync(buf);
     file.close();
     return new TextDecoder().decode(buf).trim();
 }
