@@ -182,7 +182,7 @@ process_standard_project() {
     cd "$PROJECT_ROOT/$alireTomlPath"
 
     if [ $current_project_step -eq 1 ]; then
-        run_standard_command "$gprPath" "$log_prefix" "$command"
+        run_standard_command "$gprPath" "$log_prefix" "${command//%log_prefix%/$log_prefix}"
         current_project_step=2
         save_checkpoint
     fi
@@ -204,7 +204,8 @@ run_standard_command() {
     local command="$3"
 
     echo "[$(get_datetime)] [$gprPath] Start xp" | tee -a "$globalLogFilePath"
-    /usr/bin/time -v -o "$log_prefix.time" alr exec -- $command 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath"
+    # /usr/bin/time -v -o "$log_prefix.time" alr exec -- $command 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath"
+    /usr/bin/time -v -o "$log_prefix.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/executeProgramWithWatchdog.ts" -f "$log_prefix.log" --end-of-file-check "execution time" -c "$command" 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix.time" > "$log_prefix.time.json"
     echo "[$(get_datetime)] [$gprPath] End xp" | tee -a "$globalLogFilePath"
 }
@@ -300,7 +301,7 @@ run_cogralys_init() {
     local log_prefix=$2
     local init_args=$3
     echo "[$(get_datetime)] [$gprPath] Start init" | tee -a "$globalLogFilePath"
-    /usr/bin/time -v -o "$log_prefix-init.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/executeCogralysWithWatchdog.ts" "$init_args" 2>&1 | tee -a "$log_prefix-init.log" "$globalLogFilePath" > /dev/null
+    /usr/bin/time -v -o "$log_prefix-init.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/executeProgramWithWatchdog.ts" -f "./log-atgdb.log" --end-of-file-check "[Upload_Manager] End" -c "$init_args" 2>&1 | tee -a "$log_prefix-init.log" "$globalLogFilePath" > /dev/null
     jc --time -p -r < "$log_prefix-init.time" > "$log_prefix-init.time.json"
     echo "[$(get_datetime)] [$gprPath] End init" | tee -a "$globalLogFilePath"
 }

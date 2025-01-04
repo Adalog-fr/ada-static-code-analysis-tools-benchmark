@@ -70,14 +70,21 @@ function generateStandardProjectsScript(projects: finalProjectArrayType, command
     script += "projects=(\n";
 
     for (const [project, scc] of projects) {
-        const finalCommand = command
+        const finalCommandArr = command
             .map(item => item.replace(/%PRJ%/g, "$PROJECT_ROOT/" + project.gprPath))
             .map(item => item.replace(/%UNITS%/g, "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units")))
             .map(item => item.replace(/%UNITS_BY_FILENAME%/g, "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units_by_filename")))
             .map(item => item.replace(/%UNITS_BY_PATH%/g, "$PROJECT_ROOT/" + project.gprPath.replace(".gpr", ".units_by_path")))
             .map(item => item.replace(/%PRJ_NAME%/g, basename(project.gprPath, ".gpr")))
-            .map(item => item.replace(/%EXTRA_ARGS%/g, "$extraArgs"))
-            .join(" ");
+            .map(item => item.replace(/%EXTRA_ARGS%/g, "$extraArgs"));
+        const finalCommand = JSON.stringify({
+            path: `$PROJECT_ROOT/${project.alireTomlPath}`,
+            command: [
+                "alr",
+                ["exec", "--", ...finalCommandArr, {}],
+            ]
+        }).replace(/"/g, '\\"');
+            // .join(" ");
 
         script += `    "${project.crateName}|${project.alireTomlPath}|${project.gprPath}|${finalCommand}|${scc.Code}"\n`;
     }
