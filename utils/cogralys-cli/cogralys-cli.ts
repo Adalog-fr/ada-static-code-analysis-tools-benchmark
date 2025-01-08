@@ -1,10 +1,11 @@
 import { join } from "jsr:@std/path@^0.225.1";
-import neo4j from "npm:neo4j-driver@5.23.0";
+import neo4j from "npm:neo4j-driver@5.27.0";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { formatDuration } from "../utils.ts";
 import * as allRules from "./allRules.ts";
 import { RuleType, UnknownRuleError } from "./rules/types/rules.ts";
 import { PROJECT_ROOT } from "../../config.ts";
+
 
 type AllRulesName = keyof typeof allRules;
 const ruleNames: AllRulesName[] = Object.keys(allRules) as AllRulesName[];
@@ -43,6 +44,7 @@ const { timing, host, path: directoryPath, username, password, output: resultFil
 
 const ruleFileParsed: ruleFile = JSON.parse(Deno.readTextFileSync(rulePath));
 const rulesToControl: RuleType[] = [];
+
 const driver = neo4j.driver(host, neo4j.auth.basic(username, password));
 const session = driver.session({ defaultAccessMode: neo4j.session.READ });
 
