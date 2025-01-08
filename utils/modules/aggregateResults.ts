@@ -1,10 +1,11 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult } from "../types.ts";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
+import { parseDuration } from "../utils.ts";
 
 const OUTPUT_FILENAME = "benchmarkResults.json";
 let PROJECT_ROOT: string;
@@ -51,8 +52,6 @@ function parseUnitValue(value: string): number {
  * @returns name of the coding rule, null otherwise
  */
 function detectCodingRule(filePath: string): string | null {
-    console.log("detecting rule for path: ", filePath);
-
     const match = filePath.match(/-j\d+(-[^.]+)?[.]/);
     if (!match) return null;
     return match[1] ? match[1].substring(1) : null;
@@ -214,7 +213,7 @@ function processTimeData(timeFiles: string[], gprPath: string) {
     }
 
     if (count < timeFiles.length / 2) {
-        throw new Error(`Error with '${path}': not enough data to compute metrics.`);
+        throw new Error(`Error with '${gprPath}': not enough data to compute metrics.`);
     }
 
     // Calculate averages
@@ -232,6 +231,22 @@ function processTimeData(timeFiles: string[], gprPath: string) {
     }
 
     return { timesData, count, average, standardDeviation };
+}
+
+function parseRuleExecutionTimes(logContent: string): { [rule: string]: number } {
+    const lines = logContent.split('\n');
+    const ruleTimeRegex = /^([^:]+) done in: (.+)$/;
+    const results: { [rule: string]: number } = {};
+
+    for (const line of lines) {
+        const match = line.match(ruleTimeRegex);
+        if (match && !line.startsWith('Total duration')) {
+            const ruleName = match[1];
+            const timeStr = match[2];
+            results[ruleName] = parseDuration(timeStr) / 1000;
+        }
+    }
+    return results;
 }
 
 // Function to aggregate Ada Control results
@@ -256,6 +271,7 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
         adtSize,
         allRuns: timesData,
         nbValidRuns: count,
+        nbRuns: timeFiles.length,
         average,
         standardDeviation
     };
@@ -276,48 +292,79 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
     return {
         allRuns: timesData,
         nbValidRuns: count,
+        nbRuns: timeFiles.length,
         average,
         standardDeviation
     };
 }
 
 // Function to aggregate Cogralys results
-function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number): CogralysResults {
-    // Define log suffixes
+function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, codingRule?: string): CogralysResults {
+    // Process overhead operations
     const logSuffixes = ['-init', '-populate', '-run'];
-
-    // Process data for each log suffix
     const results = logSuffixes.map(suffix => {
-        // Generate log prefix for Cogralys with specific suffix
         const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "", suffix);
 
-        // Find and sort time files
         const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
 
-        // Process time data
         const data = processTimeData(timeFiles, gprPath);
         return {
             allRuns: data.timesData,
-            count: data.count,
+            nbValidRuns: data.count,
+            nbRuns: timeFiles.length,
             average: data.average,
             standardDeviation: data.standardDeviation
         };
     });
 
-    // Construct and return the result object
+    // Process rule execution times from log files
+    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "", "");
+    const ruleLogFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.log`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+
+    // Collect execution times for each rule across all runs
+    const ruleTimesMap: { [rule: string]: number[] } = {};
+
+    ruleLogFiles.forEach(logFile => {
+        const content = Deno.readTextFileSync(logFile);
+        const runResults = parseRuleExecutionTimes(content);
+
+        for (const [rule, time] of Object.entries(runResults)) {
+            if (!ruleTimesMap[rule]) {
+                ruleTimesMap[rule] = [];
+            }
+            ruleTimesMap[rule].push(time);
+        }
+    });
+
+    // Calculate statistics for each rule
+    const ruleResults: { [rule: string]: RuleExecutionResult } = {};
+
+    for (const [rule, times] of Object.entries(ruleTimesMap)) {
+        const average = times.reduce((a, b) => a + b, 0) / times.length;
+        ruleResults[rule] = {
+            allRuns: times,
+            nbValidRuns: times.length,
+            nbRuns: ruleLogFiles.length,
+            average: average,
+            standardDeviation: calculateStandardDeviation(times, average)
+        };
+    }
+
     return {
         overhead: {
             parsing: results[0],
             populatingDB: results[1]
         },
-        run: results[2]
+        run: results[2],
+        ruleResults
     };
 }
 
 function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: number, codingRule?: string): BenchmarkResult {
     const gprName = basename(gprPath, ".gpr");
     const ruleSuffix = codingRule ? `-${codingRule}` : '';
-    const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs${ruleSuffix}`;
+    const logPrefixWithoutRuleSuffix = `$commandName-${gprName}-$xpNum-j$max_procs`;
+    const logPrefix = `${logPrefixWithoutRuleSuffix}${ruleSuffix}`;
 
     // Get global overhead (same for all rules)
     const overhead = getGlobalOverhead(alireTomlPath, gprPath, maxIteration);
@@ -335,7 +382,7 @@ function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: 
             overhead: { parsing: overhead.gnatcheck32 },
             run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
         },
-        cogralys: aggregateCogralysResults(alireTomlPath, gprPath, logPrefix.replace("-j$max_procs", ""), maxIteration)
+        cogralys: aggregateCogralysResults(alireTomlPath, gprPath, logPrefixWithoutRuleSuffix.replace("-j$max_procs", "$logSuffix"), maxIteration, codingRule)
     };
 }
 

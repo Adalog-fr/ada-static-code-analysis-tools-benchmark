@@ -90,6 +90,7 @@ export type AdaControlResult = {
     adtSize: number;
     allRuns: TimeData<number>[];
     nbValidRuns: number;
+    nbRuns: number;
     average: TimeData<number>;
     standardDeviation: TimeData<StandardDeviationResult>;
 };
@@ -98,31 +99,47 @@ export type AdaControlResult = {
 export type GNATcheckResult = {
     allRuns: TimeData<number>[];
     nbValidRuns: number;
+    nbRuns: number;
     average: TimeData<number>;
     standardDeviation: TimeData<StandardDeviationResult>;
 };
+
+// Add new interface for rule execution results
+export interface RuleExecutionResult {
+    allRuns: number[];
+    nbValidRuns: number;
+    nbRuns: number;
+    average: number;
+    standardDeviation: StandardDeviationResult;
+}
 
 // Define the structure for Cogralys results
 export type CogralysResults = {
     overhead: {
         parsing: {
             allRuns: TimeData<number>[];
-            count: number;
+            nbValidRuns: number;
+            nbRuns: number;
             average: TimeData<number>;
             standardDeviation: TimeData<StandardDeviationResult>;
         };
         populatingDB: {
             allRuns: TimeData<number>[];
-            count: number;
+            nbValidRuns: number;
+            nbRuns: number;
             average: TimeData<number>;
             standardDeviation: TimeData<StandardDeviationResult>;
         };
     };
     run: {
         allRuns: TimeData<number>[];
-        count: number;
+        nbValidRuns: number;
+        nbRuns: number;
         average: TimeData<number>;
         standardDeviation: TimeData<StandardDeviationResult>;
+    };
+    ruleResults: {
+        [rule: string]: RuleExecutionResult;
     };
 };
 

@@ -79,6 +79,65 @@ export function formatDuration(milliseconds: number): string {
   return durationParts.join(" ");
 }
 
+// Function to parse duration string and convert it to milliseconds
+export function parseDuration(durationString: string): number {
+    // Remove all spaces from input string
+    const sanitizedString = durationString.replace(/\s+/g, '');
+
+    // Initialize total milliseconds
+    let totalMilliseconds = 0;
+
+    // Regular expression to match numbers followed by units
+    const durationRegex = /(\d+)(d|h|hr|hrs|min|mins|s|sec|secs|ms|millisecond|milliseconds|day|days|hour|hours|minute|minutes|second|seconds)/g;
+
+    // Find all matches in the string
+    const matches = [...sanitizedString.matchAll(durationRegex)];
+
+    // Process each match
+    matches.forEach(match => {
+        // Get the numeric value and unit
+        const value = parseInt(match[1]);
+        const unit = match[2].toLowerCase();
+
+        // Convert each unit to milliseconds and add to total
+        switch (unit) {
+            case 'd':
+            case 'day':
+            case 'days':
+                totalMilliseconds += value * 24 * 60 * 60 * 1000;
+                break;
+            case 'h':
+            case 'hr':
+            case 'hrs':
+            case 'hour':
+            case 'hours':
+                totalMilliseconds += value * 60 * 60 * 1000;
+                break;
+            case 'min':
+            case 'mins':
+            case 'minute':
+            case 'minutes':
+                totalMilliseconds += value * 60 * 1000;
+                break;
+            case 's':
+            case 'sec':
+            case 'secs':
+            case 'second':
+            case 'seconds':
+                totalMilliseconds += value * 1000;
+                break;
+            case 'ms':
+            case 'millisecond':
+            case 'milliseconds':
+                totalMilliseconds += value;
+                break;
+        }
+    });
+
+    // Return the total duration in milliseconds
+    return totalMilliseconds;
+}
+
 /** Filters crates to include only those with all projects meeting complete criteria */
 export function filterCompleteCrates(crates: { [key: string]: Crate }): extendedGPRProject[] {
     const filteredCrates: extendedGPRProject[] = [];
