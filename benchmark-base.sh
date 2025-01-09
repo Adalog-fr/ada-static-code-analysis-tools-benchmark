@@ -206,7 +206,14 @@ run_standard_command() {
     echo "[$(get_datetime)] [$gprPath] Start xp" | tee -a "$globalLogFilePath"
     # /usr/bin/time -v -o "$log_prefix.time" alr exec -- $command 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath"
     /usr/bin/time -v -o "$log_prefix.time" deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/executeProgramWithWatchdog.ts" -f "$log_prefix.log" --end-of-file-check "execution time" -c "$command" 2>&1 | tee -a "$log_prefix.log" "$globalLogFilePath" > /dev/null
-    jc --time -p -r < "$log_prefix.time" > "$log_prefix.time.json"
+    # Call the Deno script with the time file and store its exit status
+    deno run $DENO_RUN_ARGS "$PROJECT_ROOT/utils/checkErrorInLog.ts" "$log_prefix.time"
+    exit_status=$?
+    # Process based on exit status
+    if [ $exit_status -eq 0 ]; then
+        # Convert time file to JSON if no errors were found
+        jc --time -p -r < "$log_prefix.time" > "$log_prefix.time.json"
+    fi
     echo "[$(get_datetime)] [$gprPath] End xp" | tee -a "$globalLogFilePath"
 }
 
