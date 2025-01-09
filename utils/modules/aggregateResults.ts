@@ -38,10 +38,10 @@ function calculateStandardDeviation(values: number[], mean: number): { value: nu
  */
 function parseUnitValue(value: string): number {
     const valueFormatted = value
-    .replace(',', '.') // Convert ',' to '.'
-    .replace(/([a-zA-Z])$/, ' $1') // Add space before unit
-    .replace(/\s([KMGTPEZY])$/, (_, unit) => ` ${unit}B`) // Add 'B' to units except for 'B' itself
-    .toUpperCase(); // Convert to uppercase
+        .replace(',', '.') // Convert ',' to '.'
+        .replace(/([a-zA-Z])$/, ' $1') // Add space before unit
+        .replace(/\s([KMGTPEZY])$/, (_, unit) => ` ${unit}B`) // Add 'B' to units except for 'B' itself
+        .toUpperCase(); // Convert to uppercase
 
     return bytes(valueFormatted);
 }
@@ -82,9 +82,9 @@ function getGlobalOverhead(alireTomlPath: string, gprPath: string, maxIteration:
 function parseTimeToSeconds(time: string): number {
     const parts = time.split(':').map(Number);
     if (parts.length === 3) {
-      return parts[0] * 3600 + parts[1] * 60 + parts[2];
+        return parts[0] * 3600 + parts[1] * 60 + parts[2];
     } else if (parts.length === 2) {
-      return parts[0] * 60 + parts[1];
+        return parts[0] * 60 + parts[1];
     }
     return Number(time);
 }
@@ -102,28 +102,28 @@ function processTimeData(timeFiles: string[], gprPath: string) {
     const timesData: TimeData<number>[] = [];
     let count = 0;
     const sum: TimeData<number> = {
-      user_time: 0,
-      system_time: 0,
-      cpu_percent: 0,
-      elapsed_time: 0,
-      average_shared_text_size: 0,
-      average_unshared_data_size: 0,
-      average_stack_size: 0,
-      average_total_size: 0,
-      maximum_resident_set_size: 0,
-      average_resident_set_size: 0,
-      major_pagefaults: 0,
-      minor_pagefaults: 0,
-      voluntary_context_switches: 0,
-      involuntary_context_switches: 0,
-      swaps: 0,
-      block_input_operations: 0,
-      block_output_operations: 0,
-      messages_sent: 0,
-      messages_received: 0,
-      signals_delivered: 0,
-      page_size: 0,
-      exit_status: 0
+        user_time: 0,
+        system_time: 0,
+        cpu_percent: 0,
+        elapsed_time: 0,
+        average_shared_text_size: 0,
+        average_unshared_data_size: 0,
+        average_stack_size: 0,
+        average_total_size: 0,
+        maximum_resident_set_size: 0,
+        average_resident_set_size: 0,
+        major_pagefaults: 0,
+        minor_pagefaults: 0,
+        voluntary_context_switches: 0,
+        involuntary_context_switches: 0,
+        swaps: 0,
+        block_input_operations: 0,
+        block_output_operations: 0,
+        messages_sent: 0,
+        messages_received: 0,
+        signals_delivered: 0,
+        page_size: 0,
+        exit_status: 0
     };
 
     // Initialize arrays to store values for standard deviation calculation
@@ -165,36 +165,40 @@ function processTimeData(timeFiles: string[], gprPath: string) {
 
         // Check for execution errors
         if (data.exit_status !== "0") {
-            console.error(`${gprPath} > '${path}': execution error with the following command => ${command_being_timed}`);
-            continue;
+            // Manage the special case of Variable Usage coding rule check on PHCpack. Yes, there is ASIS errors but I
+            // it anyway in the result
+            if (!gprPath.toLocaleLowerCase().includes("phcpack") || !path.toLocaleLowerCase().includes("variable_usage")) {
+                console.error(`${gprPath} > '${path}': execution error with the following command => ${command_being_timed}`);
+                continue;
+            }
         }
 
         count++;
 
         // Process each key-value pair in the data
-        const parsedData : TimeData<number> = {
-          user_time: 0,
-          system_time: 0,
-          cpu_percent: 0,
-          elapsed_time: 0,
-          average_shared_text_size: 0,
-          average_unshared_data_size: 0,
-          average_stack_size: 0,
-          average_total_size: 0,
-          maximum_resident_set_size: 0,
-          average_resident_set_size: 0,
-          major_pagefaults: 0,
-          minor_pagefaults: 0,
-          voluntary_context_switches: 0,
-          involuntary_context_switches: 0,
-          swaps: 0,
-          block_input_operations: 0,
-          block_output_operations: 0,
-          messages_sent: 0,
-          messages_received: 0,
-          signals_delivered: 0,
-          page_size: 0,
-          exit_status: 0
+        const parsedData: TimeData<number> = {
+            user_time: 0,
+            system_time: 0,
+            cpu_percent: 0,
+            elapsed_time: 0,
+            average_shared_text_size: 0,
+            average_unshared_data_size: 0,
+            average_stack_size: 0,
+            average_total_size: 0,
+            maximum_resident_set_size: 0,
+            average_resident_set_size: 0,
+            major_pagefaults: 0,
+            minor_pagefaults: 0,
+            voluntary_context_switches: 0,
+            involuntary_context_switches: 0,
+            swaps: 0,
+            block_input_operations: 0,
+            block_output_operations: 0,
+            messages_sent: 0,
+            messages_received: 0,
+            signals_delivered: 0,
+            page_size: 0,
+            exit_status: 0
         };
 
         // Process each key-value pair in the data
@@ -213,12 +217,12 @@ function processTimeData(timeFiles: string[], gprPath: string) {
     }
 
     if (count < timeFiles.length / 2) {
-        throw new Error(`Error with '${gprPath}': not enough data to compute metrics.`);
+        throw new Error(`Error with '${gprPath}': not enough data to compute metrics: ${count} success run for ${timeFiles.length} runs.`);
     }
 
     // Calculate averages
     const average: TimeData<number> = Object.fromEntries(
-      Object.entries(sum).map(([key, value]) => [key, value / count])
+        Object.entries(sum).map(([key, value]) => [key, value / count])
     ) as unknown as TimeData<number>;
 
     // Calculate standard deviations
@@ -252,7 +256,7 @@ function parseRuleExecutionTimes(logContent: string): { [rule: string]: number }
 // Function to aggregate Ada Control results
 function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, logSuffix: string): AdaControlResult {
     // Generate log prefix for Ada Control
-    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "adactl", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "0", logSuffix);
+    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "adactl", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "0", logSuffix);
 
     // Find and sort ADT size files
     const adtSizeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.size-adt.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
@@ -266,6 +270,18 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
     // Process time data
     const { timesData, count, average, standardDeviation } = processTimeData(timeFiles, gprPath);
 
+    // Get number of issued messages by coding rule
+    const extractIssuedMessages = (reportContent: string): number => {
+        const match = reportContent.match(/Issued messages:.*?Warnings = (\d+)/);
+        return match ? parseInt(match[1], 10) : 0;
+    }
+
+    const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.report`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+    const issuedMessagesCounts = reportFiles.map(file => {
+        const content = Deno.readTextFileSync(file);
+        return extractIssuedMessages(content);
+    });
+
     // Return the results
     return {
         adtSize,
@@ -273,14 +289,18 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
         nbValidRuns: count,
         nbRuns: timeFiles.length,
         average,
-        standardDeviation
+        standardDeviation,
+        issuedMessages: {
+            maxCount: Math.max(...issuedMessagesCounts),
+            allCounts: issuedMessagesCounts
+        }
     };
 }
 
 // Function to aggregate GNATcheck results
 function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, cores: number, logSuffix: string): GNATcheckResult {
     // Generate log prefix for GNATcheck
-    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "gnatcheck", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, cores, logSuffix);
+    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "gnatcheck", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, cores, logSuffix);
 
     // Find and sort time files
     const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
@@ -288,22 +308,71 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
     // Process time data
     const { timesData, count, average, standardDeviation } = processTimeData(timeFiles, gprPath);
 
+    const countGNATcheckMessages = (reportContent: string): number => {
+        const lines = reportContent.split('\n');
+        return lines.filter(line =>
+            line.startsWith('/') &&
+            !line.includes('/adainclude/')
+        ).length;
+    }
+
+    // Get number of issued messages by coding rule
+    const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.report`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+    const issuedMessagesCounts = reportFiles.map(file => {
+        const content = Deno.readTextFileSync(file);
+        return countGNATcheckMessages(content);
+    });
+
     // Return the results
     return {
         allRuns: timesData,
         nbValidRuns: count,
         nbRuns: timeFiles.length,
         average,
-        standardDeviation
+        standardDeviation,
+        issuedMessages: {
+            maxCount: Math.max(...issuedMessagesCounts),
+            allCounts: issuedMessagesCounts
+        }
     };
 }
 
 // Function to aggregate Cogralys results
 function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, codingRule?: string): CogralysResults {
+    const countCogralysRuleMessages = (reportContent: string): { [rule: string]: number } => {
+        const lines = reportContent.split('\n');
+        const ruleCounts: { [rule: string]: number } = {};
+        const pathPattern = /^\/[^:]+:\d+:\d+:\s*/;
+
+        lines.forEach(line => {
+            if (!line.startsWith('/') || line.includes('/adainclude/')) {
+                return;
+            }
+
+            const content = line.replace(pathPattern, '');
+            let rule: string;
+
+            if (content.startsWith('Found:')) {
+                if (content.includes('Found: USAGE')) {
+                    rule = 'Variable_Usage';
+                } else {
+                    console.warn('Unknown "Found:" pattern:', line);
+                    return;
+                }
+            } else {
+                rule = content.trim().split(/\s*/)[0];
+            }
+
+            ruleCounts[rule] = (ruleCounts[rule] || 0) + 1;
+        });
+
+        return ruleCounts;
+    }
+
     // Process overhead operations
     const logSuffixes = ['-init', '-populate', '-run'];
     const results = logSuffixes.map(suffix => {
-        const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "", suffix);
+        const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "", suffix);
 
         const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
 
@@ -318,11 +387,14 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
     });
 
     // Process rule execution times from log files
-    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({length: maxIteration}, (_, i) => i + 1).join('|')})`, "", "");
+    const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "", "");
     const ruleLogFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.log`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+    const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}-run.report`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+
 
     // Collect execution times for each rule across all runs
     const ruleTimesMap: { [rule: string]: number[] } = {};
+    const ruleMessagesMap: { [rule: string]: number[] } = {};
 
     ruleLogFiles.forEach(logFile => {
         const content = Deno.readTextFileSync(logFile);
@@ -336,17 +408,39 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
         }
     });
 
+    reportFiles.forEach(reportFile => {
+        const content = Deno.readTextFileSync(reportFile);
+        const messageCounts = countCogralysRuleMessages(content);
+
+        for (const [rule, count] of Object.entries(messageCounts)) {
+            if (!ruleMessagesMap[rule]) {
+                ruleMessagesMap[rule] = [];
+            }
+            ruleMessagesMap[rule].push(count);
+        }
+    });
+
     // Calculate statistics for each rule
     const ruleResults: { [rule: string]: RuleExecutionResult } = {};
 
-    for (const [rule, times] of Object.entries(ruleTimesMap)) {
-        const average = times.reduce((a, b) => a + b, 0) / times.length;
-        ruleResults[rule] = {
+    // Combine all unique rule names from both times and messages
+    const allRules = new Set([...Object.keys(ruleTimesMap), ...Object.keys(ruleMessagesMap)]);
+
+    for (const rule of allRules) {
+        const times = ruleTimesMap[rule] || [];
+        const messages = ruleMessagesMap[rule] || [];
+        const average = times.length > 0 ? times.reduce((a, b) => a + b, 0) / times.length : 0;
+
+        ruleResults[rule.toLocaleLowerCase()] = {
             allRuns: times,
             nbValidRuns: times.length,
             nbRuns: ruleLogFiles.length,
             average: average,
-            standardDeviation: calculateStandardDeviation(times, average)
+            standardDeviation: calculateStandardDeviation(times, average),
+            issuedMessages: {
+                maxCount: messages.length > 0 ? Math.max(...messages) : 0,
+                allCounts: messages
+            }
         };
     }
 
@@ -419,7 +513,7 @@ export function initializeModule(program: Command): void {
 
                             let sccMetrics: Omit<LanguageSummary, "Files">;
                             try {
-                                const { Files: _, ...scc} = JSON.parse(
+                                const { Files: _, ...scc } = JSON.parse(
                                     Deno.readTextFileSync(
                                         join(defaultProjectRoot, dirname(gprProject.gprPath),
                                             basename(gprProject.gprPath, ".gpr") + "_scc-metrics.json")
@@ -427,7 +521,7 @@ export function initializeModule(program: Command): void {
                                 ) as LanguageSummary;
                                 sccMetrics = scc;
                             } catch (e) {
-                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to error: `, e);
+                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} (getting SCC data) due to error: `, e);
                                 continue;
                             }
 
@@ -449,13 +543,16 @@ export function initializeModule(program: Command): void {
                                     scc: sccMetrics
                                 };
                                 resultsByRule.get('global')!.push(globalResult);
-
-                                // Process rule-specific results
-                                for (const rule of rules) {
-                                    if (!rule) continue;
-                                    if (!resultsByRule.has(rule)) {
-                                        resultsByRule.set(rule, []);
-                                    }
+                            } catch (e) {
+                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} (global run) due to error: `, e);
+                            }
+                            // Process rule-specific results
+                            for (const rule of rules) {
+                                if (!rule) continue;
+                                if (!resultsByRule.has(rule)) {
+                                    resultsByRule.set(rule, []);
+                                }
+                                try {
                                     const ruleResult: benchmarkResultDB = {
                                         crateName,
                                         workDir: project.alireTomlPath,
@@ -464,9 +561,9 @@ export function initializeModule(program: Command): void {
                                         scc: sccMetrics
                                     };
                                     resultsByRule.get(rule)!.push(ruleResult);
+                                } catch (e) {
+                                    console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} (rule ${rule}) due to error: `, e);
                                 }
-                            } catch (e) {
-                                console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} due to error: `, e);
                             }
                         }
                     }

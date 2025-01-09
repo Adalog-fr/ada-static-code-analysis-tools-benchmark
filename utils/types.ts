@@ -93,6 +93,10 @@ export type AdaControlResult = {
     nbRuns: number;
     average: TimeData<number>;
     standardDeviation: TimeData<StandardDeviationResult>;
+    issuedMessages: {
+        maxCount: number;
+        allCounts: number[];
+    };
 };
 
 // Define the structure for GNATcheck results
@@ -102,6 +106,10 @@ export type GNATcheckResult = {
     nbRuns: number;
     average: TimeData<number>;
     standardDeviation: TimeData<StandardDeviationResult>;
+    issuedMessages: {
+        maxCount: number;
+        allCounts: number[];
+    };
 };
 
 // Add new interface for rule execution results
@@ -111,6 +119,10 @@ export interface RuleExecutionResult {
     nbRuns: number;
     average: number;
     standardDeviation: StandardDeviationResult;
+    issuedMessages: {
+        maxCount: number;
+        allCounts: number[];
+    };
 }
 
 // Define the structure for Cogralys results

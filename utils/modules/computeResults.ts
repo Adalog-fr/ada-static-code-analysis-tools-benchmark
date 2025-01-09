@@ -78,6 +78,10 @@ function emptyTimeData() {
     }
 }
 
+function getNotNullNumber(value: number, defaultValue: number, allowZeroValue = true): number {
+    return isNaN(value) ? defaultValue : !allowZeroValue && value === 0 ? defaultValue : value;
+}
+
 export function initializeModule(program: Command): void {
     program
         .command("compute-results")
@@ -87,7 +91,7 @@ export function initializeModule(program: Command): void {
         .option(
             "--rootDir <string>",
             "Path to the root of the result files",
-            PROJECT_ROOT
+            defaultProjectRoot
         )
         .action(
             (options: { rootDir: string }) => {
@@ -145,6 +149,9 @@ export function initializeModule(program: Command): void {
                                 gnatcheck_32cores: calculateExecutionTime(benchmarkResults.gnatcheck_32cores)
                             }
                         };
+                        if (ruleName !== "global") {
+                            detailedResult.results.cogralys.executionTime = benchmarkResults.cogralys.ruleResults[ruleName].average;
+                        }
                         projctsResults.push(detailedResult);
                         totalLoC += result.scc.Code;
 
@@ -181,17 +188,17 @@ export function initializeModule(program: Command): void {
 
                     // Calculate percentages and prepare result table
                     const fastestExecutionTime = Math.min(
-                        summary.adactl.executionTime,
-                        summary.gnatcheck_1cores.executionTime,
-                        summary.gnatcheck_32cores.executionTime,
-                        summary.cogralys.executionTime
+                        getNotNullNumber(summary.adactl.executionTime, Infinity, false),
+                        getNotNullNumber(summary.gnatcheck_1cores.executionTime, Infinity, false),
+                        getNotNullNumber(summary.gnatcheck_32cores.executionTime, Infinity, false),
+                        getNotNullNumber(summary.cogralys.executionTime, Infinity, false)
                     );
 
                     const fastestOverhead = Math.min(
-                        summary.adactl.overheadParsing + summary.adactl.overheadPopulating,
-                        summary.gnatcheck_1cores.overheadParsing + summary.gnatcheck_1cores.overheadPopulating,
-                        summary.gnatcheck_32cores.overheadParsing + summary.gnatcheck_32cores.overheadPopulating,
-                        summary.cogralys.overheadParsing + summary.cogralys.overheadPopulating
+                        getNotNullNumber(summary.adactl.overheadParsing, Infinity, false) + getNotNullNumber(summary.adactl.overheadPopulating, Infinity),
+                        getNotNullNumber(summary.gnatcheck_1cores.overheadParsing, Infinity, false) + getNotNullNumber(summary.gnatcheck_1cores.overheadPopulating, Infinity),
+                        getNotNullNumber(summary.gnatcheck_32cores.overheadParsing, Infinity, false) + getNotNullNumber(summary.gnatcheck_32cores.overheadPopulating, Infinity),
+                        getNotNullNumber(summary.cogralys.overheadParsing, Infinity, false) + getNotNullNumber(summary.cogralys.overheadPopulating, Infinity)
                     );
 
                     const result = {
@@ -218,14 +225,23 @@ export function initializeModule(program: Command): void {
                     }
 
                     for (const tool in result) {
-                        result[tool as string].slowerPercentage = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
-                        result[tool].fastestOverheadPercentage = ((((summary[tool].overheadParsing + summary[tool].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
+                        if (summary[tool].executionTime === 0) {
+                            result[tool as string]["Fastest tool (0 is better)"] = ""
+                        } else {
+                            result[tool as string]["Fastest tool (0 is better)"] = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
+                        }
+
+                        if (summary[tool].overheadParsing === 0) {
+                            result[tool]["Fastest overhead (0 is better)"] = ""
+                        } else {
+                            result[tool]["Fastest overhead (0 is better)"] = ((((summary[tool].overheadParsing + summary[tool].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
+                        }
                     }
 
                     // Log results for this rule
                     console.log(`\nResults for ${ruleName === 'global' ? 'global benchmark' : `rule: ${ruleName}`}:`);
                     console.table(result);
-                    console.log("Summary:", summary);
+                    // console.log("Summary:", summary);
                     console.log("Number of projects:", results.length);
                     console.log("Total number of line of codes:", totalLoC);
                     console.log("-".repeat(80));
