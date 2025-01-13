@@ -1,7 +1,7 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult } from "../types.ts";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult, DigestTimeResult, BenchResultByStep } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
@@ -95,6 +95,56 @@ function interpolateLogPrefix(logPrefix: string, commandName: string, xpNum: num
         .replace("$xpNum", xpNum + "")
         .replace("$max_procs", cores + "")
         .replace("$logSuffix", logSuffix);
+}
+
+type entryData = {
+    overhead: {
+        parsing: BenchResultByStep;
+        populatingDB?: BenchResultByStep;
+    };
+    run: BenchResultByStep;
+};
+
+//
+/**
+ * Function to calculate analysis time
+ * @param element
+ * @param overheadThreshold Assume that allowed overhead shall be lower than 95% (0.95) of the execution time.
+ * Otherwise it is negligible.
+ * @returns
+ */
+function calculateAnalysisTime(element: entryData, overheadThreshold = 0.95): DigestTimeResult {
+    const result : DigestTimeResult = {
+      overheadParsing: element.overhead.parsing.average.elapsed_time,
+      overheadPopulating: 0,
+      overheadThreshold,
+      overhead: 0,
+      executionTime: element.run.average.elapsed_time,
+      analysisTime: 0,
+    };
+    const maxOverhead = element.run.average.elapsed_time * result.overheadThreshold; // Assuming overhead threshold
+
+    let tmpParsingOverhead = 0;
+    for (const [overheadName, value] of Object.entries(element.overhead)) {
+        const currentOverhead = value.average.elapsed_time;
+        if (overheadName === "parsing") {
+            tmpParsingOverhead = currentOverhead;
+            result.overheadParsing = currentOverhead <= maxOverhead ? currentOverhead : 0;
+        } else if (overheadName === "populatingDB") {
+            result.overheadPopulating = currentOverhead;
+            result.overhead += result.overheadPopulating;
+            result.overheadParsing = tmpParsingOverhead;
+        }
+    }
+    result.overhead += result.overheadParsing;
+
+    if (result.overhead > maxOverhead) {
+        result.overhead = 0;
+    }
+
+    result.analysisTime = result.executionTime - result.overhead;
+
+    return result;
 }
 
 // Helper function to process time data
@@ -338,7 +388,7 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
 }
 
 // Function to aggregate Cogralys results
-function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, codingRule?: string): CogralysResults {
+function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, overheadTreashold: number, codingRule?: string): CogralysResults {
     const countCogralysRuleMessages = (reportContent: string): { [rule: string]: number } => {
         const lines = reportContent.split('\n');
         const ruleCounts: { [rule: string]: number } = {};
@@ -435,26 +485,38 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
             allRuns: times,
             nbValidRuns: times.length,
             nbRuns: ruleLogFiles.length,
-            average: average,
             standardDeviation: calculateStandardDeviation(times, average),
             issuedMessages: {
                 maxCount: messages.length > 0 ? Math.max(...messages) : 0,
                 allCounts: messages
+            },
+            digestTime: {
+                overheadParsing: results[0].average.elapsed_time,
+                overheadPopulating: results[1].average.elapsed_time,
+                overheadThreshold: overheadTreashold,
+                overhead: 0,
+                executionTime: results[0].average.elapsed_time + results[1].average.elapsed_time + average,
+                analysisTime: average
             }
         };
     }
 
-    return {
+    const result = {
         overhead: {
             parsing: results[0],
             populatingDB: results[1]
         },
         run: results[2],
-        ruleResults
+    };
+
+    return {
+        ...result,
+        ruleResults,
+        digestTime: calculateAnalysisTime(result)
     };
 }
 
-function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: number, codingRule?: string): BenchmarkResult {
+function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: number, overheadTreashold: number, codingRule?: string): BenchmarkResult {
     const gprName = basename(gprPath, ".gpr");
     const ruleSuffix = codingRule ? `-${codingRule}` : '';
     const logPrefixWithoutRuleSuffix = `$commandName-${gprName}-$xpNum-j$max_procs`;
@@ -463,21 +525,46 @@ function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: 
     // Get global overhead (same for all rules)
     const overhead = getGlobalOverhead(alireTomlPath, gprPath, maxIteration);
 
-    return {
+    //  calculateAnalysisTime
+
+    const adactl = {
+        overhead: { parsing: overhead.adactl },
+        run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "")
+    };
+
+    const gnatcheck_1cores = {
+        overhead: { parsing: overhead.gnatcheck1 },
+        run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "")
+    };
+
+    const gnatcheck_32cores = {
+        overhead: { parsing: overhead.gnatcheck32 },
+        run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
+    }
+
+    const cogralys = aggregateCogralysResults(alireTomlPath, gprPath, logPrefixWithoutRuleSuffix.replace("-j$max_procs", "$logSuffix"), maxIteration, overheadTreashold, codingRule);
+
+    // In the case of global run, Variable Usage rule is not controlled
+    cogralys.digestTime.executionTime -= cogralys.ruleResults?.variable_usage.digestTime.analysisTime;
+    cogralys.digestTime.analysisTime -= cogralys.ruleResults?.variable_usage.digestTime.analysisTime;
+
+    const result: BenchmarkResult = {
         adactl: {
-            overhead: { parsing: overhead.adactl },
-            run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "")
+            ...adactl,
+            digestTime: calculateAnalysisTime(adactl, overheadTreashold)
         },
         gnatcheck_1cores: {
-            overhead: { parsing: overhead.gnatcheck1 },
-            run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "")
+            ...gnatcheck_1cores,
+            digestTime: calculateAnalysisTime(gnatcheck_1cores, overheadTreashold)
         },
         gnatcheck_32cores: {
-            overhead: { parsing: overhead.gnatcheck32 },
-            run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
+            ...gnatcheck_32cores,
+            digestTime: calculateAnalysisTime(gnatcheck_32cores, overheadTreashold)
         },
-        cogralys: aggregateCogralysResults(alireTomlPath, gprPath, logPrefixWithoutRuleSuffix.replace("-j$max_procs", "$logSuffix"), maxIteration, codingRule)
+        cogralys: cogralys
     };
+
+    return result;
 }
 
 export function initializeModule(program: Command): void {
@@ -489,15 +576,20 @@ export function initializeModule(program: Command): void {
         .option(
             "--maxIteration <number>",
             "Maximum number of iteration of the processed benchmark",
-            4
+            3
         )
         .option(
             "--rootDir <string>",
             "Path to the root of the result files",
             PROJECT_ROOT
         )
+        .option(
+            "--overhead-treashold <string>",
+            "A value between 0 and 1 to define how much of the execution time is considered as overhead (default to 0.95, so 95% of the execution time maximum).",
+            0.95
+        )
         .action(
-            (options: { maxIteration: number, rootDir: string }) => {
+            (options: { maxIteration: number, rootDir: string, overheadTreashold: number }) => {
                 PROJECT_ROOT = options.rootDir;
 
                 const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
@@ -539,7 +631,7 @@ export function initializeModule(program: Command): void {
                                     crateName,
                                     workDir: project.alireTomlPath,
                                     gprPath: gprProject.gprPath,
-                                    benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration),
+                                    benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration, options.overheadTreashold),
                                     scc: sccMetrics
                                 };
                                 resultsByRule.get('global')!.push(globalResult);
@@ -557,7 +649,7 @@ export function initializeModule(program: Command): void {
                                         crateName,
                                         workDir: project.alireTomlPath,
                                         gprPath: gprProject.gprPath,
-                                        benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration, rule),
+                                        benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration, options.overheadTreashold, rule),
                                         scc: sccMetrics
                                     };
                                     resultsByRule.get(rule)!.push(ruleResult);

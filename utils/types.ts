@@ -85,14 +85,39 @@ export interface StandardDeviationResult {
     percentage: number; // The standard deviation as percentage of mean
 }
 
-// Define the structure for Ada Control results
-export type AdaControlResult = {
-    adtSize: number;
+export type DigestTimeResult = {
+    overheadParsing: number;
+    overheadPopulating: number;
+    /**
+     * A value between 0 and 1 to define how much of the execution time is considered as overhead
+     */
+    overheadThreshold: number;
+    /**
+     * Correspond to {@link DigestTimeResult.overheadParsing} if the value is lower than: {@link DigestTimeResult.executionTime} * {@link DigestTimeResult.overheadThreshold}
+     */
+    overhead: number;
+    /**
+     * Total execution time (in encompass analysis time + overhead parsing)
+     */
+    executionTime: number;
+    /**
+     * Time to process rule analysis.
+     * It is obtained like this: {@link DigestTimeResult.executionTime} - {@link DigestTimeResult.overhead}
+     */
+    analysisTime: number;
+};
+
+export type BenchResultByStep = {
     allRuns: TimeData<number>[];
     nbValidRuns: number;
     nbRuns: number;
     average: TimeData<number>;
     standardDeviation: TimeData<StandardDeviationResult>;
+};
+
+// Define the structure for Ada Control results
+export type AdaControlResult = BenchResultByStep & {
+    adtSize: number;
     issuedMessages: {
         maxCount: number;
         allCounts: number[];
@@ -100,12 +125,7 @@ export type AdaControlResult = {
 };
 
 // Define the structure for GNATcheck results
-export type GNATcheckResult = {
-    allRuns: TimeData<number>[];
-    nbValidRuns: number;
-    nbRuns: number;
-    average: TimeData<number>;
-    standardDeviation: TimeData<StandardDeviationResult>;
+export type GNATcheckResult = BenchResultByStep & {
     issuedMessages: {
         maxCount: number;
         allCounts: number[];
@@ -117,42 +137,25 @@ export interface RuleExecutionResult {
     allRuns: number[];
     nbValidRuns: number;
     nbRuns: number;
-    average: number;
     standardDeviation: StandardDeviationResult;
     issuedMessages: {
         maxCount: number;
         allCounts: number[];
     };
+    digestTime: DigestTimeResult;
 }
 
 // Define the structure for Cogralys results
 export type CogralysResults = {
     overhead: {
-        parsing: {
-            allRuns: TimeData<number>[];
-            nbValidRuns: number;
-            nbRuns: number;
-            average: TimeData<number>;
-            standardDeviation: TimeData<StandardDeviationResult>;
-        };
-        populatingDB: {
-            allRuns: TimeData<number>[];
-            nbValidRuns: number;
-            nbRuns: number;
-            average: TimeData<number>;
-            standardDeviation: TimeData<StandardDeviationResult>;
-        };
+        parsing: BenchResultByStep;
+        populatingDB: BenchResultByStep;
     };
-    run: {
-        allRuns: TimeData<number>[];
-        nbValidRuns: number;
-        nbRuns: number;
-        average: TimeData<number>;
-        standardDeviation: TimeData<StandardDeviationResult>;
-    };
+    run: BenchResultByStep;
     ruleResults: {
         [rule: string]: RuleExecutionResult;
     };
+    digestTime: DigestTimeResult;
 };
 
 // Define the structure for benchmark results
@@ -162,18 +165,21 @@ export type BenchmarkResult = {
             parsing: AdaControlResult;
         };
         run: AdaControlResult;
+        digestTime: DigestTimeResult;
     };
     gnatcheck_1cores: {
         overhead: {
             parsing: GNATcheckResult;
         };
         run: GNATcheckResult;
+        digestTime: DigestTimeResult;
     };
     gnatcheck_32cores: {
         overhead: {
             parsing: GNATcheckResult;
         };
         run: GNATcheckResult;
+        digestTime: DigestTimeResult;
     };
     cogralys: CogralysResults;
 };
@@ -188,7 +194,16 @@ export interface benchmarkResultDB {
 
 // Computed results
 
-export type globalResultTime = { overheadParsing: number, overheadPopulating: number, executionTime: number, timeData: TimeData<number>, overheadTimeData: TimeData<number> };
+export type globalResultTime = {
+    overheadParsing: number,
+    overheadPopulating: number,
+    analysisTime: number,
+    executionTime: number,
+    timeData: TimeData<number>,
+    overheadTimeData: TimeData<number>,
+    nbFails: number,
+    nbProjectFails: number,
+};
 
 export type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
 export type summaryType = Record<toolKey, globalResultTime>;
@@ -202,4 +217,4 @@ export type detailedResultType = {
         nbFiles: number;
     };
     results: summaryType;
- };
+};
