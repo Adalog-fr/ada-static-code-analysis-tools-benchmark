@@ -1,39 +1,130 @@
 import { join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { benchmarkResultDB, summaryType } from "../types.ts";
+import { LanguageSummary } from "../scc-types.ts";
 import { formatDuration } from "../utils.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
-let PROJECT_ROOT: string;
 const GLOBAL_EXECUTION_KEY = "GLOBAL";
-const codingRules: string[] = JSON.parse(Deno.readTextFileSync(join(defaultProjectRoot, "utils/cogralys-cli/rules/types/allRules.json")))
-.map((elt: [string, any]) => (elt[0].toLowerCase()));
+const codingRules = JSON.parse(
+    Deno.readTextFileSync(
+        join(defaultProjectRoot, "utils/cogralys-cli/rules/types/allRules.json")
+    )
+).map((elt: [string, any]) => (elt[0].toLowerCase()));
 
+function determineRuleName(benchmarkFile: string): string {
+    const r = benchmarkFile.match(/benchmarkResults-([^-.]+).*?\.json$/)?.[1];
+    if (!r || !codingRules.includes(r)) {
+        return GLOBAL_EXECUTION_KEY;
+    }
+    return r;
+}
 
-/**
- * Helper function to calculate standard deviation
- * @param values
- * @returns return the standard deviation of values based on mean
- */
-function calculateStandardDeviation(values: number[]): { value: number, percentage: number } {
+// Core interfaces and types
+interface StandardDeviationResult {
+    value: number;
+    percentage: number;
+}
+
+interface TimeBaseData {
+    user_time: number;
+    system_time: number;
+    cpu_percent: number;
+    elapsed_time: number;
+    average_shared_text_size: number;
+    average_unshared_data_size: number;
+    average_stack_size: number;
+    average_total_size: number;
+    maximum_resident_set_size: number;
+    average_resident_set_size: number;
+    major_pagefaults: number;
+    minor_pagefaults: number;
+    voluntary_context_switches: number;
+    involuntary_context_switches: number;
+    swaps: number;
+    block_input_operations: number;
+    block_output_operations: number;
+    messages_sent: number;
+
+    messages_received: number,
+    signals_delivered: number;
+    page_size: number;
+    exit_status: number;
+}
+
+interface DigestTimeResult {
+    overheadParsing: number;
+    overheadPopulating: number;
+    overheadThreshold: number;
+    overhead: number;
+    executionTime: number;
+    analysisTime: number;
+}
+
+// Benchmark specific types
+interface GlobalResultTime {
+    overheadParsing: number;
+    overheadPopulating: number;
+    analysisTime: number;
+    executionTime: number;
+    timeData: TimeBaseData;
+    overheadTimeData: TimeBaseData;
+    nbFails: number;
+    nbProjectFails: number;
+    analysisTimeValues: number[];
+    r2Value: number;
+    mean: number;
+    standardDeviation: StandardDeviationResult;
+}
+
+type ToolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
+type SummaryType = Record<ToolKey, GlobalResultTime>;
+
+interface BenchmarkResultDB {
+    crateName: string;
+    workDir: string;
+    gprPath: string;
+    benchmarkResults: {
+        adactl: {
+            overhead: { parsing: any };
+            run: any;
+            digestTime: DigestTimeResult;
+        };
+        gnatcheck_1cores: {
+            overhead: { parsing: any };
+            run: any;
+            digestTime: DigestTimeResult;
+        };
+        gnatcheck_32cores: {
+            overhead: { parsing: any };
+            run: any;
+            digestTime: DigestTimeResult;
+        };
+        cogralys: {
+            overhead: {
+                parsing: any;
+                populatingDB: any;
+            };
+            run: any;
+            ruleResults: { [key: string]: any };
+            digestTime: DigestTimeResult;
+        };
+    };
+    scc: Omit<LanguageSummary, 'Files'>;
+}
+
+// Statistical utility functions
+function calculateStandardDeviation(values: number[]): StandardDeviationResult {
     const mean = values.reduce((a, b) => a + b, 0) / values.length;
-    // Calculate sum of squared differences from mean
     const squaredDifferences = values.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0);
-    // Calculate variance by dividing sum by count of values
     const variance = squaredDifferences / values.length;
-    // Calculate standard deviation
     const stdDev = Math.sqrt(variance);
-    // Calculate standard deviation as percentage of mean
     const stdDevPercent = mean !== 0 ? (stdDev / mean) * 100 : 0;
 
-    // Return square root of variance (standard deviation)
     return { value: stdDev, percentage: stdDevPercent };
 }
 
 function calculateR2(x: number[], y: number[]): number {
-    // Implement linear regression R² calculation
-    // This is a simplified implementation
     const n = x.length;
     const sumX = x.reduce((a, b) => a + b, 0);
     const sumY = y.reduce((a, b) => a + b, 0);
@@ -47,11 +138,8 @@ function calculateR2(x: number[], y: number[]): number {
     return Math.pow(numerator / denominator, 2);
 }
 
-function getMetrics(analysisTimeValues: number[], listOfLoC: number[]): {
-    r2Value: number;
-    mean: number;
-    standardDeviation: { value: number, percentage: number };
-} {
+// Metric utility functions
+function getMetrics(analysisTimeValues: number[], listOfLoC: number[]) {
     return {
         r2Value: calculateR2(listOfLoC, analysisTimeValues),
         mean: analysisTimeValues.reduce((a, b) => a + b, 0) / analysisTimeValues.length,
@@ -59,7 +147,11 @@ function getMetrics(analysisTimeValues: number[], listOfLoC: number[]): {
     };
 }
 
-function emptyTimeData() {
+function getNotNullNumber(value: number, defaultValue: number, allowZeroValue = true): number {
+    return isNaN(value) ? defaultValue : !allowZeroValue && value === 0 ? defaultValue : value;
+}
+
+function emptyTimeData(): TimeBaseData {
     return {
         user_time: 0,
         system_time: 0,
@@ -83,16 +175,215 @@ function emptyTimeData() {
         signals_delivered: 0,
         page_size: 0,
         exit_status: 0,
+    };
+}
+
+// Result processor class
+class ResultProcessor {
+    constructor() {
+    }
+
+    processResults(benchmarkFile: string): {
+        table: any;
+        nbProjects: number;
+        totalLoC: number;
+    } {
+        const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
+        const ruleName = determineRuleName(benchmarkFile);
+        const listOfLoC: number[] = [];
+        const summary = this.initializeSummary();
+
+        let totalLoC = this.aggregateData(results, summary, listOfLoC, ruleName);
+
+        this.calculateMetrics(summary, listOfLoC);
+
+        const resultTable = this.createResultTable(summary);
+
+        return {
+            table: resultTable,
+            nbProjects: results.length,
+            totalLoC
+        };
+    }
+
+    private initializeSummary(): SummaryType {
+        return {
+            adactl: this.createEmptyToolSummary(),
+            gnatcheck_1cores: this.createEmptyToolSummary(),
+            gnatcheck_32cores: this.createEmptyToolSummary(),
+            cogralys: this.createEmptyToolSummary()
+        };
+    }
+
+    private createEmptyToolSummary(): GlobalResultTime {
+        return {
+            overheadParsing: 0,
+            overheadPopulating: 0,
+            analysisTime: 0,
+            timeData: emptyTimeData(),
+            overheadTimeData: emptyTimeData(),
+            executionTime: 0,
+            nbFails: 0,
+            nbProjectFails: 0,
+            analysisTimeValues: [],
+            r2Value: 0,
+            mean: 0,
+            standardDeviation: { value: 0, percentage: 0 }
+        };
+    }
+
+    private aggregateData(
+        results: BenchmarkResultDB[],
+        summary: SummaryType,
+        listOfLoC: number[],
+        ruleName: string
+    ): number {
+        let totalLoC = 0;
+
+        for (const result of results) {
+            totalLoC += result.scc.Code;
+            listOfLoC.push(result.scc.Code);
+
+            this.aggregateToolData(result, summary, ruleName);
+        }
+
+        return totalLoC;
+    }
+
+    private aggregateToolData(
+        result: BenchmarkResultDB,
+        summary: SummaryType,
+        ruleName: string
+    ): void {
+        // Implementation details for data aggregation
+        // This would contain the specific logic for each tool
+        let nbFails: number = 0;
+
+        for (const tool in summary) {
+            summary[tool as ToolKey].overheadParsing += result.benchmarkResults[tool as ToolKey].digestTime.overheadParsing;
+            summary[tool as ToolKey].overheadPopulating += result.benchmarkResults[tool as ToolKey].digestTime.overheadPopulating;
+            let analysisTime = result.benchmarkResults[tool as ToolKey].digestTime.analysisTime;
+            let executionTime = result.benchmarkResults[tool as ToolKey].digestTime.executionTime;
+            nbFails = result.benchmarkResults[tool as ToolKey].run.nbRuns - result.benchmarkResults[tool as ToolKey].run.nbValidRuns;
+            summary[tool as ToolKey].nbFails += nbFails;
+            summary[tool as ToolKey].nbProjectFails += nbFails > 0 ? 1 : 0;
+
+            if (tool === "cogralys") {
+                if (ruleName === GLOBAL_EXECUTION_KEY) {
+                    executionTime = result.benchmarkResults.cogralys.digestTime.executionTime
+                    + result.benchmarkResults.cogralys.digestTime.overheadParsing
+                    + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
+                } else {
+                    analysisTime = result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.analysisTime;
+                    executionTime = result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.executionTime
+                    + result.benchmarkResults.cogralys.digestTime.overheadParsing
+                    + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
+                }
+            }
+
+            summary[tool as ToolKey].analysisTime += analysisTime;
+            summary[tool as ToolKey].analysisTimeValues.push(analysisTime);
+            summary[tool as ToolKey].executionTime += executionTime;
+        }
+    }
+
+    private calculateMetrics(summary: SummaryType, listOfLoC: number[]): void {
+        for (const tool in summary) {
+            summary[tool as ToolKey] = {
+                ...summary[tool as ToolKey],
+                ...getMetrics(summary[tool as ToolKey].analysisTimeValues, listOfLoC)
+            };
+        }
+    }
+
+    private createResultTable(summary: SummaryType): any {
+        // Calculate percentages and prepare result table
+        const fastestAnalysisTime = Math.min(
+            getNotNullNumber(summary.adactl.analysisTime, Infinity, false),
+            getNotNullNumber(summary.gnatcheck_1cores.analysisTime, Infinity, false),
+            getNotNullNumber(summary.gnatcheck_32cores.analysisTime, Infinity, false),
+            getNotNullNumber(summary.cogralys.analysisTime, Infinity, false)
+        );
+        const fastestExecutionTime = Math.min(
+            getNotNullNumber(summary.adactl.executionTime, Infinity, false),
+            getNotNullNumber(summary.gnatcheck_1cores.executionTime, Infinity, false),
+            getNotNullNumber(summary.gnatcheck_32cores.executionTime, Infinity, false),
+            getNotNullNumber(summary.cogralys.executionTime, Infinity, false)
+        );
+
+        const fastestOverhead = Math.min(
+            getNotNullNumber(summary.adactl.overheadParsing, Infinity, false) + getNotNullNumber(summary.adactl.overheadPopulating, Infinity),
+            getNotNullNumber(summary.gnatcheck_1cores.overheadParsing, Infinity, false) + getNotNullNumber(summary.gnatcheck_1cores.overheadPopulating, Infinity),
+            getNotNullNumber(summary.gnatcheck_32cores.overheadParsing, Infinity, false) + getNotNullNumber(summary.gnatcheck_32cores.overheadPopulating, Infinity),
+            getNotNullNumber(summary.cogralys.overheadParsing, Infinity, false) + getNotNullNumber(summary.cogralys.overheadPopulating, Infinity)
+        );
+
+        const generateEmptyToolsValues = () => {
+            const result: Record<ToolKey, any> = {
+              adactl: undefined,
+              cogralys: undefined,
+              gnatcheck_1cores: undefined,
+              gnatcheck_32cores: undefined
+            };
+            return result;
+        }
+
+        // Generate result
+        const result = {
+            overheadParsing: generateEmptyToolsValues(),
+            overheadPopulating: generateEmptyToolsValues(),
+            "Relative Overhead (0 is better)": generateEmptyToolsValues(),
+            analysisTime: generateEmptyToolsValues(),
+            "Analysis Relative Speed (0 is better)": generateEmptyToolsValues(),
+            "R²": generateEmptyToolsValues(),
+            "mean": generateEmptyToolsValues(),
+            "Standard Deviation value": generateEmptyToolsValues(),
+            "Standard Deviation in %": generateEmptyToolsValues(),
+            executionTime: generateEmptyToolsValues(),
+            "Execution Relative Speed (0 is better)": generateEmptyToolsValues(),
+            "Nb run fails": generateEmptyToolsValues(),
+            "Nb project fails": generateEmptyToolsValues(),
+        }
+
+        for (const tool in summary) {
+            result.overheadParsing[tool as ToolKey] = formatDuration(summary[tool as ToolKey].overheadParsing * 1000);
+            result.overheadPopulating[tool as ToolKey] = formatDuration(summary[tool as ToolKey].overheadPopulating * 1000);
+            result.analysisTime[tool as ToolKey] = formatDuration(summary[tool as ToolKey].analysisTime * 1000);
+            result["R²"][tool as ToolKey] = summary[tool as ToolKey].r2Value.toFixed(3);
+            result.mean[tool as ToolKey] = summary[tool as ToolKey].mean.toFixed(3);
+            result["Standard Deviation value"][tool as ToolKey] = summary[tool as ToolKey].standardDeviation.value.toFixed(3);
+            result["Standard Deviation in %"][tool as ToolKey] = summary[tool as ToolKey].standardDeviation.percentage.toFixed(3) + "%";
+            result.executionTime[tool as ToolKey] = formatDuration(summary[tool as ToolKey].executionTime * 1000);
+            result["Nb run fails"][tool as ToolKey] = summary[tool as ToolKey].nbFails;
+            result["Nb project fails"][tool as ToolKey] = summary[tool as ToolKey].nbProjectFails;
+
+
+            if (summary[tool as ToolKey].analysisTime === 0) {
+                result["Analysis Relative Speed (0 is better)"][tool as ToolKey] = ""
+            } else {
+                result["Analysis Relative Speed (0 is better)"][tool as ToolKey] = (((summary[tool as ToolKey].analysisTime - fastestAnalysisTime) / fastestAnalysisTime)).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+            }
+
+            if (summary[tool as ToolKey].executionTime === 0) {
+                result["Execution Relative Speed (0 is better)"][tool as ToolKey] = ""
+            } else {
+                result["Execution Relative Speed (0 is better)"][tool as ToolKey] = (((summary[tool as ToolKey].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+            }
+
+            if (summary[tool as ToolKey].overheadParsing === 0) {
+                result["Relative Overhead (0 is better)"][tool as ToolKey] = ""
+            } else {
+                result["Relative Overhead (0 is better)"][tool as ToolKey] = ((((summary[tool as ToolKey].overheadParsing + summary[tool as ToolKey].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+            }
+        }
+        return result;
     }
 }
 
-function getNotNullNumber(value: number, defaultValue: number, allowZeroValue = true): number {
-    return isNaN(value) ? defaultValue : !allowZeroValue && value === 0 ? defaultValue : value;
-}
-
+// Main module initialization
 export function initializeModule(program: Command): void {
     program
-        .command("compute-results")
+        .command("compute-detailed-results")
         .description(
             "Compute the benchmark results. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys."
         )
@@ -101,308 +392,60 @@ export function initializeModule(program: Command): void {
             "Path to the root of the result files",
             defaultProjectRoot
         )
-        .action(
-            (options: { rootDir: string }) => {
-                PROJECT_ROOT = options.rootDir;
-                // Find all benchmark result files
-                const benchmarkFiles = fg.sync(join(PROJECT_ROOT, "benchmarkResults*.json"));
+        .action(handleComputeResults);
+}
 
-                const resultData: {
-                    global: { table: any, nbProjects: number, totalLoC: number},
-                    rules: { [key: string]: { table: any, nbProjects: number, totalLoC: number} }
-                } = {
-                    global: {
-                        table: null,
-                        nbProjects: 0,
-                        totalLoC: 0
-                    },
-                    rules: {},
-                }
+// Command handler
+function handleComputeResults(options: { rootDir: string }): void {
+    const resultProcessor = new ResultProcessor();
+    const benchmarkFiles = fg.sync(join(options.rootDir, "benchmarkResults*.json"));
 
-                let nbRuns = 0;
+    const resultData = {
+        global: null as any,
+        rules: {} as Record<string, any>
+    };
 
-                for (const benchmarkFile of benchmarkFiles) {
-                    const results: benchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
-                    let ruleName: string = "";
-                    const r = benchmarkFile.match(/benchmarkResults-([^-.]+).*?\.json$/)?.[1];
-                    const listOfLoC: number[] = [];
+    let nbRuns = 0;
 
-                    if (r) {
-                        if (!codingRules.includes(r)) {
-                            ruleName = GLOBAL_EXECUTION_KEY;
-                        } else {
-                            ruleName = r;
-                        }
-                    } else {
-                        ruleName = GLOBAL_EXECUTION_KEY;
-                    }
+    for (const benchmarkFile of benchmarkFiles) {
+        const result = resultProcessor.processResults(benchmarkFile);
 
-                    const summary: summaryType = {
-                        adactl: {
-                          overheadParsing: 0, overheadPopulating: 0, analysisTime: 0,
-                          timeData: emptyTimeData(),
-                          overheadTimeData: emptyTimeData(),
-                          executionTime: 0,
-                          nbFails: 0,
-                          nbProjectFails: 0,
-                          analysisTimeValues: [],
-                          r2Value: 0,
-                          mean: 0,
-                          standardDeviation: {
-                            value: 0,
-                            percentage: 0
-                          }
-                        },
-                        gnatcheck_1cores: {
-                          overheadParsing: 0, overheadPopulating: 0, analysisTime: 0,
-                          timeData: emptyTimeData(),
-                          overheadTimeData: emptyTimeData(),
-                          executionTime: 0,
-                          nbFails: 0,
-                          nbProjectFails: 0,
-                          analysisTimeValues: [],
-                          r2Value: 0,
-                          mean: 0,
-                          standardDeviation: {
-                            value: 0,
-                            percentage: 0
-                          }
-                        },
-                        gnatcheck_32cores: {
-                          overheadParsing: 0, overheadPopulating: 0, analysisTime: 0,
-                          timeData: emptyTimeData(),
-                          overheadTimeData: emptyTimeData(),
-                          executionTime: 0,
-                          nbFails: 0,
-                          nbProjectFails: 0,
-                          analysisTimeValues: [],
-                          r2Value: 0,
-                          mean: 0,
-                          standardDeviation: {
-                            value: 0,
-                            percentage: 0
-                          }
-                        },
-                        cogralys: {
-                          overheadParsing: 0, overheadPopulating: 0, analysisTime: 0,
-                          timeData: emptyTimeData(),
-                          overheadTimeData: emptyTimeData(),
-                          executionTime: 0,
-                          nbFails: 0,
-                          nbProjectFails: 0,
-                          analysisTimeValues: [],
-                          r2Value: 0,
-                          mean: 0,
-                          standardDeviation: {
-                            value: 0,
-                            percentage: 0
-                          }
-                        },
-                    };
+        const ruleName = determineRuleName(benchmarkFile);
 
-                    let totalLoC = 0;
+        if (ruleName === GLOBAL_EXECUTION_KEY) {
+            resultData.global = result;
+        } else {
+            resultData.rules[ruleName] = result;
+        }
 
-                    // Aggregate data
-                    for (const result of results) {
-                        totalLoC += result.scc.Code;
-                        listOfLoC.push(result.scc.Code);
-                        let nbFails: number = 0;
-                        // Make a global aggregate result
-                        // AdaControl
-                        summary.adactl.overheadParsing += result.benchmarkResults.adactl.digestTime.overheadParsing;
-                        summary.adactl.overheadPopulating += result.benchmarkResults.adactl.digestTime.overheadPopulating;
-                        summary.adactl.analysisTime += result.benchmarkResults.adactl.digestTime.analysisTime;
-                        summary.adactl.analysisTimeValues.push(result.benchmarkResults.adactl.digestTime.analysisTime);
-                        summary.adactl.executionTime += result.benchmarkResults.adactl.digestTime.executionTime;
-                        nbFails = result.benchmarkResults.adactl.run.nbRuns - result.benchmarkResults.adactl.run.nbValidRuns;
-                        summary.adactl.nbFails += nbFails;
-                        summary.adactl.nbProjectFails += nbFails > 0 ? 1 : 0;
+        if (nbRuns === 0) {
+            nbRuns = JSON.parse(Deno.readTextFileSync(benchmarkFile))[0]
+                ?.benchmarkResults?.adactl?.run?.nbRuns || 0;
+        }
+    }
 
-                        // Gnatcheck 1 core
-                        summary.gnatcheck_1cores.overheadParsing += result.benchmarkResults.gnatcheck_1cores.digestTime.overheadParsing;
-                        summary.gnatcheck_1cores.overheadPopulating += result.benchmarkResults.gnatcheck_1cores.digestTime.overheadPopulating;
-                        summary.gnatcheck_1cores.analysisTime += result.benchmarkResults.gnatcheck_1cores.digestTime.analysisTime;
-                        summary.gnatcheck_1cores.analysisTimeValues.push(result.benchmarkResults.gnatcheck_1cores.digestTime.analysisTime);
-                        summary.gnatcheck_1cores.executionTime += result.benchmarkResults.gnatcheck_1cores.digestTime.executionTime;
-                        nbFails = result.benchmarkResults.gnatcheck_1cores.run.nbRuns - result.benchmarkResults.gnatcheck_1cores.run.nbValidRuns;
-                        summary.gnatcheck_1cores.nbFails += nbFails;
-                        summary.gnatcheck_1cores.nbProjectFails += nbFails > 0 ? 1 : 0;
+    printResults(nbRuns, resultData);
+}
 
-                        // Gnatcheck 32 cores
-                        summary.gnatcheck_32cores.overheadParsing += result.benchmarkResults.gnatcheck_32cores.digestTime.overheadParsing;
-                        summary.gnatcheck_32cores.overheadPopulating += result.benchmarkResults.gnatcheck_32cores.digestTime.overheadPopulating;
-                        summary.gnatcheck_32cores.analysisTime += result.benchmarkResults.gnatcheck_32cores.digestTime.analysisTime;
-                        summary.gnatcheck_32cores.analysisTimeValues.push(result.benchmarkResults.gnatcheck_32cores.digestTime.analysisTime);
-                        summary.gnatcheck_32cores.executionTime += result.benchmarkResults.gnatcheck_32cores.digestTime.executionTime;
-                        nbFails = result.benchmarkResults.gnatcheck_32cores.run.nbRuns - result.benchmarkResults.gnatcheck_32cores.run.nbValidRuns;
-                        summary.gnatcheck_32cores.nbFails += nbFails;
-                        summary.gnatcheck_32cores.nbProjectFails += nbFails > 0 ? 1 : 0;
+// Results output
+function printResults(nbRuns: number, resultData: {
+    global: any;
+    rules: Record<string, { table: any, nbProjects: number, totalLoC: number }>;
+}): void {
+    console.log("=== Benchmark result ===\n");
+    console.log("Number of runs: ", nbRuns);
 
-                        // Cogralys
-                        summary.cogralys.overheadParsing += result.benchmarkResults.cogralys.digestTime.overheadParsing;
-                        summary.cogralys.overheadPopulating += result.benchmarkResults.cogralys.digestTime.overheadPopulating;
-                        if (ruleName === GLOBAL_EXECUTION_KEY) {
-                            summary.cogralys.analysisTime += result.benchmarkResults.cogralys.digestTime.analysisTime;
-                            summary.cogralys.analysisTimeValues.push(result.benchmarkResults.cogralys.digestTime.analysisTime);
-                            summary.cogralys.executionTime += result.benchmarkResults.cogralys.digestTime.executionTime + result.benchmarkResults.cogralys.digestTime.overheadParsing + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
+    console.log("\n# Global\n");
+    console.table(resultData.global.table);
+    console.log("\nNumber of projects:", resultData.global.nbProjects);
+    console.log("Total number of line of codes:", resultData.global.totalLoC);
 
-                            if (nbRuns === 0) {
-                                nbRuns = result.benchmarkResults.adactl.run.nbRuns;
-                            }
-                        } else {
-                            summary.cogralys.analysisTime += result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.analysisTime;
-                            summary.cogralys.analysisTimeValues.push(result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.analysisTime);
-                            summary.cogralys.executionTime += result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.executionTime;
-                        }
-                        nbFails = result.benchmarkResults.cogralys.run.nbRuns - result.benchmarkResults.cogralys.run.nbValidRuns;
-                        summary.cogralys.nbFails += nbFails;
-                        summary.cogralys.nbProjectFails += nbFails > 0 ? 1 : 0;
-                    }
+    console.log("\n# By rules");
 
-                    summary.adactl = {...summary.adactl, ...getMetrics(summary.adactl.analysisTimeValues, listOfLoC)};
-                    summary.gnatcheck_1cores = {...summary.gnatcheck_1cores, ...getMetrics(summary.gnatcheck_1cores.analysisTimeValues, listOfLoC)};
-                    summary.gnatcheck_32cores = {...summary.gnatcheck_32cores, ...getMetrics(summary.gnatcheck_32cores.analysisTimeValues, listOfLoC)};
-                    summary.cogralys = {...summary.cogralys, ...getMetrics(summary.cogralys.analysisTimeValues, listOfLoC)};
-
-                    // Calculate percentages and prepare result table
-                    const fastestAnalysisTime = Math.min(
-                        getNotNullNumber(summary.adactl.analysisTime, Infinity, false),
-                        getNotNullNumber(summary.gnatcheck_1cores.analysisTime, Infinity, false),
-                        getNotNullNumber(summary.gnatcheck_32cores.analysisTime, Infinity, false),
-                        getNotNullNumber(summary.cogralys.analysisTime, Infinity, false)
-                    );
-                    const fastestExecutionTime = Math.min(
-                        getNotNullNumber(summary.adactl.executionTime, Infinity, false),
-                        getNotNullNumber(summary.gnatcheck_1cores.executionTime, Infinity, false),
-                        getNotNullNumber(summary.gnatcheck_32cores.executionTime, Infinity, false),
-                        getNotNullNumber(summary.cogralys.executionTime, Infinity, false)
-                    );
-
-                    const fastestOverhead = Math.min(
-                        getNotNullNumber(summary.adactl.overheadParsing, Infinity, false) + getNotNullNumber(summary.adactl.overheadPopulating, Infinity),
-                        getNotNullNumber(summary.gnatcheck_1cores.overheadParsing, Infinity, false) + getNotNullNumber(summary.gnatcheck_1cores.overheadPopulating, Infinity),
-                        getNotNullNumber(summary.gnatcheck_32cores.overheadParsing, Infinity, false) + getNotNullNumber(summary.gnatcheck_32cores.overheadPopulating, Infinity),
-                        getNotNullNumber(summary.cogralys.overheadParsing, Infinity, false) + getNotNullNumber(summary.cogralys.overheadPopulating, Infinity)
-                    );
-
-                    const result = {
-                        overheadParsing: {
-                            adactl: formatDuration(summary.adactl.overheadParsing * 1000),
-                            gnatcheck_1cores: formatDuration(summary.gnatcheck_1cores.overheadParsing * 1000),
-                            gnatcheck_32cores: formatDuration(summary.gnatcheck_32cores.overheadParsing * 1000),
-                            cogralys: formatDuration(summary.cogralys.overheadParsing * 1000),
-                        },
-                        overheadPopulating: {
-                            adactl: formatDuration(summary.adactl.overheadPopulating * 1000),
-                            gnatcheck_1cores: formatDuration(summary.gnatcheck_1cores.overheadPopulating * 1000),
-                            gnatcheck_32cores: formatDuration(summary.gnatcheck_32cores.overheadPopulating * 1000),
-                            cogralys: formatDuration(summary.cogralys.overheadPopulating * 1000),
-                        },
-                        "Relative Overhead (0 is better)": {},
-                        analysisTime: {
-                            adactl: formatDuration(summary.adactl.analysisTime * 1000),
-                            gnatcheck_1cores: formatDuration(summary.gnatcheck_1cores.analysisTime * 1000),
-                            gnatcheck_32cores: formatDuration(summary.gnatcheck_32cores.analysisTime * 1000),
-                            cogralys: formatDuration(summary.cogralys.analysisTime * 1000),
-                        },
-                        "Analysis Relative Speed (0 is better)": {},
-                        "R²": {
-                            adactl: summary.adactl.r2Value.toFixed(3),
-                            gnatcheck_1cores: summary.gnatcheck_1cores.r2Value.toFixed(3),
-                            gnatcheck_32cores: summary.gnatcheck_32cores.r2Value.toFixed(3),
-                            cogralys: summary.cogralys.r2Value.toFixed(3),
-                        },
-                        "mean": {
-                            adactl: summary.adactl.mean.toFixed(3),
-                            gnatcheck_1cores: summary.gnatcheck_1cores.mean.toFixed(3),
-                            gnatcheck_32cores: summary.gnatcheck_32cores.mean.toFixed(3),
-                            cogralys: summary.cogralys.mean.toFixed(3),
-                        },
-                        "Standard Deviation value": {
-                            adactl: summary.adactl.standardDeviation.value.toFixed(3),
-                            gnatcheck_1cores: summary.gnatcheck_1cores.standardDeviation.value.toFixed(3),
-                            gnatcheck_32cores: summary.gnatcheck_32cores.standardDeviation.value.toFixed(3),
-                            cogralys: summary.cogralys.standardDeviation.value.toFixed(3),
-                        },
-                        "Standard Deviation in %": {
-                            adactl: summary.adactl.standardDeviation.percentage.toFixed(3) + "%",
-                            gnatcheck_1cores: summary.gnatcheck_1cores.standardDeviation.percentage.toFixed(3) + "%",
-                            gnatcheck_32cores: summary.gnatcheck_32cores.standardDeviation.percentage.toFixed(3) + "%",
-                            cogralys: summary.cogralys.standardDeviation.percentage.toFixed(3) + "%",
-                        },
-                        executionTime: {
-                            adactl: formatDuration(summary.adactl.executionTime * 1000),
-                            gnatcheck_1cores: formatDuration(summary.gnatcheck_1cores.executionTime * 1000),
-                            gnatcheck_32cores: formatDuration(summary.gnatcheck_32cores.executionTime * 1000),
-                            cogralys: formatDuration(summary.cogralys.executionTime * 1000),
-                        },
-                        "Execution Relative Speed (0 is better)": {},
-                        "Nb run fails": {
-                            adactl: summary.adactl.nbFails,
-                            gnatcheck_1cores: summary.gnatcheck_1cores.nbFails,
-                            gnatcheck_32cores: summary.gnatcheck_32cores.nbFails,
-                            cogralys: summary.cogralys.nbFails,
-                        },
-                        "Nb project fails": {
-                            adactl: summary.adactl.nbProjectFails,
-                            gnatcheck_1cores: summary.gnatcheck_1cores.nbProjectFails,
-                            gnatcheck_32cores: summary.gnatcheck_32cores.nbProjectFails,
-                            cogralys: summary.cogralys.nbProjectFails,
-                        },
-                    }
-
-                    for (const tool in summary) {
-                        if (summary[tool].analysisTime === 0) {
-                            result["Analysis Relative Speed (0 is better)"][tool as string] = ""
-                        } else {
-                            result["Analysis Relative Speed (0 is better)"][tool as string] = (((summary[tool].analysisTime - fastestAnalysisTime) / fastestAnalysisTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
-                        }
-
-                        if (summary[tool].executionTime === 0) {
-                            result["Execution Relative Speed (0 is better)"][tool as string] = ""
-                        } else {
-                            result["Execution Relative Speed (0 is better)"][tool as string] = (((summary[tool].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
-                        }
-
-                        if (summary[tool].overheadParsing === 0) {
-                            result["Relative Overhead (0 is better)"][tool] = ""
-                        } else {
-                            result["Relative Overhead (0 is better)"][tool] = ((((summary[tool].overheadParsing + summary[tool].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
-                        }
-                    }
-
-                    if (ruleName === GLOBAL_EXECUTION_KEY) {
-                        resultData.global = {
-                            table: result,
-                            nbProjects: results.length,
-                            totalLoC
-                        }
-                    } else {
-                        resultData.rules[ruleName] = {
-                            table: result,
-                            nbProjects: results.length,
-                            totalLoC
-                        }
-                    }
-                }
-
-                console.log("=== Benchmark result ===\n");
-
-                console.log("Number of runs: ", nbRuns);
-
-                console.log("\n# Global\n");
-                console.table(resultData.global.table);
-                console.log("\nNumber of projects:", resultData.global.nbProjects);
-                console.log("Total number of line of codes:", resultData.global.totalLoC);
-
-                console.log("\n# By rules");
-
-                for (const [key, value] of Object.entries(resultData.rules)) {
-                    console.log(`\n## ${key}\n`);
-                    console.table(value.table);
-                    console.log("\nNumber of projects:", value.nbProjects);
-                    console.log("Total number of line of codes:", value.totalLoC);
-                }
-            }
-        );
+    for (const [key, value] of Object.entries(resultData.rules)) {
+        console.log(`\n## ${key}\n`);
+        console.table(value.table);
+        console.log("\nNumber of projects:", value.nbProjects);
+        console.log("Total number of line of codes:", value.totalLoC);
+    }
 }

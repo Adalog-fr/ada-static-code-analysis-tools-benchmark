@@ -203,6 +203,10 @@ export type globalResultTime = {
     overheadTimeData: TimeData<number>,
     nbFails: number,
     nbProjectFails: number,
+    analysisTimeValues: number[],
+    r2Value: number,
+    mean: number,
+    standardDeviation: { value: number, percentage: number },
 };
 
 export type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
