@@ -4,7 +4,7 @@ import { parse } from "jsr:@std/toml@^1.0.1";
 import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner, preTaskCbType, postTaskCbType } from "../lib/taskRunner/taskRunner.ts";
 import { formatDuration, filterCompleteCrates, getAllIgnoredCrates } from "../utils.ts";
-import { UnifiedCrateData, extendedGPRProject } from "../types.ts";
+import { UnifiedCrateData, ExtendedGPRProject } from "../types.ts";
 import { PROJECT_ROOT } from "../../config.ts";
 
 type commandType = [string, string[]];
@@ -37,7 +37,7 @@ export function initializeModule(program: Command, settings: {
         .action((options: { logAppendMode: boolean, ignoreMissingDependencies: boolean }) => {
             const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
             const ignoreCrate : string[] = getAllIgnoredCrates(cratesDB);
-            const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
+            const projects : ExtendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
             const alireTomlPath: string[] = [...new Set(projects.map(elt => join(PROJECT_ROOT, elt.alireTomlPath)))];
             const knowCrates = Object.keys(cratesDB.crates);
 

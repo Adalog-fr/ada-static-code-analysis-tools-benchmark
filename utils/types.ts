@@ -36,7 +36,7 @@ export interface GPRProject {
     ignoreReason?: string;
 }
 
-export interface extendedGPRProject extends GPRProject {
+export interface ExtendedGPRProject extends GPRProject {
     alireTomlPath: string;
     crateName: string;
 }
@@ -184,7 +184,7 @@ export type BenchmarkResult = {
     cogralys: CogralysResults;
 };
 
-export interface benchmarkResultDB {
+export interface BenchmarkResultDB {
     crateName: string;
     workDir: string;
     gprPath: string;
@@ -194,7 +194,7 @@ export interface benchmarkResultDB {
 
 // Computed results
 
-export type globalResultTime = {
+export type GlobalResultTime = {
     overheadParsing: number,
     overheadPopulating: number,
     analysisTime: number,
@@ -209,16 +209,18 @@ export type globalResultTime = {
     standardDeviation: { value: number, percentage: number },
 };
 
-export type toolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
-export type summaryType = Record<toolKey, globalResultTime>;
-export type detailedResultType = {
+export const toolKey = ["adactl", "cogralys", "gnatcheck_1cores", "gnatcheck_32cores"] as const;
+export type ToolKeyType = typeof toolKey[number];
+export type SummaryType = Record<ToolKeyType, GlobalResultTime>;
+export type DigestTimeResultByProject = Record<ToolKeyType, DigestTimeResult>;
+export type DetailedResultType = {
     crateName: string;
     workDir: string;
     gprPath: string;
     scc: {
-        loc: number;
-        complexity: number;
-        nbFiles: number;
+        nbLoC: number;
+    complexity: number;
+    nbFiles: number;
     };
-    results: summaryType;
+    results: DigestTimeResultByProject;
 };

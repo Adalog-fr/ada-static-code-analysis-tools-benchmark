@@ -2,7 +2,7 @@
 import { isPlainObject } from "https://cdn.skypack.dev/lodash-es?dts";
 import { join, basename } from "jsr:@std/path@^0.225.1";
 import { PROJECT_ROOT, COGRALYS_EXE_NAME } from "../config.ts";
-import { Crate, extendedGPRProject, UnifiedCrateData } from "./types.ts";
+import { Crate, ExtendedGPRProject, UnifiedCrateData } from "./types.ts";
 
 export function collectOptionList(value: any, previous: any[]) {
   return previous.concat([value]);
@@ -139,8 +139,8 @@ export function parseDuration(durationString: string): number {
 }
 
 /** Filters crates to include only those with all projects meeting complete criteria */
-export function filterCompleteCrates(crates: { [key: string]: Crate }): extendedGPRProject[] {
-    const filteredCrates: extendedGPRProject[] = [];
+export function filterCompleteCrates(crates: { [key: string]: Crate }): ExtendedGPRProject[] {
+    const filteredCrates: ExtendedGPRProject[] = [];
 
     for (const [crateName, crate] of Object.entries(crates)) {
         if (crate.ignore) {

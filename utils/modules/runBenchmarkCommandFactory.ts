@@ -2,7 +2,7 @@ import { basename, join, dirname } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import * as dotenv from "jsr:@std/dotenv@^0.225.1";
 import { filterCompleteCrates, createBlock, getCogralysEnginePath } from "../utils.ts";
-import { extendedGPRProject, UnifiedCrateData } from "../types.ts";
+import { ExtendedGPRProject, UnifiedCrateData } from "../types.ts";
 import { COGRALYS_DIR_NAME, PROJECT_ROOT } from "../../config.ts";
 import type { LanguageSummary } from "../scc-types.ts";
 
@@ -14,7 +14,7 @@ try {
     defaultCogralysEnginePath = "NOT FOUND"
 }
 
-type finalProjectArrayType = [extendedGPRProject, Omit<LanguageSummary, "Files">][];
+type finalProjectArrayType = [ExtendedGPRProject, Omit<LanguageSummary, "Files">][];
 type optionsType = { cratesPath: string, execPath: string, log4jSettingsPath: string };
 
 export function initializeModule(program: Command, settings: {
@@ -36,7 +36,7 @@ export function initializeModule(program: Command, settings: {
                 options.execPath = getCogralysEnginePath(options.execPath);
             }
             const crates: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
-            const projects: extendedGPRProject[] = filterCompleteCrates(crates.crates);
+            const projects: ExtendedGPRProject[] = filterCompleteCrates(crates.crates);
             let finalProjects: finalProjectArrayType = [];
 
             for (const project of projects) {

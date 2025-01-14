@@ -1,7 +1,7 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, benchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult, DigestTimeResult, BenchResultByStep } from "../types.ts";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, BenchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult, DigestTimeResult, BenchResultByStep } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
@@ -598,7 +598,7 @@ export function initializeModule(program: Command): void {
                 PROJECT_ROOT = options.rootDir;
 
                 const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
-                const resultsByRule = new Map<string, benchmarkResultDB[]>();
+                const resultsByRule = new Map<string, BenchmarkResultDB[]>();
                 resultsByRule.set('global', []);
 
                 for (const [crateName, crate] of Object.entries(cratesDB.crates)) {
@@ -632,7 +632,7 @@ export function initializeModule(program: Command): void {
 
                             try {
                                 // Process global results
-                                const globalResult: benchmarkResultDB = {
+                                const globalResult: BenchmarkResultDB = {
                                     crateName,
                                     workDir: project.alireTomlPath,
                                     gprPath: gprProject.gprPath,
@@ -650,7 +650,7 @@ export function initializeModule(program: Command): void {
                                     resultsByRule.set(rule, []);
                                 }
                                 try {
-                                    const ruleResult: benchmarkResultDB = {
+                                    const ruleResult: BenchmarkResultDB = {
                                         crateName,
                                         workDir: project.alireTomlPath,
                                         gprPath: gprProject.gprPath,

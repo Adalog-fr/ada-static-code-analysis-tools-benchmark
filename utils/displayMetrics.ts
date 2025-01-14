@@ -1,6 +1,6 @@
 import { join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { benchmarkResultDB, StandardDeviationResult, TimeData } from "./types.ts";
+import { BenchmarkResultDB, StandardDeviationResult, TimeData } from "./types.ts";
 import { formatDuration } from "./utils.ts";
 
 // Parse command-line arguments
@@ -19,7 +19,7 @@ const program = new Command()
 // Strategy Pattern interfaces
 interface ExportStrategy {
     formatNumber(num: number | undefined, decimals?: number): string;
-    formatFullTable(results: benchmarkResultDB[]): string;
+    formatFullTable(results: BenchmarkResultDB[]): string;
     formatHighStdDevTable?(phase: string, entries: HighStdDevEntry[]): string;
 }
 
@@ -34,10 +34,10 @@ interface HighStdDevEntry {
 // Base class with common functionality
 abstract class BaseExport implements ExportStrategy {
     abstract formatNumber(num: number | undefined, decimals?: number): string;
-    abstract formatFullTable(results: benchmarkResultDB[]): string;
+    abstract formatFullTable(results: BenchmarkResultDB[]): string;
     abstract formatHighStdDevTable?(phase: string, entries: HighStdDevEntry[]): string;
 
-    protected extractToolData(project: benchmarkResultDB) {
+    protected extractToolData(project: BenchmarkResultDB) {
         return {
             adactl: this.extractPhases(project.benchmarkResults.adactl),
             gnat1: this.extractPhases(project.benchmarkResults.gnatcheck_1cores),
@@ -78,7 +78,7 @@ class MarkdownExport extends BaseExport {
         return (num > 5 ? `**${value}**` : value).padStart(8);
     }
 
-    formatFullTable(results: benchmarkResultDB[]): string {
+    formatFullTable(results: BenchmarkResultDB[]): string {
         const headers = [
             "Project Name",
             "Lines of Code",
@@ -114,7 +114,7 @@ class MarkdownExport extends BaseExport {
         return output;
     }
 
-    private formatProjectRows(project: benchmarkResultDB): string {
+    private formatProjectRows(project: BenchmarkResultDB): string {
         let output = "";
         const tools = this.extractToolData(project);
 
@@ -156,7 +156,7 @@ class CSVExport extends BaseExport {
         return num.toFixed(decimals).replace(".", ",");
     }
 
-    formatFullTable(results: benchmarkResultDB[]): string {
+    formatFullTable(results: BenchmarkResultDB[]): string {
         const headers = [
             "Project Name",
             "Lines of Code",
@@ -178,7 +178,7 @@ class CSVExport extends BaseExport {
         return output;
     }
 
-    private formatProjectRows(project: benchmarkResultDB): string {
+    private formatProjectRows(project: BenchmarkResultDB): string {
         let output = "";
         const tools = this.extractToolData(project);
 
@@ -224,7 +224,7 @@ class ExportFactory {
 }
 
 // Main execution
-const results: benchmarkResultDB[] = JSON.parse(Deno.readTextFileSync("./benchmarkResults.json"));
+const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync("./benchmarkResults.json"));
 const exporter = ExportFactory.createExporter(program.format);
 
 let output = exporter.formatFullTable(results);
@@ -246,7 +246,7 @@ if (program.output) {
     console.log(output);
 }
 
-function collectHighStdDevEntries(phase: string, results: benchmarkResultDB[]): HighStdDevEntry[] {
+function collectHighStdDevEntries(phase: string, results: BenchmarkResultDB[]): HighStdDevEntry[] {
     const entries: HighStdDevEntry[] = [];
 
     results.forEach(project => {

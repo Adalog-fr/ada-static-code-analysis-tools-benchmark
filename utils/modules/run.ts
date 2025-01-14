@@ -6,7 +6,7 @@ import ProgressBar from "https://deno.land/x/progress@v1.3.8/mod.ts";
 import * as log from "jsr:@std/log@^0.224.6";
 import { TaskRunner } from "../lib/taskRunner/taskRunner.ts";
 import { filterCompleteCrates, getAllIgnoredCrates, getCogralysEnginePath } from "../utils.ts";
-import { UnifiedCrateData, extendedGPRProject } from "../types.ts";
+import { UnifiedCrateData, ExtendedGPRProject } from "../types.ts";
 import { PROJECT_ROOT, COGRALYS_DIR_NAME } from "../../config.ts";
 
 type commandType = [string, string[], Record<string, string>];
@@ -69,7 +69,7 @@ export function initializeModule(program: Command): void {
 
                 const cratesDB: UnifiedCrateData = JSON.parse(Deno.readTextFileSync(join(PROJECT_ROOT, "cratesDB.json")));
                 const ignoredUnknownCrates : string[] = getAllIgnoredCrates(cratesDB);
-                const projects : extendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
+                const projects : ExtendedGPRProject[] = filterCompleteCrates(cratesDB.crates);
                 const knowCrates = projects.map(elt => elt.crateName);
                 const paths = projects.map(elt => elt.alireTomlPath);
 
