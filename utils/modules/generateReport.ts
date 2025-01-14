@@ -431,9 +431,9 @@ class ResultProcessor {
 // Main module initialization
 export function initializeModule(program: Command): void {
     program
-        .command("compute-results")
+        .command("generate-report")
         .description(
-            "Compute the benchmark results. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys."
+            "Generate benchmark report. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys, and after aggregate-results."
         )
         .option(
             "--rootDir <string>",
