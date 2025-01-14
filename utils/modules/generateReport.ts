@@ -1,12 +1,12 @@
 import { join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { LanguageSummary } from "../scc-types.ts";
-import { formatDuration } from "../utils.ts";
-import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { capitalCase } from "jsr:@mesqueeb/case-anything";
 import cloneJSON from "jsr:@rhy/fast-json-clone";
+import { formatDuration } from "../utils.ts";
+import { benchmarkResultDB, StandardDeviationResult, globalResultTime } from "../types.ts";
+import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
 const GLOBAL_EXECUTION_KEY = "GLOBAL";
 const codingRules = JSON.parse(
@@ -29,12 +29,6 @@ function determineRuleName(benchmarkFile: string): string {
 
 function formatNumber(value: number, maxDigits = 0) {
     return new Intl.NumberFormat('en-GB', { maximumFractionDigits: maxDigits }).format(value)
-}
-
-// Core interfaces and types
-interface StandardDeviationResult {
-    value: number;
-    percentage: number;
 }
 
 interface TimeBaseData {
@@ -63,66 +57,8 @@ interface TimeBaseData {
     exit_status: number;
 }
 
-interface DigestTimeResult {
-    overheadParsing: number;
-    overheadPopulating: number;
-    overheadThreshold: number;
-    overhead: number;
-    executionTime: number;
-    analysisTime: number;
-}
-
-// Benchmark specific types
-interface GlobalResultTime {
-    overheadParsing: number;
-    overheadPopulating: number;
-    analysisTime: number;
-    executionTime: number;
-    timeData: TimeBaseData;
-    overheadTimeData: TimeBaseData;
-    nbFails: number;
-    nbProjectFails: number;
-    analysisTimeValues: number[];
-    r2Value: number;
-    mean: number;
-    standardDeviation: StandardDeviationResult;
-}
-
 type ToolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
-type SummaryType = Record<ToolKey, GlobalResultTime>;
-
-interface BenchmarkResultDB {
-    crateName: string;
-    workDir: string;
-    gprPath: string;
-    benchmarkResults: {
-        adactl: {
-            overhead: { parsing: any };
-            run: any;
-            digestTime: DigestTimeResult;
-        };
-        gnatcheck_1cores: {
-            overhead: { parsing: any };
-            run: any;
-            digestTime: DigestTimeResult;
-        };
-        gnatcheck_32cores: {
-            overhead: { parsing: any };
-            run: any;
-            digestTime: DigestTimeResult;
-        };
-        cogralys: {
-            overhead: {
-                parsing: any;
-                populatingDB: any;
-            };
-            run: any;
-            ruleResults: { [key: string]: any };
-            digestTime: DigestTimeResult;
-        };
-    };
-    scc: Omit<LanguageSummary, 'Files'>;
-}
+type SummaryType = Record<ToolKey, globalResultTime>;
 
 const ProjectCategory = ["all", "small", "medium", "large"] as const;
 type ProjectCategoryType = typeof ProjectCategory[number];
@@ -130,7 +66,7 @@ type ProjectCategoryType = typeof ProjectCategory[number];
 type RuleSummaryData = {
     [size in ProjectCategoryType]: {
         [rule: string]: {
-            [tool in ToolKey | string]?: string|number;
+            [tool in ToolKey | string]?: string | number;
         }
     }
 };
@@ -200,8 +136,8 @@ function emptyTimeData(): TimeBaseData {
     };
 }
 
-function processResultsByLocRange(results: BenchmarkResultDB[]): {
-    [key in ProjectCategoryType]: BenchmarkResultDB[];
+function processResultsByLocRange(results: benchmarkResultDB[]): {
+    [key in ProjectCategoryType]: benchmarkResultDB[];
 } {
     // Categorize projects based on Lines of Code
     return {
@@ -224,11 +160,11 @@ class ResultProcessor {
             totalLoC: number;
         }
     } {
-        const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
+        const results: benchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
         const ruleName = determineRuleName(benchmarkFile);
         const categorizedResults = processResultsByLocRange(results);
 
-        const processCategory = (categoryResults: BenchmarkResultDB[]) => {
+        const processCategory = (categoryResults: benchmarkResultDB[]) => {
             const listOfLoC: number[] = [];
             const summary = this.initializeSummary();
             const totalLoC = this.aggregateData(categoryResults, summary, listOfLoC, ruleName);
@@ -257,7 +193,7 @@ class ResultProcessor {
         };
     }
 
-    private createEmptyToolSummary(): GlobalResultTime {
+    private createEmptyToolSummary(): globalResultTime {
         return {
             overheadParsing: 0,
             overheadPopulating: 0,
@@ -275,7 +211,7 @@ class ResultProcessor {
     }
 
     private aggregateData(
-        results: BenchmarkResultDB[],
+        results: benchmarkResultDB[],
         summary: SummaryType,
         listOfLoC: number[],
         ruleName: string
@@ -293,7 +229,7 @@ class ResultProcessor {
     }
 
     private aggregateToolData(
-        result: BenchmarkResultDB,
+        result: benchmarkResultDB,
         summary: SummaryType,
         ruleName: string
     ): void {
@@ -313,13 +249,13 @@ class ResultProcessor {
             if (tool === "cogralys") {
                 if (ruleName === GLOBAL_EXECUTION_KEY) {
                     executionTime = result.benchmarkResults.cogralys.digestTime.executionTime
-                    + result.benchmarkResults.cogralys.digestTime.overheadParsing
-                    + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
+                        + result.benchmarkResults.cogralys.digestTime.overheadParsing
+                        + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
                 } else {
                     analysisTime = result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.analysisTime;
                     executionTime = result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.executionTime
-                    + result.benchmarkResults.cogralys.digestTime.overheadParsing
-                    + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
+                        + result.benchmarkResults.cogralys.digestTime.overheadParsing
+                        + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
                 }
             }
 
@@ -362,10 +298,10 @@ class ResultProcessor {
 
         const generateEmptyToolsValues = () => {
             const result: Record<ToolKey, any> = {
-              adactl: undefined,
-              cogralys: undefined,
-              gnatcheck_1cores: undefined,
-              gnatcheck_32cores: undefined
+                adactl: undefined,
+                cogralys: undefined,
+                gnatcheck_1cores: undefined,
+                gnatcheck_32cores: undefined
             };
             return result;
         }
@@ -449,7 +385,7 @@ type ResultAggregation = {
     [size in ProjectCategoryType]: {
         table: {
             [rule: string]: {
-                [tool in ToolKey]?: string|number;
+                [tool in ToolKey]?: string | number;
             }
         },
         nbProjects: number,
@@ -467,14 +403,14 @@ type ResultData = {
 
 function generateRuleSummary(resultData: ResultData, propertyKey = "analysisTime"): RuleSummaryData {
     const summary: RuleSummaryData = {
-      all: {},
-      small: {},
+        all: {},
+        small: {},
         medium: {},
         large: {}
     };
 
     // Initialize summary with all rules
-    for (const r of Object.keys(resultData.rules).sort((a,b) => a.localeCompare(b))) {
+    for (const r of Object.keys(resultData.rules).sort((a, b) => a.localeCompare(b))) {
         const ruleName = toTitleCase(r);
         for (const key of ProjectCategory) {
             summary[key][ruleName] = {};
@@ -507,39 +443,39 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
     const resultData: ResultData = {
         global: {
             all: {
-              table: {},
-              nbProjects: 0,
-              totalLoC: 0
+                table: {},
+                nbProjects: 0,
+                totalLoC: 0
             },
             small: {
-              table: {},
-              nbProjects: 0,
-              totalLoC: 0
+                table: {},
+                nbProjects: 0,
+                totalLoC: 0
             },
             medium: {
-              table: {},
-              nbProjects: 0,
-              totalLoC: 0
+                table: {},
+                nbProjects: 0,
+                totalLoC: 0
             },
             large: {
-              table: {},
-              nbProjects: 0,
-              totalLoC: 0
+                table: {},
+                nbProjects: 0,
+                totalLoC: 0
             }
         },
         rules: {} as Record<string, ResultAggregation>,
         summary: {
             analysisTime: {
-              all: {},
-              small: {},
-              medium: {},
-              large: {}
+                all: {},
+                small: {},
+                medium: {},
+                large: {}
             },
             overheadParsing: {
-              all: {},
-              small: {},
-              medium: {},
-              large: {}
+                all: {},
+                small: {},
+                medium: {},
+                large: {}
             }
         }
     };
