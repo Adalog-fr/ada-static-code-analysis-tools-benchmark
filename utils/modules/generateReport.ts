@@ -6,6 +6,7 @@ import { formatDuration } from "../utils.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { capitalCase } from "jsr:@mesqueeb/case-anything";
+import cloneJSON from "jsr:@rhy/fast-json-clone";
 
 const GLOBAL_EXECUTION_KEY = "GLOBAL";
 const codingRules = JSON.parse(
@@ -123,6 +124,17 @@ interface BenchmarkResultDB {
     scc: Omit<LanguageSummary, 'Files'>;
 }
 
+const ProjectCategory = ["all", "small", "medium", "large"] as const;
+type ProjectCategoryType = typeof ProjectCategory[number];
+
+type RuleSummaryData = {
+    [size in ProjectCategoryType]: {
+        [rule: string]: {
+            [tool in ToolKey | string]?: string|number;
+        }
+    }
+};
+
 // Statistical utility functions
 function calculateStandardDeviation(values: number[]): StandardDeviationResult {
     const mean = values.reduce((a, b) => a + b, 0) / values.length;
@@ -189,10 +201,7 @@ function emptyTimeData(): TimeBaseData {
 }
 
 function processResultsByLocRange(results: BenchmarkResultDB[]): {
-    all: BenchmarkResultDB[];
-    small: BenchmarkResultDB[];
-    medium: BenchmarkResultDB[];
-    large: BenchmarkResultDB[];
+    [key in ProjectCategoryType]: BenchmarkResultDB[];
 } {
     // Categorize projects based on Lines of Code
     return {
@@ -209,26 +218,11 @@ class ResultProcessor {
     }
 
     processResultsWithLocCategories(benchmarkFile: string): {
-        all: {
+        [key in ProjectCategoryType]: {
             table: any;
             nbProjects: number;
             totalLoC: number;
-        };
-        small: {
-            table: any;
-            nbProjects: number;
-            totalLoC: number;
-        };
-        medium: {
-            table: any;
-            nbProjects: number;
-            totalLoC: number;
-        };
-        large: {
-            table: any;
-            nbProjects: number;
-            totalLoC: number;
-        };
+        }
     } {
         const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
         const ruleName = determineRuleName(benchmarkFile);
@@ -449,18 +443,104 @@ export function initializeModule(program: Command): void {
 }
 
 type OutputFormat = 'cli' | 'md' | 'typst';
+
+type ResultAggregation = {
+    [size in ProjectCategoryType]: {
+        table: {
+            [rule: string]: {
+                [tool in ToolKey]?: string|number;
+            }
+        },
+        nbProjects: number,
+        totalLoC: number,
+    }
+}
 type ResultData = {
-    global: any;
-    rules: Record<string, any>;
+    global: ResultAggregation;
+    rules: Record<string, ResultAggregation>;
+    summary: {
+        analysisTime: RuleSummaryData;
+        overheadParsing: RuleSummaryData;
+    }
 };
+
+function generateRuleSummary(resultData: ResultData, propertyKey = "analysisTime"): RuleSummaryData {
+    const summary: RuleSummaryData = {
+      all: {},
+      small: {},
+        medium: {},
+        large: {}
+    };
+
+    // Initialize summary with all rules
+    for (const r of Object.keys(resultData.rules).sort((a,b) => a.localeCompare(b))) {
+        const ruleName = toTitleCase(r);
+        for (const key of ProjectCategory) {
+            summary[key][ruleName] = {};
+        }
+    }
+
+    // Fill in the analysis times for each rule and tool
+    for (const [r, ruleData] of Object.entries(resultData.rules)) {
+        const ruleName = toTitleCase(r);
+        for (const key of ProjectCategory) {
+            for (const [property, byToolData] of Object.entries(ruleData[key].table)) {
+                if (property === propertyKey) {
+                    summary[key][ruleName] = cloneJSON(byToolData) as { [k in ToolKey]: string };
+                    break;
+                }
+            }
+            summary[key][ruleName]["Number of line of codes"] = formatNumber(ruleData[key].totalLoC);
+            summary[key][ruleName]["Number of projects"] = formatNumber(ruleData[key].nbProjects);
+        }
+    }
+
+    return summary;
+}
+
 // Command handler
 function handleComputeResults(options: { rootDir: string, output: OutputFormat }): void {
     const resultProcessor = new ResultProcessor();
     const benchmarkFiles = fg.sync(join(options.rootDir, "benchmarkResults*.json"));
 
     const resultData: ResultData = {
-        global: null as any,
-        rules: {} as Record<string, any>
+        global: {
+            all: {
+              table: {},
+              nbProjects: 0,
+              totalLoC: 0
+            },
+            small: {
+              table: {},
+              nbProjects: 0,
+              totalLoC: 0
+            },
+            medium: {
+              table: {},
+              nbProjects: 0,
+              totalLoC: 0
+            },
+            large: {
+              table: {},
+              nbProjects: 0,
+              totalLoC: 0
+            }
+        },
+        rules: {} as Record<string, ResultAggregation>,
+        summary: {
+            analysisTime: {
+              all: {},
+              small: {},
+              medium: {},
+              large: {}
+            },
+            overheadParsing: {
+              all: {},
+              small: {},
+              medium: {},
+              large: {}
+            }
+        }
     };
 
     let nbRuns = 0;
@@ -473,6 +553,7 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormat }
             resultData.global = result;
         } else {
             resultData.rules[ruleName] = result;
+            result.all.table
         }
 
         if (nbRuns === 0) {
@@ -481,10 +562,17 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormat }
         }
     }
 
+    const analysisTime = generateRuleSummary(resultData);
+    const overheadParsing = generateRuleSummary(resultData, "overheadParsing");
+    resultData.summary = {
+        analysisTime,
+        overheadParsing
+    };
+
     generateReports(nbRuns, resultData, options.output, options.rootDir);
 }
 
-function generateReports(nbRuns: number, resultData: any, outputFormat: OutputFormat, rootDir: string): void {
+function generateReports(nbRuns: number, resultData: ResultData, outputFormat: OutputFormat, rootDir: string): void {
     let resultsDir = join(rootDir, "results");
     let result = "";
     let ext = "";
@@ -508,9 +596,11 @@ function generateReports(nbRuns: number, resultData: any, outputFormat: OutputFo
             break;
     }
 
+    ensureDirSync(resultsDir);
+    emptyDirSync(resultsDir);
+    Deno.writeTextFileSync(join(rootDir, "results", "result.json"), JSON.stringify(resultData, null, 2));
+
     if (result.length) {
-        ensureDirSync(resultsDir);
-        emptyDirSync(resultsDir)
         if (outputFormat === "typst") {
             copySync(join(defaultProjectRoot, "utils/report/typst"), join(resultsDir, "/"), { overwrite: true });
         }
@@ -526,9 +616,13 @@ function formatResultsCLI(nbRuns: number, resultData: ResultData): void {
         if (categoryName && categoryName.length) {
             console.log(`\n${'#'.repeat(headingLevel)} ${categoryName}`);
         }
-        console.table(category.table);
-        console.log("\nNumber of projects:", formatNumber(category.nbProjects));
-        console.log("Total number of line of codes:", formatNumber(category.totalLoC));
+        if ("table" in category) {
+            console.table(category.table);
+            console.log("\nNumber of projects:", formatNumber(category.nbProjects));
+            console.log("Total number of line of codes:", formatNumber(category.totalLoC));
+        } else {
+            console.table(category)
+        }
     };
 
     console.log("=== Benchmark result ===\n");
@@ -542,6 +636,23 @@ function formatResultsCLI(nbRuns: number, resultData: ResultData): void {
     printCategory(resultData.global.large, "Large Projects (30k+ LoC)");
 
     console.log("\n# By rules");
+    console.log("\n## Summary");
+    console.log("\n### Analysis Time");
+
+    printCategory(resultData.summary.analysisTime.all);
+    console.log("\n#### Result by project size");
+    printCategory(resultData.summary.analysisTime.small, "Small Projects (0-10k LoC)", 5);
+    printCategory(resultData.summary.analysisTime.medium, "Medium Projects (10k-30k LoC)", 5);
+    printCategory(resultData.summary.analysisTime.large, "Large Projects (30k+ LoC)", 5);
+
+    console.log("\n### Parsing Overhead");
+
+    printCategory(resultData.summary.overheadParsing.all);
+    console.log("\n#### Result by project size");
+    printCategory(resultData.summary.overheadParsing.small, "Small Projects (0-10k LoC)", 5);
+    printCategory(resultData.summary.overheadParsing.medium, "Medium Projects (10k-30k LoC)", 5);
+    printCategory(resultData.summary.overheadParsing.large, "Large Projects (30k+ LoC)", 5);
+
     for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
         console.log(`\n## Rule: ${toTitleCase(ruleName)}`);
         printCategory(ruleData.all);
@@ -576,14 +687,20 @@ function formatResultsMarkdown(nbRuns: number, resultData: ResultData): string {
         return table;
     };
 
-    const formatCategory = (category: any, categoryName: string) => {
-        output.push(`\n## ${categoryName}\n`);
-        output.push(formatTable(category.table));
-        output.push(`\n**Number of projects:** ${formatNumber(category.nbProjects)}\n`);
-        output.push(`**Total number of line of codes:** ${formatNumber(category.totalLoC)}`);
+    const formatCategory = (category: any, categoryName?: string, headingLevel = 2) => {
+        if (categoryName && categoryName.length) {
+            output.push(`\n${"#".repeat(headingLevel)} ${categoryName}\n`);
+        }
+        if ("table" in category) {
+            output.push(formatTable(category.table));
+            output.push(`\n**Number of projects:** ${formatNumber(category.nbProjects)}\n`);
+            output.push(`**Total number of line of codes:** ${formatNumber(category.totalLoC)}`);
+        } else {
+            output.push(formatTable(category));
+        }
     };
 
-    output.push("# Benchmark Results\n");
+    output.push("Benchmark Results\n");
     output.push(`**Number of runs:** ${formatNumber(nbRuns)}`);
 
     output.push("\n# Global Results");
@@ -593,12 +710,30 @@ function formatResultsMarkdown(nbRuns: number, resultData: ResultData): string {
     formatCategory(resultData.global.large, "Large Projects (30k+ LoC)");
 
     output.push("\n# Results by Rules");
+
+    output.push("\n## Summary");
+    output.push("\n### Analysis Time");
+
+    formatCategory(resultData.summary.analysisTime.all);
+    output.push("\n#### Result by project size");
+    formatCategory(resultData.summary.analysisTime.small, "Small Projects (0-10k LoC)", 5);
+    formatCategory(resultData.summary.analysisTime.medium, "Medium Projects (10k-30k LoC)", 5);
+    formatCategory(resultData.summary.analysisTime.large, "Large Projects (30k+ LoC)", 5);
+
+    output.push("\n### Parsing Overhead");
+
+    formatCategory(resultData.summary.overheadParsing.all);
+    output.push("\n#### Result by project size");
+    formatCategory(resultData.summary.overheadParsing.small, "Small Projects (0-10k LoC)", 5);
+    formatCategory(resultData.summary.overheadParsing.medium, "Medium Projects (10k-30k LoC)", 5);
+    formatCategory(resultData.summary.overheadParsing.large, "Large Projects (30k+ LoC)", 5);
+
     for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
-        output.push(`\n# Rule: ${toTitleCase(ruleName)}`);
-        formatCategory(ruleData.all, "All Projects");
-        formatCategory(ruleData.small, "Small Projects (0-10k LoC)");
-        formatCategory(ruleData.medium, "Medium Projects (10k-30k LoC)");
-        formatCategory(ruleData.large, "Large Projects (30k+ LoC)");
+        output.push(`\n## Rule: ${toTitleCase(ruleName)}`);
+        formatCategory(ruleData.all, "All Projects", 3);
+        formatCategory(ruleData.small, "Small Projects (0-10k LoC)", 3);
+        formatCategory(ruleData.medium, "Medium Projects (10k-30k LoC)", 3);
+        formatCategory(ruleData.large, "Large Projects (30k+ LoC)", 3);
     }
 
     return output.join("\n");
@@ -635,9 +770,14 @@ function formatResultsTypst(nbRuns: number, resultData: ResultData): string {
         if (categoryName && categoryName.length) {
             output.push(`\n${'='.repeat(headingLevel)} ${categoryName}\n`);
         }
-        output.push(formatTable(category.table));
-        output.push(`\n*Number of projects*: ${formatNumber(category.nbProjects)}\n`);
-        output.push(`*Total number of line of codes*: ${formatNumber(category.totalLoC)}\n`);
+        if ("table" in category) {
+            output.push(formatTable(category.table));
+            output.push(`\n*Number of projects*: ${formatNumber(category.nbProjects)}\n`);
+            output.push(`*Total number of line of codes*: ${formatNumber(category.totalLoC)}\n`);
+        } else {
+            output.push(formatTable(category));
+        }
+
     };
 
     output.push(`#import "./modules/lib.typ": *
@@ -662,6 +802,24 @@ function formatResultsTypst(nbRuns: number, resultData: ResultData): string {
     formatCategory(resultData.global.large, "Large Projects (30k+ LoC)");
 
     output.push("\n= Results by Rules");
+
+    output.push("\n== Summary");
+    output.push("\n=== Analysis Time");
+
+    formatCategory(resultData.summary.analysisTime.all);
+    output.push("\n==== Result by project size");
+    formatCategory(resultData.summary.analysisTime.small, "Small Projects (0-10k LoC)", 5);
+    formatCategory(resultData.summary.analysisTime.medium, "Medium Projects (10k-30k LoC)", 5);
+    formatCategory(resultData.summary.analysisTime.large, "Large Projects (30k+ LoC)", 5);
+
+    output.push("\n=== Parsing Overhead");
+
+    formatCategory(resultData.summary.overheadParsing.all);
+    output.push("\n==== Result by project size");
+    formatCategory(resultData.summary.overheadParsing.small, "Small Projects (0-10k LoC)", 5);
+    formatCategory(resultData.summary.overheadParsing.medium, "Medium Projects (10k-30k LoC)", 5);
+    formatCategory(resultData.summary.overheadParsing.large, "Large Projects (30k+ LoC)", 5);
+
     for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
         output.push(`\n== Rule: ${toTitleCase(ruleName)}`);
         formatCategory(ruleData.all, "All Projects", 3);

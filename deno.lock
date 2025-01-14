@@ -3,6 +3,7 @@
   "packages": {
     "specifiers": {
       "jsr:@mesqueeb/case-anything": "jsr:@mesqueeb/case-anything@3.1.0",
+      "jsr:@rhy/fast-json-clone": "jsr:@rhy/fast-json-clone@1.0.2",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
       "jsr:@std/bytes@^1.0.2": "jsr:@std/bytes@1.0.4",
       "jsr:@std/collections@^1.0.9": "jsr:@std/collections@1.0.9",
@@ -30,6 +31,9 @@
     "jsr": {
       "@mesqueeb/case-anything@3.1.0": {
         "integrity": "0e463b752f95dbdfa42c97b0e60911170fd8206508522fffc23a9e83d63bb4c2"
+      },
+      "@rhy/fast-json-clone@1.0.2": {
+        "integrity": "c6f98f7d7278a3579425fc7a098f68071b2a9956a19eb12c717174abff2d9e50"
       },
       "@std/assert@0.226.0": {
         "integrity": "0dfb5f7c7723c18cec118e080fec76ce15b4c31154b15ad2bd74822603ef75b3"
