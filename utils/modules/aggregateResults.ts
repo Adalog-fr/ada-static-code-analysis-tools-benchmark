@@ -125,12 +125,14 @@ function calculateAnalysisTime(element: entryData, overheadThreshold = 0.95): Di
     const maxOverhead = element.run.average.elapsed_time * result.overheadThreshold; // Assuming overhead threshold
 
     let tmpParsingOverhead = 0;
+    let havePopulatingDB = false;
     for (const [overheadName, value] of Object.entries(element.overhead)) {
         const currentOverhead = value.average.elapsed_time;
         if (overheadName === "parsing") {
             tmpParsingOverhead = currentOverhead;
             result.overheadParsing = currentOverhead <= maxOverhead ? currentOverhead : 0;
         } else if (overheadName === "populatingDB") {
+            havePopulatingDB = true;
             result.overheadPopulating = currentOverhead;
             result.overhead += result.overheadPopulating;
             result.overheadParsing = tmpParsingOverhead;
@@ -138,11 +140,14 @@ function calculateAnalysisTime(element: entryData, overheadThreshold = 0.95): Di
     }
     result.overhead += result.overheadParsing;
 
-    if (result.overhead > maxOverhead) {
-        result.overhead = 0;
+    if (havePopulatingDB) {
+        result.analysisTime = result.executionTime;
+    } else {
+        if (result.overhead > maxOverhead) {
+            result.overhead = 0;
+        }
+        result.analysisTime = result.executionTime - result.overhead;
     }
-
-    result.analysisTime = result.executionTime - result.overhead;
 
     return result;
 }
