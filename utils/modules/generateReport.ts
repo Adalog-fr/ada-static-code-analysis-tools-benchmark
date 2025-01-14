@@ -436,13 +436,14 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-o, --output <string>",
-            "Output fromat (cli|md|typst)",
+            `Output fromat (Possible values: ${OutputFormat.join("|")})`,
             "cli"
         )
         .action(handleComputeResults);
 }
 
-type OutputFormat = 'cli' | 'md' | 'typst';
+const OutputFormat = ['cli', 'md', 'typst', 'latex'] as const;
+type OutputFormatType = typeof OutputFormat[number];
 
 type ResultAggregation = {
     [size in ProjectCategoryType]: {
@@ -499,7 +500,7 @@ function generateRuleSummary(resultData: ResultData, propertyKey = "analysisTime
 }
 
 // Command handler
-function handleComputeResults(options: { rootDir: string, output: OutputFormat }): void {
+function handleComputeResults(options: { rootDir: string, output: OutputFormatType }): void {
     const resultProcessor = new ResultProcessor();
     const benchmarkFiles = fg.sync(join(options.rootDir, "benchmarkResults*.json"));
 
@@ -572,7 +573,7 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormat }
     generateReports(nbRuns, resultData, options.output, options.rootDir);
 }
 
-function generateReports(nbRuns: number, resultData: ResultData, outputFormat: OutputFormat, rootDir: string): void {
+function generateReports(nbRuns: number, resultData: ResultData, outputFormat: OutputFormatType, rootDir: string): void {
     let resultsDir = join(rootDir, "results");
     let result = "";
     let ext = "";
@@ -590,6 +591,11 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
             resultsDir = join(resultsDir, "typst");
             result = formatResultsTypst(nbRuns, resultData);
             ext = "typ";
+            break;
+        case "latex":
+            resultsDir = join(resultsDir, "latex");
+            result = formatResultsLatex(nbRuns, resultData);
+            ext = "tex";
             break;
         default:
             formatResultsCLI(nbRuns, resultData);
@@ -829,4 +835,176 @@ function formatResultsTypst(nbRuns: number, resultData: ResultData): string {
     }
 
     return output.join("\n");
+}
+
+// Function to format tables in LaTeX using NiceTabular with consistent styling and SI units
+function formatResultsLatex(nbRuns: number, resultData: ResultData): string {
+    const output: string[] = [];
+
+    // Function to format table data into LaTeX NiceTabular environment
+    const formatTable = (data: any, title: string): string => {
+        const headers = Object.keys(data);
+        const tools = Object.keys(data[headers[0]]);
+
+        // Initialize LaTeX table structure
+        let table = '\\begin{table}[h!]\n';
+        table += '    \\centering\n';
+        table += '    \\renewcommand{\\arraystretch}{1.5}\n';
+        table += '    \\captionsetup[table]{font={bf,sf,color=gray-600,small}, skip=0pt}\n';
+
+        // Calculate column format based on number of tools
+        const colFormat = 'l' + 'c'.repeat(tools.length);
+
+        // Start NiceTabular environment with styling
+        table += `    \\hspace*{-3.1cm}\\begin{NiceTabular}{${colFormat}}[hvlines, rounded-corners=6pt, rules/color=gray-200]\n`;
+        table += '    \\CodeBefore\n';
+        table += '        \\rowcolor{gray-100}{1-2}\n';
+        table += '        \\rowcolors{3}{}{slate-50}\n';
+        table += '    \\Body\n';
+
+        // Add caption block
+        table += `        \\Block{1-${tools.length + 1}}{\\parbox{150mm}{\\RawCaption{\\captionof{table}{${title.replaceAll("_", "\\_")}}\\label{table:${title.toLowerCase().replace(/\s+/g, '_')}}}}} \\\\\n`;
+
+        // Format header row
+        table += '        \\RowStyle[bold]{\\color{gray-600}}\n';
+        table += '        \\textbf{Metric}';
+        for (const tool of tools) {
+            table += ` & \\textbf{\\thead{${tool.replaceAll("_", "\\_")}}}`;
+        }
+        table += ' \\\\\n';
+
+        // Format data rows
+        table += '        \\RowStyle[nb-rows=*,color=gray-800]{}\n';
+        for (const header of headers) {
+            table += `        ${header.replaceAll("_", "\\_")}`;
+            for (const tool of tools) {
+                const value = data[header][tool];
+                // Format different types of values appropriately
+                if (typeof value === 'number') {
+                    table += ` & \\num{${value}}`;
+                } else if (value.includes('%')) {
+                    table += ` & \\qty{${parseFloat(value)}}{\\percent}`;
+                } else if (value.match(/^\d+$/)) {
+                    table += ` & \\num{${value}}`;
+                } else {
+                    table += ` & ${value}`;
+                }
+            }
+            table += ' \\\\\n';
+        }
+
+        // Close table environments
+        table += '    \\end{NiceTabular}\n';
+        table += '\\end{table}\n';
+
+        return table;
+    };
+
+    // Format category data with appropriate sectioning
+    const formatCategory = (category: any, rule: string, categoryName: string, sectionLevel = 1) => {
+        if (categoryName && categoryName.length) {
+            let sectionHead = "";
+            if (sectionLevel === 1) {
+                sectionHead = "section"
+            } else if (sectionLevel === 2) {
+                sectionHead = "subsection"
+            } else if (sectionLevel === 3) {
+                sectionHead = "subsubsection"
+            } else if (sectionLevel === 4) {
+                sectionHead = "paragraph"
+            } else if (sectionLevel === 5) {
+                sectionHead = "subparagraph"
+            }
+            const sectionCmd = '\\' + sectionHead;
+            output.push(`\n${sectionCmd}{${categoryName}}\n`);
+        }
+        let tableTitle = `${toTitleCase(rule)}: ${categoryName}`
+        if ("table" in category) {
+            output.push(formatTable(category.table, tableTitle));
+            output.push(`\\textbf{Number of projects:} \\num{${category.nbProjects}}\n`);
+            output.push(`\\textbf{Total lines of code:} \\num{${category.totalLoC}}\n`);
+        } else {
+            output.push(formatTable(category, tableTitle));
+        }
+    };
+
+    // Generate LaTeX document structure
+    output.push(`\\documentclass{article}
+\\usepackage{tabularx,makecell,floatrow,nicematrix,booktabs,xcolor,caption,siunitx}
+\\usepackage[hidelinks]{hyperref}
+% Tailwind colors
+\\definecolor{slate-50}{HTML}{f8fafc}
+\\definecolor{slate-100}{HTML}{f1f5f9}
+\\definecolor{slate-200}{HTML}{e2e8f0}
+\\definecolor{slate-300}{HTML}{cbd5e1}
+\\definecolor{slate-400}{HTML}{94a3b8}
+\\definecolor{slate-500}{HTML}{64748b}
+\\definecolor{slate-600}{HTML}{475569}
+\\definecolor{slate-700}{HTML}{334155}
+\\definecolor{slate-800}{HTML}{1e293b}
+\\definecolor{slate-900}{HTML}{0f172a}
+\\definecolor{slate-950}{HTML}{020617}
+\\definecolor{gray-50}{HTML}{f9fafb}
+\\definecolor{gray-100}{HTML}{f3f4f6}
+\\definecolor{gray-200}{HTML}{e5e7eb}
+\\definecolor{gray-300}{HTML}{d1d5db}
+\\definecolor{gray-400}{HTML}{9ca3af}
+\\definecolor{gray-500}{HTML}{6b7280}
+\\definecolor{gray-600}{HTML}{4b5563}
+\\definecolor{gray-700}{HTML}{374151}
+\\definecolor{gray-800}{HTML}{1f2937}
+\\definecolor{gray-900}{HTML}{111827}
+\\definecolor{gray-950}{HTML}{030712}
+\\begin{document}
+\\begin{titlepage}
+   \\vspace*{\\stretch{1.0}}
+   \\begin{center}
+      \\Large\\textbf{Benchmark Results}\\\\
+   \\end{center}
+   \\vspace*{\\stretch{2.0}}
+   \\textbf{Number of runs:} \\num{${nbRuns}}\n
+\\end{titlepage}\n
+
+\\tableofcontents
+
+`)
+
+
+    // Format global results
+    output.push('\\section{Global Results}');
+    formatCategory(resultData.global.all, "Global", 'All Projects');
+    formatCategory(resultData.global.small, "Global", 'Small Projects (0-10k LoC)', 2);
+    formatCategory(resultData.global.medium, "Global", 'Medium Projects (10-30k LoC)', 2);
+    formatCategory(resultData.global.large, "Global", 'Large Projects (30k+ LoC)', 2);
+
+    // Format rule-specific results
+    output.push('\\section{Results by Rules}');
+    output.push('\\subsection{Summary}');
+    output.push('\\subsubsection{Analysis Time}');
+
+    formatCategory(resultData.summary.analysisTime.all, "Analysis Time", 'All Projects');
+    formatCategory(resultData.summary.analysisTime.small, "Analysis Time", 'Small Projects (0-10k LoC)', 4);
+    formatCategory(resultData.summary.analysisTime.medium, "Analysis Time", 'Medium Projects (10-30k LoC)', 4);
+    formatCategory(resultData.summary.analysisTime.large, "Analysis Time", 'Large Projects (30k+ LoC)', 4);
+
+    // Format parsing overhead results
+    output.push('\\subsubsection{Parsing Overhead}');
+    formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'All Projects');
+    formatCategory(resultData.summary.overheadParsing.small, "Parsing Overhead", 'Small Projects (0-10k LoC)', 4);
+    formatCategory(resultData.summary.overheadParsing.medium, "Parsing Overhead", 'Medium Projects (10-30k LoC)', 4);
+    formatCategory(resultData.summary.overheadParsing.large, "Parsing Overhead", 'Large Projects (30k+ LoC)', 4);
+
+    // Format individual rule results
+    for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
+        output.push(`\\subsection{Rule: ${toTitleCase(ruleName)}}`);
+        formatCategory(ruleData.all, ruleName, 'All Projects', 3);
+        formatCategory(ruleData.small, ruleName, 'Small Projects (0-10k LoC)', 3);
+        formatCategory(ruleData.medium, ruleName, 'Medium Projects (10-30k LoC)', 3);
+        formatCategory(ruleData.large, ruleName, 'Large Projects (30k+ LoC)', 3);
+    }
+
+    // Close document
+    output.push('\\end{document}\n');
+
+    return output.join('\n');
 }
