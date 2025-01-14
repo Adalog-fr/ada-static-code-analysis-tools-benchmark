@@ -4,6 +4,8 @@ import fg from "npm:fast-glob@3.3.2";
 import { LanguageSummary } from "../scc-types.ts";
 import { formatDuration } from "../utils.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
+import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
+import { capitalCase } from "jsr:@mesqueeb/case-anything";
 
 const GLOBAL_EXECUTION_KEY = "GLOBAL";
 const codingRules = JSON.parse(
@@ -12,12 +14,20 @@ const codingRules = JSON.parse(
     )
 ).map((elt: [string, any]) => (elt[0].toLowerCase()));
 
+function toTitleCase(value: string) {
+    return capitalCase(value.replaceAll("_", " "));
+}
+
 function determineRuleName(benchmarkFile: string): string {
     const r = benchmarkFile.match(/benchmarkResults-([^-.]+).*?\.json$/)?.[1];
     if (!r || !codingRules.includes(r)) {
         return GLOBAL_EXECUTION_KEY;
     }
     return r;
+}
+
+function formatNumber(value: number, maxDigits = 0) {
+    return new Intl.NumberFormat('en-GB', { maximumFractionDigits: maxDigits }).format(value)
 }
 
 // Core interfaces and types
@@ -178,31 +188,69 @@ function emptyTimeData(): TimeBaseData {
     };
 }
 
+function processResultsByLocRange(results: BenchmarkResultDB[]): {
+    all: BenchmarkResultDB[];
+    small: BenchmarkResultDB[];
+    medium: BenchmarkResultDB[];
+    large: BenchmarkResultDB[];
+} {
+    // Categorize projects based on Lines of Code
+    return {
+        all: results,
+        small: results.filter(r => r.scc.Code <= 10000),
+        medium: results.filter(r => r.scc.Code > 10000 && r.scc.Code <= 30000),
+        large: results.filter(r => r.scc.Code > 30000)
+    };
+}
+
 // Result processor class
 class ResultProcessor {
     constructor() {
     }
 
-    processResults(benchmarkFile: string): {
-        table: any;
-        nbProjects: number;
-        totalLoC: number;
+    processResultsWithLocCategories(benchmarkFile: string): {
+        all: {
+            table: any;
+            nbProjects: number;
+            totalLoC: number;
+        };
+        small: {
+            table: any;
+            nbProjects: number;
+            totalLoC: number;
+        };
+        medium: {
+            table: any;
+            nbProjects: number;
+            totalLoC: number;
+        };
+        large: {
+            table: any;
+            nbProjects: number;
+            totalLoC: number;
+        };
     } {
         const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
         const ruleName = determineRuleName(benchmarkFile);
-        const listOfLoC: number[] = [];
-        const summary = this.initializeSummary();
+        const categorizedResults = processResultsByLocRange(results);
 
-        let totalLoC = this.aggregateData(results, summary, listOfLoC, ruleName);
-
-        this.calculateMetrics(summary, listOfLoC);
-
-        const resultTable = this.createResultTable(summary);
+        const processCategory = (categoryResults: BenchmarkResultDB[]) => {
+            const listOfLoC: number[] = [];
+            const summary = this.initializeSummary();
+            const totalLoC = this.aggregateData(categoryResults, summary, listOfLoC, ruleName);
+            this.calculateMetrics(summary, listOfLoC);
+            return {
+                table: this.createResultTable(summary),
+                nbProjects: categoryResults.length,
+                totalLoC
+            };
+        };
 
         return {
-            table: resultTable,
-            nbProjects: results.length,
-            totalLoC
+            all: processCategory(categorizedResults.all),
+            small: processCategory(categorizedResults.small),
+            medium: processCategory(categorizedResults.medium),
+            large: processCategory(categorizedResults.large)
         };
     }
 
@@ -346,14 +394,14 @@ class ResultProcessor {
         }
 
         for (const tool in summary) {
-            result.overheadParsing[tool as ToolKey] = formatDuration(summary[tool as ToolKey].overheadParsing * 1000);
-            result.overheadPopulating[tool as ToolKey] = formatDuration(summary[tool as ToolKey].overheadPopulating * 1000);
-            result.analysisTime[tool as ToolKey] = formatDuration(summary[tool as ToolKey].analysisTime * 1000);
+            result.overheadParsing[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].overheadParsing * 1000));
+            result.overheadPopulating[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].overheadPopulating * 1000));
+            result.analysisTime[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].analysisTime * 1000));
             result["R²"][tool as ToolKey] = summary[tool as ToolKey].r2Value.toFixed(3);
             result.mean[tool as ToolKey] = summary[tool as ToolKey].mean.toFixed(3);
             result["Standard Deviation value"][tool as ToolKey] = summary[tool as ToolKey].standardDeviation.value.toFixed(3);
             result["Standard Deviation in %"][tool as ToolKey] = summary[tool as ToolKey].standardDeviation.percentage.toFixed(3) + "%";
-            result.executionTime[tool as ToolKey] = formatDuration(summary[tool as ToolKey].executionTime * 1000);
+            result.executionTime[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].executionTime * 1000));
             result["Nb run fails"][tool as ToolKey] = summary[tool as ToolKey].nbFails;
             result["Nb project fails"][tool as ToolKey] = summary[tool as ToolKey].nbProjectFails;
 
@@ -383,7 +431,7 @@ class ResultProcessor {
 // Main module initialization
 export function initializeModule(program: Command): void {
     program
-        .command("compute-detailed-results")
+        .command("compute-results")
         .description(
             "Compute the benchmark results. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys."
         )
@@ -392,15 +440,25 @@ export function initializeModule(program: Command): void {
             "Path to the root of the result files",
             defaultProjectRoot
         )
+        .option(
+            "-o, --output <string>",
+            "Output fromat (cli|md|typst)",
+            "cli"
+        )
         .action(handleComputeResults);
 }
 
+type OutputFormat = 'cli' | 'md' | 'typst';
+type ResultData = {
+    global: any;
+    rules: Record<string, any>;
+};
 // Command handler
-function handleComputeResults(options: { rootDir: string }): void {
+function handleComputeResults(options: { rootDir: string, output: OutputFormat }): void {
     const resultProcessor = new ResultProcessor();
     const benchmarkFiles = fg.sync(join(options.rootDir, "benchmarkResults*.json"));
 
-    const resultData = {
+    const resultData: ResultData = {
         global: null as any,
         rules: {} as Record<string, any>
     };
@@ -408,8 +466,7 @@ function handleComputeResults(options: { rootDir: string }): void {
     let nbRuns = 0;
 
     for (const benchmarkFile of benchmarkFiles) {
-        const result = resultProcessor.processResults(benchmarkFile);
-
+        const result = resultProcessor.processResultsWithLocCategories(benchmarkFile);
         const ruleName = determineRuleName(benchmarkFile);
 
         if (ruleName === GLOBAL_EXECUTION_KEY) {
@@ -424,28 +481,194 @@ function handleComputeResults(options: { rootDir: string }): void {
         }
     }
 
-    printResults(nbRuns, resultData);
+    generateReports(nbRuns, resultData, options.output, options.rootDir);
 }
 
-// Results output
-function printResults(nbRuns: number, resultData: {
-    global: any;
-    rules: Record<string, { table: any, nbProjects: number, totalLoC: number }>;
-}): void {
-    console.log("=== Benchmark result ===\n");
-    console.log("Number of runs: ", nbRuns);
+function generateReports(nbRuns: number, resultData: any, outputFormat: OutputFormat, rootDir: string): void {
+    let resultsDir = join(rootDir, "results");
+    let result = "";
+    let ext = "";
 
-    console.log("\n# Global\n");
-    console.table(resultData.global.table);
-    console.log("\nNumber of projects:", resultData.global.nbProjects);
-    console.log("Total number of line of codes:", resultData.global.totalLoC);
+    switch (outputFormat) {
+        case "cli":
+            formatResultsCLI(nbRuns, resultData);
+            break;
+        case "md":
+            resultsDir = join(resultsDir, "markdown");
+            result = formatResultsMarkdown(nbRuns, resultData);
+            ext = "md";
+            break;
+        case "typst":
+            resultsDir = join(resultsDir, "typst");
+            result = formatResultsTypst(nbRuns, resultData);
+            ext = "typ";
+            break;
+        default:
+            formatResultsCLI(nbRuns, resultData);
+            break;
+    }
+
+    if (result.length) {
+        ensureDirSync(resultsDir);
+        emptyDirSync(resultsDir)
+        if (outputFormat === "typst") {
+            copySync(join(defaultProjectRoot, "utils/report/typst"), join(resultsDir, "/"), { overwrite: true });
+        }
+
+        Deno.writeTextFileSync(join(resultsDir, "report." + ext), result);
+    }
+}
+
+// OUTPUT FORMATTER
+
+function formatResultsCLI(nbRuns: number, resultData: ResultData): void {
+    const printCategory = (category: any, categoryName?: string, headingLevel = 3) => {
+        if (categoryName && categoryName.length) {
+            console.log(`\n${'#'.repeat(headingLevel)} ${categoryName}`);
+        }
+        console.table(category.table);
+        console.log("\nNumber of projects:", formatNumber(category.nbProjects));
+        console.log("Total number of line of codes:", formatNumber(category.totalLoC));
+    };
+
+    console.log("=== Benchmark result ===\n");
+    console.log("Number of runs: ", formatNumber(nbRuns));
+
+    console.log("\n# Global");
+    printCategory(resultData.global.all);
+    console.log("\n## Result by project size");
+    printCategory(resultData.global.small, "Small Projects (0-10k LoC)");
+    printCategory(resultData.global.medium, "Medium Projects (10k-30k LoC)");
+    printCategory(resultData.global.large, "Large Projects (30k+ LoC)");
 
     console.log("\n# By rules");
-
-    for (const [key, value] of Object.entries(resultData.rules)) {
-        console.log(`\n## ${key}\n`);
-        console.table(value.table);
-        console.log("\nNumber of projects:", value.nbProjects);
-        console.log("Total number of line of codes:", value.totalLoC);
+    for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
+        console.log(`\n## Rule: ${toTitleCase(ruleName)}`);
+        printCategory(ruleData.all);
+        console.log("\n### Result by project size");
+        printCategory(ruleData.small, "Small Projects (0-10k LoC)", 4);
+        printCategory(ruleData.medium, "Medium Projects (10k-30k LoC)", 4);
+        printCategory(ruleData.large, "Large Projects (30k+ LoC)", 4);
     }
+}
+
+function formatResultsMarkdown(nbRuns: number, resultData: ResultData): string {
+    const output: string[] = [];
+
+    const formatTable = (data: any): string => {
+        const headers = Object.keys(data);
+        const tools = Object.keys(data[headers[0]]);
+
+        // Create header row
+        let table = '| **Metric** | **' + tools.join('** | **') + '** |\n';
+        // Create separator row
+        table += '|---|' + tools.map(() => '---').join('|') + '|\n';
+
+        // Create data rows
+        for (const header of headers) {
+            table += `| ${header} |`;
+            for (const tool of tools) {
+                table += ` ${data[header][tool]} |`;
+            }
+            table += '\n';
+        }
+
+        return table;
+    };
+
+    const formatCategory = (category: any, categoryName: string) => {
+        output.push(`\n## ${categoryName}\n`);
+        output.push(formatTable(category.table));
+        output.push(`\n**Number of projects:** ${formatNumber(category.nbProjects)}\n`);
+        output.push(`**Total number of line of codes:** ${formatNumber(category.totalLoC)}`);
+    };
+
+    output.push("# Benchmark Results\n");
+    output.push(`**Number of runs:** ${formatNumber(nbRuns)}`);
+
+    output.push("\n# Global Results");
+    formatCategory(resultData.global.all, "All Projects");
+    formatCategory(resultData.global.small, "Small Projects (0-10k LoC)");
+    formatCategory(resultData.global.medium, "Medium Projects (10k-30k LoC)");
+    formatCategory(resultData.global.large, "Large Projects (30k+ LoC)");
+
+    output.push("\n# Results by Rules");
+    for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
+        output.push(`\n# Rule: ${toTitleCase(ruleName)}`);
+        formatCategory(ruleData.all, "All Projects");
+        formatCategory(ruleData.small, "Small Projects (0-10k LoC)");
+        formatCategory(ruleData.medium, "Medium Projects (10k-30k LoC)");
+        formatCategory(ruleData.large, "Large Projects (30k+ LoC)");
+    }
+
+    return output.join("\n");
+}
+
+function formatResultsTypst(nbRuns: number, resultData: ResultData): string {
+    const output: string[] = [];
+
+    const formatTable = (data: any): string => {
+        const headers = Object.keys(data);
+        const tools = Object.keys(data[headers[0]]);
+
+        // Start table
+        let table = '#pad(x: -2cm, table(\n';
+        // Define columns
+        table += '  columns: (auto' + ', auto'.repeat(tools.length) + '),\n';
+        // Define alignment
+        table += '  align: right,\n';
+
+        // Add header row
+        table += '  table.header([*Metric*], ' + tools.map(t => '[*' + t.replaceAll("_", " ") + '*]').join(', ') + '),\n';
+
+        // Add data rows
+        for (const header of headers) {
+            const rowValues = tools.map(tool => `\`${data[header][tool]}\``);
+            table += `  \`${header}\`, ${rowValues.join(', ')},\n`;
+        }
+
+        table += '))\n';
+        return table;
+    };
+
+    const formatCategory = (category: any, categoryName?: string, headingLevel = 2) => {
+        if (categoryName && categoryName.length) {
+            output.push(`\n${'='.repeat(headingLevel)} ${categoryName}\n`);
+        }
+        output.push(formatTable(category.table));
+        output.push(`\n*Number of projects*: ${formatNumber(category.nbProjects)}\n`);
+        output.push(`*Total number of line of codes*: ${formatNumber(category.totalLoC)}\n`);
+    };
+
+    output.push(`#import "./modules/lib.typ": *
+
+#show: it => basic-report(
+  doc-category: "Benchmark report",
+  doc-title: "Benchmark of Ada static analysis tools",
+  author: "",
+  affiliation: "Université de Caen Normandie, France\nAdalog SAS, SIREN 527 695 704, France",
+  logo: image("assets/adalog.jpg", width: 4cm),
+  logo2: image("assets/UNICAEN_LOGO.svg", width: 5cm),
+  language: "en",
+  it
+)\n\n`);
+    // output.push("= Benchmark Results\n");
+    output.push(`*Number of runs*: ${formatNumber(nbRuns)}`);
+
+    output.push("\n= Global Results");
+    formatCategory(resultData.global.all, "All Projects");
+    formatCategory(resultData.global.small, "Small Projects (0-10k LoC)");
+    formatCategory(resultData.global.medium, "Medium Projects (10k-30k LoC)");
+    formatCategory(resultData.global.large, "Large Projects (30k+ LoC)");
+
+    output.push("\n= Results by Rules");
+    for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
+        output.push(`\n== Rule: ${toTitleCase(ruleName)}`);
+        formatCategory(ruleData.all, "All Projects", 3);
+        formatCategory(ruleData.small, "Small Projects (0-10k LoC)", 3);
+        formatCategory(ruleData.medium, "Medium Projects (10k-30k LoC)", 3);
+        formatCategory(ruleData.large, "Large Projects (30k+ LoC)", 3);
+    }
+
+    return output.join("\n");
 }
