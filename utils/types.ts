@@ -224,3 +224,52 @@ export type DetailedResultType = {
     };
     results: DigestTimeResultByProject;
 };
+
+export type SummaryTableElement = Record<ToolKeyType | string, string | number>;
+export type SummaryTable = {
+    overheadParsing: SummaryTableElement,
+    overheadPopulating: SummaryTableElement,
+    "Relative Overhead (0 is better)": SummaryTableElement,
+    analysisTime: SummaryTableElement,
+    "Analysis Relative Speed (0 is better)": SummaryTableElement,
+    "R²": SummaryTableElement,
+    "mean": SummaryTableElement,
+    "Standard Deviation value": SummaryTableElement,
+    "Standard Deviation in %": SummaryTableElement,
+    executionTime: SummaryTableElement,
+    "Execution Relative Speed (0 is better)": SummaryTableElement,
+    "Nb run fails": SummaryTableElement,
+    "Nb project fails": SummaryTableElement
+};
+
+export const projectCategory = ["all", "small", "medium", "large"] as const;
+export type ProjectCategoryType = typeof projectCategory[number];
+
+export type RuleSummaryData = {
+    [size in ProjectCategoryType]: {
+        [rule: string]: {
+            [tool in ToolKeyType | string]?: string | number;
+        }
+    }
+};
+
+export type ResultAggregation = {
+    [size in ProjectCategoryType]: {
+        table: SummaryTable,
+        nbProjects: number,
+        totalLoC: number,
+        projects: DetailedResultType[],
+    }
+}
+
+/**
+ * The following type describe the output JSON generated in `generate-report`.
+ */
+export type ResultData = {
+    global: ResultAggregation;
+    rules: Record<string, ResultAggregation>;
+    summary: {
+        analysisTime: RuleSummaryData;
+        overheadParsing: RuleSummaryData;
+    }
+};

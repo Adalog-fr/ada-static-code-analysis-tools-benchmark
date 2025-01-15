@@ -5,7 +5,7 @@ import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { capitalCase } from "jsr:@mesqueeb/case-anything";
 import cloneJSON from "jsr:@rhy/fast-json-clone";
 import { formatDuration } from "../utils.ts";
-import { benchmarkResultDB, StandardDeviationResult, globalResultTime } from "../types.ts";
+import { BenchmarkResultDB, StandardDeviationResult, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData } from "../types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
 const GLOBAL_EXECUTION_KEY = "GLOBAL";
@@ -57,19 +57,6 @@ interface TimeBaseData {
     exit_status: number;
 }
 
-type ToolKey = "adactl" | "cogralys" | "gnatcheck_1cores" | "gnatcheck_32cores";
-type SummaryType = Record<ToolKey, globalResultTime>;
-
-const ProjectCategory = ["all", "small", "medium", "large"] as const;
-type ProjectCategoryType = typeof ProjectCategory[number];
-
-type RuleSummaryData = {
-    [size in ProjectCategoryType]: {
-        [rule: string]: {
-            [tool in ToolKey | string]?: string | number;
-        }
-    }
-};
 
 // Statistical utility functions
 function calculateStandardDeviation(values: number[]): StandardDeviationResult {
@@ -136,15 +123,15 @@ function emptyTimeData(): TimeBaseData {
     };
 }
 
-function processResultsByLocRange(results: benchmarkResultDB[]): {
-    [key in ProjectCategoryType]: benchmarkResultDB[];
+function processResultsByLocRange(results: BenchmarkResultDB[]): {
+    [key in ProjectCategoryType]: BenchmarkResultDB[];
 } {
     // Categorize projects based on Lines of Code
     return {
         all: results,
-        small: results.filter(r => r.scc.Code <= 10000),
-        medium: results.filter(r => r.scc.Code > 10000 && r.scc.Code <= 30000),
-        large: results.filter(r => r.scc.Code > 30000)
+        small: results.filter(r => r.scc.Code <= 10_000),
+        medium: results.filter(r => r.scc.Code > 10_000 && r.scc.Code <= 30_000),
+        large: results.filter(r => r.scc.Code > 30_000)
     };
 }
 
@@ -155,24 +142,32 @@ class ResultProcessor {
 
     processResultsWithLocCategories(benchmarkFile: string): {
         [key in ProjectCategoryType]: {
-            table: any;
+            table: SummaryTable;
             nbProjects: number;
             totalLoC: number;
+            projects: DetailedResultType[];
         }
     } {
-        const results: benchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
+        const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
         const ruleName = determineRuleName(benchmarkFile);
         const categorizedResults = processResultsByLocRange(results);
 
-        const processCategory = (categoryResults: benchmarkResultDB[]) => {
+        const processCategory = (categoryResults: BenchmarkResultDB[]): {
+            table: SummaryTable;
+            nbProjects: number;
+            totalLoC: number;
+            projects: DetailedResultType[];
+        } => {
             const listOfLoC: number[] = [];
+            const projects : DetailedResultType[] = [];
             const summary = this.initializeSummary();
-            const totalLoC = this.aggregateData(categoryResults, summary, listOfLoC, ruleName);
+            const totalLoC = this.aggregateData(categoryResults, summary, listOfLoC, ruleName, projects);
             this.calculateMetrics(summary, listOfLoC);
             return {
                 table: this.createResultTable(summary),
                 nbProjects: categoryResults.length,
-                totalLoC
+                totalLoC,
+                projects: projects.sort((a, b) => a.scc.nbLoC - b.scc.nbLoC)
             };
         };
 
@@ -193,7 +188,7 @@ class ResultProcessor {
         };
     }
 
-    private createEmptyToolSummary(): globalResultTime {
+    private createEmptyToolSummary(): GlobalResultTime {
         return {
             overheadParsing: 0,
             overheadPopulating: 0,
@@ -211,16 +206,33 @@ class ResultProcessor {
     }
 
     private aggregateData(
-        results: benchmarkResultDB[],
+        results: BenchmarkResultDB[],
         summary: SummaryType,
         listOfLoC: number[],
-        ruleName: string
+        ruleName: string,
+        projects: DetailedResultType[]
     ): number {
         let totalLoC = 0;
 
         for (const result of results) {
             totalLoC += result.scc.Code;
             listOfLoC.push(result.scc.Code);
+            projects.push({
+              crateName: result.crateName,
+              workDir: result.workDir,
+              gprPath: result.gprPath,
+              scc: {
+                nbLoC: result.scc.Code,
+                complexity: result.scc.Complexity,
+                nbFiles: result.scc.Count
+              },
+              results: {
+                adactl: result.benchmarkResults.adactl.digestTime,
+                cogralys: result.benchmarkResults.cogralys.digestTime,
+                gnatcheck_1cores: result.benchmarkResults.gnatcheck_1cores.digestTime,
+                gnatcheck_32cores: result.benchmarkResults.gnatcheck_32cores.digestTime
+              }
+            });
 
             this.aggregateToolData(result, summary, ruleName);
         }
@@ -229,7 +241,7 @@ class ResultProcessor {
     }
 
     private aggregateToolData(
-        result: benchmarkResultDB,
+        result: BenchmarkResultDB,
         summary: SummaryType,
         ruleName: string
     ): void {
@@ -238,13 +250,13 @@ class ResultProcessor {
         let nbFails: number = 0;
 
         for (const tool in summary) {
-            summary[tool as ToolKey].overheadParsing += result.benchmarkResults[tool as ToolKey].digestTime.overheadParsing;
-            summary[tool as ToolKey].overheadPopulating += result.benchmarkResults[tool as ToolKey].digestTime.overheadPopulating;
-            let analysisTime = result.benchmarkResults[tool as ToolKey].digestTime.analysisTime;
-            let executionTime = result.benchmarkResults[tool as ToolKey].digestTime.executionTime;
-            nbFails = result.benchmarkResults[tool as ToolKey].run.nbRuns - result.benchmarkResults[tool as ToolKey].run.nbValidRuns;
-            summary[tool as ToolKey].nbFails += nbFails;
-            summary[tool as ToolKey].nbProjectFails += nbFails > 0 ? 1 : 0;
+            summary[tool as ToolKeyType].overheadParsing += result.benchmarkResults[tool as ToolKeyType].digestTime.overheadParsing;
+            summary[tool as ToolKeyType].overheadPopulating += result.benchmarkResults[tool as ToolKeyType].digestTime.overheadPopulating;
+            let analysisTime = result.benchmarkResults[tool as ToolKeyType].digestTime.analysisTime;
+            let executionTime = result.benchmarkResults[tool as ToolKeyType].digestTime.executionTime;
+            nbFails = result.benchmarkResults[tool as ToolKeyType].run.nbRuns - result.benchmarkResults[tool as ToolKeyType].run.nbValidRuns;
+            summary[tool as ToolKeyType].nbFails += nbFails;
+            summary[tool as ToolKeyType].nbProjectFails += nbFails > 0 ? 1 : 0;
 
             if (tool === "cogralys") {
                 if (ruleName === GLOBAL_EXECUTION_KEY) {
@@ -259,22 +271,22 @@ class ResultProcessor {
                 }
             }
 
-            summary[tool as ToolKey].analysisTime += analysisTime;
-            summary[tool as ToolKey].analysisTimeValues.push(analysisTime);
-            summary[tool as ToolKey].executionTime += executionTime;
+            summary[tool as ToolKeyType].analysisTime += analysisTime;
+            summary[tool as ToolKeyType].analysisTimeValues.push(analysisTime);
+            summary[tool as ToolKeyType].executionTime += executionTime;
         }
     }
 
     private calculateMetrics(summary: SummaryType, listOfLoC: number[]): void {
         for (const tool in summary) {
-            summary[tool as ToolKey] = {
-                ...summary[tool as ToolKey],
-                ...getMetrics(summary[tool as ToolKey].analysisTimeValues, listOfLoC)
+            summary[tool as ToolKeyType] = {
+                ...summary[tool as ToolKeyType],
+                ...getMetrics(summary[tool as ToolKeyType].analysisTimeValues, listOfLoC)
             };
         }
     }
 
-    private createResultTable(summary: SummaryType): any {
+    private createResultTable(summary: SummaryType): SummaryTable {
         // Calculate percentages and prepare result table
         const fastestAnalysisTime = Math.min(
             getNotNullNumber(summary.adactl.analysisTime, Infinity, false),
@@ -297,17 +309,17 @@ class ResultProcessor {
         );
 
         const generateEmptyToolsValues = () => {
-            const result: Record<ToolKey, any> = {
-                adactl: undefined,
-                cogralys: undefined,
-                gnatcheck_1cores: undefined,
-                gnatcheck_32cores: undefined
+            const result: SummaryTableElement = {
+                adactl: "",
+                cogralys: "",
+                gnatcheck_1cores: "",
+                gnatcheck_32cores: ""
             };
             return result;
         }
 
         // Generate result
-        const result = {
+        const result: SummaryTable = {
             overheadParsing: generateEmptyToolsValues(),
             overheadPopulating: generateEmptyToolsValues(),
             "Relative Overhead (0 is better)": generateEmptyToolsValues(),
@@ -324,34 +336,34 @@ class ResultProcessor {
         }
 
         for (const tool in summary) {
-            result.overheadParsing[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].overheadParsing * 1000));
-            result.overheadPopulating[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].overheadPopulating * 1000));
-            result.analysisTime[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].analysisTime * 1000));
-            result["R²"][tool as ToolKey] = summary[tool as ToolKey].r2Value.toFixed(3);
-            result.mean[tool as ToolKey] = summary[tool as ToolKey].mean.toFixed(3);
-            result["Standard Deviation value"][tool as ToolKey] = summary[tool as ToolKey].standardDeviation.value.toFixed(3);
-            result["Standard Deviation in %"][tool as ToolKey] = summary[tool as ToolKey].standardDeviation.percentage.toFixed(3) + "%";
-            result.executionTime[tool as ToolKey] = formatDuration(Math.floor(summary[tool as ToolKey].executionTime * 1000));
-            result["Nb run fails"][tool as ToolKey] = summary[tool as ToolKey].nbFails;
-            result["Nb project fails"][tool as ToolKey] = summary[tool as ToolKey].nbProjectFails;
+            result.overheadParsing[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].overheadParsing * 1000));
+            result.overheadPopulating[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].overheadPopulating * 1000));
+            result.analysisTime[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].analysisTime * 1000));
+            result["R²"][tool as ToolKeyType] = summary[tool as ToolKeyType].r2Value.toFixed(3);
+            result.mean[tool as ToolKeyType] = summary[tool as ToolKeyType].mean.toFixed(3);
+            result["Standard Deviation value"][tool as ToolKeyType] = summary[tool as ToolKeyType].standardDeviation.value.toFixed(3);
+            result["Standard Deviation in %"][tool as ToolKeyType] = summary[tool as ToolKeyType].standardDeviation.percentage.toFixed(3) + "%";
+            result.executionTime[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].executionTime * 1000));
+            result["Nb run fails"][tool as ToolKeyType] = summary[tool as ToolKeyType].nbFails;
+            result["Nb project fails"][tool as ToolKeyType] = summary[tool as ToolKeyType].nbProjectFails;
 
 
-            if (summary[tool as ToolKey].analysisTime === 0) {
-                result["Analysis Relative Speed (0 is better)"][tool as ToolKey] = ""
+            if (summary[tool as ToolKeyType].analysisTime === 0) {
+                result["Analysis Relative Speed (0 is better)"][tool as ToolKeyType] = ""
             } else {
-                result["Analysis Relative Speed (0 is better)"][tool as ToolKey] = (((summary[tool as ToolKey].analysisTime - fastestAnalysisTime) / fastestAnalysisTime)).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+                result["Analysis Relative Speed (0 is better)"][tool as ToolKeyType] = (((summary[tool as ToolKeyType].analysisTime - fastestAnalysisTime) / fastestAnalysisTime)).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
             }
 
-            if (summary[tool as ToolKey].executionTime === 0) {
-                result["Execution Relative Speed (0 is better)"][tool as ToolKey] = ""
+            if (summary[tool as ToolKeyType].executionTime === 0) {
+                result["Execution Relative Speed (0 is better)"][tool as ToolKeyType] = ""
             } else {
-                result["Execution Relative Speed (0 is better)"][tool as ToolKey] = (((summary[tool as ToolKey].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+                result["Execution Relative Speed (0 is better)"][tool as ToolKeyType] = (((summary[tool as ToolKeyType].executionTime - fastestExecutionTime) / fastestExecutionTime)).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
             }
 
-            if (summary[tool as ToolKey].overheadParsing === 0) {
-                result["Relative Overhead (0 is better)"][tool as ToolKey] = ""
+            if (summary[tool as ToolKeyType].overheadParsing === 0) {
+                result["Relative Overhead (0 is better)"][tool as ToolKeyType] = ""
             } else {
-                result["Relative Overhead (0 is better)"][tool as ToolKey] = ((((summary[tool as ToolKey].overheadParsing + summary[tool as ToolKey].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
+                result["Relative Overhead (0 is better)"][tool as ToolKeyType] = ((((summary[tool as ToolKeyType].overheadParsing + summary[tool as ToolKeyType].overheadPopulating) - fastestOverhead) / fastestOverhead) || 0).toLocaleString(undefined, { style: 'percent', minimumFractionDigits: 2 });
             }
         }
         return result;
@@ -381,26 +393,6 @@ export function initializeModule(program: Command): void {
 const OutputFormat = ['cli', 'md', 'typst', 'latex'] as const;
 type OutputFormatType = typeof OutputFormat[number];
 
-type ResultAggregation = {
-    [size in ProjectCategoryType]: {
-        table: {
-            [rule: string]: {
-                [tool in ToolKey]?: string | number;
-            }
-        },
-        nbProjects: number,
-        totalLoC: number,
-    }
-}
-type ResultData = {
-    global: ResultAggregation;
-    rules: Record<string, ResultAggregation>;
-    summary: {
-        analysisTime: RuleSummaryData;
-        overheadParsing: RuleSummaryData;
-    }
-};
-
 function generateRuleSummary(resultData: ResultData, propertyKey = "analysisTime"): RuleSummaryData {
     const summary: RuleSummaryData = {
         all: {},
@@ -412,7 +404,7 @@ function generateRuleSummary(resultData: ResultData, propertyKey = "analysisTime
     // Initialize summary with all rules
     for (const r of Object.keys(resultData.rules).sort((a, b) => a.localeCompare(b))) {
         const ruleName = toTitleCase(r);
-        for (const key of ProjectCategory) {
+        for (const key of projectCategory) {
             summary[key][ruleName] = {};
         }
     }
@@ -420,10 +412,10 @@ function generateRuleSummary(resultData: ResultData, propertyKey = "analysisTime
     // Fill in the analysis times for each rule and tool
     for (const [r, ruleData] of Object.entries(resultData.rules)) {
         const ruleName = toTitleCase(r);
-        for (const key of ProjectCategory) {
+        for (const key of projectCategory) {
             for (const [property, byToolData] of Object.entries(ruleData[key].table)) {
                 if (property === propertyKey) {
-                    summary[key][ruleName] = cloneJSON(byToolData) as { [k in ToolKey]: string };
+                    summary[key][ruleName] = cloneJSON(byToolData) as { [k in ToolKeyType]: string };
                     break;
                 }
             }
@@ -443,24 +435,84 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
     const resultData: ResultData = {
         global: {
             all: {
-                table: {},
-                nbProjects: 0,
-                totalLoC: 0
+              table: {
+                overheadParsing: {},
+                overheadPopulating: {},
+                "Relative Overhead (0 is better)": {},
+                analysisTime: {},
+                "Analysis Relative Speed (0 is better)": {},
+                "R²": {},
+                mean: {},
+                "Standard Deviation value": {},
+                "Standard Deviation in %": {},
+                executionTime: {},
+                "Execution Relative Speed (0 is better)": {},
+                "Nb run fails": {},
+                "Nb project fails": {}
+              },
+              nbProjects: 0,
+              totalLoC: 0,
+              projects: []
             },
             small: {
-                table: {},
-                nbProjects: 0,
-                totalLoC: 0
+              table: {
+                overheadParsing: {},
+                overheadPopulating: {},
+                "Relative Overhead (0 is better)": {},
+                analysisTime: {},
+                "Analysis Relative Speed (0 is better)": {},
+                "R²": {},
+                mean: {},
+                "Standard Deviation value": {},
+                "Standard Deviation in %": {},
+                executionTime: {},
+                "Execution Relative Speed (0 is better)": {},
+                "Nb run fails": {},
+                "Nb project fails": {}
+              },
+              nbProjects: 0,
+              totalLoC: 0,
+              projects: []
             },
             medium: {
-                table: {},
-                nbProjects: 0,
-                totalLoC: 0
+              table: {
+                overheadParsing: {},
+                overheadPopulating: {},
+                "Relative Overhead (0 is better)": {},
+                analysisTime: {},
+                "Analysis Relative Speed (0 is better)": {},
+                "R²": {},
+                mean: {},
+                "Standard Deviation value": {},
+                "Standard Deviation in %": {},
+                executionTime: {},
+                "Execution Relative Speed (0 is better)": {},
+                "Nb run fails": {},
+                "Nb project fails": {}
+              },
+              nbProjects: 0,
+              totalLoC: 0,
+              projects: []
             },
             large: {
-                table: {},
-                nbProjects: 0,
-                totalLoC: 0
+              table: {
+                overheadParsing: {},
+                overheadPopulating: {},
+                "Relative Overhead (0 is better)": {},
+                analysisTime: {},
+                "Analysis Relative Speed (0 is better)": {},
+                "R²": {},
+                mean: {},
+                "Standard Deviation value": {},
+                "Standard Deviation in %": {},
+                executionTime: {},
+                "Execution Relative Speed (0 is better)": {},
+                "Nb run fails": {},
+                "Nb project fails": {}
+              },
+              nbProjects: 0,
+              totalLoC: 0,
+              projects: []
             }
         },
         rules: {} as Record<string, ResultAggregation>,
@@ -540,14 +592,20 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
 
     ensureDirSync(resultsDir);
     emptyDirSync(resultsDir);
-    Deno.writeTextFileSync(join(rootDir, "results", "result.json"), JSON.stringify(resultData, null, 2));
+    const jsonOutputPath = join(rootDir, "results", "result.json");
+    Deno.writeTextFileSync(jsonOutputPath, JSON.stringify(resultData, null, 2));
+    console.log("The resulting data is stored in: ", jsonOutputPath);
+
 
     if (result.length) {
         if (outputFormat === "typst") {
             copySync(join(defaultProjectRoot, "utils/report/typst"), join(resultsDir, "/"), { overwrite: true });
         }
 
-        Deno.writeTextFileSync(join(resultsDir, "report." + ext), result);
+        const reportPath = join(resultsDir, "report." + ext);
+        Deno.writeTextFileSync(reportPath, result);
+        console.log("Report generated here: ", reportPath);
+
     }
 }
 
