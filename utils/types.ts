@@ -219,8 +219,8 @@ export type DetailedResultType = {
     gprPath: string;
     scc: {
         nbLoC: number;
-    complexity: number;
-    nbFiles: number;
+        complexity: number;
+        nbFiles: number;
     };
     results: DigestTimeResultByProject;
 };
