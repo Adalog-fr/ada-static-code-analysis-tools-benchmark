@@ -426,19 +426,405 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
 
     // Process overhead operations
     const logSuffixes = ['-init', '-populate', '-run'];
+    const result: CogralysResults = {
+      overhead: {
+        parsing: {
+          allRuns: [],
+          nbValidRuns: 0,
+          nbRuns: 0,
+          average: {
+            user_time: 0,
+            system_time: 0,
+            cpu_percent: 0,
+            elapsed_time: 0,
+            average_shared_text_size: 0,
+            average_unshared_data_size: 0,
+            average_stack_size: 0,
+            average_total_size: 0,
+            maximum_resident_set_size: 0,
+            average_resident_set_size: 0,
+            major_pagefaults: 0,
+            minor_pagefaults: 0,
+            voluntary_context_switches: 0,
+            involuntary_context_switches: 0,
+            swaps: 0,
+            block_input_operations: 0,
+            block_output_operations: 0,
+            messages_sent: 0,
+            messages_received: 0,
+            signals_delivered: 0,
+            page_size: 0,
+            exit_status: 0
+          },
+          standardDeviation: {
+            user_time: {
+              value: 0,
+              percentage: 0
+            },
+            system_time: {
+              value: 0,
+              percentage: 0
+            },
+            cpu_percent: {
+              value: 0,
+              percentage: 0
+            },
+            elapsed_time: {
+              value: 0,
+              percentage: 0
+            },
+            average_shared_text_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_unshared_data_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_stack_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_total_size: {
+              value: 0,
+              percentage: 0
+            },
+            maximum_resident_set_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_resident_set_size: {
+              value: 0,
+              percentage: 0
+            },
+            major_pagefaults: {
+              value: 0,
+              percentage: 0
+            },
+            minor_pagefaults: {
+              value: 0,
+              percentage: 0
+            },
+            voluntary_context_switches: {
+              value: 0,
+              percentage: 0
+            },
+            involuntary_context_switches: {
+              value: 0,
+              percentage: 0
+            },
+            swaps: {
+              value: 0,
+              percentage: 0
+            },
+            block_input_operations: {
+              value: 0,
+              percentage: 0
+            },
+            block_output_operations: {
+              value: 0,
+              percentage: 0
+            },
+            messages_sent: {
+              value: 0,
+              percentage: 0
+            },
+            messages_received: {
+              value: 0,
+              percentage: 0
+            },
+            signals_delivered: {
+              value: 0,
+              percentage: 0
+            },
+            page_size: {
+              value: 0,
+              percentage: 0
+            },
+            exit_status: {
+              value: 0,
+              percentage: 0
+            }
+          }
+        },
+        populatingDB: {
+          allRuns: [],
+          nbValidRuns: 0,
+          nbRuns: 0,
+          average: {
+            user_time: 0,
+            system_time: 0,
+            cpu_percent: 0,
+            elapsed_time: 0,
+            average_shared_text_size: 0,
+            average_unshared_data_size: 0,
+            average_stack_size: 0,
+            average_total_size: 0,
+            maximum_resident_set_size: 0,
+            average_resident_set_size: 0,
+            major_pagefaults: 0,
+            minor_pagefaults: 0,
+            voluntary_context_switches: 0,
+            involuntary_context_switches: 0,
+            swaps: 0,
+            block_input_operations: 0,
+            block_output_operations: 0,
+            messages_sent: 0,
+            messages_received: 0,
+            signals_delivered: 0,
+            page_size: 0,
+            exit_status: 0
+          },
+          standardDeviation: {
+            user_time: {
+              value: 0,
+              percentage: 0
+            },
+            system_time: {
+              value: 0,
+              percentage: 0
+            },
+            cpu_percent: {
+              value: 0,
+              percentage: 0
+            },
+            elapsed_time: {
+              value: 0,
+              percentage: 0
+            },
+            average_shared_text_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_unshared_data_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_stack_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_total_size: {
+              value: 0,
+              percentage: 0
+            },
+            maximum_resident_set_size: {
+              value: 0,
+              percentage: 0
+            },
+            average_resident_set_size: {
+              value: 0,
+              percentage: 0
+            },
+            major_pagefaults: {
+              value: 0,
+              percentage: 0
+            },
+            minor_pagefaults: {
+              value: 0,
+              percentage: 0
+            },
+            voluntary_context_switches: {
+              value: 0,
+              percentage: 0
+            },
+            involuntary_context_switches: {
+              value: 0,
+              percentage: 0
+            },
+            swaps: {
+              value: 0,
+              percentage: 0
+            },
+            block_input_operations: {
+              value: 0,
+              percentage: 0
+            },
+            block_output_operations: {
+              value: 0,
+              percentage: 0
+            },
+            messages_sent: {
+              value: 0,
+              percentage: 0
+            },
+            messages_received: {
+              value: 0,
+              percentage: 0
+            },
+            signals_delivered: {
+              value: 0,
+              percentage: 0
+            },
+            page_size: {
+              value: 0,
+              percentage: 0
+            },
+            exit_status: {
+              value: 0,
+              percentage: 0
+            }
+          }
+        }
+      },
+      run: {
+        allRuns: [],
+        nbValidRuns: 0,
+        nbRuns: 0,
+        average: {
+          user_time: 0,
+          system_time: 0,
+          cpu_percent: 0,
+          elapsed_time: 0,
+          average_shared_text_size: 0,
+          average_unshared_data_size: 0,
+          average_stack_size: 0,
+          average_total_size: 0,
+          maximum_resident_set_size: 0,
+          average_resident_set_size: 0,
+          major_pagefaults: 0,
+          minor_pagefaults: 0,
+          voluntary_context_switches: 0,
+          involuntary_context_switches: 0,
+          swaps: 0,
+          block_input_operations: 0,
+          block_output_operations: 0,
+          messages_sent: 0,
+          messages_received: 0,
+          signals_delivered: 0,
+          page_size: 0,
+          exit_status: 0
+        },
+        standardDeviation: {
+          user_time: {
+            value: 0,
+            percentage: 0
+          },
+          system_time: {
+            value: 0,
+            percentage: 0
+          },
+          cpu_percent: {
+            value: 0,
+            percentage: 0
+          },
+          elapsed_time: {
+            value: 0,
+            percentage: 0
+          },
+          average_shared_text_size: {
+            value: 0,
+            percentage: 0
+          },
+          average_unshared_data_size: {
+            value: 0,
+            percentage: 0
+          },
+          average_stack_size: {
+            value: 0,
+            percentage: 0
+          },
+          average_total_size: {
+            value: 0,
+            percentage: 0
+          },
+          maximum_resident_set_size: {
+            value: 0,
+            percentage: 0
+          },
+          average_resident_set_size: {
+            value: 0,
+            percentage: 0
+          },
+          major_pagefaults: {
+            value: 0,
+            percentage: 0
+          },
+          minor_pagefaults: {
+            value: 0,
+            percentage: 0
+          },
+          voluntary_context_switches: {
+            value: 0,
+            percentage: 0
+          },
+          involuntary_context_switches: {
+            value: 0,
+            percentage: 0
+          },
+          swaps: {
+            value: 0,
+            percentage: 0
+          },
+          block_input_operations: {
+            value: 0,
+            percentage: 0
+          },
+          block_output_operations: {
+            value: 0,
+            percentage: 0
+          },
+          messages_sent: {
+            value: 0,
+            percentage: 0
+          },
+          messages_received: {
+            value: 0,
+            percentage: 0
+          },
+          signals_delivered: {
+            value: 0,
+            percentage: 0
+          },
+          page_size: {
+            value: 0,
+            percentage: 0
+          },
+          exit_status: {
+            value: 0,
+            percentage: 0
+          }
+        },
+        issuedMessages: {
+          maxCount: 0,
+          allCounts: []
+        }
+      },
+      ruleResults: {},
+      digestTime: {
+        overheadParsing: 0,
+        overheadPopulating: 0,
+        overheadThreshold: 0,
+        overhead: 0,
+        executionTime: 0,
+        analysisTime: 0
+      }
+    };
     const results = logSuffixes.map(suffix => {
         const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "", suffix);
 
         const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
-
         const data = processTimeData(timeFiles, gprPath);
-        return {
+
+        const benchResult: BenchResultByStep = {
             allRuns: data.timesData,
             nbValidRuns: data.count,
             nbRuns: timeFiles.length,
             average: data.average,
-            standardDeviation: data.standardDeviation
-        };
+            standardDeviation: data.standardDeviation,
+        }
+
+        switch(suffix) {
+            case "-init":
+                result.overhead.parsing = benchResult;
+                break;
+            case "-populate":
+                result.overhead.populatingDB = benchResult;
+                break;
+            case "-run":
+                result.run = { ...result.run, ...benchResult };
+                break;
+        }
     });
 
     // Process rule execution times from log files
@@ -467,12 +853,16 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
         const content = Deno.readTextFileSync(reportFile);
         const messageCounts = countCogralysRuleMessages(content);
 
+        let foundCounter = 0;
         for (const [rule, count] of Object.entries(messageCounts)) {
             if (!ruleMessagesMap[rule]) {
                 ruleMessagesMap[rule] = [];
             }
             ruleMessagesMap[rule].push(count);
+            foundCounter += count;
         }
+        result.run.issuedMessages.allCounts.push(foundCounter);
+        result.run.issuedMessages.maxCount = Math.max(result.run.issuedMessages.maxCount, foundCounter);
     });
 
     // Calculate statistics for each rule
@@ -496,28 +886,20 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
                 allCounts: messages
             },
             digestTime: {
-                overheadParsing: results[0].average.elapsed_time,
-                overheadPopulating: results[1].average.elapsed_time,
+                overheadParsing: result.overhead.parsing.average.elapsed_time,
+                overheadPopulating: result.overhead.populatingDB.average.elapsed_time,
                 overheadThreshold: overheadTreashold,
                 overhead: 0,
-                executionTime: results[0].average.elapsed_time + results[1].average.elapsed_time + average,
+                executionTime: result.overhead.parsing.average.elapsed_time + result.overhead.populatingDB.average.elapsed_time + average,
                 analysisTime: average
             }
         };
     }
 
-    const result = {
-        overhead: {
-            parsing: results[0],
-            populatingDB: results[1]
-        },
-        run: results[2],
-    };
-
     return {
         ...result,
         ruleResults,
-        digestTime: calculateAnalysisTime(result)
+        digestTime: calculateAnalysisTime(result),
     };
 }
 

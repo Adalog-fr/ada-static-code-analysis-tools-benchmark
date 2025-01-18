@@ -115,35 +115,31 @@ export type BenchResultByStep = {
     standardDeviation: TimeData<StandardDeviationResult>;
 };
 
-// Define the structure for Ada Control results
-export type AdaControlResult = BenchResultByStep & {
-    adtSize: number;
+export type IssuedMessages = {
     issuedMessages: {
         maxCount: number;
         allCounts: number[];
     };
+}
+
+export type BenchResultByStepWithIssuedMessages = BenchResultByStep & IssuedMessages;
+
+// Define the structure for Ada Control results
+export type AdaControlResult = BenchResultByStepWithIssuedMessages & {
+    adtSize: number;
 };
 
 // Define the structure for GNATcheck results
-export type GNATcheckResult = BenchResultByStep & {
-    issuedMessages: {
-        maxCount: number;
-        allCounts: number[];
-    };
-};
+export type GNATcheckResult = BenchResultByStepWithIssuedMessages;
 
 // Add new interface for rule execution results
-export interface RuleExecutionResult {
+export interface RuleExecutionResult extends IssuedMessages {
     allRuns: number[];
     nbValidRuns: number;
     nbRuns: number;
     standardDeviation: StandardDeviationResult;
-    issuedMessages: {
-        maxCount: number;
-        allCounts: number[];
-    };
     digestTime: DigestTimeResult;
-}
+};
 
 // Define the structure for Cogralys results
 export type CogralysResults = {
@@ -151,7 +147,7 @@ export type CogralysResults = {
         parsing: BenchResultByStep;
         populatingDB: BenchResultByStep;
     };
-    run: BenchResultByStep;
+    run: BenchResultByStepWithIssuedMessages;
     ruleResults: {
         [rule: string]: RuleExecutionResult;
     };
