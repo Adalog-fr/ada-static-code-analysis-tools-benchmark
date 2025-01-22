@@ -57,41 +57,6 @@ interface TimeBaseData {
     exit_status: number;
 }
 
-
-// Statistical utility functions
-function calculateStandardDeviation(values: number[]): StandardDeviationResult {
-    const mean = values.reduce((a, b) => a + b, 0) / values.length;
-    const squaredDifferences = values.reduce((sum, value) => sum + Math.pow(value - mean, 2), 0);
-    const variance = squaredDifferences / values.length;
-    const stdDev = Math.sqrt(variance);
-    const stdDevPercent = mean !== 0 ? (stdDev / mean) * 100 : 0;
-
-    return { value: stdDev, percentage: stdDevPercent };
-}
-
-function calculateR2(x: number[], y: number[]): number {
-    const n = x.length;
-    const sumX = x.reduce((a, b) => a + b, 0);
-    const sumY = y.reduce((a, b) => a + b, 0);
-    const sumXY = x.reduce((sum, xi, i) => sum + xi * y[i], 0);
-    const sumX2 = x.reduce((sum, xi) => sum + xi * xi, 0);
-    const sumY2 = y.reduce((sum, yi) => sum + yi * yi, 0);
-
-    const numerator = n * sumXY - sumX * sumY;
-    const denominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
-
-    return Math.pow(numerator / denominator, 2);
-}
-
-// Metric utility functions
-function getMetrics(analysisTimeValues: number[], listOfLoC: number[]) {
-    return {
-        r2Value: calculateR2(listOfLoC, analysisTimeValues),
-        mean: analysisTimeValues.reduce((a, b) => a + b, 0) / analysisTimeValues.length,
-        standardDeviation: calculateStandardDeviation(analysisTimeValues)
-    };
-}
-
 function getNotNullNumber(value: number, defaultValue: number, allowZeroValue = true): number {
     return isNaN(value) ? defaultValue : !allowZeroValue && value === 0 ? defaultValue : value;
 }
@@ -162,7 +127,6 @@ class ResultProcessor {
             const projects : DetailedResultType[] = [];
             const summary = this.initializeSummary();
             const totalLoC = this.aggregateData(categoryResults, summary, listOfLoC, ruleName, projects);
-            this.calculateMetrics(summary, listOfLoC);
             return {
                 table: this.createResultTable(summary),
                 nbProjects: categoryResults.length,
@@ -199,9 +163,6 @@ class ResultProcessor {
             nbFails: 0,
             nbProjectFails: 0,
             analysisTimeValues: [],
-            r2Value: 0,
-            mean: 0,
-            standardDeviation: { value: 0, percentage: 0 }
         };
     }
 
@@ -227,10 +188,10 @@ class ResultProcessor {
                 nbFiles: result.scc.Count
               },
               results: {
-                adactl: result.benchmarkResults.adactl.digestTime,
-                cogralys: result.benchmarkResults.cogralys.digestTime,
-                gnatcheck_1cores: result.benchmarkResults.gnatcheck_1cores.digestTime,
-                gnatcheck_32cores: result.benchmarkResults.gnatcheck_32cores.digestTime
+                adactl: {...result.benchmarkResults.adactl.digestTime, issuedMessages: result.benchmarkResults.adactl.run.issuedMessages},
+                cogralys: {...result.benchmarkResults.cogralys.digestTime, issuedMessages: result.benchmarkResults.cogralys.run.issuedMessages},
+                gnatcheck_1cores: {...result.benchmarkResults.gnatcheck_1cores.digestTime, issuedMessages: result.benchmarkResults.gnatcheck_1cores.run.issuedMessages},
+                gnatcheck_32cores: {...result.benchmarkResults.gnatcheck_32cores.digestTime, issuedMessages: result.benchmarkResults.gnatcheck_32cores.run.issuedMessages}
               }
             });
 
@@ -277,15 +238,6 @@ class ResultProcessor {
         }
     }
 
-    private calculateMetrics(summary: SummaryType, listOfLoC: number[]): void {
-        for (const tool in summary) {
-            summary[tool as ToolKeyType] = {
-                ...summary[tool as ToolKeyType],
-                ...getMetrics(summary[tool as ToolKeyType].analysisTimeValues, listOfLoC)
-            };
-        }
-    }
-
     private createResultTable(summary: SummaryType): SummaryTable {
         // Calculate percentages and prepare result table
         const fastestAnalysisTime = Math.min(
@@ -325,10 +277,6 @@ class ResultProcessor {
             "Relative Overhead (0 is better)": generateEmptyToolsValues(),
             analysisTime: generateEmptyToolsValues(),
             "Analysis Relative Speed (0 is better)": generateEmptyToolsValues(),
-            "R²": generateEmptyToolsValues(),
-            "mean": generateEmptyToolsValues(),
-            "Standard Deviation value": generateEmptyToolsValues(),
-            "Standard Deviation in %": generateEmptyToolsValues(),
             executionTime: generateEmptyToolsValues(),
             "Execution Relative Speed (0 is better)": generateEmptyToolsValues(),
             "Nb run fails": generateEmptyToolsValues(),
@@ -339,10 +287,6 @@ class ResultProcessor {
             result.overheadParsing[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].overheadParsing * 1000));
             result.overheadPopulating[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].overheadPopulating * 1000));
             result.analysisTime[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].analysisTime * 1000));
-            result["R²"][tool as ToolKeyType] = summary[tool as ToolKeyType].r2Value.toFixed(3);
-            result.mean[tool as ToolKeyType] = summary[tool as ToolKeyType].mean.toFixed(3);
-            result["Standard Deviation value"][tool as ToolKeyType] = summary[tool as ToolKeyType].standardDeviation.value.toFixed(3);
-            result["Standard Deviation in %"][tool as ToolKeyType] = summary[tool as ToolKeyType].standardDeviation.percentage.toFixed(3) + "%";
             result.executionTime[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].executionTime * 1000));
             result["Nb run fails"][tool as ToolKeyType] = summary[tool as ToolKeyType].nbFails;
             result["Nb project fails"][tool as ToolKeyType] = summary[tool as ToolKeyType].nbProjectFails;
@@ -441,10 +385,6 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 "Relative Overhead (0 is better)": {},
                 analysisTime: {},
                 "Analysis Relative Speed (0 is better)": {},
-                "R²": {},
-                mean: {},
-                "Standard Deviation value": {},
-                "Standard Deviation in %": {},
                 executionTime: {},
                 "Execution Relative Speed (0 is better)": {},
                 "Nb run fails": {},
@@ -461,10 +401,6 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 "Relative Overhead (0 is better)": {},
                 analysisTime: {},
                 "Analysis Relative Speed (0 is better)": {},
-                "R²": {},
-                mean: {},
-                "Standard Deviation value": {},
-                "Standard Deviation in %": {},
                 executionTime: {},
                 "Execution Relative Speed (0 is better)": {},
                 "Nb run fails": {},
@@ -481,10 +417,6 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 "Relative Overhead (0 is better)": {},
                 analysisTime: {},
                 "Analysis Relative Speed (0 is better)": {},
-                "R²": {},
-                mean: {},
-                "Standard Deviation value": {},
-                "Standard Deviation in %": {},
                 executionTime: {},
                 "Execution Relative Speed (0 is better)": {},
                 "Nb run fails": {},
@@ -501,10 +433,6 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 "Relative Overhead (0 is better)": {},
                 analysisTime: {},
                 "Analysis Relative Speed (0 is better)": {},
-                "R²": {},
-                mean: {},
-                "Standard Deviation value": {},
-                "Standard Deviation in %": {},
                 executionTime: {},
                 "Execution Relative Speed (0 is better)": {},
                 "Nb run fails": {},

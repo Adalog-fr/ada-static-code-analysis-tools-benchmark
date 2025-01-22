@@ -200,15 +200,12 @@ export type GlobalResultTime = {
     nbFails: number,
     nbProjectFails: number,
     analysisTimeValues: number[],
-    r2Value: number,
-    mean: number,
-    standardDeviation: { value: number, percentage: number },
 };
 
 export const toolKey = ["adactl", "cogralys", "gnatcheck_1cores", "gnatcheck_32cores"] as const;
 export type ToolKeyType = typeof toolKey[number];
 export type SummaryType = Record<ToolKeyType, GlobalResultTime>;
-export type DigestTimeResultByProject = Record<ToolKeyType, DigestTimeResult>;
+export type DigestTimeResultByProject = Record<ToolKeyType, DigestTimeResult & IssuedMessages>;
 export type DetailedResultType = {
     crateName: string;
     workDir: string;
@@ -228,10 +225,6 @@ export type SummaryTable = {
     "Relative Overhead (0 is better)": SummaryTableElement,
     analysisTime: SummaryTableElement,
     "Analysis Relative Speed (0 is better)": SummaryTableElement,
-    "R²": SummaryTableElement,
-    "mean": SummaryTableElement,
-    "Standard Deviation value": SummaryTableElement,
-    "Standard Deviation in %": SummaryTableElement,
     executionTime: SummaryTableElement,
     "Execution Relative Speed (0 is better)": SummaryTableElement,
     "Nb run fails": SummaryTableElement,
