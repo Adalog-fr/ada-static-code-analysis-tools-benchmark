@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +103,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +127,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +153,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +179,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +205,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +229,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -238,7 +253,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +279,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.os_lib"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +305,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,7 +329,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.characters.latin_1",
+        "ada.characters.wide_latin_1",
+        "ada.finalization",
+        "ada.streams",
+        "ada.strings",
+        "ada.strings.utf_encoding",
+        "ada.strings.wide_wide_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,8 +362,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.characters.latin_1": 1,
+    "ada.characters.wide_latin_1": 1,
+    "ada.containers": 2,
+    "ada.finalization": 1,
+    "ada.streams": 2,
+    "ada.strings": 2,
+    "ada.strings.utf_encoding": 1,
+    "ada.strings.wide_wide_maps": 1,
+    "gnat.os_lib": 1
+  }
 }

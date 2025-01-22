@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.finalization"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,8 +82,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.exceptions": 1,
+    "ada.finalization": 1,
+    "ada.unchecked_deallocation": 1
+  }
 }

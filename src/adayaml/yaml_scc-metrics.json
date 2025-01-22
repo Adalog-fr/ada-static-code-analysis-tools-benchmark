@@ -31,7 +31,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_sets",
+        "system.storage_elements",
+        "yaml.dom.node"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +59,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +83,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.lexer.evaluation"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +109,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.dom.node"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +135,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +159,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.utf_encoding",
+        "lexer.base",
+        "text.pool",
+        "yaml.source"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +188,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.dom.node"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +214,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_maps",
+        "ada.containers.vectors",
+        "yaml.dom.mapping_data",
+        "yaml.dom.node",
+        "yaml.dom.sequence_data",
+        "yaml.parser.stream"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +245,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.hash",
+        "system",
+        "yaml.dom.node_memory"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +273,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "system.address_to_access_conversions",
+        "system.storage_elements",
+        "yaml.dom.node",
+        "yaml.events.queue.stream",
+        "yaml.presenter"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +304,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "yaml.dom.mapping_data",
+        "yaml.dom.node",
+        "yaml.dom.node_memory",
+        "yaml.dom.sequence_data"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +334,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +360,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +384,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -353,7 +408,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.utf_encoding.strings",
+        "ada.strings.utf_encoding.wide_strings",
+        "ada.strings.utf_encoding.wide_wide_strings",
+        "text.builder"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +437,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -399,7 +461,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +487,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +513,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -468,7 +537,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -491,7 +561,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +587,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -537,7 +611,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +637,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text",
+        "yaml.tags"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +664,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "yaml.events.queue",
+        "yaml.parser"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +692,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.hash",
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +719,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "yaml.tags"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +746,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors",
+        "ada.iterator_interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +773,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.stream_concept"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +799,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +825,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "lexer",
+        "text"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +853,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.dom.vectors",
+        "yaml.source",
+        "yaml.stream_concept"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +881,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -790,7 +907,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.finalization",
+        "text.pool"
+      ]
     },
     {
       "Language": "Ada",
@@ -813,7 +935,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization"
+      ]
     },
     {
       "Language": "Ada",
@@ -836,7 +961,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +987,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "lexer.source"
+      ]
     },
     {
       "Language": "Ada",
@@ -882,7 +1013,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "text.builder",
+        "yaml.tags"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1041,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.stream_concept"
+      ]
     },
     {
       "Language": "Ada",
@@ -928,7 +1067,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "text.pool",
+        "yaml.dom.node",
+        "yaml.tags"
+      ]
     },
     {
       "Language": "Ada",
@@ -951,7 +1096,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "ada.unchecked_deallocation",
+        "yaml.presenter.analysis",
+        "yaml.tags"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1125,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.destination",
+        "yaml.dom.vectors",
+        "yaml.events.queue"
+      ]
     },
     {
       "Language": "Ada",
@@ -997,7 +1153,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.stream_concept"
+      ]
     },
     {
       "Language": "Ada",
@@ -1020,7 +1179,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1043,7 +1203,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization"
+      ]
     },
     {
       "Language": "Ada",
@@ -1066,7 +1229,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1089,7 +1253,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors",
+        "yaml.stream_concept",
+        "yaml.transformator"
+      ]
     },
     {
       "Language": "Ada",
@@ -1112,7 +1281,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.dom.mapping_data",
+        "yaml.dom.sequence_data"
+      ]
     },
     {
       "Language": "Ada",
@@ -1135,7 +1308,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -1158,7 +1334,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1181,7 +1358,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "text.pool",
+        "yaml.lexer",
+        "yaml.source",
+        "yaml.stacks",
+        "yaml.text_set"
+      ]
     },
     {
       "Language": "Ada",
@@ -1204,7 +1389,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "yaml.destination",
+        "yaml.stacks",
+        "yaml.stream_concept"
+      ]
     },
     {
       "Language": "Ada",
@@ -1227,8 +1418,57 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers": 3,
+    "ada.containers.hashed_maps": 2,
+    "ada.containers.indefinite_hashed_maps": 2,
+    "ada.containers.indefinite_hashed_sets": 1,
+    "ada.containers.indefinite_vectors": 3,
+    "ada.containers.vectors": 1,
+    "ada.exceptions": 1,
+    "ada.finalization": 8,
+    "ada.iterator_interfaces": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.hash": 2,
+    "ada.strings.utf_encoding": 1,
+    "ada.strings.utf_encoding.strings": 1,
+    "ada.strings.utf_encoding.wide_strings": 1,
+    "ada.strings.utf_encoding.wide_wide_strings": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_deallocation": 7,
+    "lexer": 1,
+    "lexer.base": 1,
+    "lexer.source": 1,
+    "system": 1,
+    "system.address_to_access_conversions": 1,
+    "system.storage_elements": 2,
+    "text": 2,
+    "text.builder": 2,
+    "text.pool": 4,
+    "yaml.destination": 2,
+    "yaml.dom.mapping_data": 3,
+    "yaml.dom.node": 7,
+    "yaml.dom.node_memory": 2,
+    "yaml.dom.sequence_data": 3,
+    "yaml.dom.vectors": 2,
+    "yaml.events.queue": 2,
+    "yaml.events.queue.stream": 1,
+    "yaml.lexer": 1,
+    "yaml.lexer.evaluation": 1,
+    "yaml.parser": 1,
+    "yaml.parser.stream": 1,
+    "yaml.presenter": 1,
+    "yaml.presenter.analysis": 1,
+    "yaml.source": 3,
+    "yaml.stacks": 2,
+    "yaml.stream_concept": 6,
+    "yaml.tags": 5,
+    "yaml.text_set": 1,
+    "yaml.transformator": 1
+  }
 }

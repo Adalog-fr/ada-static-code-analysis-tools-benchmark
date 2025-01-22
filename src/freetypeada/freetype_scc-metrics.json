@@ -31,7 +31,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.errors",
+        "ft.faces",
+        "interfaces.c.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +59,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +83,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.errors",
+        "ft.faces"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +110,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.api",
+        "ft.errors"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +137,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "ft.glyphs"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +164,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -169,7 +188,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.faces"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +214,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.faces"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +240,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.api",
+        "ft.errors"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +267,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "interfaces.c",
+        "interfaces.c.strings",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +296,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ft.api.glyphs",
+        "ft.errors"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,8 +323,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.finalization": 1,
+    "ada.text_io": 1,
+    "ft.api": 2,
+    "ft.api.glyphs": 1,
+    "ft.errors": 5,
+    "ft.faces": 4,
+    "ft.glyphs": 1,
+    "interfaces.c": 1,
+    "interfaces.c.strings": 2,
+    "system": 1
+  }
 }

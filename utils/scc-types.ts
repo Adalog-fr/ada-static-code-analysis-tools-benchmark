@@ -75,6 +75,10 @@ export interface FileJob {
     EndPoint: number;
     Uloc: number;
     LineLength: number[];
+    /**
+     * Not SCC data, but used to store the use of unit (`with clause`)
+     */
+    withUnit?: string[];
 }
 
 // Interface for LanguageSummary
@@ -91,6 +95,7 @@ export interface LanguageSummary {
     WeightedComplexity: number;
     Files: FileJob[];
     LineLength: number[];
+    unitUsage?: Record<string, number>;
 }
 
 // Interface for OpenClose

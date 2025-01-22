@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +103,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada_pretty.definitions"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +129,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +153,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -169,7 +177,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +201,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +225,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -238,7 +249,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +273,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +297,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,7 +321,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +345,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.pretty_printers",
+        "league.string_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +373,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,8 +397,29 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada_pretty.clauses",
+        "ada_pretty.declarations",
+        "ada_pretty.definitions",
+        "ada_pretty.expressions",
+        "ada_pretty.joins",
+        "ada_pretty.statements",
+        "ada_pretty.units"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada_pretty.clauses": 1,
+    "ada_pretty.declarations": 1,
+    "ada_pretty.definitions": 2,
+    "ada_pretty.expressions": 1,
+    "ada_pretty.joins": 1,
+    "ada_pretty.statements": 1,
+    "ada_pretty.units": 1,
+    "league.pretty_printers": 1,
+    "league.string_vectors": 1,
+    "league.strings": 1
+  }
 }

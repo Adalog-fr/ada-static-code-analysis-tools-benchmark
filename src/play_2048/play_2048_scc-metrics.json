@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.environment_variables"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "system.random_numbers"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +84,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.directories",
+        "ada.environment_variables",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "toml.file_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +115,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "game"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,8 +141,56 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar.formatting",
+        "ada.command_line",
+        "ada.directories",
+        "ada.environment_variables",
+        "ada.numerics.elementary_functions",
+        "ada.strings.fixed",
+        "ada.text_io",
+        "game",
+        "sf.graphics.color",
+        "sf.graphics.font",
+        "sf.graphics.image",
+        "sf.graphics.renderwindow",
+        "sf.graphics.sprite",
+        "sf.graphics.text",
+        "sf.graphics.texture",
+        "sf.window.event",
+        "sf.window.keyboard",
+        "sf.window.videomode",
+        "sf.window.window",
+        "storage"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 2,
+    "ada.calendar.formatting": 1,
+    "ada.command_line": 1,
+    "ada.directories": 2,
+    "ada.environment_variables": 3,
+    "ada.numerics.elementary_functions": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 2,
+    "game": 2,
+    "sf.graphics.color": 1,
+    "sf.graphics.font": 1,
+    "sf.graphics.image": 1,
+    "sf.graphics.renderwindow": 1,
+    "sf.graphics.sprite": 1,
+    "sf.graphics.text": 1,
+    "sf.graphics.texture": 1,
+    "sf.window.event": 1,
+    "sf.window.keyboard": 1,
+    "sf.window.videomode": 1,
+    "sf.window.window": 1,
+    "storage": 1,
+    "system.random_numbers": 1,
+    "toml.file_io": 1
+  }
 }

@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "str_pack",
+        "string_pkg"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +83,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +107,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "source_file"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +133,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +157,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +184,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +208,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +232,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "error_report_file",
+        "options",
+        "output_file",
+        "parse_table",
+        "parse_template_file",
+        "parser",
+        "rule_table",
+        "source_file",
+        "symbol_table",
+        "text_io",
+        "tokens_file"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +269,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "lr0_machine"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +295,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "ayacc_file_names",
+        "rule_table",
+        "symbol_table",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +325,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "actions_file",
+        "ada.text_io",
+        "source_file",
+        "str_pack"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +354,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ragged",
+        "rule_table",
+        "stack_pack",
+        "symbol_info",
+        "symbol_table",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +385,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "source_file",
+        "str_pack",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +414,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,7 +438,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "lists",
+        "string_pkg"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +465,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +492,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "lr0_machine",
+        "rule_table",
+        "symbol_table"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +520,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +547,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -491,7 +571,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -514,7 +595,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -537,7 +619,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -560,7 +643,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "options",
+        "source_file",
+        "string_pkg",
+        "symbol_table",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +674,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -606,7 +698,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +724,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +750,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.text_io",
+        "ayacc_file_names",
+        "gnat.command_line",
+        "output_file",
+        "string_pkg"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +781,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +807,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -721,7 +831,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -744,7 +855,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "lists",
+        "stack_pkg",
+        "unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +883,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -790,7 +907,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ayacc_file_names",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -813,7 +934,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -836,7 +958,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rule_table",
+        "symbol_table"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +985,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -882,7 +1009,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "lists"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1035,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -928,7 +1059,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -951,7 +1083,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1109,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -997,7 +1133,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -1020,7 +1159,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rule_table",
+        "set_pack",
+        "symbol_table"
+      ]
     },
     {
       "Language": "Ada",
@@ -1043,7 +1187,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1066,7 +1211,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1089,7 +1235,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1112,7 +1259,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "symbol_table"
+      ]
     },
     {
       "Language": "Ada",
@@ -1135,7 +1285,20 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "goto_file",
+        "lalr_symbol_info",
+        "lr0_machine",
+        "options",
+        "rule_table",
+        "shift_reduce_file",
+        "symbol_info",
+        "symbol_table",
+        "text_io",
+        "verbose_file"
+      ]
     },
     {
       "Language": "Ada",
@@ -1158,7 +1321,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -1181,7 +1347,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1204,7 +1371,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "actions_file",
+        "ada.text_io",
+        "ayacc_file_names",
+        "options",
+        "parse_template_file",
+        "parse_template_file.templates",
+        "source_file"
+      ]
     },
     {
       "Language": "Ada",
@@ -1227,7 +1403,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -1250,7 +1429,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.strings.fixed",
+        "ayacc_file_names",
+        "options"
+      ]
     },
     {
       "Language": "Ada",
@@ -1273,7 +1458,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "string_pkg"
+      ]
     },
     {
       "Language": "Ada",
@@ -1296,7 +1484,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1319,7 +1508,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "symbol_info",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -1342,8 +1535,44 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "actions_file": 2,
+    "ada.directories": 1,
+    "ada.exceptions": 1,
+    "ada.strings.fixed": 4,
+    "ada.text_io": 4,
+    "ayacc_file_names": 11,
+    "error_report_file": 1,
+    "gnat.command_line": 1,
+    "goto_file": 1,
+    "lalr_symbol_info": 1,
+    "lists": 3,
+    "lr0_machine": 3,
+    "options": 5,
+    "output_file": 2,
+    "parse_table": 1,
+    "parse_template_file": 2,
+    "parse_template_file.templates": 1,
+    "parser": 1,
+    "ragged": 1,
+    "rule_table": 7,
+    "set_pack": 1,
+    "shift_reduce_file": 1,
+    "source_file": 6,
+    "stack_pack": 1,
+    "stack_pkg": 1,
+    "str_pack": 3,
+    "string_pkg": 5,
+    "symbol_info": 3,
+    "symbol_table": 9,
+    "text_io": 12,
+    "tokens_file": 1,
+    "unchecked_deallocation": 6,
+    "verbose_file": 1
+  }
 }

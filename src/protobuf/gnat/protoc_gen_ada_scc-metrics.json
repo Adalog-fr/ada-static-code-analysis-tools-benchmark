@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +103,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +127,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +151,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.streams",
+        "google.protobuf.descriptor",
+        "league.string_vectors",
+        "pb_support.universal_string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +181,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +205,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +229,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "pb_support.internal",
+        "pb_support.io"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +257,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +281,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +305,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,7 +329,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +353,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -353,7 +377,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,7 +401,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.streams",
+        "league.string_vectors",
+        "league.strings",
+        "pb_support.boolean_vectors",
+        "pb_support.ieee_float_64_vectors",
+        "pb_support.integer_32_vectors",
+        "pb_support.integer_64_vectors",
+        "pb_support.stream_element_vector_vectors",
+        "pb_support.universal_string_vectors",
+        "pb_support.unsigned_64_vectors",
+        "pb_support.vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,8 +438,31 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "pb_support.internal",
+        "pb_support.io"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.finalization": 2,
+    "ada.streams": 2,
+    "ada.unchecked_deallocation": 2,
+    "google.protobuf.descriptor": 1,
+    "league.string_vectors": 2,
+    "league.strings": 1,
+    "pb_support.boolean_vectors": 1,
+    "pb_support.ieee_float_64_vectors": 1,
+    "pb_support.integer_32_vectors": 1,
+    "pb_support.integer_64_vectors": 1,
+    "pb_support.internal": 2,
+    "pb_support.io": 2,
+    "pb_support.stream_element_vector_vectors": 1,
+    "pb_support.universal_string_vectors": 2,
+    "pb_support.unsigned_64_vectors": 1,
+    "pb_support.vectors": 1
+  }
 }

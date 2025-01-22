@@ -31,7 +31,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "hmac",
+        "pbkdf2_generic",
+        "sha1",
+        "sha2"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +61,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,8 +88,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "hmac": 1,
+    "interfaces": 1,
+    "pbkdf2_generic": 1,
+    "sha1": 1,
+    "sha2": 1,
+    "system": 1
+  }
 }

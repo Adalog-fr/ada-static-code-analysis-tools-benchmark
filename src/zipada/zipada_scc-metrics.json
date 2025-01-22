@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.discrete_random",
+        "ada.numerics.float_random"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +106,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +130,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.streams.stream_io",
+        "ada.text_io",
+        "bzip2.decoding",
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +160,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -169,7 +184,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +208,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +232,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "zip.create"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +258,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +282,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.generic_constrained_array_sort",
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +309,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.numerics.discrete_random",
+        "ada.sequential_io",
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +338,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +364,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -353,7 +388,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "unzip",
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +416,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -399,7 +440,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -422,7 +464,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.command_line",
+        "ada.text_io",
+        "set_modification_time_gnat"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +493,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.command_line",
+        "ada.integer_text_io",
+        "ada.streams",
+        "ada.strings.fixed",
+        "ada.text_io",
+        "show_license",
+        "unzip.streams",
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +527,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.containers.ordered_maps",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "show_license",
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -491,7 +558,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "comp_zip_prc",
+        "show_license",
+        "unzip",
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +590,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -537,7 +614,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -560,7 +638,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -583,7 +662,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -606,7 +686,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "gnat.os_lib"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +713,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +739,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.command_line",
+        "ada.direct_io",
+        "ada.text_io",
+        "interfaces",
+        "lzh"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +770,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.streams.stream_io",
+        "ada.text_io",
+        "lzma.encoding"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +799,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.integer_text_io",
+        "ada.text_io",
+        "interfaces",
+        "unzip.streams",
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +830,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -744,7 +854,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.command_line",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "comp_zip_prc",
+        "rezip_lib",
+        "show_license",
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +887,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -790,7 +911,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -813,7 +935,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -836,7 +961,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -859,7 +985,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -882,7 +1009,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "bwt"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1036,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -928,7 +1060,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -951,7 +1084,26 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.characters.handling",
+        "ada.command_line",
+        "ada.directories",
+        "ada.float_text_io",
+        "ada.strings.fixed",
+        "ada.strings.unbounded",
+        "ada.strings.utf_encoding.conversions",
+        "ada.strings.wide_fixed",
+        "ada.text_io",
+        "ada.wide_text_io",
+        "interfaces",
+        "show_license",
+        "zip.compress",
+        "zip.create",
+        "zip_console_io",
+        "zip_streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1126,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "zip"
+      ]
     },
     {
       "Language": "Ada",
@@ -997,7 +1152,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1020,7 +1176,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1043,7 +1200,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "io_exceptions",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -1066,7 +1227,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1089,7 +1251,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1112,7 +1275,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "demo_zip",
+        "unzip.streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -1135,7 +1303,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1158,7 +1327,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1181,7 +1351,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.streams.stream_io",
+        "ada.text_io",
+        "interfaces",
+        "lzma.decoding"
+      ]
     },
     {
       "Language": "Ada",
@@ -1204,7 +1381,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1227,7 +1405,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1250,7 +1429,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1273,7 +1453,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1296,7 +1477,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1319,7 +1501,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1342,7 +1525,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1365,7 +1549,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.characters.handling",
+        "ada.command_line",
+        "ada.directories",
+        "ada.float_text_io",
+        "ada.text_io",
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1388,7 +1581,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1411,7 +1605,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1434,7 +1629,33 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.characters.handling",
+        "ada.directories",
+        "ada.float_text_io",
+        "ada.integer_text_io",
+        "ada.io_exceptions",
+        "ada.numerics.discrete_random",
+        "ada.numerics.elementary_functions",
+        "ada.numerics.float_random",
+        "ada.streams.stream_io",
+        "ada.strings.fixed",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "ada.unchecked_deallocation",
+        "dual_io",
+        "flexible_temp_files",
+        "gnat.os_lib",
+        "interfaces",
+        "unzip",
+        "zip.compress",
+        "zip.create",
+        "zip.headers",
+        "zip_console_io",
+        "zip_streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -1457,7 +1678,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1480,7 +1702,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1503,7 +1726,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1526,7 +1750,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1549,7 +1774,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1572,7 +1798,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1595,7 +1822,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1618,7 +1846,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1641,7 +1870,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1664,7 +1894,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1687,7 +1918,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1710,7 +1942,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1733,7 +1966,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1756,8 +1990,58 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 6,
+    "ada.characters.handling": 6,
+    "ada.command_line": 12,
+    "ada.containers.generic_constrained_array_sort": 1,
+    "ada.containers.ordered_maps": 1,
+    "ada.direct_io": 1,
+    "ada.directories": 3,
+    "ada.float_text_io": 3,
+    "ada.integer_text_io": 3,
+    "ada.io_exceptions": 1,
+    "ada.numerics.discrete_random": 3,
+    "ada.numerics.elementary_functions": 1,
+    "ada.numerics.float_random": 2,
+    "ada.sequential_io": 1,
+    "ada.streams": 1,
+    "ada.streams.stream_io": 4,
+    "ada.strings.fixed": 3,
+    "ada.strings.unbounded": 6,
+    "ada.strings.utf_encoding.conversions": 1,
+    "ada.strings.wide_fixed": 1,
+    "ada.text_io": 18,
+    "ada.unchecked_deallocation": 2,
+    "ada.wide_text_io": 1,
+    "bwt": 1,
+    "bzip2.decoding": 1,
+    "comp_zip_prc": 2,
+    "demo_zip": 1,
+    "dual_io": 1,
+    "flexible_temp_files": 1,
+    "gnat.os_lib": 2,
+    "interfaces": 8,
+    "io_exceptions": 1,
+    "lzh": 1,
+    "lzma.decoding": 1,
+    "lzma.encoding": 1,
+    "rezip_lib": 1,
+    "set_modification_time_gnat": 1,
+    "show_license": 5,
+    "text_io": 1,
+    "unzip": 3,
+    "unzip.streams": 3,
+    "zip": 7,
+    "zip.compress": 2,
+    "zip.create": 3,
+    "zip.headers": 1,
+    "zip_console_io": 2,
+    "zip_streams": 2
+  }
 }

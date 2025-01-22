@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams.stream_io",
+        "ada.strings.unbounded"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.match_patterns",
+        "rejuvenation.patterns"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +85,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +109,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "string_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +135,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "gnatcoll.projects"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +162,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.finder",
+        "rejuvenation.match_patterns",
+        "rejuvenation.node_locations",
+        "rejuvenation.patterns",
+        "rejuvenation.text_rewrites"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +192,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +216,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.placeholders",
+        "rejuvenation.replacer",
+        "string_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +244,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings.fixed",
+        "ada.strings.unbounded"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +272,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +296,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_maps",
+        "ada.strings",
+        "ada.strings.hash"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +324,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnatcoll.projects",
+        "gnatcoll.vfs",
+        "libadalang.project_provider"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +352,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +376,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "langkit_support.text"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +404,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,7 +428,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.containers.vectors",
+        "libadalang.analysis",
+        "libadalang.common"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +457,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings",
+        "ada.strings.fixed",
+        "langkit_support.text"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +486,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.environment_variables",
+        "ada.text_io",
+        "gnat.regpat",
+        "interfaces.c",
+        "rejuvenation.file_utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +517,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +543,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -491,7 +567,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -514,7 +591,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.numerics.big_numbers.big_integers",
+        "ada.strings.fixed"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +619,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.placeholders",
+        "string_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +646,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_maps"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +672,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.wide_wide_unbounded",
+        "langkit_support.text",
+        "rejuvenation.node_locations"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +700,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.regpat",
+        "rejuvenation.finder",
+        "rejuvenation.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +728,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.node_locations"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +754,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +780,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +806,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings",
+        "ada.text_io",
+        "rejuvenation.file_utils",
+        "rejuvenation.navigation"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +836,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_sets"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +862,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -767,7 +886,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.text_rewrites"
+      ]
     },
     {
       "Language": "Ada",
@@ -790,7 +912,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -813,7 +936,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.text_io",
+        "string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -836,7 +964,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.text_io",
+        "gnat.os_lib",
+        "interfaces.c",
+        "rejuvenation.file_utils",
+        "rejuvenation.indentation",
+        "rejuvenation.navigation",
+        "rejuvenation.nested",
+        "rejuvenation.node_locations",
+        "rejuvenation.string_utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +999,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "rejuvenation.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -882,7 +1027,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -905,7 +1051,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.strings.unbounded",
+        "gnatcoll.projects",
+        "gnatcoll.vfs",
+        "libadalang.project_provider",
+        "rejuvenation.file_utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -928,7 +1082,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.equal_case_insensitive",
+        "ada.strings.unbounded",
+        "langkit_support.text"
+      ]
     },
     {
       "Language": "Ada",
@@ -951,7 +1111,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings.fixed",
+        "rejuvenation.finder",
+        "rejuvenation.utils",
+        "string_vectors",
+        "string_vectors_utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1142,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings.equal_case_insensitive",
+        "ada.text_io",
+        "rejuvenation.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -997,7 +1171,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "string_sets",
+        "string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -1020,7 +1198,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -1043,7 +1224,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.text_io",
+        "gnatcoll.gmp.integers",
+        "langkit_support.text",
+        "rejuvenation.placeholders",
+        "rejuvenation.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -1066,7 +1255,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
     },
     {
       "Language": "Ada",
@@ -1089,7 +1281,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.simple_factory"
+      ]
     },
     {
       "Language": "Ada",
@@ -1112,8 +1307,60 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.assertions": 7,
+    "ada.characters.handling": 1,
+    "ada.containers": 1,
+    "ada.containers.indefinite_hashed_maps": 1,
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.containers.indefinite_ordered_sets": 1,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.vectors": 3,
+    "ada.directories": 3,
+    "ada.environment_variables": 1,
+    "ada.numerics.big_numbers.big_integers": 1,
+    "ada.streams.stream_io": 1,
+    "ada.strings": 5,
+    "ada.strings.equal_case_insensitive": 2,
+    "ada.strings.fixed": 5,
+    "ada.strings.hash": 1,
+    "ada.strings.unbounded": 8,
+    "ada.strings.wide_wide_unbounded": 1,
+    "ada.text_io": 7,
+    "gnat.os_lib": 1,
+    "gnat.regpat": 2,
+    "gnatcoll.gmp.integers": 1,
+    "gnatcoll.projects": 3,
+    "gnatcoll.vfs": 2,
+    "interfaces.c": 2,
+    "langkit_support.text": 5,
+    "libadalang.analysis": 1,
+    "libadalang.common": 1,
+    "libadalang.project_provider": 2,
+    "rejuvenation.file_utils": 4,
+    "rejuvenation.finder": 3,
+    "rejuvenation.indentation": 1,
+    "rejuvenation.match_patterns": 2,
+    "rejuvenation.navigation": 2,
+    "rejuvenation.nested": 1,
+    "rejuvenation.node_locations": 4,
+    "rejuvenation.patterns": 2,
+    "rejuvenation.placeholders": 3,
+    "rejuvenation.replacer": 1,
+    "rejuvenation.simple_factory": 1,
+    "rejuvenation.string_utils": 1,
+    "rejuvenation.text_rewrites": 2,
+    "rejuvenation.utils": 5,
+    "string_maps": 3,
+    "string_sets": 1,
+    "string_vectors": 4,
+    "string_vectors_utils": 1
+  }
 }

@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,8 +55,22 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "gnat.os_lib",
+        "gnat.strings",
+        "interfaces.c",
+        "system"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "gnat.os_lib": 1,
+    "gnat.strings": 1,
+    "interfaces.c": 1,
+    "system": 1
+  }
 }

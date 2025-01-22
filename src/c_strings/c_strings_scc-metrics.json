@@ -31,8 +31,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "interfaces.c.strings"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_conversion": 1,
+    "interfaces.c.strings": 1
+  }
 }

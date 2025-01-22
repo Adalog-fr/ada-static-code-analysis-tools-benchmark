@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ascon.sponge",
+        "keccak.generic_hash"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ascon.permutations",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +86,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ascon.sponge",
+        "keccak.generic_xof"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +113,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +137,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +161,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +188,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +212,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gimli.sponge",
+        "keccak.generic_hash"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +239,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +265,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +293,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +317,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,7 +341,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.bit_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +370,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_kangarootwelve",
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_12",
+        "keccak.parallel_keccak_1600.rounds_12"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +400,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +426,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +454,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +482,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +508,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +535,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -491,7 +563,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +591,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +621,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +649,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +679,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +707,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.bit_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +736,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.bit_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +765,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_24"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +793,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +821,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_xof",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +848,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_sponge",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +875,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +903,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge"
+      ]
     },
     {
       "Language": "Ada",
@@ -790,7 +930,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge"
+      ]
     },
     {
       "Language": "Ada",
@@ -813,7 +957,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -836,7 +985,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +1015,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -882,7 +1041,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gimli",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1069,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -928,7 +1093,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -951,7 +1121,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_xof",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1148,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -997,7 +1174,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1020,7 +1200,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
     },
     {
       "Language": "Ada",
@@ -1043,7 +1226,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "cshake",
+        "keccak.generic_kmac"
+      ]
     },
     {
       "Language": "Ada",
@@ -1066,7 +1253,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1089,7 +1280,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1112,7 +1304,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "function shift_left (value  : in lane_type",
+        "function shift_right (value  : in lane_type",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1135,7 +1332,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "function shift_left (value  : in lane_type",
+        "function shift_right (value  : in lane_type"
+      ]
     },
     {
       "Language": "Ada",
@@ -1158,7 +1359,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1181,7 +1386,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1204,7 +1413,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_kangarootwelve",
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_14",
+        "keccak.parallel_keccak_1600.rounds_14"
+      ]
     },
     {
       "Language": "Ada",
@@ -1227,7 +1443,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1250,7 +1467,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1273,7 +1491,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1296,7 +1515,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1319,7 +1541,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1342,7 +1570,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -1365,7 +1600,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1388,7 +1626,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1411,7 +1652,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1434,7 +1678,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1457,7 +1702,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1480,7 +1726,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1503,7 +1752,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1526,7 +1778,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1549,7 +1804,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1572,7 +1828,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "cshake",
+        "keccak.generic_parallel_hash",
+        "keccak.generic_parallel_xof",
+        "keccak.parallel_keccak_1600.rounds_24",
+        "shake"
+      ]
     },
     {
       "Language": "Ada",
@@ -1595,7 +1858,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1618,7 +1884,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1641,7 +1908,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1664,7 +1934,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1687,7 +1958,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1710,7 +1982,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1733,7 +2006,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.keccak_1600.rounds_12",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -1756,7 +2034,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1779,7 +2060,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_hash",
+        "keccak.keccak_1600.rounds_24"
+      ]
     },
     {
       "Language": "Ada",
@@ -1802,7 +2087,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1825,7 +2113,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1848,7 +2137,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_monkeyduplex",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1871,7 +2164,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1894,7 +2188,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
     },
     {
       "Language": "Ada",
@@ -1917,7 +2214,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.keccak_1600.rounds_14",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -1940,7 +2242,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1963,7 +2266,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -1986,7 +2292,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2009,7 +2316,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
     },
     {
       "Language": "Ada",
@@ -2032,7 +2342,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -2055,7 +2369,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_24"
+      ]
     },
     {
       "Language": "Ada",
@@ -2078,7 +2396,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_24"
+      ]
     },
     {
       "Language": "Ada",
@@ -2101,7 +2423,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "cshake",
+        "keccak.generic_tuple_hash"
+      ]
     },
     {
       "Language": "Ada",
@@ -2124,7 +2450,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.keccak_1600.rounds_24",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -2147,7 +2478,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2170,7 +2502,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -2193,7 +2528,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_permutation_serial_fallback",
+        "keccak.keccak_1600",
+        "keccak.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -2216,7 +2556,22 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf.byte_lanes.twisted",
+        "keccak.generic_monkeyduplex",
+        "keccak.generic_monkeywrap",
+        "keccak.keccak_1600",
+        "keccak.keccak_1600.rounds_12",
+        "keccak.keccak_200",
+        "keccak.keccak_200.rounds_12",
+        "keccak.keccak_400",
+        "keccak.keccak_400.rounds_12",
+        "keccak.keccak_800",
+        "keccak.keccak_800.rounds_12",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -2239,7 +2594,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -2262,7 +2622,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
     },
     {
       "Language": "Ada",
@@ -2285,7 +2650,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
     },
     {
       "Language": "Ada",
@@ -2308,8 +2676,58 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.util"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ascon.permutations": 1,
+    "ascon.sponge": 2,
+    "cshake": 3,
+    "function shift_left (value  : in lane_type": 2,
+    "function shift_right (value  : in lane_type": 2,
+    "gimli": 1,
+    "gimli.sponge": 1,
+    "interfaces": 17,
+    "keccak.generic_cshake": 4,
+    "keccak.generic_duplex": 14,
+    "keccak.generic_hash": 3,
+    "keccak.generic_kangarootwelve": 2,
+    "keccak.generic_keccakf": 7,
+    "keccak.generic_keccakf.bit_lanes": 3,
+    "keccak.generic_keccakf.byte_lanes": 4,
+    "keccak.generic_keccakf.byte_lanes.twisted": 1,
+    "keccak.generic_keccakf.lane_complementing_permutation": 7,
+    "keccak.generic_kmac": 1,
+    "keccak.generic_monkeyduplex": 2,
+    "keccak.generic_monkeywrap": 1,
+    "keccak.generic_parallel_hash": 1,
+    "keccak.generic_parallel_permutation_serial_fallback": 1,
+    "keccak.generic_parallel_sponge": 4,
+    "keccak.generic_parallel_xof": 6,
+    "keccak.generic_sponge": 17,
+    "keccak.generic_tuple_hash": 1,
+    "keccak.generic_xof": 9,
+    "keccak.keccak_1600": 2,
+    "keccak.keccak_1600.rounds_12": 3,
+    "keccak.keccak_1600.rounds_14": 2,
+    "keccak.keccak_1600.rounds_24": 5,
+    "keccak.keccak_200": 1,
+    "keccak.keccak_200.rounds_12": 1,
+    "keccak.keccak_400": 1,
+    "keccak.keccak_400.rounds_12": 1,
+    "keccak.keccak_800": 1,
+    "keccak.keccak_800.rounds_12": 1,
+    "keccak.padding": 22,
+    "keccak.parallel_keccak_1600.rounds_12": 1,
+    "keccak.parallel_keccak_1600.rounds_14": 1,
+    "keccak.parallel_keccak_1600.rounds_24": 1,
+    "keccak.types": 26,
+    "keccak.util": 7,
+    "shake": 1
+  }
 }

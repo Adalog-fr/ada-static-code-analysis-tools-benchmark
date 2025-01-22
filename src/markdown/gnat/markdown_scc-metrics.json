@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "system.atomic_counters"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +81,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.blocks.indented_code",
+        "markdown.blocks.lists",
+        "markdown.blocks.paragraphs",
+        "markdown.blocks.quotes",
+        "markdown.implementation.indented_code_blocks",
+        "markdown.implementation.lists",
+        "markdown.implementation.paragraphs",
+        "markdown.implementation.quotes",
+        "system.atomic_counters"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +115,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +139,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.blocks.internals",
+        "markdown.implementation.quotes",
+        "system.atomic_counters"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +167,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +193,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +217,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +243,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "system.atomic_counters"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +269,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +295,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.blocks.internals",
+        "system.atomic_counters"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +322,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,7 +346,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "vss.strings.cursors"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +372,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.list_items.internals",
+        "system.atomic_counters"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +399,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,7 +423,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation.list_items",
+        "markdown.implementation.lists"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +450,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.annotations",
+        "vss.string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +477,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "vss.regular_expressions",
+        "vss.string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +504,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -468,7 +528,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -491,7 +552,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.blocks.internals"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +578,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.tags.generic_dispatching_constructor",
+        "markdown.documents.internals",
+        "markdown.implementation.documents",
+        "markdown.implementation.indented_code_blocks",
+        "markdown.implementation.list_items",
+        "markdown.implementation.paragraphs",
+        "markdown.implementation.quotes"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +610,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "vss.regular_expressions"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +636,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation.indented_code_blocks",
+        "vss.string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +663,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation.list_items",
+        "vss.characters"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +690,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "vss.string_vectors",
+        "vss.strings",
+        "vss.strings.cursors.markers"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +719,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.iterator_interfaces",
+        "markdown.implementation.lists",
+        "markdown.list_items"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +747,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -675,7 +771,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.block_containers",
+        "markdown.implementation"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +798,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -721,7 +822,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "markdown.block_containers",
+        "markdown.blocks",
+        "markdown.implementation.list_items"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +851,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.annotations",
+        "markdown.implementation.paragraphs"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +878,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "markdown.documents",
+        "markdown.implementation",
+        "vss.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -790,7 +907,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "markdown.blocks.indented_code",
+        "markdown.blocks.lists",
+        "markdown.blocks.paragraphs",
+        "markdown.blocks.quotes",
+        "markdown.implementation"
+      ]
     },
     {
       "Language": "Ada",
@@ -813,7 +938,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -836,7 +962,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "markdown.implementation.indented_code_blocks.gnatdoc",
+        "markdown.implementation.list_items",
+        "markdown.implementation.paragraphs"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +990,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -882,7 +1014,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -905,7 +1038,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -928,7 +1062,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.iterator_interfaces",
+        "markdown.blocks"
+      ]
     },
     {
       "Language": "Ada",
@@ -951,7 +1089,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -974,7 +1113,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -997,7 +1137,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "vss.regular_expressions",
+        "vss.strings.conversions",
+        "vss.strings.cursors"
+      ]
     },
     {
       "Language": "Ada",
@@ -1020,8 +1165,53 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.tags",
+        "ada.unchecked_deallocation",
+        "system.atomic_counters",
+        "vss.strings",
+        "vss.strings.character_iterators"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.vectors": 3,
+    "ada.finalization": 2,
+    "ada.iterator_interfaces": 2,
+    "ada.tags": 1,
+    "ada.tags.generic_dispatching_constructor": 1,
+    "ada.unchecked_deallocation": 1,
+    "markdown.annotations": 2,
+    "markdown.block_containers": 2,
+    "markdown.blocks": 2,
+    "markdown.blocks.indented_code": 2,
+    "markdown.blocks.internals": 3,
+    "markdown.blocks.lists": 2,
+    "markdown.blocks.paragraphs": 2,
+    "markdown.blocks.quotes": 2,
+    "markdown.documents": 1,
+    "markdown.documents.internals": 1,
+    "markdown.implementation": 6,
+    "markdown.implementation.documents": 1,
+    "markdown.implementation.indented_code_blocks": 3,
+    "markdown.implementation.indented_code_blocks.gnatdoc": 1,
+    "markdown.implementation.list_items": 5,
+    "markdown.implementation.lists": 3,
+    "markdown.implementation.paragraphs": 4,
+    "markdown.implementation.quotes": 3,
+    "markdown.list_items": 1,
+    "markdown.list_items.internals": 1,
+    "system.atomic_counters": 7,
+    "vss.characters": 1,
+    "vss.regular_expressions": 3,
+    "vss.string_vectors": 4,
+    "vss.strings": 3,
+    "vss.strings.character_iterators": 1,
+    "vss.strings.conversions": 1,
+    "vss.strings.cursors": 2,
+    "vss.strings.cursors.markers": 1
+  }
 }

@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +83,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +111,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +135,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.string_vectors",
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +164,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +192,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +218,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings.internals",
+        "matreshka.internals.strings.operations",
+        "matreshka.internals.utf16",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +247,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.exceptions",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +275,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.text_io",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +303,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +331,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sockets",
+        "gnutls"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +358,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +384,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +410,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +436,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.mucs",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +465,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +493,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +519,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +546,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.networks"
+      ]
     },
     {
       "Language": "Ada",
@@ -491,7 +572,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.streams",
+        "gnat.md5",
+        "league.string_vectors",
+        "xmpp.base64",
+        "xmpp.logger",
+        "xmpp.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +604,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +631,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -560,7 +655,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -583,7 +679,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +706,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +732,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +759,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs",
+        "xmpp.services_features",
+        "xmpp.services_identities"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +790,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +816,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.pretty_writers"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +844,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +872,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects",
+        "xmpp.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +901,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -790,7 +928,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -813,7 +955,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.exceptions",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -836,7 +983,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +1012,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -882,7 +1038,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "gnat.sockets",
+        "gnutls",
+        "xml.sax.input_sources.streams.sockets",
+        "xml.sax.input_sources.streams.tls_sockets"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1068,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -928,7 +1092,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -951,7 +1119,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -974,7 +1143,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -997,7 +1170,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1020,7 +1194,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xmpp.iqs",
+        "xmpp.messages",
+        "xmpp.presences",
+        "xmpp.rosters",
+        "xmpp.services",
+        "xmpp.stream_features",
+        "xmpp.streams",
+        "xmpp.versions"
+      ]
     },
     {
       "Language": "Ada",
@@ -1043,7 +1228,27 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.exceptions",
+        "league.text_codecs",
+        "xml.sax.readers",
+        "xmpp.binds",
+        "xmpp.iq_sessions",
+        "xmpp.logger",
+        "xmpp.messages",
+        "xmpp.mucs",
+        "xmpp.presences",
+        "xmpp.roster_items",
+        "xmpp.rosters",
+        "xmpp.services",
+        "xmpp.services_identities",
+        "xmpp.stream_features",
+        "xmpp.streams",
+        "xmpp.utils",
+        "xmpp.versions"
+      ]
     },
     {
       "Language": "Ada",
@@ -1066,7 +1271,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
     },
     {
       "Language": "Ada",
@@ -1089,7 +1299,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs"
+      ]
     },
     {
       "Language": "Ada",
@@ -1112,7 +1327,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1135,7 +1351,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs",
+        "xmpp.objects",
+        "xmpp.roster_items"
+      ]
     },
     {
       "Language": "Ada",
@@ -1158,7 +1381,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions"
+      ]
     },
     {
       "Language": "Ada",
@@ -1181,7 +1407,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.logger"
+      ]
     },
     {
       "Language": "Ada",
@@ -1204,8 +1433,87 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.attributes",
+        "xml.sax.content_handlers",
+        "xml.sax.declaration_handlers",
+        "xml.sax.dtd_handlers",
+        "xml.sax.entity_resolvers",
+        "xml.sax.error_handlers",
+        "xml.sax.lexical_handlers",
+        "xml.sax.locators",
+        "xml.sax.parse_exceptions",
+        "xml.sax.pretty_writers",
+        "xml.sax.simple_readers",
+        "xml.sax.string_output_destinations",
+        "xmpp.challenges",
+        "xmpp.idle_tasks",
+        "xmpp.iqs",
+        "xmpp.networks",
+        "xmpp.objects",
+        "xmpp.raw_handlers",
+        "xmpp.stream_handlers"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.conversions": 7,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.vectors": 4,
+    "ada.exceptions": 3,
+    "ada.streams": 5,
+    "ada.text_io": 1,
+    "ada.unchecked_conversion": 1,
+    "ada.wide_wide_text_io": 1,
+    "gnat.md5": 1,
+    "gnat.sockets": 2,
+    "gnutls": 2,
+    "league.string_vectors": 2,
+    "league.strings": 21,
+    "league.strings.internals": 1,
+    "league.text_codecs": 1,
+    "matreshka.internals.strings.operations": 1,
+    "matreshka.internals.utf16": 1,
+    "xml.sax.attributes": 6,
+    "xml.sax.content_handlers": 1,
+    "xml.sax.declaration_handlers": 1,
+    "xml.sax.dtd_handlers": 1,
+    "xml.sax.entity_resolvers": 1,
+    "xml.sax.error_handlers": 1,
+    "xml.sax.input_sources.streams.sockets": 1,
+    "xml.sax.input_sources.streams.tls_sockets": 1,
+    "xml.sax.lexical_handlers": 1,
+    "xml.sax.locators": 1,
+    "xml.sax.parse_exceptions": 1,
+    "xml.sax.pretty_writers": 16,
+    "xml.sax.readers": 1,
+    "xml.sax.simple_readers": 1,
+    "xml.sax.string_output_destinations": 1,
+    "xmpp.base64": 1,
+    "xmpp.binds": 1,
+    "xmpp.challenges": 1,
+    "xmpp.idle_tasks": 1,
+    "xmpp.iq_sessions": 1,
+    "xmpp.iqs": 7,
+    "xmpp.logger": 14,
+    "xmpp.messages": 2,
+    "xmpp.mucs": 2,
+    "xmpp.networks": 2,
+    "xmpp.objects": 11,
+    "xmpp.presences": 2,
+    "xmpp.raw_handlers": 1,
+    "xmpp.roster_items": 2,
+    "xmpp.rosters": 2,
+    "xmpp.services": 2,
+    "xmpp.services_features": 1,
+    "xmpp.services_identities": 2,
+    "xmpp.stream_features": 2,
+    "xmpp.stream_handlers": 1,
+    "xmpp.streams": 2,
+    "xmpp.utils": 3,
+    "xmpp.versions": 2
+  }
 }

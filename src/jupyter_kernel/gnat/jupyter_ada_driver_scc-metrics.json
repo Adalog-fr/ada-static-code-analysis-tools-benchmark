@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.wide_wide_latin_1",
+        "ada.wide_wide_text_io",
+        "league.strings",
+        "load_library"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,8 +86,20 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c.strings",
+        "system"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.wide_wide_latin_1": 1,
+    "ada.wide_wide_text_io": 1,
+    "interfaces.c.strings": 1,
+    "league.strings": 2,
+    "load_library": 1,
+    "system": 1
+  }
 }

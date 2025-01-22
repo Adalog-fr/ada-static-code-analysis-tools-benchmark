@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.unicode"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +81,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.generic_anonymous_array_sort",
+        "ada.wide_wide_text_io",
+        "anagram.grammars.rule_templates",
+        "league.string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +110,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io",
+        "anagram.grammars.lr"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +137,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +163,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "ada.containers.ordered_maps",
+        "ada.containers.vectors",
+        "anagram.grammars.constructors",
+        "league.string_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +194,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars",
+        "anagram.grammars.lr_tables"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +221,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +247,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -238,7 +271,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.lr_tables"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +297,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +323,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +349,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "anagram.grammars.lr",
+        "anagram.grammars.lr_tables"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +377,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.ordered_sets",
+        "ada.containers.vectors",
+        "anagram.grammars.constructors",
+        "anagram.grammars.rule_templates",
+        "league.string_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +409,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +435,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.tools"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +461,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -422,7 +485,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "anagram.grammars.lr"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +512,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ag_tokens",
+        "anagram.abstract_sources",
+        "anagram.grammars.scanner_handlers",
+        "anagram.grammars.scanner_types",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +542,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -491,7 +566,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -514,7 +590,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.lr_tables"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +616,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.scanners"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +642,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -583,7 +666,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.unicode.ucd"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +692,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +719,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -652,7 +743,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.tools"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +769,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.constructors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +796,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io",
+        "anagram.grammars.rule_templates",
+        "anagram.grammars_checks",
+        "league.string_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +826,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +852,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -767,7 +876,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "ada.wide_wide_text_io",
+        "anagram.grammars.rule_templates"
+      ]
     },
     {
       "Language": "Ada",
@@ -790,7 +904,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -813,7 +928,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ag_tokens",
+        "anagram.grammars.scanner_handlers",
+        "anagram.grammars.scanner_types",
+        "anagram.grammars.scanners"
+      ]
     },
     {
       "Language": "Ada",
@@ -836,7 +957,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "anagram.grammars"
+      ]
     },
     {
       "Language": "Ada",
@@ -859,7 +984,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.graphs"
+      ]
     },
     {
       "Language": "Ada",
@@ -882,7 +1010,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "anagram.grammars.lr",
+        "system.pool_local"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1038,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.lexers",
+        "anagram.grammars.lr_tables"
+      ]
     },
     {
       "Language": "Ada",
@@ -928,7 +1065,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.abstract_sources",
+        "league.strings",
+        "league.strings.cursors.characters"
+      ]
     },
     {
       "Language": "Ada",
@@ -951,7 +1093,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -974,7 +1117,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars"
+      ]
     },
     {
       "Language": "Ada",
@@ -997,7 +1143,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1020,7 +1167,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1043,7 +1191,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1066,7 +1215,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -1089,7 +1241,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.unicode"
+      ]
     },
     {
       "Language": "Ada",
@@ -1112,7 +1267,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1135,7 +1291,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1158,7 +1315,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.vectors",
+        "anagram.grammars.parser_utils",
+        "league.string_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -1181,7 +1345,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.streams.stream_io",
+        "ag",
+        "league.strings",
+        "league.text_codecs"
+      ]
     },
     {
       "Language": "Ada",
@@ -1204,7 +1375,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -1227,7 +1401,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1250,7 +1425,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ag_tokens",
+        "anagram.grammars.scanner_types",
+        "anagram.grammars.scanners"
+      ]
     },
     {
       "Language": "Ada",
@@ -1273,7 +1453,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1296,7 +1477,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.ordered_sets"
+      ]
     },
     {
       "Language": "Ada",
@@ -1319,7 +1504,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io",
+        "ag.goto_table",
+        "ag.shift_reduce",
+        "ag_tokens",
+        "anagram.grammars.parser_utils",
+        "anagram.grammars.scanner_handler",
+        "anagram.grammars.scanners",
+        "anagram.string_sources",
+        "league.string_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -1342,7 +1538,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1365,8 +1562,51 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "ada.wide_wide_text_io"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.doubly_linked_lists": 1,
+    "ada.containers.generic_anonymous_array_sort": 1,
+    "ada.containers.ordered_maps": 7,
+    "ada.containers.ordered_sets": 2,
+    "ada.containers.vectors": 5,
+    "ada.directories": 1,
+    "ada.streams.stream_io": 1,
+    "ada.unchecked_deallocation": 5,
+    "ada.wide_wide_text_io": 7,
+    "ag": 1,
+    "ag.goto_table": 1,
+    "ag.shift_reduce": 1,
+    "ag_tokens": 4,
+    "anagram.abstract_sources": 2,
+    "anagram.grammars": 5,
+    "anagram.grammars.constructors": 3,
+    "anagram.grammars.lexers": 1,
+    "anagram.grammars.lr": 4,
+    "anagram.grammars.lr_tables": 5,
+    "anagram.grammars.parser_utils": 2,
+    "anagram.grammars.rule_templates": 4,
+    "anagram.grammars.scanner_handler": 1,
+    "anagram.grammars.scanner_handlers": 2,
+    "anagram.grammars.scanner_types": 3,
+    "anagram.grammars.scanners": 4,
+    "anagram.grammars.tools": 2,
+    "anagram.grammars_checks": 1,
+    "anagram.graphs": 1,
+    "anagram.string_sources": 1,
+    "interfaces": 1,
+    "league.string_vectors": 7,
+    "league.strings": 9,
+    "league.strings.cursors.characters": 1,
+    "league.text_codecs": 1,
+    "matreshka.internals.unicode": 2,
+    "matreshka.internals.unicode.ucd": 1,
+    "system.pool_local": 1
+  }
 }

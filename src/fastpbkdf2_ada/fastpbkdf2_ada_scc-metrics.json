@@ -31,7 +31,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "fastpbkdf2_h_generic",
+        "interfaces",
+        "interfaces.c"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +59,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +83,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastpbkdf2_generic"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +110,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "system.parameters"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,8 +136,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "fastpbkdf2_h_generic",
+        "interfaces",
+        "interfaces.c"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "fastpbkdf2_generic": 1,
+    "fastpbkdf2_h_generic": 2,
+    "interfaces": 2,
+    "interfaces.c": 2,
+    "system.parameters": 1
+  }
 }

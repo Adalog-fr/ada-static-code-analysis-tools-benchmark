@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.fastcgi.server",
+        "matreshka.fastcgi.streaming_server"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "fastcgi.handlers.responder",
+        "fastcgi.replies",
+        "fastcgi.requests"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +86,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +110,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +136,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +162,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -169,7 +186,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +210,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.fastcgi"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +236,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -238,7 +260,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +284,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.stream_element_vectors",
+        "league.strings",
+        "matreshka.fastcgi"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +313,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +339,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "matreshka.internals.unicode.characters.latin"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +366,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "fastcgi.application"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +392,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,7 +416,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -399,7 +440,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "fastcgi.application"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +466,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.fastcgi"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +492,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.text_codecs"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +518,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastcgi.field_names",
+        "fastcgi.field_values",
+        "gnat.sockets"
+      ]
     },
     {
       "Language": "Ada",
@@ -491,7 +547,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "league.stream_element_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +574,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -537,7 +598,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "ada.strings.hash"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +625,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -583,7 +649,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +675,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +701,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastcgi.field_names",
+        "fastcgi.field_values",
+        "gnat.sockets",
+        "matreshka.fastcgi.descriptors"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +731,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.streams",
+        "ada.text_io",
+        "fastcgi.handlers.responder",
+        "gnat.sockets",
+        "matreshka.fastcgi.descriptors",
+        "matreshka.fastcgi.protocol"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +763,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.stream_element_vectors",
+        "matreshka.fastcgi"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +791,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +817,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastcgi.replies.internals",
+        "fastcgi.requests.internals",
+        "gnat.sockets",
+        "matreshka.fastcgi.protocol",
+        "matreshka.fastcgi.query_items",
+        "matreshka.internals.unicode.characters.latin"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,8 +849,41 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "league.text_codecs",
+        "matreshka.fastcgi.protocol",
+        "matreshka.internals.unicode.characters.latin"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.hashed_maps": 1,
+    "ada.containers.ordered_maps": 1,
+    "ada.streams": 9,
+    "ada.strings.hash": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_conversion": 3,
+    "fastcgi.application": 2,
+    "fastcgi.field_names": 2,
+    "fastcgi.field_values": 2,
+    "fastcgi.handlers.responder": 2,
+    "fastcgi.replies": 1,
+    "fastcgi.replies.internals": 1,
+    "fastcgi.requests": 1,
+    "fastcgi.requests.internals": 1,
+    "gnat.sockets": 4,
+    "league.stream_element_vectors": 3,
+    "league.strings": 4,
+    "league.text_codecs": 2,
+    "matreshka.fastcgi": 4,
+    "matreshka.fastcgi.descriptors": 2,
+    "matreshka.fastcgi.protocol": 3,
+    "matreshka.fastcgi.query_items": 1,
+    "matreshka.fastcgi.server": 1,
+    "matreshka.fastcgi.streaming_server": 1,
+    "matreshka.internals.unicode.characters.latin": 3
+  }
 }

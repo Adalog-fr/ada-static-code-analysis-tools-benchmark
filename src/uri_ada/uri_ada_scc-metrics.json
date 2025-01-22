@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +82,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "uri_ada"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,8 +108,23 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_maps",
+        "ada.strings.fixed",
+        "ada.strings.unbounded",
+        "gnat.regpat"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.assertions": 1,
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.regpat": 1,
+    "uri_ada": 1
+  }
 }

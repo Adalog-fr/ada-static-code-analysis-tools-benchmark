@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,8 +57,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.latin_1",
+        "hal",
+        "hal.bitmap"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.latin_1": 1,
+    "hal": 1,
+    "hal.bitmap": 1,
+    "interfaces": 1
+  }
 }

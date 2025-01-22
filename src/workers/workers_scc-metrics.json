@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_doubly_linked_lists",
+        "ada.exceptions",
+        "ada.finalization",
+        "system.multiprocessors"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +108,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +132,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.task_identification"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,8 +159,22 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "gnat.io",
+        "workers.mutexes"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_doubly_linked_lists": 1,
+    "ada.exceptions": 2,
+    "ada.finalization": 2,
+    "ada.task_identification": 1,
+    "gnat.io": 1,
+    "system.multiprocessors": 1,
+    "workers.mutexes": 1
+  }
 }

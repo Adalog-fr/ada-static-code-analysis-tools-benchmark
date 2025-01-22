@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "ada.finalization",
+        "ft.faces",
+        "gl.objects.buffers",
+        "gl.objects.programs",
+        "gl.objects.textures",
+        "gl.objects.vertex_arrays",
+        "gl.types.colors",
+        "gl.uniforms"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,8 +113,41 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "ft.glyphs",
+        "gl.attributes",
+        "gl.buffers",
+        "gl.objects.framebuffers",
+        "gl.objects.shaders",
+        "gl.objects.textures.targets",
+        "gl.pixels",
+        "gl.text.utf8",
+        "gl.window"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.hashed_maps": 1,
+    "ada.finalization": 1,
+    "ada.unchecked_deallocation": 1,
+    "ft.faces": 1,
+    "ft.glyphs": 1,
+    "gl.attributes": 1,
+    "gl.buffers": 1,
+    "gl.objects.buffers": 1,
+    "gl.objects.framebuffers": 1,
+    "gl.objects.programs": 1,
+    "gl.objects.shaders": 1,
+    "gl.objects.textures": 1,
+    "gl.objects.textures.targets": 1,
+    "gl.objects.vertex_arrays": 1,
+    "gl.pixels": 1,
+    "gl.text.utf8": 1,
+    "gl.types.colors": 1,
+    "gl.uniforms": 1,
+    "gl.window": 1
+  }
 }

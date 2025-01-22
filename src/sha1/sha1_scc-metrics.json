@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "sha1_generic"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,8 +84,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.byte_swapping",
+        "system"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "gnat.byte_swapping": 1,
+    "interfaces": 1,
+    "sha1_generic": 1,
+    "system": 1
+  }
 }

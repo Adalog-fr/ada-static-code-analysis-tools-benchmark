@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +103,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +127,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +151,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -169,7 +175,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "double_slash_model",
+        "relative_location_path_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +204,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "expr_model",
+        "function_call_model",
+        "literal_model",
+        "number_model",
+        "variable_reference_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +236,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "double_slash_model",
+        "relative_location_path_model",
+        "step_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +266,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +293,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +317,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ncname_or_id_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +345,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +369,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "node_test_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +397,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +424,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "literal_model",
+        "name_test_model",
+        "node_type_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +454,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -422,7 +478,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,7 +506,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -468,7 +530,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "argument_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -491,7 +558,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -514,7 +582,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "additive_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +610,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_relative_location_path_model",
+        "step_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +639,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_absolute_location_path_model",
+        "relative_location_path_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +668,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -606,7 +692,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_step_model",
+        "predicates_model",
+        "step_base_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +722,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_step_base_model",
+        "axis_specifier_model",
+        "node_test_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +752,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "double_slash_model",
+        "filter_expr_model",
+        "location_path_model",
+        "relative_location_path_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -675,7 +783,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -698,7 +807,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "path_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -721,7 +835,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "union_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +863,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "equality_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -767,7 +891,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -790,7 +915,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -813,7 +939,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -836,7 +963,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -859,7 +987,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "qname_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -882,7 +1015,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +1042,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "relational_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -928,7 +1070,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -951,7 +1094,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1121,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -997,7 +1145,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1020,7 +1169,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1043,7 +1193,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model"
+      ]
     },
     {
       "Language": "Ada",
@@ -1066,7 +1219,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1089,7 +1243,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1112,7 +1270,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "qname_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1135,7 +1298,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1158,7 +1322,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model"
+      ]
     },
     {
       "Language": "Ada",
@@ -1181,7 +1348,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1204,7 +1372,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1227,7 +1396,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -1250,7 +1422,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "and_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1273,7 +1450,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1296,7 +1474,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1319,7 +1498,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1342,7 +1522,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1365,7 +1550,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "multiplicative_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1388,7 +1578,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "or_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1411,7 +1606,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "unary_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1434,7 +1634,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1457,7 +1658,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1480,7 +1682,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1503,7 +1706,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1526,7 +1733,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1549,7 +1760,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1572,7 +1784,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1595,7 +1808,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "axis_name_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1618,7 +1836,51 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_absolute_location_path_model",
+        "abbreviated_relative_location_path_model",
+        "abbreviated_step_base_model",
+        "abbreviated_step_model",
+        "absolute_location_path_model",
+        "additive_expr_model",
+        "and_expr_model",
+        "argument_model",
+        "arguments_model",
+        "axis_name_model",
+        "axis_specifier_model",
+        "double_slash_model",
+        "equality_expr_model",
+        "expr_model",
+        "filter_expr_model",
+        "function_call_model",
+        "function_name_model",
+        "l_bracket_model",
+        "literal_model",
+        "location_path_model",
+        "multiplicative_expr_model",
+        "name_test_model",
+        "ncname_or_id_model",
+        "node_test_model",
+        "node_type_model",
+        "number_model",
+        "or_expr_model",
+        "path_expr_model",
+        "predicate_expr_model",
+        "predicate_model",
+        "predicates_model",
+        "primary_expr_model",
+        "qname_model",
+        "r_bracket_model",
+        "relational_expr_model",
+        "relative_location_path_model",
+        "step_base_model",
+        "step_model",
+        "unary_expr_model",
+        "union_expr_model",
+        "variable_reference_model",
+        "xpath_model"
+      ]
     },
     {
       "Language": "Ada",
@@ -1641,7 +1903,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "predicate_model",
+        "primary_expr_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1664,7 +1932,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1687,7 +1959,55 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_absolute_location_path_model",
+        "abbreviated_relative_location_path_model",
+        "abbreviated_step_base_model",
+        "abbreviated_step_model",
+        "absolute_location_path_model",
+        "additive_expr_model",
+        "and_expr_model",
+        "argument_model",
+        "arguments_model",
+        "axis_name_model",
+        "axis_specifier_model",
+        "double_slash_model",
+        "equality_expr_model",
+        "expr_model",
+        "filter_expr_model",
+        "function_call_model",
+        "function_name_model",
+        "l_bracket_model",
+        "literal_model",
+        "location_path_model",
+        "multiplicative_expr_model",
+        "name_test_model",
+        "ncname_or_id_model",
+        "node_test_model",
+        "node_type_model",
+        "number_model",
+        "or_expr_model",
+        "path_expr_model",
+        "predicate_expr_model",
+        "predicate_model",
+        "predicates_model",
+        "primary_expr_model",
+        "qname_model",
+        "r_bracket_model",
+        "relational_expr_model",
+        "relative_location_path_model",
+        "step_base_model",
+        "step_model",
+        "text_io",
+        "unary_expr_model",
+        "union_expr_model",
+        "variable_reference_model",
+        "xpath",
+        "xpath_goto",
+        "xpath_shift_reduce",
+        "xpath_tokens"
+      ]
     },
     {
       "Language": "Ada",
@@ -1710,7 +2030,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1733,7 +2054,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "axis_name_model",
+        "node_type_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1756,7 +2083,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1779,7 +2107,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1802,7 +2131,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1825,7 +2155,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1848,7 +2179,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "l_bracket_model",
+        "predicate_expr_model",
+        "r_bracket_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1871,7 +2209,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1894,7 +2233,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "predicate_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1917,7 +2261,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1940,7 +2285,52 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "abbreviated_absolute_location_path_model",
+        "abbreviated_relative_location_path_model",
+        "abbreviated_step_base_model",
+        "abbreviated_step_model",
+        "absolute_location_path_model",
+        "additive_expr_model",
+        "and_expr_model",
+        "argument_model",
+        "arguments_model",
+        "axis_name_model",
+        "axis_specifier_model",
+        "double_slash_model",
+        "equality_expr_model",
+        "expr_model",
+        "filter_expr_model",
+        "function_call_model",
+        "function_name_model",
+        "l_bracket_model",
+        "literal_model",
+        "location_path_model",
+        "multiplicative_expr_model",
+        "name_test_model",
+        "ncname_or_id_model",
+        "node_test_model",
+        "node_type_model",
+        "number_model",
+        "or_expr_model",
+        "path_expr_model",
+        "predicate_expr_model",
+        "predicate_model",
+        "predicates_model",
+        "primary_expr_model",
+        "qname_model",
+        "r_bracket_model",
+        "relational_expr_model",
+        "relative_location_path_model",
+        "step_base_model",
+        "step_model",
+        "unary_expr_model",
+        "union_expr_model",
+        "variable_reference_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -1963,7 +2353,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1986,7 +2377,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2009,7 +2401,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text_io",
+        "xpath_dfa"
+      ]
     },
     {
       "Language": "Ada",
@@ -2032,7 +2428,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "arguments_model",
+        "function_name_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -2055,7 +2457,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2078,7 +2481,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "absolute_location_path_model",
+        "relative_location_path_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -2101,7 +2510,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2124,7 +2534,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2147,7 +2558,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -2170,7 +2585,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ncname_or_id_model",
+        "qname_model",
+        "xpath_model",
+        "xpath_visitor_interface"
+      ]
     },
     {
       "Language": "Ada",
@@ -2193,7 +2614,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2216,7 +2638,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2239,7 +2662,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2262,7 +2686,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2285,7 +2710,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2308,7 +2734,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text_io",
+        "xpath_dfa",
+        "xpath_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2331,7 +2762,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2354,7 +2786,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2377,7 +2810,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2400,7 +2834,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2423,7 +2858,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "xpath_dfa"
+      ]
     },
     {
       "Language": "Ada",
@@ -2446,7 +2884,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2469,7 +2908,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2492,7 +2932,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2515,7 +2956,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2538,7 +2980,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2561,7 +3004,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2584,7 +3028,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2607,7 +3052,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2630,7 +3076,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "dom.core"
+      ]
     },
     {
       "Language": "Ada",
@@ -2653,7 +3102,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2676,7 +3126,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2699,7 +3150,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2722,7 +3174,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2745,7 +3198,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2768,7 +3222,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2791,7 +3246,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2814,7 +3270,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "mckae.xml.xpath.xia"
+      ]
     },
     {
       "Language": "Ada",
@@ -2837,7 +3297,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2860,7 +3321,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2883,8 +3347,65 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "abbreviated_absolute_location_path_model": 4,
+    "abbreviated_relative_location_path_model": 4,
+    "abbreviated_step_base_model": 4,
+    "abbreviated_step_model": 4,
+    "absolute_location_path_model": 4,
+    "ada.exceptions": 1,
+    "ada.text_io": 1,
+    "additive_expr_model": 4,
+    "and_expr_model": 4,
+    "argument_model": 4,
+    "arguments_model": 4,
+    "axis_name_model": 5,
+    "axis_specifier_model": 4,
+    "dom.core": 1,
+    "double_slash_model": 6,
+    "equality_expr_model": 4,
+    "expr_model": 6,
+    "filter_expr_model": 4,
+    "function_call_model": 4,
+    "function_name_model": 4,
+    "l_bracket_model": 4,
+    "literal_model": 5,
+    "location_path_model": 4,
+    "mckae.xml.xpath.xia": 1,
+    "multiplicative_expr_model": 4,
+    "name_test_model": 4,
+    "ncname_or_id_model": 5,
+    "node_test_model": 5,
+    "node_type_model": 5,
+    "number_model": 4,
+    "or_expr_model": 4,
+    "path_expr_model": 4,
+    "predicate_expr_model": 4,
+    "predicate_model": 5,
+    "predicates_model": 4,
+    "primary_expr_model": 4,
+    "qname_model": 6,
+    "r_bracket_model": 4,
+    "relational_expr_model": 4,
+    "relative_location_path_model": 8,
+    "step_base_model": 4,
+    "step_model": 5,
+    "text_io": 3,
+    "unary_expr_model": 4,
+    "union_expr_model": 4,
+    "variable_reference_model": 4,
+    "xpath": 2,
+    "xpath_dfa": 3,
+    "xpath_goto": 1,
+    "xpath_io": 2,
+    "xpath_model": 45,
+    "xpath_shift_reduce": 1,
+    "xpath_tokens": 1,
+    "xpath_visitor_interface": 43
+  }
 }

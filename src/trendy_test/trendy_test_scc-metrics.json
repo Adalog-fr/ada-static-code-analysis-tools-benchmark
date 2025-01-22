@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test.assertions.discrete"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +83,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_locations"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +109,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +133,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +159,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +185,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.command_line",
+        "ada.strings.unbounded",
+        "ada.strings.unbounded.text_io",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +215,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test.generics"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +241,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +267,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.synchronized_queue_interfaces",
+        "ada.containers.unbounded_synchronized_queues",
+        "ada.exceptions",
+        "ada.numerics.discrete_random",
+        "ada.strings.fixed",
+        "ada.strings.unbounded.text_io",
+        "ada.text_io",
+        "gnat.traceback.symbolic",
+        "system.multiprocessors"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +301,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,8 +325,36 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.containers.indefinite_vectors",
+        "ada.containers.vectors",
+        "ada.strings.unbounded",
+        "trendy_locations"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 2,
+    "ada.command_line": 1,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.synchronized_queue_interfaces": 1,
+    "ada.containers.unbounded_synchronized_queues": 1,
+    "ada.containers.vectors": 1,
+    "ada.exceptions": 1,
+    "ada.numerics.discrete_random": 1,
+    "ada.strings.fixed": 2,
+    "ada.strings.unbounded": 2,
+    "ada.strings.unbounded.text_io": 2,
+    "ada.text_io": 2,
+    "gnat.traceback.symbolic": 1,
+    "interfaces.c.strings": 1,
+    "system.multiprocessors": 1,
+    "trendy_locations": 2,
+    "trendy_test": 2,
+    "trendy_test.assertions.discrete": 1,
+    "trendy_test.generics": 1
+  }
 }

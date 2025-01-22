@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "semantic_versioning.basic"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.io",
+        "semantic_versioning.basic",
+        "semantic_versioning.extended"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +85,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +111,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.multiway_trees",
+        "ada.strings.unbounded",
+        "semantic_versioning.basic"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +139,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +166,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +193,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.exceptions",
+        "ada.strings.fixed",
+        "gnat.case_util"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +222,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "ada.strings.unbounded",
+        "semantic_versioning.basic",
+        "semantic_versioning.extended"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +252,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.maps",
+        "semantic_versioning.basic",
+        "semantic_versioning.extended"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,8 +280,29 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.exceptions",
+        "gnat.io"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 2,
+    "ada.command_line": 2,
+    "ada.containers.multiway_trees": 1,
+    "ada.containers.vectors": 1,
+    "ada.exceptions": 2,
+    "ada.strings": 1,
+    "ada.strings.fixed": 2,
+    "ada.strings.maps": 1,
+    "ada.strings.unbounded": 2,
+    "ada.text_io": 2,
+    "gnat.case_util": 1,
+    "gnat.io": 2,
+    "semantic_versioning.basic": 5,
+    "semantic_versioning.extended": 3
+  }
 }

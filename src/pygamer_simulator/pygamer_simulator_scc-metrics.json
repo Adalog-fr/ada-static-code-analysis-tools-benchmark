@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +81,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "gnat.os_lib",
+        "interfaces",
+        "interfaces.c",
+        "sf",
+        "sf.audio",
+        "sf.audio.soundstream",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +114,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "gnat.os_lib",
+        "sf.graphics.renderwindow",
+        "sf.window.event",
+        "sf.window.keyboard"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +144,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "sf",
+        "sf.graphics",
+        "sf.graphics.image"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +173,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "hal.bitmap",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +201,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "ada.unchecked_conversion",
+        "hal",
+        "interfaces.c",
+        "sf",
+        "sf.graphics",
+        "sf.graphics.color",
+        "sf.graphics.renderwindow",
+        "sf.graphics.texture",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +236,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.real_time",
+        "ada.real_time.timing_events",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +264,27 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.real_time",
+        "ada.text_io",
+        "ada.unchecked_conversion",
+        "gnat.os_lib",
+        "sf",
+        "sf.graphics",
+        "sf.graphics.rendertexture",
+        "sf.graphics.renderwindow",
+        "sf.graphics.sprite",
+        "sf.graphics.texture",
+        "sf.graphics.view",
+        "sf.system.vector2",
+        "sf.window.event",
+        "sf.window.keyboard",
+        "sf.window.videomode",
+        "sf.window.window",
+        "simulator_assets"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +307,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "hal.time"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +334,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "interfaces.c"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,8 +361,41 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.exceptions": 1,
+    "ada.real_time": 2,
+    "ada.real_time.timing_events": 1,
+    "ada.streams": 1,
+    "ada.text_io": 5,
+    "ada.unchecked_conversion": 2,
+    "gnat.os_lib": 3,
+    "hal": 4,
+    "hal.bitmap": 1,
+    "hal.time": 1,
+    "interfaces": 2,
+    "interfaces.c": 3,
+    "sf": 4,
+    "sf.audio": 1,
+    "sf.audio.soundstream": 1,
+    "sf.graphics": 3,
+    "sf.graphics.color": 1,
+    "sf.graphics.image": 1,
+    "sf.graphics.rendertexture": 1,
+    "sf.graphics.renderwindow": 3,
+    "sf.graphics.sprite": 1,
+    "sf.graphics.texture": 2,
+    "sf.graphics.view": 1,
+    "sf.system.vector2": 1,
+    "sf.window.event": 2,
+    "sf.window.keyboard": 2,
+    "sf.window.videomode": 1,
+    "sf.window.window": 1,
+    "simulator_assets": 1,
+    "system": 3
+  }
 }

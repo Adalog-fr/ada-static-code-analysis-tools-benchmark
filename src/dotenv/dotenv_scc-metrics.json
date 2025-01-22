@@ -31,7 +31,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "ada.strings.hash",
+        "ada.strings.unbounded",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,8 +60,26 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.directories",
+        "ada.environment_variables",
+        "ada.strings",
+        "gnat.regpat"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 1,
+    "ada.containers.hashed_maps": 1,
+    "ada.directories": 1,
+    "ada.environment_variables": 1,
+    "ada.strings": 1,
+    "ada.strings.hash": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.regpat": 1
+  }
 }

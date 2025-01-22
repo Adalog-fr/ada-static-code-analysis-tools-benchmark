@@ -31,8 +31,30 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.exceptions",
+        "ada.finalization",
+        "ada.numerics.elementary_functions",
+        "ada.numerics.generic_complex_types",
+        "ada.streams",
+        "ada.text_io",
+        "ada.text_io.complex_io",
+        "ada.unchecked_deallocation"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.exceptions": 1,
+    "ada.finalization": 1,
+    "ada.numerics.elementary_functions": 1,
+    "ada.numerics.generic_complex_types": 1,
+    "ada.streams": 1,
+    "ada.text_io": 1,
+    "ada.text_io.complex_io": 1,
+    "ada.unchecked_deallocation": 1
+  }
 }

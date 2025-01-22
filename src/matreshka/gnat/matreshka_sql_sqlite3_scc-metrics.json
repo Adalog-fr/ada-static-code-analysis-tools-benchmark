@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.sql_drivers.sqlite3.databases"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.sql_drivers.sqlite3.databases",
+        "matreshka.internals.sql_parameter_sets"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +84,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +108,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +132,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +156,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -169,7 +180,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +204,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "league.strings.internals",
+        "matreshka.internals.sql_drivers.sqlite3.queries",
+        "matreshka.internals.strings.c"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,8 +233,25 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "league.strings.internals",
+        "matreshka.internals.sql_parameter_rewriters.sqlite3",
+        "matreshka.internals.strings",
+        "matreshka.internals.strings.c"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces.c": 2,
+    "league.strings.internals": 2,
+    "matreshka.internals.sql_drivers.sqlite3.databases": 2,
+    "matreshka.internals.sql_drivers.sqlite3.queries": 1,
+    "matreshka.internals.sql_parameter_rewriters.sqlite3": 1,
+    "matreshka.internals.sql_parameter_sets": 1,
+    "matreshka.internals.strings": 1,
+    "matreshka.internals.strings.c": 2
+  }
 }

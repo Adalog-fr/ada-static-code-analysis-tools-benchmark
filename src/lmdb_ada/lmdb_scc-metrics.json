@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "interfaces.c.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +106,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_holders",
+        "ada.io_exceptions",
+        "ada.iterator_interfaces",
+        "ada.streams",
+        "ada.strings.utf_encoding",
+        "gnatcoll.refcount",
+        "interfaces.c",
+        "lmdb_h"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,8 +139,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_holders": 1,
+    "ada.directories": 1,
+    "ada.io_exceptions": 1,
+    "ada.iterator_interfaces": 1,
+    "ada.streams": 1,
+    "ada.strings.utf_encoding": 1,
+    "gnatcoll.refcount": 1,
+    "interfaces.c": 1,
+    "interfaces.c.strings": 1,
+    "lmdb_h": 1
+  }
 }

@@ -31,7 +31,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.long_long_float_text_io",
+        "gnoga.application.singleton",
+        "gnoga.gui.base",
+        "gnoga.gui.element.common",
+        "gnoga.gui.element.form",
+        "gnoga.gui.view",
+        "gnoga.gui.window",
+        "uxstrings.formatting"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +64,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_maps",
+        "ada.numerics.discrete_random",
+        "gnoga.application.multi_connect",
+        "gnoga.client.storage",
+        "gnoga.gui.base",
+        "gnoga.gui.element.common",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window",
+        "gnoga.types",
+        "uxstrings"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +99,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.element.common",
+        "gnoga.gui.element.form",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +129,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +153,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.element.iframe",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +182,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.multi_connect",
+        "hello6.controller"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +209,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.element",
+        "gnoga.gui.element.common",
+        "gnoga.gui.view",
+        "gnoga.gui.view.card",
+        "gnoga.gui.view.console",
+        "gnoga.gui.view.docker",
+        "gnoga.gui.view.grid",
+        "gnoga.gui.window",
+        "gnoga.types.colors"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +244,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +268,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.element.canvas",
+        "gnoga.gui.element.canvas.context_2d",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +298,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.multi_connect",
+        "gnoga.gui.base",
+        "gnoga.gui.element.common",
+        "gnoga.gui.view",
+        "gnoga.gui.window",
+        "gnoga.types",
+        "hello6.view"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +330,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.multi_connect",
+        "gnoga.gui.element.form",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window",
+        "gnoga.server.connection",
+        "gnoga.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +361,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.multi_connect",
+        "gnoga.gui.element.form",
+        "gnoga.gui.location",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window",
+        "gnoga.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +392,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.multi_connect",
+        "gnoga.gui.element.form",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window",
+        "gnoga.server.connection",
+        "gnoga.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +423,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.base",
+        "gnoga.gui.element.form",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window",
+        "gnoga.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +454,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.gui.base",
+        "gnoga.gui.element.common",
+        "gnoga.gui.view"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +482,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -399,7 +506,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.element.list",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +535,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.multi_connect",
+        "gnoga.client.storage",
+        "gnoga.gui.base",
+        "gnoga.gui.element.common",
+        "gnoga.gui.element.form",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window",
+        "gnoga.types"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,8 +568,45 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnoga.application.singleton",
+        "gnoga.gui.element.multimedia",
+        "gnoga.gui.view.console",
+        "gnoga.gui.window"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.long_long_float_text_io": 1,
+    "ada.numerics.discrete_random": 1,
+    "gnoga.application.multi_connect": 7,
+    "gnoga.application.singleton": 8,
+    "gnoga.client.storage": 2,
+    "gnoga.gui.base": 6,
+    "gnoga.gui.element": 1,
+    "gnoga.gui.element.canvas": 1,
+    "gnoga.gui.element.canvas.context_2d": 1,
+    "gnoga.gui.element.common": 7,
+    "gnoga.gui.element.form": 7,
+    "gnoga.gui.element.iframe": 1,
+    "gnoga.gui.element.list": 1,
+    "gnoga.gui.element.multimedia": 1,
+    "gnoga.gui.location": 1,
+    "gnoga.gui.view": 4,
+    "gnoga.gui.view.card": 1,
+    "gnoga.gui.view.console": 12,
+    "gnoga.gui.view.docker": 1,
+    "gnoga.gui.view.grid": 1,
+    "gnoga.gui.window": 14,
+    "gnoga.server.connection": 2,
+    "gnoga.types": 7,
+    "gnoga.types.colors": 1,
+    "hello6.controller": 1,
+    "hello6.view": 1,
+    "uxstrings": 1,
+    "uxstrings.formatting": 1
+  }
 }

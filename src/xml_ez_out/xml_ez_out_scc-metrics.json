@@ -31,7 +31,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "ada.strings.unbounded"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +58,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "mckae.xml.ez_out.generic_medium"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +85,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +109,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +133,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +157,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "mckae.xml.ez_out.generic_medium",
+        "mckae.xml.ez_out.string_stream",
+        "mckae.xml.ez_out.text_file",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +187,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +213,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.text_io",
+        "mckae.xml.ez_out.generic_medium"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +241,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,8 +268,26 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "ada.text_io",
+        "mckae.xml.ez_out.generic_medium",
+        "unchecked_deallocation"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.finalization": 1,
+    "ada.strings.fixed": 2,
+    "ada.strings.unbounded": 3,
+    "ada.text_io": 4,
+    "mckae.xml.ez_out.generic_medium": 4,
+    "mckae.xml.ez_out.string_stream": 1,
+    "mckae.xml.ez_out.text_file": 1,
+    "system": 1,
+    "text_io": 1,
+    "unchecked_deallocation": 1
+  }
 }

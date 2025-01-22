@@ -31,7 +31,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.stream_element_vectors",
+        "league.strings",
+        "web_services.soap.headers"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +59,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "web_services.soap.headers.decoders",
+        "xml.sax.attributes"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +86,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "web_services.soap.headers.encoders",
+        "xml.sax.writers"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +113,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +139,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.base_codecs",
+        "web_services.soap.security.constants"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +166,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.base_codecs",
+        "web_services.soap.constants",
+        "web_services.soap.security.constants",
+        "xml.sax.attributes"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +195,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.stream_element_vectors",
+        "web_services.soap.payloads.faults.simple",
+        "web_services.soap.security.constants",
+        "web_services.soap.security.headers",
+        "web_services.soap.security.password_digest_utilities"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +225,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "web_services.soap.messages",
+        "web_services.soap.modules"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +253,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.discrete_random",
+        "ada.streams",
+        "gnat.sha1",
+        "interfaces",
+        "league.calendars.iso_8601",
+        "league.stream_element_vectors.internals",
+        "league.text_codecs",
+        "matreshka.internals.stream_element_vectors"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +286,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "web_services.soap.headers.decoders.registry",
+        "web_services.soap.headers.encoders.registry",
+        "web_services.soap.modules.registry",
+        "web_services.soap.security.constants",
+        "web_services.soap.security.headers.decoders",
+        "web_services.soap.security.headers.encoders",
+        "web_services.soap.security.modules",
+        "web_services.soap.security.password_digest_utilities"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +319,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.stream_element_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +346,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,8 +370,40 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics.discrete_random": 1,
+    "ada.streams": 1,
+    "gnat.sha1": 1,
+    "interfaces": 1,
+    "league.base_codecs": 2,
+    "league.calendars.iso_8601": 1,
+    "league.stream_element_vectors": 3,
+    "league.stream_element_vectors.internals": 1,
+    "league.strings": 4,
+    "league.text_codecs": 1,
+    "matreshka.internals.stream_element_vectors": 1,
+    "web_services.soap.constants": 1,
+    "web_services.soap.headers": 1,
+    "web_services.soap.headers.decoders": 1,
+    "web_services.soap.headers.decoders.registry": 1,
+    "web_services.soap.headers.encoders": 1,
+    "web_services.soap.headers.encoders.registry": 1,
+    "web_services.soap.messages": 1,
+    "web_services.soap.modules": 1,
+    "web_services.soap.modules.registry": 1,
+    "web_services.soap.payloads.faults.simple": 1,
+    "web_services.soap.security.constants": 4,
+    "web_services.soap.security.headers": 1,
+    "web_services.soap.security.headers.decoders": 1,
+    "web_services.soap.security.headers.encoders": 1,
+    "web_services.soap.security.modules": 1,
+    "web_services.soap.security.password_digest_utilities": 2,
+    "xml.sax.attributes": 2,
+    "xml.sax.writers": 1
+  }
 }

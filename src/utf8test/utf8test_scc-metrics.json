@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,8 +55,30 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.command_line",
+        "ada.integer_text_io",
+        "ada.streams",
+        "ada.strings.utf_encoding.strings",
+        "ada.strings.utf_encoding.wide_wide_strings",
+        "ada.text_io",
+        "ada.wide_wide_text_io",
+        "gnat.io"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.conversions": 1,
+    "ada.command_line": 1,
+    "ada.integer_text_io": 1,
+    "ada.streams": 1,
+    "ada.strings.utf_encoding.strings": 1,
+    "ada.strings.utf_encoding.wide_wide_strings": 1,
+    "ada.text_io": 1,
+    "ada.wide_wide_text_io": 1,
+    "gnat.io": 1
+  }
 }

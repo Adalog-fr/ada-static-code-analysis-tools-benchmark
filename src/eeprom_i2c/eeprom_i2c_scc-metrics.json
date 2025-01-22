@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +83,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +109,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +135,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +161,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +187,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,8 +211,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "hal.i2c"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "hal": 1,
+    "hal.i2c": 7
+  }
 }

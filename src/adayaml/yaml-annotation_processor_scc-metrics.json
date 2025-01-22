@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.store"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +81,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text.builder",
+        "yaml.events.store"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +108,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +132,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +156,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "yaml.transformator.annotation.concatenation",
+        "yaml.transformator.annotation.for_loop",
+        "yaml.transformator.annotation.identity",
+        "yaml.transformator.annotation.inject",
+        "yaml.transformator.annotation.vars"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +187,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +211,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.queue",
+        "yaml.events.store"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +238,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.store"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +264,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "yaml.events.store"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +291,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +317,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_maps",
+        "ada.strings.hash",
+        "text.pool",
+        "yaml.events.context"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +346,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text.pool",
+        "yaml.events.context",
+        "yaml.events.store",
+        "yaml.transformator.annotation"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +375,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.context"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,8 +401,28 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.hashed_maps": 1,
+    "ada.containers.indefinite_hashed_maps": 1,
+    "ada.strings.hash": 1,
+    "ada.unchecked_deallocation": 3,
+    "text.builder": 1,
+    "text.pool": 2,
+    "yaml.events.context": 3,
+    "yaml.events.queue": 1,
+    "yaml.events.store": 6,
+    "yaml.transformator.annotation": 1,
+    "yaml.transformator.annotation.concatenation": 1,
+    "yaml.transformator.annotation.for_loop": 1,
+    "yaml.transformator.annotation.identity": 1,
+    "yaml.transformator.annotation.inject": 1,
+    "yaml.transformator.annotation.vars": 1
+  }
 }

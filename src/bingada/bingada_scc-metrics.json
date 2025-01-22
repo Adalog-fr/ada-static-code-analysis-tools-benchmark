@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gtk.window"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gtk.about_dialog",
+        "gtk.dialog"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +84,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +108,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +132,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.environment_variables",
+        "gtk.main",
+        "q_bingada"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +161,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gtkada.intl",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +188,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "q_gen_shuffle",
+        "q_sound"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +215,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -215,7 +239,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -238,7 +263,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +287,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +311,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +338,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +362,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.strings.fixed",
+        "gtkada.intl",
+        "q_bingo",
+        "sf.audio.music"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +392,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "q_bingo"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +419,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -399,7 +443,37 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "gdk.event",
+        "gdk.pixbuf",
+        "gdk.types.keysyms",
+        "glib.error",
+        "glib.main",
+        "glib.properties",
+        "gtk.box",
+        "gtk.button",
+        "gtk.enums",
+        "gtk.handlers",
+        "gtk.image",
+        "gtk.main",
+        "gtk.menu",
+        "gtk.menu_bar",
+        "gtk.menu_item",
+        "gtk.settings",
+        "gtk.style_provider",
+        "gtk.widget",
+        "gtk.window",
+        "gtkada.intl",
+        "gtkada.style",
+        "q_bingo.q_bombo",
+        "q_bingo.q_gtk.q_intl",
+        "q_bingo_help",
+        "q_csv.q_read_file",
+        "q_sound",
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +496,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.discrete_random"
+      ]
     },
     {
       "Language": "Ada",
@@ -445,8 +522,50 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.vectors": 1,
+    "ada.directories": 2,
+    "ada.environment_variables": 1,
+    "ada.exceptions": 1,
+    "ada.numerics.discrete_random": 1,
+    "ada.strings.fixed": 2,
+    "gdk.event": 1,
+    "gdk.pixbuf": 1,
+    "gdk.types.keysyms": 1,
+    "glib.error": 1,
+    "glib.main": 1,
+    "glib.properties": 1,
+    "gtk.about_dialog": 1,
+    "gtk.box": 1,
+    "gtk.button": 1,
+    "gtk.dialog": 1,
+    "gtk.enums": 1,
+    "gtk.handlers": 1,
+    "gtk.image": 1,
+    "gtk.main": 2,
+    "gtk.menu": 1,
+    "gtk.menu_bar": 1,
+    "gtk.menu_item": 1,
+    "gtk.settings": 1,
+    "gtk.style_provider": 1,
+    "gtk.widget": 1,
+    "gtk.window": 2,
+    "gtkada.intl": 3,
+    "gtkada.style": 1,
+    "q_bingada": 1,
+    "q_bingo": 2,
+    "q_bingo.q_bombo": 1,
+    "q_bingo.q_gtk.q_intl": 1,
+    "q_bingo_help": 1,
+    "q_csv.q_read_file": 1,
+    "q_gen_shuffle": 1,
+    "q_sound": 2,
+    "sf.audio.music": 1,
+    "text_io": 3
+  }
 }

@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c.strings",
+        "servlet.container_initializers",
+        "system.address_to_access_conversions"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +83,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.iris",
+        "league.string_vectors",
+        "league.strings",
+        "servlet.contexts",
+        "servlet.http_requests",
+        "servlet.http_sessions",
+        "spikedog.http_session_managers"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +115,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "servlet.generic_servlets",
+        "servlet.http_servlets"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +143,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "league.string_vectors",
+        "league.strings.hash",
+        "matreshka.servlet_http_requests",
+        "matreshka.servlet_registrations"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +173,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "servlet.http_cookies"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +199,25 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "ada.containers.vectors",
+        "league.strings.hash",
+        "matreshka.servlet_dispatchers",
+        "matreshka.servlet_http_requests",
+        "matreshka.servlet_http_responses",
+        "matreshka.servlet_registrations",
+        "matreshka.servlet_servers",
+        "matreshka.spikedog_deployment_descriptors",
+        "servlet.context_listeners",
+        "servlet.contexts",
+        "servlet.event_listeners",
+        "servlet.servlet_registrations",
+        "servlet.servlets",
+        "spikedog.http_session_managers",
+        "spikedog.servlet_contexts"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +240,18 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.tags.generic_dispatching_constructor",
+        "ada.text_io",
+        "matreshka.servlet_defaults",
+        "matreshka.spikedog_deployment_descriptors.parsers",
+        "servlet.container_initializers",
+        "servlet.generic_servlets",
+        "xml.sax.file_input_sources",
+        "xml.sax.simple_readers"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +274,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +300,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.servlet_http_requests",
+        "servlet.http_responses"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +327,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "servlet.http_cookies",
+        "servlet.http_sessions"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +355,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.string_vectors",
+        "league.strings"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +383,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.servlet_containers"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +409,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.tags",
+        "matreshka.servlet_containers"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +436,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -376,7 +460,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "league.string_vectors",
+        "league.strings",
+        "matreshka.servlet_containers",
+        "servlet.configs",
+        "servlet.contexts",
+        "servlet.servlet_registrations",
+        "servlet.servlets"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,8 +492,57 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.attributes",
+        "xml.sax.content_handlers"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.hashed_maps": 2,
+    "ada.containers.vectors": 3,
+    "ada.exceptions": 1,
+    "ada.tags": 1,
+    "ada.tags.generic_dispatching_constructor": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_deallocation": 1,
+    "interfaces.c.strings": 1,
+    "league.iris": 1,
+    "league.string_vectors": 4,
+    "league.strings": 6,
+    "league.strings.hash": 2,
+    "matreshka.servlet_containers": 3,
+    "matreshka.servlet_defaults": 1,
+    "matreshka.servlet_dispatchers": 1,
+    "matreshka.servlet_http_requests": 3,
+    "matreshka.servlet_http_responses": 1,
+    "matreshka.servlet_registrations": 2,
+    "matreshka.servlet_servers": 1,
+    "matreshka.spikedog_deployment_descriptors": 1,
+    "matreshka.spikedog_deployment_descriptors.parsers": 1,
+    "servlet.configs": 1,
+    "servlet.container_initializers": 2,
+    "servlet.context_listeners": 1,
+    "servlet.contexts": 3,
+    "servlet.event_listeners": 1,
+    "servlet.generic_servlets": 2,
+    "servlet.http_cookies": 2,
+    "servlet.http_requests": 1,
+    "servlet.http_responses": 1,
+    "servlet.http_servlets": 1,
+    "servlet.http_sessions": 2,
+    "servlet.servlet_registrations": 2,
+    "servlet.servlets": 2,
+    "spikedog.http_session_managers": 2,
+    "spikedog.servlet_contexts": 1,
+    "system.address_to_access_conversions": 1,
+    "xml.sax.attributes": 1,
+    "xml.sax.content_handlers": 1,
+    "xml.sax.file_input_sources": 1,
+    "xml.sax.simple_readers": 1
+  }
 }

@@ -31,7 +31,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "sdl.events",
+        "sdl.events.events",
+        "sdl.events.keyboards"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +59,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +83,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +109,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +133,17 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "ada.real_time",
+        "ada_voxel",
+        "color_map",
+        "height_map",
+        "interfaces",
+        "keyboard",
+        "sdl_display"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +166,23 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "interfaces.c",
+        "sdl",
+        "sdl.video.palettes",
+        "sdl.video.pixel_formats",
+        "sdl.video.pixels",
+        "sdl.video.renderers",
+        "sdl.video.renderers.makers",
+        "sdl.video.surfaces",
+        "sdl.video.textures",
+        "sdl.video.textures.makers",
+        "sdl.video.windows",
+        "sdl.video.windows.makers",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +205,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +231,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,8 +257,38 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics.generic_elementary_functions": 2,
+    "ada.real_time": 1,
+    "ada.unchecked_conversion": 1,
+    "ada_voxel": 1,
+    "color_map": 1,
+    "height_map": 1,
+    "interfaces": 4,
+    "interfaces.c": 1,
+    "keyboard": 1,
+    "sdl": 1,
+    "sdl.events": 1,
+    "sdl.events.events": 1,
+    "sdl.events.keyboards": 1,
+    "sdl.video.palettes": 1,
+    "sdl.video.pixel_formats": 1,
+    "sdl.video.pixels": 1,
+    "sdl.video.renderers": 1,
+    "sdl.video.renderers.makers": 1,
+    "sdl.video.surfaces": 1,
+    "sdl.video.textures": 1,
+    "sdl.video.textures.makers": 1,
+    "sdl.video.windows": 1,
+    "sdl.video.windows.makers": 1,
+    "sdl_display": 1,
+    "system": 1
+  }
 }

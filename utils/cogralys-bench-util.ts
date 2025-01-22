@@ -21,6 +21,7 @@ import * as aggregateResults from "./modules/aggregateResults.ts";
 import * as generateReport from "./modules/generateReport.ts";
 import * as compressResults from "./modules/compressResults.ts";
 import * as deleteBenchmarkLogs from "./modules/deleteBenchmarkLogs.ts";
+import * as importMetrics from "./modules/importMetrics.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -136,5 +137,6 @@ aggregateResults.initializeModule(program);
 generateReport.initializeModule(program);
 compressResults.initializeModule(program);
 deleteBenchmarkLogs.initializeModule(program);
+importMetrics.initializeModule(program);
 
 program.parse(Deno.args);

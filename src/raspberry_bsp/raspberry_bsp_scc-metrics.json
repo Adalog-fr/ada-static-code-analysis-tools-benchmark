@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +103,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "x86_64_linux_gnu_bits_types_h"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +129,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "x86_64_linux_gnu_bits_types_h"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +155,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "x86_64_linux_gnu_bits_types_h"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +182,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "bcm2835_h",
+        "interfaces.c"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +209,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "x86_64_linux_gnu_bits_stdint_uintn_h"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +235,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "bcm2835_h"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +262,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "interfaces.c.strings",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,8 +290,22 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "interfaces.c.strings",
+        "x86_64_linux_gnu_bits_stdint_uintn_h"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_conversion": 1,
+    "bcm2835_h": 2,
+    "interfaces.c": 4,
+    "interfaces.c.strings": 2,
+    "system": 1,
+    "x86_64_linux_gnu_bits_stdint_uintn_h": 2,
+    "x86_64_linux_gnu_bits_types_h": 3
+  }
 }

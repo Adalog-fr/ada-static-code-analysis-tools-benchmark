@@ -31,7 +31,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +57,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +81,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "tcg.palette"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +107,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "dom.core",
+        "dom.core.elements",
+        "dom.core.nodes",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +137,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "ada.text_io.text_streams",
+        "interfaces",
+        "tcg.palette",
+        "tcg.tile_layers",
+        "tcg.tilesets"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +168,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.text_io",
+        "dom.core",
+        "dom.core.documents",
+        "dom.core.nodes",
+        "dom.readers",
+        "gnat.os_lib",
+        "input_sources.file",
+        "sax.readers",
+        "tcg.object_groups",
+        "tcg.tile_layers",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +205,19 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "ada.strings.maps",
+        "ada.strings.maps.constants",
+        "ada.text_io",
+        "dom.core",
+        "dom.core.elements",
+        "dom.core.nodes",
+        "tcg.tilesets",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +240,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.text_io",
+        "tcg.palette",
+        "tcg.tilesets",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +270,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "tcg.maps.list"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +296,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "tcg.maps.list",
+        "tcg.palette"
+      ]
     },
     {
       "Language": "Ada",
@@ -261,7 +323,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +347,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "tcg.maps.list",
+        "tcg.palette"
+      ]
     },
     {
       "Language": "Ada",
@@ -307,7 +374,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "dom.core",
+        "tcg.tilesets"
+      ]
     },
     {
       "Language": "Ada",
@@ -330,7 +402,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -353,7 +428,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "tcg.maps.list"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +454,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "dom.core",
+        "tcg.tilesets"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +481,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "dom.core",
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +508,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -445,7 +532,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "dom.core",
+        "dom.core.elements",
+        "dom.core.nodes",
+        "interfaces",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -468,7 +563,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.text_io",
+        "tcg.tilesets",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -491,7 +592,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "tcg.object_groups",
+        "tcg.tile_layers",
+        "tcg.tilesets"
+      ]
     },
     {
       "Language": "Ada",
@@ -514,7 +621,24 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.directories",
+        "ada.text_io",
+        "gnat.command_line",
+        "gnat.strings",
+        "gnatcoll.utils",
+        "tcg.maps",
+        "tcg.maps.list",
+        "tcg.maps.render",
+        "tcg.outputs.geste",
+        "tcg.outputs.libgba",
+        "tcg.outputs.pdf",
+        "tcg.outputs.rste",
+        "tcg.palette",
+        "tcg.tilesets"
+      ]
     },
     {
       "Language": "Ada",
@@ -537,7 +661,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.containers.hashed_maps",
+        "ada.containers.vectors",
+        "tcg.collision_objects",
+        "tcg.palette"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +691,25 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.directories",
+        "ada.streams.stream_io",
+        "ada.text_io",
+        "dom.core",
+        "dom.core.documents",
+        "dom.core.nodes",
+        "dom.readers",
+        "gid",
+        "gnat.os_lib",
+        "input_sources.file",
+        "interfaces",
+        "sax.readers",
+        "tcg.collision_objects",
+        "tcg.palette",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +732,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.text_io",
+        "tcg.tilesets",
+        "tcg.utils"
+      ]
     },
     {
       "Language": "Ada",
@@ -606,7 +761,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.strings.fixed",
+        "dom.core.attrs",
+        "dom.core.nodes",
+        "gnat.case_util"
+      ]
     },
     {
       "Language": "Ada",
@@ -629,7 +791,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "ada.containers.vectors",
+        "ada.text_io",
+        "interfaces"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,8 +820,62 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.text_io",
+        "pdf_out",
+        "tcg.palette",
+        "tcg.tile_layers",
+        "tcg.tilesets",
+        "tcg.utils"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.command_line": 1,
+    "ada.containers": 1,
+    "ada.containers.doubly_linked_lists": 1,
+    "ada.containers.hashed_maps": 2,
+    "ada.containers.vectors": 4,
+    "ada.directories": 8,
+    "ada.streams.stream_io": 1,
+    "ada.strings": 1,
+    "ada.strings.fixed": 4,
+    "ada.strings.maps": 1,
+    "ada.strings.maps.constants": 1,
+    "ada.text_io": 10,
+    "ada.text_io.text_streams": 1,
+    "dom.core": 8,
+    "dom.core.attrs": 1,
+    "dom.core.documents": 2,
+    "dom.core.elements": 3,
+    "dom.core.nodes": 6,
+    "dom.readers": 2,
+    "gid": 1,
+    "gnat.case_util": 1,
+    "gnat.command_line": 1,
+    "gnat.os_lib": 2,
+    "gnat.strings": 1,
+    "gnatcoll.utils": 1,
+    "input_sources.file": 2,
+    "interfaces": 6,
+    "pdf_out": 1,
+    "sax.readers": 2,
+    "tcg.collision_objects": 2,
+    "tcg.maps": 1,
+    "tcg.maps.list": 5,
+    "tcg.maps.render": 1,
+    "tcg.object_groups": 2,
+    "tcg.outputs.geste": 1,
+    "tcg.outputs.libgba": 1,
+    "tcg.outputs.pdf": 1,
+    "tcg.outputs.rste": 1,
+    "tcg.palette": 9,
+    "tcg.tile_layers": 4,
+    "tcg.tilesets": 10,
+    "tcg.utils": 9
+  }
 }

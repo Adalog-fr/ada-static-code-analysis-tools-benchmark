@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -77,7 +79,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "euler_tools"
+      ]
     },
     {
       "Language": "Ada",
@@ -100,7 +106,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "ada.containers.ordered_sets",
+        "ada.containers.vectors",
+        "euler_tools_config"
+      ]
     },
     {
       "Language": "Ada",
@@ -123,7 +135,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -146,7 +159,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.elementary_functions",
+        "ada.strings.fixed",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +187,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
     },
     {
       "Language": "Ada",
@@ -192,7 +213,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +239,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
     },
     {
       "Language": "Ada",
@@ -238,7 +265,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +289,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
     },
     {
       "Language": "Ada",
@@ -284,7 +315,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,8 +339,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.doubly_linked_lists": 1,
+    "ada.containers.ordered_sets": 1,
+    "ada.containers.vectors": 1,
+    "ada.numerics.elementary_functions": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "euler_package": 4,
+    "euler_tools": 1,
+    "euler_tools_config": 1
+  }
 }

@@ -31,7 +31,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -54,7 +55,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "polynomials"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,7 +81,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -100,7 +105,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -123,7 +129,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "euclidean_ring_tools"
+      ]
     },
     {
       "Language": "Ada",
@@ -146,7 +155,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.integer_text_io",
+        "ada.text_io",
+        "rationals"
+      ]
     },
     {
       "Language": "Ada",
@@ -169,7 +183,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -192,7 +207,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "b: ring_elt) return boolean",
+        "function \"<\" (a"
+      ]
     },
     {
       "Language": "Ada",
@@ -215,7 +234,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -238,7 +258,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -261,7 +282,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -284,7 +306,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -307,7 +330,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -330,7 +354,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -353,7 +378,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "b: ring_elt) return boolean",
+        "function \"<\" (a"
+      ]
     },
     {
       "Language": "Ada",
@@ -376,7 +405,24 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "graph.f.bold",
+        "graph.f.complex",
+        "graph.f.eurostyle",
+        "graph.f.gothic",
+        "graph.f.helv",
+        "graph.f.helv_b",
+        "graph.f.helv_bi",
+        "graph.f.helv_i",
+        "graph.f.noble",
+        "graph.f.sansserif",
+        "graph.f.script",
+        "graph.f.simple",
+        "graph.f.small",
+        "graph.f.triplex",
+        "graph.f.triscript"
+      ]
     },
     {
       "Language": "Ada",
@@ -399,7 +445,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "b: field_elt) return boolean",
+        "function \">\" (a",
+        "procedure field_put(file: in ada.text_io.file_type"
+      ]
     },
     {
       "Language": "Ada",
@@ -422,7 +474,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -445,7 +498,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -468,7 +522,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -491,7 +546,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -514,7 +570,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -537,7 +594,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.integer_text_io",
+        "ada.text_io",
+        "time_display"
+      ]
     },
     {
       "Language": "Ada",
@@ -560,7 +622,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions"
+      ]
     },
     {
       "Language": "Ada",
@@ -583,7 +648,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -606,7 +672,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -629,7 +696,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "frac_euclid"
+      ]
     },
     {
       "Language": "Ada",
@@ -652,7 +722,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -675,7 +746,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.integer_text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -698,7 +772,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -721,7 +796,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "euclidean_ring_tools"
+      ]
     },
     {
       "Language": "Ada",
@@ -744,7 +823,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -767,7 +847,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -790,7 +871,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -813,7 +895,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -836,7 +919,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -859,7 +943,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -882,7 +967,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics",
+        "ada.numerics.elementary_functions",
+        "ada.text_io",
+        "graph.postscript_driver",
+        "time_display"
+      ]
     },
     {
       "Language": "Ada",
@@ -905,7 +997,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -928,7 +1021,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -951,7 +1045,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.float_text_io",
+        "ada.text_io",
+        "euclidean_ring_tools",
+        "float_polynomials",
+        "polynomials.output"
+      ]
     },
     {
       "Language": "Ada",
@@ -974,7 +1075,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -997,7 +1099,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1020,7 +1123,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -1043,7 +1150,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1066,7 +1174,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_real_arrays"
+      ]
     },
     {
       "Language": "Ada",
@@ -1089,7 +1200,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1112,7 +1224,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1135,7 +1248,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1158,7 +1272,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1181,7 +1296,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics",
+        "ada.numerics.elementary_functions",
+        "graph"
+      ]
     },
     {
       "Language": "Ada",
@@ -1204,7 +1324,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_real_arrays",
+        "ada.text_io",
+        "generic_real_linear_equations"
+      ]
     },
     {
       "Language": "Ada",
@@ -1227,7 +1352,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1250,7 +1376,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.float_text_io",
+        "ada.numerics",
+        "ada.numerics.elementary_functions",
+        "ada.text_io",
+        "box_muller",
+        "graph",
+        "graph.standard_fonts"
+      ]
     },
     {
       "Language": "Ada",
@@ -1273,7 +1408,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1296,7 +1432,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1319,7 +1456,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1342,7 +1480,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1365,7 +1504,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1388,7 +1528,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1411,7 +1552,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1434,7 +1576,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1457,7 +1600,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.complex_elementary_functions",
+        "ada.numerics.complex_types",
+        "graph"
+      ]
     },
     {
       "Language": "Ada",
@@ -1480,7 +1628,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1503,7 +1652,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1526,7 +1676,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1549,7 +1700,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "generic_integer_arrays"
+      ]
     },
     {
       "Language": "Ada",
@@ -1572,7 +1726,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1595,7 +1750,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "sparse.vector_ops"
+      ]
     },
     {
       "Language": "Ada",
@@ -1618,7 +1777,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1641,7 +1801,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1664,7 +1825,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1687,7 +1849,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1710,7 +1873,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1733,7 +1897,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1756,7 +1921,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1779,7 +1945,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.exceptions",
+        "ada.numerics.generic_elementary_functions",
+        "ada.strings.fixed",
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -1802,7 +1975,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
     },
     {
       "Language": "Ada",
@@ -1825,7 +2001,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1848,7 +2025,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.long_elementary_functions",
+        "g_matrices"
+      ]
     },
     {
       "Language": "Ada",
@@ -1871,7 +2052,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1894,7 +2076,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1917,7 +2100,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.text_io",
+        "conjgrad",
+        "sparse"
+      ]
     },
     {
       "Language": "Ada",
@@ -1940,7 +2129,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -1963,7 +2153,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -1986,7 +2180,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_real_arrays",
+        "ada.text_io",
+        "generic_real_linear_equations"
+      ]
     },
     {
       "Language": "Ada",
@@ -2009,7 +2208,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "multi_precision_integers.io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2032,7 +2235,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2055,7 +2259,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2078,7 +2283,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "graph"
+      ]
     },
     {
       "Language": "Ada",
@@ -2101,7 +2310,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2124,7 +2334,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2147,7 +2358,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2170,7 +2382,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2193,7 +2406,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2216,7 +2430,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_real_arrays",
+        "ada.text_io",
+        "generic_real_linear_equations",
+        "integer_arrays",
+        "integer_arrays_io",
+        "real_arrays_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2239,7 +2461,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -2262,7 +2487,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.command_line",
+        "ada.integer_text_io",
+        "ada.text_io",
+        "interfaces.c"
+      ]
     },
     {
       "Language": "Ada",
@@ -2285,7 +2517,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2308,7 +2541,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.text_io",
+        "pi_digits",
+        "pi_digits_gmp"
+      ]
     },
     {
       "Language": "Ada",
@@ -2331,7 +2570,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.integer_text_io",
+        "ada.text_io",
+        "multi_precision_integers"
+      ]
     },
     {
       "Language": "Ada",
@@ -2354,7 +2599,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2377,7 +2625,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2400,7 +2649,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "g_fek",
+        "g_matrices"
+      ]
     },
     {
       "Language": "Ada",
@@ -2423,7 +2677,15 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.strings.fixed",
+        "ada.text_io",
+        "ada.unchecked_deallocation",
+        "generic_random_functions",
+        "generic_real_linear_equations"
+      ]
     },
     {
       "Language": "Ada",
@@ -2446,7 +2708,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.float_random",
+        "ada.numerics.generic_complex_types",
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io.complex_io",
+        "complex_polynomial_roots"
+      ]
     },
     {
       "Language": "Ada",
@@ -2469,7 +2738,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2492,7 +2762,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2515,7 +2786,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics",
+        "ada.numerics.generic_complex_elementary_functions",
+        "ada.numerics.generic_elementary_functions"
+      ]
     },
     {
       "Language": "Ada",
@@ -2538,7 +2814,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2561,7 +2838,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "multi_precision_integers",
+        "multi_precision_integers.io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2584,7 +2867,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2607,7 +2891,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io",
+        "gamma_function",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -2630,7 +2920,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2653,7 +2944,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2676,7 +2968,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_complex_types"
+      ]
     },
     {
       "Language": "Ada",
@@ -2699,7 +2994,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2722,7 +3018,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2745,7 +3042,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions"
+      ]
     },
     {
       "Language": "Ada",
@@ -2768,7 +3068,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.float_text_io",
+        "ada.integer_text_io",
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2791,7 +3097,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.integer_text_io",
+        "ada.text_io",
+        "euclidean_ring_tools",
+        "multi_precision_integers",
+        "multi_precision_integers.io"
+      ]
     },
     {
       "Language": "Ada",
@@ -2814,7 +3127,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2837,7 +3151,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics",
+        "ada.numerics.generic_elementary_functions"
+      ]
     },
     {
       "Language": "Ada",
@@ -2860,7 +3178,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.numerics.float_random",
+        "ada.text_io",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -2883,7 +3207,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "text_io",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -2906,7 +3234,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.float_random",
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io",
+        "beta_function",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -2929,7 +3264,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -2952,7 +3288,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "formulas"
+      ]
     },
     {
       "Language": "Ada",
@@ -2975,7 +3315,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "gamma_function",
+        "phi_function"
+      ]
     },
     {
       "Language": "Ada",
@@ -2998,7 +3343,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "error_function"
+      ]
     },
     {
       "Language": "Ada",
@@ -3021,7 +3370,10 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
     },
     {
       "Language": "Ada",
@@ -3044,7 +3396,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "generic_random_functions",
+        "samples",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -3067,7 +3425,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3090,7 +3449,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3113,7 +3473,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.unchecked_conversion",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -3136,7 +3501,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3159,7 +3525,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "estimators"
+      ]
     },
     {
       "Language": "Ada",
@@ -3182,7 +3552,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.float_text_io",
+        "ada.numerics.float_random",
+        "ada.text_io",
+        "finite_distributed_random"
+      ]
     },
     {
       "Language": "Ada",
@@ -3205,7 +3581,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3228,7 +3605,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "test_formulas_pkg"
+      ]
     },
     {
       "Language": "Ada",
@@ -3251,7 +3632,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics",
+        "ada.numerics.generic_elementary_functions",
+        "beta_function",
+        "phi_function"
+      ]
     },
     {
       "Language": "Ada",
@@ -3274,7 +3661,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_real_arrays",
+        "ada.text_io",
+        "copulas",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -3297,7 +3690,14 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.text_io",
+        "generic_random_functions",
+        "samples",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -3320,7 +3720,11 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.numerics.generic_elementary_functions"
+      ]
     },
     {
       "Language": "Ada",
@@ -3343,7 +3747,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3366,7 +3771,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3389,7 +3795,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3412,7 +3819,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "generic_random_functions",
+        "system"
+      ]
     },
     {
       "Language": "Ada",
@@ -3435,7 +3847,16 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.integer_text_io",
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io",
+        "discrete_random_simulation",
+        "gamma_function",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -3458,7 +3879,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3481,7 +3903,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io",
+        "generic_random_functions",
+        "u_rand"
+      ]
     },
     {
       "Language": "Ada",
@@ -3504,7 +3932,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.float_text_io",
+        "ada.numerics.elementary_functions",
+        "ada.text_io",
+        "f_random"
+      ]
     },
     {
       "Language": "Ada",
@@ -3527,7 +3961,8 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": []
     },
     {
       "Language": "Ada",
@@ -3550,8 +3985,100 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.float_text_io",
+        "ada.integer_text_io",
+        "ada.numerics.float_random",
+        "ada.text_io"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 7,
+    "ada.characters.handling": 1,
+    "ada.command_line": 4,
+    "ada.exceptions": 4,
+    "ada.float_text_io": 6,
+    "ada.integer_text_io": 9,
+    "ada.numerics": 6,
+    "ada.numerics.complex_elementary_functions": 1,
+    "ada.numerics.complex_types": 1,
+    "ada.numerics.elementary_functions": 4,
+    "ada.numerics.float_random": 5,
+    "ada.numerics.generic_complex_elementary_functions": 1,
+    "ada.numerics.generic_complex_types": 2,
+    "ada.numerics.generic_elementary_functions": 18,
+    "ada.numerics.generic_real_arrays": 5,
+    "ada.numerics.long_elementary_functions": 1,
+    "ada.strings.fixed": 2,
+    "ada.text_io": 37,
+    "ada.text_io.complex_io": 1,
+    "ada.unchecked_conversion": 1,
+    "ada.unchecked_deallocation": 3,
+    "b: field_elt) return boolean": 1,
+    "b: ring_elt) return boolean": 2,
+    "beta_function": 2,
+    "box_muller": 1,
+    "complex_polynomial_roots": 1,
+    "conjgrad": 1,
+    "copulas": 1,
+    "discrete_random_simulation": 1,
+    "error_function": 1,
+    "estimators": 1,
+    "euclidean_ring_tools": 4,
+    "f_random": 1,
+    "finite_distributed_random": 1,
+    "float_polynomials": 1,
+    "formulas": 1,
+    "frac_euclid": 1,
+    "function \"<\" (a": 2,
+    "function \">\" (a": 1,
+    "g_fek": 1,
+    "g_matrices": 2,
+    "gamma_function": 3,
+    "generic_integer_arrays": 1,
+    "generic_random_functions": 5,
+    "generic_real_linear_equations": 4,
+    "graph": 4,
+    "graph.f.bold": 1,
+    "graph.f.complex": 1,
+    "graph.f.eurostyle": 1,
+    "graph.f.gothic": 1,
+    "graph.f.helv": 1,
+    "graph.f.helv_b": 1,
+    "graph.f.helv_bi": 1,
+    "graph.f.helv_i": 1,
+    "graph.f.noble": 1,
+    "graph.f.sansserif": 1,
+    "graph.f.script": 1,
+    "graph.f.simple": 1,
+    "graph.f.small": 1,
+    "graph.f.triplex": 1,
+    "graph.f.triscript": 1,
+    "graph.postscript_driver": 1,
+    "graph.standard_fonts": 1,
+    "integer_arrays": 1,
+    "integer_arrays_io": 1,
+    "interfaces.c": 1,
+    "multi_precision_integers": 3,
+    "multi_precision_integers.io": 3,
+    "phi_function": 2,
+    "pi_digits": 1,
+    "pi_digits_gmp": 1,
+    "polynomials": 1,
+    "polynomials.output": 1,
+    "procedure field_put(file: in ada.text_io.file_type": 1,
+    "rationals": 1,
+    "real_arrays_io": 1,
+    "samples": 2,
+    "sparse": 1,
+    "sparse.vector_ops": 1,
+    "system": 5,
+    "test_formulas_pkg": 1,
+    "text_io": 2,
+    "time_display": 2,
+    "u_rand": 7
+  }
 }

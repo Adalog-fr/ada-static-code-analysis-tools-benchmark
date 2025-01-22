@@ -31,7 +31,12 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "gnat.sockets.server",
+        "yaml.servers"
+      ]
     },
     {
       "Language": "Ada",
@@ -54,7 +59,13 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.strings.fixed",
+        "ada.text_io",
+        "yaml.inspect"
+      ]
     },
     {
       "Language": "Ada",
@@ -77,8 +88,21 @@
       "Minified": false,
       "Generated": false,
       "EndPoint": 0,
-      "Uloc": 0
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sockets.connection_state_machine.http_server",
+        "gnat.sockets.server"
+      ]
     }
   ],
-  "LineLength": null
+  "LineLength": null,
+  "unitUsage": {
+    "ada.exceptions": 1,
+    "ada.strings.fixed": 1,
+    "ada.text_io": 2,
+    "gnat.sockets.connection_state_machine.http_server": 1,
+    "gnat.sockets.server": 2,
+    "yaml.inspect": 1,
+    "yaml.servers": 1
+  }
 }
