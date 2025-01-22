@@ -12,6 +12,7 @@ from itertools import product
 # Parse command line arguments
 parser = argparse.ArgumentParser(description='Generate scatter plots from result data')
 parser.add_argument('--root-dir', type=str, default='../..', help='Root working directory (default: current directory)')
+parser.add_argument('--interactive', action='store_true', help='Enable interactive hover for global-all analysis time plot')
 args = parser.parse_args()
 
 # Convert relative paths to absolute paths
@@ -98,60 +99,92 @@ def calculate_r2(x, y):
 
 def create_scatter_plot(plot_args):
     plot_type, data_category, category_name, rule_name = plot_args
+
+    # Only create interactive plot for global-all analysis time
+    is_interactive = args.interactive and plot_type == 'analysis_time' and category_name == 'all' and rule_name is None
+
     plt.figure(figsize=(12, 8))
     scatter_plots = []
     r2_text_lines = []
+
+    # Store project data for hover information
+    hover_data = {}
 
     # Collect all valid points first to determine axis ranges
     all_valid_y = []
 
     for tool, display_name, color, marker in zip(tools, display_names, colors, markers):
-        x = [project['scc']['nbLoC'] for project in data_category['projects']]
+        projects = data_category['projects']
+        x = [project['scc']['nbLoC'] for project in projects]
 
         if plot_type == 'analysis_time':
-            y = [get_valid_value(project, tool, 'analysisTime') for project in data_category['projects']]
+            y = [get_valid_value(project, tool, 'analysisTime') for project in projects]
         elif plot_type == 'overhead':
             y = [
                 (get_valid_value(project, tool, 'overheadParsing') or 0) +
                 (get_valid_value(project, tool, 'overheadPopulating') or 0)
-                for project in data_category['projects']
+                for project in projects
             ]
         elif plot_type == 'total':
-            y = [get_valid_value(project, tool, 'executionTime') for project in data_category['projects']]
+            y = [get_valid_value(project, tool, 'executionTime') for project in projects]
 
-        # Filter out None values
-        valid_points = [(x_val, y_val) for x_val, y_val in zip(x, y) if y_val is not None and y_val > 0]
+        # Filter out None values and store project data for hover
+        valid_points = []
+        for i, (x_val, y_val) in enumerate(zip(x, y)):
+            if y_val is not None and y_val > 0:
+                valid_points.append((x_val, y_val))
+                if is_interactive:
+                    project = projects[i]
+                    hover_data[(x_val, y_val, tool)] = {
+                        'project': project['crateName'],
+                        'loc': x_val,
+                        'nbFiles': project['scc']['nbFiles'],
+                        'complexity': project['scc']['complexity'],
+                        'time': y_val,
+                        'tool': display_name,
+                        'work_dir': project['workDir'],
+                        'gpr_path': project['gprPath']
+                    }
+                    if tool in project['results']:
+                        results = project['results'][tool]
+                        hover_data[(x_val, y_val, tool)].update({
+                            'overhead_parsing': results.get('overheadParsing'),
+                            'overhead_populating': results.get('overheadPopulating'),
+                            'issued_messages': results.get('issuedMessages', {}).get('maxCount')
+                        })
+
         if valid_points:
             x_valid, y_valid = zip(*valid_points)
             all_valid_y.extend(y_valid)
-            scatter = plt.scatter(x_valid, y_valid, c=color, label=display_name, alpha=0.6, marker=marker, s=40, edgecolors='none')
+            scatter = plt.scatter(x_valid, y_valid, c=color, label=display_name,
+                                alpha=0.6, marker=marker, s=40, edgecolors='none')
             scatter_plots.append(scatter)
 
-            x_non_zero = np.array(x_valid)
-            y_non_zero = np.array(y_valid)
-            if len(x_non_zero) > 1:
-                r2, a, b = calculate_r2(x_non_zero, y_non_zero)
-                x_range = np.array([min(x), max(x)])
-                plt.plot(x_range, 10**(a*np.log10(x_range) + b), c=color, linestyle='-', linewidth=1, alpha=0.8)
+            # x_non_zero = np.array(x_valid)
+            # y_non_zero = np.array(y_valid)
+            # if len(x_non_zero) > 1:
+            #     r2, a, b = calculate_r2(x_non_zero, y_non_zero)
+            #     x_range = np.array([min(x), max(x)])
+            #     plt.plot(x_range, 10**(a*np.log10(x_range) + b), c=color, linestyle='-', linewidth=1, alpha=0.8)
 
-                # Add R² and equation text
-                equation = f"y = {10**b:.2e}x^{a:.2f}"
-                r2_line = f"{display_name}: {equation} (R² = {r2:.3f})"
-                r2_text_lines.append(r2_line)
+            #     # Add R² and equation text
+            #     equation = f"y = {10**b:.2e}x^{a:.2f}"
+            #     r2_line = f"{display_name}: {equation} (R² = {r2:.3f})"
+            #     r2_text_lines.append(r2_line)
 
     if not all_valid_y:
         plt.close()
         return
 
     # Add GNATcheck empirical trend line only for global-all analysis time
-    if plot_type == 'analysis_time' and category_name == 'all' and rule_name is None:
-        plt.axline((194, 0.013), (192845, 8), color='#ef4444', linestyle=(5, (10, 3)), linewidth=1, label='GNATcheck empirical trend')
-        r2_text_lines.append("GNATcheck empirical: y = 6.25e-5x^1.2")
+    # if plot_type == 'analysis_time' and category_name == 'all' and rule_name is None:
+    #     plt.axline((194, 0.013), (192845, 8), color='#ef4444', linestyle=(5, (10, 3)), linewidth=1, label='GNATcheck empirical trend')
+    #     r2_text_lines.append("GNATcheck empirical: y = 6.25e-5x^1.2")
 
     # Add R² text box
-    if r2_text_lines:
-        r2_text = '\n'.join(r2_text_lines)
-        plt.figtext(0.02, 0.02, r2_text, fontsize=8, va='bottom', bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
+    # if r2_text_lines:
+    #     r2_text = '\n'.join(r2_text_lines)
+    #     plt.figtext(0.02, 0.02, r2_text, fontsize=8, va='bottom', bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
 
     plt.xscale('log')
     plt.yscale('log')
@@ -178,34 +211,70 @@ def create_scatter_plot(plot_args):
     plt.rcParams['font.family'] = 'Satoshi'
     plt.tight_layout()
 
-    base_filename = f"scatter{'Rule_' + rule_name if rule_name else ''}"
-    base_filename += f"_{plot_type}_{category_name}"
+    # Add interactivity if requested
+    if is_interactive and hover_data:
+        cursor = mplcursors.cursor(scatter_plots, hover=True)
 
-    save_path = os.path.join(graphics_dir, base_filename)
-    for format in ['svg', 'eps', 'pdf', 'png']:
-        plt.savefig(f"{save_path}.{format}", format=format, bbox_inches='tight')
+        @cursor.connect("add")
+        def on_add(sel):
+            x, y = sel.target
+            # Find the corresponding tool and data
+            for (x_val, y_val, tool), data in hover_data.items():
+                if abs(x - x_val) < 1e-10 and abs(y - y_val) < 1e-10:
+                    hover_text = [
+                        f"Project: {data['project']}",
+                        f"Tool: {data['tool']}",
+                        f"Lines of Code: {data['loc']:,}",
+                        f"Number of files: {data['nbFiles']:,}",
+                        f"Complexity: {data['complexity']:,}",
+                        f"Time: {data['time']:.3f}s"
+                    ]
 
-    plt.close()
+                    if 'overhead_parsing' in data:
+                        hover_text.append(f"Overhead Parsing: {data['overhead_parsing']:.3f}s")
+                    if 'overhead_populating' in data:
+                        hover_text.append(f"Overhead Populating: {data['overhead_populating']:.3f}s")
+                    if 'issued_messages' in data:
+                        hover_text.append(f"Issued Messages: {data['issued_messages']}")
+
+                    sel.annotation.set_text("\n".join(hover_text))
+                    break
+
+    # Different behavior for interactive and non-interactive modes
+    if is_interactive:
+        plt.show()
+    else:
+        base_filename = f"scatter{'Rule_' + rule_name if rule_name else ''}"
+        base_filename += f"_{plot_type}_{category_name}"
+
+        save_path = os.path.join(graphics_dir, base_filename)
+        for format in ['svg', 'eps', 'pdf', 'png']:
+            plt.savefig(f"{save_path}.{format}", format=format, bbox_inches='tight')
+
+        plt.close()
 
 def generate_all_plots():
     plot_types = ['analysis_time', 'overhead', 'total']
     categories = ['all', 'small', 'medium', 'large']
 
-    # Prepare all plot arguments
-    plot_args = []
+    if args.interactive:
+        create_scatter_plot(plot_args=(plot_types[0], data['global'][categories[0]], categories[0], None))
+    else:
+        # Prepare all plot arguments
+        plot_args = []
 
-    # Global data plots
-    for plot_type, category in product(plot_types, categories):
-        plot_args.append((plot_type, data['global'][category], category, None))
-
-    # Rule-specific plots
-    for rule_name, rule_data in data['rules'].items():
+        # Global data plots
         for plot_type, category in product(plot_types, categories):
-            plot_args.append((plot_type, rule_data[category], category, rule_name))
+            plot_args.append((plot_type, data['global'][category], category, None))
 
-    # Use ProcessPoolExecutor for parallel execution
-    with ProcessPoolExecutor() as executor:
-        list(executor.map(create_scatter_plot, plot_args))
+        # Rule-specific plots
+        for rule_name, rule_data in data['rules'].items():
+            for plot_type, category in product(plot_types, categories):
+                plot_args.append((plot_type, rule_data[category], category, rule_name))
+
+        # Use ProcessPoolExecutor for parallel execution
+        with ProcessPoolExecutor() as executor:
+            list(executor.map(create_scatter_plot, plot_args))
 
 if __name__ == '__main__':
     generate_all_plots()
