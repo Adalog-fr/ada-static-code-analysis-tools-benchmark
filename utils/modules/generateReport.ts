@@ -4,7 +4,7 @@ import fg from "npm:fast-glob@3.3.2";
 import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { capitalCase } from "jsr:@mesqueeb/case-anything";
 import cloneJSON from "jsr:@rhy/fast-json-clone";
-import { formatDuration } from "../utils.ts";
+import { formatDuration, formatNumber } from "../utils.ts";
 import { BenchmarkResultDB, StandardDeviationResult, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData } from "../types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
@@ -25,10 +25,6 @@ function determineRuleName(benchmarkFile: string): string {
         return GLOBAL_EXECUTION_KEY;
     }
     return r;
-}
-
-function formatNumber(value: number, maxDigits = 0) {
-    return new Intl.NumberFormat('en-GB', { maximumFractionDigits: maxDigits }).format(value)
 }
 
 interface TimeBaseData {

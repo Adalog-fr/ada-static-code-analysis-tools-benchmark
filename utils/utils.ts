@@ -138,6 +138,13 @@ export function parseDuration(durationString: string): number {
     return totalMilliseconds;
 }
 
+/**
+ * Given a number, it format it with corresponding max digits
+ */
+export function formatNumber(value: number, maxDigits = 0) {
+    return new Intl.NumberFormat('en-GB', { maximumFractionDigits: maxDigits }).format(value)
+}
+
 /** Filters crates to include only those with all projects meeting complete criteria */
 export function filterCompleteCrates(crates: { [key: string]: Crate }): ExtendedGPRProject[] {
     const filteredCrates: ExtendedGPRProject[] = [];
