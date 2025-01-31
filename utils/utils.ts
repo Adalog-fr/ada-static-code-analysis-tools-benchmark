@@ -141,7 +141,7 @@ export function parseDuration(durationString: string): number {
 /**
  * Given a number, it format it with corresponding max digits
  */
-export function formatNumber(value: number, maxDigits = 0) {
+export function formatNumber(value: number | bigint | Intl.StringNumericLiteral, maxDigits = 0) {
     return new Intl.NumberFormat('en-GB', { maximumFractionDigits: maxDigits }).format(value)
 }
 
