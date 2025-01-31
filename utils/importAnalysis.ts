@@ -1,10 +1,40 @@
-import { BenchmarkResultDB } from "./types.ts";
+import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
+import { join } from "@std/path/join";
+import { ensureDirSync, copySync } from "jsr:@std/fs@1.0.9";
+import { BenchmarkResultDB, toolKey, ToolKeyType } from "./types.ts";
 import { DocumentExporter } from "./formatters/exporter.ts";
-import { OutputFormatType } from "./formatters/formatters-interface.ts";
+import { OutputFormat } from "./formatters/formatters-interface.ts";
 import { formatNumber } from "./utils.ts";
+import { PROJECT_ROOT as defaultProjectRoot } from "../config.ts";
 
 // Constant for trigger time threshold
 const TRIGGER_NUMBER = 0.7;
+const MAX_LOC = 30_000;
+
+// Parse command-line arguments
+const program = new Command()
+    .option(
+            "--rootDir <string>",
+            "Path to the root of the result files",
+            defaultProjectRoot
+        )
+        .option(
+            "-o, --output <string>",
+            `Output fromat (Possible values: ${OutputFormat.join("|")})`,
+            "cli"
+        )
+        .option(
+            "-t, --trigger-number <number>",
+            `Trigger time threshold, where we split the groups to compare`,
+            TRIGGER_NUMBER
+        )
+        .option(
+            "-m, --maxLoc <number>",
+            `Maximum size of a project (in lines of code)`,
+            MAX_LOC
+        )
+    .parse(Deno.args);
+
 
 // Interface for project analysis results
 interface ProjectAnalysis {
@@ -188,18 +218,17 @@ export class PerformanceAnalyzer {
     }
 
     // Main analysis method
-    public analyzeResults(results: BenchmarkResultDB[], format: OutputFormatType = 'cli'): string {
+    public analyzeResults(results: BenchmarkResultDB[], tool: ToolKeyType, exporter: DocumentExporter): string {
         const analysedProjects = results.map(r => this.analyzeProject(r));
-        const smallProjects = analysedProjects.filter(p => p.loc <= 30_000);
-        const fastProjects = smallProjects.filter(p => p.analysisTime.adactl < TRIGGER_NUMBER);
-        const normalProjects = smallProjects.filter(p => p.analysisTime.adactl >= TRIGGER_NUMBER);
+        const smallProjects = analysedProjects.filter(p => p.loc <= MAX_LOC);
+        const fastProjects = smallProjects.filter(p => p.analysisTime[tool] < program.triggerNumber);
+        const normalProjects = smallProjects.filter(p => p.analysisTime[tool] >= program.triggerNumber);
 
-        const exporter = new DocumentExporter(format);
-        let output: string[] = [];
+        const output: string[] = [exporter.addTitle(tool) + "\n"];
 
         // Add fast projects section
         if (fastProjects.length > 0) {
-            const fastTimes = fastProjects.map(p => p.analysisTime.adactl).sort((a, b) => a - b);
+            const fastTimes = fastProjects.map(p => p.analysisTime[tool]).sort((a, b) => a - b);
             const fastStats = {
                 min: fastTimes[0],
                 q1: fastTimes[Math.floor(fastTimes.length / 4)],
@@ -208,13 +237,13 @@ export class PerformanceAnalyzer {
                 max: fastTimes[fastTimes.length - 1]
             };
 
-            output.push(exporter.addTitle(`Fast Projects (<${TRIGGER_NUMBER}s)`, 2));
-            output.push(this.formatProjectStats(fastProjects, fastStats, exporter));
+            output.push(exporter.addTitle(`Fast Projects (< ${program.triggerNumber}s)`, 2));
+            output.push(this.formatProjectStats(fastProjects, fastStats, exporter, tool));
         }
 
         // Add normal projects section
         if (normalProjects.length > 0) {
-            const normalTimes = normalProjects.map(p => p.analysisTime.adactl).sort((a, b) => a - b);
+            const normalTimes = normalProjects.map(p => p.analysisTime[tool]).sort((a, b) => a - b);
             const normalStats = {
                 min: normalTimes[0],
                 q1: normalTimes[Math.floor(normalTimes.length / 4)],
@@ -223,8 +252,8 @@ export class PerformanceAnalyzer {
                 max: normalTimes[normalTimes.length - 1]
             };
 
-            output.push(exporter.addTitle(`Normal Projects (≥${TRIGGER_NUMBER}s)`, 2));
-            output.push(this.formatProjectStats(normalProjects, normalStats, exporter));
+            output.push(exporter.addTitle(`Normal Projects (≥ ${program.triggerNumber}s)`, 2));
+            output.push(this.formatProjectStats(normalProjects, normalStats, exporter, tool));
         }
 
         // Calculate and add correlations
@@ -246,13 +275,13 @@ export class PerformanceAnalyzer {
         const correlations = metrics.map(metric => ({
             name: metric.name,
             value: this.calculateCorrelation(
-                smallProjects.map(p => p.analysisTime.adactl),
+                smallProjects.map(p => p.analysisTime[tool]),
                 smallProjects.map(metric.getValue)
             )
         }));
 
         // Add correlations section
-        output.push(exporter.addTitle("Correlations with Analysis Time", 2));
+        output.push(exporter.addTitle("Correlations with Analysis Time", 3));
         output.push(exporter.formatTable(
             [
                 { name: "Metric", key: "metric" },
@@ -280,7 +309,7 @@ export class PerformanceAnalyzer {
     }
 
     // Format project statistics
-    private formatProjectStats(projects: ProjectAnalysis[], timeStats: any, exporter: DocumentExporter): string {
+    private formatProjectStats(projects: ProjectAnalysis[], timeStats: any, exporter: DocumentExporter, tool: ToolKeyType): string {
         const calcAvg = (selector: (p: ProjectAnalysis) => number) =>
             projects.reduce((sum, p) => sum + selector(p), 0) / projects.length;
 
@@ -297,7 +326,7 @@ export class PerformanceAnalyzer {
                 { metric: "Number of projects", value: formatNumber(projects.length) },
                 { metric: "Average LoC", value: formatNumber(calcAvg(p => p.loc), 2) },
                 { metric: "Average complexity", value: formatNumber(calcAvg(p => p.complexity), 2) },
-                { metric: "Average analysis time (AdaCtl)", value: `${formatNumber(calcAvg(p => p.analysisTime.adactl), 3)}s` }
+                { metric: "Average analysis time (" + tool + ")", value: `${formatNumber(calcAvg(p => p.analysisTime[tool]), 3)}s` }
             ]
         ));
 
@@ -360,21 +389,74 @@ export class PerformanceAnalyzer {
 if (import.meta.main) {
     const args = Deno.args;
     if (args.length < 1) {
-        console.error("Please specify the path to the JSON results file");
-        console.error("Usage: deno run main.ts <json_path> [format]");
-        console.error("Available formats: cli, md, typst, latex");
-        Deno.exit(1);
+        program.help();
+        Deno.exit(0);
     }
 
-    const jsonPath = args[0];
-    const format = (args[1] as OutputFormatType) || 'cli';
+    const jsonPath = join(program.rootDir, "benchmarkResults.json");
+    const format = program.output || 'cli';
 
     try {
         const jsonContent = Deno.readTextFileSync(jsonPath);
         const results = JSON.parse(jsonContent) as BenchmarkResultDB[];
         const analyzer = new PerformanceAnalyzer();
-        const output = analyzer.analyzeResults(results, format);
-        console.log(output);
+        const exporter = new DocumentExporter(format);
+
+        let output = exporter.documentHeader(`Analysis of imports for project size < ${exporter.formatNumber(program.maxLoc)} LoC`);
+
+        for (const tool of toolKey) {
+            if (tool === "cogralys") {
+                // Skip cogralys, because analysis time is constant
+                continue;
+            }
+            output += analyzer.analyzeResults(results, tool, exporter);
+        }
+
+        output += exporter.documentFooter();
+
+        let resultsDir = join(program.rootDir, "results");
+        let result = "";
+        let ext = "";
+
+        switch (format) {
+            case "cli":
+                console.log(output);
+                break;
+            case "markdown":
+            case "md":
+                resultsDir = join(resultsDir, "markdown");
+                result = output;
+                ext = "md";
+                break;
+            case "typst":
+                resultsDir = join(resultsDir, "typst");
+                result = output;
+                ext = "typ";
+                break;
+            case "latex":
+            case "tex":
+                resultsDir = join(resultsDir, "latex");
+                result = output;
+                ext = "tex";
+                break;
+            default:
+                console.log(output);
+                break;
+        }
+
+        ensureDirSync(resultsDir);
+
+        if (result.length) {
+            if (format === "typst") {
+                copySync(join(defaultProjectRoot, "utils/report/typst"), join(resultsDir, "/"), { overwrite: true });
+            }
+
+            const reportPath = join(resultsDir, "importReport." + ext);
+            Deno.writeTextFileSync(reportPath, result);
+            console.log("Import report generated here: ", reportPath);
+
+        }
+
     } catch (error) {
         console.error("Error during analysis:", error);
         Deno.exit(1);
