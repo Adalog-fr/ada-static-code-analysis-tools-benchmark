@@ -54,7 +54,7 @@ export class MarkdownFormatter implements FormatProvider {
             }).join(' | ')} |`
         ).join('\n');
 
-        return [header, separator, rows].join('\n');
+        return [header, separator, rows].join('\n') + "\n";
     }
 
     // Format metrics using markdown list

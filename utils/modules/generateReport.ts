@@ -521,16 +521,10 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
                     ? data[header as keyof SummaryTable][tool]
                     : data[header][tool];
 
-                    // Format different types of values appropriately
                     if (!value) {
                         row[tool] = "";
-                    } else if (typeof value === 'number' || value.includes('%') || value.match(/^\d+$/)) {
-                        // is a number
-                        row[tool] = exporter.formatNumber(value);
-                    } else {
-                        // is not a number
-                        row[tool] = value;
                     }
+                    row[tool] = value as string | number;
                 }
                 rows.push(row);
             }
@@ -598,6 +592,8 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
             formatCategory(ruleData.medium, ruleName, 'Medium Projects (10-30k LoC)', 3);
             formatCategory(ruleData.large, ruleName, 'Large Projects (30k+ LoC)', 3);
         }
+
+        output.push(exporter.documentFooter());
 
         return output.join("\n");
     }

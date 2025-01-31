@@ -2,17 +2,6 @@ import { FormatProvider, TableColumn } from './formatters-interface.ts';
 
 // Implementation of FormatProvider for LaTeX output
 export class LaTeXFormatter implements FormatProvider {
-    formatNumber(value: number | string): string {
-        if (typeof value === 'number') {
-            return `\\num{${value}}`;
-        } else if (value.includes('%')) {
-            return `\\qty{${parseFloat(value)}}{\\percent}`;
-        } else if (value.match(/^\d+$/)) {
-            return `\\num{${value}}`;
-        } else {
-            return this.escapeLatex(value);
-        }
-    }
     // Format title with specified level using LaTeX section commands
     addTitle(title: string, level = 1): string {
         const commands = ['section', 'subsection', 'subsubsection', 'paragraph', 'subparagraph'];
@@ -57,7 +46,7 @@ export class LaTeXFormatter implements FormatProvider {
             }
         }).join('');
 
-        let table = '\\begin{table}[h!]\n    \\centering\n';
+        let table = '\\begin{table}[!ht]\n    \\centering\n';
         table += '    \\renewcommand{\\arraystretch}{1.5}\n';
 
         if (caption) {
@@ -175,6 +164,19 @@ export class LaTeXFormatter implements FormatProvider {
         }
         if (value.includes('%')) {
             return `\\qty{${parseFloat(value)}}{\\percent}`;
+        } else if (value.match(/^\d+$/)) {
+            return `\\num{${value}}`;
+        }
+        return this.escapeLatex(value);
+    }
+
+    formatNumber(value: number | string): string {
+        if (typeof value === 'number') {
+            return `\\num{${value}}`;
+        } else if (value.includes('%')) {
+            return `\\qty{${parseFloat(value)}}{\\percent}`;
+        } else if (value.match(/^\d+$/)) {
+            return `\\num{${value}}`;
         }
         return this.escapeLatex(value);
     }
