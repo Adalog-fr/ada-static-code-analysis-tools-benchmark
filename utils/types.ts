@@ -219,17 +219,20 @@ export type DetailedResultType = {
 };
 
 export type SummaryTableElement = Record<ToolKeyType | string, string | number>;
-export type SummaryTable = {
-    overheadParsing: SummaryTableElement,
-    overheadPopulating: SummaryTableElement,
-    "Relative Overhead (0 is better)": SummaryTableElement,
-    analysisTime: SummaryTableElement,
-    "Analysis Relative Speed (0 is better)": SummaryTableElement,
-    executionTime: SummaryTableElement,
-    "Execution Relative Speed (0 is better)": SummaryTableElement,
-    "Nb run fails": SummaryTableElement,
-    "Nb project fails": SummaryTableElement
-};
+export const SUMMARY_TABLE_KEYS = [
+    'overheadParsing',
+    'overheadPopulating',
+    'Relative Overhead (0 is better)',
+    'analysisTime',
+    'Analysis Relative Speed (0 is better)',
+    'executionTime',
+    'Execution Relative Speed (0 is better)',
+    'Nb run fails',
+    'Nb project fails'
+] as const;
+
+export type SummaryTableKeys = typeof SUMMARY_TABLE_KEYS[number];
+export type SummaryTable = Record<SummaryTableKeys, SummaryTableElement>;
 
 export const projectCategory = ["all", "small", "medium", "large"] as const;
 export type ProjectCategoryType = typeof projectCategory[number];
@@ -242,13 +245,15 @@ export type RuleSummaryData = {
     }
 };
 
+export type ResultAggregationByProjectCategory = {
+    table: SummaryTable,
+    nbProjects: number,
+    totalLoC: number,
+    projects: DetailedResultType[],
+};
+
 export type ResultAggregation = {
-    [size in ProjectCategoryType]: {
-        table: SummaryTable,
-        nbProjects: number,
-        totalLoC: number,
-        projects: DetailedResultType[],
-    }
+    [size in ProjectCategoryType]: ResultAggregationByProjectCategory
 }
 
 /**
