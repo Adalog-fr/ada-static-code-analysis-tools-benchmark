@@ -70,7 +70,7 @@ export class TypstFormatter implements FormatProvider {
 
     // Format code block using typst raw block
     codeBlock(content: string, language = ''): string {
-        return `\`\`\`${language}\n${content}\n\`\`\``;
+        return `\`\`\`${language}\n${content}\n\`\`\`\n`;
     }
 
     // Format bold text using typst strong markup
@@ -84,7 +84,7 @@ export class TypstFormatter implements FormatProvider {
 
 #show: it => basic-report(
   doc-category: "Benchmark report",
-  doc-title: "Benchmark of Ada static analysis tools",
+  doc-title: "${title}",
   author: "",
   affiliation: "Université de Caen Normandie, France\nAdalog SAS, SIREN 527 695 704, France",
   logo: image("assets/adalog.jpg", width: 4cm),
@@ -95,7 +95,10 @@ export class TypstFormatter implements FormatProvider {
         .map(([key, value]) => `  ${key}: "${value}"`)
         .join(',\n') + ',\n' : ''
 }  it
-)\n\n`;
+)
+
+#show table.cell.where(y: 0): set text(weight: "bold")
+`;
     }
 
     // Format document footer (empty for typst)
