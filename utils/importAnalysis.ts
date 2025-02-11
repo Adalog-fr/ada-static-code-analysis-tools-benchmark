@@ -35,6 +35,17 @@ const program = new Command()
         )
     .parse(Deno.args);
 
+// Define interface for the exported project data
+interface ExportedProjectData {
+    crateName: string;
+    workDir: string;
+    gprPath: string;
+    loc: number;
+    complexity: number;
+    analysisTime: number;
+    maxIssuedMessages: number;
+    imports: ImportAnalysis;
+}
 
 // Interface for project analysis results
 interface ProjectAnalysis {
@@ -44,6 +55,12 @@ interface ProjectAnalysis {
     loc: number;
     complexity: number;
     analysisTime: {
+        adactl: number;
+        cogralys: number;
+        gnatcheck_1cores: number;
+        gnatcheck_32cores: number;
+    };
+    maxIssuedMessages: {
         adactl: number;
         cogralys: number;
         gnatcheck_1cores: number;
@@ -199,8 +216,38 @@ export class PerformanceAnalyzer {
                 gnatcheck_1cores: result.benchmarkResults.gnatcheck_1cores.digestTime.analysisTime,
                 gnatcheck_32cores: result.benchmarkResults.gnatcheck_32cores.digestTime.analysisTime
             },
+            maxIssuedMessages: {
+                adactl: result.benchmarkResults.adactl.run.issuedMessages.maxCount,
+                cogralys: result.benchmarkResults.cogralys.run.issuedMessages.maxCount,
+                gnatcheck_1cores: result.benchmarkResults.gnatcheck_1cores.run.issuedMessages.maxCount,
+                gnatcheck_32cores: result.benchmarkResults.gnatcheck_32cores.run.issuedMessages.maxCount
+            },
             imports: this.analyzeImports(result.scc.unitUsage ? Object.keys(result.scc.unitUsage) : [])
         };
+    }
+
+    // Helper method to export projects to JSON
+    private exportProjectsToJson(projects: ProjectAnalysis[], tool: ToolKeyType, category: string): void {
+        // Convert projects to simplified format for export
+        const exportData = projects.map(p => ({
+            crateName: p.crateName,
+            workDir: p.workDir,
+            gprPath: p.gprPath,
+            loc: p.loc,
+            complexity: p.complexity,
+            analysisTime: p.analysisTime[tool],
+            maxIssuedMessages: p.maxIssuedMessages[tool],
+            imports: p.imports
+        }));
+
+        // Create filename based on tool and category
+        const filename = `${tool}_${category}_projects.json`;
+
+        // Write to file
+        Deno.writeTextFileSync(
+            join(program.rootDir, "results", filename),
+            JSON.stringify(exportData, null, 2)
+        );
     }
 
     private calculateCorrelation(x: number[], y: number[]): number {
@@ -221,8 +268,16 @@ export class PerformanceAnalyzer {
     public analyzeResults(results: BenchmarkResultDB[], tool: ToolKeyType, exporter: DocumentExporter): string {
         const analysedProjects = results.map(r => this.analyzeProject(r));
         const smallProjects = analysedProjects.filter(p => p.loc <= MAX_LOC);
+        const largeProjects = analysedProjects.filter(p => p.loc > MAX_LOC);
         const fastProjects = smallProjects.filter(p => p.analysisTime[tool] < program.triggerNumber);
         const normalProjects = smallProjects.filter(p => p.analysisTime[tool] >= program.triggerNumber);
+
+        // Export projects to JSON
+        this.exportProjectsToJson(analysedProjects, tool, "all");
+        this.exportProjectsToJson(fastProjects, tool, "fast");
+        this.exportProjectsToJson(normalProjects, tool, "normal");
+        this.exportProjectsToJson([...fastProjects, ...largeProjects], tool, "all-fast");
+        this.exportProjectsToJson([...normalProjects, ...largeProjects], tool, "all-normal");
 
         const output: string[] = [exporter.addTitle(tool) + "\n"];
 
@@ -407,6 +462,7 @@ if (import.meta.main) {
         for (const tool of toolKey) {
             if (tool === "cogralys") {
                 // Skip cogralys, because analysis time is constant
+                analyzer.analyzeResults(results, tool, exporter);
                 continue;
             }
             output += analyzer.analyzeResults(results, tool, exporter);
