@@ -40,6 +40,78 @@ display_names = list(tool_mapping.values())
 colors = ['#a855f7', '#22c55e', '#ef4444', '#3b82f6']
 markers = ['o', 'D', 'x', '+']
 
+def theoretical_curve(x, a, b, c):
+    """Calculate theoretical curve values."""
+    return a * np.power(x, b) + c
+
+def add_theoretical_curves(x_range, cluster_points=None):
+    """Add empirical curves and cluster visualization using convex hull."""
+    from scipy.spatial import ConvexHull
+    import numpy as np
+
+    # Define vivid colors for the curves and clusters
+    curve1_color = '#ef4444'  # Red for C1
+    curve2_color = '#a855f7'  # Purple for C2
+
+    if cluster_points:
+        points = np.array(cluster_points)
+        x, y = points[:, 0], points[:, 1]
+
+        # Filter points for each cluster (0-10k LoC)
+        mask_10k = x <= 10000
+        x_10k, y_10k = x[mask_10k], y[mask_10k]
+
+        # Separate points into C1 (>0.7s) and C2 (<0.7s)
+        mask_c1 = (y_10k > 0.7) & (y_10k < 3)
+        mask_c2 = y_10k <= 0.7
+
+        points_c1 = np.column_stack((x_10k[mask_c1], y_10k[mask_c1]))
+        points_c2 = np.column_stack((x_10k[mask_c2], y_10k[mask_c2]))
+
+        # Function to create and plot convex hull
+        def plot_cluster_hull(points, color, label):
+            if len(points) < 3:
+                return
+
+            # Create convex hull
+            hull = ConvexHull(points)
+
+            # Get hull vertices
+            vertices = points[hull.vertices]
+
+            # Add first point to close the polygon
+            vertices = np.vstack((vertices, vertices[0]))
+
+            # Plot filled polygon
+            plt.fill(vertices[:, 0], vertices[:, 1],
+                    color=color, alpha=0.1, label=f'Cluster {label}')
+
+            # Plot border
+            plt.plot(vertices[:, 0], vertices[:, 1],
+                    color=color, alpha=0.3, linewidth=1)
+
+        # Plot clusters
+        for points, color, label in [(points_c1, curve1_color, 'C1'),
+                                   (points_c2, curve2_color, 'C2')]:
+            if len(points) >= 3:
+                plot_cluster_hull(points, color, label)
+
+    # First equation (C1): y = 1.445e-3 × x^0.707 + 0.7
+    y1 = theoretical_curve(x_range, 1.445e-3, 0.707, 0.7)
+    plt.plot(x_range, y1, '--', color=curve1_color, alpha=0.8, label='Empirical curve C1')
+
+    # Second equation (C2): y = 9.905e-4 × x^0.679 + 0.010
+    y2 = theoretical_curve(x_range, 9.905e-4, 0.679, 0.010)
+    plt.plot(x_range, y2, '--', color=curve2_color, alpha=0.8, label='Empirical curve C2')
+
+    # Add equations text with cluster names
+    equations_text = [
+        r"Empirical curve C1: $y = 1.445 \times 10^{-3} \times x^{0.707} + 0.7$ $(R^2 = 0.535)$",
+        r"Empirical curve C2: $y = 9.905 \times 10^{-4} \times x^{0.679} + 0.010$ $(R^2 = 0.283)$"
+    ]
+    plt.figtext(0.5, 0.95, '\n'.join(equations_text), fontsize=8, ha='center',
+                bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
+
 def get_valid_value(project, tool, value_type):
     try:
         if tool not in project['results']:
@@ -102,10 +174,11 @@ def create_scatter_plot(plot_args):
 
     # Only create interactive plot for global-all analysis time
     is_interactive = args.interactive and plot_type == 'analysis_time' and category_name == 'all' and rule_name is None
+    is_global_all = plot_type == 'analysis_time' and category_name == 'all' and rule_name is None
 
+    # Create figure for regular plot
     plt.figure(figsize=(12, 8))
     scatter_plots = []
-    r2_text_lines = []
 
     # Store project data for hover information
     hover_data = {}
@@ -160,32 +233,66 @@ def create_scatter_plot(plot_args):
                                 alpha=0.6, marker=marker, s=40, edgecolors='none')
             scatter_plots.append(scatter)
 
-            # x_non_zero = np.array(x_valid)
-            # y_non_zero = np.array(y_valid)
-            # if len(x_non_zero) > 1:
-            #     r2, a, b = calculate_r2(x_non_zero, y_non_zero)
-            #     x_range = np.array([min(x), max(x)])
-            #     plt.plot(x_range, 10**(a*np.log10(x_range) + b), c=color, linestyle='-', linewidth=1, alpha=0.8)
-
-            #     # Add R² and equation text
-            #     equation = f"y = {10**b:.2e}x^{a:.2f}"
-            #     r2_line = f"{display_name}: {equation} (R² = {r2:.3f})"
-            #     r2_text_lines.append(r2_line)
-
     if not all_valid_y:
         plt.close()
         return
 
-    # Add GNATcheck empirical trend line only for global-all analysis time
-    # if plot_type == 'analysis_time' and category_name == 'all' and rule_name is None:
-    #     plt.axline((194, 0.013), (192845, 8), color='#ef4444', linestyle=(5, (10, 3)), linewidth=1, label='GNATcheck empirical trend')
-    #     r2_text_lines.append("GNATcheck empirical: y = 6.25e-5x^1.2")
+    # Set up plot properties for regular plot
+    setup_plot_properties(all_valid_y, category_name, plot_type)
 
-    # Add R² text box
-    # if r2_text_lines:
-    #     r2_text = '\n'.join(r2_text_lines)
-    #     plt.figtext(0.02, 0.02, r2_text, fontsize=8, va='bottom', bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
+    # Add interactivity if requested
+    if is_interactive and hover_data:
+        setup_interactivity(scatter_plots, hover_data)
 
+    # Save plots
+    if is_interactive:
+        plt.show()
+    else:
+        base_filename = f"scatter{'Rule_' + rule_name if rule_name else ''}"
+        base_filename += f"_{plot_type}_{category_name}"
+
+        if is_global_all:
+            # Collect all points for clustering
+            all_points = []
+            for tool in tools:
+                if tool != 'cogralys':
+                    projects = data_category['projects']
+                    for project in projects:
+                        x_val = project['scc']['nbLoC']
+                        y_val = get_valid_value(project, tool, 'analysisTime')
+                        if y_val is not None and y_val > 0:
+                            all_points.append((x_val, y_val))
+
+            # Create and save plot with empirical curves and clusters
+            plt.figure(figsize=(12, 8))
+
+            # Replot all data points
+            for tool, display_name, color, marker in zip(tools, display_names, colors, markers):
+                projects = data_category['projects']
+                x = [project['scc']['nbLoC'] for project in projects]
+                y = [get_valid_value(project, tool, 'analysisTime') for project in projects]
+
+                valid_points = [(x_val, y_val) for x_val, y_val in zip(x, y) if y_val is not None and y_val > 0]
+                if valid_points:
+                    x_valid, y_valid = zip(*valid_points)
+                    plt.scatter(x_valid, y_valid, c=color, label=display_name,
+                            alpha=0.6, marker=marker, s=40, edgecolors='none')
+
+            # Add empirical curves and clusters
+            x_range = np.logspace(1, 6, 1000)
+            add_theoretical_curves(x_range, cluster_points=all_points)
+
+            # Set up plot properties
+            setup_plot_properties(all_valid_y, category_name, plot_type)
+
+            # Save plot with empirical curves
+            save_plot(base_filename + "_with_empirical", graphics_dir)
+
+        else:
+            save_plot(base_filename, graphics_dir)
+
+def setup_plot_properties(all_valid_y, category_name, plot_type):
+    """Set up common plot properties."""
     plt.xscale('log')
     plt.yscale('log')
     plt.xlabel('Lines of Code', color='#475569')
@@ -211,47 +318,40 @@ def create_scatter_plot(plot_args):
     plt.rcParams['font.family'] = 'Satoshi'
     plt.tight_layout()
 
-    # Add interactivity if requested
-    if is_interactive and hover_data:
-        cursor = mplcursors.cursor(scatter_plots, hover=True)
+def setup_interactivity(scatter_plots, hover_data):
+    """Set up interactive hover functionality."""
+    cursor = mplcursors.cursor(scatter_plots, hover=True)
 
-        @cursor.connect("add")
-        def on_add(sel):
-            x, y = sel.target
-            # Find the corresponding tool and data
-            for (x_val, y_val, tool), data in hover_data.items():
-                if abs(x - x_val) < 1e-10 and abs(y - y_val) < 1e-10:
-                    hover_text = [
-                        f"Project: {data['project']}",
-                        f"Tool: {data['tool']}",
-                        f"Lines of Code: {data['loc']:,}",
-                        f"Number of files: {data['nbFiles']:,}",
-                        f"Complexity: {data['complexity']:,}",
-                        f"Time: {data['time']:.3f}s"
-                    ]
+    @cursor.connect("add")
+    def on_add(sel):
+        x, y = sel.target
+        for (x_val, y_val, tool), data in hover_data.items():
+            if abs(x - x_val) < 1e-10 and abs(y - y_val) < 1e-10:
+                hover_text = [
+                    f"Project: {data['project']}",
+                    f"Tool: {data['tool']}",
+                    f"Lines of Code: {data['loc']:,}",
+                    f"Number of files: {data['nbFiles']:,}",
+                    f"Complexity: {data['complexity']:,}",
+                    f"Time: {data['time']:.3f}s"
+                ]
 
-                    if 'overhead_parsing' in data:
-                        hover_text.append(f"Overhead Parsing: {data['overhead_parsing']:.3f}s")
-                    if 'overhead_populating' in data:
-                        hover_text.append(f"Overhead Populating: {data['overhead_populating']:.3f}s")
-                    if 'issued_messages' in data:
-                        hover_text.append(f"Issued Messages: {data['issued_messages']}")
+                if 'overhead_parsing' in data:
+                    hover_text.append(f"Overhead Parsing: {data['overhead_parsing']:.3f}s")
+                if 'overhead_populating' in data:
+                    hover_text.append(f"Overhead Populating: {data['overhead_populating']:.3f}s")
+                if 'issued_messages' in data:
+                    hover_text.append(f"Issued Messages: {data['issued_messages']}")
 
-                    sel.annotation.set_text("\n".join(hover_text))
-                    break
+                sel.annotation.set_text("\n".join(hover_text))
+                break
 
-    # Different behavior for interactive and non-interactive modes
-    if is_interactive:
-        plt.show()
-    else:
-        base_filename = f"scatter{'Rule_' + rule_name if rule_name else ''}"
-        base_filename += f"_{plot_type}_{category_name}"
-
-        save_path = os.path.join(graphics_dir, base_filename)
-        for format in ['svg', 'eps', 'pdf', 'png']:
-            plt.savefig(f"{save_path}.{format}", format=format, bbox_inches='tight')
-
-        plt.close()
+def save_plot(filename, graphics_dir):
+    """Save plot in multiple formats."""
+    save_path = os.path.join(graphics_dir, filename)
+    for format in ['svg', 'eps', 'pdf', 'png']:
+        plt.savefig(f"{save_path}.{format}", format=format, bbox_inches='tight')
+    plt.close()
 
 def generate_all_plots():
     plot_types = ['analysis_time', 'overhead', 'total']
