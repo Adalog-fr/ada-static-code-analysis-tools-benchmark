@@ -10,6 +10,14 @@ import { parseDuration } from "../utils.ts";
 const OUTPUT_FILENAME = "benchmarkResults.json";
 let PROJECT_ROOT: string;
 
+const codingRules = JSON.parse(
+    Deno.readTextFileSync(
+        join(defaultProjectRoot, "utils/cogralys-cli/rules/types/allRules.json")
+    )
+).map((elt: [string, any]) => (elt[0].toLocaleLowerCase()));
+
+const alreadyReportedUnknownRule: string[] = [];
+
 /**
  * Helper function to calculate standard deviation
  * @param values
@@ -73,7 +81,7 @@ function getGlobalOverhead(alireTomlPath: string, gprPath: string, maxIteration:
     const logPrefix = `$commandName-${gprName}-$xpNum-j$max_procs-overhead`;
 
     return {
-        adactl: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, ""),
+        adactl: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "", ""),
         gnatcheck1: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, ""),
         gnatcheck32: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
     };
@@ -308,8 +316,37 @@ function parseRuleExecutionTimes(logContent: string): { [rule: string]: number }
     return results;
 }
 
+const countRuleMessages = (reportContent: string, gprPath: string): { [rule: string]: number } => {
+    const allowedSourceFiles = Deno.readTextFileSync(join(defaultProjectRoot, gprPath.replace(".gpr", ".units_by_filename"))).split("\n");
+    const lines = reportContent.split('\n');
+    const ruleCounts: { [rule: string]: number } = {};
+    const pathPattern = /^([^:]+):\d+:\d+:\s*(?:Found:\s*)?/;
+
+    lines.forEach(line => {
+        const match = line.match(pathPattern);
+        if (!match || !allowedSourceFiles.some(s => match[1].endsWith(s))) {
+            return;
+        }
+
+        const rule: string = line.replace(pathPattern, '')
+        .trim()
+        .split(" ")[0]
+        .replace(":", "")
+        .toLocaleLowerCase();
+
+        if (codingRules.includes(rule)) {
+            ruleCounts[rule] = (ruleCounts[rule] || 0) + 1;
+        } else if (!alreadyReportedUnknownRule.includes(rule)) {
+            console.warn(`Unknown rule "${rule}"`);
+            alreadyReportedUnknownRule.push(rule);
+        }
+    });
+
+    return ruleCounts;
+}
+
 // Function to aggregate Ada Control results
-function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, logSuffix: string): AdaControlResult {
+function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, logSuffix: string, codingRule: string): AdaControlResult {
     // Generate log prefix for Ada Control
     const logPrefix = interpolateLogPrefix(logPrefixTemplate, "adactl", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "0", logSuffix);
 
@@ -326,15 +363,30 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
     const { timesData, count, average, standardDeviation } = processTimeData(timeFiles, gprPath);
 
     // Get number of issued messages by coding rule
-    const extractIssuedMessages = (reportContent: string): number => {
-        const match = reportContent.match(/Issued messages:.*?Warnings = (\d+)/);
-        return match ? parseInt(match[1], 10) : 0;
-    }
 
     const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.report`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
-    const issuedMessagesCounts = reportFiles.map(file => {
+
+    const issuedMessages: {
+        allCounts: number[],
+        maxCount: number
+    } = {
+        allCounts: [],
+        maxCount: 0
+    };
+    reportFiles.map(file => {
         const content = Deno.readTextFileSync(file);
-        return extractIssuedMessages(content);
+        const messageCounts = countRuleMessages(content, gprPath);
+
+        let foundCounter = 0;
+        for (const [rule, count] of Object.entries(messageCounts)) {
+            if (codingRule === "variable_usage" || rule !== "variable_usage") {
+                // Skip variable usage in total issued message, because it is partially implemented
+                foundCounter += count;
+            }
+        }
+
+        issuedMessages.allCounts.push(foundCounter);
+        issuedMessages.maxCount = Math.max(issuedMessages.maxCount, foundCounter);
     });
 
     // Return the results
@@ -345,10 +397,7 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
         nbRuns: timeFiles.length,
         average,
         standardDeviation,
-        issuedMessages: {
-            maxCount: Math.max(...issuedMessagesCounts),
-            allCounts: issuedMessagesCounts
-        }
+        issuedMessages
     };
 }
 
@@ -923,7 +972,7 @@ function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: 
 
     const adactl = {
         overhead: { parsing: overhead.adactl },
-        run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "")
+        run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "", codingRule)
     };
 
     const gnatcheck_1cores = {
@@ -1052,6 +1101,15 @@ export function initializeModule(program: Command): void {
                                 }
                             }
                         }
+                    }
+                }
+
+                if (alreadyReportedUnknownRule.length) {
+                    console.log("List of all unknown rules:");
+
+                    for (const unknownRule of alreadyReportedUnknownRule) {
+                        console.log(`- ${unknownRule}`);
+
                     }
                 }
 
