@@ -5,7 +5,7 @@ import { FormatProvider, TableColumn } from './formatters-interface.ts';
 export class MarkdownFormatter implements FormatProvider {
     // Format title with specified level using '#' characters
     addTitle(title: string, level = 1): string {
-        return `${'#'.repeat(level)} ${title}`;
+        return `${'#'.repeat(level)} ${title}\n`;
     }
 
     // Format unordered list using markdown bullet points
