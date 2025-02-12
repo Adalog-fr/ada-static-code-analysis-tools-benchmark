@@ -395,12 +395,14 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
 // Function to aggregate Cogralys results
 function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, overheadTreashold: number, codingRule?: string): CogralysResults {
     const countCogralysRuleMessages = (reportContent: string): { [rule: string]: number } => {
+        const allowedSourceFiles = Deno.readTextFileSync(join(defaultProjectRoot, gprPath.replace(".gpr", ".units_by_path"))).split("\n");
         const lines = reportContent.split('\n');
         const ruleCounts: { [rule: string]: number } = {};
-        const pathPattern = /^\/[^:]+:\d+:\d+:\s*/;
+        const pathPattern = /^(\/[^:]+):\d+:\d+:\s*/;
 
         lines.forEach(line => {
-            if (!line.startsWith('/') || line.includes('/adainclude/')) {
+            const match = line.match(pathPattern);
+            if (!line.startsWith('/') || !match || !allowedSourceFiles.some(s => match[1].endsWith(s))) {
                 return;
             }
 
@@ -415,8 +417,10 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
                     return;
                 }
             } else {
-                rule = content.trim().split(/\s*/)[0];
+                rule = content.trim().split(" ")[0];
             }
+
+            rule = rule.toLocaleLowerCase();
 
             ruleCounts[rule] = (ruleCounts[rule] || 0) + 1;
         });
@@ -800,7 +804,7 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
         analysisTime: 0
       }
     };
-    const results = logSuffixes.map(suffix => {
+    logSuffixes.map(suffix => {
         const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "", suffix);
 
         const timeFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.time.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
@@ -859,7 +863,10 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
                 ruleMessagesMap[rule] = [];
             }
             ruleMessagesMap[rule].push(count);
-            foundCounter += count;
+            if (rule !== "variable_usage") {
+                // Skip variable usage in total issued message, because it is partially implemented
+                foundCounter += count;
+            }
         }
         result.run.issuedMessages.allCounts.push(foundCounter);
         result.run.issuedMessages.maxCount = Math.max(result.run.issuedMessages.maxCount, foundCounter);
