@@ -16,7 +16,7 @@ const codingRules = JSON.parse(
     Deno.readTextFileSync(
         join(defaultProjectRoot, "utils/cogralys-cli/rules/types/allRules.json")
     )
-).map((elt: [string, any]) => (elt[0].toLowerCase()));
+).map((elt: [string, any]) => (elt[0].toLocaleLowerCase()));
 
 function toTitleCase(value: string) {
     return capitalCase(value.replaceAll("_", " "));
@@ -497,10 +497,6 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
         issuedMessage
     };
 
-    for(const [size, value] of Object.entries(resultData.global)) {
-        (value.table["Issued Messages"].adactl as number) -= resultData.rules["variable_usage"][size as ProjectCategoryType].table["Issued Messages"].adactl as number;
-    }
-
     generateReports(nbRuns, resultData, options.output, options.rootDir);
 }
 
@@ -595,23 +591,23 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
         output.push(exporter.addTitle("Analysis Time", 3));
 
         formatCategory(resultData.summary.analysisTime.all, "Analysis Time", 'All Projects', 4);
-        formatCategory(resultData.summary.analysisTime.all, "Analysis Time", 'Small Projects (0-10k LoC)', 4);
-        formatCategory(resultData.summary.analysisTime.all, "Analysis Time", 'Medium Projects (10-30k LoC)', 4);
-        formatCategory(resultData.summary.analysisTime.all, "Analysis Time", 'Large Projects (30k+ LoC)', 4);
+        formatCategory(resultData.summary.analysisTime.small, "Analysis Time", 'Small Projects (0-10k LoC)', 4);
+        formatCategory(resultData.summary.analysisTime.medium, "Analysis Time", 'Medium Projects (10-30k LoC)', 4);
+        formatCategory(resultData.summary.analysisTime.large, "Analysis Time", 'Large Projects (30k+ LoC)', 4);
 
         // Format parsing overhead results
         output.push(exporter.addTitle("Parsing Overhead", 3));
         formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'All Projects', 4);
-        formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'Small Projects (0-10k LoC)', 4);
-        formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'Medium Projects (10-30k LoC)', 4);
-        formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'Large Projects (30k+ LoC)', 4);
+        formatCategory(resultData.summary.overheadParsing.small, "Parsing Overhead", 'Small Projects (0-10k LoC)', 4);
+        formatCategory(resultData.summary.overheadParsing.medium, "Parsing Overhead", 'Medium Projects (10-30k LoC)', 4);
+        formatCategory(resultData.summary.overheadParsing.large, "Parsing Overhead", 'Large Projects (30k+ LoC)', 4);
 
         // Format issued message results
         output.push(exporter.addTitle("Issued Messages", 3));
         formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'All Projects', 4);
-        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'Small Projects (0-10k LoC)', 4);
-        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'Medium Projects (10-30k LoC)', 4);
-        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'Large Projects (30k+ LoC)', 4);
+        formatCategory(resultData.summary.issuedMessage.small, "Issued Messages", 'Small Projects (0-10k LoC)', 4);
+        formatCategory(resultData.summary.issuedMessage.medium, "Issued Messages", 'Medium Projects (10-30k LoC)', 4);
+        formatCategory(resultData.summary.issuedMessage.large, "Issued Messages", 'Large Projects (30k+ LoC)', 4);
 
         // Format individual rule results
         for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {
