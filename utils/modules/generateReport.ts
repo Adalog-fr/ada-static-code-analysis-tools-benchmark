@@ -104,7 +104,7 @@ class ResultProcessor {
     constructor() {
     }
 
-    processResultsWithLocCategories(benchmarkFile: string): {
+    processResultsWithLocCategories(benchmarkFile: string, ruleName: string): {
         [key in ProjectCategoryType]: {
             table: SummaryTable;
             nbProjects: number;
@@ -113,7 +113,6 @@ class ResultProcessor {
         }
     } {
         const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
-        const ruleName = determineRuleName(benchmarkFile);
         const categorizedResults = processResultsByLocRange(results);
 
         const processCategory = (categoryResults: BenchmarkResultDB[]): {
@@ -162,6 +161,7 @@ class ResultProcessor {
             nbFails: 0,
             nbProjectFails: 0,
             analysisTimeValues: [],
+            issuedMessage: 0
         };
     }
 
@@ -188,7 +188,7 @@ class ResultProcessor {
                 },
                 results: {
                     adactl: { ...result.benchmarkResults.adactl.digestTime, issuedMessages: result.benchmarkResults.adactl.run.issuedMessages },
-                    cogralys: { ...result.benchmarkResults.cogralys.digestTime, issuedMessages: result.benchmarkResults.cogralys.run.issuedMessages },
+                    cogralys: { ...result.benchmarkResults.cogralys.digestTime, issuedMessages: ruleName === GLOBAL_EXECUTION_KEY ? result.benchmarkResults.cogralys.run.issuedMessages : result.benchmarkResults.cogralys.ruleResults[ruleName].issuedMessages },
                     gnatcheck_1cores: { ...result.benchmarkResults.gnatcheck_1cores.digestTime, issuedMessages: result.benchmarkResults.gnatcheck_1cores.run.issuedMessages },
                     gnatcheck_32cores: { ...result.benchmarkResults.gnatcheck_32cores.digestTime, issuedMessages: result.benchmarkResults.gnatcheck_32cores.run.issuedMessages }
                 }
@@ -205,8 +205,6 @@ class ResultProcessor {
         summary: SummaryType,
         ruleName: string
     ): void {
-        // Implementation details for data aggregation
-        // This would contain the specific logic for each tool
         let nbFails: number = 0;
 
         for (const tool in summary) {
@@ -214,6 +212,7 @@ class ResultProcessor {
             summary[tool as ToolKeyType].overheadPopulating += result.benchmarkResults[tool as ToolKeyType].digestTime.overheadPopulating;
             let analysisTime = result.benchmarkResults[tool as ToolKeyType].digestTime.analysisTime;
             let executionTime = result.benchmarkResults[tool as ToolKeyType].digestTime.executionTime;
+            let issuedMessage = result.benchmarkResults[tool as ToolKeyType].run.issuedMessages.maxCount;
             nbFails = result.benchmarkResults[tool as ToolKeyType].run.nbRuns - result.benchmarkResults[tool as ToolKeyType].run.nbValidRuns;
             summary[tool as ToolKeyType].nbFails += nbFails;
             summary[tool as ToolKeyType].nbProjectFails += nbFails > 0 ? 1 : 0;
@@ -228,12 +227,14 @@ class ResultProcessor {
                     executionTime = result.benchmarkResults.cogralys.ruleResults[ruleName].digestTime.executionTime
                         + result.benchmarkResults.cogralys.digestTime.overheadParsing
                         + result.benchmarkResults.cogralys.digestTime.overheadPopulating;
+                    issuedMessage = result.benchmarkResults.cogralys.ruleResults[ruleName].issuedMessages.maxCount;
                 }
             }
 
             summary[tool as ToolKeyType].analysisTime += analysisTime;
             summary[tool as ToolKeyType].analysisTimeValues.push(analysisTime);
             summary[tool as ToolKeyType].executionTime += executionTime;
+            summary[tool as ToolKeyType].issuedMessage += issuedMessage;
         }
     }
 
@@ -280,6 +281,7 @@ class ResultProcessor {
             "Execution Relative Speed (0 is better)": generateEmptyToolsValues(),
             "Nb run fails": generateEmptyToolsValues(),
             "Nb project fails": generateEmptyToolsValues(),
+            "Issued Messages": generateEmptyToolsValues(),
         }
 
         for (const tool in summary) {
@@ -289,6 +291,7 @@ class ResultProcessor {
             result.executionTime[tool as ToolKeyType] = formatDuration(Math.floor(summary[tool as ToolKeyType].executionTime * 1000));
             result["Nb run fails"][tool as ToolKeyType] = summary[tool as ToolKeyType].nbFails;
             result["Nb project fails"][tool as ToolKeyType] = summary[tool as ToolKeyType].nbProjectFails;
+            result["Issued Messages"][tool as ToolKeyType] = summary[tool as ToolKeyType].issuedMessage;
 
 
             if (summary[tool as ToolKeyType].analysisTime === 0) {
@@ -376,15 +379,16 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
         global: {
             all: {
                 table: {
-                    overheadParsing: {},
-                    overheadPopulating: {},
-                    "Relative Overhead (0 is better)": {},
-                    analysisTime: {},
-                    "Analysis Relative Speed (0 is better)": {},
-                    executionTime: {},
-                    "Execution Relative Speed (0 is better)": {},
-                    "Nb run fails": {},
-                    "Nb project fails": {}
+                  overheadParsing: {},
+                  overheadPopulating: {},
+                  "Relative Overhead (0 is better)": {},
+                  analysisTime: {},
+                  "Analysis Relative Speed (0 is better)": {},
+                  executionTime: {},
+                  "Execution Relative Speed (0 is better)": {},
+                  "Nb run fails": {},
+                  "Nb project fails": {},
+                  "Issued Messages": {}
                 },
                 nbProjects: 0,
                 totalLoC: 0,
@@ -392,15 +396,16 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
             },
             small: {
                 table: {
-                    overheadParsing: {},
-                    overheadPopulating: {},
-                    "Relative Overhead (0 is better)": {},
-                    analysisTime: {},
-                    "Analysis Relative Speed (0 is better)": {},
-                    executionTime: {},
-                    "Execution Relative Speed (0 is better)": {},
-                    "Nb run fails": {},
-                    "Nb project fails": {}
+                  overheadParsing: {},
+                  overheadPopulating: {},
+                  "Relative Overhead (0 is better)": {},
+                  analysisTime: {},
+                  "Analysis Relative Speed (0 is better)": {},
+                  executionTime: {},
+                  "Execution Relative Speed (0 is better)": {},
+                  "Nb run fails": {},
+                  "Nb project fails": {},
+                  "Issued Messages": {}
                 },
                 nbProjects: 0,
                 totalLoC: 0,
@@ -408,15 +413,16 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
             },
             medium: {
                 table: {
-                    overheadParsing: {},
-                    overheadPopulating: {},
-                    "Relative Overhead (0 is better)": {},
-                    analysisTime: {},
-                    "Analysis Relative Speed (0 is better)": {},
-                    executionTime: {},
-                    "Execution Relative Speed (0 is better)": {},
-                    "Nb run fails": {},
-                    "Nb project fails": {}
+                  overheadParsing: {},
+                  overheadPopulating: {},
+                  "Relative Overhead (0 is better)": {},
+                  analysisTime: {},
+                  "Analysis Relative Speed (0 is better)": {},
+                  executionTime: {},
+                  "Execution Relative Speed (0 is better)": {},
+                  "Nb run fails": {},
+                  "Nb project fails": {},
+                  "Issued Messages": {}
                 },
                 nbProjects: 0,
                 totalLoC: 0,
@@ -424,15 +430,16 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
             },
             large: {
                 table: {
-                    overheadParsing: {},
-                    overheadPopulating: {},
-                    "Relative Overhead (0 is better)": {},
-                    analysisTime: {},
-                    "Analysis Relative Speed (0 is better)": {},
-                    executionTime: {},
-                    "Execution Relative Speed (0 is better)": {},
-                    "Nb run fails": {},
-                    "Nb project fails": {}
+                  overheadParsing: {},
+                  overheadPopulating: {},
+                  "Relative Overhead (0 is better)": {},
+                  analysisTime: {},
+                  "Analysis Relative Speed (0 is better)": {},
+                  executionTime: {},
+                  "Execution Relative Speed (0 is better)": {},
+                  "Nb run fails": {},
+                  "Nb project fails": {},
+                  "Issued Messages": {}
                 },
                 nbProjects: 0,
                 totalLoC: 0,
@@ -441,26 +448,32 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
         },
         rules: {} as Record<string, ResultAggregation>,
         summary: {
-            analysisTime: {
-                all: {},
-                small: {},
-                medium: {},
-                large: {}
-            },
-            overheadParsing: {
-                all: {},
-                small: {},
-                medium: {},
-                large: {}
-            }
+          analysisTime: {
+            all: {},
+            small: {},
+            medium: {},
+            large: {}
+          },
+          overheadParsing: {
+            all: {},
+            small: {},
+            medium: {},
+            large: {}
+          },
+          issuedMessage: {
+            all: {},
+            small: {},
+            medium: {},
+            large: {}
+          }
         }
     };
 
     let nbRuns = 0;
 
     for (const benchmarkFile of benchmarkFiles) {
-        const result = resultProcessor.processResultsWithLocCategories(benchmarkFile);
         const ruleName = determineRuleName(benchmarkFile);
+        const result = resultProcessor.processResultsWithLocCategories(benchmarkFile, ruleName);
 
         if (ruleName === GLOBAL_EXECUTION_KEY) {
             resultData.global = result;
@@ -477,10 +490,16 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
 
     const analysisTime = generateRuleSummary(resultData);
     const overheadParsing = generateRuleSummary(resultData, "overheadParsing");
+    const issuedMessage = generateRuleSummary(resultData, "Issued Messages");
     resultData.summary = {
         analysisTime,
-        overheadParsing
+        overheadParsing,
+        issuedMessage
     };
+
+    for(const [size, value] of Object.entries(resultData.global)) {
+        (value.table["Issued Messages"].adactl as number) -= resultData.rules["variable_usage"][size as ProjectCategoryType].table["Issued Messages"].adactl as number;
+    }
 
     generateReports(nbRuns, resultData, options.output, options.rootDir);
 }
@@ -525,6 +544,9 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
                         row[tool] = "";
                     }
                     row[tool] = value as string | number;
+                    if (typeof row[tool] === "number") {
+                        row[tool] = exporter.formatNumber(row[tool]);
+                    }
                 }
                 rows.push(row);
             }
@@ -583,6 +605,13 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
         formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'Small Projects (0-10k LoC)', 4);
         formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'Medium Projects (10-30k LoC)', 4);
         formatCategory(resultData.summary.overheadParsing.all, "Parsing Overhead", 'Large Projects (30k+ LoC)', 4);
+
+        // Format issued message results
+        output.push(exporter.addTitle("Issued Messages", 3));
+        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'All Projects', 4);
+        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'Small Projects (0-10k LoC)', 4);
+        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'Medium Projects (10-30k LoC)', 4);
+        formatCategory(resultData.summary.issuedMessage.all, "Issued Messages", 'Large Projects (30k+ LoC)', 4);
 
         // Format individual rule results
         for (const [ruleName, ruleData] of Object.entries(resultData.rules).sort((a, b) => a[0].localeCompare(b[0]))) {

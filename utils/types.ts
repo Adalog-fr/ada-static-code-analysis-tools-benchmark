@@ -200,6 +200,7 @@ export type GlobalResultTime = {
     nbFails: number,
     nbProjectFails: number,
     analysisTimeValues: number[],
+    issuedMessage: number
 };
 
 export const toolKey = ["adactl", "cogralys", "gnatcheck_1cores", "gnatcheck_32cores"] as const;
@@ -228,7 +229,8 @@ export const SUMMARY_TABLE_KEYS = [
     'executionTime',
     'Execution Relative Speed (0 is better)',
     'Nb run fails',
-    'Nb project fails'
+    'Nb project fails',
+    'Issued Messages'
 ] as const;
 
 export type SummaryTableKeys = typeof SUMMARY_TABLE_KEYS[number];
@@ -265,5 +267,6 @@ export type ResultData = {
     summary: {
         analysisTime: RuleSummaryData;
         overheadParsing: RuleSummaryData;
+        issuedMessage: RuleSummaryData;
     }
 };
