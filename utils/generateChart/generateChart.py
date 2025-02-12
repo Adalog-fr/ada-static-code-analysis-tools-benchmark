@@ -44,7 +44,45 @@ def theoretical_curve(x, a, b, c):
     """Calculate theoretical curve values."""
     return a * np.power(x, b) + c
 
-def add_theoretical_curves(x_range, cluster_points=None):
+def add_project_annotations(projects, tool='adactl'):
+    """Add arrows and labels for specific projects."""
+    target_gprs = {
+        'src/hangman/hangman.gpr': 'Hangman',
+        'src/apdf/pdf_out_gnat_w_gid.gpr': 'APDF',
+        'src/aicwl/sources/aicwl.gpr': 'AICWL'
+    }
+
+    for project in projects:
+        if project['gprPath'] in target_gprs and tool in project['results']:
+            x = project['scc']['nbLoC']
+            y = project['results'][tool]['analysisTime']
+
+            # Configure annotation properties
+            arrow_props = dict(
+                arrowstyle='->',
+                color='#475569',
+                lw=1,
+                alpha=0.6
+            )
+
+            # Adjust text position based on GPR path
+            if 'hangman' in project['gprPath']:
+                xy_text = (20, 0)
+            elif 'aicwl' in project['gprPath']:
+                xy_text = (20, 20)
+            else:  # apdf
+                xy_text = (20, 20)
+
+            plt.annotate(
+                target_gprs[project['gprPath']],  # Use the mapping for labels
+                xy=(x, y),
+                xytext=xy_text,
+                textcoords='offset points',
+                bbox=dict(boxstyle='round,pad=0.5', fc='white', ec='#475569', alpha=0.8),
+                arrowprops=arrow_props
+            )
+
+def add_empirical_curves(x_range, cluster_points=None):
     """Add empirical curves and cluster visualization using convex hull."""
     from scipy.spatial import ConvexHull
     import numpy as np
@@ -280,10 +318,13 @@ def create_scatter_plot(plot_args):
 
             # Add empirical curves and clusters
             x_range = np.logspace(1, 6, 1000)
-            add_theoretical_curves(x_range, cluster_points=all_points)
+            add_empirical_curves(x_range, cluster_points=all_points)
 
             # Set up plot properties
             setup_plot_properties(all_valid_y, category_name, plot_type)
+
+            # Add annotations for specific projects
+            add_project_annotations(data_category['projects'])
 
             # Save plot with empirical curves
             save_plot(base_filename + "_with_empirical", graphics_dir)
@@ -377,4 +418,5 @@ def generate_all_plots():
             list(executor.map(create_scatter_plot, plot_args))
 
 if __name__ == '__main__':
-    generate_all_plots()
+    # generate_all_plots()
+    create_scatter_plot(('analysis_time', data['global']['all'], 'all', None))
