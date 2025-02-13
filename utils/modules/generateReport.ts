@@ -517,7 +517,7 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
             const secondLevelKeys = Object.keys(data[fistLevelKeys[0] as keyof typeof data]);
             const headers: TableColumn[] = [
                 { name: "Metric", key: "metric" },
-                ...secondLevelKeys.map(elt => ({ name: elt as string, key: elt as string, align: "left" as TableAlignType }))
+                ...secondLevelKeys.map(elt => ({ name: toTitleCase((elt as string).replace("_", " ")), key: elt as string, align: "left" as TableAlignType }))
             ];
 
             type TableElt = Record<'metric' | ToolKeyType | string, string | number>;
