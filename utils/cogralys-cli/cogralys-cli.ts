@@ -5,10 +5,8 @@ import { formatDuration } from "../utils.ts";
 import * as allRules from "./allRules.ts";
 import { RuleType, UnknownRuleError } from "./rules/types/rules.ts";
 import { PROJECT_ROOT } from "../../config.ts";
+import { ruleNames, AllRulesName, CogralysOutputType, AllRulesNameLC } from "./cogralysType.ts";
 
-
-type AllRulesName = keyof typeof allRules;
-const ruleNames: AllRulesName[] = Object.keys(allRules) as AllRulesName[];
 const lowercaseRuleNames: string[] = ruleNames.map((ruleName) => ruleName.toLowerCase());
 
 type ruleFile = Array<[string, ({ [key: string]: any })?]>;
@@ -31,7 +29,11 @@ const program = new Command()
     .option(
         "-o, --output <string>",
         "Path to the result file",
-        "cogralys.result"
+        "cogralys.report"
+    )
+    .option(
+        "-u, --unitListFile <string>",
+        "Path to the unit file list",
     )
     .option(
         "-r, --rulePath <string>",
@@ -40,7 +42,13 @@ const program = new Command()
     )
   .parse(Deno.args);
 
-const { timing, host, path: directoryPath, username, password, output: resultFile, rulePath } = program;
+const { timing, host, path: directoryPath, username, password, output: resultFile, rulePath, unitListFile } = program;
+
+if (!unitListFile || unitListFile.length === 0) {
+    throw new Error("Missing option 'unitListFile'");
+}
+
+const unitList = Deno.readTextFileSync(unitListFile).split("\n").map(elt => elt.trim());
 
 const ruleFileParsed: ruleFile = JSON.parse(Deno.readTextFileSync(rulePath));
 const rulesToControl: RuleType[] = [];
@@ -62,19 +70,74 @@ for (const rule of ruleFileParsed) {
         cypherQueriesPath: directoryPath,
         timing: timing,
         resultFile: file,
+        unitList,
         ...ruleParams,
     }))
+}
+
+const result: CogralysOutputType = {
+  result: {
+    abort_statements: {
+      found: [],
+      analysisTime: 0
+    },
+    abstract_type_declarations: {
+      found: [],
+      analysisTime: 0
+    },
+    blocks: {
+      found: [],
+      analysisTime: 0
+    },
+    constructors: {
+      found: [],
+      analysisTime: 0
+    },
+    enumeration_representation_clauses: {
+      found: [],
+      analysisTime: 0
+    },
+    renamings: {
+      found: [],
+      analysisTime: 0
+    },
+    slices: {
+      found: [],
+      analysisTime: 0
+    },
+    too_many_parents: {
+      found: [],
+      analysisTime: 0
+    },
+    variable_usage: {
+      found: [],
+      analysisTime: 0
+    }
+  },
+  totalAnalysisTime: 0
+}
+
+function hasRuleName(constructor: Function): constructor is (new (...args: any[]) => RuleType) & { ruleName: string } {
+    return 'ruleName' in constructor;
 }
 
 // Execute rules
 let totalDuration = 0;
 for (const rule of rulesToControl) {
     totalDuration += await rule.executeRule(session);
+    if (hasRuleName(rule.constructor)) {
+        const ruleName: AllRulesName = rule.constructor.ruleName as AllRulesName;
+        result.result[ruleName.toLocaleLowerCase() as AllRulesNameLC] = rule.getReport();
+    }
 }
 
 // Report timing, if enabled
 if (timing) {
     console.log("Total duration: ", formatDuration(totalDuration));
+    result.totalAnalysisTime = totalDuration;
 }
 
+Deno.writeTextFileSync(resultFile + ".json", JSON.stringify(result, null, 2));
+
 await driver.close();
+file.close();

@@ -1,5 +1,6 @@
-import { Session, RecordShape, Record } from "npm:neo4j-driver@5.23.0";
+import { Session, RecordShape, Record } from "npm:neo4j-driver@5.27.0";
 import { formatDuration } from "../../../utils.ts";
+import { RuleAnalysisFoundElement, RuleAnalysisResult } from "../../cogralysType.ts";
 
 export type responseRecords = Record<RecordShape, PropertyKey, RecordShape<PropertyKey, number>>[];
 
@@ -8,7 +9,8 @@ export type Query = string | { text: string, parameters?: any } | string[] | { t
 export type ruleConstructorParams = {
     cypherQueriesPath: string,
     timing: boolean,
-    resultFile: Deno.FsFile
+    resultFile: Deno.FsFile,
+    unitList: string[]
 }
 export type ruleConstructorParamsExtended = ruleConstructorParams & {
     // deno-lint-ignore no-explicit-any
@@ -30,12 +32,17 @@ export abstract class RuleType<T extends typeof RuleType = typeof RuleType> {
     readonly cypherQueriesPath: string;
     readonly timing: boolean;
     readonly resultFile: Deno.FsFile;
+    readonly unitList: string[];
     queryDuration = 0;
+    found: RuleAnalysisFoundElement[] = [];
+    cypherLocationPropertyName: string;
 
-    constructor(cypherQueriesPath: string, timing: boolean, resultFile: Deno.FsFile) {
-        this.cypherQueriesPath = cypherQueriesPath;
-        this.timing = timing;
-        this.resultFile = resultFile;
+    constructor(params: ruleConstructorParams, cypherLocationPropertyName: string) {
+        this.cypherQueriesPath = params.cypherQueriesPath;
+        this.timing = params.timing;
+        this.resultFile = params.resultFile;
+        this.unitList = params.unitList;
+        this.cypherLocationPropertyName = cypherLocationPropertyName;
     }
 
     /**
@@ -51,12 +58,33 @@ export abstract class RuleType<T extends typeof RuleType = typeof RuleType> {
      * @param file File where to save results
      * @see {executeRule}
      */
-    protected abstract saveResult(records: responseRecords, file: Deno.FsFile): void;
+    protected saveResult(records: responseRecords, file: Deno.FsFile): void {
+        records.forEach(elt => {
+            const props = elt.get(this.cypherLocationPropertyName).properties;
+            file.writeSync(new TextEncoder().encode(`${props.filename}:${props.line}:${props.column}: ${this.constructor.ruleName}\n`));
+            this.found.push({
+                filename: props.filename,
+                line: props.line,
+                column: props.column,
+                ruleSpecific: {}
+            })
+        })
+    }
+
+    getReport(): RuleAnalysisResult {
+        return {
+            found: this.found,
+            nbFound: this.found.length,
+            analysisTime: this.queryDuration
+        }
+    }
 
     protected abstract getQuery(): Query;
     // deno-lint-ignore no-explicit-any
     protected getQueryParameters(): any {
-        return {};
+        return {
+            unitList: this.unitList
+        };
     };
 
     /**

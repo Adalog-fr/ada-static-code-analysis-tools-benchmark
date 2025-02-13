@@ -1,7 +1,5 @@
-MATCH (cu:Compilation_Unit { is_predefined_unit: false })
-  WHERE NOT cu.content STARTS WITH "System"
 MATCH (vD:A_VARIABLE_DECLARATION)<-[:IS_ENCLOSED_IN]-(v:A_DEFINING_IDENTIFIER)
-  WHERE (vD)-[:IS_ENCLOSED_IN*]->(cu)
+WHERE toUpper(vD.enclosing_unit) IN $unitList
 
 OPTIONAL MATCH enclGen = (v)-[:IS_ENCLOSED_IN*]->(decl:A_GENERIC_PACKAGE_DECLARATION)
 
@@ -18,9 +16,9 @@ WITH *,
 
 CALL {
   // Instance
-  WITH cu, genericVar
+  WITH genericVar
   CALL {
-    WITH cu, genericVar
+    WITH genericVar
     // WITH cu, [x in collect(genericVar) WHERE x is not null | x] as genericVars
     UNWIND [val in genericVar WHERE val IS NOT NULL] as genVar
 
@@ -122,7 +120,7 @@ CALL {
         return { filename: instance.filename, line: instance.line, column: instance.column } as Location, Variable, isWriteInst, isReadInst, isWriteGen, isReadGen
     } // END: Find usage of every instantiations
 
-    RETURN cu as Compilation_Unit,
+    RETURN
         // null as Location,
         // null as Variable,
         // False AS isWrite,
@@ -134,7 +132,7 @@ CALL {
         "instance" AS origin
   } // END: Union Instance
 
-  RETURN Compilation_Unit,
+  RETURN
         Location,
         Variable,
         isWrite,
@@ -142,5 +140,5 @@ CALL {
         origin
 } // END: Aggregate all results for the final result
 
-RETURN DISTINCT Compilation_Unit, Location, Variable, isWrite, isRead, origin
+RETURN DISTINCT Location, Variable, isWrite, isRead, origin
   ORDER BY Location.filename, Location.line, Location.column;
