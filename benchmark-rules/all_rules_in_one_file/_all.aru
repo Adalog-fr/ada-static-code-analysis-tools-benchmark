@@ -10,4 +10,4 @@ Enumeration_Representation_Clauses : search Representation_Clauses (Enumeration)
 Renamings : search renaming_declarations (all);
 Slices : search expressions (slice);
 Too_Many_Parents : search derivations (max_parents, 2);
-Variable_Usage : search usage (variable);
+--Variable_Usage : search usage (variable);
