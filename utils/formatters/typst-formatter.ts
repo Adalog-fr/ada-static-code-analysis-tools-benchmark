@@ -41,9 +41,28 @@ export class TypstFormatter implements FormatProvider {
 
         // Start table with column definitions
         table += `  columns: (${columns.map(() => 'auto').join(', ')}),\n`;
+        table += `  align: (${columns.map((elt) => elt.align || 'auto').join(', ')}),\n`;
+
+        const processCell = (elt: TableColumn): string => {
+            if (elt.diagbox) {
+                const diagElts = elt.name.split(elt.diagbox.splitChar).map(elt => elt.trim());
+                let direction = "";
+                switch (elt.diagbox.direction) {
+                    case "tlbr":
+                        direction = "bdiagbox";
+                        break;
+                    case "bltr":
+                        direction = "tdiagbox";
+                        break;
+                }
+                return `${direction}[${diagElts[0]}][${diagElts[1]}]`
+            } else {
+                return `[${elt.name}]`
+            }
+        }
 
         // Add headers
-        table += `  ${columns.map(col => `[${col.name}]`).join(', ')},\n`;
+        table += `  table.header(${columns.map(processCell).join(', ')}),\n`;
 
         // Add data rows
         table += arrayData.map(row =>
@@ -81,6 +100,7 @@ export class TypstFormatter implements FormatProvider {
     // Format document header with typst template
     documentHeader(title: string, metadata?: Record<string, string>): string {
         return `#import "./modules/lib.typ": *
+#import "./modules/diagbox.typ": *
 
 #show: it => basic-report(
   doc-category: "Benchmark report",

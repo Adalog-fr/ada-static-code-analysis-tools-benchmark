@@ -68,9 +68,16 @@ export class LaTeXFormatter implements FormatProvider {
         // Add headers
         table += '        \\RowStyle[bold]{\\color{gray-600}}\n';
 
-        table += `        ${columns.map(col =>
-            `\\textbf{${this.escapeLatex(col.name)}}`
-        ).join(' & ')} \\\\\n`;
+        const processCell = (col: TableColumn): string => {
+            if (col.diagbox) {
+                const diagElts = col.name.split(col.diagbox.splitChar).map(elt => this.escapeLatex(elt.trim()));
+                return `\\diagbox{${diagElts[0]}}{${diagElts[1]}}`
+            } else {
+                return `\\textbf{${this.escapeLatex(col.name)}}`
+            }
+        }
+
+        table += `        ${columns.map(processCell).join(' & ')} \\\\\n`;
 
         // Add data rows
         table += '        \\RowStyle[nb-rows=*,color=gray-800]{}\n';

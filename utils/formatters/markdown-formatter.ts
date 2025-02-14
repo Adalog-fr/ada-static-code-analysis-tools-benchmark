@@ -33,7 +33,7 @@ export class MarkdownFormatter implements FormatProvider {
             }));
 
         // Create header row
-        const header = `| ${columns.map(col => col.name).join(' | ')} |`;
+        const header = `| **${columns.map(col => col.name).join('** | **')}** |`;
 
         // Create separator row with alignment
         const separator = `|${columns.map(col => {
@@ -66,7 +66,7 @@ export class MarkdownFormatter implements FormatProvider {
 
     // Format code block with language specification
     codeBlock(content: string, language = ''): string {
-        return `\`\`\`${language}\n${content}\n\`\`\``;
+        return `\`\`\`${language}\n${content}\n\`\`\`\n`;
     }
 
     // Format bold text using markdown syntax

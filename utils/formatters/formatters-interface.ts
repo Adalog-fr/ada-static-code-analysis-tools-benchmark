@@ -13,6 +13,7 @@ export interface TableColumn {
     key: string;
     align?: TableAlignType;
     format?: (value: any) => string;
+    diagbox?: { direction: "tlbr" | "bltr", splitChar: string };
 }
 
 /**
