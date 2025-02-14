@@ -21,5 +21,6 @@ export type CogralysOutputType = {
     result: {
         [key in AllRulesNameLC]: RuleAnalysisResult
     },
-    totalAnalysisTime: number
+    totalAnalysisTime: number,
+    totalNbFound: number
 };

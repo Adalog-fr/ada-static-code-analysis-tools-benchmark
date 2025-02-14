@@ -46,6 +46,8 @@ const { timing, host, path: directoryPath, username, password, output: resultFil
 
 if (!unitListFile || unitListFile.length === 0) {
     throw new Error("Missing option 'unitListFile'");
+} else if (!unitListFile.endsWith(".units")) {
+    throw new Error(`Expected ".units" file for unit list file.`);
 }
 
 const unitList = Deno.readTextFileSync(unitListFile).split("\n").map(elt => elt.trim());
@@ -123,11 +125,13 @@ function hasRuleName(constructor: Function): constructor is (new (...args: any[]
 
 // Execute rules
 let totalDuration = 0;
+let totalNbFound = 0;
 for (const rule of rulesToControl) {
     totalDuration += await rule.executeRule(session);
     if (hasRuleName(rule.constructor)) {
         const ruleName: AllRulesName = rule.constructor.ruleName as AllRulesName;
         result.result[ruleName.toLocaleLowerCase() as AllRulesNameLC] = rule.getReport();
+        totalNbFound += result.result[ruleName.toLocaleLowerCase() as AllRulesNameLC].nbFound;
     }
 }
 
@@ -135,6 +139,7 @@ for (const rule of rulesToControl) {
 if (timing) {
     console.log("Total duration: ", formatDuration(totalDuration));
     result.totalAnalysisTime = totalDuration;
+    result.totalNbFound = totalNbFound;
 }
 
 Deno.writeTextFileSync(resultFile + ".json", JSON.stringify(result, null, 2));
