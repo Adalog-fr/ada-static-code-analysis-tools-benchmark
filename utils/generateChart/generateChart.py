@@ -418,5 +418,5 @@ def generate_all_plots():
             list(executor.map(create_scatter_plot, plot_args))
 
 if __name__ == '__main__':
-    # generate_all_plots()
-    create_scatter_plot(('analysis_time', data['global']['all'], 'all', None))
+    generate_all_plots()
+    # create_scatter_plot(('analysis_time', data['global']['all'], 'all', None))
