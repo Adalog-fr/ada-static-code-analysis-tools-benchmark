@@ -22,6 +22,7 @@ import * as generateReport from "./modules/generateReport.ts";
 import * as compressResults from "./modules/compressResults.ts";
 import * as deleteBenchmarkLogs from "./modules/deleteBenchmarkLogs.ts";
 import * as importMetrics from "./modules/importMetrics.ts";
+import * as generateImportReport from "./modules/generateImportReport.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -138,5 +139,6 @@ generateReport.initializeModule(program);
 compressResults.initializeModule(program);
 deleteBenchmarkLogs.initializeModule(program);
 importMetrics.initializeModule(program);
+generateImportReport.initializeModule(program);
 
 program.parse(Deno.args);

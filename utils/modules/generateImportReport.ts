@@ -1,19 +1,23 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join } from "@std/path/join";
 import { ensureDirSync, copySync } from "jsr:@std/fs@1.0.9";
-import { BenchmarkResultDB, toolKey, ToolKeyType } from "./types.ts";
-import { DocumentExporter } from "./formatters/exporter.ts";
-import { OutputFormat } from "./formatters/formatters-interface.ts";
-import { formatNumber } from "./utils.ts";
-import { PROJECT_ROOT as defaultProjectRoot } from "../config.ts";
+import { BenchmarkResultDB, toolKey, ToolKeyType } from "../types.ts";
+import { DocumentExporter } from "../formatters/exporter.ts";
+import { OutputFormat, OutputFormatType } from "../formatters/formatters-interface.ts";
+import { formatNumber } from "../utils.ts";
+import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
 // Constant for trigger time threshold
 const TRIGGER_NUMBER = 0.7;
 const MAX_LOC = 30_000;
 
-// Parse command-line arguments
-const program = new Command()
-    .option(
+export function initializeModule(program: Command): void {
+    program
+        .command("generate-import-report")
+        .description(
+            "Generate import benchmark report. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys, and after aggregate-results."
+        )
+        .option(
             "--rootDir <string>",
             "Path to the root of the result files",
             defaultProjectRoot
@@ -33,18 +37,83 @@ const program = new Command()
             `Maximum size of a project (in lines of code)`,
             MAX_LOC
         )
-    .parse(Deno.args);
+        .action((options: { rootDir: string, output: OutputFormatType, triggerNumber: number, maxLoc: number }): void => {
+            const args = Deno.args;
+            if (args.length < 1) {
+                program.help();
+                Deno.exit(0);
+            }
 
-// Define interface for the exported project data
-interface ExportedProjectData {
-    crateName: string;
-    workDir: string;
-    gprPath: string;
-    loc: number;
-    complexity: number;
-    analysisTime: number;
-    maxIssuedMessages: number;
-    imports: ImportAnalysis;
+            const jsonPath = join(options.rootDir, "benchmarkResults.json");
+            const format = options.output || 'cli';
+
+            try {
+                const jsonContent = Deno.readTextFileSync(jsonPath);
+                const results = JSON.parse(jsonContent) as BenchmarkResultDB[];
+                const analyzer = new PerformanceAnalyzer(options.rootDir, options.triggerNumber);
+                const exporter = new DocumentExporter(format);
+
+                let output = exporter.documentHeader(`Analysis of imports for project size < ${exporter.formatNumber(options.maxLoc)} LoC`);
+
+                for (const tool of toolKey) {
+                    if (tool === "cogralys") {
+                        // Skip cogralys, because analysis time is constant
+                        analyzer.analyzeResults(results, tool, exporter);
+                        continue;
+                    }
+                    output += analyzer.analyzeResults(results, tool, exporter);
+                }
+
+                output += exporter.documentFooter();
+
+                let resultsDir = join(options.rootDir, "results");
+                let result = "";
+                let ext = "";
+
+                switch (format) {
+                    case "cli":
+                        console.log(output);
+                        break;
+                    case "markdown":
+                    case "md":
+                        resultsDir = join(resultsDir, "markdown");
+                        result = output;
+                        ext = "md";
+                        break;
+                    case "typst":
+                        resultsDir = join(resultsDir, "typst");
+                        result = output;
+                        ext = "typ";
+                        break;
+                    case "latex":
+                    case "tex":
+                        resultsDir = join(resultsDir, "latex");
+                        result = output;
+                        ext = "tex";
+                        break;
+                    default:
+                        console.log(output);
+                        break;
+                }
+
+                ensureDirSync(resultsDir);
+
+                if (result.length) {
+                    if (format === "typst") {
+                        copySync(join(defaultProjectRoot, "utils/report/typst"), join(resultsDir, "/"), { overwrite: true });
+                    }
+
+                    const reportPath = join(resultsDir, "importReport." + ext);
+                    Deno.writeTextFileSync(reportPath, result);
+                    console.log("Import report generated here: ", reportPath);
+
+                }
+
+            } catch (error) {
+                console.error("Error during analysis:", error);
+                Deno.exit(1);
+            }
+        });
 }
 
 // Interface for project analysis results
@@ -89,6 +158,8 @@ interface StdLibCategory {
 }
 
 export class PerformanceAnalyzer {
+    private readonly rootDir: string;
+    private readonly triggerNumber: number;
     private readonly stdLibCategories: StdLibCategory[] = [
         {
             name: "io",
@@ -165,6 +236,11 @@ export class PerformanceAnalyzer {
             ]
         }
     ];
+
+    constructor(rootDir: string, triggerNumber: number) {
+        this.rootDir = rootDir;
+        this.triggerNumber = triggerNumber;
+    }
 
     private analyzeImports(withUnits: string[] = []): ImportAnalysis {
         const allImports = [...new Set(withUnits)];
@@ -245,7 +321,7 @@ export class PerformanceAnalyzer {
 
         // Write to file
         Deno.writeTextFileSync(
-            join(program.rootDir, "results", filename),
+            join(this.rootDir, "results", filename),
             JSON.stringify(exportData, null, 2)
         );
     }
@@ -269,7 +345,7 @@ export class PerformanceAnalyzer {
 
         // Helper function to determine if a project is "fast" for a given tool
         const isFastProject = (project: ProjectAnalysis, tool: ToolKeyType) =>
-            project.analysisTime[tool] < program.triggerNumber;
+            project.analysisTime[tool] < this.triggerNumber;
 
         // Count projects in each category combination
         let bothNormal = 0;    // C1 for both
@@ -369,8 +445,8 @@ export class PerformanceAnalyzer {
         const analysedProjects = results.map(r => this.analyzeProject(r));
         const smallProjects = analysedProjects.filter(p => p.loc <= MAX_LOC);
         const largeProjects = analysedProjects.filter(p => p.loc > MAX_LOC);
-        const fastProjects = smallProjects.filter(p => p.analysisTime[tool] < program.triggerNumber);
-        const normalProjects = smallProjects.filter(p => p.analysisTime[tool] >= program.triggerNumber);
+        const fastProjects = smallProjects.filter(p => p.analysisTime[tool] < this.triggerNumber);
+        const normalProjects = smallProjects.filter(p => p.analysisTime[tool] >= this.triggerNumber);
 
         // Export projects to JSON
         this.exportProjectsToJson(analysedProjects, tool, "all");
@@ -392,7 +468,7 @@ export class PerformanceAnalyzer {
                 max: fastTimes[fastTimes.length - 1]
             };
 
-            output.push(exporter.addTitle(`Fast Projects (< ${program.triggerNumber}s)`, 2));
+            output.push(exporter.addTitle(`Fast Projects (< ${this.triggerNumber}s)`, 2));
             output.push(this.formatProjectStats(fastProjects, fastStats, exporter, tool));
         }
 
@@ -407,7 +483,7 @@ export class PerformanceAnalyzer {
                 max: normalTimes[normalTimes.length - 1]
             };
 
-            output.push(exporter.addTitle(`Normal Projects (≥ ${program.triggerNumber}s)`, 2));
+            output.push(exporter.addTitle(`Normal Projects (≥ ${this.triggerNumber}s)`, 2));
             output.push(this.formatProjectStats(normalProjects, normalStats, exporter, tool));
         }
 
@@ -542,84 +618,5 @@ export class PerformanceAnalyzer {
         ));
 
         return output.join('\n\n');
-    }
-}
-
-// Main execution block
-if (import.meta.main) {
-    const args = Deno.args;
-    if (args.length < 1) {
-        program.help();
-        Deno.exit(0);
-    }
-
-    const jsonPath = join(program.rootDir, "benchmarkResults.json");
-    const format = program.output || 'cli';
-
-    try {
-        const jsonContent = Deno.readTextFileSync(jsonPath);
-        const results = JSON.parse(jsonContent) as BenchmarkResultDB[];
-        const analyzer = new PerformanceAnalyzer();
-        const exporter = new DocumentExporter(format);
-
-        let output = exporter.documentHeader(`Analysis of imports for project size < ${exporter.formatNumber(program.maxLoc)} LoC`);
-
-        for (const tool of toolKey) {
-            if (tool === "cogralys") {
-                // Skip cogralys, because analysis time is constant
-                analyzer.analyzeResults(results, tool, exporter);
-                continue;
-            }
-            output += analyzer.analyzeResults(results, tool, exporter);
-        }
-
-        output += exporter.documentFooter();
-
-        let resultsDir = join(program.rootDir, "results");
-        let result = "";
-        let ext = "";
-
-        switch (format) {
-            case "cli":
-                console.log(output);
-                break;
-            case "markdown":
-            case "md":
-                resultsDir = join(resultsDir, "markdown");
-                result = output;
-                ext = "md";
-                break;
-            case "typst":
-                resultsDir = join(resultsDir, "typst");
-                result = output;
-                ext = "typ";
-                break;
-            case "latex":
-            case "tex":
-                resultsDir = join(resultsDir, "latex");
-                result = output;
-                ext = "tex";
-                break;
-            default:
-                console.log(output);
-                break;
-        }
-
-        ensureDirSync(resultsDir);
-
-        if (result.length) {
-            if (format === "typst") {
-                copySync(join(defaultProjectRoot, "utils/report/typst"), join(resultsDir, "/"), { overwrite: true });
-            }
-
-            const reportPath = join(resultsDir, "importReport." + ext);
-            Deno.writeTextFileSync(reportPath, result);
-            console.log("Import report generated here: ", reportPath);
-
-        }
-
-    } catch (error) {
-        console.error("Error during analysis:", error);
-        Deno.exit(1);
     }
 }
