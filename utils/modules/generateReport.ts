@@ -8,7 +8,7 @@ import cloneJSON from "jsr:@rhy/fast-json-clone";
 import { formatDuration, formatNumber } from "../utils.ts";
 import { BenchmarkResultDB, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData, ResultAggregationByProjectCategory, SUMMARY_TABLE_KEYS, toolKey, SummaryTableKeys } from "../types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
-import { OutputFormat, OutputFormatType, TableAlignType, TableColumn } from "../formatters/formatters-interface.ts";
+import { OutputFormat, OutputFormatType, TableAlignType, TableCell } from "../formatters/formatters-interface.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
 
 const GLOBAL_EXECUTION_KEY = "GLOBAL";
@@ -515,7 +515,7 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
             };
             const fistLevelKeys: (SummaryTableKeys | string)[] = Object.keys(data);
             const secondLevelKeys = Object.keys(data[fistLevelKeys[0] as keyof typeof data]);
-            const headers: TableColumn[] = [
+            const headers: TableCell[] = [
                 { name: "Metric", key: "metric" },
                 ...secondLevelKeys.map(elt => ({ name: toTitleCase((elt as string).replace("_", " ")), key: elt as string, align: "left" as TableAlignType }))
             ];

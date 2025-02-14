@@ -1,4 +1,4 @@
-import { FormatProvider, TableColumn } from './formatters-interface.ts';
+import { FormatProvider, TableCell } from './formatters-interface.ts';
 
 // Implementation of FormatProvider for LaTeX output
 export class LaTeXFormatter implements FormatProvider {
@@ -24,7 +24,7 @@ export class LaTeXFormatter implements FormatProvider {
 
     // Format table data using LaTeX NiceTabular environment
     formatTable(
-        columns: TableColumn[],
+        columns: TableCell[],
         data: Record<string, any>[] | Record<string, Record<string, any>>,
         caption?: string
     ): string {
@@ -68,7 +68,7 @@ export class LaTeXFormatter implements FormatProvider {
         // Add headers
         table += '        \\RowStyle[bold]{\\color{gray-600}}\n';
 
-        const processCell = (col: TableColumn): string => {
+        const processCell = (col: TableCell): string => {
             if (col.diagbox) {
                 const diagElts = col.name.split(col.diagbox.splitChar).map(elt => this.escapeLatex(elt.trim()));
                 return `\\diagbox{${diagElts[0]}}{${diagElts[1]}}`

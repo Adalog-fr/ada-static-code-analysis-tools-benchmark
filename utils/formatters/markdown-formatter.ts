@@ -1,5 +1,5 @@
 import { formatNumber } from "../utils.ts";
-import { FormatProvider, TableColumn } from './formatters-interface.ts';
+import { FormatProvider, TableCell } from './formatters-interface.ts';
 
 // Implementation of FormatProvider for Markdown output
 export class MarkdownFormatter implements FormatProvider {
@@ -20,7 +20,7 @@ export class MarkdownFormatter implements FormatProvider {
 
     // Format table data using markdown table syntax
     formatTable(
-        columns: TableColumn[],
+        columns: TableCell[],
         data: Record<string, any>[] | Record<string, Record<string, any>>,
         _caption?: string
     ): string {

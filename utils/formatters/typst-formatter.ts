@@ -1,5 +1,5 @@
 import { formatNumber } from "../utils.ts";
-import { FormatProvider, TableColumn } from './formatters-interface.ts';
+import { FormatProvider, TableCell } from './formatters-interface.ts';
 
 // Implementation of FormatProvider for Typst output
 export class TypstFormatter implements FormatProvider {
@@ -20,7 +20,7 @@ export class TypstFormatter implements FormatProvider {
 
     // Format table data using typst table syntax
     formatTable(
-        columns: TableColumn[],
+        columns: TableCell[],
         data: Record<string, any>[] | Record<string, Record<string, any>>,
         caption?: string
     ): string {
@@ -43,7 +43,7 @@ export class TypstFormatter implements FormatProvider {
         table += `  columns: (${columns.map(() => 'auto').join(', ')}),\n`;
         table += `  align: (${columns.map((elt) => elt.align || 'auto').join(', ')}),\n`;
 
-        const processCell = (elt: TableColumn): string => {
+        const processCell = (elt: TableCell): string => {
             if (elt.diagbox) {
                 const diagElts = elt.name.split(elt.diagbox.splitChar).map(elt => elt.trim());
                 let direction = "";

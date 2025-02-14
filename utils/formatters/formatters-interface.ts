@@ -8,7 +8,7 @@ export type OutputFormatType = typeof OutputFormat[number];
 export const TableAlign = ['left', 'center', 'right'] as const;
 export type TableAlignType = typeof TableAlign[number];
 
-export interface TableColumn {
+export interface TableCell {
     name: string;
     key: string;
     align?: TableAlignType;
@@ -36,7 +36,7 @@ export interface FormatProvider {
      * Function to format table data
      */
     formatTable(
-        columns: TableColumn[],
+        columns: TableCell[],
         data: Record<string, any>[] | Record<string, Record<string, any>>,
         caption?: string
     ): string;

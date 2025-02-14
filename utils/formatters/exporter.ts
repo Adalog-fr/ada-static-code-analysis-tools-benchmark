@@ -1,5 +1,5 @@
 // Import format providers and types
-import { FormatProvider, OutputFormatType, TableColumn } from './formatters-interface.ts';
+import { FormatProvider, OutputFormatType, TableCell } from './formatters-interface.ts';
 import { CLIFormatter } from './cli-formatter.ts';
 import { MarkdownFormatter } from './markdown-formatter.ts';
 import { TypstFormatter } from './typst-formatter.ts';
@@ -47,7 +47,7 @@ export class DocumentExporter {
         return this.formatter.orderedList(items);
     }
     formatTable(
-        columns: TableColumn[],
+        columns: TableCell[],
         data: Record<string, any>[] | Record<string, Record<string, any>>,
         caption?: string
     ): string {
