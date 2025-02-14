@@ -5,7 +5,7 @@ import { formatDuration } from "../utils.ts";
 import * as allRules from "./allRules.ts";
 import { RuleType, UnknownRuleError } from "./rules/types/rules.ts";
 import { PROJECT_ROOT } from "../../config.ts";
-import { ruleNames, AllRulesName, CogralysOutputType, AllRulesNameLC } from "./cogralysType.ts";
+import { ruleNames, AllRulesName, CogralysOutputType, AllRulesNameLC } from "./cogralysCliTypes.ts";
 
 const lowercaseRuleNames: string[] = ruleNames.map((ruleName) => ruleName.toLowerCase());
 

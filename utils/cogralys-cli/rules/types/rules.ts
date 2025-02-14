@@ -1,6 +1,6 @@
 import { Session, RecordShape, Record } from "npm:neo4j-driver@5.27.0";
 import { formatDuration } from "../../../utils.ts";
-import { RuleAnalysisFoundElement, RuleAnalysisResult } from "../../cogralysType.ts";
+import { RuleAnalysisFoundElement, RuleAnalysisResult } from "../../cogralysCliTypes.ts";
 
 export type responseRecords = Record<RecordShape, PropertyKey, RecordShape<PropertyKey, number>>[];
 
