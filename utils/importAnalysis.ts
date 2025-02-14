@@ -264,6 +264,106 @@ export class PerformanceAnalyzer {
         return denominator === 0 ? 0 : numerator / denominator;
     }
 
+    private compareCategoriesAcrossTools(analysedProjects: ProjectAnalysis[], exporter: DocumentExporter): string {
+        const output: string[] = [];
+
+        // Helper function to determine if a project is "fast" for a given tool
+        const isFastProject = (project: ProjectAnalysis, tool: ToolKeyType) =>
+            project.analysisTime[tool] < program.triggerNumber;
+
+        // Count projects in each category combination
+        let bothNormal = 0;    // C1 for both
+        let adacNormalGnatcFast = 0;  // C1 for ADAC, C2 for GNATC
+        let adacFastGnatcNormal = 0;  // C2 for ADAC, C1 for GNATC
+        let bothFast = 0;      // C2 for both
+
+        const bothNormalTable: string[] = [];
+        const adacNormalGnatcFastTable: string[] = [];
+        const adacFastGnatcNormalTable: string[] = [];
+        const bothFastTable: string[] = [];
+
+        analysedProjects.forEach(project => {
+            const isAdacFast = isFastProject(project, 'adactl');
+            const isGnatcFast = isFastProject(project, 'gnatcheck_1cores');
+
+            if (!isAdacFast && !isGnatcFast) {
+                bothNormal++;
+                bothNormalTable.push(project.gprPath);
+            }
+            else if (!isAdacFast && isGnatcFast) {
+                adacNormalGnatcFast++;
+                adacNormalGnatcFastTable.push(project.gprPath);
+            }
+            else if (isAdacFast && !isGnatcFast) {
+                adacFastGnatcNormal++;
+                adacFastGnatcNormalTable.push(project.gprPath);
+            }
+            else {
+                bothFast++;
+                bothFastTable.push(project.gprPath);
+            }
+        });
+
+        // Add cross-tool comparison section
+        output.push(exporter.addTitle("Cross-Tool Cluster Comparison", 1));
+        output.push(`Comparing ${analysedProjects.length} projects distribution between AdaControl and GNATcheck:\n`);
+
+        // Calculate and display percentages
+        const total = bothNormal + adacNormalGnatcFast + adacFastGnatcNormal + bothFast;
+        output.push(exporter.formatTable(
+            [
+                { name: "Category", key: "category", align: "left" },
+                { name: "Number of Projects", key: "count", align: "right" },
+                { name: "Percentage", key: "percentage", align: "right" }
+            ],
+            [
+                { category: "C1 (Normal) for both tools", count: formatNumber(bothNormal), percentage: `${((bothNormal / total) * 100).toFixed(1)}%` },
+                { category: "C1 for AdaControl, C2 (Fast) for GNATcheck", count: formatNumber(adacNormalGnatcFast), percentage: `${((adacNormalGnatcFast / total) * 100).toFixed(1)}%` },
+                { category: "C2 for AdaControl, C1 for GNATcheck", count: formatNumber(adacFastGnatcNormal), percentage: `${((adacFastGnatcNormal / total) * 100).toFixed(1)}%` },
+                { category: "C2 (Fast) for both tools", count: formatNumber(bothFast), percentage: `${((bothFast / total) * 100).toFixed(1)}%` }
+            ],
+            "Distribution of projects"
+        ));
+
+        output.push(exporter.formatTable(
+            [
+                { name: "AdaControl / GNATcheck", key: "category", align: "left", diagbox: { direction: "tlbr", splitChar: "/"} },
+                { name: "C1 (Normal)", key: "c1", align: "right" },
+                { name: "C2 (Fast)", key: "c2", align: "right" }
+            ],
+            [
+                {
+                    category: exporter.bold("C1 (Normal)"),
+                    c1: `${bothNormal} (${((bothNormal / total) * 100).toFixed(1)}%)`,
+                    c2: `${adacNormalGnatcFast} (${((adacNormalGnatcFast / total) * 100).toFixed(1)}%)`
+                },
+                {
+                    category: exporter.bold("C2 (Fast)"),
+                    c1: `${adacFastGnatcNormal} (${((adacFastGnatcNormal / total) * 100).toFixed(1)}%)`,
+                    c2: `${bothFast} (${((bothFast / total) * 100).toFixed(1)}%)`
+                }
+            ],
+            "2x2 Contingency Table"
+        ));
+
+        output.push(exporter.addTitle("List of project by distribution", 2));
+
+        output.push(exporter.addTitle("C1 (Normal) for both tools", 3));
+        output.push(exporter.codeBlock(bothNormalTable.join('\n')));
+
+        output.push(exporter.addTitle("C1 for AdaControl, C2 (Fast) for GNATcheck", 3));
+        output.push(exporter.codeBlock(adacNormalGnatcFastTable.join('\n')));
+
+        output.push(exporter.addTitle("C2 for AdaControl, C1 for GNATcheck", 3));
+        output.push(exporter.codeBlock(adacFastGnatcNormalTable.join('\n')));
+
+        output.push(exporter.addTitle("C2 (Fast) for both tools", 3));
+        output.push(exporter.codeBlock(bothFastTable.join('\n')));
+
+
+        return output.join('\n\n');
+    }
+
     // Main analysis method
     public analyzeResults(results: BenchmarkResultDB[], tool: ToolKeyType, exporter: DocumentExporter): string {
         const analysedProjects = results.map(r => this.analyzeProject(r));
@@ -359,6 +459,11 @@ export class PerformanceAnalyzer {
         output.push(exporter.addTitle("Unique Standard/GNAT/Interface/System Imports", 2));
         output.push("Present in normal projects but not in fast projects:");
         output.push(exporter.codeBlock(importDiff.join('\n')));
+
+        // Add cross-tool comparison only for the first tool analysis
+        if (tool === toolKey[toolKey.length - 1]) {
+            output.push(this.compareCategoriesAcrossTools(analysedProjects.filter(p => p.loc <= MAX_LOC), exporter));
+        }
 
         return output.join('\n\n');
     }
