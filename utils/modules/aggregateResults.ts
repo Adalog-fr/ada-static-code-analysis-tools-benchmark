@@ -6,6 +6,7 @@ import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 import { parseDuration } from "../utils.ts";
+import { CogralysOutputType } from "../cogralys-cli/cogralysCliTypes.ts";
 
 const OUTPUT_FILENAME = "benchmarkResults.json";
 let PROJECT_ROOT: string;
@@ -60,9 +61,9 @@ function parseUnitValue(value: string): number {
  * @returns name of the coding rule, null otherwise
  */
 function detectCodingRule(filePath: string): string | null {
-    const match = filePath.match(/-j\d+(-[^.]+)?[.]/);
-    if (!match) return null;
-    return match[1] ? match[1].substring(1) : null;
+    const match = filePath.match(/-j\d+(-[^.]+)?[.]/)?.[1];
+    if (!match || !codingRules.includes(match)) return null;
+    return match;
 }
 
 /**
@@ -443,6 +444,11 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
 
 // Function to aggregate Cogralys results
 function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, overheadTreashold: number, codingRule?: string): CogralysResults {
+    /**
+     * @deprecated Not used anymore. We use the JSON report instead
+     * @param reportContent
+     * @returns
+     */
     const countCogralysRuleMessages = (reportContent: string): { [rule: string]: number } => {
         const allowedSourceFiles = Deno.readTextFileSync(join(defaultProjectRoot, gprPath.replace(".gpr", ".units_by_path"))).split("\n");
         const lines = reportContent.split('\n');
@@ -882,50 +888,41 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
 
     // Process rule execution times from log files
     const logPrefix = interpolateLogPrefix(logPrefixTemplate, "cogralys", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, "", "");
-    const ruleLogFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.log`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
-    const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}-run.report`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
+    const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}-run.report.json`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
 
 
     // Collect execution times for each rule across all runs
     const ruleTimesMap: { [rule: string]: number[] } = {};
     const ruleMessagesMap: { [rule: string]: number[] } = {};
 
-    ruleLogFiles.forEach(logFile => {
-        const content = Deno.readTextFileSync(logFile);
-        const runResults = parseRuleExecutionTimes(content);
-
-        for (const [rule, time] of Object.entries(runResults)) {
-            if (!ruleTimesMap[rule]) {
-                ruleTimesMap[rule] = [];
-            }
-            ruleTimesMap[rule].push(time);
-        }
-    });
+    // Calculate statistics for each rule
+    const ruleResults: { [rule: string]: RuleExecutionResult } = {};
 
     reportFiles.forEach(reportFile => {
-        const content = Deno.readTextFileSync(reportFile);
-        const messageCounts = countCogralysRuleMessages(content);
+        const content: CogralysOutputType = JSON.parse(Deno.readTextFileSync(reportFile));
 
         let foundCounter = 0;
-        for (const [rule, count] of Object.entries(messageCounts)) {
+        for (const [rule, ruleResult] of Object.entries(content.result)) {
             if (!ruleMessagesMap[rule]) {
                 ruleMessagesMap[rule] = [];
             }
-            ruleMessagesMap[rule].push(count);
+            if (!ruleTimesMap[rule]) {
+                ruleTimesMap[rule] = [];
+            }
+
+            ruleMessagesMap[rule].push(ruleResult.nbFound);
+            ruleTimesMap[rule].push(ruleResult.analysisTime / 1000); // transform ms to s
             if (rule !== "variable_usage") {
                 // Skip variable usage in total issued message, because it is partially implemented
-                foundCounter += count;
+                foundCounter += ruleResult.nbFound;
             }
         }
         result.run.issuedMessages.allCounts.push(foundCounter);
         result.run.issuedMessages.maxCount = Math.max(result.run.issuedMessages.maxCount, foundCounter);
     });
 
-    // Calculate statistics for each rule
-    const ruleResults: { [rule: string]: RuleExecutionResult } = {};
-
     // Combine all unique rule names from both times and messages
-    const allRules = new Set([...Object.keys(ruleTimesMap), ...Object.keys(ruleMessagesMap)]);
+    const allRules = new Set([...Object.keys(ruleMessagesMap)]);
 
     for (const rule of allRules) {
         const times = ruleTimesMap[rule] || [];
@@ -935,7 +932,7 @@ function aggregateCogralysResults(alireTomlPath: string, gprPath: string, logPre
         ruleResults[rule.toLocaleLowerCase()] = {
             allRuns: times,
             nbValidRuns: times.length,
-            nbRuns: ruleLogFiles.length,
+            nbRuns: reportFiles.length,
             standardDeviation: calculateStandardDeviation(times, average),
             issuedMessages: {
                 maxCount: messages.length > 0 ? Math.max(...messages) : 0,
