@@ -28,7 +28,7 @@ export function initializeModule(program: Command): void {
         .option(
             "--maxIteration <number>",
             "Maximum number of iteration of the processed benchmark",
-            10
+            3
         )
         .option(
             "--concurrency <number>",
