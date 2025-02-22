@@ -61,7 +61,7 @@ function parseUnitValue(value: string): number {
  * @returns name of the coding rule, null otherwise
  */
 function detectCodingRule(filePath: string): string | null {
-    const match = filePath.match(/-j\d+(-[^.]+)?[.]/)?.[1];
+    const match = filePath.match(/-j\d+-([^.]+)?[.]/)?.[1];
     if (!match || !codingRules.includes(match)) return null;
     return match;
 }
