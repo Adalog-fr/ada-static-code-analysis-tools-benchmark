@@ -83,8 +83,8 @@ function getGlobalOverhead(alireTomlPath: string, gprPath: string, maxIteration:
 
     return {
         adactl: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "", ""),
-        gnatcheck1: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, ""),
-        gnatcheck32: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
+        gnatcheck1: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "", ""),
+        gnatcheck32: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "", "")
     };
 }
 
@@ -317,15 +317,37 @@ function parseRuleExecutionTimes(logContent: string): { [rule: string]: number }
     return results;
 }
 
-const countRuleMessages = (reportContent: string, gprPath: string): { [rule: string]: number } => {
+const countRuleMessages = (reportContent: string, gprPath: string, reportFilePath: string): { [rule: string]: number } => {
     const allowedSourceFiles = Deno.readTextFileSync(join(defaultProjectRoot, gprPath.replace(".gpr", ".units_by_filename"))).split("\n");
     const lines = reportContent.split('\n');
     const ruleCounts: { [rule: string]: number } = {};
     const pathPattern = /^([^:]+):\d+:\d+:\s*(?:Found:\s*)?/;
+    const pathPattern2 = /\[([\w-]+)\]$/;
 
     lines.forEach(line => {
         const match = line.match(pathPattern);
-        if (!match || !allowedSourceFiles.some(s => match[1].endsWith(s))) {
+        const match2 = line.match(pathPattern2);
+        if ((!match && !match2) || !allowedSourceFiles.some(s => (match as RegExpMatchArray)[1].endsWith(s))) {
+            if (line.startsWith("Expected report file")) {
+                const m = line.match(/Expected report file:\s.*\/(.+\.report)/);
+                const newPath = join(dirname(reportFilePath), (m as RegExpMatchArray)[1]);
+                console.info("Aggregate project found: ", newPath);
+                let fileContent = "";
+                try {
+                    fileContent = Deno.readTextFileSync(newPath);
+                } catch (e) {
+                    console.warn(`Skip "${newPath}" due to: ${e.name}`)
+                }
+                if (fileContent.length) {
+                    const newReport = countRuleMessages(fileContent, gprPath, reportFilePath);
+                    for (const [key, value] of Object.entries(newReport)) {
+                        if (!(key in ruleCounts)) {
+                            ruleCounts[key] = 0;
+                        }
+                        ruleCounts[key] += value;
+                    }
+                }
+            }
             return;
         }
 
@@ -335,11 +357,24 @@ const countRuleMessages = (reportContent: string, gprPath: string): { [rule: str
         .replace(":", "")
         .toLocaleLowerCase();
 
+        let rule2 = "";
+
+        if (match2) {
+            rule2 = match2[1].toLocaleLowerCase();
+        }
+
         if (codingRules.includes(rule)) {
             ruleCounts[rule] = (ruleCounts[rule] || 0) + 1;
-        } else if (!alreadyReportedUnknownRule.includes(rule)) {
-            console.warn(`Unknown rule "${rule}"`);
-            alreadyReportedUnknownRule.push(rule);
+        } else if (rule2.length && codingRules.includes(rule2)) {
+            ruleCounts[rule2] = (ruleCounts[rule2] || 0) + 1;
+        } else {
+            if (rule2.length && !alreadyReportedUnknownRule.includes(rule2)) {
+                console.warn(`Unknown rule "${rule2}"`);
+                alreadyReportedUnknownRule.push(rule2);
+            } else if (!alreadyReportedUnknownRule.includes(rule)) {
+                console.warn(`Unknown rule "${rule}"`);
+                alreadyReportedUnknownRule.push(rule);
+            }
         }
     });
 
@@ -376,11 +411,11 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
     };
     reportFiles.map(file => {
         const content = Deno.readTextFileSync(file);
-        const messageCounts = countRuleMessages(content, gprPath);
+        const messageCounts = countRuleMessages(content, gprPath, file);
 
         let foundCounter = 0;
         for (const [rule, count] of Object.entries(messageCounts)) {
-            if (codingRule === "variable_usage" || rule !== "variable_usage") {
+            if ((codingRule === "" && rule !== "variable_usage") || (codingRule === rule)) {
                 // Skip variable usage in total issued message, because it is partially implemented
                 foundCounter += count;
             }
@@ -403,7 +438,7 @@ function aggregateAdaControlResults(alireTomlPath: string, gprPath: string, logP
 }
 
 // Function to aggregate GNATcheck results
-function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, cores: number, logSuffix: string): GNATcheckResult {
+function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPrefixTemplate: string, maxIteration: number, cores: number, logSuffix: string, codingRule: string): GNATcheckResult {
     // Generate log prefix for GNATcheck
     const logPrefix = interpolateLogPrefix(logPrefixTemplate, "gnatcheck", `(${Array.from({ length: maxIteration }, (_, i) => i + 1).join('|')})`, cores, logSuffix);
 
@@ -413,19 +448,30 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
     // Process time data
     const { timesData, count, average, standardDeviation } = processTimeData(timeFiles, gprPath);
 
-    const countGNATcheckMessages = (reportContent: string): number => {
-        const lines = reportContent.split('\n');
-        return lines.filter(line =>
-            line.startsWith('/') &&
-            !line.includes('/adainclude/')
-        ).length;
-    }
-
     // Get number of issued messages by coding rule
     const reportFiles = fg.sync(`${PROJECT_ROOT}/${alireTomlPath}/**/${logPrefix}.report`, { onlyFiles: true }).sort((a, b) => a.localeCompare(b));
-    const issuedMessagesCounts = reportFiles.map(file => {
+
+    const issuedMessages: {
+        allCounts: number[],
+        maxCount: number
+    } = {
+        allCounts: [],
+        maxCount: 0
+    };
+    reportFiles.map(file => {
         const content = Deno.readTextFileSync(file);
-        return countGNATcheckMessages(content);
+        const messageCounts = countRuleMessages(content, gprPath, file);
+
+        let foundCounter = 0;
+        for (const [rule, count] of Object.entries(messageCounts)) {
+            if ((codingRule === "" && rule !== "variable_usage") || (codingRule === rule)) {
+                // Skip variable usage in total issued message, because it is partially implemented
+                foundCounter += count;
+            }
+        }
+
+        issuedMessages.allCounts.push(foundCounter);
+        issuedMessages.maxCount = Math.max(issuedMessages.maxCount, foundCounter);
     });
 
     // Return the results
@@ -435,10 +481,7 @@ function aggregateGNATcheckResults(alireTomlPath: string, gprPath: string, logPr
         nbRuns: timeFiles.length,
         average,
         standardDeviation,
-        issuedMessages: {
-            maxCount: Math.max(...issuedMessagesCounts),
-            allCounts: issuedMessagesCounts
-        }
+        issuedMessages
     };
 }
 
@@ -969,17 +1012,17 @@ function aggregateResults(alireTomlPath: string, gprPath: string, maxIteration: 
 
     const adactl = {
         overhead: { parsing: overhead.adactl },
-        run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "", codingRule)
+        run: aggregateAdaControlResults(alireTomlPath, gprPath, logPrefix, maxIteration, "", codingRule || "")
     };
 
     const gnatcheck_1cores = {
         overhead: { parsing: overhead.gnatcheck1 },
-        run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "")
+        run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 1, "", codingRule || "")
     };
 
     const gnatcheck_32cores = {
         overhead: { parsing: overhead.gnatcheck32 },
-        run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "")
+        run: aggregateGNATcheckResults(alireTomlPath, gprPath, logPrefix, maxIteration, 32, "", codingRule || "")
     }
 
     const cogralys = aggregateCogralysResults(alireTomlPath, gprPath, logPrefixWithoutRuleSuffix.replace("-j$max_procs", "$logSuffix"), maxIteration, overheadTreashold, codingRule);
