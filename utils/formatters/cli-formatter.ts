@@ -1,3 +1,4 @@
+import { Table } from "https://deno.land/x/cliffy@v1.0.0-rc.4/table/mod.ts";
 import { formatNumber } from "../utils.ts";
 import { FormatProvider, TableCell } from './formatters-interface.ts';
 
@@ -32,21 +33,22 @@ export class CLIFormatter implements FormatProvider {
                 ...value
             }));
 
-        // Create header row
-        const header = `| ${columns.map(col => col.name).join(' | ')} |`;
+        const header = columns.map(col => col.name);
 
-        // Create separator row
-        const separator = `|${columns.map(() => '---').join('|')}|`;
-
-        // Create data rows
-        const rows = arrayData.map(row =>
-            `| ${columns.map(col => {
+        const rows = arrayData.map(row => {
+            return columns.map(col => {
                 const value = row[col.key];
                 return col.format ? col.format(value) : value;
-            }).join(' | ')} |`
-        ).join('\n');
+            })
+        });
 
-        return [header, separator, rows].join('\n') + "\n";
+        return new Table()
+            .header(header)
+            .body(rows)
+            .padding(1)
+            .indent(2)
+            .border()
+            .toString();
     }
 
     // Format metrics as key-value pairs
