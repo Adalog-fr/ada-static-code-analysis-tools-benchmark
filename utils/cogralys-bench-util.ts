@@ -24,6 +24,7 @@ import * as deleteBenchmarkLogs from "./modules/deleteBenchmarkLogs.ts";
 import * as importMetrics from "./modules/importMetrics.ts";
 import * as generateImportReport from "./modules/generateImportReport.ts";
 import * as generateCvReports from "./modules/generateCvReports.ts";
+import * as generateIssuedMessageReport from "./modules/issuedMessageReport.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -142,5 +143,6 @@ deleteBenchmarkLogs.initializeModule(program);
 importMetrics.initializeModule(program);
 generateImportReport.initializeModule(program);
 generateCvReports.initializeModule(program);
+generateIssuedMessageReport.initializeModule(program);
 
 program.parse(Deno.args);
