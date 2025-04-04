@@ -144,7 +144,7 @@ interface ImportAnalysis {
     stdLibImports: number;
     gnatImports: number;
     systemImports: number;
-    incerfaceImports: number;
+    interfaceImports: number;
     customImports: number;
     stdLibRatio: number;
     categorizedImports: Record<string, number>;
@@ -246,7 +246,7 @@ export class PerformanceAnalyzer {
         const allImports = [...new Set(withUnits)];
 
         const gnatImports = allImports.filter(unit => unit.startsWith("gnat"));
-        const incerfaceImports = allImports.filter(unit => unit.startsWith("interfaces"));
+        const interfaceImports = allImports.filter(unit => unit.startsWith("interfaces"));
         const systemImports = allImports.filter(unit => unit.startsWith("system"));
         const stdLibImports = allImports.filter(unit => unit.startsWith("ada."));
         const customImports = allImports.filter(unit =>
@@ -271,11 +271,11 @@ export class PerformanceAnalyzer {
             stdLibImports: stdLibImports.length,
             gnatImports: gnatImports.length,
             systemImports: systemImports.length,
-            incerfaceImports: incerfaceImports.length,
+            interfaceImports: interfaceImports.length,
             customImports: customImports.length,
             stdLibRatio: allImports.length ? stdLibImports.length / allImports.length : 0,
             categorizedImports,
-            nonCustomImports: [...gnatImports, ...incerfaceImports, ...systemImports, ...stdLibImports]
+            nonCustomImports: [...gnatImports, ...interfaceImports, ...systemImports, ...stdLibImports]
         };
     }
 
@@ -494,7 +494,7 @@ export class PerformanceAnalyzer {
             { name: "Total imports", getValue: (p: ProjectAnalysis) => p.imports.totalImports },
             { name: "Ada imports", getValue: (p: ProjectAnalysis) => p.imports.stdLibImports },
             { name: "GNAT imports", getValue: (p: ProjectAnalysis) => p.imports.gnatImports },
-            { name: "Interface imports", getValue: (p: ProjectAnalysis) => p.imports.incerfaceImports },
+            { name: "Interface imports", getValue: (p: ProjectAnalysis) => p.imports.interfaceImports },
             { name: "System imports", getValue: (p: ProjectAnalysis) => p.imports.systemImports },
             { name: "Custom imports", getValue: (p: ProjectAnalysis) => p.imports.customImports },
             ...this.stdLibCategories.map(category => ({
@@ -578,7 +578,7 @@ export class PerformanceAnalyzer {
                 { category: "Standard Ada", count: `${formatNumber(calcAvg(p => p.imports.stdLibImports), 2)} (${(calcAvg(p => p.imports.stdLibRatio) * 100).toFixed(1)}%)` },
                 { category: "GNAT", count: formatNumber(calcAvg(p => p.imports.gnatImports), 2) },
                 { category: "System", count: formatNumber(calcAvg(p => p.imports.systemImports), 2) },
-                { category: "Interface", count: formatNumber(calcAvg(p => p.imports.incerfaceImports), 2) },
+                { category: "Interface", count: formatNumber(calcAvg(p => p.imports.interfaceImports), 2) },
                 { category: "Custom", count: formatNumber(calcAvg(p => p.imports.customImports), 2) }
             ]
         ));
