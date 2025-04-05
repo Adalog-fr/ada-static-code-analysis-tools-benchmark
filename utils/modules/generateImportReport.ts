@@ -612,38 +612,63 @@ export class PerformanceAnalyzer {
         output.push("Comparing metrics between normal (C1) and fast (C2) projects.\n");
         
         // Complexity comparison
+        const computeGlobalLocVsFilesRatio = (projects: ProjectAnalysis[]): number => {
+            let nbLoc = 0;
+            let nbFiles = 0;
+            for (const project of projects) {
+                nbLoc += project.loc;
+                nbFiles += project.nbFiles;
+            }
+            return nbLoc / nbFiles;
+        };
+            
         output.push(exporter.addTitle("Complexity Metrics", 3));
         output.push(exporter.formatTable(
             [
-                { name: "Category", key: "category", align: "left" },
-                { name: "Count", key: "count", align: "right" },
-                { name: "Avg. LoC", key: "loc", align: "right" },
-                { name: "Avg. Files", key: "nbFiles", align: "right" },
-                { name: "Avg. LoC/Files", key: "locVsNbFilesRatio", align: "right" },
-                { name: "Avg. Complexity", key: "complexity", align: "right" },
-                { name: "Avg. AdaControl Time", key: "adactlTime", align: "right" },
-                { name: "Avg. GNATcheck Time", key: "gnatcTime", align: "right" }
+                { name: "Metric", key: "metric", align: "left" },
+                { name: "C1 (Normal)", key: "c1", align: "right" },
+                { name: "C2 (Fast)", key: "c2", align: "right" }
             ],
             [
                 { 
-                    category: "C1 (Normal)", 
-                    count: formatNumber(c1Projects.length),
-                    loc: formatNumber(calcAvg(c1Projects, p => p.loc), 2),
-                    nbFiles: formatNumber(calcAvg(c1Projects, p => p.nbFiles), 2),
-                    locVsNbFilesRatio: formatNumber(calcAvg(c1Projects, p => p.locVsNbFilesRatio), 2),
-                    complexity: formatNumber(calcAvg(c1Projects, p => p.complexity), 2),
-                    adactlTime: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['adactl']), 3)}s`,
-                    gnatcTime: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                    metric: "Projects", 
+                    c1: formatNumber(c1Projects.length),
+                    c2: formatNumber(c2Projects.length)
                 },
                 { 
-                    category: "C2 (Fast)", 
-                    count: formatNumber(c2Projects.length),
-                    loc: formatNumber(calcAvg(c2Projects, p => p.loc), 2),
-                    nbFiles: formatNumber(calcAvg(c2Projects, p => p.nbFiles), 2),
-                    locVsNbFilesRatio: formatNumber(calcAvg(c2Projects, p => p.locVsNbFilesRatio), 2),
-                    complexity: formatNumber(calcAvg(c2Projects, p => p.complexity), 2),
-                    adactlTime: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['adactl']), 3)}s`,
-                    gnatcTime: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                    metric: "Avg. LoC", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.loc), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.loc), 2)
+                },
+                { 
+                    metric: "Avg. Files", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.nbFiles), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.nbFiles), 2)
+                },
+                { 
+                    metric: "Avg. LoC/Files (Global)", 
+                    c1: formatNumber(computeGlobalLocVsFilesRatio(c1Projects), 2),
+                    c2: formatNumber(computeGlobalLocVsFilesRatio(c2Projects), 2)
+                },
+                { 
+                    metric: "Avg. LoC/Files (Computed by project)", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.locVsNbFilesRatio), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.locVsNbFilesRatio), 2)
+                },
+                { 
+                    metric: "Avg. Complexity", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.complexity), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.complexity), 2)
+                },
+                { 
+                    metric: "Avg. AdaControl Time", 
+                    c1: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['adactl']), 3)}s`,
+                    c2: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['adactl']), 3)}s`
+                },
+                { 
+                    metric: "Avg. GNATcheck Time", 
+                    c1: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`,
+                    c2: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
                 }
             ],
             "Average complexity metrics by category"
