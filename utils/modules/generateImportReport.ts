@@ -122,6 +122,8 @@ interface ProjectAnalysis {
     workDir: string;
     gprPath: string;
     loc: number;
+    nbFiles: number;
+    locVsNbFilesRatio: number;
     complexity: number;
     analysisTime: {
         adactl: number;
@@ -285,6 +287,8 @@ export class PerformanceAnalyzer {
             workDir: result.workDir,
             gprPath: result.gprPath,
             loc: result.scc.Code,
+            locVsNbFilesRatio: result.scc.Code / result.scc.Count,
+            nbFiles: result.scc.Count,
             complexity: result.scc.Complexity,
             analysisTime: {
                 adactl: result.benchmarkResults.adactl.digestTime.analysisTime,
@@ -310,6 +314,8 @@ export class PerformanceAnalyzer {
             workDir: p.workDir,
             gprPath: p.gprPath,
             loc: p.loc,
+            nbFiles: p.nbFiles,
+            locVsNbFilesRatio: p.locVsNbFilesRatio,
             complexity: p.complexity,
             analysisTime: p.analysisTime[tool],
             maxIssuedMessages: p.maxIssuedMessages[tool],
@@ -461,6 +467,8 @@ export class PerformanceAnalyzer {
             [
                 { name: "Cluster", key: "cluster", align: "left" },
                 { name: "Avg. LoC", key: "loc", align: "right" },
+                { name: "Avg. Files", key: "nbFiles", align: "right" },
+                { name: "Avg. LoC/Files", key: "locVsNbFilesRatio", align: "right" },
                 { name: "Avg. Complexity", key: "complexity", align: "right" },
                 { name: "Avg. AdaControl Time", key: "adactlTime", align: "right" },
                 { name: "Avg. GNATcheck Time", key: "gnatcTime", align: "right" }
@@ -469,6 +477,8 @@ export class PerformanceAnalyzer {
                 { 
                     cluster: "C1 (Normal) for both tools", 
                     loc: formatNumber(calcAvg(bothNormalProjects, p => p.loc), 2),
+                    nbFiles: formatNumber(calcAvg(bothNormalProjects, p => p.nbFiles), 2),
+                    locVsNbFilesRatio: formatNumber(calcAvg(bothNormalProjects, p => p.locVsNbFilesRatio), 2),
                     complexity: formatNumber(calcAvg(bothNormalProjects, p => p.complexity), 2),
                     adactlTime: `${formatNumber(calcAvg(bothNormalProjects, p => p.analysisTime['adactl']), 3)}s`,
                     gnatcTime: `${formatNumber(calcAvg(bothNormalProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
@@ -476,6 +486,8 @@ export class PerformanceAnalyzer {
                 { 
                     cluster: "C1 for AdaControl, C2 for GNATcheck", 
                     loc: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.loc), 2),
+                    nbFiles: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.nbFiles), 2),
+                    locVsNbFilesRatio: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.locVsNbFilesRatio), 2),
                     complexity: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.complexity), 2),
                     adactlTime: `${formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.analysisTime['adactl']), 3)}s`,
                     gnatcTime: `${formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
@@ -483,6 +495,8 @@ export class PerformanceAnalyzer {
                 { 
                     cluster: "C2 for AdaControl, C1 for GNATcheck", 
                     loc: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.loc), 2),
+                    nbFiles: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.nbFiles), 2),
+                    locVsNbFilesRatio: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.locVsNbFilesRatio), 2),
                     complexity: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.complexity), 2),
                     adactlTime: `${formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.analysisTime['adactl']), 3)}s`,
                     gnatcTime: `${formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
@@ -490,6 +504,8 @@ export class PerformanceAnalyzer {
                 { 
                     cluster: "C2 (Fast) for both tools", 
                     loc: formatNumber(calcAvg(bothFastProjects, p => p.loc), 2),
+                    nbFiles: formatNumber(calcAvg(bothFastProjects, p => p.nbFiles), 2),
+                    locVsNbFilesRatio: formatNumber(calcAvg(bothFastProjects, p => p.locVsNbFilesRatio), 2),
                     complexity: formatNumber(calcAvg(bothFastProjects, p => p.complexity), 2),
                     adactlTime: `${formatNumber(calcAvg(bothFastProjects, p => p.analysisTime['adactl']), 3)}s`,
                     gnatcTime: `${formatNumber(calcAvg(bothFastProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
@@ -602,6 +618,8 @@ export class PerformanceAnalyzer {
                 { name: "Category", key: "category", align: "left" },
                 { name: "Count", key: "count", align: "right" },
                 { name: "Avg. LoC", key: "loc", align: "right" },
+                { name: "Avg. Files", key: "nbFiles", align: "right" },
+                { name: "Avg. LoC/Files", key: "locVsNbFilesRatio", align: "right" },
                 { name: "Avg. Complexity", key: "complexity", align: "right" },
                 { name: "Avg. AdaControl Time", key: "adactlTime", align: "right" },
                 { name: "Avg. GNATcheck Time", key: "gnatcTime", align: "right" }
@@ -611,6 +629,8 @@ export class PerformanceAnalyzer {
                     category: "C1 (Normal)", 
                     count: formatNumber(c1Projects.length),
                     loc: formatNumber(calcAvg(c1Projects, p => p.loc), 2),
+                    nbFiles: formatNumber(calcAvg(c1Projects, p => p.nbFiles), 2),
+                    locVsNbFilesRatio: formatNumber(calcAvg(c1Projects, p => p.locVsNbFilesRatio), 2),
                     complexity: formatNumber(calcAvg(c1Projects, p => p.complexity), 2),
                     adactlTime: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['adactl']), 3)}s`,
                     gnatcTime: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
@@ -619,6 +639,8 @@ export class PerformanceAnalyzer {
                     category: "C2 (Fast)", 
                     count: formatNumber(c2Projects.length),
                     loc: formatNumber(calcAvg(c2Projects, p => p.loc), 2),
+                    nbFiles: formatNumber(calcAvg(c2Projects, p => p.nbFiles), 2),
+                    locVsNbFilesRatio: formatNumber(calcAvg(c2Projects, p => p.locVsNbFilesRatio), 2),
                     complexity: formatNumber(calcAvg(c2Projects, p => p.complexity), 2),
                     adactlTime: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['adactl']), 3)}s`,
                     gnatcTime: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
@@ -757,6 +779,8 @@ export class PerformanceAnalyzer {
         // Calculate and add correlations
         const metrics = [
             { name: "LoC", getValue: (p: ProjectAnalysis) => p.loc },
+            { name: "Number of Files", getValue: (p: ProjectAnalysis) => p.nbFiles },
+            { name: "LoC / Files Ratio", getValue: (p: ProjectAnalysis) => p.locVsNbFilesRatio },
             { name: "Complexity", getValue: (p: ProjectAnalysis) => p.complexity },
             { name: "Total imports", getValue: (p: ProjectAnalysis) => p.imports.totalImports },
             { name: "Ada imports", getValue: (p: ProjectAnalysis) => p.imports.stdLibImports },
@@ -828,6 +852,8 @@ export class PerformanceAnalyzer {
             [
                 { metric: "Number of projects", value: formatNumber(projects.length) },
                 { metric: "Average LoC", value: formatNumber(calcAvg(p => p.loc), 2) },
+                { metric: "Average number of files", value: formatNumber(calcAvg(p => p.nbFiles), 2) },
+                { metric: "Average LoC/Files ratio", value: formatNumber(calcAvg(p => p.locVsNbFilesRatio), 2) },
                 { metric: "Average complexity", value: formatNumber(calcAvg(p => p.complexity), 2) },
                 { metric: "Average analysis time (" + tool + ")", value: `${formatNumber(calcAvg(p => p.analysisTime[tool]), 3)}s` }
             ]
