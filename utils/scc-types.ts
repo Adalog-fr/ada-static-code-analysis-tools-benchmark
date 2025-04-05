@@ -91,6 +91,9 @@ export interface LanguageSummary {
     Comment: number;
     Blank: number;
     Complexity: number;
+    /**
+     * Number of files
+     */
     Count: number;
     WeightedComplexity: number;
     Files: FileJob[];
