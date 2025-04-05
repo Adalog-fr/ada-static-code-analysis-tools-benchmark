@@ -1,4 +1,4 @@
-#import "@preview/hydra:0.5.1": hydra
+#import "@preview/hydra:0.6.0": hydra
 #import "titlepage.typ": *
 
 // ----- Main Template Function: `basic-report` ----------------------
@@ -11,6 +11,7 @@
   logo: none,
   logo2: none,
   language: "en",
+  show-outline: true,
   body,
 ) = {
 
@@ -52,9 +53,9 @@
   )
 
   set par(
+    justify: true,
     leading: 0.65em,
     spacing: 1.65em,
-    justify: true,
     first-line-indent: 0em,
   )
 
@@ -117,29 +118,60 @@
  
   // top-level TOC entries in bold without filling
   show outline.entry.where(level: 1): it => {
-    v(2 * body-size, weak: true)
+    set block(above: 2 * body-size)
     set text(font: heading-font, weight: "bold", size: info-size)
-    it.body
-    box(width: 1fr,)
-    strong(it.page)
+    link(
+      it.element.location(),    // make entry linkable
+      it.indented(it.prefix(), it.body() + box(width: 1fr,) +  it.page())
+    )
   }
-
-  // TO-DO: https://forum.typst.app/t/how-to-customize-outline-entry-filling-per-level/1211/2?u=roland_schatzle --> toc entries as links
 
   // other TOC entries in regular with adapted filling
   show outline.entry.where(level: 2).or(outline.entry.where(level: 3)): it => {
+    set block(above: body-size)
     set text(font: heading-font, size: info-size)
-    it.body + "  "
-    box(width: 1fr, repeat([.], gap: 2pt))
-    "  " + it.page
+    link(
+      it.element.location(),  // make entry linkable
+      it.indented(
+          it.prefix(),
+          it.body() + "  " +
+            box(width: 1fr, repeat([.], gap: 2pt)) +
+            "  " + it.page()
+      )
+    )
   }
 
-  outline(
-    title: "Contents",          // TO-DO: internationalization
-    indent: auto,
-  )
+  if show-outline {
+    outline(
+      title: if language == "de" { 
+        "Inhalt"
+      } else if language == "fr" {
+        "Table des matières"
+      } else if language == "es" {
+        "Contenido"
+      } else if language == "it" {
+        "Indice"
+      } else if language == "pt" {
+        "Índice"
+      } else if language == "zh" {
+        "目录"
+      } else if language == "ja" {
+        "目次"
+      } else if language == "ru" {
+        "Содержание"
+      } else if language == "ar" {
+        "المحتويات"
+      } else {
+        "Contents"
+      },
+      indent: auto,
+    )
+    counter(page).update(0)     // so the first chapter starts at page 1 (now in arabic numbers)
+  } else {
+    in-outline.update(false)    // even if outline is not shown, we want to continue with arabic page numbers
+    counter(page).update(1)
+  }
 
-  counter(page).update(0)     // so the first chapter starts at page 1 (now in arabic numbers)
   pagebreak()
 
   // ----- Body Text ------------------------
