@@ -784,6 +784,81 @@ export class PerformanceAnalyzer {
             })),
             "Average standard library imports by category"
         ));
+        
+        // Add unique imports subsection for C1 vs C2 comparison
+        output.push(exporter.addTitle("Unique Imports Between C1 and C2", 3));
+        output.push("Comparing non-custom imports that are unique to C1 (Normal) vs C2 (Fast) projects:\n");
+        
+        // Get all non-custom imports for each category
+        const c1Imports = [...new Set(c1Projects.flatMap(p => p.imports.nonCustomImports))].sort();
+        const c2Imports = [...new Set(c2Projects.flatMap(p => p.imports.nonCustomImports))].sort();
+        
+        // Calculate unique imports for each category
+        const uniqueC1Imports = c1Imports.filter(imp => !c2Imports.includes(imp));
+        const uniqueC2Imports = c2Imports.filter(imp => !c1Imports.includes(imp));
+        
+        // Display unique imports for each category
+        if (uniqueC1Imports.length > 0) {
+            output.push(exporter.addTitle("Unique to C1 (Normal) projects", 4));
+            output.push(exporter.codeBlock(uniqueC1Imports.join('\n')));
+        }
+        
+        if (uniqueC2Imports.length > 0) {
+            output.push(exporter.addTitle("Unique to C2 (Fast) projects", 4));
+            output.push(exporter.codeBlock(uniqueC2Imports.join('\n')));
+        }
+        
+        // Add unique imports subsection
+        output.push(exporter.addTitle("Unique Standard/GNAT/Interface/System Imports", 3));
+        output.push("Comparing non-custom imports that are unique to each cluster:\n");
+        
+        // Get all non-custom imports for each cluster
+        const bothNormalImports = [...new Set(bothNormalProjects.flatMap(p => p.imports.nonCustomImports))].sort();
+        const adacNormalGnatcFastImports = [...new Set(adacNormalGnatcFastProjects.flatMap(p => p.imports.nonCustomImports))].sort();
+        const adacFastGnatcNormalImports = [...new Set(adacFastGnatcNormalProjects.flatMap(p => p.imports.nonCustomImports))].sort();
+        const bothFastImports = [...new Set(bothFastProjects.flatMap(p => p.imports.nonCustomImports))].sort();
+        
+        // Calculate unique imports for each cluster
+        const uniqueBothNormal = bothNormalImports.filter(imp => 
+            !adacNormalGnatcFastImports.includes(imp) && 
+            !adacFastGnatcNormalImports.includes(imp) && 
+            !bothFastImports.includes(imp));
+            
+        const uniqueAdacNormalGnatcFast = adacNormalGnatcFastImports.filter(imp => 
+            !bothNormalImports.includes(imp) && 
+            !adacFastGnatcNormalImports.includes(imp) && 
+            !bothFastImports.includes(imp));
+            
+        const uniqueAdacFastGnatcNormal = adacFastGnatcNormalImports.filter(imp => 
+            !bothNormalImports.includes(imp) && 
+            !adacNormalGnatcFastImports.includes(imp) && 
+            !bothFastImports.includes(imp));
+            
+        const uniqueBothFast = bothFastImports.filter(imp => 
+            !bothNormalImports.includes(imp) && 
+            !adacNormalGnatcFastImports.includes(imp) && 
+            !adacFastGnatcNormalImports.includes(imp));
+        
+        // Display unique imports for each cluster
+        if (uniqueBothNormal.length > 0) {
+            output.push(exporter.addTitle("Unique to C1 (Normal) for both tools", 4));
+            output.push(exporter.codeBlock(uniqueBothNormal.join('\n')));
+        }
+        
+        if (uniqueAdacNormalGnatcFast.length > 0) {
+            output.push(exporter.addTitle("Unique to C1 for AdaControl, C2 for GNATcheck", 4));
+            output.push(exporter.codeBlock(uniqueAdacNormalGnatcFast.join('\n')));
+        }
+        
+        if (uniqueAdacFastGnatcNormal.length > 0) {
+            output.push(exporter.addTitle("Unique to C2 for AdaControl, C1 for GNATcheck", 4));
+            output.push(exporter.codeBlock(uniqueAdacFastGnatcNormal.join('\n')));
+        }
+        
+        if (uniqueBothFast.length > 0) {
+            output.push(exporter.addTitle("Unique to C2 (Fast) for both tools", 4));
+            output.push(exporter.codeBlock(uniqueBothFast.join('\n')));
+        }
 
         output.push(exporter.addTitle("List of project by distribution", 2));
 
