@@ -363,6 +363,9 @@ export class PerformanceAnalyzer {
         const adacFastGnatcNormalTable: string[] = [];
         const bothFastTable: string[] = [];
 
+        const c1Projects: ProjectAnalysis[] = [];
+        const c2Projects: ProjectAnalysis[] = [];
+        
         analysedProjects.forEach(project => {
             const isAdacFast = isFastProject(project, 'adactl');
             const isGnatcFast = isFastProject(project, 'gnatcheck_1cores');
@@ -371,21 +374,33 @@ export class PerformanceAnalyzer {
                 bothNormal++;
                 bothNormalProjects.push(project);
                 bothNormalTable.push(project.gprPath);
+                c1Projects.push(project);
             }
             else if (!isAdacFast && isGnatcFast) {
                 adacNormalGnatcFast++;
                 adacNormalGnatcFastProjects.push(project);
                 adacNormalGnatcFastTable.push(project.gprPath);
+
+                const c1Project = { ...project, analysisTime: { ...project.analysisTime, gnatcheck_1cores: 0, gnatcheck_32cores: 0 }, maxIssuedMessages: { ...project.maxIssuedMessages, gnatcheck_1cores: 0, gnatcheck_32cores: 0 } };
+                c1Projects.push(c1Project);
+                const c2Project = { ...project, analysisTime: { ...project.analysisTime, adactl: 0 }, maxIssuedMessages: { ...project.maxIssuedMessages, adactl: 0 } };
+                c2Projects.push(c2Project);
             }
             else if (isAdacFast && !isGnatcFast) {
                 adacFastGnatcNormal++;
                 adacFastGnatcNormalProjects.push(project);
                 adacFastGnatcNormalTable.push(project.gprPath);
+
+                const c1Project = { ...project, analysisTime: { ...project.analysisTime, adactl: 0 }, maxIssuedMessages: { ...project.maxIssuedMessages, adactl: 0 } };
+                c1Projects.push(c1Project);
+                const c2Project = { ...project, analysisTime: { ...project.analysisTime, gnatcheck_1cores: 0, gnatcheck_32cores: 0 }, maxIssuedMessages: { ...project.maxIssuedMessages, gnatcheck_1cores: 0, gnatcheck_32cores: 0 } };
+                c2Projects.push(c2Project);
             }
             else {
                 bothFast++;
                 bothFastProjects.push(project);
                 bothFastTable.push(project.gprPath);
+                c2Projects.push(project);
             }
         });
 
@@ -574,6 +589,104 @@ export class PerformanceAnalyzer {
             categoryColumns,
             categoryRows,
             "Average standard library imports by category and cluster"
+        ));
+                                              
+        // C1 vs C2 comparison section
+        output.push(exporter.addTitle("C1 (Normal) vs C2 (Fast) Comparison", 2));
+        output.push("Comparing metrics between normal (C1) and fast (C2) projects.\n");
+        
+        // Complexity comparison
+        output.push(exporter.addTitle("Complexity Metrics", 3));
+        output.push(exporter.formatTable(
+            [
+                { name: "Category", key: "category", align: "left" },
+                { name: "Count", key: "count", align: "right" },
+                { name: "Avg. LoC", key: "loc", align: "right" },
+                { name: "Avg. Complexity", key: "complexity", align: "right" },
+                { name: "Avg. AdaControl Time", key: "adactlTime", align: "right" },
+                { name: "Avg. GNATcheck Time", key: "gnatcTime", align: "right" }
+            ],
+            [
+                { 
+                    category: "C1 (Normal)", 
+                    count: formatNumber(c1Projects.length),
+                    loc: formatNumber(calcAvg(c1Projects, p => p.loc), 2),
+                    complexity: formatNumber(calcAvg(c1Projects, p => p.complexity), 2),
+                    adactlTime: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['adactl']), 3)}s`,
+                    gnatcTime: `${formatNumber(calcAvg(c1Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                },
+                { 
+                    category: "C2 (Fast)", 
+                    count: formatNumber(c2Projects.length),
+                    loc: formatNumber(calcAvg(c2Projects, p => p.loc), 2),
+                    complexity: formatNumber(calcAvg(c2Projects, p => p.complexity), 2),
+                    adactlTime: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['adactl']), 3)}s`,
+                    gnatcTime: `${formatNumber(calcAvg(c2Projects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                }
+            ],
+            "Average complexity metrics by category"
+        ));
+        
+        // Import metrics comparison
+        output.push(exporter.addTitle("Import Metrics", 3));
+        output.push(exporter.formatTable(
+            [
+                { name: "Category", key: "category", align: "left" },
+                { name: "Total Imports", key: "total", align: "right" },
+                { name: "Std. Ada", key: "std", align: "right" },
+                { name: "GNAT", key: "gnat", align: "right" },
+                { name: "System", key: "sys", align: "right" },
+                { name: "Custom", key: "custom", align: "right" }
+            ],
+            [
+                { 
+                    category: "C1 (Normal)", 
+                    total: formatNumber(calcAvg(c1Projects, p => p.imports.totalImports), 2),
+                    std: formatNumber(calcAvg(c1Projects, p => p.imports.stdLibImports), 2),
+                    gnat: formatNumber(calcAvg(c1Projects, p => p.imports.gnatImports), 2),
+                    sys: formatNumber(calcAvg(c1Projects, p => p.imports.systemImports), 2),
+                    custom: formatNumber(calcAvg(c1Projects, p => p.imports.customImports), 2)
+                },
+                { 
+                    category: "C2 (Fast)", 
+                    total: formatNumber(calcAvg(c2Projects, p => p.imports.totalImports), 2),
+                    std: formatNumber(calcAvg(c2Projects, p => p.imports.stdLibImports), 2),
+                    gnat: formatNumber(calcAvg(c2Projects, p => p.imports.gnatImports), 2),
+                    sys: formatNumber(calcAvg(c2Projects, p => p.imports.systemImports), 2),
+                    custom: formatNumber(calcAvg(c2Projects, p => p.imports.customImports), 2)
+                }
+            ],
+            "Average import metrics by category"
+        ));
+        
+        // Import categories comparison
+        const c1c2CategoryColumns = [
+            { name: "Category", key: "category", align: "left" as const },
+            ...categoryNames.map(name => ({ name: name, key: name, align: "right" as const }))
+        ];
+        
+        const c1c2CategoryRows = [
+            { 
+                category: "C1 (Normal)",
+                ...Object.fromEntries(categoryNames.map(cat => [
+                    cat, 
+                    formatNumber(calcAvg(c1Projects, p => p.imports.categorizedImports[cat] || 0), 2)
+                ]))
+            },
+            { 
+                category: "C2 (Fast)", 
+                ...Object.fromEntries(categoryNames.map(cat => [
+                    cat, 
+                    formatNumber(calcAvg(c2Projects, p => p.imports.categorizedImports[cat] || 0), 2)
+                ]))
+            }
+        ];
+        
+        output.push(exporter.addTitle("Standard Library Categories", 3));
+        output.push(exporter.formatTable(
+            c1c2CategoryColumns,
+            c1c2CategoryRows,
+            "Average standard library imports by category"
         ));
 
         output.push(exporter.addTitle("List of project by distribution", 2));
