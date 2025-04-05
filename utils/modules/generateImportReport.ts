@@ -3,7 +3,7 @@ import { join } from "@std/path/join";
 import { ensureDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { BenchmarkResultDB, toolKey, ToolKeyType } from "../types.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
-import { OutputFormat, OutputFormatType } from "../formatters/formatters-interface.ts";
+import { OutputFormat, OutputFormatType, TableAlignType } from "../formatters/formatters-interface.ts";
 import { formatNumber } from "../utils.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
@@ -232,7 +232,7 @@ export class PerformanceAnalyzer {
             ]
         },
         {
-            name: "system_interface",
+            name: "system interface",
             patterns: [
                 "ada.command_line",
                 "ada.directories",
@@ -678,61 +678,55 @@ export class PerformanceAnalyzer {
         output.push(exporter.addTitle("Import Metrics", 3));
         output.push(exporter.formatTable(
             [
-                { name: "Category", key: "category", align: "left" },
-                { name: "Total Imports", key: "total", align: "right" },
-                { name: "Std. Ada", key: "std", align: "right" },
-                { name: "GNAT", key: "gnat", align: "right" },
-                { name: "System", key: "sys", align: "right" },
-                { name: "Custom", key: "custom", align: "right" }
+                { name: "Import Type", key: "type", align: "left" },
+                { name: "C1 (Normal)", key: "c1", align: "right" },
+                { name: "C2 (Fast)", key: "c2", align: "right" }
             ],
             [
                 { 
-                    category: "C1 (Normal)", 
-                    total: formatNumber(calcAvg(c1Projects, p => p.imports.totalImports), 2),
-                    std: formatNumber(calcAvg(c1Projects, p => p.imports.stdLibImports), 2),
-                    gnat: formatNumber(calcAvg(c1Projects, p => p.imports.gnatImports), 2),
-                    sys: formatNumber(calcAvg(c1Projects, p => p.imports.systemImports), 2),
-                    custom: formatNumber(calcAvg(c1Projects, p => p.imports.customImports), 2)
+                    type: "Total Imports", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.imports.totalImports), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.imports.totalImports), 2)
                 },
                 { 
-                    category: "C2 (Fast)", 
-                    total: formatNumber(calcAvg(c2Projects, p => p.imports.totalImports), 2),
-                    std: formatNumber(calcAvg(c2Projects, p => p.imports.stdLibImports), 2),
-                    gnat: formatNumber(calcAvg(c2Projects, p => p.imports.gnatImports), 2),
-                    sys: formatNumber(calcAvg(c2Projects, p => p.imports.systemImports), 2),
-                    custom: formatNumber(calcAvg(c2Projects, p => p.imports.customImports), 2)
+                    type: "Std. Ada", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.imports.stdLibImports), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.imports.stdLibImports), 2)
+                },
+                { 
+                    type: "GNAT", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.imports.gnatImports), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.imports.gnatImports), 2)
+                },
+                { 
+                    type: "System", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.imports.systemImports), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.imports.systemImports), 2)
+                },
+                { 
+                    type: "Custom", 
+                    c1: formatNumber(calcAvg(c1Projects, p => p.imports.customImports), 2),
+                    c2: formatNumber(calcAvg(c2Projects, p => p.imports.customImports), 2)
                 }
             ],
             "Average import metrics by category"
         ));
         
         // Import categories comparison
-        const c1c2CategoryColumns = [
-            { name: "Category", key: "category", align: "left" as const },
-            ...categoryNames.map(name => ({ name: name, key: name, align: "right" as const }))
-        ];
-        
-        const c1c2CategoryRows = [
-            { 
-                category: "C1 (Normal)",
-                ...Object.fromEntries(categoryNames.map(cat => [
-                    cat, 
-                    formatNumber(calcAvg(c1Projects, p => p.imports.categorizedImports[cat] || 0), 2)
-                ]))
-            },
-            { 
-                category: "C2 (Fast)", 
-                ...Object.fromEntries(categoryNames.map(cat => [
-                    cat, 
-                    formatNumber(calcAvg(c2Projects, p => p.imports.categorizedImports[cat] || 0), 2)
-                ]))
-            }
-        ];
-        
         output.push(exporter.addTitle("Standard Library Categories", 3));
+        
+        // Create transposed table (categories as rows, C1/C2 as columns)        
         output.push(exporter.formatTable(
-            c1c2CategoryColumns,
-            c1c2CategoryRows,
+            [
+                { name: "Category", key: "category", align: "left" },
+                { name: "C1 (Normal)", key: "c1", align: "right" },
+                { name: "C2 (Fast)", key: "c2", align: "right" }
+            ],
+            categoryNames.map(category => ({
+                category: category,
+                c1: formatNumber(calcAvg(c1Projects, p => p.imports.categorizedImports[category] || 0), 2),
+                c2: formatNumber(calcAvg(c2Projects, p => p.imports.categorizedImports[category] || 0), 2)
+            })),
             "Average standard library imports by category"
         ));
 
