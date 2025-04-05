@@ -1,5 +1,35 @@
 import { formatNumber } from "../utils.ts";
 import { FormatProvider, TableCell } from './formatters-interface.ts';
+import { tex2typst } from "npm:tex2typst@0.3.1";
+
+export const customTexMacros = {
+    "\\RR": "\\mathbb{R}",
+    "\\NN": "\\mathbb{N}",
+    "\\ZZ": "\\mathbb{Z}",
+    "\\QQ": "\\mathbb{Q}",
+    "\\CC": "\\mathbb{C}",
+    "\\sech": "\\operatorname{sech}",
+    "\\csch": "\\operatorname{csch}",
+    "\\dim": "\\operatorname{dim}",
+    "\\id": "\\operatorname{id}",
+    "\\im": "\\operatorname{im}",
+    "\\Pr": "\\operatorname{Pr}",
+};
+
+// @param input: string of TeX math formula code. 
+export function convertTex2Typst(input, options = {}) {
+    const opt = {
+        nonStrict: true,
+        preferTypstIntrinsic: true,
+        customTexMacros: customTexMacros,
+    };
+    Object.assign(opt, options);
+    let res = tex2typst(input, opt);
+    res = res.replaceAll("upright(d)", "dif"); // \mathrm{d} -> dif
+    res = res.replaceAll(" thin dif", " dif");
+    res = res.replaceAll('op("d")', "dif"); // \operatorname("d") -> dif
+    return res;
+}
 
 // Implementation of FormatProvider for Typst output
 export class TypstFormatter implements FormatProvider {
@@ -132,5 +162,10 @@ export class TypstFormatter implements FormatProvider {
         } else {
             return value;
         }
+    }
+
+    // Convert TeX math formula to Typst syntax
+    mathEquation(equation: string, inline?: boolean): string {        
+        return inline ? `$${convertTex2Typst(equation)}$` : `$ ${convertTex2Typst(equation)} $`;
     }
 }

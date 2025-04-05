@@ -91,4 +91,12 @@ export class MarkdownFormatter implements FormatProvider {
             return value;
         }
     }
+
+    // Format mathematical equations using markdown math syntax
+    mathEquation(equation: string, inline?: boolean): string {
+        return inline ? `\(${equation}\)` : `$$
+${equation}
+$$
+`;
+    }
 }

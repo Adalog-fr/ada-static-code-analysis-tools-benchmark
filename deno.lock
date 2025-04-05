@@ -26,6 +26,7 @@
       "npm:fast-glob@3.3.2": "npm:fast-glob@3.3.2",
       "npm:neo4j-driver@5.23.0": "npm:neo4j-driver@5.23.0",
       "npm:neo4j-driver@5.27.0": "npm:neo4j-driver@5.27.0",
+      "npm:tex2typst@0.3.1": "npm:tex2typst@0.3.1",
       "npm:xml-js@1.6.11": "npm:xml-js@1.6.11"
     },
     "jsr": {
@@ -290,6 +291,10 @@
           "safe-buffer": "safe-buffer@5.2.1"
         }
       },
+      "tex2typst@0.3.1": {
+        "integrity": "sha512-2ixkTLW8qbnglGYH8Lp6vcnOf2WhLrOXTvM8x1J/gMePn493gPJcSPjUfJWSoOear5ICpZ/euIvE2OJaiFztew==",
+        "dependencies": {}
+      },
       "to-regex-range@5.0.1": {
         "integrity": "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==",
         "dependencies": {
@@ -394,7 +399,8 @@
       "jsr:@std/log@^0.224.6",
       "jsr:@std/path@^0.225.1",
       "jsr:@std/toml@^1.0.1",
-      "npm:fast-glob@^3.3.2"
+      "npm:fast-glob@^3.3.2",
+      "npm:tex2typst@^0.3.1"
     ]
   }
 }

@@ -187,4 +187,11 @@ export class LaTeXFormatter implements FormatProvider {
         }
         return this.escapeLatex(value);
     }
+
+    mathEquation(equation: string, inline?: boolean): string {
+        return inline ? `\\(${equation}\\)` : `\\begin{equation}
+${equation}
+\\end{equation}
+`;
+    }
 }

@@ -77,4 +77,8 @@ export class DocumentExporter {
     documentFooter(): string {
         return this.formatter.documentFooter();
     }
+
+    mathEquation(equation: string, inline: boolean = false): string {
+        return this.formatter.mathEquation(equation, inline);
+    }
 }

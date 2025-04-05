@@ -58,6 +58,10 @@ export interface FormatProvider {
      */
     formatNumber(value: number | string): string;
     /**
+     * Function to format a mathematical equation in LaTeX syntax
+     */
+    mathEquation(equation: string, inline?: boolean): string;
+    /**
      * Function to format document header
      */
     documentHeader(title: string, metadata?: Record<string, string>): string;
