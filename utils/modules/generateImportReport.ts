@@ -353,6 +353,11 @@ export class PerformanceAnalyzer {
         let adacFastGnatcNormal = 0;  // C2 for ADAC, C1 for GNATC
         let bothFast = 0;      // C2 for both
 
+        const bothNormalProjects: ProjectAnalysis[] = [];
+        const adacNormalGnatcFastProjects: ProjectAnalysis[] = [];
+        const adacFastGnatcNormalProjects: ProjectAnalysis[] = [];
+        const bothFastProjects: ProjectAnalysis[] = [];
+
         const bothNormalTable: string[] = [];
         const adacNormalGnatcFastTable: string[] = [];
         const adacFastGnatcNormalTable: string[] = [];
@@ -364,18 +369,22 @@ export class PerformanceAnalyzer {
 
             if (!isAdacFast && !isGnatcFast) {
                 bothNormal++;
+                bothNormalProjects.push(project);
                 bothNormalTable.push(project.gprPath);
             }
             else if (!isAdacFast && isGnatcFast) {
                 adacNormalGnatcFast++;
+                adacNormalGnatcFastProjects.push(project);
                 adacNormalGnatcFastTable.push(project.gprPath);
             }
             else if (isAdacFast && !isGnatcFast) {
                 adacFastGnatcNormal++;
+                adacFastGnatcNormalProjects.push(project);
                 adacFastGnatcNormalTable.push(project.gprPath);
             }
             else {
                 bothFast++;
+                bothFastProjects.push(project);
                 bothFastTable.push(project.gprPath);
             }
         });
@@ -420,6 +429,151 @@ export class PerformanceAnalyzer {
                 }
             ],
             "2x2 Contingency Table"
+        ));
+        
+        // Helper function to calculate average for a specific property across projects
+        const calcAvg = (projects: ProjectAnalysis[], selector: (p: ProjectAnalysis) => number) => {
+            return projects.length ? projects.reduce((sum, p) => sum + selector(p), 0) / projects.length : 0;
+        };
+        
+        // Add new subsection comparing metrics across clusters
+        output.push(exporter.addTitle("Cluster Metric Comparison", 2));
+        output.push("Comparing key metrics across the four identified clusters:\n");
+        
+        // Complexity comparison
+        output.push(exporter.addTitle("Complexity Metrics", 3));
+        output.push(exporter.formatTable(
+            [
+                { name: "Cluster", key: "cluster", align: "left" },
+                { name: "Avg. LoC", key: "loc", align: "right" },
+                { name: "Avg. Complexity", key: "complexity", align: "right" },
+                { name: "Avg. AdaControl Time", key: "adactlTime", align: "right" },
+                { name: "Avg. GNATcheck Time", key: "gnatcTime", align: "right" }
+            ],
+            [
+                { 
+                    cluster: "C1 (Normal) for both tools", 
+                    loc: formatNumber(calcAvg(bothNormalProjects, p => p.loc), 2),
+                    complexity: formatNumber(calcAvg(bothNormalProjects, p => p.complexity), 2),
+                    adactlTime: `${formatNumber(calcAvg(bothNormalProjects, p => p.analysisTime['adactl']), 3)}s`,
+                    gnatcTime: `${formatNumber(calcAvg(bothNormalProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                },
+                { 
+                    cluster: "C1 for AdaControl, C2 for GNATcheck", 
+                    loc: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.loc), 2),
+                    complexity: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.complexity), 2),
+                    adactlTime: `${formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.analysisTime['adactl']), 3)}s`,
+                    gnatcTime: `${formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                },
+                { 
+                    cluster: "C2 for AdaControl, C1 for GNATcheck", 
+                    loc: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.loc), 2),
+                    complexity: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.complexity), 2),
+                    adactlTime: `${formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.analysisTime['adactl']), 3)}s`,
+                    gnatcTime: `${formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                },
+                { 
+                    cluster: "C2 (Fast) for both tools", 
+                    loc: formatNumber(calcAvg(bothFastProjects, p => p.loc), 2),
+                    complexity: formatNumber(calcAvg(bothFastProjects, p => p.complexity), 2),
+                    adactlTime: `${formatNumber(calcAvg(bothFastProjects, p => p.analysisTime['adactl']), 3)}s`,
+                    gnatcTime: `${formatNumber(calcAvg(bothFastProjects, p => p.analysisTime['gnatcheck_1cores']), 3)}s`
+                }
+            ],
+            "Average complexity metrics by cluster"
+        ));
+        
+        // Import metrics comparison
+        output.push(exporter.addTitle("Import Metrics", 3));
+        output.push(exporter.formatTable(
+            [
+                { name: "Cluster", key: "cluster", align: "left" },
+                { name: "Total Imports", key: "total", align: "right" },
+                { name: "Std. Ada", key: "std", align: "right" },
+                { name: "GNAT", key: "gnat", align: "right" },
+                { name: "System", key: "sys", align: "right" },
+                { name: "Custom", key: "custom", align: "right" }
+            ],
+            [
+                { 
+                    cluster: "C1 (Normal) for both tools", 
+                    total: formatNumber(calcAvg(bothNormalProjects, p => p.imports.totalImports), 2),
+                    std: formatNumber(calcAvg(bothNormalProjects, p => p.imports.stdLibImports), 2),
+                    gnat: formatNumber(calcAvg(bothNormalProjects, p => p.imports.gnatImports), 2),
+                    sys: formatNumber(calcAvg(bothNormalProjects, p => p.imports.systemImports), 2),
+                    custom: formatNumber(calcAvg(bothNormalProjects, p => p.imports.customImports), 2)
+                },
+                { 
+                    cluster: "C1 for AdaControl, C2 for GNATcheck", 
+                    total: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.imports.totalImports), 2),
+                    std: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.imports.stdLibImports), 2),
+                    gnat: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.imports.gnatImports), 2),
+                    sys: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.imports.systemImports), 2),
+                    custom: formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.imports.customImports), 2)
+                },
+                { 
+                    cluster: "C2 for AdaControl, C1 for GNATcheck", 
+                    total: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.imports.totalImports), 2),
+                    std: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.imports.stdLibImports), 2),
+                    gnat: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.imports.gnatImports), 2),
+                    sys: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.imports.systemImports), 2),
+                    custom: formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.imports.customImports), 2)
+                },
+                { 
+                    cluster: "C2 (Fast) for both tools", 
+                    total: formatNumber(calcAvg(bothFastProjects, p => p.imports.totalImports), 2),
+                    std: formatNumber(calcAvg(bothFastProjects, p => p.imports.stdLibImports), 2),
+                    gnat: formatNumber(calcAvg(bothFastProjects, p => p.imports.gnatImports), 2),
+                    sys: formatNumber(calcAvg(bothFastProjects, p => p.imports.systemImports), 2),
+                    custom: formatNumber(calcAvg(bothFastProjects, p => p.imports.customImports), 2)
+                }
+            ],
+            "Average import metrics by cluster"
+        ));
+        
+        // Import categories comparison
+        const categoryNames = this.stdLibCategories.map(cat => cat.name);
+        const categoryColumns = [
+            { name: "Cluster", key: "cluster", align: "left" as const },
+            ...categoryNames.map(name => ({ name: name, key: name, align: "right" as const }))
+        ];
+        
+        const categoryRows = [
+            { 
+                cluster: "C1 (Normal) for both tools",
+                ...Object.fromEntries(categoryNames.map(cat => [
+                    cat, 
+                    formatNumber(calcAvg(bothNormalProjects, p => p.imports.categorizedImports[cat] || 0), 2)
+                ]))
+            },
+            { 
+                cluster: "C1 for AdaControl, C2 for GNATcheck", 
+                ...Object.fromEntries(categoryNames.map(cat => [
+                    cat, 
+                    formatNumber(calcAvg(adacNormalGnatcFastProjects, p => p.imports.categorizedImports[cat] || 0), 2)
+                ]))
+            },
+            { 
+                cluster: "C2 for AdaControl, C1 for GNATcheck", 
+                ...Object.fromEntries(categoryNames.map(cat => [
+                    cat, 
+                    formatNumber(calcAvg(adacFastGnatcNormalProjects, p => p.imports.categorizedImports[cat] || 0), 2)
+                ]))
+            },
+            { 
+                cluster: "C2 (Fast) for both tools", 
+                ...Object.fromEntries(categoryNames.map(cat => [
+                    cat, 
+                    formatNumber(calcAvg(bothFastProjects, p => p.imports.categorizedImports[cat] || 0), 2)
+                ]))
+            }
+        ];
+        
+        output.push(exporter.addTitle("Standard Library Categories", 3));
+        output.push(exporter.formatTable(
+            categoryColumns,
+            categoryRows,
+            "Average standard library imports by category and cluster"
         ));
 
         output.push(exporter.addTitle("List of project by distribution", 2));
