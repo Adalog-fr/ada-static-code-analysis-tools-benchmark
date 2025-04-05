@@ -3,7 +3,7 @@ import { join } from "@std/path/join";
 import { ensureDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { BenchmarkResultDB, toolKey, ToolKeyType } from "../types.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
-import { OutputFormat, OutputFormatType, TableAlignType } from "../formatters/formatters-interface.ts";
+import { OutputFormat, OutputFormatType } from "../formatters/formatters-interface.ts";
 import { formatNumber } from "../utils.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 
@@ -54,6 +54,61 @@ export function initializeModule(program: Command): void {
                 const exporter = new DocumentExporter(format);
 
                 let output = exporter.documentHeader(`Analysis of imports for project size < ${exporter.formatNumber(options.maxLoc)} LoC`);
+
+                let outputSection: string[] = [];
+
+                // Add mathematical explanation of correlation calculation
+                outputSection.push(exporter.addTitle("Mathematical Background", 1));
+                outputSection.push("In this report, we use various statistical measures to analyze the data. Below are the key mathematical formulas used:");
+
+                // Pearson correlation coefficient explanation
+                outputSection.push(exporter.addTitle("Pearson Correlation Coefficient", 2));
+                outputSection.push("The correlation between analysis time and various metrics is calculated using the Pearson correlation coefficient formula:");
+                outputSection.push(exporter.mathEquation("r = \\frac{n\\sum xy - \\sum x \\sum y}{\\sqrt{[n \\sum x^2 - (\\sum x)^2][n \\sum y^2 - (\\sum y)^2]}}"));
+                outputSection.push("Where:");
+                outputSection.push("- " + exporter.mathEquation("n", true) + " is the number of data points (projects)");
+                outputSection.push("- " + exporter.mathEquation("\\sum xy", true) + " is the sum of the products of paired data values");
+                outputSection.push("- " + exporter.mathEquation("\\sum x", true) + " is the sum of the x values (analysis times)");
+                outputSection.push("- " + exporter.mathEquation("\\sum y", true) + " is the sum of the y values (metric values)");
+                outputSection.push("- " + exporter.mathEquation("\\sum x^2", true) + " is the sum of squared x values");
+                outputSection.push("- " + exporter.mathEquation("\\sum y^2", true) + " is the sum of squared y values");
+                outputSection.push("The coefficient ranges from -1 to 1, where:");
+                outputSection.push("- Values close to 1 indicate a strong positive correlation");
+                outputSection.push("- Values close to -1 indicate a strong negative correlation");
+                outputSection.push("- Values close to 0 indicate little to no linear correlation");
+
+                // Standard Library Ratio explanation
+                outputSection.push(exporter.addTitle("Standard Library Import Ratio", 2));
+                outputSection.push("The ratio of standard library imports to total imports is calculated as:");
+                outputSection.push(exporter.mathEquation("\\text{stdLibRatio} = \\frac{\\text{stdLibImports.length}}{\\text{allImports.length}}"));
+                outputSection.push("This ratio helps us understand what portion of a project's dependencies comes from the standard library.");
+
+                // Averages explanation
+                outputSection.push(exporter.addTitle("Average Calculations", 2));
+                outputSection.push("For a collection of projects, we calculate the average of a metric using:");
+                outputSection.push(exporter.mathEquation("\\text{Average} = \\frac{\\sum_{i=1}^{n} \\text{metric}(\\text{project}_i)}{n}"));
+                outputSection.push("Where $n$ is the number of projects and metric(project) is the value of the metric for a specific project.");
+
+                // LoC vs Files ratio explanation
+                outputSection.push(exporter.addTitle("LoC vs Files Ratio", 2));
+                outputSection.push("We calculate the LoC vs Files ratio in two different ways:");
+                outputSection.push("1. " + exporter.bold("Global ratio") + ": Total lines of code divided by total number of files across all projects:");
+                outputSection.push(exporter.mathEquation("\\text{Global Ratio} = \\frac{\\sum_{i=1}^{n} \\text{LoC}_i}{\\sum_{i=1}^{n} \\text{Files}_i}"));
+                outputSection.push("2. " + exporter.bold("Average of individual ratios") + ": Average of the LoC/Files ratio calculated for each project:");
+                outputSection.push(exporter.mathEquation("\\text{Avg. Individual Ratio} = \\frac{\\sum_{i=1}^{n} \\frac{\\text{LoC}_i}{\\text{Files}_i}}{n}"));
+                outputSection.push("These two values can differ significantly and provide different perspectives on code organization.");
+
+                // Statistical distribution explanation
+                outputSection.push(exporter.addTitle("Statistical Distribution Measures", 2));
+                outputSection.push("For understanding the distribution of analysis times, we calculate:");
+                outputSection.push("- " + exporter.bold("Minimum") + ": The smallest value in the dataset");
+                outputSection.push("- " + exporter.bold("Q1 (First Quartile)") + ": The value below which 25% of observations are found");
+                outputSection.push("- " + exporter.bold("Median (Second Quartile)") + ": The value below which 50% of observations are found");
+                outputSection.push("- " + exporter.bold("Q3 (Third Quartile)") + ": The value below which 75% of observations are found");
+                outputSection.push("- " + exporter.bold("Maximum") + ": The largest value in the dataset");
+                outputSection.push("These statistics help us understand the spread and central tendency of the data without being overly influenced by outliers.");
+                
+                output += outputSection.join('\n\n') + "\n\n";
 
                 for (const tool of toolKey) {
                     if (tool === "cogralys") {
@@ -819,7 +874,7 @@ export class PerformanceAnalyzer {
                 smallProjects.map(p => p.analysisTime[tool]),
                 smallProjects.map(metric.getValue)
             )
-        }));
+        }));    
 
         // Add correlations section
         output.push(exporter.addTitle("Correlations with Analysis Time", 3));
