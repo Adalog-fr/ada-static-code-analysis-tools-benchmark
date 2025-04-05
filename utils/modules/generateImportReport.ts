@@ -159,6 +159,16 @@ interface StdLibCategory {
     patterns: string[];
 }
 
+function computeGlobalLocVsFilesRatio(projects: ProjectAnalysis[]): number {
+    let nbLoc = 0;
+    let nbFiles = 0;
+    for (const project of projects) {
+        nbLoc += project.loc;
+        nbFiles += project.nbFiles;
+    }
+    return nbLoc / nbFiles;
+}
+
 export class PerformanceAnalyzer {
     private readonly rootDir: string;
     private readonly triggerNumber: number;
@@ -612,16 +622,6 @@ export class PerformanceAnalyzer {
         output.push("Comparing metrics between normal (C1) and fast (C2) projects.\n");
         
         // Complexity comparison
-        const computeGlobalLocVsFilesRatio = (projects: ProjectAnalysis[]): number => {
-            let nbLoc = 0;
-            let nbFiles = 0;
-            for (const project of projects) {
-                nbLoc += project.loc;
-                nbFiles += project.nbFiles;
-            }
-            return nbLoc / nbFiles;
-        };
-            
         output.push(exporter.addTitle("Complexity Metrics", 3));
         output.push(exporter.formatTable(
             [
@@ -878,7 +878,8 @@ export class PerformanceAnalyzer {
                 { metric: "Number of projects", value: formatNumber(projects.length) },
                 { metric: "Average LoC", value: formatNumber(calcAvg(p => p.loc), 2) },
                 { metric: "Average number of files", value: formatNumber(calcAvg(p => p.nbFiles), 2) },
-                { metric: "Average LoC/Files ratio", value: formatNumber(calcAvg(p => p.locVsNbFilesRatio), 2) },
+                { metric: "Average LoC/Files ratio (Global)", value: formatNumber(computeGlobalLocVsFilesRatio(projects), 2) },
+                { metric: "Average LoC/Files ratio (Computed by project)", value: formatNumber(calcAvg(p => p.locVsNbFilesRatio), 2) },
                 { metric: "Average complexity", value: formatNumber(calcAvg(p => p.complexity), 2) },
                 { metric: "Average analysis time (" + tool + ")", value: `${formatNumber(calcAvg(p => p.analysisTime[tool]), 3)}s` }
             ]
