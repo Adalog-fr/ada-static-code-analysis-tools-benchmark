@@ -29,10 +29,7 @@ program.command("finalize", undefined, { isDefault: false }).action(() => {
 
   Deno.writeTextFile(
     "/etc/environment",
-    `PATH="${join(prefix, "/libexec/asis-gnsa/bin")}:${join(
-      prefix,
-      "/bin"
-    )}:\$PATH"\nOS="unix"\n`,
+    `export OS="unix"\n`,
     { append: true }
   );
 });
