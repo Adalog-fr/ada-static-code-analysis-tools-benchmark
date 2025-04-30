@@ -65,6 +65,7 @@ fi
 print_step "Installing Deno"
 if ! command_exists deno; then
     curl -fsSL https://deno.land/x/install/install.sh | DENO_INSTALL=/usr/local sh
+    deno upgrade 1.46.3
     print_success "Deno installed"
 else
     print_warning "Deno already installed, skipping"
