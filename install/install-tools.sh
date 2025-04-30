@@ -10,9 +10,6 @@ source "${SCRIPT_DIR}/install-utils.sh"
 print_banner "Installing Additional Tools"
 check_root
 
-# Check sed version at start
-check_sed_version
-
 # Check if current sed version needs upgrading
 check_sed_version() {
     print_step "Checking sed version"
@@ -81,6 +78,9 @@ install_oh_my_posh() {
     su - "$target_user" -c "curl -s https://ohmyposh.dev/install.sh | bash -s"
     print_success "Oh My Posh installed for $target_user"
 }
+
+# Check sed version at start
+check_sed_version
 
 # Show menu of tools to install
 echo "Select which tools to install:"
