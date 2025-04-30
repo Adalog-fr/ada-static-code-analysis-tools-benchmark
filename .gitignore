@@ -216,3 +216,16 @@ phdBenchmark
 metrix.*
 rootfs/home/.als
 rootfs/home/.gk
+
+# Archives
+Adacontrol.zip
+Asiscomps.zip
+Comps.zip
+adadep.zip
+adasubst.zip
+alire.zip
+asis-tree-generator.tar.gz
+asis.tar.gz
+florist.tar.gz
+gnatcheck.tar.gz
+gnatpro.tar.gz
