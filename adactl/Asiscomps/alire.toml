@@ -1,0 +1,33 @@
+name = "adalog_asiscomps"
+description = "Asis components and utilities, mainly used by AdaControl"
+long-description = """
+# Adalog Asiscomps
+
+[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/adalog_asiscomps.json)](https://alire.ada.dev/crates/adalog_asiscomps.html)
+
+Asis components and utilities, mainly used by AdaControl.
+
+## ASIS Dependency
+
+**Important**: you need to have ASIS in your path (`GPR_PROJECT_PATH` or available in project search path of GNAT) in order to compile.
+
+ASIS is deliberately not put in dependence of this project in order to allow the use of custom builds of ASIS for GNAT Pro customers.
+
+If you do not have a custom build of ASIS, you can download the latest available on AdaCore 2020 (https://www.adacore.com/download/more).
+"""
+version = "1.0.0"
+
+authors = ["Jean-Pierre Rosen", "Quentin Dauprat"]
+maintainers = ["support@adalog.fr"]
+maintainers-logins = ["jprosen", "Heziode"]
+project-files = [".alire/adalog_asiscomps.gpr"]
+licenses = "GPL-2.0-only"
+website = "https://www.adalog.fr/en/components.html"
+tags = ["utility", "component", "asis", "static", "code", "analysis"]
+
+[[depends-on]]
+gnatcoll = "*"
+adalog_comps = "^1.0.0"
+
+# [[pins]]
+# adalog_comps = { path = "../Comps" }

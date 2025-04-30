@@ -1,0 +1,16 @@
+adalib/
+
+*.exe
+
+/*/*
+!/*/*.ads
+!/*/*.adb
+!/*/*.texi
+
+!/variable_length/*.htm
+!/variable_length/*.html
+!/protection/*.htm
+!/protection/*.html
+
+!.alire/adalog_comps.gpr
+config/*

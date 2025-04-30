@@ -1,0 +1,22 @@
+@node
+@section 
+This rule controls 
+
+@subsection Syntax
+@example
+<control_kind> 
+@end example
+
+@subsection Action
+
+Ex:
+@example
+@end example
+
+@subsection Variables
+
+@subsection Fixes
+
+@subsection Tips
+
+@subsection Limitations
