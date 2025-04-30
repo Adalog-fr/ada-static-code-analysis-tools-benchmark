@@ -17,9 +17,6 @@ required_files=(
     "florist.tar.gz"
     "gnatcheck.tar.gz"
     "alire.zip"
-    "Comps.zip"
-    "Asiscomps.zip"
-    "Adacontrol.zip"
 )
 
 # Show menu for installation options
