@@ -20,7 +20,7 @@ tool_mapping = {
 tools = list(tool_mapping.keys())
 display_names = list(tool_mapping.values())
 colors = ['#ef4444', '#3b82f6', '#22c55e', '#a855f7']
-markers = ['o', 'o', 'o', 'o']
+markers = ['o', 'D', 'x', 'x']
 
 def create_scatter_plot(plot_type):
     plt.figure(figsize=(12, 8))
