@@ -35,9 +35,10 @@ Regarding the software, the setup are:
 - GNATcheck 24.0w: static analysis tools. libadalang version.
 - AdaControl 1.23b4: static analysis tools. ASIS version.
 - GNAT Pro 21lts: for ASIS support.
-- Deno 1.38.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
+- Deno 1.46.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
 
 The Neo4J setup operates on Neo4J Desktop version 1.5.9.106. The database utilizes engine version 5.12.0, complemented by the APOC plugin.
+To prevent a bug in Deno 2.X.X (see https://github.com/denoland/deno/issues/27556), it is recommended to use the latest 1.X.X version of Deno: `deno upgrade 1.46.3`
 
 ### Result
 | Rule                                     | Our approach      | AdaControl       | GNATcheck (monothread) | GNATcheck (multithread, 32 cores) |
@@ -64,7 +65,7 @@ Software requirements:
 
 - GANT Community 2019 with ASIS or GNAT Pro >= 24 with ASIS.
 - AdaControl >= 1.23b4
-- Deno 1.38.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
+- Deno 1.46.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
 - [Cogralys Engine](https://github.com/Adalog-fr/cogralys-engine): core of our approach
 
 ### Running a Benchmark
