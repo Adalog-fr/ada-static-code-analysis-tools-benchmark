@@ -1,6 +1,6 @@
 import { join } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
-import { wait } from "https://deno.land/x/wait/mod.ts";
+import { wait } from "https://deno.land/x/wait@0.1.14/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
 import sevenZip from "npm:7zip-min@1.4.5";
 import { UnifiedCrateData } from "../types.ts";
