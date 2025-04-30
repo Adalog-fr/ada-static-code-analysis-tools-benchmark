@@ -17,8 +17,6 @@ required_files=(
     "florist.tar.gz"
     "gnatcheck.tar.gz"
     "alire.zip"
-    "adasubst.zip"
-    "adadep.zip"
     "Comps.zip"
     "Asiscomps.zip"
     "Adacontrol.zip"
@@ -138,13 +136,9 @@ if [[ "$install_tools" == true ]]; then
     print_step "Installing Ada libraries and tools"
     deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install florist
     deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install asis
-    deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install -b asistools
     deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install -b asis-tree-generator
     deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install -b gnatcheck
     deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install -b -e .zip alire
-    deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install gtkada
-    deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install gnatcoll-core
-    deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install gnatcoll-bindings
 
     # Setting up GPR_PROJECT_PATH
     export GPR_PROJECT_PATH=.:/tmp/Comps:/tmp/Asiscomps:
