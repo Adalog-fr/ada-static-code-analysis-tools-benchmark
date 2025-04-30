@@ -141,7 +141,6 @@ if [[ "$install_tools" == true ]]; then
     export GPR_PROJECT_PATH=.:/tmp/Comps:/tmp/Asiscomps:
 
     deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts install -e .zip Adacontrol
-    deno run --allow-run --allow-write --allow-read --allow-env ./install_ada_setup.ts finalize
 
     print_success "Ada tools installed successfully"
 fi

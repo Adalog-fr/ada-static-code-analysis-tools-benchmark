@@ -24,15 +24,6 @@ program
       installPackageNoBuild(pkgName, options.prefix, options.extension);
     }
   });
-program.command("finalize", undefined, { isDefault: false }).action(() => {
-  console.log("finalize");
-
-  Deno.writeTextFile(
-    "/etc/environment",
-    `export OS="unix"\n`,
-    { append: true }
-  );
-});
 
 //////////////////////
 //                  //
