@@ -470,21 +470,11 @@ main() {
     # Copy load-system
     copy_load_system || warning "Problem during load-system copy"
 
-    # Run benchmark (with confirmation)
-    if confirm "Do you want to run the benchmark now?"; then
-        if [[ -f "benchmark.sh" ]]; then
-            info "Starting benchmark..."
-            ./benchmark.sh
-            success "Benchmark completed ✓"
-        else
-            error "The benchmark.sh script was not found"
-        fi
-    fi
-
     success "Setup completed"
-    echo "============================================="
+    echo "==================================================="
     echo "To run the benchmark later, execute: ./benchmark.sh"
-    echo "============================================="
+    echo "Do not forget to start Neo4j DB with Neo4j Desktop!"
+    echo "==================================================="
 }
 
 # Run the script
