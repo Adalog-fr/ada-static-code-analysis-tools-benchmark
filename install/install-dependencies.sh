@@ -47,7 +47,7 @@ apt-get install -y build-essential libssl-dev \
     libmpfr-dev libcanberra-dev libusb-1.0-0-dev \
     zsh sudo \
     jc \
-    iputils-ping iproute2 git time jq unzip libgmp-dev curl wget parallel \
+    iputils-ping iproute2 git time jq unzip libgmp-dev curl wget parallel fd-find \
     gcc libssl-dev libffi-dev python3-dev
 
 # Install Neo4J
