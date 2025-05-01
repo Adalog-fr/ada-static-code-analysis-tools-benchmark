@@ -13,7 +13,7 @@ check_root
 # Install base dependencies
 print_step "Installing base dependencies (python:3.10)"
 apt-get update -y
-apt-get install -y --no-install-recommends vim make libc6-dev python3.10 python3-pip
+apt-get install -y --no-install-recommends vim make libc6-dev python3.10 python3-pip python3-venv
 
 # Install Ada development dependencies
 print_step "Installing dependencies for compiling Ada files"
