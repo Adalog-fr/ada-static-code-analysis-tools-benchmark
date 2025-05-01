@@ -4,6 +4,16 @@
 
 set -e  # Exit on error
 
+# Signal handler for graceful termination
+function signalHandler() {
+  echo -e "\n\nInterrupted! Exiting gracefully..."
+  exit 1
+}
+
+# Set up signal handlers for Ctrl+C (SIGINT) and Ctrl+\ (SIGQUIT)
+trap 'signalHandler' SIGINT
+trap 'signalHandler' SIGQUIT
+
 # Color definitions for better readability
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -286,7 +296,7 @@ generate_env() {
 # Function to build benchmark projects
 build_projects() {
     info "Building projects for benchmark..."
-    if [[ -f "build_projects.sh" ]]; then
+    if [[ -f "utils/build_projects.sh" ]]; then
         ./utils/build_projects.sh
         success "Projects built ✓"
         return 0
@@ -299,7 +309,7 @@ build_projects() {
 # Function to copy load-system into obj
 copy_load_system() {
     info "Copying load-system into obj..."
-    if [[ -f "copy_load-system_into_obj.sh" ]]; then
+    if [[ -f "utils/copy_load-system_into_obj.sh" ]]; then
         ./utils/copy_load-system_into_obj.sh
         success "load-system copied ✓"
         return 0
@@ -311,7 +321,7 @@ copy_load_system() {
 
 # Check required tools
 check_requirements() {
-    local all_requirements_met=true
+    local requirements_met=0
 
     info "Checking required tools..."
 
@@ -320,38 +330,38 @@ check_requirements() {
         success "SCC is installed ✓"
     else
         error "SCC is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check Python
     if check_command python3; then
-        check_python_version || all_requirements_met=false
+        check_python_version || requirements_met=1
     else
         error "Python 3 is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check sed
-    check_sed_version || all_requirements_met=false
+    check_sed_version || requirements_met=1
 
     # Check deno
-    check_deno_version || all_requirements_met=false
+    check_deno_version || requirements_met=1
 
     # Check alr
-    check_alr || all_requirements_met=false
+    check_alr || requirements_met=1
 
     # Check adactl
-    check_adactl || all_requirements_met=false
+    check_adactl || requirements_met=1
 
     # Check atgdb
-    check_atgdb || all_requirements_met=false
+    check_atgdb || requirements_met=1
 
     # Check gnatcheck
     if check_command gnatcheck; then
         success "gnatcheck is installed ✓"
     else
         error "gnatcheck is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check gnatls
@@ -359,7 +369,7 @@ check_requirements() {
         success "gnatls is installed ✓"
     else
         error "gnatls is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check cypher-shell
@@ -367,7 +377,7 @@ check_requirements() {
         success "cypher-shell is installed ✓"
     else
         error "cypher-shell is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check jq
@@ -375,7 +385,7 @@ check_requirements() {
         success "jq is installed ✓"
     else
         error "jq is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check jc
@@ -383,7 +393,7 @@ check_requirements() {
         success "jc is installed ✓"
     else
         error "jc is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check parallel
@@ -391,7 +401,7 @@ check_requirements() {
         success "parallel is installed ✓"
     else
         error "parallel is not installed ✗"
-        all_requirements_met=false
+        requirements_met=1
     fi
 
     # Check fd/fdfind
@@ -407,14 +417,14 @@ check_requirements() {
                 success "fd-find has been successfully installed ✓"
             else
                 error "fd-find installation failed ✗"
-                all_requirements_met=false
+                requirements_met=1
             fi
         else
-            all_requirements_met=false
+            requirements_met=1
         fi
     fi
 
-    return $all_requirements_met
+    return $requirements_met
 }
 
 # Main function
@@ -425,10 +435,14 @@ main() {
 
     # Check prerequisites
     if ! check_requirements; then
-        warning "Some prerequisites are not met"
-        if ! confirm "Do you want to continue despite detected issues?"; then
-            error "Setup canceled"
-            return 1
+        if [ $? -eq 0 ]; then
+            success "All prerequisites are met ✓"
+        else
+            warning "Some prerequisites are not met"
+            if ! confirm "Do you want to continue despite detected issues?"; then
+                error "Setup canceled"
+                return 1
+            fi
         fi
     fi
 
@@ -456,7 +470,7 @@ main() {
     # Copy load-system
     copy_load_system || warning "Problem during load-system copy"
 
-    # Run benchmark
+    # Run benchmark (with confirmation)
     if confirm "Do you want to run the benchmark now?"; then
         if [[ -f "benchmark.sh" ]]; then
             info "Starting benchmark..."
