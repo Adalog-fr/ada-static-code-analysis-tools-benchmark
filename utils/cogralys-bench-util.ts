@@ -43,11 +43,6 @@ CreateRunCommand.initializeModule(program, {
     command: ["alr", ["-n", "update"]],
     concurrency: 10
 });
-CreateRunCommand.initializeModule(program, {
-    commandName: "build",
-    description: "Run `alr -n build` in all directories listed into `alireTomlPath`.",
-    command: ["alr", ["-n", "build"]]
-});
 Run.initializeModule(program);
 UpdateCratesDBneo4jComplete.initializeModule(program);
 UpdateAllCratesDBneo4jComplete.initializeModule(program);
