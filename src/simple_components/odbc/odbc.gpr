@@ -2,17 +2,17 @@ project ODBC is
 
    type ODBC_Driver_Type is ("ODBC32", "unixODBC", "auto");
    ODBC_Driver : ODBC_Driver_Type := external ("odbc", "auto");
-   
+
    type OS_Type is
         (  "Windows", "Windows_NT",
            "Linux",
-           "UNIX",
+           "unix",
            "OSX",
            "FreeBSD",
            "auto"
         );
    Target_OS : OS_Type := external ("Target_OS", "auto");
- 
+
    Target_Triplet := Project'Target;
 
    case Target_OS is
@@ -66,7 +66,7 @@ project ODBC is
    case ODBC_Driver is
       when "auto" =>
          case Target_OS is
-            when "Linux" | "OSX" | "FreeBSD" | "UNIX" =>
+            when "Linux" | "OSX" | "FreeBSD" | "unix" =>
                ODBC_Driver := "unixODBC";
             when "Windows" | "Windows_NT" =>
                ODBC_Driver := "ODBC32";
@@ -79,7 +79,7 @@ project ODBC is
       when others =>
          null;
    end case;
- 
+
    case ODBC_Driver is
       when "unixODBC" | "auto" =>
          for Externally_Built use "true";

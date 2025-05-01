@@ -17,7 +17,7 @@ project Demo is
    VarA := Alternative ("", "alt");
    VarB := Alternative ("valB", "alt");
 
-   type OS_Kind is ("UNIX", "Windows");
+   type OS_Kind is ("unix", "Windows");
 
    Target1 := "i686-pc-mingw32";
    Target2 := "x86_64-linux-gnu";
@@ -30,11 +30,11 @@ project Demo is
                       (Alternative
                          (Match (Target1, "(mingw32|cygwin|windows)"),
                          "Windows"),
-                       "UNIX");
+                       "unix");
 
    OS2 : OS_Kind := Default
                       (Alternative
                          (Match (Target2, "(mingw32|cygwin|windows)"),
                           "Windows"),
-                       "UNIX");
+                       "unix");
 end Demo;

@@ -3,8 +3,8 @@ abstract project Settings is
    type Build_Type is ("Debug", "Release", "Profile");
    Build : Build_Type := external ("PRJ_BUILD", "Debug");
 
-   type Target_Type is ("Windows", "Windows_NT", "Linux", "UNIX", "OSX", "FreeBSD");
-   Build_Target : Target_Type := external ("PRJ_TARGET", "UNIX");
+   type Target_Type is ("Windows", "Windows_NT", "Linux", "unix", "OSX", "FreeBSD");
+   Build_Target : Target_Type := external ("PRJ_TARGET", "unix");
 
    Obj_Dir := Settings'Project_Dir & "obj";
    Exe_Dir := Settings'Project_Dir & "bin";

@@ -1,8 +1,8 @@
 
 library project ASFML is
 
-   type T_OS is ("Windows_NT", "UNIX");
-   V_OS : T_OS := external ("OS", "UNIX");
+   type T_OS is ("Windows_NT", "unix");
+   V_OS : T_OS := external ("OS", "unix");
 
    for Languages use ("Ada");
 

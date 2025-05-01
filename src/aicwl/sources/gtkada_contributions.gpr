@@ -11,7 +11,7 @@ project Gtkada_Contributions is
    type OS_Type is
         (  "Windows", "Windows_NT",
            "Linux",
-           "UNIX",
+           "unix",
            "OSX",
            "FreeBSD",
            "auto"
@@ -116,7 +116,7 @@ project Gtkada_Contributions is
             when "Windows" | "Windows_NT" =>
                Object_Dir_Path :=
                   "obj/windows/" & arch & "/" & Development;
-            when "Linux" | "UNIX" =>
+            when "Linux" | "unix" =>
                Object_Dir_Path :=
                   "obj/linux/" & arch & "/" & Development;
             when "OSX" =>
@@ -287,13 +287,13 @@ project Gtkada_Contributions is
    end Compiler;
 
    Lib_List := ("-lgio-2.0");
- 
+
    case Target_OS is
       when "Windows" | "Windows_NT" =>
          Lib_List := Lib_List & "-mwindows";
       when "OSX" =>
          Lib_List := Lib_List & ("-Wl,-no_pie");
-      when "Linux" | "UNIX" | "FreeBSD" | "auto" =>
+      when "Linux" | "unix" | "FreeBSD" | "auto" =>
          null;
    end case;
 

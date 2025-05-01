@@ -23,7 +23,7 @@ library project VSS_Text is
    OS_Library_Options := ();
 
    case VSS_Config.OS_API is
-      when "UNIX" | "osx" =>
+      when "unix" | "osx" =>
          null;
 
       when "Windows_NT" =>
@@ -54,7 +54,7 @@ library project VSS_Text is
 
    package Naming is
       case VSS_Config.OS_API is
-         when "UNIX" | "osx" =>
+         when "unix" | "osx" =>
             for Implementation ("VSS.Application.Platform")
               use "vss-application-platform__posix.adb";
             for Implementation ("VSS.Command_Line.Platform")
@@ -67,7 +67,7 @@ library project VSS_Text is
               use "vss-standard_paths__posix.adb";
 
             case VSS_Config.OS_API is
-               when "UNIX" =>
+               when "unix" =>
                   for Implementation ("VSS.Application.Platform.Application_File")
                     use "vss-application-platform-application_file__linux.adb";
                when "osx" =>

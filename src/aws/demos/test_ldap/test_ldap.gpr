@@ -20,8 +20,8 @@ with "aws";
 
 project Test_LDAP is
 
-   type OS_Type is ("UNIX", "Windows_NT", "Darwin");
-   OS : OS_Type := external ("OS", "UNIX");
+   type OS_Type is ("unix", "Windows_NT", "Darwin");
+   OS : OS_Type := external ("OS", "unix");
 
    for Source_Dirs use (".");
    for Main use ("test_ldap.adb");

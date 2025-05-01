@@ -24,8 +24,8 @@ project GPR2.Tools is
    Build_Root := GPR2.Build_Root;
    Processors := GPR2.Processors;
 
-   type Target_type is ("Windows_NT", "UNIX");
-   Target : Target_Type := external ("OS", "UNIX");
+   type Target_type is ("Windows_NT", "unix");
+   Target : Target_Type := external ("OS", "unix");
 
    type Tools_Prefix_Type is ("gpr", "gpr2");
    Edge_Tools_Prefix : Tools_Prefix_Type := external ("GPR2_EDGE_TOOLS_PREFIX", "gpr2");
@@ -92,7 +92,7 @@ project GPR2.Tools is
       case Target is
          when "Windows_NT" =>
             for Artifacts ("bin") use ("src/tools/gpr2install.exe.manifest");
-         when "UNIX" =>
+         when "unix" =>
             null;
       end case;
    end Install;

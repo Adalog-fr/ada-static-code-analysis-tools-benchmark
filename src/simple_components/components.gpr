@@ -18,14 +18,14 @@ project Components is
    Atomic_Access : Atomic_Access_Mode := external ("Atomic_Access", "auto");
 
    Dir_List := ();
-   
+
    case Object_Tracing is
       when "Off" =>
          null;
       when "On" =>
          Dir_List := Dir_List & "gnat-debug";
    end case;
-   
+
    case Tasking is
       when "Multiple" =>
          null;
@@ -39,7 +39,7 @@ project Components is
       when "Windows" | "Windows_NT" =>
          for Languages use ("Ada");
          Dir_List := Dir_List & "os/windows";
-      when "Linux" | "UNIX" | "auto" =>
+      when "Linux" | "unix" | "auto" =>
          for Languages use ("Ada", "C");
          Dir_List := Dir_List & "os/linux";
       when "OSX" =>
@@ -61,7 +61,7 @@ project Components is
          end case;
       when others =>
          null;
-   end case;         
+   end case;
 
    case Atomic_Access is
       when "Pragma-atomic" =>
@@ -74,7 +74,7 @@ project Components is
 
    Object_Dir_Path := Strings_Edit.Object_Dir_Path;
    for Object_Dir use Object_Dir_Path;
-   
+
    for Source_Dirs use Dir_List;
 
    Files_List :=
@@ -376,7 +376,7 @@ project Components is
             Files_List & (  "synchronization-windows.adb",
                             "synchronization-windows.ads"
                          );
-      when "Linux" | "UNIX" | "auto" =>
+      when "Linux" | "unix" | "auto" =>
          for Source_Files use
             Files_List & (  "synchronization_linux.c",
                             "synchronization-linux.adb",

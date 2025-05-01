@@ -9,7 +9,7 @@ project Tables is
    type OS_Type is
         (  "Windows", "Windows_NT",
            "Linux",
-           "UNIX",
+           "unix",
            "OSX",
            "FreeBSD",
            "auto"
@@ -139,7 +139,7 @@ project Tables is
             when "Windows" | "Windows_NT" =>
                Object_Dir_Path :=
                   "obj/windows/" & arch & "/" & Development;
-            when "Linux" | "UNIX" =>
+            when "Linux" | "unix" =>
                Object_Dir_Path :=
                   "obj/linux/" & arch & "/" & Development;
             when "OSX" =>

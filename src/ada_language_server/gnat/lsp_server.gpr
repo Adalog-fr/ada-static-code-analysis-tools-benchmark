@@ -61,7 +61,7 @@ project LSP_Server is
                when "Windows_NT" =>
                   for Switches ("Ada") use ("-static", "-static-libstdc++", "-static-libgcc");
                when "osx" | "unix" =>
-                  --  On UNIX, we want to link libc dynamically: needed to find
+                  --  On unix, we want to link libc dynamically: needed to find
                   --  a recent version of iconv_open (and a recommended practice)
                   for Switches ("Ada") use ("-static-libstdc++", "-static-libgcc");
              end case;

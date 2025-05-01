@@ -9,7 +9,7 @@ project Strings_Edit is
    type OS_Type is
         (  "Windows", "Windows_NT",
            "Linux",
-           "UNIX",
+           "unix",
            "OSX",
            "FreeBSD",
            "auto"
@@ -39,7 +39,7 @@ project Strings_Edit is
           "strings_edit-floats.ads",
           "strings_edit-float_edit.adb",
           "strings_edit-float_edit.ads",
-          "strings_edit-generic_scale.adb", 
+          "strings_edit-generic_scale.adb",
           "strings_edit-generic_scale.ads",
           "strings_edit-integers-subscript.ads",
           "strings_edit-integers-superscript.ads",
@@ -73,8 +73,8 @@ project Strings_Edit is
           "strings_edit-streams-unsigneds_64.ads",
           "strings_edit-text_edit.adb",
           "strings_edit-utf8-handling.adb",
-          "strings_edit-utf8-handling.ads", 
-          "strings_edit-utf8-categorization.adb", 
+          "strings_edit-utf8-handling.ads",
+          "strings_edit-utf8-categorization.adb",
           "strings_edit-utf8-categorization.ads",
           "strings_edit-utf8-blocks.ads",
           "strings_edit-utf8-integer_edit.adb",
@@ -107,14 +107,14 @@ project Strings_Edit is
           "strings_edit-utf8-maps.ads",
           "strings_edit-utf8-maps-constants.ads",
           "strings_edit-utf8-mapping.adb",
-          "strings_edit-utf8-mapping.ads", 
+          "strings_edit-utf8-mapping.ads",
           "strings_edit-utf8-radix50.adb",
           "strings_edit-utf8-radix50.ads",
           "strings_edit-utf8-recoding_streams.adb",
           "strings_edit-utf8-recoding_streams.ads",
           "strings_edit-utf8-subscript-integer_edit.ads",
           "strings_edit-utf8-subscript.adb",
-          "strings_edit-utf8-subscript.ads", 
+          "strings_edit-utf8-subscript.ads",
           "strings_edit-utf8-superscript-integer_edit.ads",
           "strings_edit-utf8-superscript.adb",
           "strings_edit-utf8-superscript.ads",
@@ -255,7 +255,7 @@ project Strings_Edit is
             when "Windows" | "Windows_NT" =>
                Object_Dir_Path :=
                   "obj/windows/" & arch & "/" & Development;
-            when "Linux" | "UNIX" =>
+            when "Linux" | "unix" =>
                Object_Dir_Path :=
                   "obj/linux/" & arch & "/" & Development;
             when "OSX" =>

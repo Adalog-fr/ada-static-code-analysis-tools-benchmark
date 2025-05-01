@@ -5,8 +5,8 @@ library project Admpfr is
    for Source_Dirs use ("src");
    for Object_Dir use "obj";
 
-   type Target_type is ("Windows_NT", "UNIX");
-   Target : Target_type := external ("OS", "UNIX");
+   type Target_type is ("Windows_NT", "unix");
+   Target : Target_type := external ("OS", "unix");
 
    for Library_Name use "admpfr";
    for Library_Dir use "lib";
@@ -21,7 +21,7 @@ library project Admpfr is
    package Linker is
       case Target is
          when "Windows_NT" => for Linker_Options use ("-lmpfr", "-lgmp");
-         when "UNIX"       => for Linker_Options use ("-lmpfr");
+         when "unix"       => for Linker_Options use ("-lmpfr");
       end case;
    end Linker;
 

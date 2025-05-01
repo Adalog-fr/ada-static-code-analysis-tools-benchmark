@@ -6,11 +6,11 @@ project Components.Julia is
    case Tables.Target_OS is
       when "Windows" | "Windows_NT" =>
          for Source_Dirs use (".", "os/windows");
-      when "Linux" | "UNIX" | "auto" =>
+      when "Linux" | "unix" | "auto" =>
          for Source_Dirs use (".", "os/linux");
       when "OSX" | "FreeBSD" =>
          for Source_Dirs use (".", "os/pthreads");
-   end case;   
+   end case;
 
    for Source_Files use
        (  "julia.adb",
@@ -31,5 +31,5 @@ project Components.Julia is
    package Binder   renames Components.Binder;
    package Builder  renames Components.Builder;
    package Linker   renames Components.Linker;
-        
+
 end Components.Julia;

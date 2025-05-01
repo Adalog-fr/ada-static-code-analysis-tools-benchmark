@@ -26,8 +26,8 @@ library project GPR is
    Bld : Build_Type := external ("GPR_BUILD",
                                  external ("BUILD", "production"));
 
-   type Target_type is ("Windows_NT", "UNIX");
-   Target : Target_Type := external ("OS", "UNIX");
+   type Target_type is ("Windows_NT", "unix");
+   Target : Target_Type := external ("OS", "unix");
 
    type Library_Type_Type is ("relocatable", "static", "static-pic");
    Gnat_Lib_Type : Library_Type_Type := external ("LIBRARY_TYPE", "static");
@@ -83,7 +83,7 @@ library project GPR is
          when "Windows_NT" =>
              for Body ("GPR.Util.Put_Resource_Usage")
                use "gpr-util-put_resource_usage__null.adb";
-         when "UNIX" =>
+         when "unix" =>
              for Body ("GPR.Util.Put_Resource_Usage")
                use "gpr-util-put_resource_usage__unix.adb";
       end case;
