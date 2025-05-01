@@ -6,7 +6,6 @@ import * as GenerateBuildPath from "./modules/generateBuildPath.ts";
 import * as GenerateAlire from "./modules/generateAlire.ts";
 import * as CreateRunCommand from "./modules/runCommandFactory.ts";
 import * as CreateRunBenchmarkCommand from "./modules/runBenchmarkCommandFactory.ts";
-import * as GenerateEnv from "./modules/generate_env.ts";
 import * as Run from "./modules/run.ts";
 import * as PopulateNeo4j from "./modules/populate-neo4j.ts";
 import * as PopulateNeo4jSingle from "./modules/populate-neo4j-single.ts";
@@ -49,7 +48,6 @@ CreateRunCommand.initializeModule(program, {
     description: "Run `alr -n build` in all directories listed into `alireTomlPath`.",
     command: ["alr", ["-n", "build"]]
 });
-GenerateEnv.initializeModule(program);
 Run.initializeModule(program);
 UpdateCratesDBneo4jComplete.initializeModule(program);
 UpdateAllCratesDBneo4jComplete.initializeModule(program);
