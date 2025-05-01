@@ -38,7 +38,7 @@ export function getCogralysEnginePath(pathToCogralys?: string): string {
         paths.push(pathToCogralys);
     } else {
         paths.push(COGRALYS_EXE_NAME);
-        paths.push(join(PROJECT_ROOT, "rootfs/home/bin", COGRALYS_EXE_NAME));
+        paths.push(join(PROJECT_ROOT, "analysis-tools/cogralys-engine/bin", COGRALYS_EXE_NAME));
     }
 
     for (const path of paths) {
