@@ -285,6 +285,7 @@ generate_env() {
     info "Generating .env files..."
     if [[ -f "utils/generate_env.sh" ]]; then
         ./utils/generate_env.sh
+        cp .env.example .env
         success ".env files generated ✓"
         return 0
     else
