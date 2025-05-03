@@ -321,16 +321,16 @@ export function initializeModule(program: Command): void {
     program
         .command("generate-report")
         .description(
-            "Generate benchmark report. This script shall be called after benchmark GNATcheck, AdaControl and Cogralys, and after aggregate-results."
+            "Generate benchmark report. This script shall be called after benchmarking GNATcheck, AdaControl, and Cogralys, and after aggregating results."
         )
         .option(
             "--rootDir <string>",
-            "Path to the root of the result files",
+            "Path to the root directory of the result files",
             defaultProjectRoot
         )
         .option(
             "-o, --output <string>",
-            `Output fromat (Possible values: ${OutputFormat.join("|")})`,
+            `Output format (Possible values: ${OutputFormat.join("|")})`,
             "cli"
         )
         .action(handleComputeResults);

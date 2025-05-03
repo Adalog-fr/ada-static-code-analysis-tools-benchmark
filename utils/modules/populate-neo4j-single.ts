@@ -46,7 +46,7 @@ async function populateWithJson(options: optionType) {
         });
     }
 
-    // Empty task for sync barrier
+    // Empty task for synchronization barrier
     taskRunner.addTask("nodes", nodesTasks, { skip: true });
 
     const edgesTasks : string[] = [];
@@ -60,7 +60,7 @@ async function populateWithJson(options: optionType) {
         });
     }
 
-    // Empty task for sync barrier
+    // Empty task for synchronization barrier
     taskRunner.addTask("edges", edgesTasks, { skip: true });
 
     // Finalization tasks

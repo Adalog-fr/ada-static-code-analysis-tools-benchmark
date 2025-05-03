@@ -5,7 +5,7 @@ import { LanguageSummary } from "../scc-types.ts";
 
 /**
  * Extract the name of all units imported by the current compilation unit
- * @param unit Code to analyse
+ * @param unit Code to analyze
  * @returns
  */
 function extractUnitsFromWithClauses(unit: string): string[] {
@@ -30,7 +30,7 @@ function extractUnitsFromWithClauses(unit: string): string[] {
 
     const cleanCode = removeComments(findDeclarativePart(unit));
 
-    // Find all 'with clauses
+    // Find all 'with' clauses
     const withPattern = /\b(?:limited\s+)?(?:private\s+)?with\s+(.*?);/gs;
     const units: string[] = [];
 

@@ -24,7 +24,7 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-o, --output <string>",
-            `Output fromat (Possible values: ${OutputFormat.join("|")})`,
+            `Output format (Possible values: ${OutputFormat.join("|")})`,
             "cli"
         )
         .option(
@@ -59,7 +59,7 @@ export function initializeModule(program: Command): void {
 
                 // Add mathematical explanation of correlation calculation
                 outputSection.push(exporter.addTitle("Mathematical Background", 1));
-                outputSection.push("In this report, we use various statistical measures to analyze the data. Below are the key mathematical formulas used:");
+                outputSection.push("In this report, we use various statistical measures to analyze the data. Below are the key mathematical formulae used:");
 
                 // Pearson correlation coefficient explanation
                 outputSection.push(exporter.addTitle("Pearson Correlation Coefficient", 2));

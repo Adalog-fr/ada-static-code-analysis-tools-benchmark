@@ -27,7 +27,7 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-c, --cratesPath <path>",
-            "Path to a file that contains a list of know crates.",
+            "Path to a file that contains a list of known crates.",
             join(PROJECT_ROOT, "cratesPath.json")
         )
         .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))

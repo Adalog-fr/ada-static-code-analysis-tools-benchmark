@@ -26,7 +26,7 @@ export function initializeModule(program: Command, settings: {
         )
         .option(
             "-a, --logAppendMode",
-            "If true, log files will be in append mode, otherwise is will overwrite the file.",
+            "If true, log files will be in append mode, otherwise it will overwrite the file.",
             false
         )
         .option(

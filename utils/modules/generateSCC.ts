@@ -6,7 +6,7 @@ export function initializeModule(program: Command): void {
     program
         .command("generate-scc-metrics <file>")
         .description(
-            "Generate SCC metrics (number of lines of codes, complexity, number of files, etc.). The path is the corresponding `project.units_by_path` of the project."
+            "Generate SCC metrics (number of lines of code, complexity, number of files, etc.). The path is the corresponding `project.units_by_path` of the project."
         )
         .action(
             (file: string) => {
