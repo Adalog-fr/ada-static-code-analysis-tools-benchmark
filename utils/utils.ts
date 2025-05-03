@@ -32,7 +32,7 @@ export function exec(
 }
 
 export function getCogralysEnginePath(pathToCogralys?: string): string {
-    const paths = [];
+    const paths: string[] = [];
 
     if (pathToCogralys) {
         paths.push(pathToCogralys);
@@ -43,7 +43,7 @@ export function getCogralysEnginePath(pathToCogralys?: string): string {
 
     for (const path of paths) {
         try {
-            exec(COGRALYS_EXE_NAME);
+            exec(path, ["-h"]);
             return path;
         } catch (_) {
             // The path is not found or not executable
