@@ -1,16 +1,30 @@
 #!/bin/bash
 
-cwd=$PWD
-
-# Function to check if a command exists
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
+# Function to display usage information
+usage() {
+    echo "Usage: $0 [SRC_DIR]"
+    echo "  SRC_DIR - Optional path to the source directory to explore"
+    echo "            Default: \$CWD/../src"
+    exit 1
 }
+
+# Parse command line arguments
+if [ "$#" -gt 1 ]; then
+    usage
+fi
 
 # Function to join paths safely
 join_paths() {
     local IFS="/"
     echo "$*"
+}
+
+CWD=$(dirname "$(readlink -f "$0")")
+SRC_DIR="${1:-$(join_paths "$CWD" ".." "src")}"
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
 }
 
 # Function to clean path (remove ./ prefix if present)
@@ -33,16 +47,14 @@ get_find_command() {
 # Function to copy the file and run the command
 copy_and_run() {
     local relative_dir=$(clean_path "$1")
-    local dir=$(join_paths "src" "$relative_dir")
+    local dir=$(join_paths "$SRC_DIR" "$relative_dir")
 
     # Check if 'release' directory exists in the given directory
     if [ -d "$dir/release" ]; then
-        echo "obj dir: $dir/release"
-        cp "$cwd/Storage_Error/load_system.adb" "$dir/release"
+        cp "$CWD/Storage_Error/load_system.adb" "$dir/release"
         cd "$dir/release"
     else
-        echo "obj dir: $dir"
-        cp "$cwd/Storage_Error/load_system.adb" "$dir"
+        cp "$CWD/Storage_Error/load_system.adb" "$dir"
         cd "$dir"
     fi
 
@@ -68,21 +80,22 @@ if ! command_exists asis-gcc; then
 fi
 
 # Check if source directory exists
-if [ ! -d "src" ]; then
-    echo "Error: 'src' directory not found" >&2
+if [ ! -d "$SRC_DIR" ]; then
+    echo "Error: Source directory '$SRC_DIR' not found" >&2
     exit 1
 fi
 
 # Check if Storage_Error directory and required file exist
-if [ ! -d "Storage_Error" ] || [ ! -f "Storage_Error/load_system.adb" ]; then
-    echo "Error: Storage_Error/load_system.adb not found" >&2
+if [ ! -d "$CWD/Storage_Error" ] || [ ! -f "$CWD/Storage_Error/load_system.adb" ]; then
+    echo "Error: $CWD/Storage_Error/load_system.adb not found" >&2
     exit 1
 fi
 
 echo "Using $FIND_CMD to locate object directories..."
+echo "Source directory: $SRC_DIR"
 
 # Find all directories containing .o files
-directories=$($FIND_CMD -t f -e o -H -I -x dirname {} \; --base-directory src | sort -u)
+directories=$($FIND_CMD -t f -e o -H -I -x dirname {} \; --base-directory "$SRC_DIR" | sort -u)
 
 if [ -z "$directories" ]; then
     echo "No object directories found."
