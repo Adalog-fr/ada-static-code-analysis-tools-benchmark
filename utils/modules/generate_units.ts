@@ -202,7 +202,8 @@ export function initializeModule(program: Command): void {
                             tree_id: tree.id,
                             view_id: tree.root_view,
                         });
-                        const localUnitSet = new Set<string>();
+                        const localUnitSet = new Set<string>()
+                        let localUnitsList = "";
 
                         if (options.resultingUnitKind !== "unit") {
                             sources.sources
@@ -212,6 +213,14 @@ export function initializeModule(program: Command): void {
                                     unitSet.add(unit);
                                     localUnitSet.add(unit);
                                 });
+
+                            localUnitsList = Array.from(localUnitSet)
+                                .map(e => relative(Deno.cwd(), e))
+                                .filter(e => e.toLocaleLowerCase().endsWith(".ada")
+                                    || e.toLocaleLowerCase().endsWith(".adb")
+                                    || e.toLocaleLowerCase().endsWith(".ads"))
+                                .sort((a, b) => a.localeCompare(b))
+                                .join("\n");
                         } else {
                             const unitList = libgpr2.viewUnits({
                                 tree_id: tree.id,
@@ -224,19 +233,11 @@ export function initializeModule(program: Command): void {
                                     unitSet.add(elt);
                                     localUnitSet.add(elt);
                                 });
+                            localUnitsList = Array.from(localUnitSet).join("\n");
                         }
                         libgpr2.unloadTree({ tree_id: tree.id });
 
-                        const localUnits = Array.from(localUnitSet);
-                        const localUnitsList = localUnits
-                            .map(e => relative(Deno.cwd(), e))
-                            .filter(e => e.toLocaleLowerCase().endsWith(".ada")
-                                || e.toLocaleLowerCase().endsWith(".adb")
-                                || e.toLocaleLowerCase().endsWith(".ads"))
-                            .sort((a, b) => a.localeCompare(b))
-                            .join("\n");
                         Deno.writeTextFileSync(basename(path).replace(".gpr", `.units${options.resultingUnitKind === "unit" ? "" : options.resultingUnitKind === "path" ? "_by_path" : "_by_filename"}`), localUnitsList);
-
                     }
                     taskRunner.run().then(() => {
                         taskRunner.terminate();
