@@ -71,11 +71,11 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-p, --cratePath <string>",
-            "Relative path (from " + PROJECT_ROOT + ") to the root of the crate. It is generaly equal to `--workDir`, but it is not always the case."
+            "Relative path (from " + PROJECT_ROOT + ") to the root of the crate. It is generally equal to `--workDir`, but it is not always the case."
         )
         .option(
             "-w, --workDir <string>",
-            "Relative path (from " + PROJECT_ROOT + ") to the working directory of the project. It is where the `alire.toml` of the project is located."
+            "Relative path (from " + PROJECT_ROOT + ") to the working directory of the project. It is where the `alire.toml` file of the project is located."
         )
         .option(
             "-g, --gprPath <string>",

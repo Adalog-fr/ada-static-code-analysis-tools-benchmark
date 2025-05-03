@@ -23,7 +23,7 @@ const alreadyReportedUnknownRule: string[] = [];
  * Helper function to calculate standard deviation
  * @param values
  * @param mean
- * @returns return the standard deviation of values based on mean
+ * @returns the standard deviation of values based on mean
  */
 function calculateStandardDeviation(values: number[], mean: number): { value: number, percentage: number } {
     // Calculate sum of squared differences from mean
@@ -40,10 +40,10 @@ function calculateStandardDeviation(values: number[], mean: number): { value: nu
 }
 
 /**
- * Convert a string representation of a aggregater size (B for Byte, M for Megabyte, etc.) into the corresponding byte
+ * Convert a string representation of an aggregate size (B for Byte, M for Megabyte, etc.) into the corresponding byte
  * value.
  * @param value A size unit formatted with `du -ch`, like "7M" or "21,42G"
- * @returns Return the corresponding value in byte
+ * @returns The corresponding value in bytes
  */
 function parseUnitValue(value: string): number {
     const valueFormatted = value

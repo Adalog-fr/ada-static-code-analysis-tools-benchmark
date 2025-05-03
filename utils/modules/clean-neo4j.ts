@@ -18,12 +18,12 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "--username <string>",
-            "Username used to login to Neo4j database",
+            "Username used to log in to Neo4j database",
             "neo4j"
         )
         .option(
             "--password <string>",
-            "Password used to login to Neo4j database",
+            "Password used to log in to Neo4j database",
             "auieauie"
         )
         .action(

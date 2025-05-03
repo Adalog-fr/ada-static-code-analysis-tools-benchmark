@@ -14,7 +14,7 @@ export function initializeModule(program: Command): void {
     program
         .command("compress-results")
         .description(
-            "Create an archive of results file"
+            "Create an archive of result files"
         )
         .option(
             "--maxIteration <number>",

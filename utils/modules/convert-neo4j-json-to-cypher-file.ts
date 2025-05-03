@@ -47,7 +47,7 @@ export function initializeModule(program: Command): void {
     program
         .command("convert-neo4j-json-to-cypher-file")
         .description(
-            "Transform all `.json` query files to populate the database into one `.cypher` file. This is useful in of large code base, because populating with a lot of `.json` files can crash the database."
+            "Transform all `.json` query files to populate the database into one `.cypher` file. This is useful for large code bases, because populating with a lot of `.json` files can crash the database."
         )
         .option(
             "-w, --workDir <string>",

@@ -10,7 +10,7 @@ import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 interface ProjectCVResult {
     run: number;
     overheadParsing: number;
-    overheadPopulating?: number;
+    overheadPopulating?: number; // Overhead for populating, optional
 }
 
 // Interface for CV statistics

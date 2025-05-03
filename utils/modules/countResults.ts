@@ -29,7 +29,7 @@ export function initializeModule(program: Command, settings: {
         )
         .option(
             "-p, --path <path>",
-            "Path to start the exploration of results file.",
+            "Path to start the exploration of result files.",
             join(PROJECT_ROOT, "src")
         )
         .option(

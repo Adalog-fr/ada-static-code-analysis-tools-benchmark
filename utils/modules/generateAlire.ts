@@ -12,13 +12,13 @@ export function initializeModule(program: Command): void {
         )
         .option(
             "-c, --cratesPath <path>",
-            "Path to a file that contains a list of know crates.",
+            "Path to a file that contains a list of known crates.",
             join(PROJECT_ROOT, "cratesPath.json")
         )
-        .option("-i, --ignoredUnknownCrates <path>", "Name of the output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
+        .option("-i, --ignoredUnknownCrates <path>", "Name of the ignored unknown crates output file", join(PROJECT_ROOT, "unknownCrates.ignore"))
         .option(
             "-p, --alireTomlPath <path>",
-            "Path to a json file that contains a list of all directories that contains a `alire.origin.toml`. If the path is a directory, it assume that is a root of a crate and will try to find `alire.origin.toml` in this directory.",
+            "Path to a json file that contains a list of all directories that contains a `alire.origin.toml`. If the path is a directory, it is assumed to be the root of a crate and will try to find `alire.origin.toml` in this directory.",
             join(PROJECT_ROOT, "alireTomlPath.json")
         )
         .option(
