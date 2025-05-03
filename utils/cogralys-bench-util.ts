@@ -29,7 +29,7 @@ GenerateUnits.initializeModule(program);
 GenerateAlire.initializeModule(program);
 CreateRunCommand.initializeModule(program, {
     commandName: "update-project",
-    description: "Run `alr -n update` in all directories listed into `alireTomlPath`.",
+    description: "Run `alr -n update` for all crates.",
     command: ["alr", ["-n", "update"]],
     concurrency: 10
 });
@@ -40,7 +40,7 @@ CleanNeo4j.initializeModule(program);
 
 CreateRunBenchmarkCommand.initializeModule(program, {
     commandName: "bench-adactl",
-    description: "Run Adactl benchmark",
+    description: "Run AdaControl benchmark", 
     ruleFile: "$PROJECT_ROOT/benchmark-rules/all_rules_in_one_file/_all.aru",
     command: [
         "$PROJECT_ROOT/analysis-tools/Adacontrol/bin/adactl",
