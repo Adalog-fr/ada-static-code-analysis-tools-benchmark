@@ -15,7 +15,7 @@ Benchmark tools used:
 - AdaControl: 1.23b4
 - Cogralys: 0.1.0 (our solution)
 
-The base code represents 2,643,887 lines of codes (counted using [SCC](https://github.com/boyter/scc); so blank lines and comment lines are not included) in 134 projects (gpr files).
+The base code represents 2,643,887 lines of code (counted using [SCC](https://github.com/boyter/scc); blank lines and comment lines are not included) in 134 projects (GPR files).
 
 The benchmarking was performed on a computer with a Debian 12 operating system.
 
@@ -29,11 +29,11 @@ The computer specification:
 - Memory: 64 GB
 - Storage: Crucial P5 Plus 1 TB SSD using M.2 PCIe Gen 4 connection, up to 6,600 MB/s in read operations and 5,000 MB/s in write operations
 
-Regarding the software, the setup are:
+Regarding the software, the setup is:
 
 - GNAT Pro 24.0w: Ada compiler.
-- GNATcheck 24.0w: static analysis tools. libadalang version.
-- AdaControl 1.23b4: static analysis tools. ASIS version.
+- GNATcheck 24.0w: static analysis tool. libadalang version.
+- AdaControl 1.23b4: static analysis tool. ASIS version.
 - GNAT Pro 21lts: for ASIS support.
 - Deno 1.46.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
 
@@ -72,9 +72,9 @@ Software requirements:
 
 To run a benchmark, follow these steps:
 
-1. Run `./Adactl_benchmark.sh` to get the reslt benchmark for AdaControl
+1. Run `./Adactl_benchmark.sh` to get the result benchmark for AdaControl
 2. Run `./GNATcheck_benchmark.sh` to get the result benchmark for GNATcheck
-3. Run `deno run --allow-all ./utils/cogralys-cli/cogralys-cli.ts -t` to get the result of our approach
+3. Run `deno run --allow-all ./utils/cogralys-cli/cogralys-cli.ts -t` to get the result for our approach
 
 ### Adding Sources
 
@@ -85,8 +85,8 @@ To simplify dependency resolution, we use the [Alire](https://alire.ada.dev) pac
    `"CRATENAME": "path/to/src/CRATE_DIR"`
 3. In the root crate folder, rename `alire.toml` to `alire.origin.toml`.
 4. Run `cogralys-bench-util generate-alire -p .` to regenerate `alire.toml` with **pins** that point to crates located in the [src](./src) directory.
-5. Check if the project compiles with `alr build`.
-6. In the root crate folder, run `copy_load-system_into_obj.sh` to resolve issues related to ASIS that raise a Storage_Error when it attempts to access of some system packages.
+5. Check that the project compiles with `alr build`.
+6. In the root crate folder, run `copy_load-system_into_obj.sh` to resolve issues related to ASIS that raise a Storage_Error when it attempts to access some system packages.
 
 ### Regenerating All Environment
 
@@ -94,8 +94,8 @@ To regenerate all files used for the benchmark environment, follow these instruc
 
 1. Go to the root of this repository.
 2. Run `cogralys-bench-util generate-build-path -p src`. This will generate an `alireTomlPath.json` file containing all directories that contain an `alire.origin.toml` file. This file is used, for example, by the `build` command to build all projects.
-3. Run `cogralys-bench-util generate-alire`. This will generate `alire.toml` from a list of directories (previously generated `alireTomlPath.json`) that contain an `alire.origin.toml` file. It will also delete the existing `alire` folder and generate an 'unknownCrates.json' file that contains a list of all unknown crate dependencies.
-4. Run `cogralys-bench-util update-project`. This will concurrently run `alr -n update` in all directories listed in `alireTomlPath.json`.
+3. Run `cogralys-bench-util generate-alire`. This will generate `alire.toml` from a list of directories (previously generated `alireTomlPath.json`) that contain an `alire.origin.toml` file. It will also delete the existing `alire` folder and generate an 'unknownCrates.json' file containing a list of all unknown crate dependencies.
+4. Run `cogralys-bench-util update-project`. This will concurrently run `alr -n update` for all crates listed in `alireTomlPath.json`.
 5. (Optional but highly recommended for identifying future analysis problems) Run `cogralys-bench-util build`. This will run `alr -n build` in all directories listed in `alireTomlPath.json`.
 6. Run `cogralys-bench-util bench-adactl > /workspaces/bench-source/Adactl_benchmark.sh` to generate the benchmark experiment script for AdaControl.
 7. Run `cogralys-bench-util bench-gnatcheck > /workspaces/bench-source/GNATcheck_benchmark.sh` to generate the benchmark experiment script for GNATcheck.
