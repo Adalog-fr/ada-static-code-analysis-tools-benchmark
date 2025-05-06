@@ -228,36 +228,10 @@ gnatpro.tar.gz
 
 .codeiumignore
 
-aggrerate.txt
-
-benchmarkResultByProject.csv
-
-cogralys-TEST.report.json
-
-dataset.json
-
 utils/benchmarkToChart.html
 
-utils/benchmarkToChart.py
-
-utils/computeComplexity.py
-
 process_time_files.sh
-
-projects-list.txt
-
-resultByProject.json
-
-resultByProjectOverhead.json
-
-standardDeviation.txt
-
-stdDev.csv
-
-stdDev.md
 
 sync-bench.sh
 
 TODO.md
-
-trace.txt
