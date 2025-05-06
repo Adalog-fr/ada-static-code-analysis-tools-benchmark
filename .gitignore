@@ -236,19 +236,11 @@ cogralys-TEST.report.json
 
 dataset.json
 
-utils/analyzeUseOfWithInResults.ts
-
 utils/benchmarkToChart.html
 
 utils/benchmarkToChart.py
 
 utils/computeComplexity.py
-
-utils/generateAllUnitUsage.ts
-
-utils/getIssuedMessages.ts
-
-utils/modules/deleteBenchmarkLogs2.ts
 
 process_time_files.sh
 
