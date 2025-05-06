@@ -17,7 +17,7 @@ trap 'signalHandler' SIGQUIT
 # Source common utility functions
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/utils/utils.sh"
-source "$SCRIPT_DIR/check-requirements.sh"
+source "$SCRIPT_DIR/utils/check-requirements.sh"
 
 # Function to install Python dependencies
 install_python_deps() {
