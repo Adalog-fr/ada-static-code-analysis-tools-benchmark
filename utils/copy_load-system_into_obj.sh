@@ -13,35 +13,13 @@ if [ "$#" -gt 1 ]; then
     usage
 fi
 
-# Function to join paths safely
-join_paths() {
-    local IFS="/"
-    echo "$*"
-}
-
 CWD=$(dirname "$(readlink -f "$0")")
 SRC_DIR="${1:-$(join_paths "$CWD" ".." "src")}"
-
-# Function to check if a command exists
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
-}
+source "./utils.sh"
 
 # Function to clean path (remove ./ prefix if present)
 clean_path() {
     echo "$1" | sed 's|^\./||'
-}
-
-# Function to determine which find command to use
-get_find_command() {
-    if command_exists fd; then
-        echo "fd"
-    elif command_exists fdfind; then
-        echo "fdfind"
-    else
-        echo "Error: Neither 'fd' nor 'fdfind' command found. Please install fd-find." >&2
-        exit 1
-    fi
 }
 
 # Function to copy the file and run the command

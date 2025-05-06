@@ -73,6 +73,12 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+# Function to join paths safely
+join_paths() {
+    local IFS="/"
+    echo "$*"
+}
+
 # Check if a file exists
 check_file_exists() {
     if [ ! -f "$1" ]; then
@@ -120,9 +126,21 @@ confirm() {
     esac
 }
 
+# Function to determine which find command to use
+get_find_command() {
+    if command_exists fd; then
+        echo "fd"
+    elif command_exists fdfind; then
+        echo "fdfind"
+    else
+        echo "Error: Neither 'fd' nor 'fdfind' command found. Please install fd-find." >&2
+        exit 1
+    fi
+}
+
 # Export functions for use in other scripts
-export -f print_info print_success print_warning print_error print_banner print_step print_tick print_cross print_warn_icon
-export -f command_exists check_file_exists check_root is_package_installed user_exists group_exists check_command confirm format_text
+export -f print_info print_success print_warning print_error print_banner print_step print_tick print_cross print_warn_icon join_paths join_paths
+export -f command_exists check_file_exists check_root is_package_installed user_exists group_exists check_command confirm format_text get_find_command
 
 # Export color and formatting variables
 export COLOR_RED COLOR_GREEN COLOR_YELLOW COLOR_BLUE COLOR_PURPLE COLOR_CYAN COLOR_LIGHTGRAY COLOR_WHITE COLOR_RESET
