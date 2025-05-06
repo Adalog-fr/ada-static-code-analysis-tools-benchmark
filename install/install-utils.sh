@@ -10,55 +10,13 @@ GNAT_RELEASE="gnatpro.tar.gz"
 GO_VERSION="1.24.2"
 SCC_VERSION="v3.5.0"
 
-# Function to display colorful step banners
-print_banner() {
-    echo -e "\e[1;34m==================================================================\e[0m"
-    echo -e "\e[1;34m >> $1\e[0m"
-    echo -e "\e[1;34m==================================================================\e[0m"
-}
+# Source common utility functions
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../utils/utils.sh"
 
-# Function to display steps
-print_step() {
-    echo -e "\e[1;36m--------------------------------------------------------------\e[0m"
-    echo -e "\e[1;36m >>> $1\e[0m"
-    echo -e "\e[1;36m--------------------------------------------------------------\e[0m"
-}
+# Variables specific to this script
+# (USERNAME, USER_UID, USER_GID, GNAT_RELEASE, GO_VERSION, SCC_VERSION)
 
-# Function to display success message
-print_success() {
-    echo -e "\e[1;32m✓ $1\e[0m"
-}
-
-# Function to display error message
-print_error() {
-    echo -e "\e[1;31m✗ $1\e[0m"
-}
-
-# Function to display warning message
-print_warning() {
-    echo -e "\e[1;33m⚠ $1\e[0m"
-}
-
-# Function to check if user is root
-check_root() {
-    if [ "$(id -u)" -ne 0 ]; then
-        print_error "This script must be run as root or with sudo"
-        exit 1
-    fi
-}
-
-# Function to check if a package is installed
-is_package_installed() {
-    dpkg -l "$1" &> /dev/null
-    return $?
-}
-
-# Function to check if a file exists
-check_file_exists() {
-    if [ ! -f "$1" ]; then
-        print_error "File $1 not found!"
-        return 1
-    fi
     return 0
 }
 
