@@ -1,14 +1,39 @@
 #!/bin/bash
 # utils.sh - Shared utility functions
 
-# Color variables
-COLOR_INFO='\033[1;34m'
-COLOR_SUCCESS='\033[1;32m'
-COLOR_WARNING='\033[1;33m'
-COLOR_ERROR='\033[1;31m'
-COLOR_BANNER='\033[1;34m'
-COLOR_STEP='\033[1;36m'
+# Base color codes
+COLOR_RED='\033[31m'
+COLOR_GREEN='\033[32m'
+COLOR_YELLOW='\033[33m'
+COLOR_BLUE='\033[34m'
+COLOR_PURPLE='\033[35m'
+COLOR_CYAN='\033[36m'
+COLOR_LIGHTGRAY='\033[37m'
+COLOR_WHITE='\033[97m'
 COLOR_RESET='\033[0m'
+
+# Text formatting
+FORMAT_BOLD='\033[1m'
+FORMAT_DIM='\033[2m'
+FORMAT_UNDERLINE='\033[4m'
+FORMAT_BLINK='\033[5m'
+FORMAT_REVERSE='\033[7m'
+FORMAT_HIDDEN='\033[8m'
+
+# Function to combine formatting and colors
+format_text() {
+    local format="$1"
+    local color="$2"
+    echo "${format}${color}"
+}
+
+# Predefined formatted colors
+COLOR_INFO=$(format_text "${FORMAT_BOLD}" "${COLOR_BLUE}")
+COLOR_SUCCESS=$(format_text "${FORMAT_BOLD}" "${COLOR_GREEN}")
+COLOR_WARNING=$(format_text "${FORMAT_BOLD}" "${COLOR_YELLOW}")
+COLOR_ERROR=$(format_text "${FORMAT_BOLD}" "${COLOR_RED}")
+COLOR_BANNER=$(format_text "${FORMAT_BOLD}" "${COLOR_BLUE}")
+COLOR_STEP=$(format_text "${FORMAT_BOLD}" "${COLOR_CYAN}")
 
 # Print functions
 print_info() {
@@ -97,4 +122,9 @@ confirm() {
 
 # Export functions for use in other scripts
 export -f print_info print_success print_warning print_error print_banner print_step print_tick print_cross print_warn_icon
-export -f command_exists check_file_exists check_root is_package_installed user_exists group_exists check_command confirm
+export -f command_exists check_file_exists check_root is_package_installed user_exists group_exists check_command confirm format_text
+
+# Export color and formatting variables
+export COLOR_RED COLOR_GREEN COLOR_YELLOW COLOR_BLUE COLOR_PURPLE COLOR_CYAN COLOR_LIGHTGRAY COLOR_WHITE COLOR_RESET
+export FORMAT_BOLD FORMAT_DIM FORMAT_UNDERLINE FORMAT_BLINK FORMAT_REVERSE FORMAT_HIDDEN
+export COLOR_INFO COLOR_SUCCESS COLOR_WARNING COLOR_ERROR COLOR_BANNER COLOR_STEP
