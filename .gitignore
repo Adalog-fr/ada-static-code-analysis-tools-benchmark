@@ -223,13 +223,3 @@ Asiscomps.zip
 Comps.zip
 gnatcheck.tar.gz
 gnatpro.tar.gz
-
-# TODO: update ignore files below, by removing useless files
-
-.codeiumignore
-
-utils/benchmarkToChart.html
-
-sync-bench.sh
-
-TODO.md
