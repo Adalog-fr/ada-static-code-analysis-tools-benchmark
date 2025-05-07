@@ -68,34 +68,129 @@ Software requirements:
 - Deno 1.46.3 with v8 12.0.267.1 and typescript 5.2.2: for benchmark scripts.
 - [Cogralys Engine](https://github.com/Adalog-fr/cogralys-engine): core of our approach
 
-### Running a Benchmark
+### Running the Benchmarks
 
-To run a benchmark, follow these steps:
+Get started with our benchmarking suite in just a few simple steps:
 
-1. Run `./Adactl_benchmark.sh` to get the result benchmark for AdaControl
-2. Run `./GNATcheck_benchmark.sh` to get the result benchmark for GNATcheck
-3. Run `deno run --allow-all ./utils/cogralys-cli/cogralys-cli.ts -t` to get the result for our approach
+1. **Setting Up Your Environment**  
+   For a fresh installation, check out the [installation guide](./install/README.md). The quickest path is to navigate to the `install` directory and run `./install-main.sh` after downloading the required archives.
 
-### Adding Sources
+2. **Preparing the Benchmark Environment**  
+   Run `./setup-benchmark.sh` to validate your environment and configure the benchmark repository. This script ensures all dependencies are properly installed and sets up the necessary components.
 
-To simplify dependency resolution, we use the [Alire](https://alire.ada.dev) package manager. To add new crates, please follow the instructions below:
+3. **Launching the Benchmarks**  
+   Execute `./benchmark-all.sh` to run the complete benchmark suite. Results are generated as Markdown reports by default, making them easy to view and share. Result data are generated in `.json` files at the root of the repository.
 
-1. Clone the project into the `src` directory or use `alr get -o CRATE_NAME`.
-2. Add the path to the new crate into the [cratesPath.json](./cratesPath.json) file:
-   `"CRATENAME": "path/to/src/CRATE_DIR"`
-3. In the root crate folder, rename `alire.toml` to `alire.origin.toml`.
-4. Run `cogralys-bench-util generate-alire -p .` to regenerate `alire.toml` with **pins** that point to crates located in the [src](./src) directory.
-5. Check that the project compiles with `alr build`.
-6. In the root crate folder, run `copy_load-system_into_obj.sh` to resolve issues related to ASIS that raise a Storage_Error when it attempts to access some system packages.
+Need help? All scripts support the `-h` or `--help` flag to display detailed usage information.
 
-### Regenerating All Environment
+#### Customizing Your Benchmark Run
 
-To regenerate all files used for the benchmark environment, follow these instructions:
+The benchmark suite is highly configurable through command-line options:
 
-1. Go to the root of this repository.
-2. Run `cogralys-bench-util generate-build-path -p src`. This will generate an `alireTomlPath.json` file containing all directories that contain an `alire.origin.toml` file. This file is used, for example, by the `build` command to build all projects.
-3. Run `cogralys-bench-util generate-alire`. This will generate `alire.toml` from a list of directories (previously generated `alireTomlPath.json`) that contain an `alire.origin.toml` file. It will also delete the existing `alire` folder and generate an 'unknownCrates.json' file containing a list of all unknown crate dependencies.
-4. Run `cogralys-bench-util update-project`. This will concurrently run `alr -n update` for all crates listed in `alireTomlPath.json`.
-5. (Optional but highly recommended for identifying future analysis problems) Run `cogralys-bench-util build`. This will run `alr -n build` in all directories listed in `alireTomlPath.json`.
-6. Run `cogralys-bench-util bench-adactl > /workspaces/bench-source/Adactl_benchmark.sh` to generate the benchmark experiment script for AdaControl.
-7. Run `cogralys-bench-util bench-gnatcheck > /workspaces/bench-source/GNATcheck_benchmark.sh` to generate the benchmark experiment script for GNATcheck.
+```
+# Basic usage
+./benchmark-all.sh
+
+# Custom Neo4j connection
+./benchmark-all.sh --neo4j-uri bolt://localhost:7687 --neo4j-user neo4j --neo4j-password password
+
+# Run only specific tools
+./benchmark-all.sh --skip-adactl --skip-gnatcheck
+```
+
+**Available Options:**
+
+- **Database Connection**
+  - `--neo4j-uri URI`: Neo4j connection URI
+  - `--neo4j-user USER`: Neo4j username
+  - `--neo4j-password PASSWORD`: Neo4j password
+
+- **Output Control**
+  - `--output-dir DIR`: Custom directory for benchmark results
+
+- **Tool Selection**
+  - `--skip-adactl`: Exclude AdaControl from benchmarks
+  - `--skip-gnatcheck`: Exclude GNATcheck from benchmarks
+  - `--skip-cogralys`: Exclude Cogralys from benchmarks
+
+- **Performance Options**
+  - `--use-cache`: Leverage cached results for faster runs. This could only be used by Cogralys. to prevent bias, make sure you only use this when the measurement phase of the database file generation is completely finished (this implies having completed a full benchmark run).
+  - `--project-list LIST`: Target specific projects
+
+- **Benchmark Modes**
+  - `--benchmark-only`: Run only the all-rules-at-once benchmark
+  - `--rule-by-rule-only`: Run only the rule-by-rule benchmark
+  - `--generate-report-only`: Generate reports from existing data
+
+### Adding New Projects
+
+To add a new Ada project to the benchmark suite, follow these steps:
+
+> [!NOTE]
+> The commands below assume you have set up `cogralys-bench-util` as an alias: 
+> ```
+> cogralys-bench-util="deno run --config /path/to/benchmark/deno.jsonc --unstable-ffi --allow-all /path/to/benchmark/utils/cogralys-bench-util.ts $@"
+> ```
+
+1. **Clone and prepare the target project**
+   ```sh
+   # Clone the repository you want to add
+   git clone https://github.com/username/ada-project.git
+   cd ada-project
+   
+   # Rename the original alire.toml file to preserve it
+   mv alire.toml alire.origin.toml
+   ```
+
+2. **Configure the project for local dependencies**
+   ```sh
+   # Generate a new alire.toml that uses local dependencies
+   cogralys-bench-util generate-alire -p .
+   
+   # Generate the environment configuration
+   deno run --config /path/to/benchmark/deno.jsonc --allow-all /path/to/benchmark/utils/executeEnvFileGeneration.ts
+   
+   # Build the project
+   alr -n build
+   
+   # Apply the Storage_Unit fix
+   copy_load-system_into_obj.sh .
+   ```
+
+3. **Generate compilation unit information**
+   ```sh
+   # Generate lists of compilation units in different formats
+   cogralys-bench-util units -P alire alire.toml
+   cogralys-bench-util units -P alire alire.toml -f file
+   cogralys-bench-util units -P alire alire.toml -f path
+   
+   # Generate code metrics
+   cogralys-bench-util generate-scc-metrics project.units_by_path
+   ```
+   Where `project` of `project.units_by_path` is the name of the `.gpr` file.
+
+4. **Test with static analysis tools**
+   ```sh
+   # Run AdaControl analysis
+   time alr exec -- adactl -f /path/to/benchmark/benchmark-rules/all_rules_in_one_file/_all.aru \
+     -p /path/to/project/project.gpr @/path/to/project/project.units \
+     -o adactl-report.log -w
+   
+   # Run GNATcheck analysis
+   time alr exec -- gnatcheck --brief -q -t -l --show-rule \
+     -o gnatcheck-report.log -P/path/to/project/project.gpr \
+     -rules -from=/path/to/benchmark/benchmark-rules/all_rules_in_one_file/gnatcheck.rules
+   ```
+
+5. **Add the project to the benchmark database**
+   ```sh
+   # Add the project to cratesDB.json
+   cogralys-bench-util add-project -c project_name -w src/project_name -g src/project_name/project.gpr
+   
+   # Regenerate benchmark files
+   cogralys-bench-util bench-adactl
+   cogralys-bench-util bench-gnatcheck
+   cogralys-bench-util bench-cogralys
+   ```
+
+This process ensures that each project is properly integrated into the benchmark suite, with all necessary metadata and configuration to run consistent comparisons across all static analysis tools.
