@@ -223,3 +223,9 @@ Asiscomps.zip
 Comps.zip
 gnatcheck.tar.gz
 gnatpro.tar.gz
+
+# Custom ignore
+
+sync-bench.sh
+TODO.md
+scratchpad.md
