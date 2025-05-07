@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/setup_pll.adb"
+node: { title: "_ada_setup_pll" label: "Setup_Pll\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/setup_pll.adb:39:1\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__pmc__ckgr_mor_registerIP" label: "ckgr_mor_registerIP\n<built-in>" shape : ellipse }
+edge: { sourcename: "_ada_setup_pll" targetname: "interfaces__sam__pmc__ckgr_mor_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/setup_pll.adb:40:4" }
+}

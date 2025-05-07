@@ -1,0 +1,1370 @@
+Wed 20 Mar 2024 : updated greeting_banners for version 2.4.90.
+  Extended main.gpr to allow for the building of use_phc.
+
+Tue 20 Feb 2024 : updated greeting_banners for version 2.4.89.
+
+Tue 26 Dec 2023 : updated greeting_banners for version 2.4.88.
+
+Fri 15 Dec 2023 : fixed greeting_banners for correct date and version.
+
+Wed 13 Dec 2023 : updated greeting_banners for version 2.4.87.
+
+Sun 10 Dec 2023 : extended main.gpr so the name of the executable is
+  not phctop, but simply phc, when using gprbuild.
+  In main.gpr, cleaned up the list of excluded source files.
+
+Mon 30 May 2022 : updated greeting_banners for version 2.4.86.
+
+Sun 16 Jan 2022 : added phclib.gpr to build the shared object libPHCpack.
+
+Sun 26 Nov 2021 : in main.gpr removed a line with a wrong linker switch.
+
+Sat 27 Nov 2021 : fixed greeting_banners.adb for incorrect year of
+  the last release.
+
+Tue 13 Jul 2021 : extended greeting_banners with help for phc -z -h,
+  updated option_handlers.adb.
+
+Wed 30 Jun 2021 : fixed feedback so main.gpr can build also the -k option,
+  after uncommenting out the proper code in option_handlers.
+  The main.gpr now builds phc almost entirely, except for phc -j.
+  To phctop.adb, added with pieri_solver to force its compilation.
+  Excluded ts_use_syscon.c in main.gpr for the build of phctop on macOS.
+
+Tue 29 Jun 2021 : in option_handlers.adb commented out the code for phc -j
+  and phc -k so the main.gpr works on Linux to build phctop.
+  Updated phctop.adb to force the compilation of use_c2phc on Windows.
+  Updated greeting_banners for version 2.4.85.
+
+Sun 13 Jun 2021 : removed obsolete tableau_formats package and the
+  convert_formats.adb.
+
+Fri 26 Feb 2021 : fixed the dates in greeting_banners.
+
+Wed 24 Feb 2021 : updated greeting_banners for version 2.4.84.
+
+Mon 22 Feb 2021 : updated option_handlers.adb with the call to the Main
+  procedure for the option -p -z and -z -p.
+
+Sun 21 Feb 2021 : fixed message when verbose level is positive,
+  for the renaming of mainzip into main_maple_solutions.
+  Updated option_handlers.adb for the new option -p with phc -z.
+
+Mon 14 Dec 2020 : updated greeting_banners for version 2.4.83.
+
+Sun 13 Dec 2020 : extended black_box_solvers with the return of gamma.
+  Also extended black_box_polyhedral_solvers with the return of gamma.
+
+Tue 8 Dec 2020 : updated option_handlers.adb so phc -u passes the precision
+  and the number of tasks.
+
+Sat 6 Dec 2020 : updated option_handlers.adb for the move of babldmvc into
+  the package black_polyhedral_continuations.  Updated option_handlers.adb
+  for the move of mainpoco into the package main_homotopy_continuation.
+  Updated option_handlers.ads and option_handlers.adb for the move of
+  mainadep into the package main_ade_trackers.
+
+Sat 5 Dec 2020 : updated option_handlers for the replacement of the procedure
+  mainsymb by the package symbol_table_order.
+
+Fri 4 Dec 2020 : extended option_handlers.ads and updated option_handlers.adb
+  for the new package main_intersection.  Updated option_handlers.adb for the
+  new package main_factorization and the removal of the mainfac procedure.
+  Updated option_handlers for the replacement of the procedure mainsmvc
+  by the package mixed_volume_calculator.
+
+Thu 3 Dec 2020 : updated option_handlers.adb for the move of the mainsam
+  procedure into the package main_samplers.  Updated option_handlers.adb
+  for the move of bablenum into the package main_pieri_count.
+  Updated option_handlers for the move of maindeco to main_decomposition.
+
+Wed 2 Dec 2020 : replace mainfeed by the package main_output_feedback,
+  updated option_handlers.adb.  Updated option_handlers.adb for the
+  elimination of the procedure maingood from the Math_Lib/Polynomials.
+  Updated option_handlers.adb for the elimination of mainsolve.adb.
+
+Tue 1 Dec 2020 : updated option_handlers.adb for the removal of mainseries.
+  Replaced mainphc by the package Polynomial_Homotopy_Continuation and
+  updated option_handlers.adb for the removal of the mainphc procedure.
+
+Mon 30 Nov 2020 : updated black_box_solvers with procedures that return
+  the start system and the start solutions.  To black_box_polyhedral_solvers,
+  added procedures that return the start system and the start solutions.
+  Adjusted greeting_banners for version 2.4.82.
+
+Sun 29 Nov 2020 : updated option_handlers.adb for the renaming of the package
+  drivers_for_schubert_induction into main_schubert_induction.
+  Updated mainphc.adb and option_handlers.adb for the main_scaling package.
+
+Sun 22 Nov 2020 : removed bablvali, bablvali2, bablvali4, and updated
+  option_handlers.adb.  Updated mainphc.adb and option_handlers.adb
+  for the renaming of drivers_for_reduction into main_reduction.
+  Updated option_handlers.adb for the move of bablpoco, bablpoco2, bablpoco4
+  into the {standard,dobldobl,quaddobl}_blackbox_continuations.
+  Updated option_handlers.adb for the move of mainhyp, mainhyp2, mainhyp4
+  into the new package main_hypersurface_witsets.
+
+Sat 21 Nov 2020 : the procedures compsolve, compsolve2, compsolve4 are
+  packaged into the new main_component_solvers, updated option_handlers.adb.
+  Replaced the procedure bablphc by the package standard_blackbox_solvers,
+  bablphc2 and bablphc4 by {dobldobl,quaddobl}_blackbox_solvers.
+  Updated option_handlers.adb.  Moved bablroco.adb into the Main procedure
+  of black_box_root_counters.  Updated option_handlers.adb once more.
+
+Fri 20 Nov 2020 : replaced the procedure mainvali with the package 
+  main_verification, and replaced maintrack with main_trackers.
+  Updated option_handlers.adb.
+
+Sun 8 Nov 2020 : updated mainphc.adb and driver_for_own_start_system.adb for
+  the renaming of drivers_for_poly_continuation into main_poly_continuation.
+
+Sun 1 Nov 2020 : new packages main_dictionary_solutions and main_maple_
+  solutions replace the maindict and mainzip procedures respectively.
+  Updated option_handlers.adb.
+
+Sat 31 Oct 2020 : updated greeting_banners for version 2.4.81.
+
+Tue 29 Sep 2020 : updated greeting_banners for version 2.4.80.
+
+Mon 28 Sep 2020 : new package test_standard_solver with code from ts_bbsolve.
+  Exported the pipelined_stable_continuation in black_box_root_counters.
+  Move the polyhedral_solve procedures from black_box_solvers into the
+  new package black_box_polyhedral_solvers.  Extended the packages 
+  black_box_{mixed_volumes, polyhedral_solvers}, test_standard_solver
+  with procedures which output to file and with multitasking.
+
+Sun 27 Sep 2020 : new test procedure ts_bbsolve with a basic test on the
+  new polyhedral black box solver.
+
+Sat 26 Sep 2020 : moved special cases from black_box_solver_cases into
+  new packages: black_box_helpers, black_box_single_solvers,
+  black_box_linear_solvers, black_box_square_solvers, which changed
+  black_box_solvers.adb, bablphc.adb, bablphc2.adb, and bablphc4.adb.
+  Extended black_box_solvers with polyhedral_solve procedures,
+  calling procedures from the new black_box_mixed_volumes package,
+  with extensions done in root_counters_output.
+
+Sun 23 Aug 2020 : in mainvali.adb passed the verbose level to deflation.
+
+Tue 4 Aug 2020 : modified greeting_banners.ads and greeting_banners.adb,
+  adding the Littlewood-Richardson homotopies in the banner and removing
+  one character from the help output.  Updated option_handlers.adb to pass
+  the number of tasks to the main procedure for enumerative geometry.
+
+Thu 30 Jul 2020 : updated greeting_banners for version 2.4.49.
+
+Thu 23 Jul 2020 : updated black_box_solvers.adb and black_box_solver_cases.adb
+  to pass the verbose level to the black box continuation procedures.
+  Updated bablphc.adb, black_box_solver_cases.adb, and black_box_solvers.adb
+  for passing of verbose level to the black box simplex/binomial solvers.
+
+Tue 30 Jun 2020 : updated banner for phc -u in greeting_banners.ads.
+  Updated greeting_banners for version 2.4.78.
+  Adjusted option_handlers.adb for the number of tasks in mainseries.
+
+Fri 12 Jun 2020 : updated greeting_banners for version 2.4.77.
+
+Thu 11 Jun 2020 : added verbose level to mainvali.adb, and to the
+  phctop.adb, option_handlers; to greeting_banners, added help information
+  for the -V option.  To mainvali.adb added standard_root_refiners.Main(),
+  extending the option #0 of phc -v.
+
+Wed 29 Apr 2020 : adjusted greeting_banners for version 2.4.76.
+
+Thu 23 Apr 2020 : passed the input and output file names to the refiners
+  in double double and quad double precision in mainvali.adb.
+
+Mon 6 Apr 2020 : added default values to mainvali.adb.
+
+Tue 28 Jan 2020 : updated greeting_banners for version 2.4.75.
+
+Fri 25 Oct 2019 : removed the option_handlers_no_ade and phctop_no_ade.
+
+Mon 21 Oct 2019 : updated greeting_banners for version 2.4.74.
+
+Fri 11 Oct 2019 : by the added verbose level to maindeco, updated
+  option_handlers.adb and option_handlers_no_ade.adb.
+
+Thu 3 Oct 2019 : updated greeting_banners for version 2.4.73.
+
+Tue 1 Oct 2019 : added phctop_no_ade, option_handlers_no_ade, to compile
+  versions of phc without the QD and Path libraries.
+
+Sat 14 Sep 2019 : updated bablphc.adb, bablphc2.adb, and bablphc4.adb 
+  to avoid asking name of file twice.
+
+Sat 7 Sep 2019 : extended black_box_solver_cases with a new procedure to
+  return the new file name, updated bablphc.adb.
+
+Fri 6 Sep 2019 : updated bablphc.adb, bablphc2.adb, and bablphc4.adb for
+  the modified bablsolve.
+
+Thu 5 Sep 2019 : added verbose level to the call of bablsolve in bablphc.adb.
+
+Sun 1 Sep 2019 : updated greeting_banners for version 2.4.72.
+
+Thu 29 Aug 2019 : updated greeting_banners, optional_handlers.adb, and
+  mainphc.adb to update the banner for phc -u.
+
+Tue 13 Aug 2019 : updated greeting_banners for version 2.4.71.
+
+Thu 25 Jul 2019 : updated greeting_banners for version 2.4.70.
+
+Fri 5 Jul 2019 : updated greeting_banners for version 2.4.69.
+
+Wed 26 Jun 2019 : added the verbose level to the solve_for_special_cases
+  procedures in black_box_solver_cases.  Applied the verbose parameter 
+  inside the procedures of black_box_solvers.adb.
+
+Tue 25 Jun 2019 : added the verbose level to the pipelined root counters
+  in black_box_root_counters.
+
+Sat 22 Jun 2019 : updated actions_and_options.adb so in Scan_Precision, 
+  the default return value is 0 instead of 1 if the user does not provide 
+  a precision level, as is important in phc -u.
+
+Fri 21 Jun 2019 : added the verbose level to driver_for_root_refining,
+  updated mainphc.adb.  Updated greeting_banners for v2.4.68.
+  Documented the -V option in mainphc.adb, for running in full mode.
+
+Thu 20 Jun 2019 : for the verbose levels in the homotopy contruction
+  and continuation, added verbose levels to procedures in mainphc.adb.
+
+Wed 19 Jun 2019 : added verbose levels to procedures in mainphc.adb.
+
+Sat 15 Jun 2019 : updated option_handlers.adb for adding -V to phc -u.
+
+Thu 13 Jun 2019 : updated option_handlers.adb for the verbose level added
+  to mainpoco, bablpoco, bablpoco2, and bablpoco4.  Added the verbose level
+  to mainenum and to bablenum; and to mainscal, mainred, mainred2, mainred4.
+
+Wed 12 Jun 2019 : improved option_handlers, defining the full mode handler.
+  Dealt with the no options case, added exception handlers and checking
+  whether the first two files names are identical.
+  Replaced dispatch with phctop as the top level procedure for phc.
+  Added the verbose level to mainphc, mainvali, bablvali, bablvali2, bablvali4,
+  bablroco, maindict, maintrack, mainzip, mainfeed, which caused updates to
+  the option_handlers.
+
+Tue 11 Jun 2019 : added the handler for the -k option to option_handlers.
+  Added handler for blackbox solver in option_handlers and fixed a bug
+  in actions_and_options.adb.
+
+Mon 10 Jun 2019 : extended option_handlers, tested by ts_opthand.
+  Added more handlers to option_handlers.
+
+Sun 9 Jun 2019 : new package actions_and_options, tested by ts_actopt.
+  Added scanning of options getting of arguments to actions_and_options,
+  with extra tests in ts_actopt.  Added a function to actions_and_options,
+  to sort the command line options, tested by ts_actopt.
+  New package option_handers, tested by ts_opthand.
+
+Thu 6 Jun 2019 : added the verbose level to mainroco, drivers_for_root_counts,
+  with updates in dispatch.adb.
+
+Wed 5 Jun 2019 : added the verbose level to each of the 36 Solve procedures
+  in black_box_solvers.  Added the verbose level to compsolve, compsolve2,
+  compsolve4, with updates in dispatch.adb.  Updated dispatch.adb for the
+  addition of the verbose level in mainsmvc.
+
+Tue 4 Jun 2019 : in black_box_solver_cases.adb, declared the constant 0
+  to be of type natural32, to avoid a crash with GNAT GPL 2019;
+  updated dispatch.adb.  Added more verbose options to bablphc, bablphc2,
+  bablphc4, black_box_solver_cases, and dispatch.adb.
+
+Mon 3 Jun 2019 : updates in compsolve.adb, compsolve2.adb, compsolve4.adb
+  for compiler warnings.
+
+Fri 31 May 2019 : added verbose level parameters for the black polyhedral
+  continuations in black_box_root_counters.adb.
+
+Thu 30 May 2019 : added a new verbose level option -V to dispatch.adb,
+  added code in bablphc, black_box_solvers, black_box_solver_cases, and
+  black_box_root_counters.  Updated black_box_root_counters.adb for the
+  verbose level in black_mixed_volume_computations.
+
+Fri 17 May 2019 : updated greeting_banners for version 2.4.67.
+
+Fri 29 Mar 2019 : updated greeting_banners for version 2.4.66 and added
+  some documentation lines on the use of all available cores.
+
+Sat 23 Mar 2019 : in dispatch.adb, used number of cores if the user does
+  not provide the number of tasks at the command line.
+
+Thu 28 Feb 2019 : updated greeting_banners for version 2.4.65.
+
+Mon 21 Jan 2019 : updated greeting_banners for version 2.4.64.
+
+Fri 28 Dec 2018 : updated greeting_banners for version 2.4.63.
+
+Sun 9 Dec 2018 : updated greeting_banners for version 2.4.62.
+
+Thu 29 Nov 2018 : in greetings_banners.ads, renamed the banner for phc -u,
+  and updated the handler for phc -u in dispatch.adb.
+  Extended the help information on phc -u in greeting_banners.adb.
+  Adjusted the greeting banners for version 2.4.61.
+
+Sun 11 Nov 2018 : adjusted greeting_banners for version 2.4.60.
+
+Sun 14 Oct 2018 : adjusted greeting_banners for version 2.4.59.
+
+Thu 27 Sep 2018 : adjusted greeting_banners for version 2.4.58.
+
+Tue 25 Sep 2018 : passed stable lifting bound to the make procedure of the
+  induced permutations in black_box_root_counters.adb.
+
+Fri 31 Aug 2018 : moved code for the apply induced permutations procedures
+  from black_box_root_counters to a new package Apply_Induced_Permutations
+  in the folder ../Root_Counts/Dynlift.
+  For version 2.4.57, adjusted the greeting_banners.
+
+Thu 30 Aug 2018 : in black_box_root_counters.adb, added procedures to
+  apply the induced permutation for standard complex polynomial systems.
+  Made similar updates for polynomial systems with coefficients in
+  double double and quad double precision.
+
+Tue 14 Aug 2018 : adjusted greeting_banners for version 2.4.56.
+
+Thu 7 Jun 2018 : initialized rocotime to 0.0 in black_box_root_counts.adb
+  when pipelining is applied.
+
+Sat 2 Jun 2018 : updated greeting_banners for version 2.4.55.
+
+Wed 30 May 2018 : added number of tasks to driver_for_root_counts,
+  which changed mainroco.adb, ts_drivroco.adb, and mainphc.adb.
+
+Tue 29 May 2018 : shorted root counting banner in greeting_banners.ads.
+  Inserted the number of tasks as first argument of mainroco,
+  updated dispatch.adb.
+
+Wed 16 May 2018 : adjusted greeting_banners for version 2.4.54.
+  Inserted DEMiCs in mainphc.adb to document the options.
+
+Mon 14 May 2018 : extended greeting_banners with information about DEMiCs.
+
+Tue 1 May 2018 : for version 2.4.53, updated greeting_banners.
+
+Wed 25 Apr 2018 : updated mainvali.adb to prompt for the precision
+  when computing the multiplicity structure.
+
+Tue 10 Apr 2018 : adjusted greeting_banners for version 2.4.52.
+
+Sat 7 Apr 2018 : updated compsolve.adb, compsolve2.adb, and compsolve4.adb
+  for the new package embeddings_and_cascades.
+
+Fri 6 Apr 2018 : black_box_solver_cases.adb and black_box_solvers.adb
+  changed because of extra deflate parameter in the blackbox continuation
+  and refiner procedures.  Moved the extra deflate parameter to the
+  black_box_solver_cases and black_box_solver specifications as well,
+  which change bablphc.adb.
+
+Thu 5 Apr 2018 : removed the "seed found" message from dispatch.adb.
+
+Fri 30 Mar 2018 : updated the factorization banner in greeting_banners.ads
+  and passed the number of tasks to mainfac in dispatch.adb.
+
+Thu 29 Mar 2018 : improved output in black_box_root_counters.adb.
+
+Wed 28 Mar 2018 : added the writing of the elapsed wall clock time to
+  the pipelined polyhedral homotopies in black_box_root_counters.adb.
+
+Tue 27 Mar 2018 : only write start solutions with zero coordinates if list
+  is not empty, write timer info for pipelined polyhedral continuation in
+  black_box_root_counters.adb.  Updates in bablphc.adb, bablphc2.adb,
+  bablphc4.adb, black_box_solver_cases.adb, and black_box_root_counters.adb,
+  to write number of tasks at the end of a run.
+  Added the number of tasks in greetings_and_conclusions, modified
+  compsolve.adb, compsolve2.adb, and compsolve4.adb, so phc -B writes
+  the number of tasks at the end of a run.
+
+Mon 26 Mar 2018 : updated greeting_banners for version 2.4.51.
+
+Sun 25 Mar 2018 : extended root_counters_output for writing only the total
+  degree and the mixed volumes.  Updated black_box_root_counters,
+  black_box_solver_cases.adb, and black_box_solvers.adb, removing the
+  degree bounds from the pipelined root counters.
+
+Sat 24 Mar 2018 : for double double and quad double precision extended
+  black_box_solver_cases.adb and black_box_root_counters.adb.
+  More updates in black_box_root_counters.adb and black_box_solvers.adb
+  for pipelined root counting methods.
+
+Fri 23 Mar 2018 : updated black_box_root_counters.adb and
+  black_box_solver_cases.adb for the stable polyhedral continuation
+  in the pipelined polyhedral homotopies.
+
+Thu 22 Mar 2018 : for stable mixed volumes and pipelining, updated
+  black_box_root_counters.adb, black_box_solver_cases.adb, and
+  black_box_solver.adb.
+
+Wed 21 Mar 2018 : modified black_box_root_counters.adb for the improved
+  pipelined_polyhedral_drivers.
+
+Tue 20 Mar 2018 : added another set of pipelined wrappers to
+  black_box_root_counters for Laurent systems and applied them
+  in black_box_solvers.adb.  In black_box_root_counters, made a start to
+  apply pipelining for ordinary polynomial systems, added 9 procedures.
+
+Mon 19 Mar 2018 : wrapped pipelined polyhedral homotopies for Laurent systems
+  in black_box_root_counters.
+
+Mon 12 Mar 2018 : for version 2.4.50, updated greeting_banners.
+  Added a line in mainphc.adb about phc -B.
+
+Mon 5 Mar 2018 : adjusted greeting_banners for version 2.4.49.
+
+Sun 4 Mar 2018 : changed mainroco.adb so that phc -r also writes the
+  dimension of the system to the output file.
+
+Sat 30 Dec 2017 : updated greeting_banners for version 2.4.48.
+  Removed superfluous new_line; after prompting for system in
+  compsolve.adb, compsolve2.adb, and compsolve4.adb.
+
+Fri 29 Dec 2017 : removed the redundant with Write_Seed_Number; from the
+  black_box_solvers.adb.  New package greetings_and_conclusions to define
+  the writing of greetings and conclusions in compsolve.adb, compsolve2.adb,
+  and compsolve4.adb.
+
+Tue 26 Dec 2017 : in compsolve.adb, compsolve2.adb, and compsolve4.adb,
+  fixed the greetings when phc -B writes to file.
+
+Sat 23 Dec 2017 : added true values for the filter and factor flags in
+  the embed and cascade calls in the compsolve?.adb files.
+
+Fri 22 Dec 2017 : with an unhandled exception, the seed is printed,
+  at the end of dispatch.adb.
+
+Tue 17 Oct 2017 : adjusted greeting_banners for version 2.4.47.
+
+Sun 15 Oct 2017 : adjusted calls in compsolve.adb, compsolve2.adb, and
+  compsolve4.adb for the factor option.
+
+Sun 8 Oct 2017 : fixed messages in compsolve.adb, compsolve2.adb, and
+  compsolve4.adb regarding the precision.
+
+Fri 6 Oct 2017 : updated compsolve.adb, compsolve2.adb, and compsolve4.adb
+  for the addition of the witness filter.
+
+Tue 3 Oct 2017 : added double double and quad double versions of compsolve,
+  compsolve2 and compsolve4 to define -B2 and -B4 in dispatch.adb.
+
+Mon 2 Oct 2017 : rearranged prompting for output file in comosolve.adb and
+  removed writing of welcome banner before calling compsolve in dispatch.adb.
+  Fixed order of greeting.
+
+Sat 30 Sep 2017 : added help4compsolve in greeting_banners, phc -B -h and
+  phc -h -B provide help after changes to dispatch.adb.
+
+Thu 28 Sep 2017 : adjusted greeting_banners for version 2.4.46.
+
+Tue 26 Sep 2017 : added embed_and_cascade to compsolve.adb.
+
+Mon 25 Sep 2017 : to dispatch.adb, added the option -B, which calls compsolve,
+  to compute a numerical irreducible decomposition in blackbox mode.
+  The procedure compsolve will be similar to bablphc, but then for positive
+  dimensional solutions sets.
+
+Fri 22 Sep 2017 : added options -d2 and -d4 to dispatch.adb.
+
+Tue 12 Sep 2017 : adjusted the greeting_banners for version 2.4.45.
+
+Sun 10 Sep 2017 : in the specifications of the black box solvers, in the
+  file black_box_solvers.ads, placed the warning that the root counters
+  output string is empty if the system is a special case.
+
+Sat 9 Sep 2017 : to black_box_solvers, added the root counter information
+  string to the multitasked solvers.
+
+Fri 8 Sep 2017 : added solve_for_special_cases to black_box_solver_cases,
+  for making the code in black_box_solvers.adb shorter.
+  Added Solve procedures to black_box_solvers, which write the information
+  about the computed root counts to string rather than to screen.
+
+Thu 7 Sep 2017 : separated from black_box_solvers the utilities and special
+  cases into the new package black_box_solver_cases.  This changed also the
+  procedures bablphc.adb, bablphc2.adb, and bablphc4.adb.
+  Improved the documentation in the black_box_solvers.ads.
+  Added three procedures to black_box_root_counters to write the root counts
+  to string, tested by ts_blkroco.adb.  Also added three procedures for the
+  Laurent systems to black_box_root_counters for the root counts string.
+
+Wed 6 Sep 2017 : factored the write_root_counts out of the package
+  black_box_root_counters into a new package root_counters_output;
+  added to_string function to root_counters_output, tested by ts_blkroco.
+
+Tue 5 Aug 2017 : adjusted greeting_banners for version 2.4.44.
+
+Sun 20 Aug 2017 : adjusted greeting_banners for version 2.4.43.
+
+Mon 13 Aug 2017 : adjusted greeting_banners for version 2.4.42.
+
+Mon 31 Jul 2017 : adjusted greeting_banners for version 2.4.41.
+
+Wed 18 Jul 2017 : adjusted greeting_banners for version 2.4.40.
+
+Wed 5 Jul 2017 : adjusted greeting_banners for version 2.4.39.
+
+Fri 23 Jun 2017 : new package prompt_for_solutions to clean up mainvali.adb.
+  Removed deprecated documentation from the body of prompt_for_systems.
+  Added root refiners for Laurent systems to mainvali.adb, so the basic
+  weeding verification in phc -v now accepts Laurent systems as well.
+  The procedures bablvali, bablvali2, and bablvali4 are reduced in size
+  by prompt_for_systems (extended) and prompt_for_solutions. 
+  Moved prompt_for_systems and prompt_for_solutions to the folder
+  Deformations/Solutions.
+
+Thu 22 Jun 2017 : new package prompt_for_systems with code factored out of
+  mainvali.adb.  Added code for Laurent systems to prompt_for_systems.
+  In mainvali.adb, started new code for verification for Laurent systems.
+
+Wed 21 Jun 2017 : refactored bablvali.adb, bablvali2.adb, and bablvali4.adb;
+  extended these procedures for Laurent systems.
+
+Wed 7 Jun 2017 : 2.4.38 will be released, updated greeting_banners.
+
+Wed 17 May 2017 : updated greeting_banners for version 2.4.37.
+
+Sun 19 Feb 2017 : changed greeting_banners for version 2.4.36.
+
+Tue 7 Feb 2017 : changed greeting_banners for version 2.4.35.
+
+Sun 5 Feb 2017 : extended greeting_banners for the new options -j,
+  with added code to dispatch.adb.  Updated mainphc.adb for the new -j.
+
+Thu 2 Feb 2017 : added one line banner about the phc -u option in mainphc.adb
+  which is called when running phc without options.
+
+Tue 31 Jan 2017 : prepared release 2.3.34 in greeting_banners.
+
+Fri 13 Jan 2017 : updated greeting_banners.adb to document the blackbox
+  versions of the verification procedures.
+
+Thu 12 Jan 2017 : new procedures bablvali2 and bablvali4 to call the
+  blackbox root refiners in double double and quad double precision.
+  Updated the dispatch.adb so that phc -v2 -b, phc -v -b2, phc -b2 -v,
+  or phc -b -v2 calls the blackbox solver in double double precision.
+  Similarly, for quad double precision, replace 2 by 4 in the above.
+
+Thu 5 Jan 2017 : updated the greeting_banners for version 2.4.33.
+
+Wed 4 Jan 2017 : factored the code in bablvali into a new package
+  black_box_root_refiners in ../Deformations/Newton.
+
+Tue 3 Jan 2017 : updated bablvali.adb so phc -b -v (or phc -v -b) works
+  also for overdetermined polynomial systems.
+
+Fri 30 Dec 2016 : prepared version 2.4.32, with update of greeting_banners.
+
+Tue 20 Dec 2016 : updated greeting_banners for version 2.4.31.
+
+Sat 3 Dec 2016 : added procedure in greeting_banners to display information
+  about how to cite PHCpack in publications, available via phc --cite.
+
+Wed 30 Nov 2016 : updated greeting_banners for version 2.4.30.
+  Fixed phcpack.adb for changed prototypes of procedures.
+
+Sun 20 Nov 2016 : updated greeting_banners for version 2.4.29.
+
+Mon 31 Oct 2016 : updated greeting_banners for version 2.4.28.
+
+Sun 16 Oct 2016 : updated greeting_banners for version 2.4.27.
+
+Tue 20 Sep 2016 : updated greeting_banners for version 2.4.26.
+
+Fri 16 Sep 2016 : added a test to mainroco.adb to check if the system
+  is square, because root counting is not defined for nonsquare systems.
+
+Wed 31 Aug 2016 : updated greeting_banners for version 2.4.25.
+
+Sat 13 Aug 2016 : updated greeting_banners for version 2.4.24.
+
+Sun 31 Jul 2016 : updated greeting_banners for version 2.4.23.
+
+Fri 22 Jul 2016 : added '\0' character to the strings in mainfeed.adb,
+  before passing the strings to the C code.  Added documentation to
+  greeting_banners and adjusted the version number to 2.4.22.
+
+Wed 20 Jul 2016 : changed formatting of code in mainfeed.adb.
+
+Sat 2 Jul 2016 : added information about phc -u to greeting_banners.adb.
+
+Fri 1 Jul 2016 : updated greeting_banners for version 2.4.21.
+
+Wed 29 Jun 2016 : added phc -u to dispatch.adb and greeting_banners.
+
+Wed 15 Jun 2016 : phc -a -h provides help, defined in greeting_banners.adb,
+  also updated the corresponding section in options.rst.
+  Added more about -c and -f, with editing changes in options.rst.
+  Adjusted greeting_banners for version 2.4.20.
+
+Tue 14 Jun 2016 : to greeting_banners.adb, added help for -e and -s. 
+  Documented phc -q and completed -r, improved options.rst.
+  Fixed phc -f -h in dispatch.adb, and documented -g.
+
+Mon 13 Jun 2016 : added help for -p, -t, -v in greeting_banners.adb.
+  Documented also -o and -m.  Did other small editing changes.
+
+Sun 12 Jun 2016 : in greeting_banners.adb, added online help for -l, -y, -w,
+  and started the writing for -r.  Updated mainphc.adb, dispatch.adb, and
+  greeting_banners.adb with more help information.
+
+Thu 9 Jun 2016 : documented phc -x in greeting_banners.adb.
+
+Wed 8 Jun 2016 : added exception handler to mainzip.adb and maindict.adb
+  to write a message in case the user does not provide an input file.
+  Extended greeting_banners.adb with online help information.
+
+Tue 7 Jun 2016 : all options of phc now have at least one line of help
+  after extending greeting_banners and dispatch.adb.  Added more text
+  to several help items but it is still far from complete...
+
+Mon 6 Jun 2016 : made a start at populating the -h and --help for the
+  online help on the options, in dispatch.adb and greeting_banners.
+
+Fri 3 Jun 2016 : added show_help to greeting_banners, for use in --help
+  in the dispatch.adb.  Updated for version 2.4.19.
+
+Wed 1 Jun 2016 : added --license to dispach.adb.
+
+Thu 26 May 2016 : updated greeting_banners for version 2.4.18.
+
+Fri 20 May 2016 : updated greeting_banners for the next release.
+
+Wed 11 May 2016 : release date correctly set in greeting_banners.
+
+Mon 9 May 2016 : prepared greeting_banners for version 2.4.16.
+
+Sun 8 May 2016 : phc --version returns the version string or writes it to
+  file, as dispatch.adb is modified.
+
+Sat 30 Apr 2016 : updated greeting_banners for version 2.4.15.
+
+Wed 6 Apr 2016 : modified the greeting_banners.ads for the numerical
+  irreducible decomposition and prepared the dispatch.adb for multitasking.
+
+Fri 25 Mar 2016 : updated greeting_banners for version 2.4.14.
+
+Tue 22 Mar 2016 : updated mainvali.adb so option 6 of phc -v also deflates
+  overdetermined polynomial systems.
+
+Fri 18 Mar 2016 : updated greeting_banners for version 2.4.13.
+
+Sat 12 Mar 2016 : mainvali.adb updated so that option #1 of phc -v
+  writes nonsquare polynomial systems correctly to file.
+
+Wed 2 Mar 2016 : mainphc.adb changed for extra parameter in the drivers
+  for polynomial continuation.
+
+Fri 19 Feb 2016 : adjusted greeting_banners for version 2.4.12.
+
+Fri 12 Feb 2016 : adjusted greeting_banners for version 2.4.11.
+
+Sun 17 Jan 2016 : adjusted greeting_banners for version 2.4.10.
+
+Sat 2 Jan 2016 : adjusted greeting_banners for version 2.4.09.
+
+Tue 29 Dec 2015 : adjusted greeting_banners for version 2.4.08.
+
+Thu 24 Dec 2015 : adjusted greeting_banners for version 2.4.07.
+
+Fri 11 Dec 2015 : adjusted greeting_banners for version 2.4.06.
+
+Thu 10 Dec 2015 : added two lines to mainphc.adb to inform the user of the
+  multitasking and the -b2 and -b4 options.
+
+Mon 23 Nov 2015 : prepared greeting_banners for version 2.4.05.
+
+Wed 18 Nov 2015 : adjusted mainphc.adb for the preset level of the precision
+  in the construction of the homotopy and updated dispatch.adb for the
+  options phc -p2 and phc -p4 for double double and quad double precision.
+
+Sun 15 Nov 2015 : updated dispatch.adb for options phc -l2 and phc -l4 for
+  a witness set of a hypersurface in double double and quad double precision.
+
+Fri 6 Nov 2015 : adjusted greeting_banners for version 2.4.04.
+
+Tue 27 Oct 2015 : mainphc.adb and black_box_solvers.adb changed for the 
+  renaming of the package black_box_poly_continuations.  Added calls to
+  bablpoco2 and bablpoco4 in dispatch.adb so phc -b -p2 and phc -b -p4
+  call the blackbox continuation in double double and quad double precision.
+
+Thu 22 Oct 2015 : version 2.4.03 is announced in greeting_banners.
+
+Tue 7 Oct 2015 : adjusted greeting_banners for version 2.4.02.
+
+Sun 4 Oct 2015 : changed mainroco.adb so it writes the seed and version
+  number at the end of the output file written by phc -r.
+
+Tue 29 Sep 2015 : updated black_box_solvers.adb for changed calls to the
+  black_box_polyhedral_continuation routines.  The black_box_root_counters
+  change because of modified black_mixed_volume_computations.
+
+Sat 26 Sep 2015 : black_box_solvers is now finally complete with all versions
+  for double double and quad double precision.
+
+Fri 25 Sep 2015 : more versions of Solve in double double and quad double
+  precision in black_box_solvers, completed with Square_Main as well.
+  New bablphc2 and bablphc4 to perform the phc -b2 and phc -b4,
+  enabled by changes in dispatch.adb.
+
+Thu 24 Sep 2015 : extended black_box_root_counters with procedures on
+  systems with coefficients in double double and quad double precision.
+  Added solve procedures for Laurent systems to black_box_solvers
+  in double double and quad double precision.
+  Updated greeting_banners for release 2.4.01.
+  Included black_box_polyhedral_continuations in phcpack.adb.
+
+Mon 21 Sep 2015 : extended black_box_solvers with procedures to solve one
+  single polynomial equation in double double and quad double precision.
+
+Sun 20 Sep 2015 : in black_box_solvers.adb, modified the call to the 
+  black_box_factorization procedure.
+
+Sat 12 Sep 2015 : added procedures to black_box_solvers to deal with the
+  special case of a linear system in double double and quad double precision.
+
+Wed 9 Sep 2015 : extended blackbox root counters for Laurent polynomial 
+  systems to call the polyhedral homotopies in double double precision
+  and in quad double precision.  Added writing of the version string
+  to bablphc.adb, mainphc.adb, and black_box_solvers.adb.
+
+Mon 7 Sep 2015 : added with/use of black_polyhedral_continuations to the 
+  black_box_root_counters.adb.
+
+Mon 31 Aug 2015 : version 2.4 is announced as 2.4.00 in greeting_banners.
+
+Fri 31 Jul 2015 : updated greeting_banners for version 2.3.99.
+
+Tue 7 Jul 2015 : extended black_box_solvers with the extra nt parameter
+  to give the number of tasks.
+
+Thu 25 Jun 2015 : updated greeting_banners for version 2.3.98.
+
+Tue 16 Jun 2015 : added writing of number seed to mainphc.adb, bablphc.adb,
+  and black_box_solvers.adb.
+
+Fri 22 May 2015 : adjusted greeting_banners for version 2.3.97.
+
+Thu 21 May 2015 : changed drivers_for_root_counts.adb for extra boolean flag
+  in the drivers for MixedVol Algorithm.
+
+Wed 26 Nov 2014 : adjusted greeting_banners for version 2.3.96.
+
+Sat 22 Nov 2014 : added 9-th option of phc -v for variable precision Newton.
+
+Fri 31 Oct 2014 : greeting_banners changed for release 2.3.95 and
+  added description of phc -o to mainphc.adb.
+
+Thu 25 Sep 2014 : release 2.3.94 needed for the new option -o,
+  adjusted the greeting_banners.
+
+Tue 23 Sep 2014 : better error message in mainzip.adb for when the banner
+  for solutions in PHCpack format is omitted.  Extended dispatch.adb with
+  the option -o and adjusted greeting_banners.ads.
+
+Sun 12 Sep 2014 : updated greeting_banners for version 2.3.93.
+
+Sun 31 Aug 2014 : updated greeting_banners for version 2.3.92.
+
+Sun 10 Aug 2014 : updated greeting_banners for version 2.3.91.
+
+Thu 7 Aug 2014 : upgraded mainvali.adb to deflate polynomial systems in
+  double double and quad double precision.
+
+Wed 30 Jul 2014 : adjusted greeting_banners for version 2.3.90.
+
+Mon 30 Jun 2014 : adjusted greeting_banners for version 2.3.89.
+
+Tue 24 Jun 2014 : added extra function to dispatch.adb to extract the
+  digits after '-0' for use as a fixed seed.
+
+Thu 5 Jun 2014 : updated greeting_banners for release 2.3.88 on Friday.
+
+Thu 27 Mar 2014 : updated greeting_banners for release 2.3.87
+
+Wed 18 Dec 2013 : greeting_banners ready for release on Friday!
+
+Wed 4 Dec 2013 : updated greeting_banners for version 2.3.85, 
+  scheduled for release on Friday.
+
+Tue 24 Sep 2013 : updated greeting_banners for version 2.3.84,
+  scheduled to come out tomorrow...
+
+Wed 18 Sep 2013 : updated black_box_root_counters.adb to compute high
+  total degree in multiprecision for patched GNAT optimizers.
+  Adjusted greeting_banners for tomorrow's release 2.3.83.
+
+Tue 17 Sep 2013 : updated bablphc.adb for added option in the black box
+  binomial solvers.  Also updated black_box_solvers.adb.
+  Updated black_box_root_counters and drivers_for_root_counts.adb 
+  to use multiprecision for huge total degrees.
+
+Thu 5 Sep 2013 : greeting_banners modified for tomorrow's release 2.3.82...
+
+Fri 30 Aug 2013 : greeting_banners modified for release 2.3.81.
+
+Mon 12 Aug 2013 : greeting_banners adjusted for delayed release.
+
+Fri 9 Aug 2013 : adjusted greeting_banners for version 2.3.80 adding a
+  new function, tested by ts_greet.adb.
+
+Sun 30 Jun 2013 : updated ts_drivroco.adb.
+
+Thu 27 Jun 2013 : modified driver_for_own_start_system.adb for natural32.
+
+Wed 26 Jun 2013 : updated drivers_for_root_counts for natural32,
+  and driver_for_root_refining, as called by mainphc.adb.  
+  Updated mainroco.adb, maintrack.adb, black_box_solvers.adb,
+  and drivers_for_root_counts.adb.
+
+Tue 25 Jun 2013 : updated black_box_root_counters with the proper type for nt
+  and updated bablroco.adb and maindict.adb.
+
+Wed 19 Jun 2013 : updated dispatch, bablroco, bablphc, mainphc, bablvali,
+  black_box_root_counters and black_box_solvers because of natural32.
+
+Wed 29 May 2013 : placed explicit "raise" in dispatch for the bug in phc -g.
+
+Tue 28 May 2013 : edits in dispatch.adb to trace a bug in phc -g.
+
+Sat 25 May 2013 : updated mainphc.adb to add phc -g as one of the options.
+
+Wed 22 May 2013 : added banner for phc -g to greeting_banners.ads and
+  updated dispatch.adb.
+
+Mon 20 May 2013 : extended dispatch.adb with the option -g to check if
+  a (Laurent) polynomial system given on input is in the correct format.
+
+Thu 16 May 2013 : fixed bug from dispatch.adb with the number of tasks
+  and modified greeting_banners.ads for version 2.3.79.
+
+Mon 13 May 2013 : modified black_box_root_counters for 64-bit linear-product
+  bound.
+
+Wed 8 May 2013 : refactored mainvali.adb into root_refining_parameters,
+  a new package moved to Deformations/Newton.
+
+Tue 7 May 2013 : updates in dispatch.ads, dispatch.adb, and 
+  drivers_for_root_counts.adb for multitasking options.
+
+Thu 25 Apr 2013 : updated greeting_banners.ads for version 2.3.78.
+
+Mon 1 Apr 2013 : changed mainphc.adb to write polynomial system
+  to file before solving to avoid mix up with symbol table.
+
+Sat 16 Feb 2013 : spelling mistake in menu in mainvali.adb.
+
+Fri 15 Feb 2013 : adjusted greeting banners for version 2.3.77.
+
+Tue 12 Feb 2013 : extra "ls" argument in mainphc.adb set to null caused a 
+  crash for multiprecision path tracking when no options to phc were given.
+  Fixed the bug in mainphc.adb (similar to mainpoco.adb).
+
+Fri 8 Feb 2013 : mainphc.adb changed because of extra "ls" argument in
+  drivers_for_homotopy_creation, release v2.3.76 in greeting_banners.ads.
+
+Thu 31 Jan 2013 : greeting_banners ready for release v2.3.75.
+
+Sun 30 Dec 2012 : ts_drivroco.adb and phcpack.adb no longer compiled, fixed.
+  Updated greeting_banners.ads for v2.3.74.
+
+Fri 21 Dec 2012 : cleaned black_box_root_counters.adb for tracing prints
+  to fix the permutation bug.  Adjusted greetings_banner.ads for v2.3.73.
+
+Tue 4 Dec 2012 : updated black_box_root_counters and black_box_solvers with
+  a flag for phcpy.solve to remain silent during its solving.
+
+Mon 3 Dec 2012 : fixed bablphc.adb and modified black_box_solvers.adb
+  in a search for the bug.
+
+Sun 2 Dec 2012 : updated greeting_banners.ads for v2.3.71.
+
+Thu 8 Nov 2012 : updated bablphc.adb.
+
+Wed 7 Nov 2012 : updated black_box_solvers.adb and bablphc.adb.
+  Adjusted greeting_banners.ads for version 2.3.70.
+
+Wed 8 Aug 2012 : commented out put() statements from black_box_solvers.adb
+  and from black_box_root_counters.adb.  Adjusted greeting_banners.ads for
+  version 2.3.69.
+
+Mon 6 Aug 2012 : added output statement to black_box_solvers.adb to chase bug
+  when mv = 0 but smv /= 0 with monomial equations.
+
+Thu 14 Jun 2012 : updated greeting_banners.ads for release 2.3.68.
+  Updated bablphc.adb for then new binomial system solver.
+
+Wed 13 Jun 2012 : changed bablphc.adb for a general binomial solver.
+
+Thu 22 Sep 2011 : changed bablphc.adb, black_box_solvers.adb,
+  black_box_root_counters.adb for bug tracking information.
+
+Thu 15 Sep 2011 : updates in black_box_solvers.adb for bug hunt.
+
+Sat 10 Sep 2011 : enabled exception in black_box_root_counters.adb.
+
+Fri 12 Aug 2011 : updated banner for phc -y in greeting_banners.ads,
+  fixed bug in mainphc.adb, and updated dispatch.adb for 2.3.66.
+
+Sun 7 Aug 2011 : added phc -y to dispatch.adb, updated mainphc.adb.
+
+Wed 27 Jul 2011 : adjusted greeting_banners.ads for 2.3.65, there were
+  too many problems with GNAT GPL 2011 and multiprecision floats.
+
+Mon 20 Jun 2011 : changed greeting_banners.ads for 2.3.65b with the plan
+  to release 2.3.65 at the end of the week...
+
+Sat 18 Jun 2011 : changed "get" for sols to a "try_get" in maindict.adb.
+
+Sun 12 Jun 2011 : added banner for equation-by-equation solver in
+  greeting_banners.ads and updated dispatch.adb.
+
+Fri 10 Jun 2011 : changed drivers_for_root_counts.adb for a warning.
+
+Thu 9 Jun 2011 : changed driver_for_root_refining.adb, bablvali.adb,
+  and mainvali.adb for changed specifications of standard_root_refiners.adb.
+
+Wed 1 Jun 2011 : changed mainroco.adb for warnings.  Because of renamings
+  in drivers_for_poly_continuation, changed mainphc.adb.
+
+Mon 23 May 2011 : changed maintrack.adb for path tracking in double doubles
+  and quad doubles with total degree and linear product start systems.
+  Adjusted greeting_banners.ads for v2.3.64.
+
+Fri 20 May 2011 : changed maintrack.adb for phc -q to do double double
+  and quad double path tracking for a cheater homotopy.
+  Adjusted greeting_banners.ads for v2.3.63.
+
+Mon 16 May 2011 : changed greeting_banners.ads for new version 2.3.62.
+
+Mon 9 May 2011 : changed mainvali.adb to hunt for bug, updated dispatch.adb
+  and mainphc.adb for the new phc -x for the new version 2.3.61.
+
+Tue 3 May 2011 : added maindict called by dispatch to convert solution lists
+  into Python dictionaries.   Changed mainzip.adb to hunt for a bug.
+  Added option -x to the file dispatch.adb.
+
+Sun 19 Dec 2010 : v2.3.60 in greeting_banners.ads.
+
+Sun 14 Nov 2010 : v2.3.59 in greeting_banners.ads.
+
+Mon 27 Sep 2010 : adjusted greeting_banners for v2.3.58.
+
+Sun 26 Sep 2010 : updated mainvali.adb to read strings for multiprecision.
+
+Fri 24 Sep 2010 : updated maintrack.adb and mainvali.adb because of the new
+  string_splitters.
+
+Sun 12 Sep 2010 : updated greeting_banners.ads for v2.3.57.
+
+Mon 6 Sep 2010 : terminology changes in greeting_banners.ads, mainvali.adb,
+  and mainphc.adb: use verification instead of validation!
+
+Mon 28 Jun 2010 : changed greeting_banners.ads for v2.3.56.
+
+Wed 2 Jun 2010 : moved read_system from black_box_solvers,
+  changed bablphc.adb and mainphc.adb.
+
+Fri 28 May 2010 : changed mainvali.adb to give access to root refiners
+  in double double or quad double arithmetic, changed greeting_banners
+  for new release 2.3.55.
+
+Sun 16 May 2010 : changes in mainphc.adb for Laurent input, moved
+  driver_for_root_counts into package drivers_for_root_counts,
+  also mainroco.adb changed, changed greeting_banners for 2.3.54.
+
+Thu 13 May 2010 : changes in mainphc.adb to prepare for Laurent input,
+  edits in black_box_solvers.adb to find bug in parser.
+
+Mon 30 Nov 2009 : greeting_banners.ads ready for release 2.3.53 (bug fix).
+
+Wed 18 Nov 2009 : commented out debugging diagnostics from mainvali.adb.
+
+Fri 6 Nov 2009 : changed mainzip.adb for GNAT GPL 2009 warnings.
+
+Wed 28 Oct 2009 : added sharpeners to mainvali.adb.
+
+Tue 27 Oct 2009 : restructured bablvali.adb with a Main procedure.
+
+Mon 26 Oct 2009 : removed space in black_box_solvers.adb and updated
+  bablphc.adb to use the right conversion routine for Laurent systems.
+
+Fri 9 Oct 2009 : updated black_box_solvers.adb for Laurent systems,
+  change to black_box_root_counters.adb, and bablphc.adb.
+
+Wed 30 Sep 2009 : adjusted greeting_banners.ads for release 2.3.50.
+
+Sat 26 Sep 2009 : extended black_box_{root_counters, solvers} with routines
+  for Laurent polynomial systems.
+
+Mon 21 Sep 2009 : introduced 64-bit arithmetic in driver_for_root_counts.adb
+  and black_box_root_counters.a*.
+
+Fri 11 Sep 2009 : changed greeting_banners.ads for v2.3.49!
+
+Thu 10 Sep 2009 : exception handlers to black_box_solvers.adb to catch
+  crash with phc -0 -b cyclic7 /tmp/output...
+
+Fri 31 Jul 2009 : updated greeting_banners.ads for v2.3.48.
+
+Mon 6 Jul 2009 : for multitasking, updated black_box_root_counters.a*,
+  black_box_solvers.adb, bablroco.a*, and dispatch.adb.
+
+Sun 5 Jun 2009 : shortened mvcban in greeting_banners.ads, enabled
+  phc -m -t2 and phc -t2 -m updating dispatch.adb, also changed
+  driver_for_root_counts.adb.
+
+Fri 3 Jul 2009 : updated greeting_banners.ads for 2.3.47.
+
+Fri 19 Jun 2009 : revised phcpack.adb, corrected zero seed in mainphc.adb,
+  and adjusted the banner in greeting_banners.ads to reflect 2.3.46.
+
+Wed 18 Jun 2009 : greeting_banners.ads collects welcome banners, used in
+  dispatch.adb and bablphc.adb.  For multitasking, changed mainphc.a*,
+  bablphc.ads, and black_box_solvers.a*.
+
+Fri 15 May 2009 : adjusted dispatch.adb for multitasking
+  and mainphc.adb to document the extra -t option, version 2.3.45.
+
+Tue 2 Sep 2008 : dispatch.adb ready for release 2.3.44.
+  Copied black_box_root_counters* to *exp to regress permuting bug,
+  but then kept the regression to black_mixed_volume_computations.
+
+Fri 15 Aug 2008 : dispatch.adb reflects release 2.3.43.
+
+Tue 12 Aug 2008 : renaming "fewnomial system" into "simplex system"
+  changed black_box_solvers.adb.
+
+Fri 1 Aug 2008 : added exception handler to black_box_root_counters.adb
+  to track a bus error.
+
+Mon 21 Jul 2008 : changed black_box_root_counters.a* for permutations
+  with semimixed systems like robspat.
+
+Wed 9 Jul 2008 : added solve to black_box_solvers with output to file.
+
+Tue 1 Jul 2008 : in black_box_root_counters.adb, apply stable polyhedral
+  continuation when the stable mixed volume > ordinary mixed volume.
+
+Fri 6 Jun 2008 : release 2.3.42 in dispatch.adb is primarily bug release.
+
+Fri 16 May 2008 : marked release 2.3.41 in dispatch.adb.
+
+Wed 23 Apr 2008 : added flushing of buffers in black_box_root_counters.adb,
+  at the end of the procedure construct_start_system().  Release 2.3.40 is
+  now marked in the file dispatch.adb.
+
+Sat 12 Apr 2008 : black_box_root_counters.adb checked on mv = 0,
+  but not on smv = 0.  The difference is important for systems which
+  contain monomial equations.
+
+Mon 7 Jan 2008 : in search for the cause of a crash, changed
+  black_box_solvers.adb.
+
+Fri 4 Jan 2008 : bug fix in black_box_root_counters.adb when no_mv,
+  then the mixed volume on return must be zero!  Introduced chicken_mv
+  again and modified dispatch.adb to reflect release 2.3.38.
+
+Thu 3 Jan 2008 : changed bablvali.adb, driver_for_root_counts.adb,
+  driver_for_own_start_system.adb, and dispatch.adb 
+  because of GNAT GPL 2006 warning.
+
+Wed 2 Jan 2008 : changed bablphc.adb, black_box_solvers.a*,
+  and black_box_root_counters.adb, driver_for_root_refining.adb,
+  because of warnings with GNAT GPL 2006.
+
+Sat 29 Dec 2007 : changed dispatch.adb for release 2.3.37
+
+Fri 21 Dec 2007 : changed dispatch.adb to reflect release 2.3.36.
+
+Thu 20 Dec 2007 : if not all polynomials have a constant, then the
+  black_box_solvers will not call the fewnomial solvers, this to make
+  sure we catch also all zero component solutions.
+
+Fri 14 Dec 2007 : dispatch.adb: v2.3.36b -- beta mode for phc -e.
+
+Mon 10 Dec 2007 : release of v2.3.35 is reflected in dispatch.adb.
+
+Sat 8 Dec 2007 : black_box_root_counters.adb return start systems with
+  zero components with stable lifting.
+
+Tue 13 Nov 2007 : added 7th option to maintrack.adb to remove the last
+  slack variable after going one level down in the cascade.
+
+Wed 31 Oct 2007 : made blackbox root counters more modular, so if phc -b
+  has no output to file to write the information to screen.
+  Changed black_box_root_counters so that now the root counts are shown
+  on screen if the user does not want any output to file.
+  Also changed dispatch.adb: goes into v2.3.34b: beta mode.
+
+Wed 15 Aug 2007 : changed driver_for_root_counts.adb for altered 
+  drivers_for_static_lifting and drivers_for_mixedvol_algorithm.
+  Changed dispatch.adb to reflect v2.3.32.
+
+Tue 14 Aug 2007 : changed mainvali.adb, so that looks for "THE SOLUTIONS"
+  instead of just "SOLUTIONS", also adjusted bablvali.adb.
+
+Fri 13 Jul 2007 : updated dispatch.adb, for version 2.3.31.
+
+Thu 21 Jun 2007 : updated dispatch.adb for bug fix in 2.3.30.
+
+Wed 20 Jun 2007 : updated dispatch.adb, for version 2.3.29.
+
+Fri 1 Jun 2007 : drivers_for_root_counts.adb and black_box_root_counters.adb
+  are modified for product form of m(ulti)-homogeneous start systems.
+  Adjusted dispatch.adb, ready for version 2.3.28.
+
+Sat 26 May 2007 : black_box_root_counters.adb write product form of the
+  linear-product start system.
+
+Tue 22 May 2007 : dispatch.adb reflects version 2.3.27!
+
+Mon 21 May 2007 : updated mainvali.adb for deflation "solutions on input"
+  in small letters so that phc -z captures the deflated solutions.
+
+Sat 19 May 2007 : adjusted mainvali.adb to have deflation as default option
+  in the root refiners.
+
+Fri 4 May 2007 : formatting in black_box_root_counters.adb, fixed bug in
+  black_box_solvers.adb to handle a system like x^2 = 0 = y^2.
+
+Tue 1 May 2007 : dispatch.adb is updated for the May day release 2.3.26.
+
+Wed 21 Mar 2007 : updated dispatch.adb to reflect release 2.3.25.
+
+Tue 20 Mar 2007 : phc -b detects now the case when there is one equation
+  with no unknowns and simply prints an error message on the output file,
+  or to screen, this changed black_box_solvers.adb.
+
+Sun 18 Feb 2007 : if no start solutions, phc -b with output to file crashes;
+  fixed black_box_root_counters.adb with exception in black_box_solvers.adb.
+  Adjusted dispatch.adb to reflect release of 2.3.24.
+
+Wed 7 Feb 2007 : bug fix in phc -b for linear systems.
+  Had not copied patch for bablphc.adb (bug fixed on Sat 01-27)!
+
+Mon 5 Feb 2007 : yesterday not enough time for release 2.3.22, so tried
+  again with a new update of dispatch.adb...
+
+Sun 4 Feb 2007 : updated dispatch.adb for release 2.3.22.
+
+Fri 2 Feb 2007 : improved black_box_solvers.adb with better root count
+  for set structures.
+
+Thu 1 Feb 2007 : modified black_box_solvers.ad* so that no output file
+  is possible, which is good for very small interactive tests.
+
+Sat 27 Jan 2007 : fixed bug in bablphc.adb, close(infile) crasht the
+  program is there was not infile to close!
+
+Thu 25 Jan 2007 : created the package black_box_solver, moving routines
+  from the procedure bablphc.  Renamed black_box_root_counting into
+  the package black_box_root_counters, adding a silent procedure.
+  Also bablroco.adb changed.  Changed dispatch.adb for release 2.3.21.
+
+Sun 14 Jan 2007 : modified dispatch.adb for release 2.3.20, better phc -f
+  and lib_track and mpi2track implement diagonal homotopies.
+
+Sun 7 Jan 2007 : maintrack.adb displays menu first.
+
+Tue 2 Jan 2007 : dispatch.adb modified for release 2.3.19, gives access
+  to more efficient phc -q for linear-product start systems, also
+  mpi2track improved significantly.
+
+Fri 22 Dec 2006 : maintrack.adb jumpstarts diagonal homotopies, good
+  enough to release 2.3.18, modified in dispatch.adb.
+
+Thu 30 Nov 2006 : bablphc.adb now also writes to the output file
+  when linear systems are solved.
+
+Sat 25 Nov 2006 : blackbox solver recognizes square linear systems,
+  changed bablphc.adb and dispatch.adb: release 2.3.16 has date 25 Nov 2006
+
+Fri 24 Nov 2006 : changed dispatch.adb to reflect release of 2.3.16.
+
+Thu 23 Nov 2006 : changed bablphc.adb for phc -b to write also solutions
+  to input file in case the system is just a univariate polynomial.
+
+Tue 17 Oct 2006 : maintrack.ads and its changed .adb moved from Continuation
+  to this directory to expand with jumpstarting polyhedral homotopies.
+
+Thu 28 Sep 2006 : introduced "chicken_mv" bound in black_box_root_counting;
+  improved driver_for_root_counts.adb for total degree start systems,
+  modified dispatch.adb for release 2.3.15.
+
+Mon 28 Aug 2006 : changed black_box_root_counting.adb to use MixedVol,
+  modified dispatch.adb for release 2.3.14.
+
+Fri 25 Aug 2006 : changed driver_for_root_counts.adb for MixedVol, v2.3.13,
+  mainroco.adb for a spurious new_line, and dispatch.adb for banner and date,
+  also changed mainphc.adb for a banner.
+
+Wed 28 Jun 2006 : removed the *formats* files, made obsolete by the
+  changes which led to the new "ts_tabform" utility.
+
+Fri 23 Jun 2006 : bug fix in phc -p with reading of start system is
+  sufficient reason enough for release v2.3.12.
+
+Wed 14 Jun 2006 : because of warnings on AIX, changed mainvali.adb and
+  driver_for_own_start_system.adb.
+
+Fri 9 Jun 2006 : change in dispatch.adb for v2.3.10.
+
+Fri 12 May 2006 : phc -t disappeared as useless tool, this modified
+  mainphc.adb and dispatch.adb.
+
+Wed 3 May 2006 : updated dispatch.adb for v2.3.08.
+
+Fri 24 Mar 2006 : for v2.3.07, updated dispatch.adb and mainvali.adb so
+  we have the new option 0 in phc -v.
+
+Thu 23 Mar 2006 : updated black_box_root_counting.adb because of changed
+  standard_linear_product_system.
+
+Thu 16 Mar 2006 : release v2.3.06 changed dispatch.adb to reflect date.
+
+Fri 17 Feb 2006 : release v2.3.05 introduces new option "phc -q",
+  changed mainphc.adb and dispatch.adb.
+
+Tue 27 Dec 2005 : choosing 0 as a fixed seed is a bad idea, picked "68717",
+  changing dispatch.adb accordingly.
+
+Fri 15 Jul 2005 : changed dispatch.adb to reflect the new release v2.3.01,
+  fixing a bug in algorithmic deflation, "01" allows 100 such releases...
+
+Sun 3 Jul 2005 : mainvali has 7th option for multiplicity structure.
+
+Thu 30 Jun 2005 : cleaned up Newton_with_Deflation in mainvali.adb,
+  changed the release date in dispatch.adb.
+
+Tue 21 Dec 2004 : updated mainphc.adb and dispatch.adb for phc -0.
+
+Mon 20 Dec 2004 : changed mainphc.adb and dispatch.adb for mainhyp.
+
+Sun 19 Dec 2004 : adapted banners in dispatch.adb before calling mainwit.
+
+Sat 18 Dec 2004 : renamed -w to be witness set intersection, made the
+  appropriate changes to dispatch.adb and mainphc.adb.
+
+Tue 26 Oct 2004 : added extra option -w to phc, changed dispatch.adb,
+  and mainphc.adb, changed date too, v2.3 remains beta ...
+
+Mon 6 Sep 2004 : updated mainfeed.adb, changed dispatch.adb and mainphc.adb,
+  the "phc -k" is now operational.
+
+Tue 31 Aug 2004 : created mainfeed and changed dispatch.adb to allow
+  the ts_feedback.c to be called as "phc -k".
+
+Thu 26 Aug 2004 : changed an "in out" in bablphc.adb to an "out".
+
+Thu 22 Jul 2004 : updated bablphc.adb so that bablsolve is called for
+  nonsquare systems, added mainsolve to dispatch.adb, adjusted mainphc
+  to add the extra option -a to phc command line.
+
+Fri 25 Jun 2004 : mainvali.adb uses a new driver, dispatch.adb adjusted.
+
+Sun 20 Jun 2004 : mainvali.adb has new 6th option, which calls Newton
+  with deflation, also adjusted dispatch.adb to mark the date.
+
+Wed 9 Jun 2004 : changed mainvali.adb to have only multiprecision roots
+  following the main banner.
+
+Sun 6 Jun 2004 : changed dispatch.adb elevating v2.3 to beta status...
+
+Thu 3 Jun 2004 : changed mainzip.adb to deal with multiprecision.
+
+Tue 11 May 2004 : changed bablphc.adb for factors to be written
+  on separate files, after change in Black_Box_Factorization.
+
+Fri 5 Mar 2004 : changed mainzip.adb so that result is appended to
+  an existing output file.
+
+Wed 3 Mar 2004 : changed mainzip.adb to convert solutions from Maple
+  to PHCpack format.
+
+Sat 28 Feb 2004 : changed dispatch.adb to add -b option to -e.
+
+Fri 27 Feb 2004 : rewrote dispatch.adb to allow for three file names
+  in the command line of phc; also changed bablphc.adb.
+
+Wed 10 Sep 2003 : the black-box solver now first tests whether
+  a polynomial system is fewnomial or not and if so, solves it
+  really fast.  This was needed to fix a bug on an embarrassingly
+  simply example...
+
+Mon 18 Aug 2003 : the black-box solver can now treat single polynomials,
+  either by calling Durand-Kerner (in the case of one variable)
+  or by numerical factorization (in the case of more than one variable).
+
+Wed 16 Jul 2003 : changed welcome banner in dispatch.adb
+
+****************** updates since release 2.2 alpha ***************
+
+Changed black_box_root_counting.ads to deal with semi-mixed inputs
+on Sun June 13, 1999.  Copied to the public distribution directory.
+
+Mon June 14, 1999: assignment to roco in black_box_root_counting.
+  Also changed bablphc.adb because p.all as variable does not seem
+  all that right to me.  Copied files to the public distribution.
+
+Tue 10 August, 1999: change in bablphc due to change in
+  Black_Polynomial_Continuations.  In Black_Box_Root_Counting,
+  changed the "in out" type of the file simply to "in".
+
+Sat 14 August 1999 : Copied black_box_root_counting.ads and .adb to
+  the public distribution directory.
+  Copied bablphc.adb to the public distribution directory.
+
+Mon 4 January 2000 : added components as one of the options in
+  dispatch.adb and changed the list in mainphc.adb.
+
+Thu 27 April 2000 : extra flag in Black_Box_Root_Counting to use
+  only degrees to count the roots.  This affects bablphc and bablroco.
+
+Wed 31 May 2000 : due to modified Newton's method in the root refiner,
+  changed bablvali.adb, mainvali.adb, and driver_for_root_refining.adb.
+
+Fri 15 Sep 2000 : changed mainphc.adb to use the "Write_Elapsed_Time" from
+  Time_Stamps to obtain a nicer format; also changed bablphc.adb.
+
+Thu 24 May 2001 : changed mainphc.adb as a consequence of changes to the
+  drivers to polynomial continuation for multi-precision continuation.
+
+Thu 19 July 2001 : fixed status error exception in the blackbox solver
+  of phc when there is no input file; changed file bablphc.adb.
+  Fixed driver_for_own_start_system.adb, did not read in the number of
+  equations, which caused a fatal exception.
+  Added mainzip.ads and mainzip.adb, after changing the files dispatch.adb
+  and mainphc.adb, so that now phc returns the solutions in a format
+  accessible to Maple.
+
+Fri 20 July 2001 : extra option "-f" in phc to factor pure dimensional
+  solution sets into irreducible components; changed dispatch.adb and
+  mainphc.adb.
+  The black_box_root_counting.adb did no longer execute the product
+  root count in case deg was set to false.
+
+Thu 20 Sep 2001 : write_start_system added to driver_to_root_counts.adb
+  added -t as one of the options to phc, changed dispatch.adb.
+
+Sun 30 Sep 2001 : adjusted mainphc.adb to display also -t as one of the
+  options.
+
+Thu 21 Mar 2002 : changed black_box_root_couting.ads and .adb to deal
+  with zero mixed volumes
+
+Fri 22 Mar 2002 : changed bablphc.adb so that the solutions are added
+  to the input file when the file name is on the command line and when
+  no solutions field is in the input file
+
+Sun 31 Mar 2002 : added exception handler to black_box_root_counting.adb
+  to deal with system with one monomial equations
+
+Tue 9 Apr 2002 : no black-box mixed-volume computation for systems with
+  more than 10 equations.  It simply takes too long.
+
+Tue 25 June 2002 : updated phcpack with some extra routines and made sure
+  that use_phc works again.
+
+Tue 30 July 2002 : scaling -> standard_scaling: changed bablphc.adb and
+  driver_for_root_refining.adb

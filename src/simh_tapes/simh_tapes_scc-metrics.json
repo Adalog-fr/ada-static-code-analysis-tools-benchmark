@@ -1,0 +1,88 @@
+{
+  "Name": "Ada",
+  "Bytes": 12368,
+  "CodeBytes": 0,
+  "Lines": 344,
+  "Code": 247,
+  "Comment": 50,
+  "Blank": 47,
+  "Complexity": 18,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simh_tapes.ads",
+      "Extension": "ads",
+      "Location": "src/simh_tapes.ads",
+      "Symlocation": "",
+      "Bytes": 2993,
+      "Lines": 69,
+      "Code": 24,
+      "Comment": 28,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simh_tapes.adb",
+      "Extension": "adb",
+      "Location": "src/simh_tapes.adb",
+      "Symlocation": "",
+      "Bytes": 8804,
+      "Lines": 255,
+      "Code": 211,
+      "Comment": 21,
+      "Blank": 23,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/simh_tapes_config.ads",
+      "Extension": "ads",
+      "Location": "config/simh_tapes_config.ads",
+      "Symlocation": "",
+      "Bytes": 571,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

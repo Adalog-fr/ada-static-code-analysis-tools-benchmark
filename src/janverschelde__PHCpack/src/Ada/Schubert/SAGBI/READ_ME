@@ -1,0 +1,76 @@
+Numerical Schubert Calculus using SAGBI homotopies in PHCv2.4.85
+
+This directory was delivered with release 2 of PHCpack, and stowed
+away in a separate directory in release 2.2.
+
+SAGBI homotopies are a concatenation of three homotopies:
+1) polyhedral homotopies to set up the start system;
+2) flat deformation using a Groebner basis for the Grassmannian;
+3) Cheater's homotopy towards real target system.
+
+Historically, SAGBI homotopies were the first tools in numerical
+Schubert calculus, but were later outperformed (both in mathematical
+beauty and efficiency) by the Pieri homotopies.
+
+Run "gprbuild sagbi.gpr" to make all test programs.
+On windows, type "gprbuild sagbi.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean sagbi.gpr" removes all files created by gprbuild.
+
+-------------------------------------------------------------------------------
+file name                        : short description
+-------------------------------------------------------------------------------
+brackets                         : representation/manipulation of brackets
+brackets_io                      : input/output of brackets
+bracket_monomials                : monomials of brackets
+bracket_monomials_io             : input/output of bracket monomials
+generic_bracket_polynomials      : bracket polynomials over any coeff ring
+standard_bracket_polynomials     : polynomials in the brackets, complex coeff
+standard_bracket_polynomials_io  : input/output for bracket polynomials
+dobldobl_bracket_polynomials     : bracket polynomials with double doubles
+dobldobl_bracket_polynomials_io  : i/o for double double bracket polynomials
+quaddobl_bracket_polynomials     : bracket polynomials with quad doubles
+quaddobl_bracket_polynomials_io  : i/o for quad double bracket polynomials
+bracket_polynomial_convertors    : converting bracket polynomials
+standard_bracket_systems         : defines systems of bracket polynomials
+standard_bracket_systems_io      : output for systems of bracket polynomials
+dobldobl_bracket_systems         : systems of double double bracket polynomials
+dobldobl_bracket_systems_io      : i/o for double double bracket systems
+quaddobl_bracket_systems         : systems of quad double bracket polynomials
+quaddobl_bracket_systems_io      : i/o for quad double bracket systems
+straightening_syzygies           : implementation of straightening algorithm
+bracket_expansions               : expansion of brackets
+chebychev_polynomials            : Chebychev polynomials for the conjecture
+osculating_planes                : input for the Shapiro^2 conjecture
+complex_osculating_planes        : planes for variant of Shapiro^2 conjecture
+matrix_homotopies                : management of homotopies between matrices
+matrix_homotopies_io             : output for writing matrix homotopies
+evaluated_minors                 : determinant computations
+minor_computations               : computes all minors to check signs
+maximal_minors                   : magnitude computation of maximal minors 
+sagbi_homotopies                 : set up of the SAGBI homotopies
+main_sagbi_homotopies            : main procedures to run SAGBI homotopies
+-------------------------------------------------------------------------------
+ts_subsets                       : test generation of subsets
+ts_brackets                      : test manipulation of brackets 
+ts_brackmons                     : test bracket monomials
+ts_brackpols                     : test bracket polynomials
+ts_straighten                    : test straightening algorithm
+ts_expand                        : test expansion of brackets
+ts_local                         : test localization
+ts_cheby                         : test working with Chebychev polynomials
+ts_topos                         : test on total positivity
+ts_shapiro                       : test generation of input planes
+ts_eremenko                      : test variant of generation of inputs
+ts_detrock                       : test various root counts on (m,p)-system
+ts_mathom                        : test on matrix homotopies
+ts_sagbi                         : calls the driver to the SAGBI homotopies
+-------------------------------------------------------------------------------
+The equations in the Groebner homotopies are set up by means of the 
+straightening algorithm.  Because the Groebner homotopies are not efficient,
+they are only auxiliary to the set up of the SAGBI homotopies, which arise 
+from expanding the brackets in the linear equations over the Grasmannian.
+
+These homotopies were used to test some conjectures in real algebraic
+geometry, formulated by the Shapiro brothers, with variants by Eremenko
+and Gabrielov (who proved a version of the Shapiro conjectures).

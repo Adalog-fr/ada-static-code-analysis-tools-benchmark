@@ -1,0 +1,40 @@
+{
+  "Name": "Ada",
+  "Bytes": 30593,
+  "CodeBytes": 0,
+  "Lines": 762,
+  "Code": 603,
+  "Comment": 47,
+  "Blank": 112,
+  "Complexity": 58,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../main/wisitoken-bnf-generate.adb",
+      "Extension": "adb",
+      "Location": "../main/wisitoken-bnf-generate.adb",
+      "Symlocation": "",
+      "Bytes": 30593,
+      "Lines": 762,
+      "Code": 603,
+      "Comment": 47,
+      "Blank": 112,
+      "Complexity": 58,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

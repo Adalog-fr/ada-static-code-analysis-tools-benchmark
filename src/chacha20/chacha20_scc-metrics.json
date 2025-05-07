@@ -1,0 +1,92 @@
+{
+  "Name": "Ada",
+  "Bytes": 22481,
+  "CodeBytes": 0,
+  "Lines": 559,
+  "Code": 488,
+  "Comment": 19,
+  "Blank": 52,
+  "Complexity": 17,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/chacha20_config.ads",
+      "Extension": "ads",
+      "Location": "config/chacha20_config.ads",
+      "Symlocation": "",
+      "Bytes": 563,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/chacha20.ads",
+      "Extension": "ads",
+      "Location": "src/chacha20.ads",
+      "Symlocation": "",
+      "Bytes": 1378,
+      "Lines": 62,
+      "Code": 46,
+      "Comment": 1,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/chacha20.adb",
+      "Extension": "adb",
+      "Location": "src/chacha20.adb",
+      "Symlocation": "",
+      "Bytes": 20540,
+      "Lines": 477,
+      "Code": 430,
+      "Comment": 17,
+      "Blank": 30,
+      "Complexity": 17,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces": 1
+  }
+}

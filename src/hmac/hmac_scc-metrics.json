@@ -1,0 +1,98 @@
+{
+  "Name": "Ada",
+  "Bytes": 6942,
+  "CodeBytes": 0,
+  "Lines": 222,
+  "Code": 178,
+  "Comment": 4,
+  "Blank": 40,
+  "Complexity": 5,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/hmac_generic.ads",
+      "Extension": "ads",
+      "Location": "src/hmac_generic.ads",
+      "Symlocation": "",
+      "Bytes": 1443,
+      "Lines": 45,
+      "Code": 36,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/hmac_generic.adb",
+      "Extension": "adb",
+      "Location": "src/hmac_generic.adb",
+      "Symlocation": "",
+      "Bytes": 3162,
+      "Lines": 109,
+      "Code": 91,
+      "Comment": 4,
+      "Blank": 14,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/hmac.ads",
+      "Extension": "ads",
+      "Location": "src/hmac.ads",
+      "Symlocation": "",
+      "Bytes": 2337,
+      "Lines": 68,
+      "Code": 51,
+      "Comment": 0,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "hmac_generic",
+        "sha1",
+        "sha2"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "hmac_generic": 1,
+    "sha1": 1,
+    "sha2": 1
+  }
+}

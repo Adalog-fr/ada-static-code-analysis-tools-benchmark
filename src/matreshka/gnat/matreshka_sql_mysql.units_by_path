@@ -1,0 +1,10 @@
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql-databases.adb
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql-databases.ads
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql-factory.adb
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql-factory.ads
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql-queries.adb
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql-queries.ads
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql.adb
+../source/sql/mysql/matreshka-internals-sql_drivers-mysql.ads
+../source/sql/mysql/matreshka-internals-sql_parameter_rewriters-mysql.adb
+../source/sql/mysql/matreshka-internals-sql_parameter_rewriters-mysql.ads

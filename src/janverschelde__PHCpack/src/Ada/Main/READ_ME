@@ -1,0 +1,82 @@
+Main interactive drivers and top level procedure in PHCv2.4.90
+
+New in release 2.1 in this directory is the conversion between symbolic 
+and tableau formats, plus the interface of the solutions in Maple format.
+Release 2.2 include changes in the blackbox solver (bablphc) to deal
+with the special cases of one single polynomial on input.
+Changes in release 2.3 are in mainzip (Maple interface),
+mainvali (Newton with deflation for singularities), and
+mainfeed (computing output feedback laws via pole pole placement).
+A new option "phc -q" for path tracking with incremental read/write
+was introduced in PHCv2.3.05.  New option 0 in phc -v with v2.3.07.
+MixedVol was added in release v2.3.13, stable mixed volumes in v2.3.31.
+For multitasking, a new option "phc -t" was added in release v2.3.45.
+Quad double arithmetic was introduced in v2.3.55.  The blackbox solver
+phc -b was extended in v2.3.68 with new tools for binomial systems,
+and updated with an irreducible decomposition for binomial systems.
+
+The are several parts in this library :
+
+1. separate drivers
+2. main drivers and black-box solver
+3. PHCpack as server package and how to use it
+4. the top level procedure
+
+Run "gprbuild main.gpr" to make phc (without -j).
+On windows, type "gprbuild main.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean main.gpr" removes all files created by gprbuild.
+On windows, add the "-Xos=windows" at the end of the gprclean command.
+
+To build the shared object file libPHCpack, run "gprbuild phclib.gpr",
+or "gprbuild phclib.gpr -Xos=windows" on Windows.
+
+-------------------------------------------------------------------------------
+file name                        : short description
+-------------------------------------------------------------------------------
+driver_for_own_start_system      : driver for submitting start system
+drivers_for_root_counts          : interactive menu-drivers for counting roots
+driver_for_root_refining         : calls the root refiners
+-------------------------------------------------------------------------------
+greeting_banners                 : defines banners to welcome the user
+ts_greet                         : prints the PHCpack version string
+-------------------------------------------------------------------------------
+root_counters_output             : writes root counts to file and to string
+black_box_root_counters          : performs several root counts
+ts_blkroco                       : tests black box root counters output
+main_root_counters               : defines phc -r
+-------------------------------------------------------------------------------
+main_trackers                    : jumpstart path tracking
+main_verification                : defines the phc -v
+polynomial_homotopy_continuation : defines phc in full mode
+black_box_helpers                : helper operations for the black box solvers
+black_box_single_solvers         : solvers for one single equation
+black_box_linear_solvers         : solvers for linear systems
+black_box_square_solvers         : solvers for square systems
+black_box_solver_cases           : special cases for the solvers
+black_box_mixed_volumes          : for a polyhedral black box solver
+black_box_solvers                : to be called by bablphc
+black_box_polyhedral_solvers     : solve with polyhedral homotopies
+test_standard_solver             : test black box solver in double precision
+ts_bbsolve                       : test on black box solvers
+standard_blackbox_solvers        : black-box solvers in double precision
+dobldobl_blackbox_solvers        : black-box solvers in double double precision
+quaddobl_blackbox_solvers        : black-box solvers in quad double precision
+greetings_and_conclusions        : defines greetings and conclusions
+main_component_solvers           : numerical irreducible decomposition
+-------------------------------------------------------------------------------
+phcpack                          : PHC with main drivers according to 4 stages
+use_phc                          : an example of how to use phcpack
+main_maple_solutions             : strip output solutions into Maple format
+main_dictionary_solutions        : convert solutions into Python dictionary
+main_output_feedback             : encapsulates realization of output feedback
+-------------------------------------------------------------------------------
+actions_and_options              : defines actions and options of phc
+ts_actopt                        : test on actions and options
+option_handlers                  : handles the options for phc
+ts_opthand                       : test on the option handlers
+phctop                           : scans options and arguments and calls drivers
+-------------------------------------------------------------------------------
+
+The driver for root refinement are located at this level because symmetry
+relations can be used to extract the generators of a list of solutions.

@@ -1,0 +1,14 @@
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-databases.adb
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-databases.ads
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-factory.adb
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-factory.ads
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-fields.adb
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-fields.ads
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-queries.adb
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-queries.ads
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-records.adb
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird-records.ads
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird.adb
+../source/sql/firebird/matreshka-internals-sql_drivers-firebird.ads
+../source/sql/firebird/matreshka-internals-sql_parameter_rewriters-firebird.adb
+../source/sql/firebird/matreshka-internals-sql_parameter_rewriters-firebird.ads

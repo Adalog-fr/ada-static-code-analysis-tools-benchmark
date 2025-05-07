@@ -1,0 +1,55 @@
+name: Ada (GNAT)
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-20.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+          submodules: true
+
+    - name: Set up GNAT toolchain and libraries
+      run: >
+        sudo apt-get update &&
+        sudo apt-get install gnat gprbuild make libcanberra-dev libgtkada19-dev libsfml-dev libcsfml-dev
+
+    - name: Build with none audio
+      run: >
+        gprbuild -j0 -p -XSOUND_LIB=none -P bingada_custom.gpr
+
+    - name: Build with sfml audio
+      run: >
+        gprbuild -j0 -p -XSOUND_LIB=sfml -P bingada_custom.gpr
+
+    - name: Build with canberra audio
+      run: >
+        cd libs/canberra-ada &&
+        make &&
+        cd ../.. &&
+        gprbuild -j0 -p -XSOUND_LIB=canberra -P bingada_custom.gpr
+
+    - name: Build with asfml audio
+      run: >
+        gprbuild -j0 -p -XSOUND_LIB=asfml -P bingada_custom.gpr
+
+    - name: Build AppImage
+      run: make AppImage
+
+    - name: Create Release
+      uses: ncipollo/release-action@v1
+      with:
+        allowUpdates: True
+        tag: continuous
+        name: Continuous build
+        prerelease: True
+        artifacts: "BingAda*.AppImage"
+        token: ${{ secrets.GITHUB_TOKEN }}

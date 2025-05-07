@@ -1,0 +1,13 @@
+authors = ["Léo Germond"]
+description = "Ada exercices for training"
+executables = ["genericity_text_main"]
+licenses = "Apache-2.0"
+maintainers = ["Léo Germond <germond@adacore.com>"]
+maintainers-logins = ["leogermond"]
+name = "labs_standalone"
+tags = ["training","labs","algorithmic"]
+version = "0.1.0"
+website = "https://github.com/adacore/training_labs_standalone"
+
+[build-switches."*"]
+Compile_Checks = "none"

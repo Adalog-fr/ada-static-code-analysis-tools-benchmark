@@ -1,0 +1,11 @@
+../source/c_math_c-conversion.adb
+../source/c_math_c-conversion.ads
+../source/thin/c_math_c-binding.ads
+../source/thin/c_math_c-matrix_3x3.ads
+../source/thin/c_math_c-matrix_4x4.ads
+../source/thin/c_math_c-pointer_pointers.ads
+../source/thin/c_math_c-pointers.ads
+../source/thin/c_math_c-triangle.ads
+../source/thin/c_math_c-vector_2.ads
+../source/thin/c_math_c-vector_3.ads
+../source/thin/c_math_c.ads

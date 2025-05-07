@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 26189,
+  "CodeBytes": 0,
+  "Lines": 662,
+  "Code": 520,
+  "Comment": 59,
+  "Blank": 83,
+  "Complexity": 44,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/dg_loada_config.ads",
+      "Extension": "ads",
+      "Location": "config/dg_loada_config.ads",
+      "Symlocation": "",
+      "Bytes": 563,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aosvs_dump.adb",
+      "Extension": "adb",
+      "Location": "src/aosvs_dump.adb",
+      "Symlocation": "",
+      "Bytes": 4348,
+      "Lines": 107,
+      "Code": 79,
+      "Comment": 16,
+      "Blank": 12,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aosvs_dump.ads",
+      "Extension": "ads",
+      "Location": "src/aosvs_dump.ads",
+      "Symlocation": "",
+      "Bytes": 4526,
+      "Lines": 95,
+      "Code": 66,
+      "Comment": 13,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dg_loada.adb",
+      "Extension": "adb",
+      "Location": "src/dg_loada.adb",
+      "Symlocation": "",
+      "Bytes": 16752,
+      "Lines": 440,
+      "Code": 363,
+      "Comment": 29,
+      "Blank": 48,
+      "Complexity": 40,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

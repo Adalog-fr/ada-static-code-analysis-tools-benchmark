@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 115941,
+  "CodeBytes": 0,
+  "Lines": 3325,
+  "Code": 3095,
+  "Comment": 115,
+  "Blank": 115,
+  "Complexity": 100,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gtk-layered_editor.adb",
+      "Extension": "adb",
+      "Location": "gtk-layered_editor.adb",
+      "Symlocation": "",
+      "Bytes": 92412,
+      "Lines": 2686,
+      "Code": 2570,
+      "Comment": 43,
+      "Blank": 73,
+      "Complexity": 100,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gtk-layered_editor.ads",
+      "Extension": "ads",
+      "Location": "gtk-layered_editor.ads",
+      "Symlocation": "",
+      "Bytes": 23529,
+      "Lines": 639,
+      "Code": 525,
+      "Comment": 72,
+      "Blank": 42,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

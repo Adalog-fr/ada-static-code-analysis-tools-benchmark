@@ -1,0 +1,26 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb"
+node: { title: "gnat__io__put__2" label: "Put\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:42:1\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__text_io__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/s-textio.ads:43:14" shape : ellipse }
+edge: { sourcename: "gnat__io__put__2" targetname: "system__text_io__initialize" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:45:7" }
+node: { title: "system__text_io__use_cr_lf_for_new_line" label: "Use_Cr_Lf_For_New_Line\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/s-textio.ads:66:13" shape : ellipse }
+edge: { sourcename: "gnat__io__put__2" targetname: "system__text_io__use_cr_lf_for_new_line" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:49:29" }
+node: { title: "system__text_io__is_tx_ready" label: "Is_Tx_Ready\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/s-textio.ads:55:13" shape : ellipse }
+edge: { sourcename: "gnat__io__put__2" targetname: "system__text_io__is_tx_ready" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:50:17" }
+node: { title: "system__text_io__put" label: "Put\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/s-textio.ads:62:14" shape : ellipse }
+edge: { sourcename: "gnat__io__put__2" targetname: "system__text_io__put" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:54:21" }
+edge: { sourcename: "gnat__io__put__2" targetname: "system__text_io__is_tx_ready" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:57:14" }
+edge: { sourcename: "gnat__io__put__2" targetname: "system__text_io__put" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io-put.adb:61:18" }
+node: { title: "gnat__io__new_line" label: "NEW_LINE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:55:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "gnat__io__new_line" targetname: "gnat__io__put__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:58:10" }
+node: { title: "gnat__io__put" label: "PUT\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:66:4\n40 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "gnat__io__put" targetname: "__aeabi_idivmod" }
+node: { title: "__aeabi_idiv" label: "aeabi_idiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "gnat__io__put" targetname: "__aeabi_idiv" }
+edge: { sourcename: "gnat__io__put" targetname: "gnat__io__put__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:173:10" }
+node: { title: "gnat__io__put__3" label: "PUT\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:170:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "gnat__io__put__3" targetname: "gnat__io__put__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:173:10" }
+node: { title: "gnat__io__put_line" label: "PUT_LINE\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:181:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "gnat__io__put_line" targetname: "gnat__io__put__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:58:10" }
+edge: { sourcename: "gnat__io__put_line" targetname: "gnat__io__put__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m0p/gnat/g-io.adb:173:10" }
+}

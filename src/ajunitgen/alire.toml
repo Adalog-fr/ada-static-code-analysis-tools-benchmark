@@ -1,0 +1,19 @@
+authors = ["Alejandro R. Mosteo"]
+description = "Generator of JUnit-compatible XML reports"
+licenses = "LGPL-3.0-only"
+maintainers = ["alejandro@mosteo.com"]
+maintainers-logins = ["mosteo"]
+name = "ajunitgen"
+tags = ["junit","xml"]
+version = "1.0.1"
+
+[[depends-on]]
+xml_ez_out = "*"
+
+[[pins]]
+
+[pins.xml_ez_out]
+path = "../xml_ez_out"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,6 @@
+src/bbqueue-buffers-framed.adb
+src/bbqueue-buffers-framed.ads
+src/bbqueue-buffers.adb
+src/bbqueue-buffers.ads
+src/bbqueue.adb
+src/bbqueue.ads

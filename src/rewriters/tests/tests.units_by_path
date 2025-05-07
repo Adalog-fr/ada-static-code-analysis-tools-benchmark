@@ -1,0 +1,5 @@
+src/rewriters_suite.adb
+src/rewriters_suite.ads
+src/test_minimal_parenthesis.adb
+src/test_minimal_parenthesis.ads
+src/tests.adb

@@ -1,0 +1,41 @@
+name: Build Linux
+
+on:
+  push:
+    paths-ignore:
+    - 'LICENSE'
+    - 'README.md'
+    - 'SECURITY.md'
+    - '_config.yml'
+    - '.github/ISSUE_TEMPLATE'
+
+jobs:
+  build:
+    name: CI on ${{ matrix.tag }} ${{ matrix.year }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true # false # Don't cancel other runs
+      matrix:
+        tag:
+          # - fsf Disable FSF again until we figure out how to get a recent GNATColl into the image
+          - community
+        year:
+          - 2019
+          - 2020
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Install toolchain
+        uses: ada-actions/toolchain@ce2020
+        with:
+          distrib: ${{ matrix.tag }}
+          target: native
+          community_year: ${{ matrix.year }}
+      - name: Build
+        run: >
+          bash .github/scripts/ci-build.sh
+      - name: Run tests
+        run: >
+          bash .github/scripts/ci-test.sh

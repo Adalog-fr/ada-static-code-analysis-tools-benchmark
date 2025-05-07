@@ -1,0 +1,40 @@
+{
+  "Name": "Ada",
+  "Bytes": 2085,
+  "CodeBytes": 0,
+  "Lines": 61,
+  "Code": 40,
+  "Comment": 15,
+  "Blank": 6,
+  "Complexity": 5,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "examples/monitor.adb",
+      "Extension": "adb",
+      "Location": "examples/monitor.adb",
+      "Symlocation": "",
+      "Bytes": 2085,
+      "Lines": 61,
+      "Code": 40,
+      "Comment": 15,
+      "Blank": 6,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

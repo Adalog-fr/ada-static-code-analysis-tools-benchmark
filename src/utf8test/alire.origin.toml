@@ -1,0 +1,24 @@
+authors = [
+"Alejandro R. Mosteo",
+]
+description = "Test the terminal behavior when outputting Latin-1 and UTF-8 strings"
+executables = [
+"utf8test",
+]
+licenses = "MIT OR Apache-2.0"
+maintainers = [
+"Alejandro R. Mosteo <alejandro@mosteo.com>",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "utf8test"
+tags = [
+"unicode",
+"utf-8",
+"latin-1",
+"terminal",
+]
+version = "0.1.0"
+website = ""
+

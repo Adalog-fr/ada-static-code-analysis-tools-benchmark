@@ -1,0 +1,40 @@
+{
+  "Name": "Ada",
+  "Bytes": 543,
+  "CodeBytes": 0,
+  "Lines": 20,
+  "Code": 12,
+  "Comment": 1,
+  "Blank": 7,
+  "Complexity": 0,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "make_config.ads",
+      "Extension": "ads",
+      "Location": "alire/cache/dependencies/make_4.3.0_system/config/make_config.ads",
+      "Symlocation": "",
+      "Bytes": 543,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

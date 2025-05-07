@@ -1,0 +1,11 @@
+src/arbmgr.adb
+src/arbmgr.ads
+src/basicdef.adb
+src/basicdef.ads
+src/genauto.adb
+src/insrc.adb
+src/insrc.ads
+src/outsrc.adb
+src/outsrc.ads
+src/srcseq.adb
+src/srcseq.ads

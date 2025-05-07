@@ -1,0 +1,213 @@
+{
+  "Name": "Ada",
+  "Bytes": 47233,
+  "CodeBytes": 0,
+  "Lines": 1608,
+  "Code": 1137,
+  "Comment": 209,
+  "Blank": 262,
+  "Complexity": 42,
+  "Count": 7,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws-rs256.ads",
+      "Extension": "ads",
+      "Location": "../source/jws-rs256.ads",
+      "Symlocation": "",
+      "Bytes": 296,
+      "Lines": 12,
+      "Code": 3,
+      "Comment": 6,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws-rs256.adb",
+      "Extension": "adb",
+      "Location": "../source/jws-rs256.adb",
+      "Symlocation": "",
+      "Bytes": 5615,
+      "Lines": 177,
+      "Code": 125,
+      "Comment": 22,
+      "Blank": 30,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sha256",
+        "jws.integers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws.ads",
+      "Extension": "ads",
+      "Location": "../source/jws.ads",
+      "Symlocation": "",
+      "Bytes": 4203,
+      "Lines": 117,
+      "Code": 72,
+      "Comment": 20,
+      "Blank": 25,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.json.objects",
+        "league.stream_element_vectors",
+        "league.string_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws-integers.ads",
+      "Extension": "ads",
+      "Location": "../source/jws-integers.ads",
+      "Symlocation": "",
+      "Bytes": 2274,
+      "Lines": 81,
+      "Code": 49,
+      "Comment": 17,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws-integers.adb",
+      "Extension": "adb",
+      "Location": "../source/jws-integers.adb",
+      "Symlocation": "",
+      "Bytes": 11142,
+      "Lines": 425,
+      "Code": 325,
+      "Comment": 42,
+      "Blank": 58,
+      "Complexity": 23,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws-rs256-read_der.adb",
+      "Extension": "adb",
+      "Location": "../source/jws-rs256-read_der.adb",
+      "Symlocation": "",
+      "Bytes": 11050,
+      "Lines": 364,
+      "Code": 267,
+      "Comment": 41,
+      "Blank": 56,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/jws.adb",
+      "Extension": "adb",
+      "Location": "../source/jws.adb",
+      "Symlocation": "",
+      "Bytes": 12653,
+      "Lines": 432,
+      "Code": 296,
+      "Comment": 61,
+      "Blank": 75,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sha256",
+        "league.base_codecs",
+        "league.json.arrays",
+        "league.json.documents",
+        "league.json.values",
+        "league.text_codecs"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "gnat.sha256": 2,
+    "jws.integers": 1,
+    "league.base_codecs": 1,
+    "league.json.arrays": 1,
+    "league.json.documents": 1,
+    "league.json.objects": 1,
+    "league.json.values": 1,
+    "league.stream_element_vectors": 1,
+    "league.string_vectors": 1,
+    "league.strings": 1,
+    "league.text_codecs": 1
+  }
+}

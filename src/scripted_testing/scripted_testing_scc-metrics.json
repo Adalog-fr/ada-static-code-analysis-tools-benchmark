@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 24249,
+  "CodeBytes": 0,
+  "Lines": 723,
+  "Code": 447,
+  "Comment": 173,
+  "Blank": 103,
+  "Complexity": 14,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/scripted_testing.ads",
+      "Extension": "ads",
+      "Location": "src/scripted_testing.ads",
+      "Symlocation": "",
+      "Bytes": 5595,
+      "Lines": 141,
+      "Code": 33,
+      "Comment": 88,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/scripted_testing.adb",
+      "Extension": "adb",
+      "Location": "src/scripted_testing.adb",
+      "Symlocation": "",
+      "Bytes": 18654,
+      "Lines": 582,
+      "Code": 414,
+      "Comment": 85,
+      "Blank": 83,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

@@ -1,0 +1,55 @@
+Wed 23 Oct 2019 : copied latest PHCpack.m2 in this folder as well...
+
+Sun 8 Oct 2019 : in cascade, added '0' to the input for double precision.
+
+Tue 29 Nov 2016 : fixed the extraction of the outcome of the PieriHomotopies
+  in LRhomotopies.m2.
+
+Tue 22 Nov 2016 : added parameter to the helper functions in LRhomotopies.m2
+  to extract data in double, double double, or quad double precision.
+
+Mon 21 Nov 2016 : added functions to LRhomotopies.m2 to turn the value
+  of a string representation of a double double and quad double number.
+
+Sun 20 Nov 2016 : changed the Verbose default from true to false.
+  Extended the documentation LRhomotopiesDoc.m2 with a test on the
+  first intersection condition computed by the PieriHomotopies method.
+
+Sat 19 Nov 2016 : added PieriRootCount to LRhomotopies.m2 and started the
+  PieriHomotopies method; parsed the input and output planes.
+
+Tue 8 Nov 2016 : in LRhomotopies.m2 skipped the zero power of brackets
+  in the LRrule.
+
+Thu 3 Nov 2016 : added default zero number of tasking in LRhomotopies.m2.
+
+Fri 21 Oct 2016 : added luckySeed and higherWorkingPrecision to the
+  LRhomotopies.m2 package, documented in LRhomotopiesDoc.m2.
+
+Thu 20 Oct 2016 : in PHCpackDoc.m2, fixed the seeds for solveSystem in
+  some examples, to avoid unlucky choices.
+
+Wed 19 Oct 2016 : for testing purposes, turning LRhomotopies.m2 with its
+  documentation in LRhomotopiesDoc.m2 into a standalone package.
+  The generated generic flags and the solution planes are now returned
+  as proper complex matrices in Macaulay2.
+  Updated PHCpackDoc.m2, 'roots' has become protected, which caused
+  problems with the documentation of refineSolutions.
+
+Tue 18 Oct 2016 : updated LRhomotopies.m2 with functions to extract the
+  solution planes of the output.
+
+Tue 14 Oct 2015 : updated LRhomotopies.m2 for changes in phc -e.
+
+Thu 21 May 2015 : fixed bug in mixedVolume function of PHCpack.m2 which
+  was introduced with the polyhedral homotopies in double double and
+  quad double arithmetic.  Needs version 2.3.97 of PHCpack.
+
+Thu 30 Oct 2014 : updated LRhomotopies.m2 to solve general problems, tested
+  R := ZZ; n := 6; m := matrix{{4, 3, 6}}; which is the [3 6]^4 problem.
+  
+Wed 24 Sep 2014 : fixed bug in systemFromFile in PHCpack.m2 and added
+  parsing routines to LRhomotopies.m2.
+
+Tue 23 Sep 2014 : figured out how to replace the "e+00" with regular 
+  expressions when parsing systems from file.

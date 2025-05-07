@@ -1,0 +1,22 @@
+authors = ["Bent Bracke"]
+description = "DummyServer is a terminal program that serves dummy content"
+executables = ["dummyserver"]
+licenses = "CC0-1.0"
+long-description = "DummyServer is a terminal program that serves dummy content (resources). These resources are defined in a single JSON configuration and configuration is thus very simple and fast. The prime purpose of DummyServer is to serve content to test client applications."
+maintainers = ["Bent Bracke <bent@bracke.dk>"]
+maintainers-logins = ["bracke"]
+name = "dummyserver"
+tags = ["http","server","test","terminal","console"]
+version = "1.0.0"
+website = "https://github.com/bracke/dummyserver"
+
+[[depends-on]]
+json = "*"
+
+[[pins]]
+
+[pins.json]
+path = "../json/json"
+
+[build-switches."*"]
+Compile_Checks = "none"

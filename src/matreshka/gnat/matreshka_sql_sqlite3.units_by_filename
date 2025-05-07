@@ -1,0 +1,9 @@
+matreshka-internals-sql_drivers-sqlite3-databases.adb
+matreshka-internals-sql_drivers-sqlite3-databases.ads
+matreshka-internals-sql_drivers-sqlite3-factory.adb
+matreshka-internals-sql_drivers-sqlite3-factory.ads
+matreshka-internals-sql_drivers-sqlite3-queries.adb
+matreshka-internals-sql_drivers-sqlite3-queries.ads
+matreshka-internals-sql_drivers-sqlite3.ads
+matreshka-internals-sql_parameter_rewriters-sqlite3.adb
+matreshka-internals-sql_parameter_rewriters-sqlite3.ads

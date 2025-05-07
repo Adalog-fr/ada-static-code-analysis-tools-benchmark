@@ -1,0 +1,156 @@
+{
+  "Name": "Ada",
+  "Bytes": 5722,
+  "CodeBytes": 0,
+  "Lines": 177,
+  "Code": 153,
+  "Comment": 0,
+  "Blank": 24,
+  "Complexity": 0,
+  "Count": 5,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fastpbkdf2_h.ads",
+      "Extension": "ads",
+      "Location": "src/fastpbkdf2_h.ads",
+      "Symlocation": "",
+      "Bytes": 205,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "fastpbkdf2_h_generic",
+        "interfaces",
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fastpbkdf2_generic.ads",
+      "Extension": "ads",
+      "Location": "src/fastpbkdf2_generic.ads",
+      "Symlocation": "",
+      "Bytes": 1208,
+      "Lines": 35,
+      "Code": 31,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fastpbkdf2_ada.ads",
+      "Extension": "ads",
+      "Location": "src/fastpbkdf2_ada.ads",
+      "Symlocation": "",
+      "Bytes": 194,
+      "Lines": 8,
+      "Code": 5,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastpbkdf2_generic"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fastpbkdf2_h_generic.ads",
+      "Extension": "ads",
+      "Location": "src/fastpbkdf2_h_generic.ads",
+      "Symlocation": "",
+      "Bytes": 1368,
+      "Lines": 41,
+      "Code": 36,
+      "Comment": 0,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system.parameters"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fastpbkdf2_generic.adb",
+      "Extension": "adb",
+      "Location": "src/fastpbkdf2_generic.adb",
+      "Symlocation": "",
+      "Bytes": 2747,
+      "Lines": 84,
+      "Code": 75,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "fastpbkdf2_h_generic",
+        "interfaces",
+        "interfaces.c"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "fastpbkdf2_generic": 1,
+    "fastpbkdf2_h_generic": 2,
+    "interfaces": 2,
+    "interfaces.c": 2,
+    "system.parameters": 1
+  }
+}

@@ -1,0 +1,9 @@
+*.o
+*.bexch
+*.ali
+
+lib/*
+obj/*
+examples/*/obj
+alire/
+alire.lock

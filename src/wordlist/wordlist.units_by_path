@@ -1,0 +1,3 @@
+config/wordlist_config.ads
+src/wordlist.adb
+src/wordlist.ads

@@ -1,0 +1,86 @@
+with Hash;
+with Box;
+with Box7;
+with Box8;
+with Core1;
+with Core3;
+with Onetimeauth;
+with Onetimeauth2;
+with Onetimeauth7;
+with Scalarmult;
+with Scalarmult2;
+with Scalarmult5;
+with Scalarmult6;
+with Secretbox;
+with Secretbox2;
+with Secretbox3;
+with Secretbox7;
+with Secretbox8;
+with Secretbox9;
+with Sign;
+with Stream;
+with Stream2;
+with Stream3;
+with Stream4;
+
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Exceptions; use Ada.Exceptions;
+with GNAT.Traceback.Symbolic; use GNAT.Traceback.Symbolic;
+
+procedure Testall
+is
+begin
+   Put_Line ("Hash");
+   Hash;
+   Put_Line ("Box");
+   Box;
+   Put_Line ("Box7");
+   Box7;
+   Put_Line ("Box8");
+   Box8;
+   Put_Line ("Core1");
+   Core1;
+   Put_Line ("Core3");
+   Core3;
+   Put_Line ("Onetimeauth");
+   Onetimeauth;
+   Put_Line ("Onetimeauth2");
+   Onetimeauth2;
+   Put_Line ("Onetimeauth7");
+   Onetimeauth7;
+   Put_Line ("Scalarmult");
+   Scalarmult;
+   Put_Line ("Scalarmult2");
+   Scalarmult2;
+   Put_Line ("Scalarmult5");
+   Scalarmult5;
+   Put_Line ("Scalarmult6");
+   Scalarmult6;
+   Put_Line ("Secretbox");
+   Secretbox;
+   Put_Line ("Secretbox2");
+   Secretbox2;
+   Put_Line ("Secretbox3");
+   Secretbox3;
+   Put_Line ("Secretbox7");
+   Secretbox7;
+   Put_Line ("Secretbox8");
+   Secretbox8;
+   Put_Line ("Secretbox9");
+   Secretbox9;
+   Put_Line ("Sign");
+   Sign;
+   Put_Line ("Stream");
+   Stream;
+   Put_Line ("Stream2");
+   Stream2;
+   Put_Line ("Stream3");
+   Stream3;
+   Put_Line ("Stream4");
+   Stream4;
+exception
+   when E : others =>
+      Put_Line (Exception_Message (E));
+      Put_Line (Exception_Information (E));
+      Put_Line (Symbolic_Traceback (E));
+end Testall;

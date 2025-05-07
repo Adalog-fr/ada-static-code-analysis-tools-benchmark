@@ -1,0 +1,23 @@
+authors = [
+"Riccardo Bernardini",
+]
+description = "Read a string without echo, in password-like style"
+licenses = "MIT"
+long-description = "This is a small Ada library that provides a procedure Get_Password that reads a string from the terminal replacing each character with a *. The input can be terminated both by the user pressing end-of-line or when the buffer is filled.  Currently it works only on POSIX-based system.  This version was checked with Spark"
+maintainers = [
+"Riccardo Bernardini <riccardo.bernardini@uniud.it>",
+]
+maintainers-logins = [
+"fintatarta",
+]
+name = "get_password"
+tags = [
+"password",
+"echo",
+"textio",
+]
+version = "1.0.0-rc"
+website = "https://gitlab.com/my-ada-library/get_password"
+[gpr-set-externals]
+OS_FOR_GPR = "posix"
+

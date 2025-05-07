@@ -1,0 +1,23 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-uart.ads"
+node: { title: "interfaces__sam__uart__uart_mr_par_fieldH" label: "uart_mr_par_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_mr_chmode_fieldH" label: "uart_mr_chmode_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_wpmr_wpkey_fieldRP" label: "uart_wpmr_wpkey_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_cr_registerIP" label: "uart_uart_cr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_mr_registerIP" label: "uart_uart_mr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_ier_registerIP" label: "uart_uart_ier_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_idr_registerIP" label: "uart_uart_idr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_imr_registerIP" label: "uart_uart_imr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_sr_registerIP" label: "uart_uart_sr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_rhr_registerIP" label: "uart_uart_rhr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_thr_registerIP" label: "uart_uart_thr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_brgr_registerIP" label: "uart_uart_brgr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_cmpr_registerIP" label: "uart_uart_cmpr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_wpmr_registerIP" label: "uart_uart_wpmr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_uart_version_registerIP" label: "uart_uart_version_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__sam__uart__uart_peripheralIP" label: "uart_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__sam__uart__uart_peripheralIP" targetname: "interfaces__sam__uart__uart_uart_cr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-uart.ads:558:7" }
+edge: { sourcename: "interfaces__sam__uart__uart_peripheralIP" targetname: "interfaces__sam__uart__uart_uart_mr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-uart.ads:560:7" }
+edge: { sourcename: "interfaces__sam__uart__uart_peripheralIP" targetname: "interfaces__sam__uart__uart_uart_ier_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-uart.ads:562:7" }
+edge: { sourcename: "interfaces__sam__uart__uart_peripheralIP" targetname: "interfaces__sam__uart__uart_uart_idr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-uart.ads:564:7" }
+edge: { sourcename: "interfaces__sam__uart__uart_peripheralIP" targetname: "interfaces__sam__uart__uart_uart_cmpr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/i-sam-uart.ads:576:7" }
+}

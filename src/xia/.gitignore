@@ -1,0 +1,11 @@
+alire
+config
+
+generate
+
+.build*
+
+lib-static
+lib-relocatable
+
+*-stamp

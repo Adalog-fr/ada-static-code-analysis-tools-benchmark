@@ -1,0 +1,40 @@
+{
+  "Name": "Ada",
+  "Bytes": 3349,
+  "CodeBytes": 0,
+  "Lines": 109,
+  "Code": 75,
+  "Comment": 17,
+  "Blank": 17,
+  "Complexity": 8,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tools/pretty_print.adb",
+      "Extension": "adb",
+      "Location": "src/tools/pretty_print.adb",
+      "Symlocation": "",
+      "Bytes": 3349,
+      "Lines": 109,
+      "Code": 75,
+      "Comment": 17,
+      "Blank": 17,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 16711,
+  "CodeBytes": 0,
+  "Lines": 516,
+  "Code": 357,
+  "Comment": 63,
+  "Blank": 96,
+  "Complexity": 13,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/canberra.ads",
+      "Extension": "ads",
+      "Location": "src/canberra.ads",
+      "Symlocation": "",
+      "Bytes": 4895,
+      "Lines": 145,
+      "Code": 65,
+      "Comment": 44,
+      "Blank": 36,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/canberra.adb",
+      "Extension": "adb",
+      "Location": "src/canberra.adb",
+      "Symlocation": "",
+      "Bytes": 11816,
+      "Lines": 371,
+      "Code": 292,
+      "Comment": 19,
+      "Blank": 60,
+      "Complexity": 13,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

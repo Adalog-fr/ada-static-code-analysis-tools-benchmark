@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/s-expmod.adb"
+node: { title: "system__exp_mod__power_of_2Predicate" label: "power_of_2Predicate\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__exp_mod__exp_modular" label: "Exp_Modular\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/s-expmod.adb:198:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uldivmod" label: "aeabi_uldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__exp_mod__exp_modular" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "system__exp_mod__exp_modular" targetname: "__aeabi_uldivmod" }
+}

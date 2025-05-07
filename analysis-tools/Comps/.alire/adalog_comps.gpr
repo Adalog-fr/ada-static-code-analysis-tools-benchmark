@@ -1,0 +1,43 @@
+with "../config/adalog_comps_config";
+
+library project Adalog_Comps is
+
+   for Library_Name use "Adalog_Comps";
+   for Library_Version use Project'Library_Name & ".so." & Adalog_Comps_Config.Crate_Version;
+
+   for Source_Dirs use ("../config", "../string_matching", "../binary_map", "../linear_queue", "../options_analyzer", "../string_map", "../variable_length", "../file_iterator", "../tracer", "../csv");
+   for Object_Dir use "obj/" & Adalog_Comps_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Library_Dir use "lib";
+
+   type Library_Type_Type is ("relocatable", "static", "static-pic");
+   Library_Type : Library_Type_Type :=
+     external ("ADALOG_COMPS_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+   for Library_Kind use Library_Type;
+
+   package Pretty_Printer is
+      for Default_Switches ("ada") use ("-M100");
+   end Pretty_Printer;
+
+   package Linker is
+      for Default_Switches ("ada") use ("-g", "-Wl,--gc-sections");
+   end Linker;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-g", "-Es");
+   end Binder;
+
+   package Compiler is
+      for Default_Switches ("ada") use ("-O2", "-gnatf", "-gnato", "-g", "-gnatwcfijkmopruvz", "-gnatyM120", "-gnatWh", "-fstack-check", "-gnat12", "-gnatQ");
+   end Compiler;
+
+   package Builder is
+      for Default_Switches ("ada") use ("-v", "-gnatf", "-gnatwa", "-g", "-m", "-k");
+   end Builder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+end Adalog_Comps;
+

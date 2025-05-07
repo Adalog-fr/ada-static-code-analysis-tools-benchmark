@@ -1,0 +1,59 @@
+Integer Linear Algebra in PHCv2.4.85
+
+This "Divisors" directory implements the greatest common divisors method
+to perform fraction-free row reduction on linear systems of integer numbers,
+of 32-bit, 64-bit and multiprecision 32-bit, 64-bit precision.
+When the "Matrices" directory became too full in version 2.3.71, 
+this new directory was made.  Below are some milestones in the development
+of integer linear algebra in PHCpack.
+
+Multiprecision numbers were introduced in the second release of PHCpack.
+New in release 2.3.49 is integer64.
+The Smith normal form was extended in version 2.3.68 for the
+general binomial system solvers.
+
+In version 2.4.80, the test procedures were organized in test packages.
+
+Run "gprbuild divisors.gpr" to make all test programs.
+On windows, type "gprbuild divisors.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean divisors.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                          : short description
+------------------------------------------------------------------------------
+greatest_common_divisors           : greatest common divisors over any domain
+standard_common_divisors           : gcd/lcm for the standard integer numbers
+standard64_common_divisors         : gcd/lcm for the long long integer numbers
+multprec_common_divisors           : gcd/lcm for the multiprecision integers
+multprec64_common_divisors         : gcd/lcm for the multiprecision integer64
+test_greatest_common_divisors      : test procedures on the gcd
+ts_gcd                             : main test on greatest common divisors
+------------------------------------------------------------------------------
+standard_integer_norms             : norms for standard integer vectors
+multprec_integer_norms             : norms for multiprecision integer vectors
+------------------------------------------------------------------------------
+standard_integer_linear_equalities : incremental triangulation
+------------------------------------------------------------------------------
+generic_integer_linear_solvers     : solvers of linear systems over any domain
+standard_integer_linear_solvers    : linear-system solvers for standard integers
+standard_integer64_linear_solvers  : linear-system solvers for 64-bit integers
+multprec_integer_linear_solvers    : linear-system solvers for multprec integers
+multprec_integer64_linear_solvers  : linear solvers for multprec integer64s
+test_integer_linear_solvers        : test integer row reduction operations
+ts_intlina                         : main test on integer linear solvers
+------------------------------------------------------------------------------
+standard_smith_normal_form         : Smith Normal Form of integer matrix
+multprec_smith_normal_form         : multiprecision Smith Normal Form
+test_normal_forms                  : test on Hermite and Smith normal forms
+ts_smith                           : main test on normal forms
+------------------------------------------------------------------------------
+standard_integer_matrix_inverse    : inverse of a standard integer matrix
+multprec_integer_matrix_inverse    : inverse of a multiprecision integer matrix
+test_integer_inverse               : test procedures on the integer inverse
+ts_intinv                          : main test on the inverse of integer matrix
+------------------------------------------------------------------------------
+standard_integer_circuits          : circuits of a point configuration
+test_integer_circuits              : test procedures on circuits
+ts_circuit                         : main test on circuit computation
+------------------------------------------------------------------------------

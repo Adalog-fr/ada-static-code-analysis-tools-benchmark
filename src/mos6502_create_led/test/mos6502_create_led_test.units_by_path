@@ -1,0 +1,7 @@
+/workspaces/bench-source/src/mos6502_create_led/test/config/mos6502_create_led_test_config.ads
+/workspaces/bench-source/src/mos6502_create_led/test/src/create_led_test-call.adb
+/workspaces/bench-source/src/mos6502_create_led/test/src/create_led_test-call.ads
+/workspaces/bench-source/src/mos6502_create_led/test/src/create_led_test-main.adb
+/workspaces/bench-source/src/mos6502_create_led/test/src/create_led_test-suite.adb
+/workspaces/bench-source/src/mos6502_create_led/test/src/create_led_test-suite.ads
+/workspaces/bench-source/src/mos6502_create_led/test/src/create_led_test.ads

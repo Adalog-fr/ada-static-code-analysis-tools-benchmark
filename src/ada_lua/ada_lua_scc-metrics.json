@@ -1,0 +1,220 @@
+{
+  "Name": "Ada",
+  "Bytes": 60969,
+  "CodeBytes": 0,
+  "Lines": 2011,
+  "Code": 1160,
+  "Comment": 537,
+  "Blank": 314,
+  "Complexity": 35,
+  "Count": 8,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua-ada_limited_types.adb",
+      "Extension": "adb",
+      "Location": "src/lua-ada_limited_types.adb",
+      "Symlocation": "",
+      "Bytes": 3406,
+      "Lines": 79,
+      "Code": 30,
+      "Comment": 37,
+      "Blank": 12,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua-ada_limited_types.ads",
+      "Extension": "ads",
+      "Location": "src/lua-ada_limited_types.ads",
+      "Symlocation": "",
+      "Bytes": 3390,
+      "Lines": 63,
+      "Code": 11,
+      "Comment": 46,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua-ada_types.adb",
+      "Extension": "adb",
+      "Location": "src/lua-ada_types.adb",
+      "Symlocation": "",
+      "Bytes": 3967,
+      "Lines": 139,
+      "Code": 87,
+      "Comment": 29,
+      "Blank": 23,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua-ada_types.ads",
+      "Extension": "ads",
+      "Location": "src/lua-ada_types.ads",
+      "Symlocation": "",
+      "Bytes": 937,
+      "Lines": 26,
+      "Code": 11,
+      "Comment": 8,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua-utils.adb",
+      "Extension": "adb",
+      "Location": "src/lua-utils.adb",
+      "Symlocation": "",
+      "Bytes": 803,
+      "Lines": 40,
+      "Code": 31,
+      "Comment": 3,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua-utils.ads",
+      "Extension": "ads",
+      "Location": "src/lua-utils.ads",
+      "Symlocation": "",
+      "Bytes": 388,
+      "Lines": 13,
+      "Code": 8,
+      "Comment": 3,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua.ads",
+      "Extension": "ads",
+      "Location": "src/lua.ads",
+      "Symlocation": "",
+      "Bytes": 26084,
+      "Lines": 717,
+      "Code": 333,
+      "Comment": 271,
+      "Blank": 113,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "system"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lua.adb",
+      "Extension": "adb",
+      "Location": "src/lua.adb",
+      "Symlocation": "",
+      "Bytes": 21994,
+      "Lines": 934,
+      "Code": 649,
+      "Comment": 140,
+      "Blank": 145,
+      "Complexity": 28,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c.strings"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_conversion": 1,
+    "interfaces.c": 1,
+    "interfaces.c.strings": 1,
+    "system": 1
+  }
+}

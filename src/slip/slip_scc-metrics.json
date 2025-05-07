@@ -1,0 +1,68 @@
+{
+  "Name": "Ada",
+  "Bytes": 6572,
+  "CodeBytes": 0,
+  "Lines": 283,
+  "Code": 241,
+  "Comment": 0,
+  "Blank": 42,
+  "Complexity": 10,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/slip.ads",
+      "Extension": "ads",
+      "Location": "src/slip.ads",
+      "Symlocation": "",
+      "Bytes": 2417,
+      "Lines": 107,
+      "Code": 91,
+      "Comment": 0,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/slip.adb",
+      "Extension": "adb",
+      "Location": "src/slip.adb",
+      "Symlocation": "",
+      "Bytes": 4155,
+      "Lines": 176,
+      "Code": 150,
+      "Comment": 0,
+      "Blank": 26,
+      "Complexity": 10,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces": 1
+  }
+}

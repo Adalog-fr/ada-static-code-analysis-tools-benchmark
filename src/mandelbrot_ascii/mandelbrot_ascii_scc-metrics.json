@@ -1,0 +1,60 @@
+{
+  "Name": "Ada",
+  "Bytes": 6545,
+  "CodeBytes": 0,
+  "Lines": 169,
+  "Code": 128,
+  "Comment": 26,
+  "Blank": 15,
+  "Complexity": 14,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/mandelbrot_ascii.adb",
+      "Extension": "adb",
+      "Location": "src/mandelbrot_ascii.adb",
+      "Symlocation": "",
+      "Bytes": 6545,
+      "Lines": 169,
+      "Code": 128,
+      "Comment": 26,
+      "Blank": 15,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.exceptions",
+        "ada.finalization",
+        "ada.numerics.elementary_functions",
+        "ada.numerics.generic_complex_types",
+        "ada.streams",
+        "ada.text_io",
+        "ada.text_io.complex_io",
+        "ada.unchecked_deallocation"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.exceptions": 1,
+    "ada.finalization": 1,
+    "ada.numerics.elementary_functions": 1,
+    "ada.numerics.generic_complex_types": 1,
+    "ada.streams": 1,
+    "ada.text_io": 1,
+    "ada.text_io.complex_io": 1,
+    "ada.unchecked_deallocation": 1
+  }
+}

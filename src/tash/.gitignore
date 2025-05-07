@@ -1,0 +1,16 @@
+*.orig
+*~
+
+.build*
+*-stamp
+gpr_query.db*
+gnatinspect.db
+auto.cgpr
+
+include*
+lib-*
+
+#src/tcl_record_sizes*
+
+alire
+# config

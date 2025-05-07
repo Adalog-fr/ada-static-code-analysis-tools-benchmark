@@ -1,0 +1,21 @@
+authors = [
+"Paul Jarrett",
+]
+description = "Ways of moving around directory trees"
+licenses = "Apache-2.0"
+long-description = "[![Build Status](https://github.com/pyjarrett/dir_iterators/actions/workflows/build.yml/badge.svg)](https://github.com/pyjarrett/dir_iterators/actions)\n[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/dir_iterators.json)](https://alire.ada.dev/crates/dir_iterators.html)\n\n## Iterator-based directory walks\n\nProvides convenient ways to walk directories based on Ada 2012 user-defined\niterators.\n\nInspired by [walkdir for Rust](https://github.com/BurntSushi/walkdir).\n\n\n## Walking a directory tree recursively\n\n```ada\nwith Ada.Directories;\nwith Ada.Text_IO;\nwith Dir_Iterators.Recursive;\n\n-- ...\n\nDir_Walk : constant Dir_Iterators.Recursive.Recursive_Dir_Walk\n    := Dir_Iterators.Recursive.Walk (Dir);\n\nfor Dir_Entry of Dir_Walk loop\n    Ada.Text_IO.Put_Line(Ada.Directories.Full_Name(Dir_Entry));\nend loop;\n```\n\n## Walking a directory tree recursively with a filter\n\nUse a filter to prune directories and files from the walk.\n\n```ada\nwith Ada.Directories;\nwith Ada.Text_IO;\nwith Dir_Iterators.Recursive;\n\npackage AD renames Ada.Directories;\n\n-- ...\n\n    procedure Foo (Include_Dot_Files : Boolean; Dir_Root : String) is\n        function Filter (E : Ada.Directories.Directory_Entry_Type) return Boolean is\n            Name : constant String := Ada.Directories.Simple_Name(E);\n        begin\n            return Include_Dot_Files\n                or else (not (Name'Length > 1 and then Name(1) = '.'));\n        end Filter;\n\n        Walk : constant Dir_Iterators.Recursive.Recursive_Dir_Walk :=\n            Dir_Iterators.Recursive.Walk (Dir_Root, Filter'Access);\n    begin\n        for Dir_Entry of Walk loop\n            Ada.Text_IO.Put_Line(Ada.Directories.Full_Name(Dir_Entry));\n        end loop;\n    end Foo;\n```\n"
+maintainers = [
+"Paul Jarrett <jarrett.paul.young@gmail.com>",
+]
+maintainers-logins = [
+"pyjarrett",
+]
+name = "dir_iterators"
+tags = [
+"dir",
+"files",
+"walk",
+]
+version = "0.0.4"
+website = "https://github.com/pyjarrett/dir_iterators"
+

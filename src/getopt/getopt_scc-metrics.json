@@ -1,0 +1,79 @@
+{
+  "Name": "Ada",
+  "Bytes": 9914,
+  "CodeBytes": 0,
+  "Lines": 384,
+  "Code": 210,
+  "Comment": 93,
+  "Blank": 81,
+  "Complexity": 12,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/getopts.adb",
+      "Extension": "adb",
+      "Location": "src/getopts.adb",
+      "Symlocation": "",
+      "Bytes": 5390,
+      "Lines": 244,
+      "Code": 153,
+      "Comment": 46,
+      "Blank": 45,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.strings.maps",
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/getopts.ads",
+      "Extension": "ads",
+      "Location": "src/getopts.ads",
+      "Symlocation": "",
+      "Bytes": 4524,
+      "Lines": 140,
+      "Code": 57,
+      "Comment": 47,
+      "Blank": 36,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.iterator_interfaces",
+        "ada.strings.unbounded"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 1,
+    "ada.finalization": 1,
+    "ada.iterator_interfaces": 1,
+    "ada.strings.maps": 1,
+    "ada.strings.unbounded": 1,
+    "ada.unchecked_deallocation": 1
+  }
+}

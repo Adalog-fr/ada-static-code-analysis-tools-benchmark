@@ -1,0 +1,303 @@
+{
+  "Name": "Ada",
+  "Bytes": 20653,
+  "CodeBytes": 0,
+  "Lines": 686,
+  "Code": 496,
+  "Comment": 64,
+  "Blank": 126,
+  "Complexity": 12,
+  "Count": 11,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/midi_config.ads",
+      "Extension": "ads",
+      "Location": "config/midi_config.ads",
+      "Symlocation": "",
+      "Bytes": 546,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-decoder-queue.adb",
+      "Extension": "adb",
+      "Location": "src/midi-decoder-queue.adb",
+      "Symlocation": "",
+      "Bytes": 1374,
+      "Lines": 64,
+      "Code": 35,
+      "Comment": 9,
+      "Blank": 20,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bbqueue",
+        "system.storage_elements"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-decoder.ads",
+      "Extension": "ads",
+      "Location": "src/midi-decoder.ads",
+      "Symlocation": "",
+      "Bytes": 825,
+      "Lines": 31,
+      "Code": 19,
+      "Comment": 5,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-encoder-queue.adb",
+      "Extension": "adb",
+      "Location": "src/midi-encoder-queue.adb",
+      "Symlocation": "",
+      "Bytes": 1168,
+      "Lines": 56,
+      "Code": 33,
+      "Comment": 9,
+      "Blank": 14,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bbqueue.buffers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-decoder.adb",
+      "Extension": "adb",
+      "Location": "src/midi-decoder.adb",
+      "Symlocation": "",
+      "Bytes": 3755,
+      "Lines": 126,
+      "Code": 75,
+      "Comment": 24,
+      "Blank": 27,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "hal"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-encoder-queue.ads",
+      "Extension": "ads",
+      "Location": "src/midi-encoder-queue.ads",
+      "Symlocation": "",
+      "Bytes": 592,
+      "Lines": 24,
+      "Code": 16,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bbqueue.buffers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-encoder.adb",
+      "Extension": "adb",
+      "Location": "src/midi-encoder.adb",
+      "Symlocation": "",
+      "Bytes": 616,
+      "Lines": 27,
+      "Code": 16,
+      "Comment": 6,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-decoder-queue.ads",
+      "Extension": "ads",
+      "Location": "src/midi-decoder-queue.ads",
+      "Symlocation": "",
+      "Bytes": 664,
+      "Lines": 27,
+      "Code": 19,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bbqueue"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi-encoder.ads",
+      "Extension": "ads",
+      "Location": "src/midi-encoder.ads",
+      "Symlocation": "",
+      "Bytes": 348,
+      "Lines": 13,
+      "Code": 7,
+      "Comment": 2,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "system.storage_elements"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi.adb",
+      "Extension": "adb",
+      "Location": "src/midi.adb",
+      "Symlocation": "",
+      "Bytes": 2278,
+      "Lines": 70,
+      "Code": 57,
+      "Comment": 3,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/midi.ads",
+      "Extension": "ads",
+      "Location": "src/midi.ads",
+      "Symlocation": "",
+      "Bytes": 8487,
+      "Lines": 228,
+      "Code": 207,
+      "Comment": 5,
+      "Blank": 16,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_conversion": 1,
+    "bbqueue": 2,
+    "bbqueue.buffers": 2,
+    "hal": 3,
+    "system.storage_elements": 2
+  }
+}

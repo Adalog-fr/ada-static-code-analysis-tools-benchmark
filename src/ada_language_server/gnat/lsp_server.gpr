@@ -1,0 +1,81 @@
+------------------------------------------------------------------------------
+--                         Language Server Protocol                         --
+--                                                                          --
+--                     Copyright (C) 2018-2022, AdaCore                     --
+--                                                                          --
+-- This is free software;  you can redistribute it  and/or modify it  under --
+-- terms of the  GNU General Public License as published  by the Free Soft- --
+-- ware  Foundation;  either version 3,  or (at your option) any later ver- --
+-- sion.  This software is distributed in the hope  that it will be useful, --
+-- but WITHOUT ANY WARRANTY;  without even the implied warranty of MERCHAN- --
+-- TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public --
+-- License for  more details.  You should have  received  a copy of the GNU --
+-- General  Public  License  distributed  with  this  software;   see  file --
+-- COPYING3.  If not, go to http://www.gnu.org/licenses for a complete copy --
+-- of the license.                                                          --
+------------------------------------------------------------------------------
+
+with "gpr2.gpr";
+with "libadalang";
+with "lal_tools.gpr";
+with "ada_libfswatch.gpr";
+with "libgnatdoc.gpr";
+
+with "lsp";
+
+project LSP_Server is
+
+   VERSION := external ("VERSION", "latest");
+
+   type Library_Kind is ("static", "static-pic", "relocatable");
+   Library_Type : Library_Kind := external("ALS_LIBRARY_TYPE",
+                                  external("LIBRARY_TYPE", "relocatable"));
+
+   type OS_KIND is ("Windows_NT", "unix", "osx");
+   OS : OS_KIND := external("OS", "unix");
+
+   for Source_Dirs use
+     ("../source/server",
+      "../source/server/generated",
+      "../source/ada",
+      "../source/gpr",
+      "../source/ada/generated",
+      "../source/memory");
+
+   for Object_Dir use "../.obj/server";
+   for Main use ("lsp-ada_driver.adb");
+
+   package Compiler is
+      for Default_Switches ("Ada") use LSP.Compiler'Default_Switches ("Ada");
+      for Switches ("lsp-ada_driver.adb") use
+        LSP.Compiler'Default_Switches ("Ada") & ("-gnateDVERSION=""" & VERSION & """");
+      for Switches ("s-memory.adb") use ("-g", "-O2", "-gnatpg");
+      for Local_Configuration_Pragmas use "gnat.adc";
+   end Compiler;
+
+   package Linker is
+      for Driver use "g++";
+      case Library_Type is
+         when "static" | "static-pic" =>
+            case OS is
+               when "Windows_NT" =>
+                  for Switches ("Ada") use ("-static", "-static-libstdc++", "-static-libgcc");
+               when "osx" | "unix" =>
+                  --  On unix, we want to link libc dynamically: needed to find
+                  --  a recent version of iconv_open (and a recommended practice)
+                  for Switches ("Ada") use ("-static-libstdc++", "-static-libgcc");
+             end case;
+         when "relocatable" =>
+            null;
+      end case;
+   end Linker;
+
+   package Binder is
+      for Switches ("ada") use ("-E");
+   end Binder;
+
+   package Builder is
+      for Executable ("lsp-ada_driver") use "ada_language_server";
+   end Builder;
+
+end LSP_Server;

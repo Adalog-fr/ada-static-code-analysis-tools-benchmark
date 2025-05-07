@@ -1,0 +1,16 @@
+../sources/ada_pretty-clauses.adb
+../sources/ada_pretty-clauses.ads
+../sources/ada_pretty-declarations.adb
+../sources/ada_pretty-declarations.ads
+../sources/ada_pretty-definitions.adb
+../sources/ada_pretty-definitions.ads
+../sources/ada_pretty-expressions.adb
+../sources/ada_pretty-expressions.ads
+../sources/ada_pretty-joins.adb
+../sources/ada_pretty-joins.ads
+../sources/ada_pretty-statements.adb
+../sources/ada_pretty-statements.ads
+../sources/ada_pretty-units.adb
+../sources/ada_pretty-units.ads
+../sources/ada_pretty.adb
+../sources/ada_pretty.ads

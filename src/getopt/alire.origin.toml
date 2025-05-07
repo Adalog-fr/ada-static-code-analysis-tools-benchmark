@@ -1,0 +1,48 @@
+authors = [
+"nytpu",
+]
+description = "POSIX getopt(3) for Ada"
+licenses = "MPL-2.0"
+maintainers = [
+"nytpu <alex@nytpu.com>",
+]
+maintainers-logins = [
+"nytpu",
+]
+name = "getopt"
+tags = [
+"arguments",
+"options",
+"flags",
+"getopt",
+]
+version = "2.0.0"
+website = "https://git.sr.ht/~nytpu/getopt-ada"
+[gpr-externals]
+GETOPT_BUILD_MODE = [
+"debug",
+"optimize",
+]
+GETOPT_COMPILE_CHECKS = [
+"enabled",
+"disabled",
+]
+GETOPT_CONTRACTS = [
+"enabled",
+"disabled",
+]
+GETOPT_LIBRARY_TYPE = [
+"dynamic",
+"relocatable",
+"static",
+"static-pic",
+]
+GETOPT_RUNTIME_CHECKS = [
+"enabled",
+"disabled",
+]
+GETOPT_STYLE_CHECKS = [
+"enabled",
+"disabled",
+]
+

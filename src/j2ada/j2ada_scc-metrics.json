@@ -1,0 +1,537 @@
+{
+  "Name": "Ada",
+  "Bytes": 207264,
+  "CodeBytes": 0,
+  "Lines": 7075,
+  "Code": 5922,
+  "Comment": 537,
+  "Blank": 616,
+  "Complexity": 372,
+  "Count": 18,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/arbmgr.ads",
+      "Extension": "ads",
+      "Location": "src/arbmgr.ads",
+      "Symlocation": "",
+      "Bytes": 1486,
+      "Lines": 48,
+      "Code": 15,
+      "Comment": 24,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/basicdef.ads",
+      "Extension": "ads",
+      "Location": "src/basicdef.ads",
+      "Symlocation": "",
+      "Bytes": 1605,
+      "Lines": 46,
+      "Code": 12,
+      "Comment": 24,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fichsrc.ads",
+      "Extension": "ads",
+      "Location": "src/fichsrc.ads",
+      "Symlocation": "",
+      "Bytes": 1658,
+      "Lines": 51,
+      "Code": 20,
+      "Comment": 22,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.direct_io",
+        "basicdef"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fichsrc.adb",
+      "Extension": "adb",
+      "Location": "src/fichsrc.adb",
+      "Symlocation": "",
+      "Bytes": 3305,
+      "Lines": 91,
+      "Code": 58,
+      "Comment": 25,
+      "Blank": 8,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.latin_1",
+        "ada.exceptions",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/arbmgr.adb",
+      "Extension": "adb",
+      "Location": "src/arbmgr.adb",
+      "Symlocation": "",
+      "Bytes": 6404,
+      "Lines": 217,
+      "Code": 168,
+      "Comment": 27,
+      "Blank": 22,
+      "Complexity": 22,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/importmgr.ads",
+      "Extension": "ads",
+      "Location": "src/importmgr.ads",
+      "Symlocation": "",
+      "Bytes": 1998,
+      "Lines": 56,
+      "Code": 23,
+      "Comment": 26,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "basicdef"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/importmgr.adb",
+      "Extension": "adb",
+      "Location": "src/importmgr.adb",
+      "Symlocation": "",
+      "Bytes": 3228,
+      "Lines": 94,
+      "Code": 59,
+      "Comment": 27,
+      "Blank": 8,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.strings",
+        "ada.strings.maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/basicdef.adb",
+      "Extension": "adb",
+      "Location": "src/basicdef.adb",
+      "Symlocation": "",
+      "Bytes": 2163,
+      "Lines": 65,
+      "Code": 31,
+      "Comment": 25,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.characters.handling",
+        "ada.directories",
+        "ada.text_io",
+        "ada.text_io.unbounded_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/insrc.ads",
+      "Extension": "ads",
+      "Location": "src/insrc.ads",
+      "Symlocation": "",
+      "Bytes": 3196,
+      "Lines": 153,
+      "Code": 119,
+      "Comment": 26,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "basicdef",
+        "fichsrc"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/j2ada.adb",
+      "Extension": "adb",
+      "Location": "src/j2ada.adb",
+      "Symlocation": "",
+      "Bytes": 2880,
+      "Lines": 99,
+      "Code": 56,
+      "Comment": 23,
+      "Blank": 20,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "basicdef",
+        "insrc",
+        "javaseq",
+        "objpar"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/javaseq.ads",
+      "Extension": "ads",
+      "Location": "src/javaseq.ads",
+      "Symlocation": "",
+      "Bytes": 106,
+      "Lines": 5,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/objpar.ads",
+      "Extension": "ads",
+      "Location": "src/objpar.ads",
+      "Symlocation": "",
+      "Bytes": 2776,
+      "Lines": 76,
+      "Code": 23,
+      "Comment": 35,
+      "Blank": 18,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "basicdef",
+        "importmgr",
+        "objsrc",
+        "outsrc"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/insrc.adb",
+      "Extension": "adb",
+      "Location": "src/insrc.adb",
+      "Symlocation": "",
+      "Bytes": 26607,
+      "Lines": 783,
+      "Code": 721,
+      "Comment": 38,
+      "Blank": 24,
+      "Complexity": 81,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.latin_1",
+        "ada.strings.maps",
+        "ada.strings.maps.constants",
+        "ada.text_io",
+        "arbmgr",
+        "objpar"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/objsrc.adb",
+      "Extension": "adb",
+      "Location": "src/objsrc.adb",
+      "Symlocation": "",
+      "Bytes": 9400,
+      "Lines": 374,
+      "Code": 226,
+      "Comment": 95,
+      "Blank": 53,
+      "Complexity": 21,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/outsrc.ads",
+      "Extension": "ads",
+      "Location": "src/outsrc.ads",
+      "Symlocation": "",
+      "Bytes": 3404,
+      "Lines": 88,
+      "Code": 41,
+      "Comment": 32,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "basicdef"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/objsrc.ads",
+      "Extension": "ads",
+      "Location": "src/objsrc.ads",
+      "Symlocation": "",
+      "Bytes": 5954,
+      "Lines": 148,
+      "Code": 79,
+      "Comment": 50,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "basicdef",
+        "outsrc"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/outsrc.adb",
+      "Extension": "adb",
+      "Location": "src/outsrc.adb",
+      "Symlocation": "",
+      "Bytes": 6767,
+      "Lines": 221,
+      "Code": 162,
+      "Comment": 38,
+      "Blank": 21,
+      "Complexity": 17,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/javaseq.adb",
+      "Extension": "adb",
+      "Location": "src/javaseq.adb",
+      "Symlocation": "",
+      "Bytes": 124327,
+      "Lines": 4460,
+      "Code": 4106,
+      "Comment": 0,
+      "Blank": 354,
+      "Complexity": 222,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "basicdef",
+        "fichsrc",
+        "insrc",
+        "objpar",
+        "objsrc",
+        "outsrc"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.characters.handling": 1,
+    "ada.characters.latin_1": 2,
+    "ada.command_line": 1,
+    "ada.containers.doubly_linked_lists": 3,
+    "ada.direct_io": 1,
+    "ada.directories": 2,
+    "ada.exceptions": 1,
+    "ada.strings": 1,
+    "ada.strings.maps": 2,
+    "ada.strings.maps.constants": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 6,
+    "ada.text_io.unbounded_io": 1,
+    "ada.unchecked_deallocation": 2,
+    "arbmgr": 1,
+    "basicdef": 8,
+    "fichsrc": 2,
+    "importmgr": 1,
+    "insrc": 2,
+    "javaseq": 1,
+    "objpar": 3,
+    "objsrc": 2,
+    "outsrc": 3
+  }
+}

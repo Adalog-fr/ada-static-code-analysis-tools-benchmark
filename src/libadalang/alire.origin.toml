@@ -1,0 +1,24 @@
+authors = [
+"AdaCore",
+]
+description = "Ada semantic analysis library"
+licenses = "Apache-2.0"
+maintainers = [
+"Pierre-Marie de Rodat <pmderodat@kawie.fr>",
+]
+maintainers-logins = [
+"pmderodat",
+]
+name = "libadalang"
+tags = [
+"libadalang",
+"static-analysis",
+]
+version = "23.0.0"
+website = "https://github.com/AdaCore/libadalang"
+[[depends-on]]
+gnatcoll = "^23"
+gnatcoll_gmp = "^23"
+gnatcoll_iconv = "^23"
+langkit_support = "^23"
+

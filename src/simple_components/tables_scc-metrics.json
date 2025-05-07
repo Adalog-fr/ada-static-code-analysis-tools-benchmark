@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 42139,
+  "CodeBytes": 0,
+  "Lines": 1289,
+  "Code": 836,
+  "Comment": 398,
+  "Blank": 55,
+  "Complexity": 64,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tables-names.ads",
+      "Extension": "ads",
+      "Location": "tables-names.ads",
+      "Symlocation": "",
+      "Bytes": 5551,
+      "Lines": 135,
+      "Code": 62,
+      "Comment": 70,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tables-names.adb",
+      "Extension": "adb",
+      "Location": "tables-names.adb",
+      "Symlocation": "",
+      "Bytes": 11644,
+      "Lines": 363,
+      "Code": 308,
+      "Comment": 39,
+      "Blank": 16,
+      "Complexity": 26,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tables.ads",
+      "Extension": "ads",
+      "Location": "tables.ads",
+      "Symlocation": "",
+      "Bytes": 11411,
+      "Lines": 362,
+      "Code": 92,
+      "Comment": 263,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tables.adb",
+      "Extension": "adb",
+      "Location": "tables.adb",
+      "Symlocation": "",
+      "Bytes": 13533,
+      "Lines": 429,
+      "Code": 374,
+      "Comment": 26,
+      "Blank": 29,
+      "Complexity": 38,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

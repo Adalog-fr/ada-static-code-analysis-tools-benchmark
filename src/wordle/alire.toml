@@ -1,0 +1,32 @@
+authors = ["Alejandro R. Mosteo"]
+description = "Wordle for the terminal"
+executables = ["wordle"]
+licenses = "MIT"
+maintainers = ["Alejandro R. Mosteo <alejandro@mosteo.com>"]
+maintainers-logins = ["mosteo"]
+name = "wordle"
+tags = ["wordle","console","terminal","game"]
+version = "0.1.1"
+
+[[depends-on]]
+aaa = "*"
+ansiada = "*"
+wordlelib = "*"
+wordlist = "*"
+
+[[pins]]
+
+[pins.aaa]
+path = "../aaa"
+
+[pins.ansiada]
+path = "../ansiada"
+
+[pins.wordlelib]
+path = "../wordlelib"
+
+[pins.wordlist]
+path = "../wordlist"
+
+[build-switches."*"]
+Compile_Checks = "none"

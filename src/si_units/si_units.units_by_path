@@ -1,0 +1,11 @@
+src/si_units-binary-scaling.adb
+src/si_units-binary-scaling.ads
+src/si_units-binary.adb
+src/si_units-binary.ads
+src/si_units-float_io.ads
+src/si_units-metric-scaling.adb
+src/si_units-metric-scaling.ads
+src/si_units-metric.adb
+src/si_units-metric.ads
+src/si_units-names.ads
+src/si_units.ads

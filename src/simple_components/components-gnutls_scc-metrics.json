@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 319496,
+  "CodeBytes": 0,
+  "Lines": 9233,
+  "Code": 5827,
+  "Comment": 3029,
+  "Blank": 377,
+  "Complexity": 132,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnutls.ads",
+      "Extension": "ads",
+      "Location": "gnutls.ads",
+      "Symlocation": "",
+      "Bytes": 158931,
+      "Lines": 4382,
+      "Code": 1618,
+      "Comment": 2693,
+      "Blank": 71,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnutls.adb",
+      "Extension": "adb",
+      "Location": "gnutls.adb",
+      "Symlocation": "",
+      "Bytes": 160565,
+      "Lines": 4851,
+      "Code": 4209,
+      "Comment": 336,
+      "Blank": 306,
+      "Complexity": 124,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

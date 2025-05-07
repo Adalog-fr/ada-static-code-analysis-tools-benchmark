@@ -1,0 +1,96 @@
+branches:
+    org.wisitoken.grammar_mode : main
+    org.wisitoken.grammar_mode.stephe-1 : misc devel for o.w.gm
+
+Makefile
+Alire.make
+
+(dvc-state-multiple
+'((xgit . "/Projects/org.stephe_leake.makerules")
+  (xgit . "/Projects/org.stephe_leake.sal")
+  (xgit . "/Projects/org.wisitoken")
+  (xgit . "/Projects/org.emacs.wisi")
+  (xgit . "/Projects/org.wisitoken.grammar_mode")
+  ))
+
+(dvc-propagate-multiple
+ '(("../org.stephe_leake.sal"        . "../org.stephe_leake.sal.stephe-1")
+   ("../org.wisitoken"               . "../org.wisitoken.stephe-1")
+   ("../org.emacs.wisi"              . "../org.emacs.wisi.stephe-1")
+   ("../org.wisitoken.grammar_mode"  . "../org.wisitoken.grammar_mode.stephe-1")))
+
+(dvc-state-multiple
+'((xgit . "c:/Projects/org.stephe_leake.makerules")
+  (xgit . "c:/Projects/org.stephe_leake.sal.stephe-1")
+  (xgit . "c:/Projects/org.wisitoken.stephe-1")
+  (xgit . "c:/Projects/org.emacs.wisi.stephe-1")
+  (xgit . "c:/Projects/org.wisitoken.grammar_mode.stephe-1")
+  ))
+
+(dvc-propagate-multiple
+ '(("../org.stephe_leake.sal.stephe-1"       . "../org.stephe_leake.sal")
+   ("../org.wisitoken.stephe-1"              . "../org.wisitoken")
+   ("../org.emacs.wisi.stephe-1"             . "../org.emacs.wisi")
+   ("../org.wisitoken.grammar_mode.stephe-1" . "../org.wisitoken.grammar_mode")))
+
+(wisitoken-grammar-set-exec (expand-file-name "wisitoken_grammar_mode_parse.exe"))
+(setq wisi-disable-face t)
+
+try tree-sitter?
+    has some support for disjoint text
+
+error_marks_01.wy failing
+    race condition before first test
+    on incremental parse after edit lexer error, lexer error still reported
+        wisi-reset-parser fixes it.
+        incremental parse must be confused, as in incremental_05.wy
+
+editing anywhere in a comment causes comments in rest of window to flicker color.
+    not in Ada; must be mmm-mode?
+    same flicker in other faces?
+        which is why we change jit-lock-context-time in ~/develop_settings.el
+        why not set that to nil/0.0?
+
+
+test/incremental_05.wy fails; just documented for now
+        try this in tree-sitter.
+
+editing ada_lite.wy
+    add comment in %code actions spec post
+        syntax errors, rest of file has comment face
+
+ release process
+See ada-mode/notes.text for full details; only wisitoken-grammar specifics here.
+
+update NEWS.text
+    ;; no release branch
+    (ediff-directories "/Projects/elpa/packages/wisitoken-grammar-mode" "." nil)
+
+bump version
+    wisitoken-grammar-mode.el
+        Version:
+        package-requires:
+
+    README
+
+    Makefile
+        WISITOKEN_GRAMMAR_MODE_VERSION
+
+    build.sh
+        wisi dir in GPR_PROJECT_PATH
+
+    install-elpa.el
+        wisi version to install; latest in elpa
+
+update, test ELPA
+    Makefile pub build-elpa install-elpa
+
+    cd ~/.emacs.d/elpa/wisitoken-grammar-mode-1.2.0; ./build.sh
+
+commit ELPA
+    (dvc-state-one "/Projects/elpa-externals/wisitoken-grammar-mode")
+        add/delete, stage, commit
+
+    (dvc-push "/Projects/elpa-externals/wisitoken-grammar-mode")
+
+-- end of file

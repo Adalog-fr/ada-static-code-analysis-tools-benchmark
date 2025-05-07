@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-tms570.adb"
+node: { title: "__gnat_board_init" label: "Board_Init\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-tms570.adb:356:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_system_init" label: "System_Init\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-tms570.adb:83:14" shape : ellipse }
+edge: { sourcename: "__gnat_board_init" targetname: "__gnat_system_init" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-tms570.adb:371:10" }
+edge: { sourcename: "__gnat_board_init" targetname: "__gnat_system_init" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-tms570.adb:383:10" }
+}

@@ -1,0 +1,131 @@
+{
+  "Name": "Ada",
+  "Bytes": 5372,
+  "CodeBytes": 0,
+  "Lines": 166,
+  "Code": 139,
+  "Comment": 6,
+  "Blank": 21,
+  "Complexity": 12,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "util/src/yaml-to_dom.adb",
+      "Extension": "adb",
+      "Location": "util/src/yaml-to_dom.adb",
+      "Symlocation": "",
+      "Bytes": 1499,
+      "Lines": 48,
+      "Code": 39,
+      "Comment": 2,
+      "Blank": 7,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "yaml.dom.loading",
+        "yaml.dom.node",
+        "yaml.source.file",
+        "yaml.source.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "util/src/yaml-to_events.adb",
+      "Extension": "adb",
+      "Location": "util/src/yaml-to_events.adb",
+      "Symlocation": "",
+      "Bytes": 2223,
+      "Lines": 72,
+      "Code": 63,
+      "Comment": 2,
+      "Blank": 7,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "yaml.parser",
+        "yaml.source.file",
+        "yaml.source.text_io",
+        "yaml.transformator.annotation_processor"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "util/src/yaml-transform.adb",
+      "Extension": "adb",
+      "Location": "util/src/yaml-transform.adb",
+      "Symlocation": "",
+      "Bytes": 1650,
+      "Lines": 46,
+      "Code": 37,
+      "Comment": 2,
+      "Blank": 7,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "yaml.destination.text_io",
+        "yaml.parser.stream",
+        "yaml.presenter",
+        "yaml.source",
+        "yaml.source.file",
+        "yaml.source.text_io",
+        "yaml.stream_concept",
+        "yaml.transformation",
+        "yaml.transformator.annotation_processor",
+        "yaml.transformator.canonical"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 3,
+    "ada.text_io": 3,
+    "yaml.destination.text_io": 1,
+    "yaml.dom.loading": 1,
+    "yaml.dom.node": 1,
+    "yaml.parser": 1,
+    "yaml.parser.stream": 1,
+    "yaml.presenter": 1,
+    "yaml.source": 1,
+    "yaml.source.file": 3,
+    "yaml.source.text_io": 3,
+    "yaml.stream_concept": 1,
+    "yaml.transformation": 1,
+    "yaml.transformator.annotation_processor": 2,
+    "yaml.transformator.canonical": 1
+  }
+}

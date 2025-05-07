@@ -1,0 +1,44 @@
+<div id="main_content_section" xmlns='http://www.w3.org/1999/xhtml' xmlns:mtl='http://forge.ada-ru.org/matreshka/template'>
+
+<div id="display_head" class="information">
+<h2 class="display_title">${topic.title}</h2>
+<p>Started by ${topic.created_by.nick} at ${topic.creation_time}</p>
+</div>
+
+<div class="pagesection top">
+  <div class="pagelinks floatleft">
+   <span class="pages">Pages: </span>
+    <mtl:if expression="page.has_prev">
+      <a class="navPages" href="${page.prev}"><span class="previous_page"/></a>
+      <a class="navPages" href="${page.prev}">${page.prev}</a>
+    </mtl:if>
+
+    <span class="current_page">[${page.current}]</span>
+
+    <mtl:if expression="page.has_next">
+      <a class="navPages" href="${page.next}">${page.next}</a>
+      <a class="navPages" href="${page.next}"><span class="next_page"/></a>
+    </mtl:if>
+  </div>
+</div>
+
+<div id="forumposts">
+ <mtl:for expression="post of list">
+  <div class="windowbg">
+   <div class="post_wrapper">
+    <div class="poster"><h4>${post.author.nick}</h4></div>
+    <div class="postarea">
+     <div class="keyinfo"><h5>${post.creation_time}</h5></div>
+     <div class="post">
+      <div id="msg_4" class="inner">
+       <pre style="white-space: pre-wrap">${post.text}</pre>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <hr class="post_separator"/>
+</mtl:for>
+</div>
+
+</div>

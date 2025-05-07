@@ -1,0 +1,409 @@
+{
+  "Name": "Ada",
+  "Bytes": 72684,
+  "CodeBytes": 0,
+  "Lines": 1449,
+  "Code": 608,
+  "Comment": 650,
+  "Blank": 191,
+  "Complexity": 19,
+  "Count": 13,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-headers.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-headers.ads",
+      "Symlocation": "",
+      "Bytes": 4106,
+      "Lines": 67,
+      "Code": 17,
+      "Comment": 43,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.stream_element_vectors",
+        "league.strings",
+        "web_services.soap.headers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-headers-decoders.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-headers-decoders.ads",
+      "Symlocation": "",
+      "Bytes": 4896,
+      "Lines": 90,
+      "Code": 36,
+      "Comment": 43,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "web_services.soap.headers.decoders",
+        "xml.sax.attributes"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-headers-encoders.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-headers-encoders.ads",
+      "Symlocation": "",
+      "Bytes": 4078,
+      "Lines": 68,
+      "Code": 17,
+      "Comment": 43,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "web_services.soap.headers.encoders",
+        "xml.sax.writers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-constants.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-constants.ads",
+      "Symlocation": "",
+      "Bytes": 5733,
+      "Lines": 89,
+      "Code": 41,
+      "Comment": 43,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-headers-decoders.adb",
+      "Extension": "adb",
+      "Location": "../source/web/wsse/web_services-soap-security-headers-decoders.adb",
+      "Symlocation": "",
+      "Bytes": 8398,
+      "Lines": 225,
+      "Code": 124,
+      "Comment": 64,
+      "Blank": 37,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.base_codecs",
+        "web_services.soap.security.constants"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-headers-encoders.adb",
+      "Extension": "adb",
+      "Location": "../source/web/wsse/web_services-soap-security-headers-encoders.adb",
+      "Symlocation": "",
+      "Bytes": 6542,
+      "Lines": 138,
+      "Code": 63,
+      "Comment": 52,
+      "Blank": 23,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.base_codecs",
+        "web_services.soap.constants",
+        "web_services.soap.security.constants",
+        "xml.sax.attributes"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-modules.adb",
+      "Extension": "adb",
+      "Location": "../source/web/wsse/web_services-soap-security-modules.adb",
+      "Symlocation": "",
+      "Bytes": 10527,
+      "Lines": 265,
+      "Code": 149,
+      "Comment": 71,
+      "Blank": 45,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.stream_element_vectors",
+        "web_services.soap.payloads.faults.simple",
+        "web_services.soap.security.constants",
+        "web_services.soap.security.headers",
+        "web_services.soap.security.password_digest_utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-modules.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-modules.ads",
+      "Symlocation": "",
+      "Bytes": 4536,
+      "Lines": 79,
+      "Code": 26,
+      "Comment": 44,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "web_services.soap.messages",
+        "web_services.soap.modules"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-password_digest_utilities.adb",
+      "Extension": "adb",
+      "Location": "../source/web/wsse/web_services-soap-security-password_digest_utilities.adb",
+      "Symlocation": "",
+      "Bytes": 8074,
+      "Lines": 194,
+      "Code": 96,
+      "Comment": 67,
+      "Blank": 31,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.discrete_random",
+        "ada.streams",
+        "gnat.sha1",
+        "interfaces",
+        "league.calendars.iso_8601",
+        "league.stream_element_vectors.internals",
+        "league.text_codecs",
+        "matreshka.internals.stream_element_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-setup.adb",
+      "Extension": "adb",
+      "Location": "../source/web/wsse/web_services-soap-security-setup.adb",
+      "Symlocation": "",
+      "Bytes": 4424,
+      "Lines": 66,
+      "Code": 20,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "web_services.soap.headers.decoders.registry",
+        "web_services.soap.headers.encoders.registry",
+        "web_services.soap.modules.registry",
+        "web_services.soap.security.constants",
+        "web_services.soap.security.headers.decoders",
+        "web_services.soap.security.headers.encoders",
+        "web_services.soap.security.modules",
+        "web_services.soap.security.password_digest_utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-password_digest_utilities.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-password_digest_utilities.ads",
+      "Symlocation": "",
+      "Bytes": 4333,
+      "Lines": 68,
+      "Code": 13,
+      "Comment": 49,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.stream_element_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security.ads",
+      "Symlocation": "",
+      "Bytes": 3430,
+      "Lines": 49,
+      "Code": 3,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/wsse/web_services-soap-security-setup.ads",
+      "Extension": "ads",
+      "Location": "../source/web/wsse/web_services-soap-security-setup.ads",
+      "Symlocation": "",
+      "Bytes": 3607,
+      "Lines": 51,
+      "Code": 3,
+      "Comment": 45,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics.discrete_random": 1,
+    "ada.streams": 1,
+    "gnat.sha1": 1,
+    "interfaces": 1,
+    "league.base_codecs": 2,
+    "league.calendars.iso_8601": 1,
+    "league.stream_element_vectors": 3,
+    "league.stream_element_vectors.internals": 1,
+    "league.strings": 4,
+    "league.text_codecs": 1,
+    "matreshka.internals.stream_element_vectors": 1,
+    "web_services.soap.constants": 1,
+    "web_services.soap.headers": 1,
+    "web_services.soap.headers.decoders": 1,
+    "web_services.soap.headers.decoders.registry": 1,
+    "web_services.soap.headers.encoders": 1,
+    "web_services.soap.headers.encoders.registry": 1,
+    "web_services.soap.messages": 1,
+    "web_services.soap.modules": 1,
+    "web_services.soap.modules.registry": 1,
+    "web_services.soap.payloads.faults.simple": 1,
+    "web_services.soap.security.constants": 4,
+    "web_services.soap.security.headers": 1,
+    "web_services.soap.security.headers.decoders": 1,
+    "web_services.soap.security.headers.encoders": 1,
+    "web_services.soap.security.modules": 1,
+    "web_services.soap.security.password_digest_utilities": 2,
+    "xml.sax.attributes": 2,
+    "xml.sax.writers": 1
+  }
+}

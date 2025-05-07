@@ -1,0 +1,46 @@
+{
+  "Name": "Ada",
+  "Bytes": 2403,
+  "CodeBytes": 0,
+  "Lines": 80,
+  "Code": 33,
+  "Comment": 23,
+  "Blank": 24,
+  "Complexity": 1,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/c_strings.ads",
+      "Extension": "ads",
+      "Location": "src/c_strings.ads",
+      "Symlocation": "",
+      "Bytes": 2403,
+      "Lines": 80,
+      "Code": 33,
+      "Comment": 23,
+      "Blank": 24,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "interfaces.c.strings"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_conversion": 1,
+    "interfaces.c.strings": 1
+  }
+}

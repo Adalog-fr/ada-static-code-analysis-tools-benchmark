@@ -1,0 +1,7 @@
+progress_indicators-bars.adb
+progress_indicators-bars.ads
+progress_indicators-spinners.adb
+progress_indicators-spinners.ads
+progress_indicators-work_trackers.adb
+progress_indicators-work_trackers.ads
+progress_indicators.ads

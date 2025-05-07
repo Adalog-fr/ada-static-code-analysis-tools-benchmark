@@ -1,0 +1,58 @@
+========================
+GTKADA NEW FEATURES LIST
+========================
+
+Copyright (C) 2010-2016, AdaCore
+
+This file contains a list of new features introduced in GtkAda.
+
+An ISO date (YYYY-MM-DD) appears in parentheses after the
+description line. This date shows the implementation date
+of the feature.
+
+New features in GtkAda 17
+-------------------------
+
+NF-17-P930-028 Gtkada.Canvas_View: inline editing improvements (2016-09-30)
+
+   New signals have been aded:
+      Signal_Inline_Editing_Started
+      Signal_Inline_Editing_Finished
+   New subprograms have been added:
+      Set_Editable, Is_Editable
+      Inline_Editing_In_Progress
+   When an item that is edited interactively by the user is moved, we now
+   also move the editing widget (generally a GtkTextView). This text view
+   now also inherits the font size and attributes from the edited item.
+   End of editing is done via a simple <return>, since the previous
+   <ctrl-return> was impossible to guess by the user. Preselect the whole
+   text when editing, so that the user can more easily change it all.
+
+NF-17-P722-028 New MDI child signals (2016-07-22)
+
+   New signals have been introduced in the MDI
+      Signal_Before_Unfloat_Child
+      Signal_Before_Destroy_Child
+   allowing respectively to react before a child is unfloated or destroyed.
+
+NF-17-P315-053 Make notebook tabs orientation configurable (2016-03-18)
+
+   New parameter in Gtkada.MDI.Configure allows controlling the orientation of
+   the notebook tabs. Varians are Automatic, Horizontal, Bottom_To_Top and
+   Top_To_Bottom.
+
+NF-17-OC21-020 Additions to Float_Child and Put in Gtkada.MDI (2016-03-08)
+
+   New parameters allow controlling the position of the child as it is
+   being put in the MDI or when it is being floated.
+
+NF-17-J810-010 Improving handling of User_Data (2016-04-15)
+
+   The following generic packages were modified:
+     Gdk.Event.Handler_Set_User_Data
+     Gtk.Action_Group.Set_Translate_Func_User_Data
+     Gtk.File_Filter.Add_Custom_User_Data
+     Gtk.Widget.Add_Tick_Callback_User_Data
+
+   The Notify parameter was removed from the public API. Instead,
+   GtkAda will call the Destroy procedure to release User_Data.

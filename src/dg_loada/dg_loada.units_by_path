@@ -1,0 +1,4 @@
+config/dg_loada_config.ads
+src/aosvs_dump.adb
+src/aosvs_dump.ads
+src/dg_loada.adb

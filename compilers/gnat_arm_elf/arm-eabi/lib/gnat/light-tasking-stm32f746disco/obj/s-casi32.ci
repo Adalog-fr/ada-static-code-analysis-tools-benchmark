@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/s-casi32.adb"
+node: { title: "system__compare_array_signed_32__compare_array_s32" label: "Compare_Array_S32\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-stm32f746disco/gnat/s-casi32.adb:56:4\n16 bytes (static)\n0 dynamic objects" }
+}

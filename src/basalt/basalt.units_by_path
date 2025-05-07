@@ -1,0 +1,11 @@
+src/basalt-queue.adb
+src/basalt-queue.ads
+src/basalt-slicer.adb
+src/basalt-slicer.ads
+src/basalt-stack.adb
+src/basalt-stack.ads
+src/basalt-strings_generic.adb
+src/basalt-strings_generic.ads
+src/basalt-strings.adb
+src/basalt-strings.ads
+src/basalt.ads

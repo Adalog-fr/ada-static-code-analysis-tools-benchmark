@@ -1,0 +1,20 @@
+authors = [
+"Anton Fediushin",
+]
+description = "Secure Hash Algorithm 1 implemented in Ada"
+licenses = "ISC"
+maintainers = [
+"Anton Fediushin <imantonmeep@gmail.com>",
+]
+maintainers-logins = [
+"AntonMeep",
+]
+name = "sha1"
+tags = [
+"cryptography",
+"security",
+"sha1",
+]
+version = "2.0.0"
+website = "https://github.com/AntonMeep/sha1"
+

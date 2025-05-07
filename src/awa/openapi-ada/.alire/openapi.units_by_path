@@ -1,0 +1,12 @@
+../src/openapi-clients.adb
+../src/openapi-clients.ads
+../src/openapi-credentials-oauth.adb
+../src/openapi-credentials-oauth.ads
+../src/openapi-credentials.ads
+../src/openapi-streams-forms.adb
+../src/openapi-streams-forms.ads
+../src/openapi-streams.adb
+../src/openapi-streams.ads
+../src/openapi.adb
+../src/openapi.ads
+../src/swagger.ads

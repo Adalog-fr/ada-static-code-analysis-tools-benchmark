@@ -1,0 +1,9 @@
+../src/lzma_lzma_h.ads
+../src/lzma-base.ads
+../src/lzma-block.ads
+../src/lzma-check.ads
+../src/lzma-container.ads
+../src/lzma-filter.ads
+../src/lzma-streamflags.ads
+../src/lzma-vli.ads
+../src/lzma.ads

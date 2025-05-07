@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-widint.ads"
+node: { title: "system__wid_int__width_integer" label: "Width_Integer\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/s-widthi.adb:35:1\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uidiv" label: "aeabi_uidiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__wid_int__width_integer" targetname: "__aeabi_uidiv" }
+node: { title: "__aeabi_idiv" label: "aeabi_idiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__wid_int__width_integer" targetname: "__aeabi_idiv" }
+}

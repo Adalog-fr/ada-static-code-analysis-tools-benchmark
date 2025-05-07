@@ -1,0 +1,42 @@
+Polynomials and solutions in the Path library, in PHCv2.4.59
+
+This directory contains the revised code of Poly2 of the Path library,
+revised to improve the integration into PHCpack.
+
+The templated Poly2 code has two main shortcomings:
+1) multiple class definitions in one file, and
+2) too few test programs.
+The development of test programs pointed at the memory allocation and
+deallocation spots where the code would not be thread safe.
+
+-------------------------------------------------------------------------------
+file name         : short description
+-------------------------------------------------------------------------------
+dict.h            : dictionary for the symbols of variabes
+linknode.h        : defined classes for a node in a linked list
+linknode.tpp      : defines the methods with prototypes in linknode.h
+linklist.h        : templated linked list
+linklist.tpp      : definitions of the templated code of linklist
+-------------------------------------------------------------------------------
+utilities.h       : templated prototypes of utility functions
+utilities.tpp     : definitions of the code prototyped in utilities.h
+polymon.h         : templated class for monomials
+polymon.tpp       : definitions of the templated code of polymon.h
+test_utils        : test utility functions
+test_polymon      : test on the monomial data structure
+polyeq.h          : templated class for polynomial equations
+polyeq.tpp        : definitions of the templated code of polyeq.h
+test_polyeq       : test on the polynomial equation data structure
+int_idx.h         : defines a class to represent an index type
+polysys.h         : templated class for polynomial systems
+polysys.tpp       : definitions of the templated code of polysys.h
+test_polysys      : test on the polynomial system data structure
+polysyshom.h      : templated data structures for polynomial homotopies
+-------------------------------------------------------------------------------
+polysol.h         : templated class for solutions of a polynomial system
+polysolset.h      : templated class for sets of solutions
+polysol.tpp       : definitions of the prototypes in polysol and polysolset
+-------------------------------------------------------------------------------
+test_poly         : reads a system from file and prints it
+test_polysol      : reads solutions from file and prints them
+-------------------------------------------------------------------------------

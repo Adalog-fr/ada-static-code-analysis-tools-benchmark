@@ -1,0 +1,171 @@
+{
+  "Name": "Ada",
+  "Bytes": 2978,
+  "CodeBytes": 0,
+  "Lines": 111,
+  "Code": 83,
+  "Comment": 5,
+  "Blank": 23,
+  "Complexity": 7,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/160_genericity_text/src/genericity_text_main.adb",
+      "Extension": "adb",
+      "Location": "src/160_genericity_text/src/genericity_text_main.adb",
+      "Symlocation": "",
+      "Bytes": 614,
+      "Lines": 22,
+      "Code": 17,
+      "Comment": 2,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "sorts",
+        "swaps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/160_genericity_text/src/sorts.adb",
+      "Extension": "adb",
+      "Location": "src/160_genericity_text/src/sorts.adb",
+      "Symlocation": "",
+      "Bytes": 1157,
+      "Lines": 45,
+      "Code": 37,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "swaps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/160_genericity_text/src/swaps.ads",
+      "Extension": "ads",
+      "Location": "src/160_genericity_text/src/swaps.ads",
+      "Symlocation": "",
+      "Bytes": 202,
+      "Lines": 6,
+      "Code": 3,
+      "Comment": 2,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/160_genericity_text/src/sorts.ads",
+      "Extension": "ads",
+      "Location": "src/160_genericity_text/src/sorts.ads",
+      "Symlocation": "",
+      "Bytes": 192,
+      "Lines": 7,
+      "Code": 5,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/160_genericity_text/src/swaps.adb",
+      "Extension": "adb",
+      "Location": "src/160_genericity_text/src/swaps.adb",
+      "Symlocation": "",
+      "Bytes": 222,
+      "Lines": 11,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/labs_standalone_config.ads",
+      "Extension": "ads",
+      "Location": "config/labs_standalone_config.ads",
+      "Symlocation": "",
+      "Bytes": 591,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.text_io": 2,
+    "sorts": 1,
+    "swaps": 2
+  }
+}

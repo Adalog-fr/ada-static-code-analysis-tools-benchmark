@@ -1,0 +1,31 @@
+authors = [
+"Stephen Leake",
+]
+description = "Generalized error correcting LALR and packrat parser generator"
+executables = [
+"wisitoken-bnf-generate.exe",
+]
+licenses = "GPL-3.0-or-later"
+maintainers = [
+"Stephen Leake <stephen_leake@stephe-leake.org>",
+]
+maintainers-logins = [
+"stephe-ada-guru",
+]
+name = "wisitoken"
+project-files = [
+"build/wisitoken_alire.gpr",
+"build/wisitoken_alire_mains.gpr",
+]
+tags = [
+"parser",
+"generator",
+"generalized",
+]
+version = "4.1.0"
+website = "https://stephe-leake.org/ada/wisitoken.html"
+[[depends-on]]
+gnat = "(>=11 & <2000) | >=2021"
+gnatcoll = "^22.0.0"
+stephes_ada_library = "~3.7.2"
+

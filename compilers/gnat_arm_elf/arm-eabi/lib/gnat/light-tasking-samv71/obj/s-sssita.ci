@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/s-sssita.adb"
+node: { title: "__gnat_get_secondary_stack" label: "Get_Sec_Stack\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/s-sssita.adb:49:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__secondary_stack__ss_init" label: "Ss_Init\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/s-secsta.ads:49:14" shape : ellipse }
+edge: { sourcename: "__gnat_get_secondary_stack" targetname: "system__secondary_stack__ss_init" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-samv71/gnat/s-sssita.adb:56:10" }
+}

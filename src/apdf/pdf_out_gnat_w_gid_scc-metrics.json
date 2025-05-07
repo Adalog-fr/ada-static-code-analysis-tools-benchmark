@@ -1,0 +1,412 @@
+{
+  "Name": "Ada",
+  "Bytes": 188252,
+  "CodeBytes": 0,
+  "Lines": 3635,
+  "Code": 2940,
+  "Comment": 368,
+  "Blank": 327,
+  "Complexity": 77,
+  "Count": 15,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/insert_mascot.adb",
+      "Extension": "adb",
+      "Location": "demo/insert_mascot.adb",
+      "Symlocation": "",
+      "Bytes": 16242,
+      "Lines": 260,
+      "Code": 253,
+      "Comment": 5,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "pdf_out"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/bar_code.ads",
+      "Extension": "ads",
+      "Location": "demo/bar_code.ads",
+      "Symlocation": "",
+      "Bytes": 14450,
+      "Lines": 209,
+      "Code": 201,
+      "Comment": 5,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/fancy_page.ads",
+      "Extension": "ads",
+      "Location": "demo/fancy_page.ads",
+      "Symlocation": "",
+      "Bytes": 422,
+      "Lines": 14,
+      "Code": 8,
+      "Comment": 1,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "pdf_out"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/pdf_out_demo.adb",
+      "Extension": "adb",
+      "Location": "demo/pdf_out_demo.adb",
+      "Symlocation": "",
+      "Bytes": 9895,
+      "Lines": 259,
+      "Code": 215,
+      "Comment": 34,
+      "Blank": 10,
+      "Complexity": 17,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/fancy_page.adb",
+      "Extension": "adb",
+      "Location": "demo/fancy_page.adb",
+      "Symlocation": "",
+      "Bytes": 2349,
+      "Lines": 71,
+      "Code": 61,
+      "Comment": 5,
+      "Blank": 5,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/qr_code.ads",
+      "Extension": "ads",
+      "Location": "demo/qr_code.ads",
+      "Symlocation": "",
+      "Bytes": 72573,
+      "Lines": 722,
+      "Code": 714,
+      "Comment": 5,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tools/img2pdf.adb",
+      "Extension": "adb",
+      "Location": "tools/img2pdf.adb",
+      "Symlocation": "",
+      "Bytes": 1207,
+      "Lines": 40,
+      "Code": 29,
+      "Comment": 8,
+      "Blank": 3,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "pdf_out"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "test/page_test.adb",
+      "Extension": "adb",
+      "Location": "test/page_test.adb",
+      "Symlocation": "",
+      "Bytes": 655,
+      "Lines": 18,
+      "Code": 17,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "pdf_out"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "pdf_out.ads",
+      "Extension": "ads",
+      "Location": "pdf_out.ads",
+      "Symlocation": "",
+      "Bytes": 22160,
+      "Lines": 567,
+      "Code": 271,
+      "Comment": 184,
+      "Blank": 112,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "pdf_out-images.adb",
+      "Extension": "adb",
+      "Location": "pdf_out-images.adb",
+      "Symlocation": "",
+      "Bytes": 4499,
+      "Lines": 136,
+      "Code": 119,
+      "Comment": 1,
+      "Blank": 16,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.unchecked_deallocation",
+        "gid"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "test/validation_test.adb",
+      "Extension": "adb",
+      "Location": "test/validation_test.adb",
+      "Symlocation": "",
+      "Bytes": 1151,
+      "Lines": 34,
+      "Code": 22,
+      "Comment": 11,
+      "Blank": 1,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "pdf_out"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "pdf_out-fonts.ads",
+      "Extension": "ads",
+      "Location": "pdf_out-fonts.ads",
+      "Symlocation": "",
+      "Bytes": 736,
+      "Lines": 22,
+      "Code": 8,
+      "Comment": 7,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "pdf_out-fonts.adb",
+      "Extension": "adb",
+      "Location": "pdf_out-fonts.adb",
+      "Symlocation": "",
+      "Bytes": 3149,
+      "Lines": 74,
+      "Code": 58,
+      "Comment": 9,
+      "Blank": 7,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "pdf_out-images.ads",
+      "Extension": "ads",
+      "Location": "pdf_out-images.ads",
+      "Symlocation": "",
+      "Bytes": 775,
+      "Lines": 21,
+      "Code": 10,
+      "Comment": 4,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "pdf_out.adb",
+      "Extension": "adb",
+      "Location": "pdf_out.adb",
+      "Symlocation": "",
+      "Bytes": 37989,
+      "Lines": 1188,
+      "Code": 954,
+      "Comment": 89,
+      "Blank": 145,
+      "Complexity": 45,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.strings.fixed",
+        "ada.unchecked_deallocation",
+        "gid",
+        "interfaces",
+        "pdf_out.fonts",
+        "pdf_out.images"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.command_line": 1,
+    "ada.exceptions": 1,
+    "ada.strings.fixed": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_deallocation": 2,
+    "gid": 2,
+    "interfaces": 1,
+    "pdf_out": 5,
+    "pdf_out.fonts": 1,
+    "pdf_out.images": 1
+  }
+}

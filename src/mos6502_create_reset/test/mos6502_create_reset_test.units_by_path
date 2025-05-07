@@ -1,0 +1,7 @@
+/workspaces/bench-source/src/mos6502_create_reset/test/config/mos6502_create_reset_test_config.ads
+/workspaces/bench-source/src/mos6502_create_reset/test/src/create_reset_test-call.adb
+/workspaces/bench-source/src/mos6502_create_reset/test/src/create_reset_test-call.ads
+/workspaces/bench-source/src/mos6502_create_reset/test/src/create_reset_test-main.adb
+/workspaces/bench-source/src/mos6502_create_reset/test/src/create_reset_test-suite.adb
+/workspaces/bench-source/src/mos6502_create_reset/test/src/create_reset_test-suite.ads
+/workspaces/bench-source/src/mos6502_create_reset/test/src/create_reset_test.ads

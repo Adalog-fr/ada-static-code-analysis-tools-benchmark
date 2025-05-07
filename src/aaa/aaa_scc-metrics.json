@@ -1,0 +1,811 @@
+{
+  "Name": "Ada",
+  "Bytes": 68900,
+  "CodeBytes": 0,
+  "Lines": 2435,
+  "Code": 1508,
+  "Comment": 436,
+  "Blank": 491,
+  "Complexity": 100,
+  "Count": 29,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/aaa_config.ads",
+      "Extension": "ads",
+      "Location": "config/aaa_config.ads",
+      "Symlocation": "",
+      "Bytes": 543,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-debug.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-debug.ads",
+      "Symlocation": "",
+      "Bytes": 758,
+      "Lines": 18,
+      "Code": 8,
+      "Comment": 5,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-directories.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-directories.ads",
+      "Symlocation": "",
+      "Bytes": 66,
+      "Lines": 3,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.filesystem"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-caches.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-caches.ads",
+      "Symlocation": "",
+      "Bytes": 365,
+      "Lines": 12,
+      "Code": 6,
+      "Comment": 2,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-enum_tools.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-enum_tools.adb",
+      "Symlocation": "",
+      "Bytes": 370,
+      "Lines": 19,
+      "Code": 13,
+      "Comment": 3,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-containers-indefinite_holders.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-containers-indefinite_holders.ads",
+      "Symlocation": "",
+      "Bytes": 1813,
+      "Lines": 65,
+      "Code": 40,
+      "Comment": 1,
+      "Blank": 24,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-containers.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-containers.ads",
+      "Symlocation": "",
+      "Bytes": 57,
+      "Lines": 3,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-ansi.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-ansi.adb",
+      "Symlocation": "",
+      "Bytes": 1109,
+      "Lines": 49,
+      "Code": 30,
+      "Comment": 9,
+      "Blank": 10,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.wide_wide_latin_1",
+        "ada.strings.utf_encoding.wide_wide_strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-enum_tools.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-enum_tools.ads",
+      "Symlocation": "",
+      "Bytes": 214,
+      "Lines": 8,
+      "Code": 5,
+      "Comment": 1,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-containers-indefinite_holders.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-containers-indefinite_holders.adb",
+      "Symlocation": "",
+      "Bytes": 1780,
+      "Lines": 85,
+      "Code": 33,
+      "Comment": 30,
+      "Blank": 22,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-traits-containers.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-traits-containers.ads",
+      "Symlocation": "",
+      "Bytes": 1298,
+      "Lines": 34,
+      "Code": 20,
+      "Comment": 6,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-traits-types.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-traits-types.ads",
+      "Symlocation": "",
+      "Bytes": 405,
+      "Lines": 11,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-caches-files.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-caches-files.adb",
+      "Symlocation": "",
+      "Bytes": 1490,
+      "Lines": 60,
+      "Code": 40,
+      "Comment": 9,
+      "Blank": 11,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-ansi.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-ansi.ads",
+      "Symlocation": "",
+      "Bytes": 534,
+      "Lines": 16,
+      "Code": 7,
+      "Comment": 3,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.utf_encoding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-debug.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-debug.adb",
+      "Symlocation": "",
+      "Bytes": 1237,
+      "Lines": 50,
+      "Code": 33,
+      "Comment": 9,
+      "Blank": 8,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa.ads",
+      "Extension": "ads",
+      "Location": "src/aaa.ads",
+      "Symlocation": "",
+      "Bytes": 66,
+      "Lines": 5,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-filesystem.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-filesystem.adb",
+      "Symlocation": "",
+      "Bytes": 7635,
+      "Lines": 276,
+      "Code": 179,
+      "Comment": 51,
+      "Blank": 46,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.debug",
+        "ada.numerics.discrete_random",
+        "ada.unchecked_deallocation",
+        "gnat.os_lib"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-strings.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-strings.ads",
+      "Symlocation": "",
+      "Bytes": 7674,
+      "Lines": 233,
+      "Code": 122,
+      "Comment": 49,
+      "Blank": 62,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.containers.indefinite_ordered_maps",
+        "ada.containers.indefinite_ordered_sets",
+        "ada.containers.indefinite_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-caches-files.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-caches-files.ads",
+      "Symlocation": "",
+      "Bytes": 1447,
+      "Lines": 53,
+      "Code": 35,
+      "Comment": 6,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.directories"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-traits.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-traits.ads",
+      "Symlocation": "",
+      "Bytes": 48,
+      "Lines": 2,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-tests.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-tests.ads",
+      "Symlocation": "",
+      "Bytes": 37,
+      "Lines": 3,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-table_io.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-table_io.adb",
+      "Symlocation": "",
+      "Bytes": 3748,
+      "Lines": 130,
+      "Code": 96,
+      "Comment": 15,
+      "Blank": 19,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.ansi",
+        "ada.containers",
+        "ada.strings.utf_encoding.wide_wide_strings",
+        "ada.strings.wide_wide_fixed",
+        "ada.strings.wide_wide_unbounded",
+        "gnat.io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-text_io.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-text_io.ads",
+      "Symlocation": "",
+      "Bytes": 3212,
+      "Lines": 82,
+      "Code": 42,
+      "Comment": 24,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.strings",
+        "ada.finalization",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-table_io.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-table_io.ads",
+      "Symlocation": "",
+      "Bytes": 1805,
+      "Lines": 54,
+      "Code": 29,
+      "Comment": 8,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors",
+        "ada.containers.vectors",
+        "ada.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-processes.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-processes.ads",
+      "Symlocation": "",
+      "Bytes": 1177,
+      "Lines": 32,
+      "Code": 19,
+      "Comment": 7,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.strings",
+        "gnat.os_lib"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-filesystem.ads",
+      "Extension": "ads",
+      "Location": "src/aaa-filesystem.ads",
+      "Symlocation": "",
+      "Bytes": 4309,
+      "Lines": 104,
+      "Code": 48,
+      "Comment": 32,
+      "Blank": 24,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.finalization"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-text_io.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-text_io.adb",
+      "Symlocation": "",
+      "Bytes": 6557,
+      "Lines": 235,
+      "Code": 152,
+      "Comment": 44,
+      "Blank": 39,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.ansi",
+        "aaa.debug",
+        "aaa.filesystem",
+        "ada.directories",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-strings.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-strings.adb",
+      "Symlocation": "",
+      "Bytes": 14123,
+      "Lines": 598,
+      "Code": 405,
+      "Comment": 91,
+      "Blank": 102,
+      "Complexity": 47,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.bounded_vectors",
+        "ada.streams.stream_io",
+        "ada.strings.fixed",
+        "ada.strings.maps",
+        "gnat.case_util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/aaa-processes.adb",
+      "Extension": "adb",
+      "Location": "src/aaa-processes.adb",
+      "Symlocation": "",
+      "Bytes": 5023,
+      "Lines": 175,
+      "Code": 114,
+      "Comment": 30,
+      "Blank": 31,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "gnat.expect"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "aaa.ansi": 2,
+    "aaa.debug": 2,
+    "aaa.filesystem": 2,
+    "aaa.strings": 2,
+    "ada.calendar": 1,
+    "ada.characters.handling": 1,
+    "ada.characters.wide_wide_latin_1": 1,
+    "ada.containers": 2,
+    "ada.containers.bounded_vectors": 1,
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.containers.indefinite_ordered_sets": 1,
+    "ada.containers.indefinite_vectors": 2,
+    "ada.containers.vectors": 1,
+    "ada.directories": 3,
+    "ada.exceptions": 1,
+    "ada.finalization": 3,
+    "ada.numerics.discrete_random": 1,
+    "ada.streams.stream_io": 1,
+    "ada.strings": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.maps": 1,
+    "ada.strings.unbounded": 1,
+    "ada.strings.utf_encoding": 1,
+    "ada.strings.utf_encoding.wide_wide_strings": 2,
+    "ada.strings.wide_wide_fixed": 1,
+    "ada.strings.wide_wide_unbounded": 1,
+    "ada.text_io": 2,
+    "ada.unchecked_deallocation": 2,
+    "gnat.case_util": 1,
+    "gnat.expect": 1,
+    "gnat.io": 2,
+    "gnat.os_lib": 2
+  }
+}

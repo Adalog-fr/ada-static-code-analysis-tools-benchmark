@@ -1,0 +1,90 @@
+authors = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+description = "Bindings for the LVGL embedded GUI framework"
+licenses = "MIT"
+maintainers = ["fabien.chouteau@gmail.com"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "lvgl_ada"
+tags = ["embedded","gui","lvgl","no-std"]
+version = "1.0.0"
+website = "https://github.com/Fabien-Chouteau/lvgl-ada"
+
+[configuration]
+auto_gpr_with = true
+disabled = false
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[configuration.variables]
+[configuration.variables.Builtin_Allocator_Size]
+default = 65536
+first = 1
+last = 1000000
+type = "Integer"
+[configuration.variables.Color_16_SWAP]
+default = false
+type = "Boolean"
+[configuration.variables.Default_Font]
+default = "dejavu_20"
+type = "Enum"
+values = [
+"dejavu_10",
+"dejavu_20",
+"dejavu_30",
+"dejavu_40",
+"monospace_8",
+]
+[configuration.variables.Density_Per_Inch]
+first = 1
+last = 1000000
+type = "Integer"
+default = 1
+[configuration.variables.Double_Buffering]
+default = false
+type = "Boolean"
+[configuration.variables.Horizontal_Resolution]
+first = 1
+last = 1000000
+type = "Integer"
+default = 1920
+[configuration.variables.Log_Level]
+default = "Warn"
+type = "Enum"
+values = [
+"Trace",
+"Info",
+"Warn",
+"Error",
+]
+[configuration.variables.Log_With_Printf]
+default = false
+type = "Boolean"
+[configuration.variables.Pixel_Bit_Depth]
+type = "Enum"
+values = [
+"Pix_1bit",
+"Pix_8bit",
+"Pix_16bit",
+"Pix_32bit",
+]
+default = "Pix_8bit"
+[configuration.variables.Theme_Live_Update]
+default = false
+type = "Boolean"
+[configuration.variables.Use_Builtin_Allocator]
+default = true
+type = "Boolean"
+[configuration.variables.Vertical_Resolution]
+first = 1
+last = 1000000
+type = "Integer"
+default = 1080
+[configuration.variables.Virtual_Display_Buffer_Size]
+default = 10240
+first = 1
+last = 1000000
+type = "Integer"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,26 @@
+authors = [
+"Felix Krause",
+]
+description = "Thick binding to the FreeType library"
+licenses = "MIT"
+maintainers = [
+"Felix Krause <contact@flyx.org>",
+]
+maintainers-logins = [
+"flyx",
+]
+name = "freetypeada"
+project-files = [
+"freetype.gpr",
+]
+tags = [
+"fonts",
+"rendering",
+]
+version = "0.1.0"
+website = "https://github.com/flyx/FreeTypeAda"
+[gpr-set-externals]
+FreeType_Linker_Param = "-lfreetype"
+[[depends-on]]
+libfreetype = "^2"
+

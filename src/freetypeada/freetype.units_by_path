@@ -1,0 +1,12 @@
+src/ft-api-glyphs.ads
+src/ft-api.ads
+src/ft-errors.adb
+src/ft-errors.ads
+src/ft-faces.adb
+src/ft-faces.ads
+src/ft-glyphs.adb
+src/ft-glyphs.ads
+src/ft-utilities.adb
+src/ft-utilities.ads
+src/ft.adb
+src/ft.ads

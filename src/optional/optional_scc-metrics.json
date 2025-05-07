@@ -1,0 +1,97 @@
+{
+  "Name": "Ada",
+  "Bytes": 7708,
+  "CodeBytes": 0,
+  "Lines": 286,
+  "Code": 159,
+  "Comment": 58,
+  "Blank": 69,
+  "Complexity": 10,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/optional.ads",
+      "Extension": "ads",
+      "Location": "src/optional.ads",
+      "Symlocation": "",
+      "Bytes": 88,
+      "Lines": 5,
+      "Code": 2,
+      "Comment": 1,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/optional-values.ads",
+      "Extension": "ads",
+      "Location": "src/optional-values.ads",
+      "Symlocation": "",
+      "Bytes": 6599,
+      "Lines": 237,
+      "Code": 130,
+      "Comment": 48,
+      "Blank": 59,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.finalization"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/optional-values.adb",
+      "Extension": "adb",
+      "Location": "src/optional-values.adb",
+      "Symlocation": "",
+      "Bytes": 1021,
+      "Lines": 44,
+      "Code": 27,
+      "Comment": 9,
+      "Blank": 8,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.exceptions": 1,
+    "ada.finalization": 1,
+    "ada.unchecked_deallocation": 1
+  }
+}

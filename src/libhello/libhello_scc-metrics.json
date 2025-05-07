@@ -1,0 +1,92 @@
+{
+  "Name": "Ada",
+  "Bytes": 859,
+  "CodeBytes": 0,
+  "Lines": 40,
+  "Code": 23,
+  "Comment": 4,
+  "Blank": 13,
+  "Complexity": 0,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/libhello.ads",
+      "Extension": "ads",
+      "Location": "src/libhello.ads",
+      "Symlocation": "",
+      "Bytes": 62,
+      "Lines": 5,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/libhello.adb",
+      "Extension": "adb",
+      "Location": "src/libhello.adb",
+      "Symlocation": "",
+      "Bytes": 238,
+      "Lines": 15,
+      "Code": 8,
+      "Comment": 3,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/libhello_config.ads",
+      "Extension": "ads",
+      "Location": "config/libhello_config.ads",
+      "Symlocation": "",
+      "Bytes": 559,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.text_io": 1
+  }
+}

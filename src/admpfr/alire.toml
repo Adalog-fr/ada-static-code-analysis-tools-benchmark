@@ -1,0 +1,17 @@
+authors = ["Laurent Thévenoux"]
+description = "Ada bindings for MPFR"
+licenses = "GPL-3.0-only"
+maintainers = ["Laurent Thévenoux <laurent@thevenoux.net>"]
+maintainers-logins = ["thvnx"]
+name = "admpfr"
+tags = ["mpfr","floating-point","bindings"]
+version = "4.1.0+20220920"
+website = "https://github.com/thvnx/admpfr"
+
+[[depends-on]]
+libmpfr = "^4.1.0"
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

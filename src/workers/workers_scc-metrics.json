@@ -1,0 +1,180 @@
+{
+  "Name": "Ada",
+  "Bytes": 11681,
+  "CodeBytes": 0,
+  "Lines": 477,
+  "Code": 248,
+  "Comment": 109,
+  "Blank": 120,
+  "Complexity": 8,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/workers_config.ads",
+      "Extension": "ads",
+      "Location": "config/workers_config.ads",
+      "Symlocation": "",
+      "Bytes": 559,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/workers-mutexes.adb",
+      "Extension": "adb",
+      "Location": "src/workers-mutexes.adb",
+      "Symlocation": "",
+      "Bytes": 1411,
+      "Lines": 70,
+      "Code": 35,
+      "Comment": 18,
+      "Blank": 17,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/workers-once.ads",
+      "Extension": "ads",
+      "Location": "src/workers-once.ads",
+      "Symlocation": "",
+      "Bytes": 3758,
+      "Lines": 132,
+      "Code": 60,
+      "Comment": 34,
+      "Blank": 38,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_doubly_linked_lists",
+        "ada.exceptions",
+        "ada.finalization",
+        "system.multiprocessors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/workers.ads",
+      "Extension": "ads",
+      "Location": "src/workers.ads",
+      "Symlocation": "",
+      "Bytes": 131,
+      "Lines": 7,
+      "Code": 4,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/workers-mutexes.ads",
+      "Extension": "ads",
+      "Location": "src/workers-mutexes.ads",
+      "Symlocation": "",
+      "Bytes": 1600,
+      "Lines": 51,
+      "Code": 30,
+      "Comment": 6,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.task_identification"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/workers-once.adb",
+      "Extension": "adb",
+      "Location": "src/workers-once.adb",
+      "Symlocation": "",
+      "Bytes": 4222,
+      "Lines": 197,
+      "Code": 107,
+      "Comment": 50,
+      "Blank": 40,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "gnat.io",
+        "workers.mutexes"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_doubly_linked_lists": 1,
+    "ada.exceptions": 2,
+    "ada.finalization": 2,
+    "ada.task_identification": 1,
+    "gnat.io": 1,
+    "system.multiprocessors": 1,
+    "workers.mutexes": 1
+  }
+}

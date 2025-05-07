@@ -1,0 +1,28 @@
+description = "Diagram Definition (DD) specification support for AMF"
+name = "matreshka_amf_dd"
+version = "22.0.0"
+website = "https://forge.ada-ru.org/matreshka"
+authors = ["Vadim Godunko"]
+licenses = "BSD-3-Clause"
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>","Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["godunko","reznikmm"]
+project-files = ["../../../gnat/matreshka_amf_dd.gpr"]
+tags = ["uml","meta","diagram"]
+
+[configuration]
+disabled = true
+
+[[depends-on]]
+matreshka_amf = "*"
+matreshka_league = "*"
+
+[[pins]]
+
+[pins.matreshka_amf]
+path = "../matreshka_amf"
+
+[pins.matreshka_league]
+path = "../matreshka_league"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,19 @@
+authors = [
+"Alejandro R. Mosteo",
+]
+description = "Processing of URI strings"
+licenses = "MIT"
+maintainers = [
+"Alejandro R. Mosteo <alejandro@mosteo.com>",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "uri_ada"
+tags = [
+"uri",
+"url",
+"utility",
+]
+version = "2.0.0"
+

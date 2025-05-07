@@ -1,0 +1,5 @@
+set verbose on;
+set timing global;
+set statistics 3;
+
+Abort_Statements : search statements (abort);

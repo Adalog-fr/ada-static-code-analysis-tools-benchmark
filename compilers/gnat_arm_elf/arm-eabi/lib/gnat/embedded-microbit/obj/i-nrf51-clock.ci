@@ -1,0 +1,16 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-clock.ads"
+node: { title: "interfaces__nrf51__clock__xtalfreq_xtalfreq_fieldRP" label: "xtalfreq_xtalfreq_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_CE_Invalid_Data" label: "gnat_rcheck_CE_Invalid_Data\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__nrf51__clock__xtalfreq_xtalfreq_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-clock.ads:529:9" }
+node: { title: "interfaces__nrf51__clock__intenset_registerIP" label: "intenset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__intenclr_registerIP" label: "intenclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__hfclkrun_registerIP" label: "hfclkrun_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__hfclkstat_registerIP" label: "hfclkstat_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__lfclkrun_registerIP" label: "lfclkrun_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__lfclkstat_registerIP" label: "lfclkstat_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__lfclksrccopy_registerIP" label: "lfclksrccopy_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__lfclksrc_registerIP" label: "lfclksrc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__ctiv_registerIP" label: "ctiv_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__xtalfreq_registerIP" label: "xtalfreq_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__clock__clock_peripheralIP" label: "clock_peripheralIP\n<built-in>\n24 bytes (static)\n0 dynamic objects" }
+}

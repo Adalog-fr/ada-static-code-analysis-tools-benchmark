@@ -1,0 +1,33 @@
+authors = [
+"alejandro@mosteo.com",
+]
+description = "Ada General Purpose Library with a robotics flavor"
+licenses = "LGPL-3.0-only"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "agpl"
+version = "1.0.0"
+[gpr-externals]
+Agpl_Include_Boost = [
+"True",
+"False",
+]
+Agpl_Include_Concorde = [
+"True",
+"False",
+]
+Agpl_Include_Db = [
+"True",
+"False",
+]
+Agpl_Include_PngIO = [
+"True",
+"False",
+]
+[[depends-on]]
+libgsl = "*"
+

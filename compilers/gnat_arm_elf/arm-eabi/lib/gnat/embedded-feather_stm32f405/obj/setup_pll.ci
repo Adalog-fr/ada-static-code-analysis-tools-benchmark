@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/setup_pll.adb"
+node: { title: "_ada_setup_pll" label: "Setup_Pll\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/setup_pll.adb:45:1\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__pwr_initialize" label: "Pwr_Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-bbmcpa.ads:47:14" shape : ellipse }
+edge: { sourcename: "_ada_setup_pll" targetname: "system__bb__mcu_parameters__pwr_initialize" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/setup_pll.adb:180:31" }
+node: { title: "system__bb__mcu_parameters__pwr_overdrive_enable" label: "Pwr_Overdrive_Enable\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-bbmcpa.ads:49:14" shape : ellipse }
+edge: { sourcename: "_ada_setup_pll" targetname: "system__bb__mcu_parameters__pwr_overdrive_enable" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/setup_pll.adb:237:34" }
+}

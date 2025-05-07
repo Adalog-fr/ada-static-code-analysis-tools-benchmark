@@ -1,0 +1,36 @@
+authors = ["AdaCore"]
+description = "GNAT Components Collection - iconv binding"
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = ["chouteau@adacore.com"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "gnatcoll_iconv"
+project-files = ["gnatcoll_iconv.gpr"]
+tags = ["gnatcoll","bindings","iconv","i18n"]
+version = "23.0.0"
+website = "https://github.com/adacore/gnatcoll-bindings"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[gpr-externals]
+GNATCOLL_BUILD_MODE = ["DEBUG","PROD"]
+LIBRARY_TYPE = ["static","relocatable","static-pic"]
+
+[gpr-set-externals]
+GNATCOLL_ICONV_OPT = "-v"
+
+[[depends-on]]
+gnatcoll = "*"
+
+[[pins]]
+
+[pins.gnatcoll]
+path = "../../gnatcoll-core"
+
+[build-switches."*"]
+Compile_Checks = "none"

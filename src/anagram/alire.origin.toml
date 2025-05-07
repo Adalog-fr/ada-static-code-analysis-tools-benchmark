@@ -1,0 +1,28 @@
+authors = [
+"Maxim Reznik",
+]
+description = "Grammar handling and parser generation Ada library"
+licenses = "MIT"
+maintainers = [
+"Maxim Reznik <reznikmm@gmail.com>",
+]
+maintainers-logins = [
+"reznikmm",
+]
+name = "anagram"
+project-files = [
+"gnat/anagram.gpr",
+]
+tags = [
+"grammar",
+"syntax",
+"analysis",
+"bnf",
+"ebnf",
+"generator",
+]
+version = "1.0.0"
+website = "https://github.com/reznikmm/anagram"
+[[depends-on]]
+matreshka_league = "*"
+

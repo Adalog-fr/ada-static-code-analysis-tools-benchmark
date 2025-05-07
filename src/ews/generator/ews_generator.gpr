@@ -1,0 +1,51 @@
+--  Copyright (C) 2013-2022, Simon Wright <simon@pushface.org>
+
+--  This package is free software; you can redistribute it and/or
+--  modify it under terms of the GNU General Public License as
+--  published by the Free Software Foundation; either version 2, or
+--  (at your option) any later version. This package is distributed in
+--  the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+--  even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+--  PARTICULAR PURPOSE. See the GNU General Public License for more
+--  details. You should have received a copy of the GNU General Public
+--  License distributed with this package; see file COPYING.  If not,
+--  write to the Free Software Foundation, 59 Temple Place - Suite
+--  330, Boston, MA 02111-1307, USA.
+
+project EWS_Generator is
+
+   for Main use ("generator.adb");
+   for Create_Missing_Dirs use "true";
+   for Exec_Dir use "../bin";
+   for Object_Dir use ".build";
+   for Source_Dirs use (".", "../src");
+   for Source_Files use
+     ("generator.adb", "ews.ads", "ews-types.ads", "ews-types.adb");
+
+   package Builder is
+      for Executable ("generator.adb") use "ews_generator";
+      for Default_Switches ("ada") use ("-g");
+   end Builder;
+
+   package Compiler is
+      for Default_Switches ("Ada") use
+        (
+         "-O2",           --  standard optimisation
+         "-fstack-check", --  ARM semantics
+         "-gnatqQ",       --  to keep ALI files even if compilation fails
+         "-gnatafo",      --  assertions, full reports, integer overflow
+         "-gnaty",        --  standard style checks
+         "-gnatwaL"       --  all standard warnings except for elaboration
+        );
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("ada") use ("-E");
+   end Binder;
+
+   package Install is
+      for Mode use "usage";
+      for Install_Project use "false";
+   end Install;
+
+end EWS_Generator;

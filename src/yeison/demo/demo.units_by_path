@@ -1,0 +1,4 @@
+src/alire_crate.ads
+src/demo_multi.adb
+src/demo_single.adb
+src/demo.adb

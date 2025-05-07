@@ -1,0 +1,19 @@
+description = "Ada binding for the ESP-IDF SDK"
+licenses = "MIT"
+maintainers = [
+"jk@jkliemann.de",
+]
+maintainers-logins = [
+"jklmnn",
+]
+name = "esp_idf"
+tags = [
+"embedded",
+"nostd",
+"esp",
+"binding",
+"riscv",
+"xtensa",
+]
+version = "0.1.1"
+

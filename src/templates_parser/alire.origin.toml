@@ -1,0 +1,58 @@
+authors = [
+"AdaCore",
+]
+description = "Templates Parser: File generation from templates in Ada"
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "templates_parser"
+project-files = [
+"templates_parser.gpr",
+]
+version = "23.0.0"
+website = "https://github.com/AdaCore/templates-parser"
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[environment]
+[environment.ADAFLAGS]
+set = "-gnaty-d"
+[gpr-externals]
+LIBRARY_TYPE = [
+"static",
+"relocatable",
+]
+PRJ_BUILD = [
+"Debug",
+"Release",
+]
+TP_TASKING = [
+"No_Tasking",
+"Standard_Tasking",
+]
+TP_XMLADA = [
+"Installed",
+"Disabled",
+]
+[gpr-set-externals]
+PRJ_BUILD = "Release"
+TP_XMLADA = "Installed"
+[[actions]]
+command = [
+"cp",
+"config/tp_xmlada_installed.gpr",
+"tp_xmlada.gpr",
+]
+directory = "."
+type = "post-fetch"
+[[depends-on]]
+xmlada = "~23.0.0"
+

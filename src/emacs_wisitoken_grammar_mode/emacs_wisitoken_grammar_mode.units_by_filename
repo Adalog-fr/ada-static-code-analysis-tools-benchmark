@@ -1,0 +1,10 @@
+emacs_wisitoken_grammar_mode_config.ads
+run_wisitoken_grammar_parse.ads
+wisi-wisitoken_grammar.adb
+wisi-wisitoken_grammar.ads
+wisitoken_grammar_1_process_actions.adb
+wisitoken_grammar_1_process_actions.ads
+wisitoken_grammar_1_process_main.adb
+wisitoken_grammar_1_process_main.ads
+wisitoken_grammar_1_re2c_c.ads
+wisitoken_grammar_mode_parse.ads

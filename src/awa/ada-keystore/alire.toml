@@ -1,0 +1,29 @@
+description = "Ada Keystore"
+long-description = "\n[![Build Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-keystore/badges/build.json)](https://porion.vacs.fr/porion/projects/view/ada-keystore/summary)\n[![Test Status](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-keystore/badges/tests.json)](https://porion.vacs.fr/porion/projects/view/ada-keystore/xunits)\n[![Coverage](https://img.shields.io/endpoint?url=https://porion.vacs.fr/porion/api/v1/projects/ada-keystore/badges/coverage.json)](https://porion.vacs.fr/porion/projects/view/ada-keystore/summary)\n\n# Overview\n\nAda Keystore is a tool and library to store information in secure wallets\nand protect the stored information by encrypting the content.\nIt is necessary to know one of the wallet password to access its content.\nAda Keystore can be used to safely store passwords, credentials,\nbank accounts and even documents.\n\nWallets are protected by a master key using AES-256 and the wallet\nmaster key is protected by a user password.\nThe wallet defines up to 7 slots that identify\na password key that is able to unlock the master key.  To open a wallet,\nit is necessary to unlock one of these 7 slots by providing the correct\npassword.  Wallet key slots are protected by the user's password\nand the PBKDF2-HMAC-256 algorithm, a random salt, a random counter\nand they are encrypted using AES-256.\n\nValues stored in the wallet are protected by their own encryption keys\nusing AES-256.  A wallet can contain another wallet which is then\nprotected by its own encryption keys and passwords (with 7 independent slots).\nBecause the child wallet has its own master key, it is necessary to known\nthe primary password and the child password to unlock the parent wallet\nfirst and then the child wallet.\n\n## Documents\n\n* [Ada Keystore Guide](https://ada-keystore.readthedocs.io/en/latest/) [PDF](https://github.com/stcarrez/ada-keystore/blob/master/docs/keystore-book.pdf)\n\n"
+name = "keystoreada"
+version = "1.4.0"
+authors = ["Stephane.Carrez@gmail.com"]
+licenses = "Apache-2.0"
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+project-files = [".alire/keystoreada.gpr"]
+tags = ["security","storage","nosql"]
+website = "https://gitlab.com/stcarrez/ada-keystore"
+
+[[depends-on]]
+utilada = "*"
+
+[gpr-externals]
+KEYSTORE_BUILD = ["distrib","debug","optimize","profile","coverage"]
+KEYSTORE_LIBRARY_TYPE = ["relocatable","static","static-pic"]
+
+[configuration]
+disabled = true
+
+[[pins]]
+
+[pins.utilada]
+path = "../ada-util"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,26 @@
+authors = [
+"Felix Krause",
+]
+description = "Image loading library for OpenGLAda"
+licenses = "MIT"
+maintainers = [
+"Felix Krause <contact@flyx.org>",
+]
+maintainers-logins = [
+"flyx",
+]
+name = "openglada_images"
+project-files = [
+"opengl-images.gpr",
+]
+tags = [
+"opengl",
+"rendering",
+"graphics",
+]
+version = "0.9.0"
+website = "http://flyx.github.io/OpenGLAda/"
+[[depends-on]]
+gid = "^9.0.0"
+openglada = "~0.9.0"
+

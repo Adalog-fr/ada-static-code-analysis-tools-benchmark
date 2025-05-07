@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 122830,
+  "CodeBytes": 0,
+  "Lines": 3416,
+  "Code": 2441,
+  "Comment": 849,
+  "Blank": 126,
+  "Complexity": 119,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-connection_state_machine-modbus_client-synchronous.ads",
+      "Extension": "ads",
+      "Location": "gnat-sockets-connection_state_machine-modbus_client-synchronous.ads",
+      "Symlocation": "",
+      "Bytes": 22058,
+      "Lines": 578,
+      "Code": 234,
+      "Comment": 332,
+      "Blank": 12,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-connection_state_machine-modbus_client.ads",
+      "Extension": "ads",
+      "Location": "gnat-sockets-connection_state_machine-modbus_client.ads",
+      "Symlocation": "",
+      "Bytes": 27478,
+      "Lines": 782,
+      "Code": 302,
+      "Comment": 465,
+      "Blank": 15,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-connection_state_machine-modbus_client-synchronous.adb",
+      "Extension": "adb",
+      "Location": "gnat-sockets-connection_state_machine-modbus_client-synchronous.adb",
+      "Symlocation": "",
+      "Bytes": 21763,
+      "Lines": 611,
+      "Code": 541,
+      "Comment": 26,
+      "Blank": 44,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-connection_state_machine-modbus_client.adb",
+      "Extension": "adb",
+      "Location": "gnat-sockets-connection_state_machine-modbus_client.adb",
+      "Symlocation": "",
+      "Bytes": 51531,
+      "Lines": 1445,
+      "Code": 1364,
+      "Comment": 26,
+      "Blank": 55,
+      "Complexity": 99,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

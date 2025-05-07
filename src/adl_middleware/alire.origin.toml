@@ -1,0 +1,53 @@
+authors = [
+"AdaCore",
+]
+description = "Middleware layer of the Ada Drivers Library project"
+licenses = "BSD-3-Clause"
+long-description = "# adl_middleware\n\nMiddleware layer of the Ada Drivers Library project.\n\nThis crate is a snapshot of the `middleware` of [Ada Drivers\nLibrary](https://github.com/AdaCore/Ada_Drivers_Library/tree/master/middleware).\n\nAny bug report, issue, contribution must be adressed to the [Ada Drivers\nLibrary](https://github.com/AdaCore/Ada_Drivers_Library/) repo.\n\n"
+maintainers = [
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "adl_middleware"
+project-files = [
+"adl_middleware.gpr",
+]
+tags = [
+"embedded",
+"nostd",
+"fat",
+"bitmap",
+]
+version = "0.2.0"
+website = "https://github.com/AdaCore/Ada_Drivers_Library/"
+[build-switches]
+[build-switches."*"]
+style_checks = "no"
+[configuration]
+auto_gpr_with = true
+disabled = false
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+[configuration.variables]
+[configuration.variables.Max_Mount_Name_Length]
+default = 128
+first = 1
+last = 4294967295
+type = "Integer"
+[configuration.variables.Max_Mount_Points]
+default = 2
+first = 1
+last = 4294967295
+type = "Integer"
+[configuration.variables.Max_Path_Length]
+default = 1024
+first = 1
+last = 4294967295
+type = "Integer"
+[[depends-on]]
+hal = "~0.3.0"
+

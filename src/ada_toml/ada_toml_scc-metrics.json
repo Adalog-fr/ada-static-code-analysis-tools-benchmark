@@ -1,0 +1,244 @@
+{
+  "Name": "Ada",
+  "Bytes": 149893,
+  "CodeBytes": 0,
+  "Lines": 4647,
+  "Code": 2798,
+  "Comment": 956,
+  "Blank": 893,
+  "Complexity": 223,
+  "Count": 8,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml-file_io.ads",
+      "Extension": "ads",
+      "Location": "src/toml-file_io.ads",
+      "Symlocation": "",
+      "Bytes": 554,
+      "Lines": 18,
+      "Code": 9,
+      "Comment": 3,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml-file_io.adb",
+      "Extension": "adb",
+      "Location": "src/toml-file_io.adb",
+      "Symlocation": "",
+      "Bytes": 2014,
+      "Lines": 84,
+      "Code": 53,
+      "Comment": 14,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "toml.generic_dump",
+        "toml.generic_parse"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml-generic_dump.adb",
+      "Extension": "adb",
+      "Location": "src/toml-generic_dump.adb",
+      "Symlocation": "",
+      "Bytes": 16754,
+      "Lines": 526,
+      "Code": 346,
+      "Comment": 96,
+      "Blank": 84,
+      "Complexity": 25,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml-generic_dump.ads",
+      "Extension": "ads",
+      "Location": "src/toml-generic_dump.ads",
+      "Symlocation": "",
+      "Bytes": 405,
+      "Lines": 12,
+      "Code": 7,
+      "Comment": 3,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml.ads",
+      "Extension": "ads",
+      "Location": "src/toml.ads",
+      "Symlocation": "",
+      "Bytes": 15940,
+      "Lines": 440,
+      "Code": 236,
+      "Comment": 108,
+      "Blank": 96,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.strings.unbounded",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml.adb",
+      "Extension": "adb",
+      "Location": "src/toml.adb",
+      "Symlocation": "",
+      "Bytes": 22928,
+      "Lines": 874,
+      "Code": 519,
+      "Comment": 184,
+      "Blank": 171,
+      "Complexity": 23,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.generic_array_sort",
+        "ada.containers.hashed_maps",
+        "ada.containers.vectors",
+        "ada.strings.unbounded.hash",
+        "ada.unchecked_deallocation",
+        "toml.generic_dump",
+        "toml.generic_parse"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml-generic_parse.adb",
+      "Extension": "adb",
+      "Location": "src/toml-generic_parse.adb",
+      "Symlocation": "",
+      "Bytes": 90589,
+      "Lines": 2675,
+      "Code": 1619,
+      "Comment": 542,
+      "Blank": 514,
+      "Complexity": 174,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml-generic_parse.ads",
+      "Extension": "ads",
+      "Location": "src/toml-generic_parse.ads",
+      "Symlocation": "",
+      "Bytes": 709,
+      "Lines": 18,
+      "Code": 9,
+      "Comment": 6,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.generic_array_sort": 1,
+    "ada.containers.hashed_maps": 1,
+    "ada.containers.vectors": 1,
+    "ada.exceptions": 1,
+    "ada.finalization": 1,
+    "ada.strings.unbounded": 3,
+    "ada.strings.unbounded.hash": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_deallocation": 1,
+    "interfaces": 2,
+    "toml.generic_dump": 2,
+    "toml.generic_parse": 2
+  }
+}

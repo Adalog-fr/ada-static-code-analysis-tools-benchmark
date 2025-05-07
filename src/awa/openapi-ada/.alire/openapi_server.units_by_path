@@ -1,0 +1,7 @@
+../src/server/openapi-servers-applications.adb
+../src/server/openapi-servers-applications.ads
+../src/server/openapi-servers-operation.adb
+../src/server/openapi-servers-operation.ads
+../src/server/openapi-servers.adb
+../src/server/openapi-servers.ads
+openapi-servers-config.ads

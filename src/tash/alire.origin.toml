@@ -1,0 +1,43 @@
+authors = [
+"Simon Wright",
+]
+description = "Binding to Tcl/Tk"
+licenses = "GPL-2.0-or-later WITH GCC-exception-2.0"
+long-description = "Tash (previously known as Tcl Ada Shell) is an Ada binding to Tcl/Tk.\n\nIts purpose is to\n\n* allow a Tcl program to use Ada in place of C to implement Tcl\n  commands where additional execution speed, more complex data\n  structures, or better name space management is needed, and\n\n* support the rapid development of Platform-Independent Graphical User\n  Interfaces via Tk.\n\nPlease note that, on macOS, tash assumes that Tcl/Tk is provided via\n[Homebrew](https://brew.sh).\n"
+maintainers = [
+"Simon Wright <simon@pushface.org>",
+]
+maintainers-logins = [
+"simonjwright",
+]
+name = "tash"
+project-files = [
+"tash.gpr",
+]
+tags = [
+"scripting",
+"tcl",
+"tk",
+]
+version = "8.7.2"
+website = "https://github.com/simonjwright/tcladashell"
+[gpr-externals]
+TASH_LIBRARY_TYPE = [
+"static",
+"relocatable",
+]
+[gpr-set-externals]
+TASH_PLATFORM = "linux"
+[[actions]]
+command = [
+"make",
+"-C",
+"src",
+"tcl_record_sizes.ads",
+]
+directory = "."
+type = "post-fetch"
+[[depends-on]]
+libtcl = "~8.6.0"
+libtk = "~8.6.0"
+

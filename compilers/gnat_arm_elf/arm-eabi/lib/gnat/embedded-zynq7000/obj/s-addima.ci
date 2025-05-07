@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnat/s-addima.adb"
+node: { title: "_ada_system__address_image" label: "Address_Image\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnat/s-addima.adb:34:1\n40 bytes (static)\n0 dynamic objects" }
+node: { title: "system__secondary_stack__ss_allocate" label: "Ss_Allocate\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnat/s-secsta.ads:58:14" shape : ellipse }
+edge: { sourcename: "_ada_system__address_image" targetname: "system__secondary_stack__ss_allocate" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnat/s-addima.adb:34:1" }
+}

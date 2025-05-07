@@ -1,0 +1,7 @@
+../source/web/spikedog/api/spikedog-generic_application_initializer.adb
+../source/web/spikedog/api/spikedog-generic_application_initializer.ads
+../source/web/spikedog/api/spikedog-http_session_managers.ads
+../source/web/spikedog/api/spikedog-http_sessions.adb
+../source/web/spikedog/api/spikedog-http_sessions.ads
+../source/web/spikedog/api/spikedog-servlet_contexts.ads
+../source/web/spikedog/api/spikedog.ads

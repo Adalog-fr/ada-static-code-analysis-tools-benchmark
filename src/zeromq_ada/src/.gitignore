@@ -1,0 +1,10 @@
+lib
+.obj
+*~
+*.pyc
+new\ file
+.temp
+gen/*.npp
+ctest.c
+zmq_h.ads
+

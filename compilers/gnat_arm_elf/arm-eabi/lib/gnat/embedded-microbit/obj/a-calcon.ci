@@ -1,0 +1,8 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/a-calcon.adb"
+node: { title: "ada__calendar__control__set_clock" label: "Set_Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/a-calcon.adb:47:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__control__set_clock__2" label: "Set_Clock\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/a-calcon.adb:56:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__calendar__time_of" label: "Time_Of\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/a-calend.ads:100:13" shape : ellipse }
+edge: { sourcename: "ada__calendar__control__set_clock__2" targetname: "ada__calendar__time_of" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/a-calcon.adb:66:21" }
+node: { title: "__aeabi_lmul" label: "aeabi_lmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__calendar__control__set_clock__2" targetname: "__aeabi_lmul" }
+}

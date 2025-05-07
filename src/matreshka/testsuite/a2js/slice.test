@@ -1,0 +1,58 @@
+--  EXPECTED OUTPUT:
+--  1
+--  2
+--  3
+--  2
+--  1
+--  2
+--  1
+--  2
+--  END OF EXPECTED OUTPUT
+--
+--  BIND LIST:
+--  consoles.ads
+--  slice.adb
+--  END OF BIND LIST
+--
+--  MAIN: slice
+
+with Consoles;
+procedure Slice is
+   use Consoles;
+   procedure Log_Array (Text : Int_Array);
+
+   procedure Log_Array (Text : Int_Array) is
+   begin
+      for J in Text'Range loop
+         Console.Log (Text (J));
+      end loop;
+   end Log_Array;
+   Test : Int_Matrix (1 .. 2);
+begin
+   Test (1) (1 .. 2) := (1, 2);
+   Test (1) (3 .. Test (1)'Last) := Test (1) (Test (1)'First .. 2);
+   Test (2 .. 2) := Test (1 .. 1);
+   Test (1) (3) := 3;
+   Log_Array (Test (1));
+   Log_Array (Test (2));
+end;
+
+package Consoles is
+   type Int_Array is array (Positive range <>) of Integer;
+   type Int_Matrix is array (Positive range <>) of Int_Array (1 .. 4);
+   type Console_Type is tagged limited null record;
+
+   type Console_Access is access all Console_Type'Class
+     with Storage_Size => 0;
+
+   not overriding procedure Log
+     (Self : not null access Console_Type;
+      Text : Integer)
+     with Import     => True,
+          Convention => JavaScript_Function,
+          Link_Name  => "log";
+
+   Console : constant Consoles.Console_Access
+     with Import     => True,
+       Convention => JavaScript;
+end Consoles;

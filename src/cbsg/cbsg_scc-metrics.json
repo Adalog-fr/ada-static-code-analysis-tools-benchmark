@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 182165,
+  "CodeBytes": 0,
+  "Lines": 3781,
+  "Code": 3430,
+  "Comment": 252,
+  "Blank": 99,
+  "Complexity": 30,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/corporate_bullshit.ads",
+      "Extension": "ads",
+      "Location": "src/corporate_bullshit.ads",
+      "Symlocation": "",
+      "Bytes": 2451,
+      "Lines": 57,
+      "Code": 11,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/delirium.adb",
+      "Extension": "adb",
+      "Location": "src/delirium.adb",
+      "Symlocation": "",
+      "Bytes": 31948,
+      "Lines": 709,
+      "Code": 648,
+      "Comment": 44,
+      "Blank": 17,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/delirium.ads",
+      "Extension": "ads",
+      "Location": "src/delirium.ads",
+      "Symlocation": "",
+      "Bytes": 32236,
+      "Lines": 581,
+      "Code": 511,
+      "Comment": 53,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/corporate_bullshit.adb",
+      "Extension": "adb",
+      "Location": "src/corporate_bullshit.adb",
+      "Symlocation": "",
+      "Bytes": 115530,
+      "Lines": 2434,
+      "Code": 2260,
+      "Comment": 112,
+      "Blank": 62,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

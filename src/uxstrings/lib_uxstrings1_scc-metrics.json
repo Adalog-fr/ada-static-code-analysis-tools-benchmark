@@ -1,0 +1,382 @@
+{
+  "Name": "Ada",
+  "Bytes": 108651,
+  "CodeBytes": 0,
+  "Lines": 3295,
+  "Code": 1851,
+  "Comment": 866,
+  "Blank": 578,
+  "Complexity": 48,
+  "Count": 14,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-conversions.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings-conversions.ads",
+      "Symlocation": "",
+      "Bytes": 1707,
+      "Lines": 48,
+      "Code": 28,
+      "Comment": 10,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-conversions.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings-conversions.adb",
+      "Symlocation": "",
+      "Bytes": 2979,
+      "Lines": 97,
+      "Code": 44,
+      "Comment": 34,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-formatting.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings-formatting.adb",
+      "Symlocation": "",
+      "Bytes": 1291,
+      "Lines": 32,
+      "Code": 14,
+      "Comment": 13,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-hash_case_insensitive.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings-hash_case_insensitive.adb",
+      "Symlocation": "",
+      "Bytes": 839,
+      "Lines": 17,
+      "Code": 5,
+      "Comment": 10,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-formatting.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings-formatting.ads",
+      "Symlocation": "",
+      "Bytes": 697,
+      "Lines": 18,
+      "Code": 10,
+      "Comment": 4,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-hash.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings-hash.ads",
+      "Symlocation": "",
+      "Bytes": 256,
+      "Lines": 6,
+      "Code": 2,
+      "Comment": 2,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-text_io-text_streams.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings-text_io-text_streams.ads",
+      "Symlocation": "",
+      "Bytes": 633,
+      "Lines": 22,
+      "Code": 13,
+      "Comment": 1,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-hash.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings-hash.adb",
+      "Symlocation": "",
+      "Bytes": 760,
+      "Lines": 17,
+      "Code": 5,
+      "Comment": 10,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-text_io-text_streams.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings-text_io-text_streams.adb",
+      "Symlocation": "",
+      "Bytes": 1928,
+      "Lines": 55,
+      "Code": 27,
+      "Comment": 19,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-hash_case_insensitive.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings-hash_case_insensitive.ads",
+      "Symlocation": "",
+      "Bytes": 384,
+      "Lines": 6,
+      "Code": 2,
+      "Comment": 3,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-text_io1.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings-text_io1.ads",
+      "Symlocation": "",
+      "Bytes": 6612,
+      "Lines": 190,
+      "Code": 121,
+      "Comment": 11,
+      "Blank": 58,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.os_lib"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings-text_io1.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings-text_io1.adb",
+      "Symlocation": "",
+      "Bytes": 35500,
+      "Lines": 1229,
+      "Code": 754,
+      "Comment": 286,
+      "Blank": 189,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings1.ads",
+      "Extension": "ads",
+      "Location": "src/uxstrings1.ads",
+      "Symlocation": "",
+      "Bytes": 21840,
+      "Lines": 363,
+      "Code": 167,
+      "Comment": 145,
+      "Blank": 51,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.characters.latin_1",
+        "ada.characters.wide_latin_1",
+        "ada.finalization",
+        "ada.streams",
+        "ada.strings",
+        "ada.strings.utf_encoding",
+        "ada.strings.wide_wide_maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uxstrings1.adb",
+      "Extension": "adb",
+      "Location": "src/uxstrings1.adb",
+      "Symlocation": "",
+      "Bytes": 33225,
+      "Lines": 1195,
+      "Code": 659,
+      "Comment": 318,
+      "Blank": 218,
+      "Complexity": 26,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.characters.latin_1": 1,
+    "ada.characters.wide_latin_1": 1,
+    "ada.containers": 2,
+    "ada.finalization": 1,
+    "ada.streams": 2,
+    "ada.strings": 2,
+    "ada.strings.utf_encoding": 1,
+    "ada.strings.wide_wide_maps": 1,
+    "gnat.os_lib": 1
+  }
+}

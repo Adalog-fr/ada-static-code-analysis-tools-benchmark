@@ -1,0 +1,85 @@
+{
+  "Name": "Ada",
+  "Bytes": 31502,
+  "CodeBytes": 0,
+  "Lines": 724,
+  "Code": 404,
+  "Comment": 225,
+  "Blank": 95,
+  "Complexity": 23,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dotenv.ads",
+      "Extension": "ads",
+      "Location": "src/dotenv.ads",
+      "Symlocation": "",
+      "Bytes": 10316,
+      "Lines": 180,
+      "Code": 46,
+      "Comment": 115,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "ada.strings.hash",
+        "ada.strings.unbounded",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dotenv.adb",
+      "Extension": "adb",
+      "Location": "src/dotenv.adb",
+      "Symlocation": "",
+      "Bytes": 21186,
+      "Lines": 544,
+      "Code": 358,
+      "Comment": 110,
+      "Blank": 76,
+      "Complexity": 23,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.directories",
+        "ada.environment_variables",
+        "ada.strings",
+        "gnat.regpat"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 1,
+    "ada.containers.hashed_maps": 1,
+    "ada.directories": 1,
+    "ada.environment_variables": 1,
+    "ada.strings": 1,
+    "ada.strings.hash": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.regpat": 1
+  }
+}

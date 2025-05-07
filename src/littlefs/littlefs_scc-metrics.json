@@ -1,0 +1,100 @@
+{
+  "Name": "Ada",
+  "Bytes": 49341,
+  "CodeBytes": 0,
+  "Lines": 1433,
+  "Code": 795,
+  "Comment": 430,
+  "Blank": 208,
+  "Complexity": 2,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/littlefs_config.ads",
+      "Extension": "ads",
+      "Location": "config/littlefs_config.ads",
+      "Symlocation": "",
+      "Bytes": 1177,
+      "Lines": 44,
+      "Code": 27,
+      "Comment": 1,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/littlefs.adb",
+      "Extension": "adb",
+      "Location": "src/littlefs.adb",
+      "Symlocation": "",
+      "Bytes": 17519,
+      "Lines": 613,
+      "Code": 406,
+      "Comment": 114,
+      "Blank": 93,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/littlefs.ads",
+      "Extension": "ads",
+      "Location": "src/littlefs.ads",
+      "Symlocation": "",
+      "Bytes": 30645,
+      "Lines": 776,
+      "Code": 362,
+      "Comment": 315,
+      "Blank": 99,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "interfaces.c",
+        "interfaces.c.extensions",
+        "littlefs_config",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces": 1,
+    "interfaces.c": 1,
+    "interfaces.c.extensions": 1,
+    "littlefs_config": 1,
+    "system": 1
+  }
+}

@@ -1,0 +1,87 @@
+GPU acceleration of Newton's method and path tracking in PHCv2.4.83
+
+This directory is newly created in release 2.3.90 of PHCpack.
+At this point it consists of a collection of test programs to 
+to call the GPU code via a C interface.
+Code that starts as ts_cpu tests the calling of C code from Ada,
+using the C versions of the double_double and quad_double libraries,
+as a preparation for the ts_gpu tests that call the GPU.
+
+The code has been developed on the NVIDIA C2050 and K20C,
+using version 5.5 of nvcc and the GNAT GPL 2014 compiler.
+The code runs also on the NVIDIA P100, with version 8.0 of nvcc.
+
+-------------------------------------------------------------------------------
+file name             : short description
+-------------------------------------------------------------------------------
+cpu2norm_d_in_c.c     : C function called by ts_gpu2norm_d.adb
+cpu2norm_dd_in_c.c    : C function called by ts_gpu2norm_dd.adb
+cpu2norm_qd_in_c.c    : C function called by ts_gpu2norm_qd.adb
+ts_cpu2norm_d.adb     : 2-norm of a random complex double vector
+ts_cpu2norm_dd.adb    : 2-norm of a random complex double double vector
+ts_cpu2norm_qd.adb    : 2-norm of a random complex quad double vector
+ts_cpu2norm.adb       : test for all three precisions
+-------------------------------------------------------------------------------
+gpu2norm_d.cpp        : GPU computes 2-norm of complex double vector
+gpu2norm_dd.cpp       : GPU computes 2-norm of complex double double vector
+gpu2norm_qd.cpp       : GPU computes 2-norm of complex quad double vector
+ts_gpu2norm_d_in_c.c  : calling gpu2norm_d from main C program
+ts_gpu2norm_d.adb     : Ada calls 2-norm of complex double vector
+ts_gpu2norm_dd.adb    : Ada calls 2-norm of complex double double vector
+ts_gpu2norm_qd.adb    : Ada calls 2-norm of complex quad double vector
+ts_gpu2norm.adb       : test for all three levels of precision
+-------------------------------------------------------------------------------
+ts_gpunewton          : development of acceleration of Newton's method
+ts_gpunewton_dd       : accelerating Newton's method with double doubles
+ts_gpunewton_qd       : accelerating Newton's method with quad doubles
+gpunewton_d.cpp       : C++ program called by ts_gpunewton
+gpunewton_dd.cpp      : C++ program called by ts_gpunewton_dd
+gpunewton_qd.cpp      : C++ program called by ts_gpunewton_qd
+-------------------------------------------------------------------------------
+ts_gpuonepath_d       : accelerated tracking of one path in double precision
+ts_gpuonepath_dd      : accelerated tracking of one path with double doubles
+ts_gpuonepath_qd      : accelerated tracking of one path with quad doubles
+gpuonepath_d.cpp      : C++ program called by ts_gpuonepath_d
+gpuonepath_dd.cpp     : C++ program called by ts_gpuonepath_dd
+gpuonepath_qd.cpp     : C++ program called by ts_gpuonepath_qd
+-------------------------------------------------------------------------------
+ts_gpumanypaths_d     : accelerated tracking of many paths in double precision
+ts_gpumanypaths_dd    : accelerated tracking of many paths with double doubles 
+ts_gpumanypaths_qd    : accelerated tracking of many paths with quad doubles 
+gpumanypaths_d.cpp    : C++ program called by ts_gpumanypaths_d
+gpumanypaths_dd.cpp   : C++ program called by ts_gpumanypaths_dd
+gpumanypaths_qd.cpp   : C++ program called by ts_gpumanypaths_qd
+-------------------------------------------------------------------------------
+standard_accelerated_trackers : bundles wrappers in standard double precision
+dobldobl_accelerated_trackers : bundles wrappers in double double precision
+quaddobl_accelerated_trackers : bundles wrappers in quad double precision
+ts_gpupath_d                  : tests GPU code in standard double precision
+ts_gpupath_dd                 : tests GPU code in double double precision
+ts_gpupath_qd                 : tests GPU code in quad double precision
+-------------------------------------------------------------------------------
+standard_algodiffeval_trackers : algorithmic differentiation in path trackers
+dobldobl_algodiffeval_trackers : double double algorithmic diff trackers
+quaddobl_algodiffeval_trackers : quad double algorithmic diff trackers
+adenewton_d                    : c++ code for Newton's method with doubles
+adenewton_dd                   : c++ code for Newton's method with dobldobl
+adenewton_qd                   : c++ code for Newton's method with quaddobl
+adeonepath_d                   : c++ code to track one path in double precision
+adeonepath_dd                  : c++ code to track one path with double doubles
+adeonepath_qd                  : c++ code to track one path with quad doubles
+ademanypaths_d                 : c++ code to track many paths with doubles
+ademanypaths_dd                : c++ code to track many paths with dobldobl
+ademanypaths_qd                : c++ code to track many paths with quaddobl
+ts_adepath_d                   : main test program in double precision
+ts_adepath_dd                  : main test program in double double precision
+ts_adepath_qd                  : main test program in quad double precision
+-------------------------------------------------------------------------------
+path_parameters                : parameters for the path library
+ts_pathpars                    : testing the path parameters
+maximum_power_degrees          : checks maximum power in polynomial system
+ts_ademanypaths                : calls the drivers to the ADE trackers
+-------------------------------------------------------------------------------
+main_ade_trackers.ads           : specifies the main procedure for phc -j
+algorithmic_diffeval_trackers   : wrappers and drivers to the Path library
+Main_full/main_ade_trackers.adb : body for phc -j with QD library
+Main_noqd/main_ade_trackers.adb : body for phc -j without the QD library
+-------------------------------------------------------------------------------

@@ -1,0 +1,16 @@
+hal-audio.ads
+hal-bitmap.ads
+hal-block_drivers.ads
+hal-dsi.ads
+hal-filesystem.ads
+hal-framebuffer.ads
+hal-gpio.ads
+hal-i2c.ads
+hal-real_time_clock.ads
+hal-sdmmc.adb
+hal-sdmmc.ads
+hal-spi.ads
+hal-time.ads
+hal-touch_panel.ads
+hal-uart.ads
+hal.ads

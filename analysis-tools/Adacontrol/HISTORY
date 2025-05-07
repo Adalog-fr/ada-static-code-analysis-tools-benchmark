@@ -1,0 +1,1973 @@
+=============
+== V1.23b4 ==
+=============
+
+Changes to existing rules:
+--------------------------
+Representation_Clauses
+   Add "not" to object and global modifiers
+
+=============
+== V1.23b3 ==
+=============
+
+General:
+--------
+doc typo fixes
+Add option "-a" and switch "aspect" to avoid checking aspect specifications
+
+Changes to existing rules:
+--------------------------
+Instantiations
+   Last parameter can be "all ="
+Actual_Parameters
+   check calls to predefined operators
+   
+=============
+== V1.23b2 ==
+=============
+
+General:
+--------
+Bug fixes
+
+=============
+== V1.23b1 ==
+=============
+
+General:
+--------
+Improve message when syntax error in number
+
+Changes to existing rules:
+--------------------------
+Simplifiable_Statements: only diagnose for_in_for_for_of if variables certain
+   to be same
+
+===============
+== V1.22r16c ==
+===============
+
+General:
+--------
+Bug fixes
+
+==============
+== V1.22r16 ==
+==============
+
+General:
+--------
+Bug fixes
+Support modular types in static evaluator + mod and rem operators
+Improve tracking of discriminants
+
+Changes to existing rules:
+--------------------------
+Usage: fixed missing handling of formal packages
+
+==============
+== V1.22r15 ==
+==============
+
+General:
+--------
+Bug fixes, improvements to object tracker
+
+Support for the new ASIS tree generator
+Choose tree generator with ASISGCC variable or --GCC option
+
+Add -iargs option to ASIS options to add ASIS initialize options
+  (for developpers only)
+Install also pdf, info, and txt docs
+
+Possibility to define any custom output format
+
+Add data flow analysis, to extend cases that are
+   statically determinable, improves several rules.
+
+Avoid cascading errors in case of Asis bugs;
+   Shorten syntactic trace in case of bugs.
+
+New rules:
+----------
+Known_Exceptions
+
+Renaming_Declarations
+
+Changes to existing rules:
+--------------------------
+Abnormal_Function_Return
+   Accept calls to a procedure with a No_Return aspect
+
+Assignments:
+    Add subrule possible_target_name
+
+Comments
+   Add subrule Unnamed_End_Record
+   Unnamed_Begin: add "min" modifier
+   Allow extra info after name for unnamed_begin and unnamed_end_record
+
+Declarations
+   removed subrules related to renamings, now handled by renaming_declarations
+
+Expressions
+   add subrules target_name, trivial_target_name
+   control expressions of the form -A mod B
+
+Instantiations
+   allow "=" for generic "in" parameters
+   add rule variable Type_Matches_Subtype
+
+Non_Static
+   Add a rule variable to select between "statically provable"
+   and strictly RM static
+
+Pragmas
+   add modifier "not"
+   
+Simplifiable_Expressions:
+   Add subrule logical_redundant
+   
+Simplifiable_Statements:
+   Add subrule true_if.
+   Improve subrule dead.
+   Add rule variable Acceptable_Dead_Case
+   Add control of redundant paths (dead)
+   Add the no_exit modifier to the loop_for_while subrule
+   
+Statements:
+   Add subrules hard_bounds_array_for_loop, multi_for_of_loop, 
+
+Style:
+   remove subrule negative_condition (redundant)
+   add missing keywords for subrule casing_keyword
+
+Ptree:
+-----
+improve output and handling of line/col parameter
+
+==============
+== V1.21r6b ==
+==============
+
+General:
+--------
+
+Option to output result in custom format ind addition of existing formats.
+
+Counts reports are now print in the same output as Stats reports.
+
+Changes to existing rules:
+--------------------------
+Unnecessary_Use_Clause:
+   Add rule variable Max_Replacements to select the maximum of use type and
+   use all type clauses that can replace a use clause.
+
+
+=============
+== V1.21r3 ==
+=============
+
+New rules:
+----------
+Max_primitives
+
+Changes to existing rules:
+--------------------------
+(several rules)
+   allow a Count control to be specified in addition to a check/search control.
+
+Declarations:
+   add subrule constructor
+
+Derivations:
+   add subrule Max_Depth
+   check overriding indicator of task entries and protected operations
+   check overriding indicator of types derived from formal type
+   
+Return_Types
+   add subrule type
+
+Simplifiable_Expressions:
+   add subrule membership
+
+Simplifiable_Statements:
+   add subrule for_in_for_for_of
+
+Statements:
+   add subrule backward_goto
+   
+Unnecessary_Use_Clause:
+   Fixes: if all packages are removed, remove the whole clause.
+   fixed some spurious messages in cases of complicated visibilities
+   added fixes when use clause replaceable by use [all] type clause
+
+With_Clauses:
+   add subrules regular, private, limited, limited_private
+   Fixes: if all packages are removed, remove the whole clause.
+
+adactl_fix:
+-----------
+Ignore fixable files that are not available
+Improve resolution of conflicts
+   
+=============
+== V1.20r9 ==
+=============
+
+General:
+--------
+Bug fixes
+
+
+=============
+== V1.20r8 ==
+=============
+
+General:
+--------
+Bug fixes
+
+Changes to existing rules:
+--------------------------
+assignments:
+   add subrule type
+   
+=============
+== V1.20r7 ==
+=============
+
+General:
+--------
+Misc. improvements to GPS integration
+All options not set on the command line now taken from project file (if any)
+Add command rule_file_off
+"set" command has a min/max option for integer values
+"message" command: string is optional
+Output format defaults to CSV if an output file is given whose
+  extension is ".csv"
+Made Ada2012 default for tests. Adapted to allow tests to run with
+  Gnat Community 2018 without Ada95 compatibility mode.
+
+Categories:
+-----------
+Unify handling of categories, factorize descriptions in User's Guide.
+Add new category: interface
+
+New rules:
+----------
+actual_parameters
+max_expression_items
+return_statements
+
+Changes to existing rules:
+--------------------------
+case_statement:
+   add subrule enumeration_range_span
+   add optional categories to each subrule
+
+declarations
+   add subrule indicator
+   add option to ignore declarations whose name matches a pattern
+
+derivations:
+   add subrule indicator
+   fix missing case of private extensions
+
+naming_convention
+   patterns and identifiers can be read from a file
+
+parameter_declarations:
+   add modifier no_inout to subrule single_out_parameter
+
+positional_Associations:
+   add subrule declared
+
+simplifiable_statements:
+   add subrules for_for_slice, unnecessary_if
+
+statements:
+   add subrules null_case_path, null_if_path, null_loop_body
+   add subrule goto_not_continue
+   do not control unnamed loops whose size is less than indicated
+     by the variable Small_Loop_Length
+
+unit_pattern:
+   subrule declarations_order: add modifiers to specify order of bodies
+      whose spec is given in the public/private/body part.
+
+unnecessary_use_clause:
+   recognize case of use clause within its own package
+   add subrule "primitive", handle all cases of "use all type" clauses,
+   add fixes
+
+unsafe_paired_calls:
+   handle properly breaking statements
+   add rule variable to follow (or not) renamings of P/V procedures
+
+usage:
+   add subrules in_parameter, out_parameter, in_out_parameter
+   add location from_task_guard
+   add fixes generation for subrules variable, in_out_parameter
+
+
+==============
+== V1.19r10 ==
+==============
+
+General:
+--------
+Consider a rule file given in a .gpr file if no "-f" option.
+
+Use the units file or the mains given in a .gpr file if no units given
+on the command line. Consider "recursive" option give in .gpr file.
+
+Allow lines starting with "-" in units file for units not to be
+processed.
+
+If statistics level is > 0, a count of units and raw lines is output
+
+Full handling of aspects and elements defined in aspects
+ 
+Improvements to GPS integration
+
+Generate fixes directives in report; new utility Adactl_fix to fix
+violations automatically. Interactive and full fixes from GPS.
+
+Integration with GnatHub and SonarQube
+
+Display units and lines counts in GPS statistics category
+
+Bug fixes
+
+Changes to existing rules:
+--------------------------
+Aspects:
+   new subrule implicit_true
+
+Assignments:
+   add subrule access_duplication
+   sliding subrule controls initializations as well as assignments
+
+Improper_Initialization:
+   Consider the parameters of 'Read and 'Write (and the like)
+
+Not_Elaboration_Calls:
+   Follow renamings, allow names of generics (apply to all instances)
+
+Parameter_Aliasing
+   Handle functions with [in] out parameters
+
+Positional_Associations 
+   Add a rule variable to control whether a prefix parameter in a call
+   is counted or not
+
+Simplifiable_Statements:
+   Controls dead code due to case paths with null ranges
+   Loop: consider while loop whose condition is statically True, not
+         only a plain "True"
+
+Style
+   New subrules casing_aspect, casing_exponent, casing_number
+   Exposed_Literal: Add places Aggr_Index, Attr_Index, Statement
+   Multiple_Elements considers pragmas as well.
+
+Unnecessary_Use_Clause
+   Subrule "nested" also controls use clauses for parent package
+
+With_Clauses
+   Subrule "reduceable" also controls with clauses for parent package
+
+=============
+== V1.18r9 ==
+=============
+
+Minor release, changed source distribution to allow building
+AdaControl without dependency on gnatcoll,  hence without support for
+.gpr files.
+
+=============
+== V1.18r8 ==
+=============
+
+General:
+--------
+Bug fixes:
+   #0000044, #0000045, #0000046, #000047, #000049, #0000050
+   More bug fixes related to tagged incomplete and T'Base.
+
+-p option accepts a .gpr file as well as a .adp file (i.e. it is
+possible to use Gnat project files directly).
+
+Combination of options -rs now corresponds to the minimal transitive
+closure of units needed to compile the provided units.
+
+Inhibiting a rule on a generic also makes instances inhibited.
+
+New rule:
+---------
+Derivations
+
+Changes to existing rules:
+--------------------------
+Abnormal_Function_Return
+   allow final non-exiting loop (#000049)
+
+Case_Statements
+   Do not crash on case statements involving subtypes with static
+   predicates (currently uncheckable)
+
+Declarations:
+   Subrules no_spec_function, no_spec_procedure, relay_function,
+   relay_procedure, relay_package, tagged_incomplete_type,
+   synonym_renaming.
+   Consider handled sequences of statements from extended return statements
+
+Expressions
+   Subrules not, function_call, dynamic_function_call
+   dispatching_function_call, redispatching_function_call
+
+   Add rule variable Called_Info to select amount of information displayed
+   by *_function_call subrules
+
+Representation_Clauses:
+   Subrule non_power2_size
+
+Statements
+   Subrules untyped_for_in, untyped_for_of, procedure_call,
+   dynamic_procedure_call (does not control dispatching /function/ calls
+   anymore) 
+   raise_nonpublic: split in two: raise_nonpublic and raise_foreign.
+
+   Add rule variable Called_Info to select amount of information displayed
+   by procedure_call and entry_call subrules
+
+Unsafe_Paired_Calls:
+   allow simple statements after closing subprogram.
+   consider handled sequences of statements from extended return statements.
+   allow opening/closing procedure in matching simple nested if statements.
+   better error messages.
+
+=============
+== V1.17r3 ==
+=============
+
+General:
+--------
+Quote all fields in CSV(X) format
+Uniformize some error messages
+Locations now accept the form "not <loc>", removed "nested" (same as
+   "not library").
+Handle anonymous access to subprograms in various rules (previously 
+  ignored) and other fixes related to anonymous access types.
+Support of aspects (especially for things that relied previously on
+   pragmas)
+
+Changes to existing rules:
+--------------------------
+Declarations:
+   Subrule Anonymous_Subtype_Case considers case expressions (2012)
+   Added rule variable Declarations.Limited_Initialization to manage handling
+   of initialization of variables of a limited type.
+
+Entities:
+   Added modifier "instance" to report only on instances of a generic.
+
+Exception_Propagation:
+   Consider expressions in aspects (2012)
+
+Expressions:
+   Handle calls in prefixed notation
+
+Improper_Initialization:
+   Do not consider branches terminated by raise as non-initializing
+
+Instantiations
+   Allow more "=" than necessary. Do not consider generic "in" formals
+  corresponding to "=" in the rule specification.
+
+Local_Access:
+   Handle case of co-extensions
+
+Max_Call_Depth:
+   Added parameters to specify entities that are not to be analyzed.
+
+No_Operator_Usage:
+   Separate controls for Signed/Unsigned integers
+
+With_Clauses:
+   Add variable to consider names in use clauses.
+
+==============
+== V1.16r12 ==
+==============
+Minor bug fix release.
+(fixes to tests and doc, small improvements to code)
+
+==============
+== V1.16r11 ==
+==============
+
+General:
+Recompiled for Gnat GPL 2014
+
+Now up to date with the description (some changes mentionned under
+1.16r10 didn't actually make it to the released sources).
+
+Bug fixes:
+   #0000038
+
+==============
+== V1.16r10 ==
+==============
+
+General:
+--------
+Added .txt format for user guide and programmer manual
+
+Changes to existing rules:
+--------------------------
+No_Operator_Usage:
+  added observed relational
+
+Style (Multiple_Elements): 
+  separated keywords from other subrules
+
+With_Clauses:
+  Handle correctly case of with clauses required due to a use clause
+  or pragma Elaborate for the same package in the context clauses.
+
+=============
+== V1.16r9 ==
+=============
+(Specific release, not released publicly)
+
+General:
+--------
+Bug fixes:
+   Mantis:  0000035, 0000036
+
+New rules:
+----------
+positional_associations (took over style (positional_association))
+type_usage
+unit_pattern
+unsafe_elaboration
+
+Changes to existing rules:
+--------------------------
+Array_Declarations:
+  Slightly changed the syntax of the component subrule.
+
+Case_Statements:
+  Added subrule values_if_others
+
+Declarations:
+  Added subrules box_defaulted_formal_function,
+    name_defaulted_formal_function, box_defaulted_formal_procedure,
+    name_defaulted_formal_procedure, null_defaulted_formal_procedure,
+    non_ravenscar_task, access_constrained_array_type,
+    access_unconstrained_array_type, access_def_discriminated_type,
+    access_nondef_discriminated_type,
+    access_unknown_discriminated_type, access_formal_type,
+    access_language_type, equality_operator
+
+  Better placement of some messages
+
+Dependencies:
+  Added subrules public_child, private_child
+
+Expressions:
+  Added subrules in, not_in, static_membership, and_array,
+    and_logical, and_binary, or_array, or_logical, or_binary,
+    xor_array, xor_logical, xor_binary, upward_conversion,
+    downward_conversion, extension_aggregate, extendable_aggregate,
+    array_positional_others, array_named_others,
+    unconverted_fixed_multiplying_op
+
+  Subrule Mixed_Operators considers membership tests and short circuit forms
+
+Local_Hiding:
+   Added modifiers Not_Identical_Renaming, Not_Different_Families
+
+Global_References:
+   Added subrules read, written
+
+Multiple_Assignments:
+   The rule has been renamed to "Assignments"
+   Added subrule sliding.
+   Added criterion total.
+
+Naming_Convention:
+  Added specific patterns by object and functions type names and categories
+  Added subrules regular_static_constant, regular_nonstatic_constant
+
+No_Operator_Usage
+  Changed syntax
+  Filtering on indexing in addition to logical operators
+
+Object declarations:
+  Added subrule type.
+
+Parameter_Declarations:
+  Added subrules tagged_parameters, class_wide_parameters.
+  Added callables dispatching_function, dispatching_parameter
+
+Reduceable_Scope:
+   Don't suggest moving declarations to a task specification
+
+Representation_Clauses:
+  Added subrule no_bit_order_layout
+
+Statements:
+  Added subrules named_exit, exit_plain_loop, simple_block,
+    unnamed_simple_block, redispatching_call.  
+  Normalized behaviour of subrule exit.
+
+Style 
+  (Casing_Identifier, original): Check closing identifier, allow multiple
+     casing options.
+  Positional_Association: removed, now a subrule of Positional_Associations.
+  Parameter_Order, Formal_Parameter_Order: modes are separated by "|".
+  Multiple_Element: also checks proper presentation of "end", "for ... loop",
+    etc.
+
+Use_Clauses
+  Added subrules type, type_global, type_local.
+
+=============
+== V1.15r5 ==
+=============
+
+General:
+--------
+Arranged to not choke on Ada 2012 constructs.
+
+Account for [in] out parameters in functions
+
+Bug fixes:
+   Mantis:  0000033, 0000034
+
+Added -j option
+Added command "set ignore inverted" (invert disabling of messages).
+Added command "set timing global" (global timing over all "go" commands)
+
+Syntax of entities: added 'all to designate all attributes
+
+Option -D: added header comment with the command that generated the list
+
+New rules:
+----------
+aspects
+Generic_Aliasing
+
+Changes to existing rules:
+--------------------------
+(Many places):
+   Considered expression functions in addition to regular functions
+
+Declarations:
+   Added null_procedure_body, null_procedure_declaration,
+   expression_function, unknown_discriminant
+
+Dependencies:
+   Added subrule with (dependency on indicated units).
+   
+Expressions:
+   Added subrules if, if_elsif, if_no_else, case, for_all, for_some
+
+Local_Hiding:
+   Added exception patterns. Replaced Overloading_Short with a rule
+   variable.
+
+Max_Nesting:
+   Added subrules Generic, Separate, Task
+   fixed level to really be the nesting level
+
+Max_Size:
+   Added subrules Package_Spec, Package_Body, Procedure_Body,
+   Function_Body, Protected_Spec, Protected_Body, Entry_Body,
+   Task_Spec, Task_Body, Unit.
+
+   Put messages at end of failing element.
+
+Multiple_Assignment:
+   Consider subcomponents as assigned only if they meet (recursively) the
+   criteria of the control.
+
+Naming_Convention:
+   Do not recheck formal parameters in bodies if there is an explicit
+   specification.
+
+not_selected_name:
+   add fixes
+
+object_declarations:
+   add subrule not_required_type
+
+Parameter_Declarations:
+   Changed syntax to allow min/max to be specified either for all parameters or
+   for parameters of a given mode.
+
+Parameter_Aliasing:
+   Improved algorithm to reduce uncheckables due to dispatching calls
+
+Pragmas:
+   Added modifier "multiple"
+
+reduceable_scope:
+   add subrules use_type, use_all_type
+
+simplifiable_statements:
+   add subrule while_for_for
+
+Statements:
+   Added subrule for_iterator_loop
+   Added accept
+
+Style (Casing_Identifier, original):
+   Check formal parameters in bodies if there is an explicit
+   specification.
+
+Style (exposed_literal):
+   Added optional "max" to value, allow in all declarations
+
+use_clauses:
+   add subrules all_type, all_type_global, all_type_local
+
+With_Clauses (Reduceable):
+   Control with clauses that can be changed to private with (can be
+   disabled with the variable Check_Private_With).
+
+Usage:
+   Speed improvement
+
+Removed rule:
+-------------
+default_parameter (changed to subrules of actual_parameters)
+
+=============
+== V1.14r9 ==
+=============
+
+General:
+--------
+Provide two distributions due to changes in ASIS.
+
+Bug fixes:
+   Mantis:  0000019, 0000021, 0000022, 0000024, 0000025, 0000026, 0000027,
+            0000028, 0000030, 0000031, 0000032
+
+Naming of entities:
+   Added the syntax "all type'<attribute>"
+
+Locations:
+   Added "in_generic" to the locations used in rules declarations and
+   instantiations
+
+Debug:
+   with -d option, AdaCtl is aborted by Ctrl-C with a message telling
+   where it is
+
+PFNI:
+   print range for discrete/array types
+
+Source command:
+   Sourced file is searched on the path given by ADACTL_PATH
+
+Framework:
+----------
+Added management of rule variables
+
+Changes to existing rules (new gnat only):
+------------------------------------------
+Statements:
+   Added for_in_loop, for_of_loop
+
+Changes to existing rules:
+--------------------------
+All (relevant) rules:
+   Added support of null procedures
+
+Abnormal_Function_Return:
+   no error when a branch is terminated by a call to a "No_Return" procedure.
+
+Allocators:
+   Generalized to all type categories, added "not" and "anonymous" modifier.
+   Allowed multiple specification of same entity with different modifiers
+
+Declarations:
+   Added subrules protected_discriminant, task_discriminant
+
+Entities:
+   Added location modifier
+
+Exception_Propagation
+   Don't consider loop parameter specifications as declarations.
+
+Expressions: 
+   Added subrules array_range, array_non_static_range, underived_conversion
+
+Naming_Convention:
+   Added rule variable Naming_Convention.Default_Case_Sensitivity
+
+Parameter_Aliasing:
+   Don't report aliasing with an in parameter of a by-copy type.
+
+Statements:
+  added For_In_Loop, For_Of_Loop
+
+Style (Exposed_Literal)
+   Treat negative numbers as if they were literals
+
+=============
+== V1.13r8 ==
+=============
+
+General:
+--------
+Bug fixes:
+   Mantis: 000001, 000003, 000004, 000006, 000007, 000008, 000009,
+   000011, 000013, 000014
+
+   Crash in Max_Call_Depth for the declaration of access to SP types
+
+   Incorrect handling of names of formal parameters of generic formal
+   subprograms (lead to incorrect messages in rule
+   Improper_Initialization)
+
+   Declarations: abstract limited private was not recognized as
+   limited private
+
+   Constraint_Error in Style(Expression_Litteral) when a litteral has
+   the value of System.Max_Int
+
+   Crash in Multiple_Assignments when records include an explicit null
+   component
+
+   Added Wide_Text_IO to potentially blocking operations
+
+Improved help (explain what the rule does before syntax). Rule names
+in -h option (or help command) are interpreted as regexp if they don't
+match exactly a rule name.
+
+Ignore remaining of line after blank in an indirect file
+
+Accepts Ada 2005 new constructs
+
+Modified following rules to account for extended return statements:
+   abnormal_function_return, silent_exceptions, improper_initialization
+
+Extended full name image of entities to deal with the return object of
+extended return statements.
+
+Ptree now works in ada2005 mode
+
+New rules:
+----------
+Local_Access
+
+Changes to existing rules:
+--------------------------
+Allocators
+   New modifier: Inconsistent (allocator subtype and designated
+   subtype don't match)
+
+Array_Declarations
+   Added subrule Index
+
+Declarations 
+   Added subrules Abstract_Operator, Anonymous_Access_Component,
+   Anonymous_Access_Constant, Anonymous_Access_Discriminant,
+   Anonymous_Access_Parameter, Anonymous_Access_Variable,
+   Interface_Type, Scalar_Variable, Ordinary_Record_Variable,
+   Tagged_Private_Type, Tagged_Variable
+
+Improper_Initializations
+   Added modifier "return", handle extended returns
+
+Naming_Convention
+   Added filter Interface_Type
+
+Representation_Clauses
+   Added modifier Global
+
+Return_Type
+   Added subrules limited_class_wide, anonymous_access
+
+Statements
+   Added subrule extended_return, exited_extended_return
+   Subrule Function_Return considers extended return statements
+
+=============
+== V1.12r4 ==
+=============
+
+General:
+--------
+Recompiled executable versions for GNAT/GPL 2010.
+
+Bug fixes:
+   In rule Improper_Initialization: bad handling of slices, extra
+   message for out parameter of a separate body without explicit spec.
+
+   Work-around for ASIS bug that resulted in String not appearing as
+   packed for rule Record_Declarations (Component) with older versions
+   of Gnat.
+
+   Work-around for ASIS bug that crashed AdaControl for some deeply
+   nested instantiations.
+
+=============
+== V1.12r3 ==
+=============
+
+General:
+--------
+Bug fixes:
+   Crash with record components of an anonymous access type (Ada2005)
+   Expression (Mixed_Operators) did not handle properly "abs" and "not"
+   Local_Hiding claimed that formals of a separate body hid their counterpart
+     from the spec.
+
+Compatibility:
+   Made the code compatible to the new conditional expression feature
+   (GNAT extension).
+
+Misc:
+   Execution time is now reported as h mn s.
+
+GPS integration
+---------------
+   Better integration with GPR projects. Note that this requires
+   copying the file GPS/adacontrol.xml into <GNAT-dir>/share/gprconfig
+   when installing AdaControl manually.
+
+Framework:
+----------
+Based numbers in rule parameters are now supported
+
+".aru" extension taken by default for rules files.
+
+New rules:
+----------
+Record_Declarations
+
+Changes to existing rules:
+--------------------------
+Array_Declarations
+   Added subrule dimensions
+
+Barrier_Expressions
+   No more fooled by renamings
+
+Declarations:
+   Added subrules renaming_as_body, renaming_as_declaration
+   
+Entity_Inside_Exception:
+   Added entry_calls as parameter
+
+Expressions:
+   Real_Equality: do not issue message for user defined "=".
+   and, or, xor: now follow renamings
+   Added subrules explicit_dereference, implicit_dereference, 
+      fixed_multiplying_op, inherited_function_call, 
+
+Entity_Inside_Exception 
+   No more fooled by renamings
+
+Instantiations:
+   No more fooled by renamings. Controls generics in generics. 
+
+Object_Declarations:
+   Added subrule address_not_volatile    
+
+Representation_Clauses:
+   Added modifier "object" to attribute specification
+
+Return_Type:
+   Added subrule constrained_array
+
+Special_Comments:
+   changed rule name to Comments. Added subrule position
+
+Statements:
+   Added subrules entry_call, inherited_procedure_call
+
+=============
+== V1.11r4 ==
+=============
+
+General:
+--------
+Recompiled executable versions for GNAT/GPL 2009; some adjustments needed.
+
+Bug fixes:
+   Simplifiable_Expressions (conversion) could report on conversions that
+   were actually necessary due to the rules for fixed point multiply/divide
+
+   Improper_Initialization considered use of variables in prefix of attributes
+   as a read of the variable.
+ 
+   Inhibit command ignored the "all" in the "all <unit>" syntax.
+
+Changes to commands:
+--------------------
+set: added exit_on_error
+
+Changes to existing rules:
+--------------------------
+Parameter_Aliasing 
+   Avoid issuing an Uncheckable message for dispatching calls when
+   there is no more than one variable in the call (and with_in is not
+   used).
+
+=============
+== V1.11r3 ==
+=============
+
+General:
+--------
+Bug fixes:
+   Compilation unit pragmas were not processed.
+   Representation_Clauses: Constraint_Error on null ranges for component clauses
+   Style (Formal_Parameter_Order): not processed correctly if Default_In or 
+     Parameter_Order not given at the same time.
+   Special_Comments (Pattern): treated "--" in string literals as comments
+   GPS settings: value of units file is remembered in the switch dialog
+
+Improvements:
+   Predefined and derived types have 'Size recognized by the static evaluator
+   Block statements that contain only a null statement are considered as null
+      statements for the rules dealing with null statements.
+
+pfni: 
+   If the identifier is initialized by a static expression (and
+   especially a constant), the value is displayed after the full name.
+
+Changes to commands:
+--------------------
+set: added new_output
+
+Changes to existing rules:
+--------------------------
+Declarations:
+   Added subrules constrained_array_constant, unconstrained_array_constant,
+   instantiation, initialized_variable, non_joint_CE_NE_handler
+
+Max_Call_Depth:
+   Better handling of dynamic calls or calls to SP whose body is
+   missing or unknown. Report "at least" for indirect calls to these.
+
+Pragmas:
+   If several controls apply to the same pragma, they are all reported instead
+   of only the most specific one.
+
+Representation_clauses:
+   Added categories to subrules
+
+Simpifiable_Expressions
+   Conversion reports conversions of universal values
+
+Special_Comments
+   Added subrule "terminating"
+
+==============
+== V1.10r10 ==
+==============
+
+Minor bug fix release:
+- Problem following several levels of renaming in rule usage
+- Workaround for an ASIS bug involving renaming and generic child units
+
+=============
+== V1.10r8 ==
+=============
+
+General:
+--------
+Bug fixes:
+   Missing handling of Name_Error when "set output" was given a bad file name.
+
+   Due to a GPS bug, setting the "statistics" from the switches pannel
+   generated an incorrect command line.
+
+Syntax:
+   Exponent notation accepted for integer numbers.
+   added commands set check_key|search_key
+   Possibility to have several controls attached to the same label
+
+Environment:
+   Default settings can be provided through environment variable ADACTLINI
+
+Statistics:
+   if the output_format is none, statistics are output in CSVX format
+
+Messages:
+   In verbose mode, added run number to message.
+
+Changes to commands:
+--------------------
+message:
+   added optional parameter "pause"
+
+Changes to existing rules:
+--------------------------
+allocators
+   bug fix: correct processing of class wide types in all cases
+   if <type name> is part of a generic, covers all instances
+
+array_declarations
+   ability to specify min and max values for subrule first.
+   changed subrule max_length to length, with ability to specify min and max
+   values.
+   added subrules last, component
+
+declarations
+   renamed subrules initialized_record_field, uninitialized_record_field,
+   initialized_protected_field, uninitialized_protected_field, to
+   initialized_record_component, uninitialized_record_component,
+   initialized_protected_component, uninitialized_protected_component
+
+   split subrule aliased into aliased_variable, aliased_constant
+   
+   added subrules aliased_array_component, aliased_record_component,
+   aliased_protected_component, library_unit_renaming,  protected_variable,
+   self_calling_function, self_calling_procedure, task_variable
+
+directly_accessed_globals:
+   better handling of renamed entities
+
+duplicate_initialization_calls
+   better handling of renamed entities
+
+entities:
+   better handling of renamed entities
+
+exception_propagation:
+   bug fix: elaboration of subprograms were considered propagating
+
+   function calls in named number declaration and scalar type
+   declarations are no more considered as potentially propagating
+   exceptions, since they are required by the language to be static.
+
+   better handling of renamed entities.
+
+expressions:
+   added subrules parameter_view_conversion, prefixed_operator.
+   added categories to subrules type_conversion, parameter_view_conversion,
+      prefixed_operator.
+   
+global_references
+   bug fix when using renamings.
+   changed format of messages (variable name first) to make sorting easier
+   when the result is loaded into a spreadsheet program.
+
+header_comments:
+   added general repetition factors in patterns, and special repetitions
+   "?" and "+".
+
+improper_initialization:
+   added modifier "package", package variables no more checked by default
+
+   mentionning a variable name in a representation clause is no more
+   considered a usage of the variable
+
+   the rule reported incorrectly for initializations and usages from 
+   nested program units. Packages are now processed correctly, other kinds of
+   units are explicitely not analyzed.
+
+   Better handling of renamed entities
+
+instantiations
+   added <category> to the specification of formal parameters.
+   better handling of subtypes
+   Bug fix: works with class-wide types
+
+local_hiding
+   added modifier not_operator, not_enumeration
+   added subrule overloading_short.
+
+movable_accept_statements
+   better handling of renamed entities.
+
+reduceable_scope
+   added modifier to_body
+
+representation_clauses:
+   added subrules non_aligned_component, derived_record, extension_record,
+   tagged_record
+
+style (no_closing_name):
+   bug fix: do not issue message for tasks declared as "task T;".
+
+style (positional_association)
+   added possibility of specifying exempted entities for "call",
+   "instantiation", and "pragma"
+
+uncheckable
+   a global count of "uncheckable" messages, and subtotals by rules,
+   now appears in statistics.
+
+unsafe_paired_calls
+   better handling of renamed entities
+
+usage
+   better handling of renamed entities
+
+============
+== V1.9r4 ==
+============
+
+General:
+--------
+Bug fixes:
+   A4G_Bugs.Corresponding_called_function blew up for "/=" functions
+   obtained by instantiation.
+  
+   Scoped_Store not restoring spec context for subprograms.
+  
+   Memory leaks fixed.
+
+   Bad defaults in "style" rule.
+
+CSV and CSVX format:
+   file name, line, and column are now in three different columns.
+
+GPS:
+----
+Added "About" entry to Help/AdaControl menu
+
+New rules:
+----------
+dependencies
+
+Changes to existing rules:
+--------------------------
+declarations 
+   added subrules anonymous_subtype_allocator,
+      anonymous_subtype_case, anonymous_subtype_declaration,
+      anonymous_subtype_for, anonymous_subtype_indexing,
+      any_declaration, class_wide_constant, class_wide_variable, 
+      empty_visible_part, empty_private_part, function_call_renaming, 
+      ordinary_fixed_type_with_small, ordinary_fixed_type_no_small
+      
+
+default_parameter
+   can specify "calls" or "instantiations" (in addition to "all") as the first
+   parameter.
+   3rd parameter: "not used" changed to "not_used", added "used_positional"
+
+exception_propagation
+   added subrule local_exception
+
+expressions
+   added subrules type_conversion, universal_range
+
+max_call_depth
+   better caching of subprograms => significant speed-up
+
+not_elaboration_calls
+   added "new" for allocators in addition to SP names
+
+object_declarations:
+   added subrule volatile_no_address
+
+other_dependencies
+   changed to subrule of dependencies
+
+representation_clauses
+   added subrule overlay
+
+silent_exceptions
+   added possibility to define which exceptions are controlled to the parameters.
+   separated "raise" in "explicit_raise" and "reraise".
+
+simplifiable_statements
+   added subrule loop_for_while
+
+special_comments
+   old behaviour now under subrule pattern, added subrule unnamed_begin
+
+statements
+   added subrules any_statement, exit_expanded_name, exit_outer_loop, 
+   raise_locally_handled, raise_nonpublic
+   
+   statements (raise) always reports, even if another "raise" subrule is also
+   applicable. All "raise" subrules except the plain one also consider calls
+   from procedures from Ada.Exceptions.
+
+style
+   added subrule parameter_order
+
+usage
+   added from_private and from_visible to the conditions, and "private" or
+   "visible to the message.
+
+============
+== V1.8r8 ==
+============
+
+Bug fix release:
+----------------
+Added back GPS interface from 1.7r9 in directory GPS-old,
+because GPS 4.2 is needed for the new interface, and not
+yet publicly available.
+
+Added missing files for "info" version of manuals
+
+============
+== V1.8r7 ==
+============
+
+General:
+--------
+New options -M and -m and corresponding commands ("set Max_Messages" and
+   "set Max_Errors"). -T ("set Timing on").
+Rearranged User Guide, clarified the notions of "rule", "control" and "command".
+
+New commands:
+-------------
+set warning_as_error
+set timing
+help commands|license|options|rules|version
+
+GPS:
+----
+Now requires GPS > v4.2
+Improved messages (better statistics in locations window)
+In interactive mode, check syntax before launching Adacontrol for good.
+Added menu "create units file"
+Added option to store result in file and reload in GPS.
+Added option to use .adp file
+Added option to set ASIS options
+Added preferences for -m and -M options
+Added preference to choose whether to display AdaControl command and result
+
+Changes to existing rules:
+--------------------------
+abnormal_function_return
+   accepts if and case statements, if all paths contain raise or return
+
+barrier_expressions
+   fixed bug, some local protected function calls were not properly recognized
+
+case_statement
+   allowed min/max values for all subrules
+
+declarations
+   added subrules multiple_protected_entries, unconstrained_subtype, 
+   controlled_type, constrained_array_variable, unconstrained_array_variable,
+   incomplete_type, deferred_constant, formal_type
+   
+   added location library
+
+expressions
+   added subrules array_partial_others, record_partial_others
+
+header_comments (model)
+   made repeated lines in pattern not greedy
+
+instantiations
+   added location library
+
+max_parameters
+   renamed to parameter_declarations, max_parameters now a subrule
+   added subrule min_parameters, max_defaulted_parameters, single_out_parameter
+
+naming_convention
+   added explicit rules for renamings. 
+   added "others" modifier.
+
+non_static
+   added parameters index_check
+
+potentially_blocking_operations
+   fixed bug that made some weird cases of internal calls appear as external calls
+
+reduceable_scope
+   controls declarations from package specs that are not used outside
+   the body
+
+simplifiable_expressions
+   added logical_not
+
+simplifiable_statements
+   added if_not
+
+statements
+   added unnamed_for_loop, unnamed_simple_loop, unnamed_while_loop, if_elsif,
+   effective_declare_block
+
+style (default_in):
+   fixed bug: rule was triggered for access parameters
+
+style (exposed_literal):
+   added places: index, exponent, pragma, type
+
+style (positional_parameter)
+   added modifier "not_operator" for "call"
+
+usage
+   added subrules: type, procedure, function, generic
+
+=============
+== V1.7r13 ==
+=============
+(Specific release, not released publicly)
+
+General:
+--------
+Bug fix: type_initial_value did not work for types declared in library 
+         package specs.
+Bug fix: improper handling of return and goto in rule improper_initialization
+Fixed documentation for rule Type_Initial_Values
+
+New rules:
+----------
+object_declarations
+
+=============
+== V1.7r12 ==
+=============
+(Specific release, not released publicly)
+
+General:
+--------
+Bug fix: fixed error in error recovery procedure
+ASIS bug workaround: failure in Name_Image (GNAT 6.0.x only)
+
+GPS:
+----
+Added "Load result file" to AdaControl menu
+
+New commands:
+-------------
+set tag1
+set tag2
+
+Changes to existing rules:
+--------------------------
+declarations
+   added parameters: 
+      binary_modular_type, non_binary_modular_type, access_all_type, 
+      access_constant_type
+
+============
+== V1.7r9 ==
+============
+
+General:
+--------
+Bug fix: missing proper bodies not reported by uncheckable.
+
+New example rules file: reserved_2005.aru
+
+Added support for AdaGide
+
+Framework:
+----------
+String parameters now handled as a kind of parameter type, improved 
+Matching_Context for operators
+  => Default_Parameter (and others) now handle correctly operators
+
+Missing units are no more reported unless the -v option is given; use
+the rule "check uncheckable (missing_unit)" to make sure that there are
+no missing unit.
+
+Issue a header line when the output file is created with format CSV[X].
+Added new output format "None".
+
+GPS:
+----
+Counts now appear under the "Counts summary" category in the locations window
+Bug fixes: 
+   AdaControl executed twice with "project" menu
+   Do not process files that are not "ada"
+Added contextual menu to call pfni on the current entity
+Added parameters to auto-save files before running AdaControl
+Added icon to run AdaControl interactively on current file
+Preference to choose which units the buttons operate on
+
+PFNI:
+-----
+Adjusted the result of profiles to match the syntax used in AdaControl.
+Added possibility to specify a unit as a file name.
+Added range of lines in unit specification
+Added -q option
+Made -FS the default ASIS option
+
+PTREE:
+------
+Added possibility to specify a unit as a file name.
+Added range of lines in unit specification
+Made -FS the default ASIS option
+
+New rules:
+----------
+duplicate_initialization_calls
+max_size
+multiple_assignments
+no_operator_usage
+not_selected_name
+simplifiable_statements
+type_initial_values (lacking documentation)
+units
+
+Changes to existing rules:
+--------------------------
+control_characters
+   renamed to characters (control). 
+   Added parameters trailing_space, not_iso_6464, wide.
+
+declarations
+   changed parameters: 
+      nested_XXX to XXX
+   added parameters: 
+      function, procedure, abstract_function, abstract_procedure, null_procedure,
+      abstract_type, uninitialized_variable, character_literal, variant_part, variable,
+      non_identical_operator_renaming, predefined_operator
+   added location modifier
+   removed limitation that the same keyword could not be used with different rule types
+
+default_parameter
+   now handles default formal subprograms in generic instantiations
+   can be applied to a parameter of a generic subprogram (checks all instantiations)
+
+expressions
+   added parameters:
+      inconsistent_attribute_dimension, array_aggregate, complex_parameter, 
+      mixed_operators, record_aggregate, unqualified_aggregate
+
+global_references
+   recognize properly uncheckable cases
+   added keywords function, procedure
+
+if_for_case
+   changed into a subrule of simplifiable_statement
+
+insufficient_parameters
+   processes membership test like other forms of expressions
+
+instantiations
+   does not print a count of messages any more
+   added location modifier
+   added = to detect double instantiations
+
+local_hiding
+   now works also with definitions of operators
+   added parameters: strict (as before), overloading, both
+
+local_instantiation:
+   removed (now covered by declarations and instantiations)
+
+no_safe_initialization
+   renamed to improper_initialization
+   added parameter initialized_variable and modifiers access/limited
+   detection of use-before-assignment
+
+non_static
+   added parameters variable_initialization, constant_initialization
+
+parameter_aliasing
+   added modifier "with_in"
+
+potentially_blocking_operations
+   recognize properly uncheckable cases
+
+reduceable_scope
+   fixed false positives in some special cases
+   now works also with definitions of operators
+   added parameter to select what is controlled
+   added support for use clauses
+
+representation_clauses
+   added parameter: fractional_size, incomplete_record, non_contiguous_record
+
+simplifiable_expressions
+   added parameter: conversion
+
+statements
+   added parameter: declare_block
+   moved parameters unnecessary_null and while_true to simplifiable_statements
+
+style
+   added casing_keyword
+   added "flexible" to multiple_elements (clause)
+
+uncheckable
+   false positive messages are not printed if the corresponding rule 
+   is not triggered.
+
+unnecessary_use_clause
+  tells cases where a use clause is given for a package which is always used 
+    with qualified names, or only for operators.
+  added parameters to select the kind of use which is reported
+
+usage
+   do not analyze instantiations of predefined or inhibited-all units
+   diagnose uncheckable cases
+   special processing for pseudo-constants
+
+use_clauses
+   added global/local (optional) parameter
+
+============
+== V1.6r8 ==
+============
+
+General:
+--------
+Counters and statistics are in CSV format if CSV format requested
+
+Use a project file to build AdaControl
+
+Accept "~" as a string delimiter
+
+GPS:
+----
+It is now possible to pass quoted parameters interactively
+
+New rules:
+----------
+barrier_expressions
+
+Changes to existing rules:
+--------------------------
+Declarations: 
+   added operator_renaming
+
+Entity_Inside_Exceptions: 
+   added calls, [not]
+
+Expressions:
+   added array_others, record_others
+
+Naming_Convention: 
+   moved the location parameter. 
+   Added "unit" to locations.
+
+Positional_Parameter: 
+   changed name of rule to insufficient_parameters, removed first parameter
+   ("maximum" now handled by style (positional_association)).
+
+Statements: 
+   added for_loop, simple_loop. 
+   in multiple_exits: now consider exits from nested exception handlers
+
+Style: 
+   changed casing to casing_identifier
+   added compound_statement, casing_attribute, casing_pragma
+   added allowable value to positional_association
+
+Uncheckable:
+   added missing_unit
+
+============
+== V1.6r5 ==
+============
+(Specific release, not released publicly)
+
+General:
+--------
+Option to just list rules (-h list)
+
+Form of syntax/parameter messages made consistent with form of report messages
+
+GPS:
+----
+Rules menu for "Help/AdaControl/Help on rule"
+
+Choose "help on rule" style in preferences
+
+Added "Check rules file" and option to check form file/single rule in
+AdaControl menu
+
+Switches to output to file
+
+Possibility to redefine the command to run AdaControl through languages tab
+
+Preferences: check box to delete .ali files.
+
+New rules:
+----------
+Array_Declarations
+Expressions
+Max_Call_Depth
+Max_Parameters
+Other_Dependencies
+Uncheckable
+Unsafe_Unchecked_Conversion
+
+Changes to existing rules:
+--------------------------
+case_statement
+   added parameter: max_range_span
+   changed parameters: min_others_range into min_others_span
+
+declarations: 
+   added parameters: 
+     in_out_parameter, out_parameter, initialized_record_field, limited_private_type, 
+     non_limited_private_type, private_extension, uninitialized_record_field, 
+     initialized_protected_field, uninitialized_protected_field, nested_package,
+     nested_generic_function, nested_generic_package, nested_generic_procedure,
+     nested_function_instantiation, nested_package_instantiation, nested_procedure_instantiation,
+     non_identical_renaming
+  changed parameters:
+     formal_in_out => in_out_generic_parameter
+     renames => renaming
+     not_operator_renames => not_operator_renaming
+
+default_parameter: 
+   possibility to replace the <entity name> and <formal name> by "all"
+   Fixed problem that prevented analysis of subprogram calls
+
+header_comments: 
+   added a parameter, possibility to provide a pattern file
+
+no_safe_initialization: 
+   now considers case and if statements
+
+non_static_constraints: 
+   changed name of rule to non_static 
+   added parameter instantiation
+
+real_operators: 
+   no more a rule of its own, now expressions(real_equality)
+
+max_statement_nesting:
+  added parameter: block (also in "all")
+
+statements:
+   added parameters: 
+      block, dispatching_call, labelled, null, reraise, unnamed_block, 
+      unnamed_loop_exited, unnecessary_null, while_loop
+
+style:
+   added support for character and string literals.
+   parameters added to "exposed_literal" subrule to specify the kind of literals and places
+   parameters added to "multiple_elements" subrule to specify the kind of element
+   split parameter "aggregate" for "positional_association" subrule in "array_aggregate" + "record_aggregate"
+   added renamed_entity parameter
+
+unsafe_paired_calls: 
+   added possibility of having multiple opening/closing procedure for the same closing/opening one.
+
+=============
+== V1.5r24 ==
+=============
+
+General:
+--------
+Do no stop analysis of rules file at first error
+
+Option to just check syntax (-C)
+
+Option to specify a trace file (-t, set trace)
+
+Option to not print warnings (-E, set warnings on/off).
+
+Option to report statistics (-S, set statistics)
+
+Option to output result in various formats
+ (-F, set format gnat/gnat_short/csv/csv_short/csvx/csvx_short/source/source_short)
+
+Improved processing of child units: parent context is properly restored.
+
+-v option displays progression indicator, tells units not found, does
+   not print messages about controlling units that cannnot exist (SP
+   bodies without specs, package specs that cannot have bodies) reports
+   execution time.
+
+Less tree swapping in Local_Hiding, should result in sensible speed improvement
+
+Improved integration into GPS
+
+New rules:
+----------
+Abnormal_Function_Return
+Case_Statement
+Control_Characters
+Directly_Accessed_Globals
+Header_Comments
+If_For_Case
+Global_References
+Max_Blank_Lines
+Max_Line_Length
+Max_Statement_Nesting
+Movable_Accept_Statements
+No_Safe_Initialization
+Non_Static_Constraints
+Positional_Parameters
+Potentially_Blocking_Operations
+Reduceable_Scope
+Return_Type
+Special_Comments
+Style
+Terminating_Tasks
+Unsafe_Paired_Calls
+Usage
+With_Clauses
+
+Changes to existing rules:
+--------------------------
+Allocators:
+  Treat T'Class as T'Class, no more as T
+  added task and protected
+
+Declarations:
+  added parameters:
+        access_protected_type, access_task_type, array, array_type,
+        child_unit, constant, constrained_array_type,
+        decimal_fixed_type, defaulted_discriminant,
+        defaulted_generic_parameter, defaulted_parameter,
+        derived_type, discriminant, enumeration_type, entry,
+        extension, fixed_type, float_type, formal_function,
+        formal_in_out, formal_package, formal_procedure, generic,
+        handlers, integer_type, modular_type, multiple_names,
+        named_number, not_operator_renames, null_extension, operator,
+        null_ordinary_record_type, null_tagged_type,
+        ordinary_fixed_type, ordinary_record_type, package_statements,
+        protected, protected_entry, protected_type, renames, separate,
+        signed_type, single_array, single_protected, single_task,
+        subtype, tagged_type, task_entry, task_type, type,
+        unconstrained_array_type
+  changed parameters:
+        access => access_type, access_subprogram => accept_subprogram_type
+
+Entities:
+  Follows renamings and instantiations
+
+Exception_Propagation:
+  added a level of checking to specify the possibility of exceptions being raised
+  during the elaboration of declarative parts
+  added "declaration" keyword
+
+Local_Instantiation:
+  without parameter, all local instantiations are controlled
+
+Naming_Convention:
+  added any|local|global modifier
+
+No_Closing_Name:
+  no more a rule of its own, now a subrule of style
+
+Parameter_Aliasing:
+  new algorithm, handles more static cases where there is no true aliasing
+
+Pragmas:
+  allow "all" as parameter
+
+Silent_Exceptions:
+  Bug fix when complicated exit in loops
+  handle function calls and generic instantiations.
+  More clever analysis of for loops
+  Can specify "return" and "requeue" as non-silent actions
+
+Simplifiable_Expressions:
+   All cases of unnecessary parentheses are now controlled.
+
+Specification_Objects
+   The rule is now part of Usage (object, from_spec)
+   Better treatment of references to objects through formals in-out from within instantiations
+
+Statement:
+   Changed name to statements (with an "s", for consistency with other rules)
+   Added parameters: Accept_Return, Asynchronous_Select,
+         Case_Others_Null, Conditional_Entry_Call,  Entry_Return,
+         Exception_Others, Exception_Others_Null, Exit_For_Loop,
+         Exit_While_Loop,  Function_Return, Loop_Return,
+         Multiple_Exits, No_Else, Procedure_Return, Raise_Standard,
+         Selective_Accept, Timed_Entry_Call, Unconditional_Exit,
+         Unnamed_Multiple_Loop,  Untyped_For, While_True
+
+Unnecessary_Use:
+  Bug fix
+  works with use clauses coming from parent units
+
+When_Others_Null
+  no more a rule of its own, now a subrule of statements
+
+Commands:
+---------
+Inhibit:
+   Added "all" for rule names, "all" for units
+
+Framework:
+----------
+Added boolean trace procedure
+Added support for "textual" rules
+Evaluator for static expressions and static ranges
+Support for float parameters, negative values for integer and float parameters
+... and a few other utilities
+
+=============
+== V1.4r20 ==
+=============
+
+Bug fix and speed improvement in rule Local_Hiding.
+
+=============
+== V1.4r18 ==
+=============
+
+General:
+--------
+Interactive mode.
+
+option "-f -" to read Standard_Input in non-interactive mode
+
+New commands: go, clear, quit, set, output, help, inhibit
+New rule type: count
+
+Support for attributes, and syntax "all '<attr>"
+
+Rule files no_standard_entity.aru, no_system_entity.aru and no_standard_unit.aru
+
+Small improvements, bug fixes...
+
+New rules:
+----------
+Declarations
+Exception_Propagation
+Naming_Convention
+Real_Operators
+Representation_Clauses
+Side_Effect_Parameters
+Simplifiable_Expressions
+Specification_Objects
+Statements
+When_Others_Null
+
+Changes to existing rules:
+--------------------------
+Non_Raising_Non_Reporting_Exception_Handler:
+   changed name to Silent_Exceptions
+
+Attributes:
+   removed (Attributes are now processed by Entities)
+
+Parameter_Aliasing:
+   Support for litteral expressions
+
+Framework:
+----------
+Added procedure Command + Finalize to all rules.
+Packages Framework.Plugs, Framework.Specific_Plugs
+New naming scheme for tests
+Improvements to the parameter parsing procedures
+Changed the processing of strings ("...") in the scanner.
+
+============
+== V1.3r2 ==
+============
+
+Changed the name from AdaRC to AdaControl to avoid conflicts with
+RainCode's tool.
+
+============
+== V1.3r1 ==
+============
+
+First public release (as AdaRC)

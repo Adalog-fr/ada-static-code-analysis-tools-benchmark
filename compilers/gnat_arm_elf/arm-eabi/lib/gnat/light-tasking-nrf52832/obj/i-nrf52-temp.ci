@@ -1,0 +1,25 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-temp.ads"
+node: { title: "interfaces__nrf52__temp__tasks_start_registerIP" label: "tasks_start_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__tasks_stop_registerIP" label: "tasks_stop_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__events_datardy_registerIP" label: "events_datardy_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__intenset_registerIP" label: "intenset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__intenclr_registerIP" label: "intenclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__a0_registerIP" label: "a0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__a1_registerIP" label: "a1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__a2_registerIP" label: "a2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__a3_registerIP" label: "a3_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__a4_registerIP" label: "a4_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__a5_registerIP" label: "a5_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__b0_registerIP" label: "b0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__b1_registerIP" label: "b1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__b2_registerIP" label: "b2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__b3_registerIP" label: "b3_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__b4_registerIP" label: "b4_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__b5_registerIP" label: "b5_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__t0_registerIP" label: "t0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__t1_registerIP" label: "t1_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__t2_registerIP" label: "t2_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__t3_registerIP" label: "t3_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__t4_registerIP" label: "t4_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__temp__temp_peripheralIP" label: "temp_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

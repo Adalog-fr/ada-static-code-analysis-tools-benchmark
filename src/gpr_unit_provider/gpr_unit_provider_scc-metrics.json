@@ -1,0 +1,88 @@
+{
+  "Name": "Ada",
+  "Bytes": 29776,
+  "CodeBytes": 0,
+  "Lines": 816,
+  "Code": 496,
+  "Comment": 194,
+  "Blank": 126,
+  "Complexity": 51,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/libadalang-gpr2_lock.ads",
+      "Extension": "ads",
+      "Location": "src/libadalang-gpr2_lock.ads",
+      "Symlocation": "",
+      "Bytes": 2056,
+      "Lines": 33,
+      "Code": 4,
+      "Comment": 25,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/libadalang-gpr2_provider.adb",
+      "Extension": "adb",
+      "Location": "src/libadalang-gpr2_provider.adb",
+      "Symlocation": "",
+      "Bytes": 22871,
+      "Lines": 685,
+      "Code": 464,
+      "Comment": 113,
+      "Blank": 108,
+      "Complexity": 51,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/libadalang-gpr2_provider.ads",
+      "Extension": "ads",
+      "Location": "src/libadalang-gpr2_provider.ads",
+      "Symlocation": "",
+      "Bytes": 4849,
+      "Lines": 98,
+      "Code": 28,
+      "Comment": 56,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

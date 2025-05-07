@@ -1,0 +1,6 @@
+src/sha2_generic_32.adb
+src/sha2_generic_32.ads
+src/sha2_generic_64.adb
+src/sha2_generic_64.ads
+src/sha2_generic.ads
+src/sha2.ads

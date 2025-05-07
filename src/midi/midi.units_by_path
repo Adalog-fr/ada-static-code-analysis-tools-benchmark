@@ -1,0 +1,11 @@
+config/midi_config.ads
+src/midi-decoder-queue.adb
+src/midi-decoder-queue.ads
+src/midi-decoder.adb
+src/midi-decoder.ads
+src/midi-encoder-queue.adb
+src/midi-encoder-queue.ads
+src/midi-encoder.adb
+src/midi-encoder.ads
+src/midi.adb
+src/midi.ads

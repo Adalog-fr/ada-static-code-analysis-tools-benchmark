@@ -1,0 +1,220 @@
+Sun 10 Mar 2024 : fixed output in hexa_double_functions.cpp.
+
+Sat 9 Mar 2024 : new hexa_double_gpufun.h with stubs provided in
+  hexa_double_gpufun.cu, dbl16_sqrt_kernels.cu, extended
+  test_hexa_doubles.cpp, updated makefiles.
+  Defined hexa_double_gpufun.cu, dbl16_sqrt_kernels.cu, and
+  completed test_hexa_doubles.cpp.
+
+Fri 8 Mar 2024 : new hexa_double_functions.h, hexa_double_functions.cpp,
+  and test_hexa_doubles.cpp as a first step to define data staging
+  algorithms for hexa double arithmetic.  Updated makefiles.
+
+Wed 7 Jun 2023 : added makefile_windows2 to compile on RTX 4080 with
+  the 2022 Community edition of Microsoft Visual Studio.
+  Defined M_PI in random_numbers.cpp. 
+  The source files for the C++ files of the multiple double arithmetic
+  are now located in the C folder of src/Math_Lib/QD/C and must have
+  the .cpp (not the .c) extension.
+
+Mon 27 Sep 2021 : to octo_double_gpufun, adde a function for an inplace
+  multiplication of an octo double with a double.
+
+Tue 14 Sep 2021 : added a decrement function to octo_double_gpufun,
+  small edit in quad_double_gpufun.h.
+
+Sat 11 Sep 2021 : added an inplace multiplication function with a double
+  to octo_double_functions.
+
+Fri 10 Sep 2021 : added a decrement function to octo_double_functions.
+
+Mon 30 Aug 2021 : to quad_double_gpufun, added function for an inplace
+  multiplication of a quad double with a double.
+
+Tue 24 Aug 2021 : added a decrement function to quad_double_gpufun.
+
+Sun 22 Aug 2021 : extended quad_double_functions with wrappers to decrement
+  a quad double and to multiply a quad double with a double. 
+
+Sat 28 Nov 2020 : added __forceinline__ to all functions of all *gpufun*.
+  Removed a __syncthreads() from penta_double_gpufun.cu.
+
+Wed 25 Nov 2020 : new {dbl2,dbl3,dbl4,dbl5,dbl8,dbl10}_sqrt_kernels,
+  for improved test_{double,triple,quad,penta,octo,deca}_doubles.cpp.
+  Updated makefiles.
+
+Tue 24 Nov 2020 : added the architecture flags to makefile_unix, so the
+  makefile_c2050 is no longer needed.  Updated also the makefile.
+  Improved test_{double,triple,quad,penta,octo,deca}_doubles.cpp.
+
+Sun 15 Nov 2020 : defined makefile_c2050, a makefile for the NVIDIA C2050 GPU,
+  updated makefile as well.
+
+Fri 13 Nov 2020 : fixed random8_vectors.cpp so the last double of a random
+  octo double is nonzero.
+
+Mon 19 Oct 2020 : in cmplx10_norm_kernels.h and dbl10_norm_kernels.h
+  increased the maxrounds from 32 to 96, improved the documentation.
+  For dbl10_norm_kernels.h, da_shmemsize can be raised to 256.
+  Fixed a function call in run_dbl5_norm.cpp so the least significant part
+  of the norm on the device is shown correctly.  Fixed a similar bug in
+  run_cmplx5_norm.cpp.  Small edit in {dbl10,cmplx10}_norm_kernels.h.
+  Increased the values for the shmemsize and maxrounds in dbl5_norm_kernels.h
+  and cmplx5_norm_kernels.h to be the double of the corresponding values
+  in dbl10_norm_kernels.h and cmplx10_norm_kernels.h.
+  Fixed run_dbl8_norm.cpp so all doubles of the GPU_norm show correctly.
+  Increased the od_shmemsize in {dbl8,cmplx8}_norm_kernels.h.
+  Increased the qd_shmemsize in {dbl4,cmplx4}_norm_kernels.h.
+  Increased the dd_shmemsize in {dbl2,cmplx2}_norm_kernels.h.
+  Increased the dd_shmemsize in {dbl3,dbl,cmplx3,cmplx}_norm_kernels.h.
+
+Sun 18 Oct 2020 : set the da_shmemsize to 128 in cmplx10_norm_kernels.h,
+  added kernels for medium and large vectors in cmplx10_norm_kernels.cu,
+  with modifications in test_cmplx10_norm.cpp.
+  Set the da_shmemsize to 128 in dbl10_norm_kernels.h.
+  Added new run_{dbl3,dbl4,dbl5,dbl8,dbl10}_norm, with extended makefile
+  and makefile_unix; updated makefile_windows.
+  Fixed unterminated comment in cmplx4_norm_kernels.h.
+  Added new run_{cmplx3,cmplx4,cmplx5,cmplx8,cmplx10}_norm, with extended
+  makefile, makefile_unix, and makefile_windows.
+
+Sat 17 Oct 2020 : edited cmplx5_norm_host.h, test_cmplx5_norm.cpp,
+  and cmplx5_norm_kernels.h.  New cmplx10_norm_host, test_cmplx10_norm.cpp,
+  and the start of cmplx10_norm_kernels.  Updated makefile
+  and the makefile_unix.  And then also makefile_windows.
+
+Fri 16 Oct 2020 : edited cmplx4_norm_kernels.h.
+  Fixed bug in pdf_sqrt in penta_double_functions.cpp.
+  Edited cmplx5_norm_host.h and cmplx5_norm_host.cpp.
+  New cmplx5_norm_kernels.h and cmplx5_norm_kernels.cu, with tests
+  added to test_cmplx5_norm.cpp; updated makefile_unix.
+  Fixed swap of parameters in random8_vectors.h, random8_vectors.cpp.
+  New cmplx8_norm_host, cmplx8_norm_kernels, test_cmplx8_norm,
+  with updated makefile and makefile_unix.
+
+Thu 15 Oct 2020 : edited cmplx2_norm*, both .h, .cpp, and .cu files.
+  New cmplx3_norm_host, cmplx3_norm_kernels, test_cmplx3_norm,
+  with updated makefile and makefile_unix.
+  Edited cmplx2_norm_host.h test_cmplx2_norm.cpp, test_cmplx3_norm.cpp,
+  cmplx3_norm_kernels.h, cmplx3_norm_kernels.cu.
+  New cmplx4_norm_host, cmplx4_norm_kernels, test_cmplx4_norm.
+  Edited cmplx4_norm_host.h, test_cmplx4_norm.cpp.
+  Bugs fixed in random5_vectors.cpp, new cmplx5_norm_host.h,
+  cmplx5_norm_host.cpp, tested by test_cmplx5_norm.cpp.
+  Updated makefile and makefile_unix.
+
+Wed 14 Oct 2020 : edited random3_vectors.h, random3_vectors.cpp,
+  dbl3_norm_kernels.h, and dbl4_norm_kernels.h.  Added inc_d function 
+  to penta_double_functions, new random5_vectors, penta_double_gpufun,
+  dbl5_norm_host, dbl5_norm_kernels, tested by test_dbl5_norm;
+  updated makefile and makefile_unix.  Extended random2_vectors,
+  random3_vectors, random3_vectors, random4_vectors, random5_vectors,
+  random8_vectors with the generation of full multiple doubles.
+  Improved the tests in test_{dbl2,dbl3,dbl4,dbl5,dbl8}_norm.cpp.
+  Corrected a bug in dbl8_norm_kernels.cu and test_dbl8_norm.cpp.
+  Edited random5_vectors.h and fixed a bug in deca_double_functions.cpp:
+  in the sqrt, the least significant parts must be set to zero for else
+  the division by the current approximation for the sqrt fails.
+  Add the function inc_d to deca_double_functions, new deca_double_gpufun,
+  random10_vectors, dbl10_norm_host, dbl10_norm_kernels, tested by
+  test_dbl10_norm, with updated makefile and makefile_unix.
+
+Tue 13 Oct 2020 : edited random2_vectors, to use double_double_functions
+  instead of double_double.  Added unary minus to double_double_functions
+  and double_double_gpufun.  Updated makefile_unix.
+  To triple_double_functions, added the increment of one double; new are:
+  random3_vectors, dbl2_norm_host, triple_double_gpufun, dbl3_norm_kernels,
+  tested by test_dbl3_norm; updated makefile, makefile_unix.
+  Edited dbl2_norm_host and dbl2_norm_kernels.  Updated makefile_windows.
+  In double_double_functions.cpp, replace "and" by "&&" in a test.
+  Edited documentation of dbl3_norm_host.h and dbl3_norm_kernels.h.
+  Added inc_d function to quad_double_functions, new quad_double_gpufun,
+  random4_vectors, dbl4_norm_host, dbl4_norm_kernels, tested by 
+  test_dbl4_norm; updated makefile and makefile_unix.
+  Added inc_d function to octo_double_functions, new octo_double_gpufun,
+  random8_vectors, dbl8_norm_host, dbl8_norm_kernels, tested by 
+  test_dbl8_norm; updated makefile and makefile_unix.
+
+Mon 12 Oct 2020 : small edits in octo_double_functions.h.
+  New quad_double_functions.h, quad_double_functions.cpp, tested by
+  test_quad_doubles.cpp, updated makefile and makefile_unix.
+  Added functions mul_pwr2, sqrt, and write_doubles 
+  to {triple,quad,penta,octo,deca}_double_functions,
+  tested by test_{triple,quad,penta,octo,deca}_doubles.cpp.
+
+Sun 11 Oct 2020 : fixed documentation errors in triple_double_functions.h.
+  New penta_double_functions.h, penta_double_functions.cpp, tested by
+  test_penta_doubles.cpp, updated makefile and makefile_unix.
+  New octo_double_functions.h, octo_double_functions.cpp, tested by
+  test_octo_doubles.cpp, updated makefile and makefile_unix.
+  New deca_double_functions.h, deca_double_functions.cpp, tested by
+  test_deca_doubles.cpp, updated makefile and makefile_unix.
+  Corrected documention errors in penta_double_functions.h.
+  Updated makefile_windows for three new test programs.
+
+Sat 10 Oct 2020 : new triple_double_functions.h, triple_double_functions.cpp,
+  tested by test_triple_doubles.cpp.  Updated makefile and makefile_unix;
+  and also makefile_windows.
+
+Thu 8 Oct 2020 : small edits in dbl2_norm_kernels.h and dlb2_norm_kernels.cu.
+  New cmplx2_norm_kernels.h and cmplx2_norm_kernels.cu with code to
+  compute the 2-norm and normalize a vector of small size, with test
+  code in test_cmplx2_norm.cpp.  Fixed bug in random2_vectors.cpp.
+  Extended makefile_unix and makefile_windows.  Completed kernels for
+  complex double double vectors in cmplx2_norm_kernels.* and tested the
+  correctness in test_cmplx2_norm.cpp.  New run_cmplx2_norm.cpp, updated
+  test_cmplx2_normc.cpp and the makefiles.
+
+Wed 7 Oct 2020 : splitted the random_vectors into random_numbers,
+  random_vectors, and random2_vectors, updated {run,test}_dbl2_norm.cpp,
+  test_cmplx2_norm.cpp, and the makefile_unix.  Updated makefile_windows
+  and adjusted random_numbers.cpp to random_numbers_windows.cpp.
+  Patched random2_vectors.cpp so random real and imaginary parts
+  will always be on the complex unit circle.
+
+Tue 6 Oct 2020 : renaming of files run_dbl_norm_d.cpp -> run_dbl_norm.cpp,
+  test_dbl_norm_d.cpp -> test_dbl_norm.cpp, run_cmplx_norm_d.cpp ->
+  run_cmplx_norm.cpp, and test_cmplx_norm_d.cpp -> test_cmplx_norm.cpp.
+  Updated the makefiles accordingly.  Included header file in
+  double_double_gpufun.cu, minor update in dbl2_norm_host.cpp,
+  fixed bug in test_dbl2_norm.cpp, and completed dbl2_norm_kernels.cu.
+  In double_double_gpufun.cu, replaced 'and' by '&&' because of MS VC.
+  Updated makefile_windows.  New run_dbl2_norm.cpp for manual tests
+  on the 2-norm calculations in double double precision, with a new
+  parse_run_arguments, for use in run_dbl_norm and run_cmplx_norm.
+  Extended test_dbl2_norm.cpp with more tests to verify the correctness
+  and a timing test.  Extended random_vectors with a function to generate
+  a random complex double double vector, new cmplx2_norm_host and
+  test_cmplx2_norm.cpp for 2-norms of complex double double vectors.
+
+Mon 5 Oct 2020 : added double_double_functions, extended random_vectors,
+  to define in dbl2_norm_host the norm computation in double double precision,
+  tested by test_dbl2_norm.cpp.  In double_double_functions.h, changed
+  prefix dd_ into ddf_, fixed bugs in double_double_functions.cpp, with
+  the addition of some functions, tested by test_double_doubles.cpp;
+  updated dbl2_norm_host.cpp.  Improved test_dbl2_norm.cpp.
+  New double_double_gpufun.h, double_double_gpufun.cu, dbl2_norm_kernels.h,
+  dbl2_norm_kernels.cu, with updated test_dbl2_norm.cpp, and adjusted
+  makefile_unix.
+
+Fri 2 Oct 2020 : for both double and complex double, the constant
+  d_shmemsize can be raised to 1024 and this constant is moved to the
+  header file of {dbl,cmplx}_norm_kernels, so test_{dbl,cmplx}_norm_d.cpp
+  may use this constant.  Updated makefile_windows for test_dbl_norm_d.
+  Extended dbl_norm_kernels, {run,test}_dbl_norm_d with functions to
+  compute the norm and to normalize with multiple thread blocks.
+  Extended cmplx_norm_kernels, {run,test}_cmplx_norm_d similarly.
+
+Thu 1 Oct 2020 : new test program test_norm_d.cpp without parameters to
+  verify correctness and determine the best block size.
+  In run_norm_d.cpp, enlarged the precision in the output.
+  Fixed a bug in dbl_norm_host.cpp and dbl_norm_kernels.cpp.
+  Moved code shared between run_norm_d and test_norm_d into
+  random_vector.h and random_vectors.cpp, renamed run_norm_d into
+  run_dbl_norm_d and test_norm_d into run_dbl_norm_d, for the complex
+  analogues run_cmplx_norm_d and test_cmplx_norm_d, which rely on the
+  new cmplx_norm_host and cmplx_norm_kernels.
+
+Wed 2 Sep 2020 : figured out the makefile for windows, and made the
+  files makefile_windows and makefile_unix, in addition to makefile
+  to use for both (with the proper definition of MAKEFILE).

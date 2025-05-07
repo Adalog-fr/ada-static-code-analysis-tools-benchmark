@@ -1,0 +1,28 @@
+authors = ["Fabien Chouteau"]
+description = "Generate GESTE data from Tiled maps and tilesets"
+executables = ["tiled_code_gen"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+name = "tiled_code_gen"
+tags = ["geste","gamedev","game","tiled"]
+version = "0.1.0"
+website = "https://github.com/Fabien-Chouteau/tiled-code-gen"
+
+[[depends-on]]
+apdf = "*"
+gnatcoll = "*"
+xmlada = "*"
+
+[[pins]]
+
+[pins.apdf]
+path = "../apdf"
+
+[pins.gnatcoll]
+path = "../gnatcoll-core"
+
+[pins.xmlada]
+path = "../xmlada"
+
+[build-switches."*"]
+Compile_Checks = "none"

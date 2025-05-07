@@ -1,0 +1,646 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb"
+node: { title: "system__libm_double__identity" label: "Identity\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.ads:519:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__libm_double__nan" label: "Nan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.ads:524:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__libm_double__exact" label: "Exact\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.ads:526:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__libm_double__epsilon" label: "Epsilon\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.ads:528:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__libm_double__maximum_relative_error" label: "Maximum_Relative_Error\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.ads:530:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dmul" label: "aeabi_dmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__maximum_relative_error" targetname: "__aeabi_dmul" }
+node: { title: "__aeabi_d2f" label: "aeabi_d2f\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__maximum_relative_error" targetname: "__aeabi_d2f" }
+node: { title: "system__libm_double__long_float_approximations__float_polynomials__polynomialIPXnb" label: "polynomialIPXnb\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__libm_double__long_float_approximations__approx_asinXn" label: "Approx_Asin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:107:7\n72 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_dmul" }
+node: { title: "__aeabi_dadd" label: "aeabi_dadd\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_dadd" }
+node: { title: "__aeabi_dsub" label: "aeabi_dsub\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_dmul" }
+node: { title: "__aeabi_ddiv" label: "aeabi_ddiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_asinXn" targetname: "__aeabi_ddiv" }
+node: { title: "system__libm_double__long_float_approximations__approx_atanXn" label: "Approx_Atan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:157:7\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_atanXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_cosXn" label: "Approx_Cos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:199:7\n88 bytes (static)\n1 dynamic objects\n Cos_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:204:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cosXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cosXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cosXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_expXn" label: "Approx_Exp\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:250:7\n32 bytes (static)\n2 dynamic objects\n Exp_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:252:10\n Exp_Q /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:267:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_expXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_logXn" label: "Approx_Log\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:299:7\n32 bytes (static)\n2 dynamic objects\n Log_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:301:10\n Log_Q /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:311:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_logXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_power_logXn" label: "Approx_Power_Log\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:342:7\n24 bytes (static)\n1 dynamic objects\n Power_Log_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:343:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_power_logXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_exp2Xn" label: "Approx_Exp2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:369:7\n80 bytes (static)\n1 dynamic objects\n Exp2_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:370:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_exp2Xn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_exp2Xn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_exp2Xn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_exp2Xn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_sinXn" label: "Approx_Sin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:392:7\n88 bytes (static)\n1 dynamic objects\n Sin_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:397:10" }
+node: { title: "__aeabi_dcmple" label: "aeabi_dcmple\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_sinhXn" label: "Approx_Sinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:434:7\n32 bytes (static)\n2 dynamic objects\n Sinh_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:435:10\n Sinh_Q /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:446:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_sinhXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__approx_tanXn" label: "Approx_Tan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:472:7\n72 bytes (static)\n2 dynamic objects\n Tan_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:473:10\n Tan_Q /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:482:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanXn" targetname: "__aeabi_ddiv" }
+node: { title: "system__libm_double__long_float_approximations__approx_cotXn" label: "Approx_Cot\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:507:7\n72 bytes (static)\n2 dynamic objects\n Tan_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:508:10\n Tan_Q /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:517:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_cotXn" targetname: "__aeabi_ddiv" }
+node: { title: "system__libm_double__long_float_approximations__approx_tanhXn" label: "Approx_Tanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:541:7\n32 bytes (static)\n2 dynamic objects\n Tanh_P /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:542:10\n Tanh_Q /home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:552:10" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__approx_tanhXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__long_float_approximations__asinXn" label: "Asin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:577:7\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "system__libm_double__long_float_approximations__approx_asinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:587:31" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dmul" }
+node: { title: "sqrt" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-lidosq.ads:40:13" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "system__libm_double__long_float_approximations__approx_asinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:594:57" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dsub" }
+node: { title: "__aeabi_dcmpun" label: "aeabi_dcmpun\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dcmpun" }
+node: { title: "__aeabi_dcmplt" label: "aeabi_dcmplt\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__long_float_approximations__asinXn" targetname: "__aeabi_dcmplt" }
+node: { title: "system__libm_double__long_float_approximations__multiply_addXn" label: "Multiply_Add\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:98:7\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__long_float_approximations__multiply_addXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__long_float_approximations__multiply_addXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__instantiations__acosXn" label: "Acos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:610:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "system__libm_double__long_float_approximations__approx_asinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:624:41" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "system__libm_double__long_float_approximations__approx_asinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:634:25" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__instantiations__acosXn" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__instantiations__atan2Xn" label: "Atan2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:646:4\n48 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dcmpeq" label: "aeabi_dcmpeq\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmplt" }
+node: { title: "__aeabi_dcmpgt" label: "aeabi_dcmpgt\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "system__libm_double__long_float_approximations__approx_atanXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:736:20" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "system__libm_double__long_float_approximations__approx_atanXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:736:20" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "system__libm_double__long_float_approximations__approx_atanXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:736:20" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "system__libm_double__long_float_approximations__approx_atanXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:736:20" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__instantiations__atan2Xn" targetname: "__aeabi_dsub" }
+node: { title: "system__libm_double__long_float_tableIP" label: "long_float_tableIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__libm_double__reduce_1_16" label: "Reduce_1_16\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:109:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_lflt__attr_long_float__machine_rounding" label: "Machine_Rounding\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-fatgen.ads:71:13" shape : ellipse }
+edge: { sourcename: "system__libm_double__reduce_1_16" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:110:9" }
+edge: { sourcename: "system__libm_double__reduce_1_16" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_1_16" targetname: "__aeabi_dmul" }
+node: { title: "system__libm_double__reconstruct_pow" label: "Reconstruct_Pow\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:177:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_lflt__attr_long_float__scaling" label: "Scaling\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-fatgen.ads:81:13" shape : ellipse }
+edge: { sourcename: "system__libm_double__reconstruct_pow" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:191:24" }
+edge: { sourcename: "system__libm_double__reconstruct_pow" targetname: "__aeabi_dmul" }
+node: { title: "system__libm_double__reduce_044" label: "Reduce_044\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:198:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dcmple" }
+node: { title: "__aeabi_dcmpge" label: "aeabi_dcmpge\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__libm_double__reduce_044" targetname: "__aeabi_dadd" }
+node: { title: "system__libm_double__split_veltkamp" label: "Split_Veltkamp\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:245:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__split_veltkamp" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__split_veltkamp" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__split_veltkamp" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__split_veltkamp" targetname: "__aeabi_dsub" }
+node: { title: "system__libm_double__reduce_ln_2" label: "Reduce_Ln_2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:256:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_lflt__attr_long_float__rounding" label: "Rounding\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-fatgen.ads:79:13" shape : ellipse }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "system__fat_lflt__attr_long_float__rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:260:45" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dadd" }
+node: { title: "__aeabi_d2iz" label: "aeabi_d2iz\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__reduce_ln_2" targetname: "__aeabi_dsub" }
+node: { title: "system__libm_double__reduce_half_pi_large" label: "Reduce_Half_Pi_Large\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:317:4\n80 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dsub" }
+node: { title: "__aeabi_d2lz" label: "aeabi_d2lz\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_d2lz" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_d2lz" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:348:17" }
+edge: { sourcename: "system__libm_double__reduce_half_pi_large" targetname: "__aeabi_dmul" }
+node: { title: "system__libm_double__reduce_half_pi" label: "Reduce_Half_Pi\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:285:4\n48 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:296:28" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "system__libm_double__reduce_half_pi_large" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:304:10" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dadd" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_dsub" }
+edge: { sourcename: "system__libm_double__reduce_half_pi" targetname: "__aeabi_d2iz" }
+node: { title: "acos" label: "Acos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:356:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "acos" targetname: "system__libm_double__instantiations__acosXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:356:55" }
+node: { title: "asin" label: "Asin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:382:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "asin" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "asin" targetname: "system__libm_double__long_float_approximations__approx_asinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:587:31" }
+edge: { sourcename: "asin" targetname: "__aeabi_dmul" }
+edge: { sourcename: "asin" targetname: "__aeabi_dmul" }
+edge: { sourcename: "asin" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asin" targetname: "__aeabi_dsub" }
+edge: { sourcename: "asin" targetname: "__aeabi_dmul" }
+edge: { sourcename: "asin" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+edge: { sourcename: "asin" targetname: "system__libm_double__long_float_approximations__approx_asinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:594:57" }
+edge: { sourcename: "asin" targetname: "__aeabi_dmul" }
+edge: { sourcename: "asin" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asin" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asin" targetname: "__aeabi_dsub" }
+edge: { sourcename: "asin" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "asin" targetname: "__aeabi_dcmplt" }
+node: { title: "atan" label: "Atan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:414:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "atan" targetname: "system__libm_double__instantiations__atan2Xn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:414:55" }
+node: { title: "atan2" label: "Atan2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:420:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "atan2" targetname: "system__libm_double__instantiations__atan2Xn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:420:59" }
+node: { title: "atanh" label: "Atanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:426:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "atanh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "atanh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:641:17" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "atanh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "atanh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "atanh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:641:17" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "atanh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "atanh" targetname: "__aeabi_dmul" }
+node: { title: "cos" label: "Cos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:438:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "cos" targetname: "system__libm_double__reduce_half_pi" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:447:7" }
+edge: { sourcename: "cos" targetname: "system__libm_double__long_float_approximations__approx_cosXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:450:20" }
+edge: { sourcename: "cos" targetname: "system__libm_double__long_float_approximations__approx_sinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:452:20" }
+node: { title: "exp" label: "Exp\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:520:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "exp" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "exp" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "exp" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "exp" targetname: "system__libm_double__reduce_ln_2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:541:7" }
+edge: { sourcename: "exp" targetname: "system__libm_double__long_float_approximations__approx_expXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:542:12" }
+edge: { sourcename: "exp" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:543:24" }
+node: { title: "cosh" label: "Cosh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:462:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "cosh" targetname: "exp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:505:15" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "cosh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "cosh" targetname: "exp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:511:15" }
+edge: { sourcename: "cosh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "cosh" targetname: "__aeabi_dmul" }
+node: { title: "exp2" label: "Exp2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:550:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dadd" }
+edge: { sourcename: "exp2" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "exp2" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "exp2" targetname: "system__libm_double__long_float_approximations__approx_exp2Xn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:574:12" }
+node: { title: "__aeabi_i2d" label: "aeabi_i2d\n<built-in>" shape : ellipse }
+edge: { sourcename: "exp2" targetname: "__aeabi_i2d" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "exp2" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:576:27" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "exp2" targetname: "__aeabi_dcmpge" }
+node: { title: "log" label: "Log\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:589:4\n40 bytes (static)\n0 dynamic objects" }
+node: { title: "system__fat_lflt__attr_long_float__decompose" label: "Decompose\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-fatgen.adb:150:14" shape : ellipse }
+edge: { sourcename: "log" targetname: "system__fat_lflt__attr_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:593:43" }
+edge: { sourcename: "log" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "log" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "log" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "log" targetname: "__aeabi_i2d" }
+edge: { sourcename: "log" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:595:43" }
+edge: { sourcename: "log" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "log" targetname: "__aeabi_dsub" }
+edge: { sourcename: "log" targetname: "__aeabi_dadd" }
+edge: { sourcename: "log" targetname: "system__libm_double__long_float_approximations__approx_logXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:619:17" }
+edge: { sourcename: "log" targetname: "__aeabi_dmul" }
+edge: { sourcename: "log" targetname: "__aeabi_dadd" }
+edge: { sourcename: "log" targetname: "__aeabi_dmul" }
+edge: { sourcename: "log" targetname: "__aeabi_dadd" }
+node: { title: "acosh" label: "Acosh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:362:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "acosh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:370:17" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "acosh" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "acosh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:641:17" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "acosh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "acosh" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "acosh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:374:17" }
+edge: { sourcename: "acosh" targetname: "__aeabi_dadd" }
+node: { title: "asinh" label: "Asinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:388:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "asinh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:400:17" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "asinh" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asinh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "asinh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:641:17" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "asinh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "asinh" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:404:17" }
+edge: { sourcename: "asinh" targetname: "__aeabi_dadd" }
+node: { title: "log1p" label: "Log1p\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:629:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "log1p" targetname: "__aeabi_dadd" }
+edge: { sourcename: "log1p" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "log1p" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "log1p" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:641:17" }
+edge: { sourcename: "log1p" targetname: "__aeabi_dsub" }
+edge: { sourcename: "log1p" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "log1p" targetname: "__aeabi_dmul" }
+node: { title: "log2" label: "Log2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:649:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "log2" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:655:7" }
+edge: { sourcename: "log2" targetname: "__aeabi_dmul" }
+node: { title: "pow" label: "Pow\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:661:4\n72 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:670:33" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__decompose" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:671:33" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:789:25" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+node: { title: "__aeabi_d2ulz" label: "aeabi_d2ulz\n<built-in>" shape : ellipse }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "pow" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:811:28" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:789:25" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libm.adb:861:30" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2ulz" }
+edge: { sourcename: "pow" targetname: "system__libm_double__reduce_044" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:696:10" }
+edge: { sourcename: "pow" targetname: "system__libm_double__long_float_approximations__approx_power_logXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:700:16" }
+edge: { sourcename: "pow" targetname: "__aeabi_i2d" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:110:9" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:110:9" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:110:9" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__machine_rounding" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:110:9" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "pow" targetname: "__aeabi_dadd" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_d2iz" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "pow" targetname: "__aeabi_dsub" }
+edge: { sourcename: "pow" targetname: "system__libm_double__long_float_approximations__approx_exp2Xn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:734:15" }
+edge: { sourcename: "pow" targetname: "system__fat_lflt__attr_long_float__scaling" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:191:24" }
+edge: { sourcename: "pow" targetname: "__aeabi_dmul" }
+node: { title: "sin" label: "Sin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:749:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "sin" targetname: "system__libm_double__reduce_half_pi" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:758:7" }
+edge: { sourcename: "sin" targetname: "system__libm_double__long_float_approximations__approx_sinXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:761:20" }
+edge: { sourcename: "sin" targetname: "system__libm_double__long_float_approximations__approx_cosXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:763:20" }
+edge: { sourcename: "sin" targetname: "__aeabi_dmul" }
+node: { title: "sinh" label: "Sinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:773:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "sinh" targetname: "system__libm_double__long_float_approximations__approx_sinhXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:815:17" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "sinh" targetname: "exp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:820:15" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sinh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sinh" targetname: "exp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:826:15" }
+edge: { sourcename: "sinh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dmul" }
+edge: { sourcename: "sinh" targetname: "__aeabi_dmul" }
+node: { title: "system__libm_double__sqrt" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__sqrt" targetname: "sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:835:13" }
+node: { title: "tan" label: "Tan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:842:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "tan" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "tan" targetname: "system__libm_double__reduce_half_pi" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:851:10" }
+edge: { sourcename: "tan" targetname: "system__libm_double__long_float_approximations__approx_tanXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:860:17" }
+edge: { sourcename: "tan" targetname: "__aeabi_dmul" }
+edge: { sourcename: "tan" targetname: "system__libm_double__long_float_approximations__approx_cotXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:863:17" }
+edge: { sourcename: "tan" targetname: "__aeabi_dmul" }
+node: { title: "tanh" label: "Tanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:871:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "tanh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "tanh" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "tanh" targetname: "exp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:885:36" }
+edge: { sourcename: "tanh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "tanh" targetname: "__aeabi_dadd" }
+edge: { sourcename: "tanh" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "tanh" targetname: "__aeabi_dsub" }
+edge: { sourcename: "tanh" targetname: "system__libm_double__long_float_approximations__approx_tanhXn" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:887:23" }
+node: { title: "system__libm_double__multiply_add" label: "Multiply_Add\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-sam4s/gnat/s-libdou.adb:124:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__libm_double__multiply_add" targetname: "__aeabi_dmul" }
+edge: { sourcename: "system__libm_double__multiply_add" targetname: "__aeabi_dadd" }
+}

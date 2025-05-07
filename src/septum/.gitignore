@@ -1,0 +1,22 @@
+# Object file
+*.o
+*.exe
+
+# Ada Library Information
+*.ali
+
+# Alire things
+lib/
+alire/
+config/
+obj/
+alire/
+bin/
+
+# Chocolatey
+historical/
+choco/
+
+# Development files
+.clang-format
+.septum/obj/

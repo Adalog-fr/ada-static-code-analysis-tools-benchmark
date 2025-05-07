@@ -1,0 +1,79 @@
+------------------------------------------------------------------------------
+--                                                                          --
+--                            Matreshka Project                             --
+--                                                                          --
+--         Localization, Internationalization, Globalization for Ada        --
+--                                                                          --
+--                        Runtime Library Component                         --
+--                                                                          --
+------------------------------------------------------------------------------
+--                                                                          --
+-- Copyright © 2010-2015, Vadim Godunko <vgodunko@gmail.com>                --
+-- All rights reserved.                                                     --
+--                                                                          --
+-- Redistribution and use in source and binary forms, with or without       --
+-- modification, are permitted provided that the following conditions       --
+-- are met:                                                                 --
+--                                                                          --
+--  * Redistributions of source code must retain the above copyright        --
+--    notice, this list of conditions and the following disclaimer.         --
+--                                                                          --
+--  * Redistributions in binary form must reproduce the above copyright     --
+--    notice, this list of conditions and the following disclaimer in the   --
+--    documentation and/or other materials provided with the distribution.  --
+--                                                                          --
+--  * Neither the name of the Vadim Godunko, IE nor the names of its        --
+--    contributors may be used to endorse or promote products derived from  --
+--    this software without specific prior written permission.              --
+--                                                                          --
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS      --
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT        --
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR    --
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT     --
+-- HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,   --
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED --
+-- TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR   --
+-- PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF   --
+-- LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING     --
+-- NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS       --
+-- SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.             --
+--                                                                          --
+------------------------------------------------------------------------------
+--  $Revision$ $Date$
+------------------------------------------------------------------------------
+--  Actual configuration.
+------------------------------------------------------------------------------
+
+abstract project Matreshka_Config is
+
+   Version := "@VERSION@";
+
+   RTL_Version_Suffix := "@RTL_VERSION_SUFFIX@";
+
+   type Architectures is
+    ("portable_32_be",
+     "portable_32_le",
+     "portable_64_be",
+     "portable_64_le",
+     "x86",
+     "x86_64");
+   Architecture : Architectures := external ("ARCHITECTURE", "@ARCHITECTURE@");
+
+   type Operating_Systems is ("POSIX", "MacOS", "Windows");
+   Operating_System : Operating_Systems
+     := external ("OPERATING_SYSTEM", "@OPERATING_SYSTEM@");
+
+   type Build_Type is ("RELEASE", "DEBUG");
+   Build : Build_Type := external ("BUILD", "RELEASE");
+
+   Firebird_Library_Options := (@FIREBIRD_LIBRARY_OPTIONS@);
+
+   MySQL_Library_Options := (@MYSQL_LIBRARY_OPTIONS@);
+
+   OCI_Library_Options := (@OCI_LIBRARY_OPTIONS@);
+
+   PostgreSQL_Library_Options := (@POSTGRESQL_LIBRARY_OPTIONS@);
+
+   SQLite3_Library_Options := (@SQLITE3_LIBRARY_OPTIONS@);
+
+end Matreshka_Config;

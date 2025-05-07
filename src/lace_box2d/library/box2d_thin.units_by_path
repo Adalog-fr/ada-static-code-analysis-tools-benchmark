@@ -1,0 +1,7 @@
+../source/thin/box2d_c-b2d_contact.ads
+../source/thin/box2d_c-b2d_ray_collision.ads
+../source/thin/box2d_c-binding.ads
+../source/thin/box2d_c-joint_cursor.ads
+../source/thin/box2d_c-pointer_pointers.ads
+../source/thin/box2d_c-pointers.ads
+../source/thin/box2d_c.ads

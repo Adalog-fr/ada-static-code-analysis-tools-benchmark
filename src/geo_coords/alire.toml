@@ -1,0 +1,12 @@
+authors = ["Saiffullah Sabir Mohamed"]
+description = "Geo coordinates calculation for determining Location, Distance, Bearing"
+licenses = "MIT"
+maintainers = ["Saiffullah Sabir Mohamed <saif25596@outlook.com>"]
+maintainers-logins = ["TechnicalVillager"]
+name = "geo_coords"
+tags = ["geo","coordinates","latitude","longitude","distance","bearing","haversine"]
+version = "1.0.0"
+website = "https://github.com/TechnicalVillager/geo_coords"
+
+[build-switches."*"]
+Compile_Checks = "none"

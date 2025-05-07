@@ -1,0 +1,7 @@
+src/cstandio.adb
+src/cstandio.ads
+src/nalansys.adb
+src/nalansys.ads
+src/posix/csioopnu.adb
+src/stantext.adb
+src/stantext.ads

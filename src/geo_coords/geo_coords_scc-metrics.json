@@ -1,0 +1,180 @@
+{
+  "Name": "Ada",
+  "Bytes": 10051,
+  "CodeBytes": 0,
+  "Lines": 269,
+  "Code": 194,
+  "Comment": 13,
+  "Blank": 62,
+  "Complexity": 5,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/geo_coords_utilities.adb",
+      "Extension": "adb",
+      "Location": "src/geo_coords_utilities.adb",
+      "Symlocation": "",
+      "Bytes": 3278,
+      "Lines": 89,
+      "Code": 74,
+      "Comment": 0,
+      "Blank": 15,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/geo_coords_types.ads",
+      "Extension": "ads",
+      "Location": "src/geo_coords_types.ads",
+      "Symlocation": "",
+      "Bytes": 782,
+      "Lines": 31,
+      "Code": 20,
+      "Comment": 2,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions",
+        "ada.text_io",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/geo_coords_utilities.ads",
+      "Extension": "ads",
+      "Location": "src/geo_coords_utilities.ads",
+      "Symlocation": "",
+      "Bytes": 1108,
+      "Lines": 33,
+      "Code": 19,
+      "Comment": 1,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "geo_coords_types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/geo_coords.adb",
+      "Extension": "adb",
+      "Location": "src/geo_coords.adb",
+      "Symlocation": "",
+      "Bytes": 3379,
+      "Lines": 74,
+      "Code": 60,
+      "Comment": 0,
+      "Blank": 14,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "geo_coords_utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/geo_coords.ads",
+      "Extension": "ads",
+      "Location": "src/geo_coords.ads",
+      "Symlocation": "",
+      "Bytes": 937,
+      "Lines": 22,
+      "Code": 9,
+      "Comment": 9,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "geo_coords_types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/geo_coords_config.ads",
+      "Extension": "ads",
+      "Location": "config/geo_coords_config.ads",
+      "Symlocation": "",
+      "Bytes": 567,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics": 1,
+    "ada.numerics.generic_elementary_functions": 1,
+    "ada.text_io": 2,
+    "geo_coords_types": 2,
+    "geo_coords_utilities": 1,
+    "interfaces": 1
+  }
+}

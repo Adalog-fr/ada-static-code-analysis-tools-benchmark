@@ -1,0 +1,53 @@
+
+with "langkit_support";
+with "gpr_parser";
+
+project Mains is
+
+   type Build_Mode_Type is ("dev", "prod", "prof");
+   Build_Mode : Build_Mode_Type := external ("BUILD_MODE", "dev");
+
+   for Languages use ("Ada");
+
+   
+   for Source_Dirs use (
+      "src-mains"
+   );
+   for Object_Dir use "obj-mains/" & Build_Mode;
+
+   for Main use (
+      "parse.adb"
+   );
+
+   package Builder is
+         for Executable ("parse") use "gpr_parser_parse";
+   end Builder;
+
+   package Compiler is
+      case Build_Mode is
+         when "dev" =>
+            for Default_Switches ("Ada") use ("-g", "-O0", "-gnatyg",
+                                              );
+
+         when "prod" =>
+            --  Debug information is useful even with optimization for
+            --  profiling, for instance.
+            for Default_Switches ("Ada") use ("-g", "-Ofast");
+
+         when "prof" =>
+            --  Ensure that we have a relatively fast build but with all
+            --  possible stack info & debug info, for profiling.
+            for Default_Switches ("Ada") use
+               ("-Og", "-ggdb", "-g3", "-fno-omit-frame-pointer");
+      end case;
+
+      --  A version of s-memory may be included for memory monitoring
+      --  with GNATCOLL.Memory: if so, it requires -gnatg.
+      for Switches ("s-memory.adb") use ("-g", "-O2", "-gnatpg");
+   end Compiler;
+
+   package Binder is
+      for Switches ("ada") use ("-E");
+   end Binder;
+
+end Mains;

@@ -1,0 +1,31 @@
+authors = ["David Taback","Deepak Tolani"]
+description = "An Ada LARL(1) parser generator"
+executables = ["ayacc"]
+licenses = "Unlicense"
+long-description = "Ayacc is an Ada parser generator in the style of yacc(1).\n\nThe first implementation was written by David Taback and Deepak Tolani\nat the University of California, Irvine.  The last version that was released\nappeared to be the Ayacc 1.1 released in 1994.\n\nAyacc was used and improved by P2Ada, the Pascal to Ada translator.\nThis version of Ayacc is derived from the P2Ada ayacc implementation\nreleased in August 2010.\n\nThis version brings a number of improvements:\n\n- Ayacc now uses more standard options to configure the code generation\n- The parser was improved to configure the parser stack size and\n  support Ada child packages.\n- The grammar supports the %unit directive to control the Ada child packages.\n- Several options provide a better control of the generated code.\n- Ayacc can generate a reentrant parser.\n\n"
+maintainers = ["Stephane.Carrez@gmail.com"]
+maintainers-logins = ["stcarrez"]
+name = "ayacc"
+tags = ["parser","generator","grammar"]
+version = "1.4.0"
+website = "https://github.com/Ada-France/ayacc"
+
+[configuration]
+auto_gpr_with = true
+disabled = true
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[environment.MANPATH]
+prepend = "${CRATE_ROOT}/man"
+
+[environment.PATH]
+prepend = "${CRATE_ROOT}/bin"
+
+[gpr-externals]
+AYACC_BUILD = ["distrib","debug","optimize","profile","coverage"]
+
+[build-switches."*"]
+Compile_Checks = "none"

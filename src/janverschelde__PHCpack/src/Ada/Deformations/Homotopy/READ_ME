@@ -1,0 +1,111 @@
+Homotopies, scaling and reduction in PHCv2.4.87
+
+The Creators in the package Homotopy allow more accessibility constants for
+the Cheater's homotopy.  A multiprecision version of the homotopy package
+was needed for the new release 2.1.  A multiprecision version of the
+scaling routines is under development.
+
+This library is organized in three parts:
+1) Homotopy with homogenization 
+2) Scaling and reduction of polynomial systems.
+3) Encapsulation of convolution circuits.
+
+Run "gprbuild homotopy.gpr" to make all test programs.
+On windows, type "gprbuild homotopy.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean homotopy.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                          : short description
+------------------------------------------------------------------------------
+standard_embed_polynomials         : embed standard polynomial in larger space
+standard_embed_laurentials         : embed standard Laurent polynomial
+dobldobl_embed_polynomials         : embed dobldobl polynomial in larger space
+dobldobl_embed_laurentials         : embed dobldobl Laurent polynomial
+quaddobl_embed_polynomials         : embed quaddobl polynomial in larger space
+quaddobl_embed_laurentials         : embed quaddobl Laurent polynomial
+multprec_embed_polynomials         : embed multprec polynomial in larger space
+homogenization                     : making polynomials homogeneous
+projective_transformations         : transform polynomials and solutions
+affine_transformations             : transform systems into affine coordinates
+standard_homotopy                  : homotopy for standard polynomial systems
+standard_laurent_homotopy          : homotopy for standard Laurent systems
+dobldobl_homotopy                  : homotopy for systems of double doubles
+dobldobl_laurent_homotopy          : homotopy for dobldobl Laurent systems
+tripdobl_homotopy                  : homotopy for systems of triple doubles
+quaddobl_homotopy                  : homotopy for systems of quad doubles
+quaddobl_laurent_homotopy          : homotopy for quaddobl Laurent systems
+ts_qdhom                           : compares eval & diff for dd & qd
+pentdobl_homotopy                  : homotopy for systems of penta doubles
+octodobl_homotopy                  : homotopy for systems of octo doubles
+decadobl_homotopy                  : homotopy for systems of deca doubles
+hexadobl_homotopy                  : homotopy for systems of hexa doubles
+test_standard_laur_homotopy        : tests standard Laurent homotopy
+test_standard_poly_homotopy        : tests standard polynomial homotopy
+test_dobldobl_poly_homotopy        : tests dobldobl polynomial homotopy
+test_tripdobl_poly_homotopy        : tests tripdobl polynomial homotopy
+test_quaddobl_poly_homotopy        : tests quaddobl polynomial homotopy
+test_pentdobl_poly_homotopy        : tests pentdobl polynomial homotopy
+test_octodobl_poly_homotopy        : tests octodobl polynomial homotopy
+test_decadobl_poly_homotopy        : tests decadobl polynomial homotopy
+test_hexadobl_poly_homotopy        : tests hexadobl polynomial homotopy
+ts_homotopy                        : runs tests on homotopies
+multprec_homotopy                  : homotopy for multiprecision numbers
+drivers_for_homotopy_creation      : menu-driven homotopy construction
+standard_stable_homotopies         : for solutions with zero components
+dobldobl_stable_homotopies         : version for double doubles
+quaddobl_stable_homotopies         : version for quad doubles
+standard_coefficient_homotopy      : coefficient-parameter homotopy
+dobldobl_coefficient_homotopy      : double double coeff-parameter homotopy
+tripdobl_coefficient_homotopy      : triple double coeff-parameter homotopy
+quaddobl_coefficient_homotopy      : quad double coeff-parameter homotopy
+pentdobl_coefficient_homotopy      : penta double coeff-parameter homotopy
+octodobl_coefficient_homotopy      : octo double coeff-parameter homotopy
+decadobl_coefficient_homotopy      : deca double coeff-parameter homotopy
+hexadobl_coefficient_homotopy      : hexa double coeff-parameter homotopy
+test_standard_coeff_homotopy       : tests standard coefficient homotopies
+test_dobldobl_coeff_homotopy       : tests dobldobl coefficient homotopies
+test_tripdobl_coeff_homotopy       : tests tripdobl coefficient homotopies
+test_quaddobl_coeff_homotopy       : tests quaddobl coefficient homotopies
+test_pentdobl_coeff_homotopy       : tests pentdobl coefficient homotopies
+test_octodobl_coeff_homotopy       : tests octodobl coefficient homotopies
+test_decadobl_coeff_homotopy       : tests decadobl coefficient homotopies
+test_hexadobl_coeff_homotopy       : tests hexadobl coefficient homotopies
+ts_evalhomt                        : main test on coefficient homotopies
+hyperplane_solution_scaling        : scale a solution and a hyperplane
+ts_scalplane                       : test on scaling last hyperplane
+multi_projective_transformations   : transform to m-homogeneous coordinates
+ts_multproj                        : test on multi-homogenization
+------------------------------------------------------------------------------
+standard_scaling                   : scaling standard systems and solutions
+dobldobl_scaling                   : scaling systems in double double precision
+quaddobl_scaling                   : scaling systems in quad double precision
+multprec_scaling                   : scaling multprec systems
+ts_scal                            : simple test program
+scaling_methods                    : equation and variable scaling methods
+ts_mainscal                        : calls main scaling procedures
+main_scaling                       : defines phc -s
+------------------------------------------------------------------------------
+reduction_of_polynomials           : S-polynomials and R-polynomials
+standard_linear_reduction          : utilities for double precision reduction
+dobldobl_linear_reduction          : utilities for dobldobl precision reduction
+quaddobl_linear_reduction          : utilities for quaddobl precision reduction
+reduction_of_polynomial_systems    : linear and nonlinear reduction
+reduction_of_nonsquare_systems     : transform overconstrained into square
+main_reduction                     : main procedures to reduce systems
+ts_reduce                          : calls a main reduction procedure
+------------------------------------------------------------------------------
+standard_linear_poly_solvers       : solve linear polynomial systems
+ts_linsol                          : test on the linear poly solvers
+polynomial_drops                   : drop a variable from polynomials
+ts_poldrop                         : interactive test on dropping
+------------------------------------------------------------------------------
+random_conditioned_homotopies      : homotopy with middle conditioned system
+varbprec_homotopy                  : variable precision homotopy
+ts_vmphom                          : test variable precision homotopies
+------------------------------------------------------------------------------
+artificial_parameter_homotopy_io   : prompts for artificial-parameter htpy
+ts_homcnv                          : test convolution circuits for homotopies
+------------------------------------------------------------------------------
+wrapped_solution_vectors           : xt = x+t <-> solution representations
+------------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+obj
+*~
+*.ali
+.#*
+alire/
+alire.lock
+main

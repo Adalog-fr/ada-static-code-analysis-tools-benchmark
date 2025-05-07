@@ -1,0 +1,16 @@
+* text eol=lf
+last-line-missing-crlf.ads binary
+crlf.ads text eol=crlf
+./src/libadalang_tools/testsuite/tests/**/test.out text eol=crlf
+crlf.* text eol=crlf
+lf.* text eol=lf
+*.ico binary
+*.pdf binary
+*.png binary
+githubAnalysis/allReposMetrics.json filter=lfs diff=lfs merge=lfs -text
+install/**/*.tar.gz filter=lfs diff=lfs merge=lfs -text
+install/**/*.zip filter=lfs diff=lfs merge=lfs -text
+compilers/gnat_*/bin/*gdb filter=lfs diff=lfs merge=lfs -text
+src/gnatprove/libexec/spark/bin/gnat2why filter=lfs diff=lfs merge=lfs -text
+src/gnatcov/libexec/gnatcoverage/gnatcov64 filter=lfs diff=lfs merge=lfs -text
+analysis-tools/cogralys-engine/scripts/adactl-asis-usage/*.json filter=lfs diff=lfs merge=lfs -text

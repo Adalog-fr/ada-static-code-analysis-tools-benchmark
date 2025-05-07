@@ -1,0 +1,17 @@
+../source/compiler/compiler-context.adb
+../source/compiler/compiler-context.ads
+../source/compiler/compiler-descriptors.adb
+../source/compiler/compiler-descriptors.ads
+../source/compiler/compiler-enum_descriptors.adb
+../source/compiler/compiler-enum_descriptors.ads
+../source/compiler/compiler-field_descriptors.adb
+../source/compiler/compiler-field_descriptors.ads
+../source/compiler/compiler-file_descriptors.adb
+../source/compiler/compiler-file_descriptors.ads
+../source/compiler/compiler-run.adb
+../source/compiler/compiler.ads
+../source/compiler/generated/google-protobuf-compiler-plugin.adb
+../source/compiler/generated/google-protobuf-compiler-plugin.ads
+../source/compiler/generated/google-protobuf-descriptor.adb
+../source/compiler/generated/google-protobuf-descriptor.ads
+../source/compiler/google-protobuf-compiler.ads

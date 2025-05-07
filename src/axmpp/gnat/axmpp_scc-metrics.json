@@ -1,0 +1,1519 @@
+{
+  "Name": "Ada",
+  "Bytes": 369647,
+  "CodeBytes": 0,
+  "Lines": 8965,
+  "Code": 4021,
+  "Comment": 3480,
+  "Blank": 1464,
+  "Complexity": 122,
+  "Count": 52,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-sax-input_sources-streams-sockets-debug.ads",
+      "Extension": "ads",
+      "Location": "../source/xml-sax-input_sources-streams-sockets-debug.ads",
+      "Symlocation": "",
+      "Bytes": 3576,
+      "Lines": 52,
+      "Code": 8,
+      "Comment": 41,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-null_objects.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-null_objects.ads",
+      "Symlocation": "",
+      "Bytes": 4102,
+      "Lines": 77,
+      "Code": 17,
+      "Comment": 50,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-iq_sessions.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-iq_sessions.ads",
+      "Symlocation": "",
+      "Bytes": 4279,
+      "Lines": 78,
+      "Code": 23,
+      "Comment": 41,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-rosters.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-rosters.adb",
+      "Symlocation": "",
+      "Bytes": 5412,
+      "Lines": 126,
+      "Code": 49,
+      "Comment": 62,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-roster_items.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-roster_items.ads",
+      "Symlocation": "",
+      "Bytes": 6042,
+      "Lines": 127,
+      "Code": 51,
+      "Comment": 51,
+      "Blank": 25,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.string_vectors",
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-challenges.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-challenges.ads",
+      "Symlocation": "",
+      "Bytes": 5767,
+      "Lines": 116,
+      "Code": 50,
+      "Comment": 43,
+      "Blank": 23,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-base64.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-base64.ads",
+      "Symlocation": "",
+      "Bytes": 4343,
+      "Lines": 68,
+      "Code": 9,
+      "Comment": 54,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-sax-input_sources-streams-sockets-debug.adb",
+      "Extension": "adb",
+      "Location": "../source/xml-sax-input_sources-streams-sockets-debug.adb",
+      "Symlocation": "",
+      "Bytes": 4299,
+      "Lines": 78,
+      "Code": 27,
+      "Comment": 44,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings.internals",
+        "matreshka.internals.strings.operations",
+        "matreshka.internals.utf16",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-idle_tasks.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-idle_tasks.adb",
+      "Symlocation": "",
+      "Bytes": 4240,
+      "Lines": 86,
+      "Code": 30,
+      "Comment": 45,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.exceptions",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-sax-input_sources-streams-tls_sockets.adb",
+      "Extension": "adb",
+      "Location": "../source/xml-sax-input_sources-streams-tls_sockets.adb",
+      "Symlocation": "",
+      "Bytes": 6672,
+      "Lines": 148,
+      "Code": 74,
+      "Comment": 54,
+      "Blank": 20,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.text_io",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-binds.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-binds.ads",
+      "Symlocation": "",
+      "Bytes": 5009,
+      "Lines": 101,
+      "Code": 36,
+      "Comment": 47,
+      "Blank": 18,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-sax-input_sources-streams-tls_sockets.ads",
+      "Extension": "ads",
+      "Location": "../source/xml-sax-input_sources-streams-tls_sockets.ads",
+      "Symlocation": "",
+      "Bytes": 4543,
+      "Lines": 82,
+      "Code": 29,
+      "Comment": 44,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sockets",
+        "gnutls"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-raw_handlers.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-raw_handlers.ads",
+      "Symlocation": "",
+      "Bytes": 3431,
+      "Lines": 52,
+      "Code": 7,
+      "Comment": 41,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-logger.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-logger.adb",
+      "Symlocation": "",
+      "Bytes": 4307,
+      "Lines": 97,
+      "Code": 28,
+      "Comment": 56,
+      "Blank": 13,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-mucs.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-mucs.adb",
+      "Symlocation": "",
+      "Bytes": 5557,
+      "Lines": 127,
+      "Code": 54,
+      "Comment": 59,
+      "Blank": 14,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-presences.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-presences.ads",
+      "Symlocation": "",
+      "Bytes": 7133,
+      "Lines": 155,
+      "Code": 63,
+      "Comment": 59,
+      "Blank": 33,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.mucs",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-mucs.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-mucs.ads",
+      "Symlocation": "",
+      "Bytes": 4895,
+      "Lines": 105,
+      "Code": 46,
+      "Comment": 41,
+      "Blank": 18,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-utils.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-utils.adb",
+      "Symlocation": "",
+      "Bytes": 4747,
+      "Lines": 103,
+      "Code": 38,
+      "Comment": 50,
+      "Blank": 15,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-utils.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-utils.ads",
+      "Symlocation": "",
+      "Bytes": 3534,
+      "Lines": 54,
+      "Code": 9,
+      "Comment": 41,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-idle_tasks.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-idle_tasks.ads",
+      "Symlocation": "",
+      "Bytes": 3459,
+      "Lines": 55,
+      "Code": 7,
+      "Comment": 44,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.networks"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-challenges.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-challenges.adb",
+      "Symlocation": "",
+      "Bytes": 14342,
+      "Lines": 396,
+      "Code": 239,
+      "Comment": 96,
+      "Blank": 61,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.streams",
+        "gnat.md5",
+        "league.string_vectors",
+        "xmpp.base64",
+        "xmpp.logger",
+        "xmpp.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-roster_items.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-roster_items.adb",
+      "Symlocation": "",
+      "Bytes": 7545,
+      "Lines": 201,
+      "Code": 98,
+      "Comment": 78,
+      "Blank": 25,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-iq_sessions.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-iq_sessions.adb",
+      "Symlocation": "",
+      "Bytes": 4641,
+      "Lines": 95,
+      "Code": 31,
+      "Comment": 53,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-base64.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-base64.adb",
+      "Symlocation": "",
+      "Bytes": 8513,
+      "Lines": 173,
+      "Code": 90,
+      "Comment": 66,
+      "Blank": 17,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-messages.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-messages.adb",
+      "Symlocation": "",
+      "Bytes": 12378,
+      "Lines": 368,
+      "Code": 198,
+      "Comment": 112,
+      "Blank": 58,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-binds.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-binds.adb",
+      "Symlocation": "",
+      "Bytes": 5890,
+      "Lines": 150,
+      "Code": 65,
+      "Comment": 65,
+      "Blank": 20,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-iqs.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-iqs.adb",
+      "Symlocation": "",
+      "Bytes": 8078,
+      "Lines": 231,
+      "Code": 118,
+      "Comment": 78,
+      "Blank": 35,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-services.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-services.ads",
+      "Symlocation": "",
+      "Bytes": 5578,
+      "Lines": 118,
+      "Code": 52,
+      "Comment": 41,
+      "Blank": 25,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs",
+        "xmpp.services_features",
+        "xmpp.services_identities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-logger.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-logger.ads",
+      "Symlocation": "",
+      "Bytes": 3459,
+      "Lines": 56,
+      "Code": 8,
+      "Comment": 41,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-objects.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-objects.ads",
+      "Symlocation": "",
+      "Bytes": 4191,
+      "Lines": 81,
+      "Code": 22,
+      "Comment": 50,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.pretty_writers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-messages.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-messages.ads",
+      "Symlocation": "",
+      "Bytes": 8552,
+      "Lines": 196,
+      "Code": 83,
+      "Comment": 71,
+      "Blank": 42,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-iqs.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-iqs.ads",
+      "Symlocation": "",
+      "Bytes": 5659,
+      "Lines": 118,
+      "Code": 51,
+      "Comment": 41,
+      "Blank": 26,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects",
+        "xmpp.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-services_features.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-services_features.ads",
+      "Symlocation": "",
+      "Bytes": 3522,
+      "Lines": 55,
+      "Code": 8,
+      "Comment": 41,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-presences.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-presences.adb",
+      "Symlocation": "",
+      "Bytes": 11144,
+      "Lines": 332,
+      "Code": 178,
+      "Comment": 98,
+      "Blank": 56,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xml.sax.attributes",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-networks.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-networks.adb",
+      "Symlocation": "",
+      "Bytes": 9677,
+      "Lines": 286,
+      "Code": 140,
+      "Comment": 95,
+      "Blank": 51,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.exceptions",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-stream_features.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-stream_features.ads",
+      "Symlocation": "",
+      "Bytes": 4733,
+      "Lines": 92,
+      "Code": 34,
+      "Comment": 41,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-streams.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-streams.adb",
+      "Symlocation": "",
+      "Bytes": 5919,
+      "Lines": 147,
+      "Code": 64,
+      "Comment": 65,
+      "Blank": 18,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-networks.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-networks.ads",
+      "Symlocation": "",
+      "Bytes": 5899,
+      "Lines": 121,
+      "Code": 52,
+      "Comment": 48,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "gnat.sockets",
+        "gnutls",
+        "xml.sax.input_sources.streams.sockets",
+        "xml.sax.input_sources.streams.tls_sockets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-versions.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-versions.adb",
+      "Symlocation": "",
+      "Bytes": 6875,
+      "Lines": 191,
+      "Code": 82,
+      "Comment": 74,
+      "Blank": 35,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-services.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-services.adb",
+      "Symlocation": "",
+      "Bytes": 16596,
+      "Lines": 427,
+      "Code": 260,
+      "Comment": 81,
+      "Blank": 86,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-null_objects.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-null_objects.adb",
+      "Symlocation": "",
+      "Bytes": 4248,
+      "Lines": 80,
+      "Code": 25,
+      "Comment": 50,
+      "Blank": 5,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-services_identities.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-services_identities.ads",
+      "Symlocation": "",
+      "Bytes": 4735,
+      "Lines": 109,
+      "Code": 44,
+      "Comment": 42,
+      "Blank": 23,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp.ads",
+      "Symlocation": "",
+      "Bytes": 25261,
+      "Lines": 920,
+      "Code": 318,
+      "Comment": 405,
+      "Blank": 197,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-stream_handlers.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-stream_handlers.ads",
+      "Symlocation": "",
+      "Bytes": 6663,
+      "Lines": 136,
+      "Code": 56,
+      "Comment": 60,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xmpp.iqs",
+        "xmpp.messages",
+        "xmpp.presences",
+        "xmpp.rosters",
+        "xmpp.services",
+        "xmpp.stream_features",
+        "xmpp.streams",
+        "xmpp.versions"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-sessions.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-sessions.adb",
+      "Symlocation": "",
+      "Bytes": 37012,
+      "Lines": 1082,
+      "Code": 655,
+      "Comment": 251,
+      "Blank": 176,
+      "Complexity": 49,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.exceptions",
+        "league.text_codecs",
+        "xml.sax.readers",
+        "xmpp.binds",
+        "xmpp.iq_sessions",
+        "xmpp.logger",
+        "xmpp.messages",
+        "xmpp.mucs",
+        "xmpp.presences",
+        "xmpp.roster_items",
+        "xmpp.rosters",
+        "xmpp.services",
+        "xmpp.services_identities",
+        "xmpp.stream_features",
+        "xmpp.streams",
+        "xmpp.utils",
+        "xmpp.versions"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-streams.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-streams.ads",
+      "Symlocation": "",
+      "Bytes": 4724,
+      "Lines": 90,
+      "Code": 33,
+      "Comment": 41,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.objects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-versions.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-versions.ads",
+      "Symlocation": "",
+      "Bytes": 5828,
+      "Lines": 127,
+      "Code": 50,
+      "Comment": 51,
+      "Blank": 26,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-services_features.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-services_features.adb",
+      "Symlocation": "",
+      "Bytes": 3828,
+      "Lines": 63,
+      "Code": 15,
+      "Comment": 44,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-rosters.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-rosters.ads",
+      "Symlocation": "",
+      "Bytes": 5013,
+      "Lines": 102,
+      "Code": 35,
+      "Comment": 48,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.pretty_writers",
+        "xmpp.iqs",
+        "xmpp.objects",
+        "xmpp.roster_items"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-services_identities.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-services_identities.adb",
+      "Symlocation": "",
+      "Bytes": 6444,
+      "Lines": 128,
+      "Code": 59,
+      "Comment": 52,
+      "Blank": 17,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-stream_features.adb",
+      "Extension": "adb",
+      "Location": "../source/xmpp-stream_features.adb",
+      "Symlocation": "",
+      "Bytes": 6141,
+      "Lines": 148,
+      "Code": 65,
+      "Comment": 65,
+      "Blank": 18,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "xmpp.logger"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xmpp-sessions.ads",
+      "Extension": "ads",
+      "Location": "../source/xmpp-sessions.ads",
+      "Symlocation": "",
+      "Bytes": 11212,
+      "Lines": 259,
+      "Code": 138,
+      "Comment": 69,
+      "Blank": 52,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "xml.sax.attributes",
+        "xml.sax.content_handlers",
+        "xml.sax.declaration_handlers",
+        "xml.sax.dtd_handlers",
+        "xml.sax.entity_resolvers",
+        "xml.sax.error_handlers",
+        "xml.sax.lexical_handlers",
+        "xml.sax.locators",
+        "xml.sax.parse_exceptions",
+        "xml.sax.pretty_writers",
+        "xml.sax.simple_readers",
+        "xml.sax.string_output_destinations",
+        "xmpp.challenges",
+        "xmpp.idle_tasks",
+        "xmpp.iqs",
+        "xmpp.networks",
+        "xmpp.objects",
+        "xmpp.raw_handlers",
+        "xmpp.stream_handlers"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.conversions": 7,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.vectors": 4,
+    "ada.exceptions": 3,
+    "ada.streams": 5,
+    "ada.text_io": 1,
+    "ada.unchecked_conversion": 1,
+    "ada.wide_wide_text_io": 1,
+    "gnat.md5": 1,
+    "gnat.sockets": 2,
+    "gnutls": 2,
+    "league.string_vectors": 2,
+    "league.strings": 21,
+    "league.strings.internals": 1,
+    "league.text_codecs": 1,
+    "matreshka.internals.strings.operations": 1,
+    "matreshka.internals.utf16": 1,
+    "xml.sax.attributes": 6,
+    "xml.sax.content_handlers": 1,
+    "xml.sax.declaration_handlers": 1,
+    "xml.sax.dtd_handlers": 1,
+    "xml.sax.entity_resolvers": 1,
+    "xml.sax.error_handlers": 1,
+    "xml.sax.input_sources.streams.sockets": 1,
+    "xml.sax.input_sources.streams.tls_sockets": 1,
+    "xml.sax.lexical_handlers": 1,
+    "xml.sax.locators": 1,
+    "xml.sax.parse_exceptions": 1,
+    "xml.sax.pretty_writers": 16,
+    "xml.sax.readers": 1,
+    "xml.sax.simple_readers": 1,
+    "xml.sax.string_output_destinations": 1,
+    "xmpp.base64": 1,
+    "xmpp.binds": 1,
+    "xmpp.challenges": 1,
+    "xmpp.idle_tasks": 1,
+    "xmpp.iq_sessions": 1,
+    "xmpp.iqs": 7,
+    "xmpp.logger": 14,
+    "xmpp.messages": 2,
+    "xmpp.mucs": 2,
+    "xmpp.networks": 2,
+    "xmpp.objects": 11,
+    "xmpp.presences": 2,
+    "xmpp.raw_handlers": 1,
+    "xmpp.roster_items": 2,
+    "xmpp.rosters": 2,
+    "xmpp.services": 2,
+    "xmpp.services_features": 1,
+    "xmpp.services_identities": 2,
+    "xmpp.stream_features": 2,
+    "xmpp.stream_handlers": 1,
+    "xmpp.streams": 2,
+    "xmpp.utils": 3,
+    "xmpp.versions": 2
+  }
+}

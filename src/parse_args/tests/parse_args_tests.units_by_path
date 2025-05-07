@@ -1,0 +1,7 @@
+src/parse_args_suite-parse_args_tests.adb
+src/parse_args_suite-parse_args_tests.ads
+src/parse_args_suite.adb
+src/parse_args_suite.ads
+src/parse_args_tests.adb
+src/parse_args-testable.adb
+src/parse_args-testable.ads

@@ -1,0 +1,21 @@
+authors = ["Pascal Pignard"]
+description = "First steps with Gnoga"
+executables = ["hello","hello2","hello3","hello3evt","hello3get","hello3post","hello3post_file","hello4","hello5_av","hello5_iframe","hello5_list","hello6","hello7_local","hello7_session"]
+licenses = "CECILL-2.1"
+maintainers = ["Pascal Pignard <blady.net@orange.fr>"]
+maintainers-logins = ["Blady-Com"]
+name = "ppag"
+tags = ["gnoga","tutorial"]
+version = "2.1.1"
+website = "https://github.com/Blady-Com/Exemples-PPAG"
+
+[[depends-on]]
+gnoga = "*"
+
+[[pins]]
+
+[pins.gnoga]
+path = "../gnoga"
+
+[build-switches."*"]
+Compile_Checks = "none"

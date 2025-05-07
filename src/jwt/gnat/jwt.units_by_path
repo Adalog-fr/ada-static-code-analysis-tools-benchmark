@@ -1,0 +1,7 @@
+../source/jws-integers.adb
+../source/jws-integers.ads
+../source/jws-rs256-read_der.adb
+../source/jws-rs256.adb
+../source/jws-rs256.ads
+../source/jws.adb
+../source/jws.ads

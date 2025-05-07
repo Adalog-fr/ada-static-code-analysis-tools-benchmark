@@ -1,0 +1,19 @@
+name = "tests"
+description = ""
+version = "0.0.0"
+executables = ["main_offsets","main_buffer","main_framed"]
+
+[[depends-on]]
+bbqueue = "*"
+gnatprove = "*"
+
+[[pins]]
+
+[pins.bbqueue]
+path = "../"
+
+[pins.gnatprove]
+path = "../../gnatprove"
+
+[build-switches."*"]
+Compile_Checks = "none"

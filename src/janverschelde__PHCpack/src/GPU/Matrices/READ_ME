@@ -1,0 +1,98 @@
+Data staging algorithms for matrix factorizations at series in PHCv2.4.87.
+
+Operations on vectors and matrices of power series are staged for
+acceleration on graphics processing units.
+
+-----------------------------------------------------------------------------
+file name                 : short description
+-----------------------------------------------------------------------------
+random_matrices           : random vectors and matrices of power series
+dbl_matrices_host         : series matrices on the host in double precision
+dbl_matrices_kernels      : series matrices on the device in double precision
+dbl_vectors_testers       : test functions on series vectors
+test_dbl_vectors          : test on vectors of series in double precision
+dbl_matrices_testers      : test function on series vectors and matrices
+test_dbl_matrices         : test on series matrices in double precision
+-----------------------------------------------------------------------------
+test_upper_jobs           : test on jobs for back substitution
+-----------------------------------------------------------------------------
+dbl_linearization         : linearization of double vectors and matrices
+test_dbl_linearization    : test on linearization in double precision
+-----------------------------------------------------------------------------
+random2_matrices          : random matrices of double doubles
+random4_matrices          : random matrices of quad doubles
+random8_matrices          : random matrices of octo doubles
+-----------------------------------------------------------------------------
+dbl_factorizations        : matrix factorizations in double precision
+dbl2_factorizations       : matrix factorizations in double double precision
+dbl4_factorizations       : matrix factorizations in quad double precision
+dbl8_factorizations       : matrix factorizations in octo double precision
+dbl_factors_testers       : tests double matrix factorizations
+dbl2_factors_testers      : tests double double matrix factorizations
+dbl4_factors_testers      : tests quad double matrix factorizations
+dbl8_factors_testers      : tests octo double matrix factorizations
+test_dbl_factors          : main test on double factorizations
+test_dbl2_factors         : main test on double double factorizations
+test_dbl4_factors         : main test on quad double factorizations
+test_dbl8_factors         : main test on octo double factorizations
+-----------------------------------------------------------------------------
+dbl_tabs_host             : tiled accelerated back substitution on host
+dbl2_tabs_host            : double double tabs on host
+dbl4_tabs_host            : quad double tabs on host
+dbl8_tabs_host            : octo double tabs on host
+dbl_tabs_flopcounts       : counts the flops for all kernels
+dbl_tabs_kernels          : tiled accelerated back substitution on device
+dbl2_tabs_kernels         : double double tabs kernels
+dbl4_tabs_kernels         : quad double tabs kernels
+dbl8_tabs_kernels         : octo double tabs kernels
+dbl_test_utilities        : test utilities in double precision
+dbl2_test_utilities       : test utilities in double double precision
+dbl4_test_utilities       : test utilities in quad double precision
+dbl8_test_utilities       : test utilities in octo double precision
+dbl_data_files            : file reading and writing matrices
+make_data_files           : writes random upper triangular matrices to file
+write_dbl_bstimeflops     : writes times/flops of double back substitution
+write_dbl2_bstimeflops    : writes times/flops of double double back subs
+write_dbl4_bstimeflops    : writes times/flops of quad double back subs
+write_dbl8_bstimeflops    : writes times/flops of octo double back subs
+dbl_tabs_testers          : tests tiled accelerated back substitution
+dbl2_tabs_testers         : tests on double double tabs
+dbl4_tabs_testers         : tests on quad double tabs
+dbl8_tabs_testers         : tests on octo double tabs
+test_dbl_tabs             : main test on accelerated back substitution
+test_dbl2_tabs            : main test on double double tabs
+test_dbl4_tabs            : main test on quad double tabs
+test_dbl8_tabs            : main test on octo double tabs
+-----------------------------------------------------------------------------
+dbl_baqr_host             : blocked qr on host in double precision
+dbl2_baqr_host            : blocked qr on host in double double precision
+dbl4_baqr_host            : blocked qr on host in quad double precision
+dbl8_baqr_host            : blocked qr on host in octo double precision
+dbl_baqr_flopcounts       : counts the flops for all kernels
+dbl_baqr_kernels          : kernels for baqr in double precision
+dbl2_baqr_kernels         : kernels for baqr in double double precision
+dbl4_baqr_kernels         : kernels for baqr in quad double precision
+dbl8_baqr_kernels         : kernels for baqr in octo double precision
+write_dbl_qrtimeflops     : writes times/flops of double Householder QR
+write_dbl2_qrtimeflops    : writes times/flops of double double Householder QR
+write_dbl4_qrtimeflops    : writes times/flops of quad double Householder QR
+write_dbl8_qrtimeflops    : writes times/flops of octo double Householder QR
+dbl_baqr_testers          : tests blocked accelerated qr in double precision
+dbl2_baqr_testers         : tests baqr in double double precision
+dbl4_baqr_testers         : tests baqr in quad double precision
+dbl8_baqr_testers         : tests baqr in octo double precision
+prompt_baqr_setup         : prompts for the parameters in the tests
+test_dbl_baqr             : main test on double blocked accelerated qr
+test_dbl2_baqr            : main test on double double blocked accelerated qr
+test_dbl4_baqr            : main test on quad double blocked accelerated qr
+test_dbl8_baqr            : main test on octo double blocked accelerated qr
+-----------------------------------------------------------------------------
+dbl_qrbs_testers          : tests qr + back substitution in double precision
+dbl2_qrbs_testers         : tests qr + back substitution with double doubles
+dbl4_qrbs_testers         : tests qr + back substitution with quad doubles
+dbl8_qrbs_testers         : tests qr + back substitution with octo doubles
+test_dbl_qrbs             : main test on double qr + back substitution
+test_dbl2_qrbs            : main test on double double qr + back substitution
+test_dbl4_qrbs            : main test on quad double qr + back substitution
+test_dbl8_qrbs            : main test on octo double qr + back substitution
+-----------------------------------------------------------------------------

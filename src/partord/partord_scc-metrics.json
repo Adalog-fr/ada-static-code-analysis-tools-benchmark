@@ -1,0 +1,92 @@
+{
+  "Name": "Ada",
+  "Bytes": 5771,
+  "CodeBytes": 0,
+  "Lines": 175,
+  "Code": 95,
+  "Comment": 52,
+  "Blank": 28,
+  "Complexity": 8,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/partial_order_sorting-array_sort.ads",
+      "Extension": "ads",
+      "Location": "src/partial_order_sorting-array_sort.ads",
+      "Symlocation": "",
+      "Bytes": 2274,
+      "Lines": 50,
+      "Code": 14,
+      "Comment": 33,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/partial_order_sorting-array_sort.adb",
+      "Extension": "adb",
+      "Location": "src/partial_order_sorting-array_sort.adb",
+      "Symlocation": "",
+      "Bytes": 3436,
+      "Lines": 122,
+      "Code": 79,
+      "Comment": 19,
+      "Blank": 24,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/partial_order_sorting.ads",
+      "Extension": "ads",
+      "Location": "src/partial_order_sorting.ads",
+      "Symlocation": "",
+      "Bytes": 61,
+      "Lines": 3,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.doubly_linked_lists": 1
+  }
+}

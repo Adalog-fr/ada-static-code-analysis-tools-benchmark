@@ -1,0 +1,170 @@
+{
+  "Name": "Ada",
+  "Bytes": 45372,
+  "CodeBytes": 0,
+  "Lines": 1361,
+  "Code": 779,
+  "Comment": 332,
+  "Blank": 250,
+  "Complexity": 38,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/bbqueue-buffers-framed.adb",
+      "Extension": "adb",
+      "Location": "src/bbqueue-buffers-framed.adb",
+      "Symlocation": "",
+      "Bytes": 6125,
+      "Lines": 219,
+      "Code": 140,
+      "Comment": 36,
+      "Blank": 43,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/bbqueue-buffers.adb",
+      "Extension": "adb",
+      "Location": "src/bbqueue-buffers.adb",
+      "Symlocation": "",
+      "Bytes": 3446,
+      "Lines": 138,
+      "Code": 92,
+      "Comment": 21,
+      "Blank": 25,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/bbqueue-buffers.ads",
+      "Extension": "ads",
+      "Location": "src/bbqueue-buffers.ads",
+      "Symlocation": "",
+      "Bytes": 6075,
+      "Lines": 178,
+      "Code": 104,
+      "Comment": 42,
+      "Blank": 32,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/bbqueue-buffers-framed.ads",
+      "Extension": "ads",
+      "Location": "src/bbqueue-buffers-framed.ads",
+      "Symlocation": "",
+      "Bytes": 6408,
+      "Lines": 174,
+      "Code": 95,
+      "Comment": 45,
+      "Blank": 34,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/bbqueue.adb",
+      "Extension": "adb",
+      "Location": "src/bbqueue.adb",
+      "Symlocation": "",
+      "Bytes": 8818,
+      "Lines": 283,
+      "Code": 151,
+      "Comment": 77,
+      "Blank": 55,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/bbqueue.ads",
+      "Extension": "ads",
+      "Location": "src/bbqueue.ads",
+      "Symlocation": "",
+      "Bytes": 14500,
+      "Lines": 369,
+      "Code": 197,
+      "Comment": 111,
+      "Blank": 61,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic",
+        "atomic.signed",
+        "system.storage_elements"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "atomic": 2,
+    "atomic.signed": 1,
+    "system.storage_elements": 1
+  }
+}

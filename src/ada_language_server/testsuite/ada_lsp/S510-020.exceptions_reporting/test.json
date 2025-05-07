@@ -1,0 +1,49 @@
+[
+    {
+        "start": {
+            "cmd": ["${ALS}"]
+        }
+    },
+    {
+        "send": {
+            "request": {"jsonrpc":"2.0","id":0,"method":"initialize","params":{
+                "processId":1,
+                "rootUri":"$URI{.}",
+                "capabilities":{}}
+            },
+            "wait":[{
+                "id": 0,
+                "result":{
+                    "capabilities":{
+                        "textDocumentSync": 2,
+                        "referencesProvider":true
+                    }
+                }
+            }]
+        }
+    },  {
+        "send": {
+            "request": {
+                "jsonrpc":"2.0",
+                "id":"references-1",
+                "method":"a method name that does not exist",
+                "params":{}
+            },
+            "comment": " -- we expect an exception here, code -32603",
+            "wait":[{
+                "jsonrpc": "2.0",
+                "id": "references-1",
+                "error": {
+                    "code":-32601,
+                    "message":"<ANY>"
+                }
+            }]
+        }
+    },
+
+    {
+        "stop": {
+            "exit_code": 0
+        }
+    }
+]

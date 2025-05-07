@@ -1,0 +1,239 @@
+{
+  "Name": "Ada",
+  "Bytes": 26396,
+  "CodeBytes": 0,
+  "Lines": 786,
+  "Code": 441,
+  "Comment": 199,
+  "Blank": 146,
+  "Complexity": 36,
+  "Count": 8,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging-filtering.ads",
+      "Extension": "ads",
+      "Location": "src/simple_logging-filtering.ads",
+      "Symlocation": "",
+      "Bytes": 2813,
+      "Lines": 62,
+      "Code": 17,
+      "Comment": 34,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging-decorators.adb",
+      "Extension": "adb",
+      "Location": "src/simple_logging-decorators.adb",
+      "Symlocation": "",
+      "Bytes": 1763,
+      "Lines": 54,
+      "Code": 32,
+      "Comment": 12,
+      "Blank": 10,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "simple_logging.support"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging-decorators.ads",
+      "Extension": "ads",
+      "Location": "src/simple_logging-decorators.ads",
+      "Symlocation": "",
+      "Bytes": 1971,
+      "Lines": 48,
+      "Code": 20,
+      "Comment": 18,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging-support.adb",
+      "Extension": "adb",
+      "Location": "src/simple_logging-support.adb",
+      "Symlocation": "",
+      "Bytes": 640,
+      "Lines": 25,
+      "Code": 14,
+      "Comment": 6,
+      "Blank": 5,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging-filtering.adb",
+      "Extension": "adb",
+      "Location": "src/simple_logging-filtering.adb",
+      "Symlocation": "",
+      "Bytes": 7575,
+      "Lines": 227,
+      "Code": 142,
+      "Comment": 47,
+      "Blank": 38,
+      "Complexity": 21,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.containers.indefinite_ordered_sets",
+        "ada.exceptions",
+        "ada.strings.fixed",
+        "gnat.io",
+        "simple_logging.decorators"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging-support.ads",
+      "Extension": "ads",
+      "Location": "src/simple_logging-support.ads",
+      "Symlocation": "",
+      "Bytes": 511,
+      "Lines": 19,
+      "Code": 6,
+      "Comment": 8,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging.ads",
+      "Extension": "ads",
+      "Location": "src/simple_logging.ads",
+      "Symlocation": "",
+      "Bytes": 4501,
+      "Lines": 116,
+      "Code": 63,
+      "Comment": 29,
+      "Blank": 24,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.strings.unbounded",
+        "gnat.source_info"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/simple_logging.adb",
+      "Extension": "adb",
+      "Location": "src/simple_logging.adb",
+      "Symlocation": "",
+      "Bytes": 6622,
+      "Lines": 235,
+      "Code": 147,
+      "Comment": 45,
+      "Blank": 43,
+      "Complexity": 11,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_multisets",
+        "gnat.io",
+        "simple_logging.decorators",
+        "simple_logging.filtering"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.containers.indefinite_ordered_multisets": 1,
+    "ada.containers.indefinite_ordered_sets": 1,
+    "ada.exceptions": 1,
+    "ada.finalization": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 1,
+    "gnat.io": 2,
+    "gnat.source_info": 1,
+    "simple_logging.decorators": 2,
+    "simple_logging.filtering": 1,
+    "simple_logging.support": 1
+  }
+}

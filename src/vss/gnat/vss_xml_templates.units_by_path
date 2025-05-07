@@ -1,0 +1,14 @@
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_evaluators.adb
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_evaluators.ads
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_namespaces.adb
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_namespaces.ads
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_parsers.adb
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_parsers.ads
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-implementation-template_programs.ads
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-templates-processors.adb
+/workspaces/bench-source/src/vss/source/xml/templates/implementation/vss-xml-templates-proxies-strings.adb
+/workspaces/bench-source/src/vss/source/xml/templates/vss-xml-templates-processors.ads
+/workspaces/bench-source/src/vss/source/xml/templates/vss-xml-templates-proxies-strings.ads
+/workspaces/bench-source/src/vss/source/xml/templates/vss-xml-templates-proxies.ads
+/workspaces/bench-source/src/vss/source/xml/templates/vss-xml-templates-values.ads
+/workspaces/bench-source/src/vss/source/xml/templates/vss-xml-templates.ads

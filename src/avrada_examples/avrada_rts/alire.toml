@@ -1,0 +1,44 @@
+authors = ["Adacore","Rolf Ebert"]
+description = "Minimal run time system (RTS) for AVR 8bit controllers"
+licenses = "GPL-2.0-or-later WITH GCC-exception-3.1"
+maintainers = ["Rolf Ebert <rolf.ebert@gcc.gmx.de>"]
+maintainers-logins = ["RREE"]
+name = "avrada_rts"
+tags = ["avr","embedded","rts"]
+version = "2.0.1"
+website = "https://sourceforge.net/projects/avr-ada/"
+
+[configuration]
+auto_gpr_with = true
+disabled = false
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[configuration.variables.AVR_MCU]
+default = "atmega328p"
+type = "String"
+
+[configuration.variables.Clock_Frequency]
+default = 0
+first = 0
+last = 4294967295
+type = "Integer"
+
+[configuration.variables.Sec_Stack_Size]
+default = 63
+first = 0
+last = 1024
+type = "Integer"
+
+[[depends-on]]
+gnat_avr_elf = "*"
+
+[[pins]]
+
+[pins.gnat_avr_elf]
+path = "../../../compilers/gnat_avr_elf"
+
+[build-switches."*"]
+Compile_Checks = "none"

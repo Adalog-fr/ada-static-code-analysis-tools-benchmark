@@ -1,0 +1,33 @@
+interface for Julia based on the shared object libPHCpack in PHCv2.4.87
+
+This folder was added in release 2.4.86, after the definition
+of phclib.gpr which builds libPHCpack with GPRbuild.
+
+For the Julia code to work, the file ../lib/libPHCpack,
+with the extension .so (Linux), .dll (Windows), or .dylib (Mac OS X)
+must be present.
+
+The module PHCpack.jl is defined by the files in this folder.
+
+-----------------------------------------------------------------------------
+file name              : short description
+-----------------------------------------------------------------------------
+hellophc.jl            : calls the main phctop
+PHCpack.jl             : defines the module PHCpack
+-----------------------------------------------------------------------------
+version.jl             : prints the version string of PHCpack
+setDoubleDimension.jl  : sets the number of polynomials in double precision
+getDoubleDimension.jl  : gets the number of polynomials in double precision
+setDoublePolynomial.jl : sets a polynomial in double precision
+getDoublePolynomial.jl : gets a polynomial in double precision
+setDoubleSystem.jl     : sets a system in double precision
+getDoubleSystem.jl     : gets a system in double precision
+solveDoubleSystem.jl   : solves a system in double precision
+getDoubleSolution.jl   : gets a solution in double precision
+-----------------------------------------------------------------------------
+showVersion.jl         : prints the version
+showDimension.jl       : shows set and get of the dimension
+showPolynomial.jl      : shows set and get of a polynomial
+showSystem.jl          : shows set and get of a system
+showSolve.jl           : shows solving of a system
+-----------------------------------------------------------------------------

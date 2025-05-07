@@ -1,0 +1,257 @@
+{
+  "Name": "Ada",
+  "Bytes": 61254,
+  "CodeBytes": 0,
+  "Lines": 1383,
+  "Code": 581,
+  "Comment": 579,
+  "Blank": 223,
+  "Complexity": 20,
+  "Count": 9,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-factory.adb",
+      "Extension": "adb",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-factory.adb",
+      "Symlocation": "",
+      "Bytes": 4278,
+      "Lines": 76,
+      "Code": 19,
+      "Comment": 47,
+      "Blank": 10,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.sql_drivers.sqlite3.databases"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-queries.ads",
+      "Extension": "ads",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-queries.ads",
+      "Symlocation": "",
+      "Bytes": 5594,
+      "Lines": 108,
+      "Code": 47,
+      "Comment": 44,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.sql_drivers.sqlite3.databases",
+        "matreshka.internals.sql_parameter_sets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-factory.ads",
+      "Extension": "ads",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-factory.ads",
+      "Symlocation": "",
+      "Bytes": 3482,
+      "Lines": 49,
+      "Code": 3,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_parameter_rewriters-sqlite3.ads",
+      "Extension": "ads",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_parameter_rewriters-sqlite3.ads",
+      "Symlocation": "",
+      "Bytes": 4333,
+      "Lines": 65,
+      "Code": 10,
+      "Comment": 51,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-databases.ads",
+      "Extension": "ads",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-databases.ads",
+      "Symlocation": "",
+      "Bytes": 4688,
+      "Lines": 82,
+      "Code": 24,
+      "Comment": 46,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_parameter_rewriters-sqlite3.adb",
+      "Extension": "adb",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_parameter_rewriters-sqlite3.adb",
+      "Symlocation": "",
+      "Bytes": 4680,
+      "Lines": 86,
+      "Code": 23,
+      "Comment": 52,
+      "Blank": 11,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3.ads",
+      "Extension": "ads",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3.ads",
+      "Symlocation": "",
+      "Bytes": 11657,
+      "Lines": 249,
+      "Code": 112,
+      "Comment": 98,
+      "Blank": 39,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-databases.adb",
+      "Extension": "adb",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-databases.adb",
+      "Symlocation": "",
+      "Bytes": 7150,
+      "Lines": 198,
+      "Code": 98,
+      "Comment": 69,
+      "Blank": 31,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "league.strings.internals",
+        "matreshka.internals.sql_drivers.sqlite3.queries",
+        "matreshka.internals.strings.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-queries.adb",
+      "Extension": "adb",
+      "Location": "../source/sql/sqlite3/matreshka-internals-sql_drivers-sqlite3-queries.adb",
+      "Symlocation": "",
+      "Bytes": 15392,
+      "Lines": 470,
+      "Code": 245,
+      "Comment": 129,
+      "Blank": 96,
+      "Complexity": 13,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "league.strings.internals",
+        "matreshka.internals.sql_parameter_rewriters.sqlite3",
+        "matreshka.internals.strings",
+        "matreshka.internals.strings.c"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces.c": 2,
+    "league.strings.internals": 2,
+    "matreshka.internals.sql_drivers.sqlite3.databases": 2,
+    "matreshka.internals.sql_drivers.sqlite3.queries": 1,
+    "matreshka.internals.sql_parameter_rewriters.sqlite3": 1,
+    "matreshka.internals.sql_parameter_sets": 1,
+    "matreshka.internals.strings": 1,
+    "matreshka.internals.strings.c": 2
+  }
+}

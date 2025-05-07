@@ -1,0 +1,8 @@
+/workspaces/bench-source/src/iso/generator/config/generator_config.ads
+/workspaces/bench-source/src/iso/generator/src/common.adb
+/workspaces/bench-source/src/iso/generator/src/common.ads
+/workspaces/bench-source/src/iso/generator/src/countries.adb
+/workspaces/bench-source/src/iso/generator/src/countries.ads
+/workspaces/bench-source/src/iso/generator/src/currencies.adb
+/workspaces/bench-source/src/iso/generator/src/currencies.ads
+/workspaces/bench-source/src/iso/generator/src/generator.adb

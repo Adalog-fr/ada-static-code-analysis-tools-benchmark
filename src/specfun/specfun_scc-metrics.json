@@ -1,0 +1,92 @@
+{
+  "Name": "Ada",
+  "Bytes": 28196,
+  "CodeBytes": 0,
+  "Lines": 818,
+  "Code": 622,
+  "Comment": 44,
+  "Blank": 152,
+  "Complexity": 42,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/specfun-generic_special_functions.ads",
+      "Extension": "ads",
+      "Location": "src/specfun-generic_special_functions.ads",
+      "Symlocation": "",
+      "Bytes": 1306,
+      "Lines": 46,
+      "Code": 27,
+      "Comment": 4,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/specfun.ads",
+      "Extension": "ads",
+      "Location": "src/specfun.ads",
+      "Symlocation": "",
+      "Bytes": 33,
+      "Lines": 3,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/specfun-generic_special_functions.adb",
+      "Extension": "adb",
+      "Location": "src/specfun-generic_special_functions.adb",
+      "Symlocation": "",
+      "Bytes": 26857,
+      "Lines": 769,
+      "Code": 593,
+      "Comment": 40,
+      "Blank": 136,
+      "Complexity": 42,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.generic_elementary_functions"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics.generic_elementary_functions": 1
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "Name": "Ada",
+  "Bytes": 13218,
+  "CodeBytes": 0,
+  "Lines": 327,
+  "Code": 296,
+  "Comment": 2,
+  "Blank": 29,
+  "Complexity": 16,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "server/src/yaml-server.adb",
+      "Extension": "adb",
+      "Location": "server/src/yaml-server.adb",
+      "Symlocation": "",
+      "Bytes": 482,
+      "Lines": 16,
+      "Code": 15,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "gnat.sockets.server",
+        "yaml.servers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "server/src/yaml-servers.adb",
+      "Extension": "adb",
+      "Location": "server/src/yaml-servers.adb",
+      "Symlocation": "",
+      "Bytes": 11394,
+      "Lines": 283,
+      "Code": 258,
+      "Comment": 2,
+      "Blank": 23,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.strings.fixed",
+        "ada.text_io",
+        "yaml.inspect"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "server/src/yaml-servers.ads",
+      "Extension": "ads",
+      "Location": "server/src/yaml-servers.ads",
+      "Symlocation": "",
+      "Bytes": 1342,
+      "Lines": 28,
+      "Code": 23,
+      "Comment": 0,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sockets.connection_state_machine.http_server",
+        "gnat.sockets.server"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.exceptions": 1,
+    "ada.strings.fixed": 1,
+    "ada.text_io": 2,
+    "gnat.sockets.connection_state_machine.http_server": 1,
+    "gnat.sockets.server": 2,
+    "yaml.inspect": 1,
+    "yaml.servers": 1
+  }
+}

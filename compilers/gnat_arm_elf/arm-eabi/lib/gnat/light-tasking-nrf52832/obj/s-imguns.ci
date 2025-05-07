@@ -1,0 +1,4 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/s-imguns.ads"
+node: { title: "system__img_uns__impl__image_unsigned" label: "Image_Unsigned\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/s-imageu.adb:38:4\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "system__img_uns__impl__set_image_unsigned" label: "Set_Image_Unsigned\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/s-imageu.adb:54:4\n20 bytes (static)\n0 dynamic objects" }
+}

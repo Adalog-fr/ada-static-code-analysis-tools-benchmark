@@ -1,0 +1,23 @@
+authors = [
+"Fabien Chouteau <fabien.chouteau@gmail.com>",
+]
+description = "Example for the GESTE game engine"
+licenses = "BSD-3-Clause"
+maintainers = [
+"fabien.chouteau@gmail.com",
+]
+maintainers-logins = [
+"Fabien-Chouteau",
+]
+name = "geste_examples"
+project-files = [
+"platformer/platformer.gpr",
+"RPG/RPG.gpr",
+"racing/racing.gpr",
+]
+version = "1.0.1"
+website = "https://github.com/Fabien-Chouteau/GESTE-examples"
+[[depends-on]]
+geste = "^1.0.0"
+sdlada = "^2.3.1"
+

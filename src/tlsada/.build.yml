@@ -1,0 +1,15 @@
+image: debian/bookworm
+packages:
+  - gnat
+  - gprbuild
+  - libtls-dev
+  - libtls25
+sources:
+  - https://git.sr.ht/~nytpu/tlsada
+tasks:
+  - build: |
+      cd tlsada
+      make
+  - example: |
+      cd tlsada
+      make example

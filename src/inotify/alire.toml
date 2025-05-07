@@ -1,0 +1,18 @@
+authors = ["onox"]
+description = "Monitor filesystem events using Linux' inotify API"
+executables = ["inotify-ada"]
+licenses = "Apache-2.0"
+maintainers = ["onox <denkpadje@gmail.com>"]
+maintainers-logins = ["onox"]
+name = "inotify"
+project-files = ["inotify.gpr","monitor.gpr"]
+tags = ["inotify","linux"]
+version = "2.0.1"
+website = "https://github.com/onox/inotify-ada"
+
+[build-switches."*"]
+style_checks = ["-gnatygAO-Is"]
+Compile_Checks = "none"
+
+[build-switches.validation]
+compile_checks = "warnings"

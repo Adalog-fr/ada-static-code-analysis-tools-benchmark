@@ -1,0 +1,105 @@
+Tue 7 Mar 2017 : added explicit this-> to workspace_host.tpp.
+
+Fri 24 Feb 2017 : path_track.tpp works for a work crew of size one...
+
+Thu 23 Feb 2017 : defined the content of the work items in path_track.tpp.
+
+Wed 22 Feb 2017 : added WorkItem struct in test_jobs.cpp; used explicitly
+  the keyword private in jobqueue.h and worker.h.  Modified the makefile
+  with the flags '-pthread' and '-lpthread' to compile test_jobs.cpp with.
+  Made a first step in adding a work crew version of the manytrack in
+  path_track.h, path_track.tpp, tested by test_path.cpp, with an updated
+  makefile to compile test_path.cpp with the proper flags.
+
+Tue 21 Feb 2017 : the class Worker in worker.h encapsulates pthreads,
+  and is tested by test_worker.cpp.  Added test on work crew model
+  to test_jobs.cpp.
+
+Mon 20 Feb 2017 : new class defined in jobqueue.h, tested by test_jobs.cpp,
+  and updated makefile.
+
+Sun 19 Feb 2017 : extended lib2path.h and lib2path.cpp with functions to call
+  the path trackers with all parameters for the phcpy2c extension module.
+
+Sat 18 Feb 2017 : added get_value() method to parameters.h and parameters.cpp,
+  with calls in lib2path.h and lib2path.cpp.  To lib2path.h and lib2path.cpp,
+  added a function to get the default values for the path parameters.
+  Removed the "extern" in front of the get_default_path_parameters in
+  lib2path.h and lib2path.cpp.
+
+Wed 15 Feb 2017 : lowered the number of Newton steps at the end
+  and lowered the tolerance on the corrector update in parameter.h.
+
+Tue 14 Feb 2017 : updated parameter.h with a new default value for the
+  tolerance on the residual.  Increased the default number of steps.
+
+Sun 12 Feb 2017 : added functions to lib2path.h and lib2path.cpp that allow
+  to pass all 14 path parameters through to the trackers with AD.
+  Fixed bug in the calls in lib2path.cpp for double double and quad doubles.
+
+Sat 11 Feb 2017 : added parameters to the parameter list of path_track
+  in path_track.h and path_track.tpp, so test_path can do path.tune().
+  Added functions to lib2path.h and lib2path.cpp which take in tuned
+  values of the path parameters.
+
+Fri 10 Feb 2017 : move writing and tuning of the parameters from the
+  test_parameter.cpp to a new parameter.cpp file, with added headers
+  to the parameter.h, so writing and tuning belong to the parameter class.
+
+Wed 8 Feb 2017 : new test program test_parameter.cpp to prepare for the
+  interactive tuning of the parameters, implemented by the tune function.
+
+Mon 6 Feb 2017 : stored the t value at the end of the paths in path_host.tpp,
+  path_track.tpp, improved newton_host.tpp, and copied the final value of t
+  to the solutions in the container, in the code of lib2path.cpp.
+
+Sat 4 Feb 2017 : extended parameter.h with a constructor with default values
+  of the parameters, cleaned up path_track.tpp, test_path.cpp,
+  and also test_newton.cpp.  Added default values for double double and 
+  quad double runs in parameter.h, used in path_track.tpp.
+  The new defaults for parameters are used in lib2path.cpp.
+  Improved newton_host.tpp, with a better test in test_newton.cpp.
+
+Thu 2 Feb 2017 : to lib2path.h and lib2path.cpp, added interface functions
+  to be called directly from C++.
+
+Tue 31 Jan 2017 : added tracking of many paths to lib2path.h and lib2path.cpp.
+  To lib2path.h and lib2path.cpp added Newton and the one path tracker.
+
+Mon 30 Jan 2017 : arranged the printing in test_path.cpp so that it takes
+  the working precision into account.  Added description to path_track.h.
+
+Sun 29 Jan 2017 : reading of start system and start solutions added to
+  test_path.cpp.  With code from ade_manypaths_d.cpp in Ada/PHCtoC
+  defined the path_track.h and path_track.cpp, for use in test_path.cpp.
+  
+Sat 28 Jan 2017 : rewrote test_eval.cpp into a templated version,
+  with better separation of tasks in separate functions.
+  Fixed bug in test_eval.cpp, must pass PolySys objects by reference.
+  Updated test_newton.cpp for templates and call by reference.
+  Initial version of predictor_host.h, predictor_host.tpp, path_host,
+  path_host.tpp, tested by test_path.cpp, with updated makefile.
+  Joined ada_test_d, ada_test_dd, and ada_test_qd into lib2path
+  to connect the lib interface to PHCpack to the Path data structures.
+
+Fri 27 Jan 2017 : first templated version of newton_host.h, with the
+  templated code in newton_host.tpp.  Added instructions to the makefile
+  to compile the new test program test_newton.cpp.
+
+Thu 26 Jan 2017 : removed the allocation for the result of the evaluation
+  in test_eval.cpp.  Fixed path_data.h, path_data.tpp, parameter.h,
+  varset.h, eval_host.h, eval_host.tpp, and test_eval.cpp.
+  Defined a templated test program in test_eval.cpp.
+  Placed guards to the delete statements in path_data.h, eval_host.h,
+  and workspace_host.h.  Wrote 2 documentation strings in eval_host.h,
+  to document the top level evaluation and differentiation operations.
+
+Wed 25 Jan 2017 : made a first pass through eval_host.h and eval_host.tpp
+  adding template directives wherever needed.  New test_eval.cpp to
+  evaluate a polynomial system, with make instructions in the makefile.
+
+Tue 24 Jan 2017 : added path_data, copied from Main, where it should not be,
+  because needed by eval_host, and added workspace_host.
+  Copied from Path_CPU the code for varset.h (added templates),
+  also copied parameter.h, and the file eval_host.h (added templates).
+  Renamed eval_host.cpp into eval_host.tpp.

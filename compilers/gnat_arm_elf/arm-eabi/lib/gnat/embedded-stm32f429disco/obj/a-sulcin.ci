@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f429disco/gnat/a-sulcin.adb"
+node: { title: "_ada_ada__strings__unbounded__less_case_insensitive" label: "Less_Case_Insensitive\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f429disco/gnat/a-sulcin.adb:33:1\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "_ada_ada__strings__less_case_insensitive" label: "Less_Case_Insensitive\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f429disco/gnat/a-slcain.ads:30:22" shape : ellipse }
+edge: { sourcename: "_ada_ada__strings__unbounded__less_case_insensitive" targetname: "_ada_ada__strings__less_case_insensitive" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f429disco/gnat/a-sulcin.adb:44:22" }
+}

@@ -1,0 +1,42 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb"
+node: { title: "interfaces__packed_decimal__TpackedBIP" label: "TpackedBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__packed_decimal__int32_to_packed" label: "Int32_To_Packed\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:76:4\n32 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_idivmod" }
+node: { title: "__aeabi_idiv" label: "aeabi_idiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_idiv" }
+node: { title: "__aeabi_uidivmod" label: "aeabi_uidivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_idivmod" }
+node: { title: "__aeabi_uidiv" label: "aeabi_uidiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_uidiv" }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__aeabi_idiv" }
+node: { title: "__gnat_rcheck_CE_Explicit_Raise" label: "gnat_rcheck_CE_Explicit_Raise\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:112:13" }
+edge: { sourcename: "interfaces__packed_decimal__int32_to_packed" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:119:13" }
+node: { title: "interfaces__packed_decimal__int64_to_packed" label: "Int64_To_Packed\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:131:4\n40 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_ldivmod" label: "aeabi_ldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__aeabi_ldivmod" }
+node: { title: "__aeabi_uldivmod" label: "aeabi_uldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__aeabi_uldivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__aeabi_ldivmod" }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:167:13" }
+edge: { sourcename: "interfaces__packed_decimal__int64_to_packed" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:174:13" }
+node: { title: "interfaces__packed_decimal__packed_to_int32" label: "Packed_To_Int32\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:186:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int32" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:204:13" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int32" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:220:13" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int32" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:228:13" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int32" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:241:10" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int32" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:263:10" }
+node: { title: "interfaces__packed_decimal__packed_to_int64" label: "Packed_To_Int64\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:271:4\n72 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int64" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:289:13" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int64" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:305:13" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int64" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:313:13" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int64" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:326:10" }
+edge: { sourcename: "interfaces__packed_decimal__packed_to_int64" targetname: "__gnat_rcheck_CE_Explicit_Raise" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico/gnat/i-pacdec.adb:348:10" }
+}

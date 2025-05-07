@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/s-bbmcpa.adb"
+node: { title: "system__bb__mcu_parameters__is_pwr_stabilized" label: "Is_Pwr_Stabilized\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/s-bbmcpa.ads:51:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__pwr_initialize" label: "Pwr_Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/s-bbmcpa.adb:43:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__pwr_overdrive_enable" label: "Pwr_Overdrive_Enable\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-stm32f4/gnat/s-bbmcpa.adb:55:4\n0 bytes (static)\n0 dynamic objects" }
+}

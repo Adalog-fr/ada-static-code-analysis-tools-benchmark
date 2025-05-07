@@ -1,0 +1,244 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-nlelfu.ads"
+node: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-nlelfu.ads:ada__numerics__long_elementary_functions__arctan.part.0" label: "Part\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:464:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__exceptions__call_last_chance_handler_with_message" label: "Call_Last_Chance_Handler_With_Message\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:40:14" shape : ellipse }
+edge: { sourcename: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-nlelfu.ads:ada__numerics__long_elementary_functions__arctan.part.0" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "ada__numerics__long_elementary_functions__Oexpon" label: "**\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:120:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dcmpun" label: "aeabi_dcmpun\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmpun" }
+node: { title: "__aeabi_dcmple" label: "aeabi_dcmple\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmple" }
+node: { title: "__aeabi_dcmpeq" label: "aeabi_dcmpeq\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmpun" }
+node: { title: "__aeabi_dcmplt" label: "aeabi_dcmplt\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmplt" }
+node: { title: "__gnat_last_chance_handler" label: "gnat_last_chance_handler\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:131:13" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "__aeabi_dcmpeq" }
+node: { title: "pow" label: "Pow\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:393:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__Oexpon" targetname: "pow" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:146:14" }
+node: { title: "ada__numerics__long_elementary_functions__arccos" label: "Arccos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:171:4\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "acos" label: "Acos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:78:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos" targetname: "acos" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:175:12" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "ada__numerics__long_elementary_functions__arccos__2" label: "Arccos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:207:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmpun" }
+node: { title: "__aeabi_dcmpge" label: "aeabi_dcmpge\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmpeq" }
+node: { title: "__aeabi_dmul" label: "aeabi_dmul\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "acos" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:227:14" }
+node: { title: "__aeabi_ddiv" label: "aeabi_ddiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccos__2" targetname: "__aeabi_dmul" }
+node: { title: "ada__numerics__long_elementary_functions__arccosh" label: "Arccosh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:246:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccosh" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccosh" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "acosh" label: "Acosh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:103:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccosh" targetname: "acosh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:251:17" }
+node: { title: "ada__numerics__long_elementary_functions__arccot" label: "Arccot\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:276:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "atan2" label: "Atan2\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:185:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot" targetname: "atan2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:473:14" }
+node: { title: "ada__numerics__long_elementary_functions__arccoth" label: "Arccoth\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:317:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:321:13" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "__aeabi_dcmpgt" label: "aeabi_dcmpgt\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dcmpgt" }
+node: { title: "atanh" label: "Atanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:219:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "atanh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:327:17" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_ddiv" }
+node: { title: "log" label: "Log\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:328:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:333:24" }
+node: { title: "__aeabi_dadd" label: "aeabi_dadd\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dadd" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:333:48" }
+node: { title: "__aeabi_dsub" label: "aeabi_dsub\n<built-in>" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dsub" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dsub" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccoth" targetname: "__aeabi_dmul" }
+node: { title: "ada__numerics__long_elementary_functions__arcsin" label: "Arcsin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:361:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "asin" label: "Asin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:124:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin" targetname: "asin" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:377:14" }
+node: { title: "ada__numerics__long_elementary_functions__arcsin__2" label: "Arcsin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:401:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "asin" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:420:14" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsin__2" targetname: "__aeabi_dmul" }
+node: { title: "ada__numerics__long_elementary_functions__arcsinh" label: "Arcsinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:432:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "asinh" label: "Asinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:149:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arcsinh" targetname: "asinh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:433:7" }
+node: { title: "ada__numerics__long_elementary_functions__arctan" label: "Arctan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:464:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan" targetname: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-nlelfu.ads:ada__numerics__long_elementary_functions__arctan.part.0" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan" targetname: "atan2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:473:14" }
+node: { title: "ada__numerics__long_elementary_functions__arctan__2" label: "Arctan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:502:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "atan2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:538:14" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctan__2" targetname: "__aeabi_ddiv" }
+node: { title: "ada__numerics__long_elementary_functions__arccot__2" label: "Arccot\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:293:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arccot__2" targetname: "ada__numerics__long_elementary_functions__arctan__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:305:17" }
+node: { title: "ada__numerics__long_elementary_functions__arctanh" label: "Arctanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:554:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctanh" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctanh" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctanh" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctanh" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:558:13" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctanh" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__arctanh" targetname: "atanh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:563:17" }
+node: { title: "ada__numerics__long_elementary_functions__cos" label: "Cos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:581:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "cos" label: "Cos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:240:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cos" targetname: "cos" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:583:14" }
+node: { title: "ada__numerics__long_elementary_functions__cosh" label: "Cosh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:620:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "cosh" label: "Cosh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:263:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cosh" targetname: "cosh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:621:7" }
+node: { title: "ada__numerics__long_elementary_functions__cot" label: "Cot\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:635:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:638:10" }
+node: { title: "tan" label: "Tan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:482:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot" targetname: "tan" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:640:23" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot" targetname: "__aeabi_ddiv" }
+node: { title: "ada__numerics__long_elementary_functions__cot__2" label: "Cot\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:656:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "system__fat_lflt__attr_long_float__remainder" label: "Remainder\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-fatgen.ads:77:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "system__fat_lflt__attr_long_float__remainder" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:664:27" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:668:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "tan" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:675:20" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dadd" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cot__2" targetname: "__aeabi_ddiv" }
+node: { title: "ada__numerics__long_elementary_functions__coth" label: "Coth\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:690:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__coth" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__coth" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "tanh" label: "Tanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:502:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__coth" targetname: "tanh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:695:23" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__coth" targetname: "__aeabi_ddiv" }
+node: { title: "ada__numerics__long_elementary_functions__exp" label: "Exp\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:713:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "exp" label: "Exp\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:286:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__exp" targetname: "exp" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:715:14" }
+node: { title: "ada__numerics__long_elementary_functions__log" label: "Log\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:736:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:744:13" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:750:14" }
+node: { title: "ada__numerics__long_elementary_functions__log__2" label: "Log\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:767:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:784:13" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:788:14" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "log" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:788:26" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__log__2" targetname: "__aeabi_ddiv" }
+node: { title: "ada__numerics__long_elementary_functions__sin" label: "Sin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:807:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "sin" label: "Sin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:429:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin" targetname: "sin" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:809:14" }
+node: { title: "ada__numerics__long_elementary_functions__sin__2" label: "Sin\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:826:4\n40 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "system__fat_lflt__attr_long_float__remainder" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:834:27" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dcmpgt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dsub" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "sin" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:846:14" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dadd" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sin__2" targetname: "__aeabi_dmul" }
+node: { title: "ada__numerics__long_elementary_functions__cos__2" label: "Cos\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:600:4\n24 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cos__2" targetname: "ada__numerics__long_elementary_functions__sin__2" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:605:15" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cos__2" targetname: "__aeabi_dmul" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__cos__2" targetname: "__aeabi_dsub" }
+node: { title: "ada__numerics__long_elementary_functions__sinh" label: "Sinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:858:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "sinh" label: "Sinh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:449:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sinh" targetname: "sinh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:859:7" }
+node: { title: "ada__numerics__long_elementary_functions__sqrt" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:881:4\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sqrt" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sqrt" targetname: "__aeabi_dcmplt" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sqrt" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+node: { title: "system__libm_double__sqrt" label: "Sqrt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-libdou.ads:469:13" shape : ellipse }
+edge: { sourcename: "ada__numerics__long_elementary_functions__sqrt" targetname: "system__libm_double__sqrt" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:887:14" }
+node: { title: "ada__numerics__long_elementary_functions__tan" label: "Tan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:905:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan" targetname: "tan" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:907:14" }
+node: { title: "ada__numerics__long_elementary_functions__tan__2" label: "Tan\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:924:4\n32 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_dcmple" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "ada__exceptions__call_last_chance_handler_with_message" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/a-except.adb:95:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "system__fat_lflt__attr_long_float__remainder" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:933:27" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__gnat_last_chance_handler" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:942:10" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_dcmpeq" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "tan" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:949:14" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_dadd" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tan__2" targetname: "__aeabi_dmul" }
+node: { title: "ada__numerics__long_elementary_functions__tanh" label: "Tanh\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:964:4\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__numerics__long_elementary_functions__tanh" targetname: "tanh" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-stm32f469disco/gnat/s-gcmain.adb:965:7" }
+}

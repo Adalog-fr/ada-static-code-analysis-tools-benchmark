@@ -1,0 +1,22 @@
+authors = [
+"Leo Germond",
+]
+description = "Mini Ada Game Engine - A very simple game engine written in Ada"
+licenses = "Apache-2.0"
+maintainers = [
+"Leo Germond <germond@adacore.com>",
+]
+maintainers-logins = [
+"leogermond",
+]
+name = "mage"
+tags = [
+"game",
+"engine",
+"sdl",
+]
+version = "0.5.0"
+website = "www.gitlab.com/leogermond/mage"
+[[depends-on]]
+sdlada = "^2.5.4-1"
+

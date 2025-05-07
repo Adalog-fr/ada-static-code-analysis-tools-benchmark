@@ -1,0 +1,11 @@
+src/fuse-aux.adb
+src/fuse-aux.ads
+src/fuse-general.adb
+src/fuse-general.ads
+src/fuse-main.adb
+src/fuse-main.ads
+src/fuse-operations.ads
+src/fuse.adb
+src/fuse.ads
+src/system/linux64/fuse-system.adb
+src/system/linux64/fuse-system.ads

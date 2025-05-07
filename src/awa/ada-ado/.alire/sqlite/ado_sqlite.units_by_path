@@ -1,0 +1,11 @@
+../../src/sqlite/ado-connections-sqlite.adb
+../../src/sqlite/ado-connections-sqlite.ads
+../../src/sqlite/ado-schemas-sqlite.adb
+../../src/sqlite/ado-schemas-sqlite.ads
+../../src/sqlite/ado-sqlite.adb
+../../src/sqlite/ado-sqlite.ads
+../../src/sqlite/ado-statements-sqlite.adb
+../../src/sqlite/ado-statements-sqlite.ads
+../../src/sqlite/sqlite3_h-perfect_hash.adb
+../../src/sqlite/sqlite3_h-perfect_hash.ads
+../../src/sqlite/sqlite3_h.ads

@@ -1,0 +1,11 @@
+../sources/ada/ada_kernel.adb
+../sources/ada/ada_kernels-config__linux.ads
+../sources/ada/ada_kernels.adb
+../sources/ada/ada_kernels.ads
+../sources/ada/magics-gprbuild_options.adb
+../sources/ada/magics-ls_magic.adb
+../sources/ada/magics-output.adb
+../sources/ada/magics-write_file.adb
+../sources/ada/magics.ads
+../sources/ada/processes.adb
+../sources/ada/processes.ads

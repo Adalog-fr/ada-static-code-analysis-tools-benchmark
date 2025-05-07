@@ -1,0 +1,2 @@
+config/check_pix16_config.ads
+src/check_pix16.adb

@@ -1,0 +1,13 @@
+authors = ["Pascal Pignard"]
+description = "Ada finite-state machine generator"
+executables = ["genauto"]
+licenses = "CECILL-2.1"
+maintainers = ["Pascal Pignard <blady.net@orange.fr>"]
+maintainers-logins = ["Blady-Com"]
+name = "automate"
+tags = ["automaton","generator"]
+version = "2.2.2"
+website = "https://github.com/Blady-Com/Automate"
+
+[build-switches."*"]
+Compile_Checks = "none"

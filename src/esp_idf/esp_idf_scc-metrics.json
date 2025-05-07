@@ -1,0 +1,201 @@
+{
+  "Name": "Ada",
+  "Bytes": 5787,
+  "CodeBytes": 0,
+  "Lines": 204,
+  "Code": 161,
+  "Comment": 1,
+  "Blank": 42,
+  "Complexity": 3,
+  "Count": 7,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/esp.adb",
+      "Extension": "adb",
+      "Location": "src/esp.adb",
+      "Symlocation": "",
+      "Bytes": 465,
+      "Lines": 20,
+      "Code": 17,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/esp_idf_config.ads",
+      "Extension": "ads",
+      "Location": "config/esp_idf_config.ads",
+      "Symlocation": "",
+      "Bytes": 559,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/esp-drivers-gpio.ads",
+      "Extension": "ads",
+      "Location": "src/esp-drivers-gpio.ads",
+      "Symlocation": "",
+      "Bytes": 2167,
+      "Lines": 73,
+      "Code": 60,
+      "Comment": 0,
+      "Blank": 13,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "esp.error"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/esp-error.ads",
+      "Extension": "ads",
+      "Location": "src/esp-error.ads",
+      "Symlocation": "",
+      "Bytes": 1071,
+      "Lines": 30,
+      "Code": 24,
+      "Comment": 0,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/esp.ads",
+      "Extension": "ads",
+      "Location": "src/esp.ads",
+      "Symlocation": "",
+      "Bytes": 60,
+      "Lines": 6,
+      "Code": 4,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/esp-drivers.ads",
+      "Extension": "ads",
+      "Location": "src/esp-drivers.ads",
+      "Symlocation": "",
+      "Bytes": 40,
+      "Lines": 3,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/esp-drivers-led_strip.ads",
+      "Extension": "ads",
+      "Location": "src/esp-drivers-led_strip.ads",
+      "Symlocation": "",
+      "Bytes": 1425,
+      "Lines": 52,
+      "Code": 41,
+      "Comment": 0,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "esp.drivers.gpio",
+        "esp.error",
+        "interfaces",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "esp.drivers.gpio": 1,
+    "esp.error": 2,
+    "interfaces": 1,
+    "interfaces.c": 2,
+    "system": 1
+  }
+}

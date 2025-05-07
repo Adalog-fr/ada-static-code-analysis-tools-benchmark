@@ -1,0 +1,20 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb"
+node: { title: "system__arm_gic__icfgrIP" label: "icfgrIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__Tinterrupts_priorityBIP" label: "Tinterrupts_priorityBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__Tbits32_register_arrayBIP" label: "Tbits32_register_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__Tbyte_register_arrayBIP" label: "Tbyte_register_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__Tbyte_register_array32BIP" label: "Tbyte_register_array32BIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__gicd_peripheralIP" label: "gicd_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__gicc_peripheralIP" label: "gicc_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__to_pri" label: "To_Pri\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:145:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__to_priority" label: "To_Priority\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:160:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__initialize_gicc" label: "Initialize_Gicc\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:173:4\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__initialize_gicd" label: "Initialize_Gicd\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:227:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__define_irq_triggers" label: "Define_Irq_Triggers\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:258:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__install_interrupt_handler" label: "Install_Interrupt_Handler\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:290:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__priority_of_interrupt" label: "Priority_Of_Interrupt\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:312:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__set_current_priority" label: "Set_Current_Priority\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:324:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__power_down" label: "Power_Down\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:333:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__poke_cpu" label: "Poke_Cpu\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:342:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__arm_gic__reg_num_32" label: "Reg_Num_32\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnarl/s-armgic.adb:67:4\n0 bytes (static)\n0 dynamic objects" }
+}

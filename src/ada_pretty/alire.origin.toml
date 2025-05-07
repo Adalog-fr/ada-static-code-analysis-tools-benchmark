@@ -1,0 +1,25 @@
+authors = [
+"Maxim Reznik",
+]
+description = "Ada Pretty Printer Library"
+licenses = "MIT"
+maintainers = [
+"Maxim Reznik <reznikmm@gmail.com>",
+]
+maintainers-logins = [
+"reznikmm",
+]
+name = "ada_pretty"
+project-files = [
+"gnat/ada_pretty.gpr",
+]
+tags = [
+"pretty",
+"printing",
+"generator",
+]
+version = "1.0.0"
+website = "https://github.com/reznikmm/ada-pretty/"
+[[depends-on]]
+matreshka_league = "*"
+

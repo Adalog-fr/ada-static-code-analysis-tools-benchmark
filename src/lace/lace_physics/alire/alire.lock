@@ -1,0 +1,100 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "lace"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = ".."
+[[solution.state]]
+crate = "lace_box2d"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_box2d"
+[[solution.state]]
+crate = "lace_bullet"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_bullet"
+[[solution.state]]
+crate = "lace_c_math"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_c_math"
+[[solution.state]]
+crate = "lace_math"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../lace_math"
+[[solution.state]]
+crate = "lace_shared"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_shared"
+[[solution.state]]
+crate = "lace_swig"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "~0.1.0"
+[solution.state.link]
+lockfiled = true
+path = "../lace_swig"
+[[solution.state]]
+crate = "libbullet"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "*"
+[solution.state.release]
+authors = [
+"Erwin Coumans",
+]
+description = "Bullet physics library."
+licenses = "Zlib"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "libbullet"
+notes = "Provided by system package: libbullet-dev"
+tags = [
+"physics",
+"game",
+"simulation",
+"robotics",
+]
+version = "3.24.0"
+website = "https://pybullet.org"
+[solution.state.release.origin]
+url = "system:libbullet-dev"
+

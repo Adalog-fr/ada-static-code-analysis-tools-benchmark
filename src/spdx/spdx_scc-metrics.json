@@ -1,0 +1,175 @@
+{
+  "Name": "Ada",
+  "Bytes": 82614,
+  "CodeBytes": 0,
+  "Lines": 1974,
+  "Code": 1746,
+  "Comment": 79,
+  "Blank": 149,
+  "Complexity": 34,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spdx-exceptions.adb",
+      "Extension": "adb",
+      "Location": "src/spdx-exceptions.adb",
+      "Symlocation": "",
+      "Bytes": 502,
+      "Lines": 26,
+      "Code": 15,
+      "Comment": 6,
+      "Blank": 5,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spdx-licenses.adb",
+      "Extension": "adb",
+      "Location": "src/spdx-licenses.adb",
+      "Symlocation": "",
+      "Bytes": 498,
+      "Lines": 26,
+      "Code": 15,
+      "Comment": 6,
+      "Blank": 5,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spdx-exceptions.ads",
+      "Extension": "ads",
+      "Location": "src/spdx-exceptions.ads",
+      "Symlocation": "",
+      "Bytes": 7620,
+      "Lines": 145,
+      "Code": 136,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spdx.adb",
+      "Extension": "adb",
+      "Location": "src/spdx.adb",
+      "Symlocation": "",
+      "Bytes": 11605,
+      "Lines": 430,
+      "Code": 272,
+      "Comment": 59,
+      "Blank": 99,
+      "Complexity": 28,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.strings",
+        "ada.strings.fixed",
+        "spdx.exceptions",
+        "spdx.licenses"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spdx.ads",
+      "Extension": "ads",
+      "Location": "src/spdx.ads",
+      "Symlocation": "",
+      "Bytes": 2636,
+      "Lines": 86,
+      "Code": 56,
+      "Comment": 8,
+      "Blank": 22,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spdx-licenses.ads",
+      "Extension": "ads",
+      "Location": "src/spdx-licenses.ads",
+      "Symlocation": "",
+      "Bytes": 59753,
+      "Lines": 1261,
+      "Code": 1252,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.containers.vectors": 1,
+    "ada.strings": 1,
+    "ada.strings.fixed": 1,
+    "spdx.exceptions": 1,
+    "spdx.licenses": 1
+  }
+}

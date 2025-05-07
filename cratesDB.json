@@ -1,0 +1,5011 @@
+{
+  "crates": {
+    "aaa": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/aaa",
+          "projects": [
+            {
+              "gprPath": "src/aaa/aaa.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/aaa/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/aaa"
+    },
+    "ada_fuse": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ada_fuse",
+          "projects": [
+            {
+              "gprPath": "src/ada_fuse/ada_fuse.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ada_fuse"
+    },
+    "ada_language_server": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ada_language_server",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/ada_language_server"
+    },
+    "ada_lua": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ada_lua",
+          "projects": [
+            {
+              "gprPath": "src/ada_lua/ada_lua.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ada_lua"
+    },
+    "ada_pretty": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ada_pretty",
+          "projects": [
+            {
+              "gprPath": "src/ada_pretty/gnat/ada_pretty.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ada_pretty"
+    },
+    "ada_toml": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ada_toml",
+          "projects": [
+            {
+              "gprPath": "src/ada_toml/ada_toml.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ada_toml"
+    },
+    "ada_voxel_space_demo": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ada_voxel_space_demo",
+          "projects": [
+            {
+              "gprPath": "src/ada_voxel_space_demo/ada_voxel_space_demo.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ada_voxel_space_demo"
+    },
+    "adabots": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/adabots",
+          "projects": [
+            {
+              "gprPath": "src/adabots/adabots.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/adabots"
+    },
+    "adacl": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/adacl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/adacl/test",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/adacl"
+    },
+    "adayaml": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/adayaml",
+          "projects": [
+            {
+              "gprPath": "src/adayaml/yaml-annotation_processor.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/adayaml/yaml-server.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/adayaml/yaml-utils.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/adayaml/yaml.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/adayaml"
+    },
+    "adl_middleware": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/adl_middleware",
+          "projects": [
+            {
+              "gprPath": "src/adl_middleware/adl_middleware.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/adl_middleware"
+    },
+    "admpfr": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/admpfr",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/admpfr"
+    },
+    "ado": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/awa/ada-ado",
+          "projects": [
+            {
+              "gprPath": "src/awa/ada-ado/.alire/sqlite/ado_sqlite.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/awa/ada-ado/all",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-ado/mysql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-ado/postgresql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-ado/sqlite",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/awa/ada-ado"
+    },
+    "ado_all": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-ado/all"
+    },
+    "ado_mysql": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-ado/mysql"
+    },
+    "ado_postgresql": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-ado/postgresql"
+    },
+    "ado_sqlite": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-ado/sqlite"
+    },
+    "aflex": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/aflex",
+          "projects": [
+            {
+              "gprPath": "src/aflex/aflex.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/aflex"
+    },
+    "agpl": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/agpl",
+          "projects": [
+            {
+              "gprPath": "src/agpl/agpl.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/agpl"
+    },
+    "aicwl": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/aicwl",
+          "projects": [
+            {
+              "gprPath": "src/aicwl/sources/aicwl-editor.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/aicwl/sources/aicwl.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/aicwl"
+    },
+    "ajunitgen": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ajunitgen",
+          "projects": [
+            {
+              "gprPath": "src/ajunitgen/ajunitgen.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ajunitgen"
+    },
+    "akt": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/awa/ada-keystore/akt",
+          "projects": [
+            {
+              "gprPath": "src/awa/ada-keystore/.alire/keystoreada_tools.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/awa/ada-keystore/akt"
+    },
+    "anagram": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/anagram",
+          "projects": [
+            {
+              "gprPath": "src/anagram/gnat/anagram.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/anagram"
+    },
+    "ansiada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ansiada",
+          "projects": [
+            {
+              "gprPath": "src/ansiada/ansiada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/ansiada/demo",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/ansiada"
+    },
+    "apdf": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/apdf",
+          "projects": [
+            {
+              "gprPath": "src/apdf/pdf_out_gnat_w_gid.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/apdf"
+    },
+    "asfml": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/asfml",
+          "projects": [
+            {
+              "gprPath": "src/asfml/asfml.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/asfml"
+    },
+    "asis": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/asis",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/asis"
+    },
+    "atari_atr_tools": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/atari_atr_tools",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/atari_atr_tools/test",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/atari_atr_tools"
+    },
+    "atomic": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/atomic",
+          "projects": [
+            {
+              "gprPath": "src/atomic/atomic.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/atomic/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/atomic"
+    },
+    "audio_base": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/audio_base",
+          "projects": [
+            {
+              "gprPath": "src/audio_base/audio_base.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/audio_base"
+    },
+    "audio_wavefiles": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/audio_wavefiles",
+          "projects": [
+            {
+              "gprPath": "src/audio_wavefiles/audio_wavefiles.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/audio_wavefiles"
+    },
+    "aunit": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/aunit",
+          "projects": [
+            {
+              "gprPath": "src/aunit/lib/gnat/aunit.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/aunit"
+    },
+    "automate": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/automate",
+          "projects": [
+            {
+              "gprPath": "src/automate/automate.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/automate"
+    },
+    "avltrees": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/avltrees",
+          "projects": [
+            {
+              "gprPath": "src/avltrees/avltrees.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/avltrees"
+    },
+    "avrada_rts": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/avrada_examples/avrada_rts",
+          "projects": [
+            {
+              "gprPath": "src/avrada_examples/avrada_rts/avrada_rts.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/avrada_examples/avrada_rts"
+    },
+    "awa": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/awa",
+          "projects": [
+            {
+              "gprPath": "src/awa/.alire/unit/awa_unit.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/awa/ada-asf",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-asf/unit",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-el",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-keystore",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-lzma",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-security",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-servlet",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-servlet/aws",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-servlet/ews",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-servlet/unit",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-util",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-util/aws",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-util/curl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-util/lzma",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-util/unit",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-util/xml",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/ada-wiki",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/dynamo",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/openapi-ada",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/openapi-ada/server",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/awa/unit",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/awa"
+    },
+    "awa_unit": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/unit"
+    },
+    "aws": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/aws",
+          "projects": [
+            {
+              "gprPath": "src/aws/aws.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/aws"
+    },
+    "axmpp": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/axmpp",
+          "projects": [
+            {
+              "gprPath": "src/axmpp/gnat/axmpp.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/axmpp"
+    },
+    "ayacc": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ayacc",
+          "projects": [
+            {
+              "gprPath": "src/ayacc/ayacc.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ayacc"
+    },
+    "b2ssum": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/b2ssum",
+          "projects": [
+            {
+              "gprPath": "src/b2ssum/b2ssum.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/b2ssum"
+    },
+    "bar_codes": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/bar_codes",
+          "projects": [
+            {
+              "gprPath": "src/bar_codes/bar_codes_gnat.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/bar_codes"
+    },
+    "basalt": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/basalt",
+          "projects": [
+            {
+              "gprPath": "src/basalt/basalt.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/basalt"
+    },
+    "base64": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/base64",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/base64/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/base64"
+    },
+    "bbqueue": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/bbqueue",
+          "projects": [
+            {
+              "gprPath": "src/bbqueue/bbqueue.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/bbqueue/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/bbqueue"
+    },
+    "bingada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/bingada",
+          "projects": [
+            {
+              "gprPath": "src/bingada/bingada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/bingada/libs/ASFML",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/bingada"
+    },
+    "blake2s": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/blake2s",
+          "projects": [
+            {
+              "gprPath": "src/blake2s/blake2s.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/blake2s"
+    },
+    "brackelib": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/brackelib",
+          "projects": [
+            {
+              "gprPath": "src/brackelib/brackelib.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/brackelib/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/brackelib"
+    },
+    "c_strings": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/c_strings",
+          "projects": [
+            {
+              "gprPath": "src/c_strings/c_strings.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/c_strings"
+    },
+    "canberra_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/canberra_ada",
+          "projects": [
+            {
+              "gprPath": "src/canberra_ada/canberra_ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/canberra_ada"
+    },
+    "cbsg": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/cbsg",
+          "projects": [
+            {
+              "gprPath": "src/cbsg/cbsg.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/cbsg"
+    },
+    "chacha20": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/chacha20",
+          "projects": [
+            {
+              "gprPath": "src/chacha20/chacha20.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/chacha20"
+    },
+    "chests": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/chests",
+          "projects": [
+            {
+              "gprPath": "src/chests/chests.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/chests/example",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/chests/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/chests"
+    },
+    "clic": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/clic",
+          "projects": [
+            {
+              "gprPath": "src/clic/clic.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/clic/example",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/clic"
+    },
+    "cmd_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/cmd_ada",
+          "projects": [
+            {
+              "gprPath": "src/cmd_ada/cmd_ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/cmd_ada/example_app",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/cmd_ada"
+    },
+    "cobs": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/cobs",
+          "projects": [
+            {
+              "gprPath": "src/cobs/cobs.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/cobs/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/cobs"
+    },
+    "dashera": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dashera",
+          "projects": [
+            {
+              "gprPath": "src/dashera/dashera.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/dashera"
+    },
+    "dcf": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dcf",
+          "projects": [
+            {
+              "gprPath": "src/dcf/zipdcf/zipdcf.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/dcf/dcf",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/dcf/zipdcf",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/dcf"
+    },
+    "dependency_graph_extractor": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dependency_graph_extractor",
+          "projects": [
+            {
+              "gprPath": "src/dependency_graph_extractor/dependency_graph_extractor.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/dependency_graph_extractor/tests/syntax_examples",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/dependency_graph_extractor"
+    },
+    "dg_loada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dg_loada",
+          "projects": [
+            {
+              "gprPath": "src/dg_loada/dg_loada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/dg_loada"
+    },
+    "dir_iterators": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dir_iterators",
+          "projects": [
+            {
+              "gprPath": "src/dir_iterators/dir_iterators.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/dir_iterators"
+    },
+    "dotenv": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dotenv",
+          "projects": [
+            {
+              "gprPath": "src/dotenv/dotenv.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/dotenv/example",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/dotenv"
+    },
+    "dummyserver": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/dummyserver",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/dummyserver"
+    },
+    "dynamo": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/dynamo"
+    },
+    "eagle_lander": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/eagle_lander",
+          "projects": [
+            {
+              "gprPath": "src/eagle_lander/eagle_lander.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/eagle_lander"
+    },
+    "edc_client": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/edc_client",
+          "projects": [
+            {
+              "gprPath": "src/edc_client/edc_client.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/edc_client"
+    },
+    "eeprom_i2c": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/eeprom_i2c",
+          "projects": [
+            {
+              "gprPath": "src/eeprom_i2c/eeprom_i2c.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/eeprom_i2c"
+    },
+    "elada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-el"
+    },
+    "elevator": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/elevator",
+          "projects": [
+            {
+              "gprPath": "src/elevator/elevator.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/elevator"
+    },
+    "emacs_ada_mode": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/emacs_ada_mode",
+          "projects": [
+            {
+              "gprPath": "src/emacs_ada_mode/emacs_ada_mode.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/emacs_ada_mode"
+    },
+    "emacs_gpr_mode": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/emacs_gpr_mode",
+          "projects": [
+            {
+              "gprPath": "src/emacs_gpr_mode/emacs_gpr_mode.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/emacs_gpr_mode"
+    },
+    "emacs_gpr_query": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/emacs_gpr_query",
+          "projects": [
+            {
+              "gprPath": "src/emacs_gpr_query/emacs_gpr_query.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/emacs_gpr_query"
+    },
+    "emacs_wisi": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/emacs_wisi",
+          "projects": [
+            {
+              "gprPath": "src/emacs_wisitoken_grammar_mode/emacs_wisitoken_grammar_mode.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/emacs_wisitoken_grammar_mode",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/emacs_wisi"
+    },
+    "emacs_wisitoken_grammar_mode": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/emacs_wisitoken_grammar_mode"
+    },
+    "embedded_components": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/embedded_components",
+          "projects": [
+            {
+              "gprPath": "src/embedded_components/embedded_components.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/embedded_components"
+    },
+    "emojis": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/emojis",
+          "projects": [
+            {
+              "gprPath": "src/emojis/emojis.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/emojis/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/emojis"
+    },
+    "endianness": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/endianness",
+          "projects": [
+            {
+              "gprPath": "src/endianness/endianness.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/endianness/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/endianness"
+    },
+    "epoll": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/epoll",
+          "projects": [
+            {
+              "gprPath": "src/epoll/epoll.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/epoll/example",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/epoll"
+    },
+    "esp_idf": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/esp_idf",
+          "projects": [
+            {
+              "gprPath": "src/esp_idf/esp_idf.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/esp_idf"
+    },
+    "euler_tools": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/euler_tools",
+          "projects": [
+            {
+              "gprPath": "src/euler_tools/euler_tools.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/euler_tools/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/euler_tools"
+    },
+    "evdev": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/evdev",
+          "projects": [
+            {
+              "gprPath": "src/evdev/evdev_info.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/evdev/evdev.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/evdev"
+    },
+    "ews": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ews",
+          "projects": [
+            {
+              "gprPath": "src/ews/ews.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/ews/demonstrator",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/ews/generator",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/ews"
+    },
+    "excel_writer": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/excel_writer",
+          "projects": [
+            {
+              "gprPath": "src/excel_writer/excel_out_gnat.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/excel_writer"
+    },
+    "fastpbkdf2_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/fastpbkdf2_ada",
+          "projects": [
+            {
+              "gprPath": "src/fastpbkdf2_ada/fastpbkdf2_ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/fastpbkdf2_ada"
+    },
+    "felix": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/felix",
+          "projects": [
+            {
+              "gprPath": "src/felix/felix.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/felix"
+    },
+    "florist_blady": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/florist_blady",
+          "projects": [
+            {
+              "gprPath": "src/florist_blady/lib_florist.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/florist_blady"
+    },
+    "freetypeada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/freetypeada",
+          "projects": [
+            {
+              "gprPath": "src/freetypeada/freetype.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/freetypeada"
+    },
+    "garlic": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/garlic",
+          "projects": [
+            {
+              "gprPath": "src/garlic/gnat/gnatdist.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/garlic/Dist",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/garlic"
+    },
+    "geo_coords": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/geo_coords",
+          "projects": [
+            {
+              "gprPath": "src/geo_coords/geo_coords.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/geo_coords/examples/distance_bearing_calculation",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/geo_coords/examples/geo_coords_calculation",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/geo_coords/examples/lat_lon_calculation",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/geo_coords"
+    },
+    "geste": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/geste/examples/platformer",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/geste/examples/racing",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/geste/examples/RPG",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/geste/geste_examples",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/geste"
+    },
+    "geste_examples": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/geste/geste_examples"
+    },
+    "get_password": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/get_password",
+          "projects": [
+            {
+              "gprPath": "src/get_password/get_password.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/get_password"
+    },
+    "getopt": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/getopt",
+          "projects": [
+            {
+              "gprPath": "src/getopt/getopt.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/getopt"
+    },
+    "gid": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gid",
+          "projects": [
+            {
+              "gprPath": "src/gid/gid.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gid"
+    },
+    "gnat_arm_elf": {
+      "alireProjects": [],
+      "ignore": true,
+      "path": "compilers/gnat_arm_elf"
+    },
+    "gnat_avr_elf": {
+      "alireProjects": [],
+      "ignore": true,
+      "path": "compilers/gnat_avr_elf"
+    },
+    "gnat_math_extensions": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnat_math_extensions",
+          "projects": [
+            {
+              "gprPath": "src/gnat_math_extensions/gnat_math_extensions.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/gnat_math_extensions/test",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnat_math_extensions"
+    },
+    "gnat_native": {
+      "alireProjects": [],
+      "ignore": true,
+      "path": "compilers/gnat_native"
+    },
+    "gnatcoll": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-core",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-core/gnatcoll.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-core"
+    },
+    "gnatcoll_gmp": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/gmp",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/gmp/gnatcoll_gmp.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/gmp"
+    },
+    "gnatcoll_iconv": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/iconv",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/iconv/gnatcoll_iconv.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-bindings/iconv"
+    },
+    "gnatcoll_lzma": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/lzma",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/lzma/gnatcoll_lzma.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/lzma"
+    },
+    "gnatcoll_omp": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/omp",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/omp/gnatcoll_omp.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/omp"
+    },
+    "gnatcoll_postgres": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-db/postgres",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-db/postgres/gnatcoll_postgres.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-db/postgres"
+    },
+    "gnatcoll_python": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/python",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/python/gnatcoll_python.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-bindings/python"
+    },
+    "gnatcoll_readline": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/readline",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/readline/gnatcoll_readline.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/readline"
+    },
+    "gnatcoll_sql": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-db/sql",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-db/sqlite/gnatcoll_sqlite.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/gnatcoll-db/sqlite",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/gnatcoll-db/sql"
+    },
+    "gnatcoll_sqlite": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/gnatcoll-db/sqlite"
+    },
+    "gnatcoll_syslog": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/syslog",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/syslog/gnatcoll_syslog.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/syslog"
+    },
+    "gnatcoll_xref": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-db/xref",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-db/xref/gnatcoll_xref.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-db/xref"
+    },
+    "gnatcoll_zlip": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatcoll-bindings/zlib",
+          "projects": [
+            {
+              "gprPath": "src/gnatcoll-bindings/zlib/gnatcoll_zlib.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnatcoll-bindings/zlib"
+    },
+    "gnatcov": {
+      "alireProjects": [],
+      "ignore": true,
+      "path": "src/gnatcov"
+    },
+    "gnatdist_garlic": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/garlic/Dist"
+    },
+    "gnatdoc": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnatdoc",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/gnatdoc"
+    },
+    "gnatprove": {
+      "alireProjects": [],
+      "ignore": true,
+      "path": "src/gnatprove"
+    },
+    "gnoga": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gnoga",
+          "projects": [
+            {
+              "gprPath": "src/gnoga/lib_gnoga.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gnoga"
+    },
+    "gpr_unit_provider": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gpr_unit_provider",
+          "projects": [
+            {
+              "gprPath": "src/gpr_unit_provider/gpr_unit_provider.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "GNAT BUG DETECTED",
+      "path": "src/gpr_unit_provider"
+    },
+    "gpr2": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/libgpr2/gpr2"
+    },
+    "gtkada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gtkada",
+          "projects": [
+            {
+              "gprPath": "src/gtkada/src/gtkada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gtkada"
+    },
+    "hac": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/hac",
+          "projects": [
+            {
+              "gprPath": "src/hac/hac.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/hac"
+    },
+    "hal": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/hal",
+          "projects": [
+            {
+              "gprPath": "src/hal/hal.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/hal"
+    },
+    "hangman": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/hangman",
+          "projects": [
+            {
+              "gprPath": "src/hangman/hangman.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/hangman"
+    },
+    "hello": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/hello",
+          "projects": [
+            {
+              "gprPath": "src/hello/hello.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/hello"
+    },
+    "hmac": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/hmac",
+          "projects": [
+            {
+              "gprPath": "src/hmac/hmac.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/hmac"
+    },
+    "honki_tonks_zivilisationen": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/honki_tonks_zivilisationen",
+          "projects": [
+            {
+              "gprPath": "src/honki_tonks_zivilisationen/honki_tonks_zivilisationen.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/honki_tonks_zivilisationen"
+    },
+    "hungarian": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/hungarian",
+          "projects": [
+            {
+              "gprPath": "src/hungarian/hungarian.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/hungarian"
+    },
+    "ini_files": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ini_files",
+          "projects": [
+            {
+              "gprPath": "src/ini_files/ini_files.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ini_files"
+    },
+    "inotify": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/inotify",
+          "projects": [
+            {
+              "gprPath": "src/inotify/inotify.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/inotify/monitor.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/inotify"
+    },
+    "iso": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/iso",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/iso/generator",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/iso/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/iso"
+    },
+    "j2ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/j2ada",
+          "projects": [
+            {
+              "gprPath": "src/j2ada/j2ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/j2ada"
+    },
+    "json": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/json/json",
+          "projects": [
+            {
+              "gprPath": "src/json/json/json_pretty_print.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/json/json/json.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/json/json"
+    },
+    "jupyter_kernel": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/jupyter_kernel",
+          "projects": [
+            {
+              "gprPath": "src/jupyter_kernel/gnat/jupyter_ada_driver.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/jupyter_kernel/gnat/jupyter_ada_kernel.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/jupyter_kernel"
+    },
+    "jwt": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/jwt",
+          "projects": [
+            {
+              "gprPath": "src/jwt/gnat/jwt.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/jwt"
+    },
+    "keystoreada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-keystore"
+    },
+    "labs_radar": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/labs_radar",
+          "projects": [
+            {
+              "gprPath": "src/labs_radar/labs_standalone/labs_standalone.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/labs_radar/labs_standalone",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/labs_radar"
+    },
+    "labs_standalone": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/labs_radar/labs_standalone"
+    },
+    "lace": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/lace",
+          "projects": [
+            {
+              "gprPath": "src/lace/lace_xml/library/xml.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/lace_box2d",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace_bullet",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace_c_math",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace_gel_animation_demo",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace_gel_full_demo",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace_shared",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_collada",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_gel",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_gel/applet/demo/full",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_gel/applet/demo/skinning/rig/human_rig",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_math",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_opengl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_physics",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_swig",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lace/lace_xml",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/lace"
+    },
+    "lace_box2d": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace_box2d"
+    },
+    "lace_bullet": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace_bullet"
+    },
+    "lace_c_math": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace_c_math"
+    },
+    "lace_collada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_collada"
+    },
+    "lace_gel": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_gel"
+    },
+    "lace_gel_animation_demo": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace_gel_animation_demo"
+    },
+    "lace_gel_full_demo": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace_gel_full_demo"
+    },
+    "lace_math": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_math"
+    },
+    "lace_opengl": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_opengl"
+    },
+    "lace_physics": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_physics"
+    },
+    "lace_shared": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace_shared"
+    },
+    "lace_swig": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_swig"
+    },
+    "lace_xml": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lace/lace_xml"
+    },
+    "lal_highlight": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/lal_highlight",
+          "projects": [
+            {
+              "gprPath": "src/lal_highlight/highlight.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/lal_highlight"
+    },
+    "langkit_support": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/langkit_support",
+          "projects": [
+            {
+              "gprPath": "src/langkit_support/langkit_support.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/langkit_support"
+    },
+    "libadalang": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/libadalang",
+          "projects": [
+            {
+              "gprPath": "src/libadalang2xml/libadalang2xml.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/libadalang_tools",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/libadalang2xml",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Contains a file with more than 100k LoC that make huge tree swapping with ASIS.",
+      "path": "src/libadalang"
+    },
+    "libadalang_tools": {
+      "alireProjects": [],
+      "ignore": true,
+      "path": "src/libadalang_tools"
+    },
+    "libadalang2xml": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/libadalang2xml"
+    },
+    "libgnatdoc": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/libgnatdoc",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/libgnatdoc"
+    },
+    "libgpr": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/gprbuild",
+          "projects": [
+            {
+              "gprPath": "src/gprbuild/gpr/gpr.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/gprbuild"
+    },
+    "libgpr2": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/libgpr2",
+          "projects": [
+            {
+              "gprPath": "src/libgpr2/gpr2.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/libgpr2/gpr2",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/libgpr2"
+    },
+    "libhello": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/libhello",
+          "projects": [
+            {
+              "gprPath": "src/libhello/libhello.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/libhello"
+    },
+    "libkeccak": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/libkeccak",
+          "projects": [
+            {
+              "gprPath": "src/libkeccak/libkeccak.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/libkeccak/tests/benchmark",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/libkeccak/tests/kat",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/libkeccak/tests/unit_tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/libkeccak"
+    },
+    "libsimpleio": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/libsimpleio",
+          "projects": [
+            {
+              "gprPath": "src/libsimpleio/libsimpleio.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/libsimpleio"
+    },
+    "linenoise_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/linenoise_ada",
+          "projects": [
+            {
+              "gprPath": "src/linenoise_ada/linenoise.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/linenoise_ada"
+    },
+    "littlefs": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/littlefs",
+          "projects": [
+            {
+              "gprPath": "src/littlefs/littlefs.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/littlefs/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/littlefs"
+    },
+    "lmdb_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/lmdb_ada",
+          "projects": [
+            {
+              "gprPath": "src/lmdb_ada/lmdb.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/lmdb_ada"
+    },
+    "loga": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/loga",
+          "projects": [
+            {
+              "gprPath": "src/loga/loga.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/loga"
+    },
+    "lvgl_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/lvgl_ada",
+          "projects": [
+            {
+              "gprPath": "src/lvgl_ada/lvgl_ada_simulator/lvgl_ada_simulator.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/checks/check_pix1",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/checks/check_pix16",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/checks/check_pix16_swap",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/checks/check_pix32",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/checks/check_pix8",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/lvgl_ada_simulator",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/lvgl_ada/lvgl_ada_simulator/check",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/lvgl_ada"
+    },
+    "lvgl_ada_simulator": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/lvgl_ada/lvgl_ada_simulator"
+    },
+    "lzmada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-lzma"
+    },
+    "mage": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mage",
+          "projects": [
+            {
+              "gprPath": "src/mage_hat/mage_hat.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/mage_hat",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/mage"
+    },
+    "mage_hat": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/mage_hat"
+    },
+    "mandelbrot_ascii": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mandelbrot_ascii",
+          "projects": [
+            {
+              "gprPath": "src/mandelbrot_ascii/mandelbrot_ascii.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/mandelbrot_ascii"
+    },
+    "markdown": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/markdown",
+          "projects": [
+            {
+              "gprPath": "src/markdown/gnat/markdown.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/markdown"
+    },
+    "mathpaqs": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mathpaqs",
+          "projects": [
+            {
+              "gprPath": "src/mathpaqs/mathpaqs.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/mathpaqs"
+    },
+    "matreshka_amf": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_amf_utp.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf_dd",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf_mofext",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf_ocl",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf_uml",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_amf_utp",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf"
+    },
+    "matreshka_amf_dd": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_dd"
+    },
+    "matreshka_amf_mofext": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_mofext"
+    },
+    "matreshka_amf_ocl": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_ocl"
+    },
+    "matreshka_amf_uml": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_uml"
+    },
+    "matreshka_amf_utp": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_amf_utp"
+    },
+    "matreshka_fastcgi": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_fastcgi",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_fastcgi.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_fastcgi"
+    },
+    "matreshka_league": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_league",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/packages/alire/matreshka_league/build_matreshka_league.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_league"
+    },
+    "matreshka_servlet": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_servlet",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_servlet.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_servlet"
+    },
+    "matreshka_soap": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_soap",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_soap_wsse.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_soap_wsse",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_soap"
+    },
+    "matreshka_soap_wsse": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_soap_wsse"
+    },
+    "matreshka_spikedog_api": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_spikedog_api",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_spikedog_api.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_spikedog_api"
+    },
+    "matreshka_spikedog_core": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_spikedog_core",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_spikedog_core.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_spikedog_core"
+    },
+    "matreshka_sql": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_sql",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/gnat/matreshka_sql_sqlite3.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_sql_firebird",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_sql_mysql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_sql_postgresql",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_sql_sqlite3",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql"
+    },
+    "matreshka_sql_firebird": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_firebird"
+    },
+    "matreshka_sql_mysql": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_mysql"
+    },
+    "matreshka_sql_postgresql": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_postgresql"
+    },
+    "matreshka_sql_sqlite3": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_sql_sqlite3"
+    },
+    "matreshka_xml": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/matreshka/packages/alire/matreshka_xml",
+          "projects": [
+            {
+              "gprPath": "src/matreshka/packages/alire/matreshka_xml/build_matreshka_xml.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/matreshka/packages/alire/matreshka_xml"
+    },
+    "mcp2221": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mcp2221",
+          "projects": [
+            {
+              "gprPath": "src/mcp2221/mcp2221.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/mcp2221"
+    },
+    "midi": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/midi",
+          "projects": [
+            {
+              "gprPath": "src/midi/midi.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/midi/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/midi"
+    },
+    "minirest": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/minirest",
+          "projects": [
+            {
+              "gprPath": "src/minirest/minirest.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/minirest"
+    },
+    "mos6502_create_led": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mos6502_create_led",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/mos6502_create_led/test",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/mos6502_create_led"
+    },
+    "mos6502_create_nop": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mos6502_create_nop",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/mos6502_create_nop/test",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/mos6502_create_nop"
+    },
+    "mos6502_create_reset": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/mos6502_create_reset",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/mos6502_create_reset/test",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/mos6502_create_reset"
+    },
+    "ncursesada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ncursesada",
+          "projects": [
+            {
+              "gprPath": "src/ncursesada/Ada95/lib_adacurses.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ncursesada"
+    },
+    "openapi": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/openapi-ada"
+    },
+    "openapi_server": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/openapi-ada/server"
+    },
+    "openglada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/openglada",
+          "projects": [
+            {
+              "gprPath": "src/openglada/openglada_text/opengl-text.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/openglada_glfw",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/openglada_images",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/openglada/openglada_text",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/openglada"
+    },
+    "openglada_glfw": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/openglada_glfw"
+    },
+    "openglada_images": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/openglada_images"
+    },
+    "openglada_text": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/openglada/openglada_text"
+    },
+    "optional": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/optional",
+          "projects": [
+            {
+              "gprPath": "src/optional/optional.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/optional"
+    },
+    "parse_args": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/parse_args",
+          "projects": [
+            {
+              "gprPath": "src/parse_args/parse_args.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/parse_args/examples",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/parse_args/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/parse_args"
+    },
+    "partord": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/partord",
+          "projects": [
+            {
+              "gprPath": "src/partord/partord.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/partord"
+    },
+    "pbkdf2": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/pbkdf2",
+          "projects": [
+            {
+              "gprPath": "src/pbkdf2/pbkdf2.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/pbkdf2/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/pbkdf2"
+    },
+    "phcpack": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/janverschelde__PHCpack",
+          "projects": [
+            {
+              "gprPath": "src/janverschelde__PHCpack/main.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/janverschelde__PHCpack"
+    },
+    "play_2048": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/play_2048",
+          "projects": [
+            {
+              "gprPath": "src/play_2048/play_2048.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/play_2048"
+    },
+    "powerjoular": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/powerjoular",
+          "projects": [
+            {
+              "gprPath": "src/powerjoular/powerjoular.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/powerjoular"
+    },
+    "ppag": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/ppag",
+          "projects": [
+            {
+              "gprPath": "src/ppag/ppag.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/ppag"
+    },
+    "progress_indicators": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/progress_indicators",
+          "projects": [
+            {
+              "gprPath": "src/progress_indicators/progress_indicators.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/progress_indicators"
+    },
+    "protobuf": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/protobuf",
+          "projects": [
+            {
+              "gprPath": "src/protobuf/gnat/protoc_gen_ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/protobuf"
+    },
+    "pygamer_simulator": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/pygamer_simulator",
+          "projects": [
+            {
+              "gprPath": "src/pygamer_simulator/pygamer_simulator.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/pygamer_simulator"
+    },
+    "qoi": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/qoi",
+          "projects": [
+            {
+              "gprPath": "src/qoi/qoi.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/qoi/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/qoi"
+    },
+    "raspberry_bsp": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/raspberry_bsp",
+          "projects": [
+            {
+              "gprPath": "src/raspberry_bsp/raspberry_bsp.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/raspberry_bsp"
+    },
+    "rejuvenation": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/rejuvenation",
+          "projects": [
+            {
+              "gprPath": "src/rejuvenation/rejuvenation.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/examples",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/find_and_replace_tool",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/find_tool",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/generator-developers_only",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/tests",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/workshop",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rejuvenation/workshop/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/rejuvenation"
+    },
+    "remoteio": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/remoteio",
+          "projects": [
+            {
+              "gprPath": "src/remoteio/remoteio.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/remoteio"
+    },
+    "resources": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/resources",
+          "projects": [
+            {
+              "gprPath": "src/resources/resources.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/resources/tests",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/resources/tests/lib_a",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/resources"
+    },
+    "rewriters": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/rewriters",
+          "projects": [
+            {
+              "gprPath": "src/rewriters/rewriters.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/rewriters/code_reviewer",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/rewriters/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/rewriters"
+    },
+    "rsfile": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/rsfile",
+          "projects": [
+            {
+              "gprPath": "src/rsfile/rsfile.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/rsfile"
+    },
+    "rtmidi": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/rtmidi",
+          "projects": [
+            {
+              "gprPath": "src/rtmidi/rtmidi.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/rtmidi/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/rtmidi"
+    },
+    "rxada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/rxada",
+          "projects": [
+            {
+              "gprPath": "src/rxada/rxada.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/rxada"
+    },
+    "saatana": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/saatana",
+          "projects": [
+            {
+              "gprPath": "src/saatana/saatana.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/saatana"
+    },
+    "scripted_testing": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/scripted_testing",
+          "projects": [
+            {
+              "gprPath": "src/scripted_testing/scripted_testing.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/scripted_testing/test",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/scripted_testing"
+    },
+    "sdlada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/sdlada",
+          "projects": [
+            {
+              "gprPath": "src/sdlada/build/gnat/sdlada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/sdlada"
+    },
+    "security": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-security"
+    },
+    "semantic_versioning": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/semantic_versioning",
+          "projects": [
+            {
+              "gprPath": "src/semantic_versioning/semantic_versioning.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/semantic_versioning"
+    },
+    "septum": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/septum",
+          "projects": [
+            {
+              "gprPath": "src/septum/septum.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/septum/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/septum"
+    },
+    "serverfaces": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-asf"
+    },
+    "serverfaces_unit": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-asf/unit"
+    },
+    "servletada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-servlet"
+    },
+    "servletada_aws": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-servlet/aws"
+    },
+    "servletada_ews": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-servlet/ews"
+    },
+    "servletada_unit": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-servlet/unit"
+    },
+    "sha1": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/sha1",
+          "projects": [
+            {
+              "gprPath": "src/sha1/sha1.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/sha1/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/sha1"
+    },
+    "sha2": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/sha2",
+          "projects": [
+            {
+              "gprPath": "src/sha2/sha2.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/sha2/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "ASIS BUG DETECTED",
+      "path": "src/sha2"
+    },
+    "si_units": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/si_units",
+          "projects": [
+            {
+              "gprPath": "src/si_units/si_units.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/si_units"
+    },
+    "simh_tapes": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/simh_tapes",
+          "projects": [
+            {
+              "gprPath": "src/simh_tapes/simh_tapes.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/simh_tapes/simhtapetool",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/simh_tapes"
+    },
+    "simple_components": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/simple_components",
+          "projects": [
+            {
+              "gprPath": "src/simple_components/components-connections_server-elv_max_cube.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server-http_server-sqlite_browser.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server-http_server.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server-modbus.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server-mqtt.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server-secure.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server-smtp.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-connections_server.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-gnutls.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/simple_components/components-ntp.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/simple_components/components-sqlite.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/simple_components/components.gpr",
+              "ignore": false,
+              "ignoreReason": "AdaCtl issue: thick_queries.adb:6692 length check failed",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/simple_components/strings_edit.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/simple_components/tables.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/simple_components"
+    },
+    "simple_logging": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/simple_logging",
+          "projects": [
+            {
+              "gprPath": "src/simple_logging/simple_logging.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/simple_logging"
+    },
+    "slip": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/slip",
+          "projects": [
+            {
+              "gprPath": "src/slip/slip.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/slip"
+    },
+    "socketcan": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/socketcan",
+          "projects": [
+            {
+              "gprPath": "src/socketcan/src/socketcan.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/socketcan"
+    },
+    "spark_unbound": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/spark_unbound",
+          "projects": [
+            {
+              "gprPath": "src/spark_unbound/spark_unbound.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/spark_unbound/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/spark_unbound"
+    },
+    "sparknacl": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/sparknacl",
+          "projects": [
+            {
+              "gprPath": "src/sparknacl/sparknacl.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/sparknacl"
+    },
+    "spat": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/spat",
+          "projects": [
+            {
+              "gprPath": "src/spat/spat.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/spat"
+    },
+    "spawn": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/spawn",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/spawn/packages/glib",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/spawn/spawn_glib",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/spawn/spawn_glib/packages/glib",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/spawn"
+    },
+    "spawn_glib": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/spawn/spawn_glib"
+    },
+    "spdx": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/spdx",
+          "projects": [
+            {
+              "gprPath": "src/spdx/spdx.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/spdx"
+    },
+    "specfun": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/specfun",
+          "projects": [
+            {
+              "gprPath": "src/specfun/specfun.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/specfun"
+    },
+    "spoon": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/spoon",
+          "projects": [
+            {
+              "gprPath": "src/spoon/spoon.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/spoon"
+    },
+    "startup_gen": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/startup_gen",
+          "projects": [
+            {
+              "gprPath": "src/startup_gen/startup_gen.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/startup_gen"
+    },
+    "stephes_ada_library": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/stephes_ada_library",
+          "projects": [
+            {
+              "gprPath": "src/stephes_ada_library/build/stephes_ada_library.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/stephes_ada_library"
+    },
+    "stopwatch": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/stopwatch",
+          "projects": [
+            {
+              "gprPath": "src/stopwatch/stopwatch.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/stopwatch"
+    },
+    "svd2ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/svd2ada",
+          "projects": [
+            {
+              "gprPath": "src/svd2ada/svd2ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/svd2ada"
+    },
+    "system_random": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/system_random",
+          "projects": [
+            {
+              "gprPath": "src/system_random/system_random.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/system_random/example",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/system_random"
+    },
+    "tash": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/tash",
+          "projects": [
+            {
+              "gprPath": "src/tash/tash.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/tash/demos",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/tash/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/tash"
+    },
+    "task_coroutines": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/task_coroutines",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/task_coroutines/tests",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/task_coroutines"
+    },
+    "templates_parser": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/templates_parser",
+          "projects": [
+            {
+              "gprPath": "src/templates_parser/templates_parser.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/templates_parser"
+    },
+    "tiled_code_gen": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/tiled_code_gen",
+          "projects": [
+            {
+              "gprPath": "src/tiled_code_gen/tiled_code_gen.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/tiled_code_gen"
+    },
+    "tiny_text": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/tiny_text",
+          "projects": [
+            {
+              "gprPath": "src/tiny_text/tiny_text.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/tiny_text"
+    },
+    "tlsada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/tlsada",
+          "projects": [
+            {
+              "gprPath": "src/tlsada/tlsada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/tlsada"
+    },
+    "toml_slicer": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/toml_slicer",
+          "projects": [
+            {
+              "gprPath": "src/toml_slicer/toml_slicer.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/toml_slicer"
+    },
+    "trendy_terminal": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/trendy_terminal",
+          "projects": [
+            {
+              "gprPath": "src/trendy_terminal/trendy_terminal.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/trendy_terminal/example",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/trendy_terminal/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/trendy_terminal"
+    },
+    "trendy_test": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/trendy_test",
+          "projects": [
+            {
+              "gprPath": "src/trendy_test/trendy_test.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/trendy_test"
+    },
+    "uri_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/uri_ada",
+          "projects": [
+            {
+              "gprPath": "src/uri_ada/uri_ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/uri_ada"
+    },
+    "uri_mime": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/uri_mime",
+          "projects": [
+            {
+              "gprPath": "src/uri_mime/uri_mime.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/uri_mime"
+    },
+    "usb_embedded": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/usb_embedded",
+          "projects": [
+            {
+              "gprPath": "src/usb_embedded/usb_embedded.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": false,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/usb_embedded/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/usb_embedded"
+    },
+    "utf8test": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/utf8test",
+          "projects": [
+            {
+              "gprPath": "src/utf8test/utf8test.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/utf8test"
+    },
+    "utilada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-util"
+    },
+    "utilada_aws": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-util/aws"
+    },
+    "utilada_curl": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-util/curl"
+    },
+    "utilada_lzma": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-util/lzma"
+    },
+    "utilada_unit": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-util/unit"
+    },
+    "utilada_xml": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-util/xml"
+    },
+    "uxstrings": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/uxstrings",
+          "projects": [
+            {
+              "gprPath": "src/uxstrings/lib_uxstrings1.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/uxstrings/lib_uxstrings2.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            },
+            {
+              "gprPath": "src/uxstrings/lib_uxstrings3.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/uxstrings"
+    },
+    "vaton": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/vaton",
+          "projects": [
+            {
+              "gprPath": "src/vaton/vaton.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/vaton/tests",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/vaton"
+    },
+    "virtapu": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/virtapu",
+          "projects": [
+            {
+              "gprPath": "src/virtapu/virtapu.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/virtapu"
+    },
+    "vss": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/vss",
+          "projects": []
+        },
+        {
+          "alireTomlPath": "src/vss/tools/json_schema",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "path": "src/vss"
+    },
+    "weechat_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/weechat_ada",
+          "projects": [
+            {
+              "gprPath": "src/weechat_ada/weechat_ada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/weechat_ada"
+    },
+    "wikiada": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/awa/ada-wiki"
+    },
+    "wisitoken": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/wisitoken",
+          "projects": [
+            {
+              "gprPath": "src/wisitoken/build/wisitoken_alire_mains.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/wisitoken/build/wisitoken_alire.gpr",
+              "ignore": true,
+              "ignoreReason": "Incomplete Neo4j DB files (Cogralys fails) or AdaControl error",
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": false
+            }
+          ]
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/wisitoken"
+    },
+    "wordle": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/wordle",
+          "projects": [
+            {
+              "gprPath": "src/wordlelib/wordlelib.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/wordlelib",
+          "projects": []
+        }
+      ],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/wordle"
+    },
+    "wordlelib": {
+      "alireProjects": [],
+      "ignore": true,
+      "ignoreReason": "Ada 2022 feature",
+      "path": "src/wordlelib"
+    },
+    "wordlist": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/wordlist",
+          "projects": [
+            {
+              "gprPath": "src/wordlist/wordlist.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/wordlist/demo",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/wordlist"
+    },
+    "workers": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/workers",
+          "projects": [
+            {
+              "gprPath": "src/workers/workers.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/workers"
+    },
+    "xdg_base_dir": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/xdg_base_dir",
+          "projects": [
+            {
+              "gprPath": "src/xdg_base_dir/xdg_base_dir.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/xdg_base_dir"
+    },
+    "xia": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/xia",
+          "projects": [
+            {
+              "gprPath": "src/xia/XIA.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/xia/test",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/xia"
+    },
+    "xml_ez_out": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/xml_ez_out",
+          "projects": [
+            {
+              "gprPath": "src/xml_ez_out/xml_ez_out.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/xml_ez_out"
+    },
+    "xmlada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/xmlada",
+          "projects": [
+            {
+              "gprPath": "src/xmlada/distrib/xmlada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/xmlada/dom/xmlada_dom.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/xmlada/input_sources/xmlada_input.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/xmlada/sax/xmlada_sax.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/xmlada/schema/xmlada_schema.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            },
+            {
+              "gprPath": "src/xmlada/unicode/xmlada_unicode.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/xmlada"
+    },
+    "xoshiro": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/xoshiro",
+          "projects": [
+            {
+              "gprPath": "src/xoshiro/xoshiro.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/xoshiro"
+    },
+    "yeison": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/yeison",
+          "projects": [
+            {
+              "gprPath": "src/yeison/yeison.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        },
+        {
+          "alireTomlPath": "src/yeison/demo",
+          "projects": []
+        }
+      ],
+      "ignore": false,
+      "path": "src/yeison"
+    },
+    "zeromq_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/zeromq_ada",
+          "projects": [
+            {
+              "gprPath": "src/zeromq_ada/zmq.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/zeromq_ada"
+    },
+    "zipada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/zipada",
+          "projects": [
+            {
+              "gprPath": "src/zipada/zipada.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/zipada"
+    },
+    "zipdcf": {
+      "alireProjects": [],
+      "ignore": false,
+      "path": "src/dcf/zipdcf"
+    },
+    "zlib_ada": {
+      "alireProjects": [
+        {
+          "alireTomlPath": "src/zlib_ada",
+          "projects": [
+            {
+              "gprPath": "src/zlib_ada/zlib.gpr",
+              "ignore": false,
+              "isAdaCtlComplete": true,
+              "isNeo4jDbFilesComplete": true
+            }
+          ]
+        }
+      ],
+      "ignore": false,
+      "path": "src/zlib_ada"
+    }
+  },
+  "ignoredCrates": [
+    "curl",
+    "feather_rp2040_bsp",
+    "gcc",
+    "gnat",
+    "lib_a",
+    "libblas",
+    "libbullet",
+    "libcanberra",
+    "libcsfml",
+    "libexpat",
+    "libfbclient",
+    "libfreetype",
+    "libfuse",
+    "libglfw3",
+    "libgmp",
+    "libgnutls",
+    "libgomp",
+    "libgsl",
+    "libgtk3",
+    "libhidapi",
+    "liblapack",
+    "liblua",
+    "liblzma",
+    "libmariadb",
+    "libmpfr",
+    "libmysqlclient",
+    "libpq",
+    "libpython2dev",
+    "libpython3dev",
+    "libreadline",
+    "librtmidi",
+    "libsdl2",
+    "libsdl2_image",
+    "libsdl2_ttf",
+    "libsqlite3",
+    "libtcl",
+    "libtk",
+    "libtls",
+    "libusb",
+    "libwayland",
+    "libx11",
+    "libzmq",
+    "m4_tool",
+    "make",
+    "openssl",
+    "pkg_config",
+    "postgresql",
+    "re2c",
+    "unixodbc",
+    "workshop",
+    "zlib"
+  ]
+}

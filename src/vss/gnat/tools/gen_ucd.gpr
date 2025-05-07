@@ -1,0 +1,26 @@
+--
+--  Copyright (C) 2021, AdaCore
+--
+--  SPDX-License-Identifier: Apache-2.0
+--
+
+with "../vss_config";
+
+project Gen_UCD is
+
+   for Languages use ("Ada");
+   for Object_Dir use VSS_Config.Tools_Object_Dir;
+   for Source_Dirs use
+     ("../../tools/gen_ucd",
+      "../../tools/ucd");
+   for Main use ("gen_ucd-driver.adb");
+
+   package Compiler renames VSS_Config.Compiler;
+
+   package Linker renames VSS_Config.Linker;
+
+   package Builder is
+      for Executable ("gen_ucd-driver.adb") use "gen_ucd";
+   end Builder;
+
+end Gen_UCD;

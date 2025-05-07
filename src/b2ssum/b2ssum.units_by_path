@@ -1,0 +1,6 @@
+bin/b2ssum.adb
+bin/b2stest.adb
+bin/spaiosta.adb
+bin/spaiosta.ads
+bin/spark_io.adb
+bin/spark_io.ads

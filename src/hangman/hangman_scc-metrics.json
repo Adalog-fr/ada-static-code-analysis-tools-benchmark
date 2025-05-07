@@ -1,0 +1,95 @@
+{
+  "Name": "Ada",
+  "Bytes": 14711,
+  "CodeBytes": 0,
+  "Lines": 527,
+  "Code": 412,
+  "Comment": 37,
+  "Blank": 78,
+  "Complexity": 23,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "hangmain.adb",
+      "Extension": "adb",
+      "Location": "hangmain.adb",
+      "Symlocation": "",
+      "Bytes": 2787,
+      "Lines": 115,
+      "Code": 97,
+      "Comment": 5,
+      "Blank": 13,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "hangman.adb",
+      "Extension": "adb",
+      "Location": "hangman.adb",
+      "Symlocation": "",
+      "Bytes": 9314,
+      "Lines": 332,
+      "Code": 271,
+      "Comment": 11,
+      "Blank": 50,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.integer_text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "hangman.ads",
+      "Extension": "ads",
+      "Location": "hangman.ads",
+      "Symlocation": "",
+      "Bytes": 2610,
+      "Lines": 80,
+      "Code": 44,
+      "Comment": 21,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.integer_text_io": 1,
+    "ada.strings.unbounded": 1
+  }
+}

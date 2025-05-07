@@ -1,0 +1,10 @@
+input_sources-file.adb
+input_sources-file.ads
+input_sources-http.adb
+input_sources-http.ads
+input_sources-socket.adb
+input_sources-socket.ads
+input_sources-strings.adb
+input_sources-strings.ads
+input_sources.adb
+input_sources.ads

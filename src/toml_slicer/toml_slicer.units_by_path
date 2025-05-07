@@ -1,0 +1,3 @@
+config/toml_slicer_config.ads
+src/toml_slicer.adb
+src/toml_slicer.ads

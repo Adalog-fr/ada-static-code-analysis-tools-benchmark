@@ -1,0 +1,188 @@
+{
+  "Name": "Ada",
+  "Bytes": 24400,
+  "CodeBytes": 0,
+  "Lines": 680,
+  "Code": 570,
+  "Comment": 10,
+  "Blank": 100,
+  "Complexity": 29,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha2_generic_64.ads",
+      "Extension": "ads",
+      "Location": "src/sha2_generic_64.ads",
+      "Symlocation": "",
+      "Bytes": 4144,
+      "Lines": 103,
+      "Code": 87,
+      "Comment": 0,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha2_generic.ads",
+      "Extension": "ads",
+      "Location": "src/sha2_generic.ads",
+      "Symlocation": "",
+      "Bytes": 2966,
+      "Lines": 76,
+      "Code": 61,
+      "Comment": 0,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "sha2_generic_32",
+        "sha2_generic_64"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha2.ads",
+      "Extension": "ads",
+      "Location": "src/sha2.ads",
+      "Symlocation": "",
+      "Bytes": 230,
+      "Lines": 9,
+      "Code": 7,
+      "Comment": 0,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "sha2_generic"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha2_generic_32.adb",
+      "Extension": "adb",
+      "Location": "src/sha2_generic_32.adb",
+      "Symlocation": "",
+      "Bytes": 6758,
+      "Lines": 200,
+      "Code": 170,
+      "Comment": 5,
+      "Blank": 25,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "gnat.byte_swapping",
+        "system"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha2_generic_32.ads",
+      "Extension": "ads",
+      "Location": "src/sha2_generic_32.ads",
+      "Symlocation": "",
+      "Bytes": 2959,
+      "Lines": 79,
+      "Code": 63,
+      "Comment": 0,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha2_generic_64.adb",
+      "Extension": "adb",
+      "Location": "src/sha2_generic_64.adb",
+      "Symlocation": "",
+      "Bytes": 7343,
+      "Lines": 213,
+      "Code": 182,
+      "Comment": 5,
+      "Blank": 26,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "gnat.byte_swapping",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "ada.unchecked_conversion": 2,
+    "gnat.byte_swapping": 2,
+    "interfaces": 3,
+    "sha2_generic": 1,
+    "sha2_generic_32": 1,
+    "sha2_generic_64": 1,
+    "system": 2
+  }
+}

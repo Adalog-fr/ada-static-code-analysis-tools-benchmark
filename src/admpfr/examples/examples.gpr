@@ -1,0 +1,16 @@
+with "admpfr.gpr";
+
+project Examples is
+
+   for Source_Dirs use (".");
+   for Main use ("main.adb", "sample.adb", "can_round.adb", "divworst.adb");
+   for Object_Dir use "obj";
+
+   --  Admpfr implements some Ada 2022 features, turn on this flag if you want
+   --  to use them.
+
+   --  package Compiler is
+   --     for Switches ("Ada") use ("-gnat2022");
+   --  end Compiler;
+
+end Examples;

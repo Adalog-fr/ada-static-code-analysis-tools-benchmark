@@ -1,0 +1,25 @@
+authors = [
+"Gautier de Montmollin",
+]
+description = "Portable package for producing dynamically PDF documents"
+licenses = "MIT"
+maintainers = [
+"gdemont@hotmail.com",
+]
+maintainers-logins = [
+"zertovitch",
+"Fabien-Chouteau",
+]
+name = "apdf"
+project-files = [
+"pdf_out_gnat_w_gid.gpr",
+]
+version = "5.0.3"
+[gpr-externals]
+PDF_Build_Mode = [
+"Debug",
+"Fast",
+]
+[[depends-on]]
+gid = ">=9.0.0"
+

@@ -1,0 +1,94 @@
+abstract project Settings is
+
+   type Build_Type is ("Debug", "Release", "Profile");
+   Build : Build_Type := external ("PRJ_BUILD", "Debug");
+
+   type Target_Type is ("Windows", "Windows_NT", "Linux", "unix", "OSX", "FreeBSD");
+   Build_Target : Target_Type := external ("PRJ_TARGET", "unix");
+
+   Obj_Dir := Settings'Project_Dir & "obj";
+   Exe_Dir := Settings'Project_Dir & "bin";
+   Lib_Dir := Settings'Project_Dir & "lib";
+
+   for Create_Missing_Dirs use "True";
+
+   --------------
+   -- Compiler --
+   --------------
+
+   Common_Options := ("-gnaty3abcefhiklM120nOprsStu", "-gnat2012", "-gnatW8", "-gnatU");
+   --  Common options used for the build modes
+
+   Debug_Options := ("-g", "-gnata", "-gnatq", "-gnatQ", "-gnatw.eH.YD.N", "-gnatVaep", "-gnato",
+                     "-fstack-check", "-gnatf", "-gnateE", "-gnateF", "-Wall");
+
+   Release_Options := ("-O2", "-gnatp", "-gnatn");
+
+   package Compiler is
+      case Build is
+         when "Debug" =>
+            for Default_Switches ("Ada") use Common_Options & Debug_Options;
+            for Local_Configuration_Pragmas use "pragma_debug.adc";
+         when "Release" =>
+            for Default_Switches ("Ada") use Common_Options & Release_Options;
+         when "Profile" =>
+            for Default_Switches ("Ada") use Common_Options & ("-g", "-pg");
+      end case;
+   end Compiler;
+
+   ------------
+   -- Binder --
+   ------------
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");
+   end Binder;
+
+   ------------
+   -- Linker --
+   ------------
+
+   package Linker is
+       case Build is
+         when "Debug" =>
+            for Default_Switches ("Ada") use ("-g");
+         when "Profile" =>
+            for Default_Switches ("Ada") use ("-g", "-pg");
+         when others =>
+            null;
+     end case;
+      case Build_Target is
+         when "OSX" =>
+            for Default_Switches ("Ada")
+              use Linker'Default_Switches ("Ada") & ("-Wl,-no_pie");
+         when others =>
+            null;
+      end case;
+   end Linker;
+
+   --------------------
+   -- Pretty Printer --
+   --------------------
+
+   package Pretty_Printer is
+      for Default_Switches ("Ada") use ("-M120", "-W8", "--par_threshold=1", "--comments-unchanged");
+   end Pretty_Printer;
+
+   -------------
+   -- Builder --
+   -------------
+
+   package Builder is
+      for Switches ("ada") use ("-j0", "-k");
+   end Builder;
+
+   ---------
+   -- IDE --
+   ---------
+
+   package IDE is
+      for Default_Switches ("adacontrol") use ("-f", Settings'Project_Dir & "rules/gnoga.aru", "-S", "1");
+      for VCS_Kind use "git";
+   end IDE;
+
+end Settings;

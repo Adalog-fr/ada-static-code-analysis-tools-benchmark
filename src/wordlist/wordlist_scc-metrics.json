@@ -1,0 +1,103 @@
+{
+  "Name": "Ada",
+  "Bytes": 3414,
+  "CodeBytes": 0,
+  "Lines": 145,
+  "Code": 87,
+  "Comment": 17,
+  "Blank": 41,
+  "Complexity": 5,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/wordlist_config.ads",
+      "Extension": "ads",
+      "Location": "config/wordlist_config.ads",
+      "Symlocation": "",
+      "Bytes": 697,
+      "Lines": 25,
+      "Code": 15,
+      "Comment": 1,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/wordlist.ads",
+      "Extension": "ads",
+      "Location": "src/wordlist.ads",
+      "Symlocation": "",
+      "Bytes": 486,
+      "Lines": 21,
+      "Code": 11,
+      "Comment": 1,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/wordlist.adb",
+      "Extension": "adb",
+      "Location": "src/wordlist.adb",
+      "Symlocation": "",
+      "Bytes": 2231,
+      "Lines": 99,
+      "Code": 61,
+      "Comment": 15,
+      "Blank": 23,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.discrete_random",
+        "ada.text_io",
+        "resources",
+        "toml.file_io",
+        "wordlist_config"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "aaa.strings": 1,
+    "ada.numerics.discrete_random": 1,
+    "ada.text_io": 1,
+    "resources": 1,
+    "toml.file_io": 1,
+    "wordlist_config": 1
+  }
+}

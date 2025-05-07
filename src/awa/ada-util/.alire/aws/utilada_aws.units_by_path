@@ -1,0 +1,5 @@
+../../src/sys/http/aws/aws-client-ext__1.adb
+../../src/sys/http/aws/aws-client-ext.ads
+../../src/sys/http/aws/util-http-clients-aws__2.adb
+../../src/sys/http/aws/util-http-clients-aws_i.ads
+../../src/sys/http/aws/util-http-clients-aws.ads

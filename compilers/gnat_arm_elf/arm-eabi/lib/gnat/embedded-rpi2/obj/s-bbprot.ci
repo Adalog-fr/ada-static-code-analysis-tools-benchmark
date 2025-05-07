@@ -1,0 +1,9 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbprot.adb"
+node: { title: "system__bb__protection__enter_kernel" label: "Enter_Kernel\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbprot.adb:51:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__protection__leave_kernel" label: "Leave_Kernel\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbprot.adb:63:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "system__bb__protection__leave_kernel" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbprot.adb:75:39" }
+edge: { sourcename: "system__bb__protection__leave_kernel" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbprot.adb:91:35" }
+node: { title: "system__bb__cpu_primitives__context_switch" label: "Context_Switch\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbcppr.ads:54:14" shape : ellipse }
+edge: { sourcename: "system__bb__protection__leave_kernel" targetname: "system__bb__cpu_primitives__context_switch" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi2/gnarl/s-bbprot.adb:94:24" }
+}

@@ -1,0 +1,18 @@
+name = "adalog_comps"
+description = "General purpose components and utilities"
+long-description = """
+# Adalog Comps
+
+[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/adalog_comps.json)](https://alire.ada.dev/crates/adalog_comps.html)
+
+General purpose components and utilities, mainly used by AdaControl.
+"""
+version = "1.0.0"
+
+authors = ["Jean-Pierre Rosen", "Quentin Dauprat"]
+maintainers = ["support@adalog.fr"]
+maintainers-logins = ["jprosen", "Heziode"]
+project-files = [".alire/adalog_comps.gpr"]
+licenses = "GPL-2.0-only"
+website = "https://www.adalog.fr/en/components.html"
+tags = ["utility", "component", "csv", "map", "file", "queue"]

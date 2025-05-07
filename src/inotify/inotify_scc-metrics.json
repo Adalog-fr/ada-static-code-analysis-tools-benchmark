@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 30662,
+  "CodeBytes": 0,
+  "Lines": 871,
+  "Code": 635,
+  "Comment": 111,
+  "Blank": 125,
+  "Complexity": 42,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/inotify.ads",
+      "Extension": "ads",
+      "Location": "src/inotify.ads",
+      "Symlocation": "",
+      "Bytes": 7878,
+      "Lines": 243,
+      "Code": 165,
+      "Comment": 38,
+      "Blank": 40,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/inotify-recursive.adb",
+      "Extension": "adb",
+      "Location": "src/inotify-recursive.adb",
+      "Symlocation": "",
+      "Bytes": 8332,
+      "Lines": 229,
+      "Code": 177,
+      "Comment": 27,
+      "Blank": 25,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/inotify-recursive.ads",
+      "Extension": "ads",
+      "Location": "src/inotify-recursive.ads",
+      "Symlocation": "",
+      "Bytes": 2530,
+      "Lines": 72,
+      "Code": 41,
+      "Comment": 21,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/inotify.adb",
+      "Extension": "adb",
+      "Location": "src/inotify.adb",
+      "Symlocation": "",
+      "Bytes": 11922,
+      "Lines": 327,
+      "Code": 252,
+      "Comment": 25,
+      "Blank": 50,
+      "Complexity": 21,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

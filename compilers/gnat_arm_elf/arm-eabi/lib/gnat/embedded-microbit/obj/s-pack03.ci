@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-pack03.adb"
+node: { title: "system__pack_03__clusterIP" label: "clusterIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_03__rev_clusterIP" label: "rev_clusterIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_03__get_03" label: "Get_03\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-pack03.adb:83:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_03__set_03" label: "Set_03\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-pack03.adb:122:4\n12 bytes (static)\n0 dynamic objects" }
+}

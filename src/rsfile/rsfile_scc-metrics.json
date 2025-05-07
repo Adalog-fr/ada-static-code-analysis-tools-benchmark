@@ -1,0 +1,60 @@
+{
+  "Name": "Ada",
+  "Bytes": 4074,
+  "CodeBytes": 0,
+  "Lines": 159,
+  "Code": 115,
+  "Comment": 16,
+  "Blank": 28,
+  "Complexity": 3,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rsfile.adb",
+      "Extension": "adb",
+      "Location": "src/rsfile.adb",
+      "Symlocation": "",
+      "Bytes": 4074,
+      "Lines": 159,
+      "Code": 115,
+      "Comment": 16,
+      "Blank": 28,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.containers.indefinite_ordered_maps",
+        "ada.directories",
+        "ada.exceptions",
+        "ada.numerics.discrete_random",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "gnat.os_lib",
+        "gnat.traceback.symbolic"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 1,
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.directories": 1,
+    "ada.exceptions": 1,
+    "ada.numerics.discrete_random": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.os_lib": 1,
+    "gnat.traceback.symbolic": 1
+  }
+}

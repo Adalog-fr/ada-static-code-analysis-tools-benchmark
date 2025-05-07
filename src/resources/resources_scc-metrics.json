@@ -1,0 +1,76 @@
+{
+  "Name": "Ada",
+  "Bytes": 4043,
+  "CodeBytes": 0,
+  "Lines": 146,
+  "Code": 87,
+  "Comment": 26,
+  "Blank": 33,
+  "Complexity": 4,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/resources.ads",
+      "Extension": "ads",
+      "Location": "src/resources.ads",
+      "Symlocation": "",
+      "Bytes": 897,
+      "Lines": 23,
+      "Code": 8,
+      "Comment": 9,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/resources.adb",
+      "Extension": "adb",
+      "Location": "src/resources.adb",
+      "Symlocation": "",
+      "Bytes": 3146,
+      "Lines": 123,
+      "Code": 79,
+      "Comment": 17,
+      "Blank": 27,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "gnat.os_lib",
+        "gnat.strings",
+        "interfaces.c",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "gnat.os_lib": 1,
+    "gnat.strings": 1,
+    "interfaces.c": 1,
+    "system": 1
+  }
+}

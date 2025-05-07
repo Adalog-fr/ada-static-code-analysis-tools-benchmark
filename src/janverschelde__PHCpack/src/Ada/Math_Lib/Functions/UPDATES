@@ -1,0 +1,145 @@
+Sat 9 Dec 2023 : added hexadobl_complex_poly_{functions, sysfun}.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to functions.gpr.
+
+Tue 8 Jun 2021 : defined functions.gpr to build the test procedures.
+
+Wed 23 Sep 2020 :  defined {trip,pent,octo,deca}dobl_complex_poly_functions
+  and {trip,pent,octo,deca}dobl_complex_poly_sysfun.
+
+Wed 2 Jan 2019 : extended generic_{poly,laur}_system_functions with
+  a function to get the coefficients of all polynomials in the system.
+
+Tue 22 Mar 2016 : new test procedure ts_evddpol.adb to test evaluation of
+  polynomials with double double complex coefficients.
+
+Mon 26 Oct 2015 : instantiated {double, quad}_double_poly_sysfun.
+
+Tue 23 Jun 2015 : changed ts_perfeval.adb for a change in the specification
+  of standard_jacobian_evaluations.
+
+Mon 22 Jun 2015 : new package multprec_polynomial_flatteners.
+
+Wed 17 Jun 2015 : moved algorithmic differentation code to ../Circuits.
+
+Wed 10 Jun 2015 : more tests in ts_vmpdiff, comparing Jacobian calculation
+  with the straightforward methods.
+
+Tue 9 Jun 2015 : improved definition for the condition number of the
+  gradient in varbprec_gradient_evaluations, and more tests in ts_vmpdiff.
+  Did the same for the Jacobian in varbprec_gradient_evaluations,
+  with more tests in ts_vmpdiff.
+
+Mon 8 Jun 2015 : fixed a bug in varbprec_gradient_evaluations.adb that
+  affects the multiprecision version, tested by ts_vmpdiff.
+
+Sun 7 Jun 2015 : extended varbprec_gradient_evaluations with procedures
+  to evaluate the Jacobian matrix with computation of the condition number.
+
+Sat 6 Jun 2015 : extended coefficient_supported_polynomials with
+  procedures for double double, quad double, and arbitrary multiprecision.
+  Added random conditioned test to ts_vmpdiff.
+
+Fri 5 Jun 2015 : new package cyclic_roots_system with code factored out
+  from ts_cycfun.  Added performance test to ts_vmpdiff.
+
+Thu 4 Jun 2015 : new package varbprec_gradient_evaluations, tested by
+  the new ts_vmpdiff.
+
+Wed 3 Jun 2015 : added tests on multprecision gradient in ts_speel.adb.
+
+Tue 2 Jun 2015 : updates in coefficient_supported_polynomials for the
+  multiprecision polynomials.  New packages multprec_speelpenning_products
+  and multprec_monomial_evaluations, tested by ts_speel.  For the gradients
+  in multiprecision there is the new package multprec_gradient_evaluations.
+
+Mon 1 Jun 2015 : updated standard_gradient_evaluations with numerators of
+  condition numbers, tested by ts_speel.adb.  Also done for double doubles
+  and quad doubles, changed {dobldobl,quaddobl}_gradient_evaluations.
+
+Fri 29 May 2015 : better formatting of the times in ts_speel.adb.
+
+Tue 26 May 2015 : small updates in standard_gradient_evaluations.adb and
+  in ts_cycfun.adb.  Added performance test to ts_speel.adb, for all three
+  levels of precision: standard double, double double, and quad double.
+
+Mon 25 May 2015 : extended ts_cycfun.adb with tests for double double and
+  quad double arithmetic.
+
+Wed 20 May 2015 : streamlined interface of varbprec_polynomial_evaluations.
+  Shortened the code with wrappers in the evaluate with condition number.
+
+Fri 21 Nov 2014 : completed varbprec_polynomial_evaluations adding condition
+  number calculators for Laurent polynomial systems and extending the output
+  parameters with numerators and denominators of inverse condition numbers,
+  adjusting the tests in ts_vmpeval.adb.
+
+Thu 20 Nov 2014 : new procedures to split off the denominator in the
+  of the inverse condition number in varbprec_polynomial_evaluations.
+
+Fri 14 Nov 2014 : to random_conditioned_evaluations, added versions to
+  generate polynomial systems with prescribed condition numbers and
+  versions to generate system with prescribed Jacobian matrices,
+  tested in ts_vmpeval.adb.
+
+Tue 11 Nov 2014 : added to varbprec_polynomial_evaluations estimators of
+  the condition number for polynomial systems and for Laurent polynomials.
+  Added the Laurent polynomial of Stefano Taschini to ts_vmpeval.adb.
+
+Mon 10 Nov 2014 : extended random_conditioned_evaluations with functions
+  and procedures to fix the gradient of a random polynomial at a point,
+  tested by ts_vmpeval.adb.  To varbprec_polynomial_evaluations added
+  procedure to evaluate polynomials with condition number computation.
+
+Sun 9 Nov 2014 : extended varbprec_polynomial_evaluations with double double
+  and quad double versions; new package random_conditioned_evaluations
+  to generate evaluation problems with prescribed condition number,
+  for testing ts_vmpeval.adb.  Added arbitrary multprecision versions to the
+  packages random_conditioned_evaluations and varbprec_polynomial_evaluations.
+
+Sat 8 Nov 2014 : new package varbprec_polynomial_evaluations tested by
+  ts_vmpeval.adb.
+
+Fri 25 Jul 2014 : Fixed several bugs in generic_laur_poly_functions.adb,
+  tested by ts_laurpoly.adb in ../Polynomials.  Did similar updates for
+  the coefficient polynomial evaluation in generic_poynomial_functions,
+  tested by ts_poly.adb in ../Polynomials;  multprec_complex_laur_functions
+  and multprec_complex_laur_sysfun.ads are new instantiations to evaluate 
+  multiprecision complex Laurent polynomials and Laurent systems.
+
+Fri 4 Jul 2014 : extended exponent_vectors for double double coefficients
+  and for quad double coefficients.
+
+Mon 16 Jun 2014 : changes in ts_perfeval.adb for compiler warnings.
+
+Thu 12 Jun 2014 : indexed version in standard_speelpenning_products,
+  tested by ts_speel.  Also updated dobldobl_ and quaddobl_ versions.
+  New test function ts_cycfun.adb to test on the cyclic n-roots problem.
+
+Tue 10 Jun 2014 : eliminate bck vector in the reverse_speel function in
+  standard_speelpenning_products, did the same for dobldobl and quaddobl.
+  Improved the implementation in the general case for all precisions.
+
+Sun 6 Apr 2014 : refactored function of standard_speelpenning_products.a*.
+  Did the same for the double double and quad double versions.
+
+Thu 27 Mar 2014 : updated standard_{gradient,jacobian}_evaluations
+  for performance testing in ts_speelsys.adb.
+
+Tue 25 Feb 2014 : updated ts_speelsys.adb to allow for benchmarking on the
+  cyclic n-roots systems.  Extended standard_polynomial_flatteners with
+  functions to concatenate supports of a polynomial system.
+
+Sun 9 Jun 2013 : about half of the files in this directory changes because
+  of the introduction of natural32 and integer32 types.
+
+Fri 6 Jul 2012 : extended ts_perfeval.adb to measure the performance of
+  the Jacobian evaluations.  Updates in standard_jacobian_evaluations.
+
+Thu 5 Jul 2012 : creation of this new directory.  Changes to
+  {dobldobl,quaddobl}_monomial_evaluations.adb and
+  {dobldobl,quaddobl}_speelpenning_products.adb to deal with cases of
+  constant monomials and monomials consisting of one variable.
+  Changes to standard_polynomial_flatteners because of warnings.
+  New packages {dobldobl,quaddobl}_jacobian_evaluations, tested
+  by ts_speelsys.adb.

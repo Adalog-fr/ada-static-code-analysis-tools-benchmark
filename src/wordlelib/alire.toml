@@ -1,0 +1,19 @@
+authors = ["Alejandro R. Mosteo"]
+description = "Library to track progress in a game of Wordle"
+licenses = "MIT"
+maintainers = ["Alejandro R. Mosteo <alejandro@mosteo.com>"]
+maintainers-logins = ["mosteo"]
+name = "wordlelib"
+tags = ["wordle","game","console","terminal"]
+version = "0.1.0"
+
+[[depends-on]]
+aaa = "*"
+
+[[pins]]
+
+[pins.aaa]
+path = "../aaa"
+
+[build-switches."*"]
+Compile_Checks = "none"

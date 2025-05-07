@@ -1,0 +1,15 @@
+authors = ["Lev Kujawski"]
+description = "X/Open Native Language System (NLS) for Ada"
+licenses = "MIT-0"
+maintainers = ["Lev Kujawski <int21h@mailbox.org>"]
+maintainers-logins = ["lkujaw"]
+name = "felix"
+tags = ["ada1995","i18n","nls","localization","localisation","l10n"]
+version = "0.2.0"
+website = "https://github.com/lkujaw/felix"
+
+[gpr-set-externals]
+SYSTEM_API = "POSIX"
+
+[build-switches."*"]
+Compile_Checks = "none"

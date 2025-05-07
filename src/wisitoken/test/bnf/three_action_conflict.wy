@@ -1,0 +1,58 @@
+;;; Test more than two actions in a conflict
+
+%generate LALR Ada re2c
+%start block
+%meta_syntax EBNF
+
+%mckenzie_enqueue_limit 500
+%mckenzie_check_limit 3
+%mckenzie_zombie_limit 3
+%mckenzie_cost_default 4 4 4 4
+%no_language_runtime
+
+;; These are actually the same conflict; the partial one is detected
+;; separately first. IMPROVEME: search for a partial match to avoid
+;; this.
+%conflict REDUCE classOrInterfaceType | REDUCE expression on token RPAREN
+%conflict SHIFT lambdaParameters | REDUCE classOrInterfaceType | REDUCE expression on token RPAREN
+
+%token <punctuation> LPAREN             '('
+%token <punctuation> RPAREN             ')'
+%token <punctuation> LBRACE             '{'
+%token <punctuation> RBRACE             '}'
+%token <punctuation> SEMI               ';'
+
+%token <punctuation> ARROW              '->'
+
+%token <symbol> IDENTIFIER %[ [a-zA-Z][a-zA-Z0-9]* ]%
+
+%non_grammar <non-reporting> WHITESPACE %[ [ \t] ]%
+%non_grammar <new-line> NEW_LINE %[ [\n] ]%
+%non_grammar <comment-new-line> COMMENT %[ "--" ]%
+
+classOrInterfaceType
+    : IDENTIFIER
+    ;
+
+block
+    : '{' statement* '}'
+    ;
+
+statement
+    : expression ';'
+    ;
+
+expression
+    : '(' expression ')'
+    | IDENTIFIER
+    | '(' classOrInterfaceType ')' expression
+    | lambdaExpression
+    ;
+
+lambdaExpression
+    : lambdaParameters '->' block
+    ;
+
+lambdaParameters
+    : '(' IDENTIFIER  ')'
+    ;

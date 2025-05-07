@@ -1,0 +1,3 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnarl/s-taspri.ads"
+node: { title: "system__task_primitives__private_dataIP" label: "private_dataIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 9158,
+  "CodeBytes": 0,
+  "Lines": 260,
+  "Code": 96,
+  "Comment": 121,
+  "Blank": 43,
+  "Complexity": 2,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/xoshiro256.adb",
+      "Extension": "adb",
+      "Location": "src/xoshiro256.adb",
+      "Symlocation": "",
+      "Bytes": 3088,
+      "Lines": 82,
+      "Code": 25,
+      "Comment": 46,
+      "Blank": 11,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/xoshiro128.adb",
+      "Extension": "adb",
+      "Location": "src/xoshiro128.adb",
+      "Symlocation": "",
+      "Bytes": 3037,
+      "Lines": 81,
+      "Code": 25,
+      "Comment": 45,
+      "Blank": 11,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/xoshiro128.ads",
+      "Extension": "ads",
+      "Location": "src/xoshiro128.ads",
+      "Symlocation": "",
+      "Bytes": 1543,
+      "Lines": 50,
+      "Code": 24,
+      "Comment": 15,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/xoshiro256.ads",
+      "Extension": "ads",
+      "Location": "src/xoshiro256.ads",
+      "Symlocation": "",
+      "Bytes": 1490,
+      "Lines": 47,
+      "Code": 22,
+      "Comment": 15,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

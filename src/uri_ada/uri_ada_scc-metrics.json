@@ -1,0 +1,130 @@
+{
+  "Name": "Ada",
+  "Bytes": 12217,
+  "CodeBytes": 0,
+  "Lines": 344,
+  "Code": 188,
+  "Comment": 83,
+  "Blank": 73,
+  "Complexity": 9,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uri_ada-test.adb",
+      "Extension": "adb",
+      "Location": "src/uri_ada-test.adb",
+      "Symlocation": "",
+      "Bytes": 5086,
+      "Lines": 116,
+      "Code": 83,
+      "Comment": 6,
+      "Blank": 27,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uri_ada.ads",
+      "Extension": "ads",
+      "Location": "src/uri_ada.ads",
+      "Symlocation": "",
+      "Bytes": 3037,
+      "Lines": 75,
+      "Code": 17,
+      "Comment": 47,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uri.ads",
+      "Extension": "ads",
+      "Location": "src/uri.ads",
+      "Symlocation": "",
+      "Bytes": 98,
+      "Lines": 4,
+      "Code": 2,
+      "Comment": 1,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "uri_ada"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uri_ada.adb",
+      "Extension": "adb",
+      "Location": "src/uri_ada.adb",
+      "Symlocation": "",
+      "Bytes": 3996,
+      "Lines": 149,
+      "Code": 86,
+      "Comment": 29,
+      "Blank": 34,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_maps",
+        "ada.strings.fixed",
+        "ada.strings.unbounded",
+        "gnat.regpat"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.assertions": 1,
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.regpat": 1,
+    "uri_ada": 1
+  }
+}

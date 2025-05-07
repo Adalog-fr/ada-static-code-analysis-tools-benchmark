@@ -1,0 +1,73 @@
+{
+  "Name": "Ada",
+  "Bytes": 21100,
+  "CodeBytes": 0,
+  "Lines": 657,
+  "Code": 500,
+  "Comment": 47,
+  "Blank": 110,
+  "Complexity": 26,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/qoi.ads",
+      "Extension": "ads",
+      "Location": "src/qoi.ads",
+      "Symlocation": "",
+      "Bytes": 6277,
+      "Lines": 182,
+      "Code": 131,
+      "Comment": 26,
+      "Blank": 25,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "system.storage_elements"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/qoi.adb",
+      "Extension": "adb",
+      "Location": "src/qoi.adb",
+      "Symlocation": "",
+      "Bytes": 14823,
+      "Lines": 475,
+      "Code": 369,
+      "Comment": 21,
+      "Blank": 85,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_conversion": 1,
+    "interfaces": 1,
+    "system.storage_elements": 1
+  }
+}

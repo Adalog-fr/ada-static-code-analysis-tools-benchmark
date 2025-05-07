@@ -1,0 +1,28 @@
+authors = ["Anton Fediushin"]
+description = "PBKDF2 implemented in Ada"
+licenses = "ISC"
+maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
+maintainers-logins = ["AntonMeep"]
+name = "pbkdf2"
+tags = ["cryptography","security","pbkdf2"]
+version = "3.0.0"
+website = "https://github.com/AntonMeep/pbkdf2"
+
+[[depends-on]]
+hmac = "*"
+sha1 = "*"
+sha2 = "*"
+
+[[pins]]
+
+[pins.hmac]
+path = "../hmac"
+
+[pins.sha1]
+path = "../sha1"
+
+[pins.sha2]
+path = "../sha2"
+
+[build-switches."*"]
+Compile_Checks = "none"

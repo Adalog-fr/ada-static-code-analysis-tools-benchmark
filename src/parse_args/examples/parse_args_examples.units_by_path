@@ -1,0 +1,5 @@
+src/generic_example_options.adb
+src/generic_example_options.ads
+src/generic_example.adb
+src/simple_example.adb
+src/trivial_example.adb

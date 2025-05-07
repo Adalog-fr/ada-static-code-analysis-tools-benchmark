@@ -1,0 +1,115 @@
+name: Default
+
+on:
+  push:
+    branches: [ master ]
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Build on ${{matrix.os}} using ${{matrix.compiler}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        compiler: [community, fsf]
+        exclude:
+          - os: windows-latest
+            compiler: fsf
+          - os: macos-latest
+            compiler: fsf
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update system repositories
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt update
+
+    - name: Set up GNAT toolchain (FSF)
+      if: matrix.compiler == 'fsf'
+      uses: ada-actions/toolchain@ce2021
+      with:
+        distrib: fsf # faster install?
+
+    - name: Set up GNAT toolchain (Community)
+      if: matrix.compiler == 'community'
+      uses: ada-actions/toolchain@ce2020
+      with:
+        distrib: community
+
+    - name: Install Alire
+      uses: alire-project/setup-alire@v1
+      with:
+        toolchain: "gnat_external"
+
+    - name: Build debug, static
+      run: >
+        alr clean &&
+        alr build
+        -XENDIANNESS_LIBRARY_TYPE=static
+        -XENDIANNESS_COMPILE_CHECKS=enabled
+        -XENDIANNESS_RUNTIME_CHECKS=enabled
+        -XENDIANNESS_STYLE_CHECKS=enabled
+        -XENDIANNESS_CONTRACTS=enabled
+        -XENDIANNESS_BUILD_MODE=debug
+
+    - name: Build debug, relocatable
+      run: >
+        alr clean &&
+        alr build
+        -XENDIANNESS_LIBRARY_TYPE=relocatable
+        -XENDIANNESS_COMPILE_CHECKS=enabled
+        -XENDIANNESS_RUNTIME_CHECKS=enabled
+        -XENDIANNESS_STYLE_CHECKS=enabled
+        -XENDIANNESS_CONTRACTS=enabled
+        -XENDIANNESS_BUILD_MODE=debug
+
+    - name: Build tests
+      run: >
+        cd tests &&
+        alr clean &&
+        alr build
+        -XENDIANNESS_LIBRARY_TYPE=static
+        -XENDIANNESS_COMPILE_CHECKS=enabled
+        -XENDIANNESS_RUNTIME_CHECKS=enabled
+        -XENDIANNESS_STYLE_CHECKS=enabled
+        -XENDIANNESS_CONTRACTS=enabled
+        -XENDIANNESS_BUILD_MODE=debug
+        -XENDIANNESS_TESTS_COMPILE_CHECKS=enabled
+        -XENDIANNESS_TESTS_RUNTIME_CHECKS=enabled
+        -XENDIANNESS_TESTS_STYLE_CHECKS=enabled
+        -XENDIANNESS_TESTS_CONTRACTS=enabled
+        -XENDIANNESS_TESTS_BUILD_MODE=debug
+
+    - name: Run tests
+      run: ./tests/bin/endianness_tests
+
+  prove:
+    name: SPARK Proof
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update system repositories
+      run: sudo apt update
+
+    - name: Set up GNAT toolchain (Community)
+      uses: ada-actions/toolchain@ce2021
+      with:
+        distrib: community
+
+    - name: Install Alire
+      uses: alire-project/setup-alire@v1
+      with:
+        toolchain: "gnat_external"
+
+    - name: Build
+      run: alr build
+
+    - name: Run gnatprove
+      run: |
+        eval `alr printenv --unix`
+        gnatprove -P endianness.gpr

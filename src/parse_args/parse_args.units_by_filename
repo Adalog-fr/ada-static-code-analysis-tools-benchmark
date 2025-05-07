@@ -1,0 +1,15 @@
+parse_args-concrete.adb
+parse_args-concrete.ads
+parse_args-generic_discrete_array_options.adb
+parse_args-generic_discrete_array_options.ads
+parse_args-generic_discrete_options.ads
+parse_args-generic_indefinite_options.adb
+parse_args-generic_indefinite_options.ads
+parse_args-generic_options.adb
+parse_args-generic_options.ads
+parse_args-integer_array_options.ads
+parse_args-split_csv.adb
+parse_args-split_csv.ads
+parse_args-usage.adb
+parse_args.adb
+parse_args.ads

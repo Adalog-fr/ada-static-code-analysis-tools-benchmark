@@ -1,0 +1,15 @@
+*.elc
+*.exe
+alire/
+autoloads.el
+autoloads.el~
+bin/
+build/*.bz2
+build/*.sig
+build/Makefile.conf
+build/check.gpr
+check.gpr
+config/
+gpr_query
+obj/
+obj_pro/

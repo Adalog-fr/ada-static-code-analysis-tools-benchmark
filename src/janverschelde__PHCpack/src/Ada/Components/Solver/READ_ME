@@ -1,0 +1,37 @@
+A new and progressive equation-by-equation solver with PHCv2.4.87
+
+This directory was created for release 2.3 of PHCpack.
+The straight-line versions to run the nine-point problem
+(and the five-point version) were provided by Charles Wampler.
+
+Run "gprbuild solver.gpr" to make all test programs.
+On windows, type "gprbuild solver.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean solver.gpr" removes all files created by gprbuild.
+
+------------------------------------------------------------------------------
+file name                        : short description
+------------------------------------------------------------------------------
+standard_hypersurface_witsets    : witness set for a hypersurface
+standard_hypersurface_witsets_io : writing a witness set for one polynomial
+standard_hypersurface_witdrivers : drivers to witness set for one polynomial
+dobldobl_hypersurface_witsets    : double double hypersurface witness set
+dobldobl_hypersurface_witsets_io : writing a double double hypersurface set
+dobldobl_hypersurface_witdrivers : drivers to double double hypersurface set
+quaddobl_hypersurface_witsets    : quad double hypersurface witness set
+quaddobl_hypersurface_witsets_io : writing a quad double hypersurface set
+quaddobl_hypersurface_witdrivers : drivers to quad double hypersurface set
+ts_hypwit                        : test on hypersurface witness sets
+-----------------------------------------------------------------------------
+shuffle_polynomials              : utilities to rearrange the order
+hypersurfaces_and_filters        : hypersurface representations and filters
+equation_by_equation_solvers     : solve equation by equation
+main_eqn_by_eqn_solvers          : defines phc -a
+ts_solver                        : stand-alone interactive test program
+testnine.adb, testnine.m         : straight-line progs for 9-point problem
+testninehom1.adb                 : 1-homogeneous coordinates of 9-pt problem
+testfivehom1.adb                 : 1-homogeneous coordinates of 5-pt problem
+bablsolve                        : call by blackbox solver of PHCpack
+main_intersection                : defines phc -w, witness set intersection
+main_hypersurface_witsets        : defines phc -l, hypersurface witness sets
+------------------------------------------------------------------------------

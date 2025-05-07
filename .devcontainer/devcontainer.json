@@ -1,0 +1,44 @@
+{
+  "name": "GNAT Pro 24.0 with ASIS support",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "containerUser": "devy",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "AdaCore.ada",
+        "bungcip.better-toml",
+        "dbaeumer.vscode-eslint",
+        "denoland.vscode-deno",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "mikestead.dotenv",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-ssh-edit",
+        "ms-vscode-remote.remote-wsl",
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode.azure-repos",
+        "ms-vscode.cpptools",
+        "ms-vscode.remote-explorer",
+        "ms-vscode.remote-repositories",
+        "ms-vscode.remote-server",
+        "tombonnike.vscode-status-bar-format-toggle",
+        "VisualStudioExptTeam.intellicode-api-usage-examples",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "webfreak.debug",
+        "xabikos.JavaScriptSnippets",
+        "Gruntfuggly.todo-tree"
+      ]
+    }
+  },
+  "runArgs": [
+    "--ulimit", "nofile=32800:32800"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/rootfs/home,target=/home/devy,type=bind",
+    "source=cogralys-benchmark-compilation2,target=/examples,type=volume"
+  ]
+}

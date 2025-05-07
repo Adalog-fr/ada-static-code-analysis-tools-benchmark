@@ -1,0 +1,130 @@
+--  This is a GNAT, GCC or GNAT Studio project file
+--  for the Mathpaqs collection of mathematical packages.
+--
+--      Home page:       http://mathpaqs.sf.net/
+--      Project page 1:  http://sf.net/projects/mathpaqs/
+--      Project page 2:  https://github.com/zertovitch/mathpaqs
+--
+--  Build me with "gnatmake -P mathpaqs", "gprbuild -P mathpaqs", or open me with GNAT Studio.
+--
+project Mathpaqs is
+
+   for Source_Dirs use (
+     ".",
+     "algebra",
+     "diff_eq/pde", "diff_eq/sde", "diff_eq/ode",
+     "lin_alg", "lin_alg/sparse",
+     "multi",
+     "numerics",
+     "probas", "random", "stats",
+     "graph"
+   );
+   for Exec_Dir use ".";
+   for Create_Missing_Dirs use "True";  --  Flips by default the "-p" switch
+
+   type Mathpaqs_Build_Mode_Type is ("Debug", "Fast");
+   Mathpaqs_Build_Mode : Mathpaqs_Build_Mode_Type := external ("Mathpaqs_Build_Mode", "Fast");
+
+   for Main use (
+       --
+       --  For tests, see Mathpaqs_Test[_*]
+       --
+       "fractal.adb", "biomorph.adb",
+       "champ_vt.adb", "arenstorf.adb",
+       "cr_demo.adb", "ppm2func.adb",
+       "arithmetic_compression.adb",
+       "show_floats_limits.adb",
+       "heat.adb",
+       "pi_digits.adb",
+       "three_lakes.adb",
+       "covid_19.adb"
+     );
+
+   case Mathpaqs_Build_Mode is
+     when "Fast" => for Object_Dir use "obj_fast";
+     when others => for Object_Dir use "obj_debg";
+   end case;
+
+   type Mathpaqs_Styles_Checks_Type is
+      ("Off",
+       "On",
+       "Extra"
+      );
+   Mathpaqs_Styles_Checks : Mathpaqs_Styles_Checks_Type := external ("Mathpaqs_Styles_Checks", "Off");
+
+   Common_Compiler_Options := (
+     "-gnatwa",                        --  Warnings switches (a:turn on all info/warnings marked with +)
+     "-gnatwcijkmopruvz.c.n.p.t.w.x",  --  Warnings switches (run "gnatmake" for full list)
+     "-gnatf",                         --  Full errors. Verbose details, all undefined references
+     "-gnatq",                         --  Don't quit, try semantics, even if parse errors
+     "-gnatQ",                         --  Don't quit, write ali/tree file even if compile errors
+     "-g"                              --  Generate debugging information
+   );
+
+   Debug_Options := (
+     "-gnata",         --  Assertions enabled
+     "-gnato",         --  Enable overflow checking in STRICT mode
+     "-gnatVa",        --  Enable all validity checking options
+     "-fstack-check",
+     "-fno-inline",
+     --
+     "-gnatec=" & project'Project_Dir & "debug.pra"
+   );
+
+   Fast_Options := (
+     "-O2",
+     "-gnatpn", 
+     "-fipa-cp-clone", "-fgcse-after-reload", 
+     "-funroll-loops", "-fpeel-loops", "-funswitch-loops", 
+     "-ftracer", "-fweb", "-ftree-vectorize",
+     "-frename-registers", "-ffunction-sections"
+   );
+
+   Style_Checks_1 := 
+     ("-gnatyaknpr",   --  Style: check all casings: a:attribute, k:keywords, n:package Standard identifiers, p:pragma, r:identifier references
+      "-gnatyO",       --  Style: check overriding indicators
+      "-gnatyM100",    --  Style: check line length <= 100 characters
+      "-gnatyx");      --  Style: check x:no extra parens
+
+   Style_Checks_2 := 
+     ("-gnatybfhiu",   --  Style: check b:no blanks at end of lines, f:no ff/vtabs, h: no htabs, i:if-then layout, u:no unnecessary blank lines
+      "-gnatye",       --  Style: check e:end/exit labels present
+      "-gnatytc",      --  Style: check t:token separation rules, c:comment format (two spaces)
+      "-gnatwh");      --  Warnings switches (h:turn on warnings for hiding declarations)
+
+   case Mathpaqs_Styles_Checks is
+      when "Off"   => null;
+      when "On"    => Common_Compiler_Options := Common_Compiler_Options & Style_Checks_1;
+      when "Extra" => Common_Compiler_Options := Common_Compiler_Options & Style_Checks_1 & Style_Checks_2;
+   end case;
+
+   package Compiler is
+      case Mathpaqs_Build_Mode is
+         when "Debug" =>
+            for Default_Switches ("ada") use Common_Compiler_Options & Debug_Options;
+         when "Fast" =>
+            for Default_Switches ("ada") use Common_Compiler_Options & Fast_Options;
+      end case;
+   end Compiler;
+
+   package Linker is
+      for Default_Switches ("ada") use ("-g");
+   end Linker;
+
+   package Binder is
+      --  -Es: Store tracebacks in exception occurrences, and enable symbolic tracebacks
+      for Default_Switches ("ada") use ("-Es");
+   end Binder;
+
+   package Builder is
+      --   "If -j0 is used, then the maximum number of simultaneous compilation
+      --    jobs is the number of core processors on the platform."
+      for Default_Switches ("ada") use ("-j0");
+   end Builder;
+
+   package Ide is
+      for Default_Switches ("adacontrol") use ("-f", "verif.aru");
+   end Ide;
+
+end Mathpaqs;
+

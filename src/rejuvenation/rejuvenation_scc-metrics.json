@@ -1,0 +1,1366 @@
+{
+  "Name": "Ada",
+  "Bytes": 303573,
+  "CodeBytes": 0,
+  "Lines": 7709,
+  "Code": 6410,
+  "Comment": 640,
+  "Blank": 659,
+  "Complexity": 211,
+  "Count": 48,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-file_utils.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-file_utils.adb",
+      "Symlocation": "",
+      "Bytes": 1822,
+      "Lines": 56,
+      "Code": 49,
+      "Comment": 0,
+      "Blank": 7,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams.stream_io",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-finder.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-finder.ads",
+      "Symlocation": "",
+      "Bytes": 6055,
+      "Lines": 161,
+      "Code": 88,
+      "Comment": 42,
+      "Blank": 31,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.match_patterns",
+        "rejuvenation.patterns"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-indentation.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-indentation.ads",
+      "Symlocation": "",
+      "Bytes": 482,
+      "Lines": 13,
+      "Code": 5,
+      "Comment": 4,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-environment_variables.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-environment_variables.ads",
+      "Symlocation": "",
+      "Bytes": 379,
+      "Lines": 13,
+      "Code": 5,
+      "Comment": 4,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "string_maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-factory.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-factory.ads",
+      "Symlocation": "",
+      "Bytes": 2523,
+      "Lines": 67,
+      "Code": 29,
+      "Comment": 22,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "gnatcoll.projects"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-find_and_replacer.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-find_and_replacer.ads",
+      "Symlocation": "",
+      "Bytes": 1840,
+      "Lines": 37,
+      "Code": 20,
+      "Comment": 13,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.finder",
+        "rejuvenation.match_patterns",
+        "rejuvenation.node_locations",
+        "rejuvenation.patterns",
+        "rejuvenation.text_rewrites"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-nested.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-nested.ads",
+      "Symlocation": "",
+      "Bytes": 513,
+      "Lines": 13,
+      "Code": 7,
+      "Comment": 4,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-find_and_replacer.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-find_and_replacer.adb",
+      "Symlocation": "",
+      "Bytes": 3483,
+      "Lines": 86,
+      "Code": 81,
+      "Comment": 0,
+      "Blank": 5,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.placeholders",
+        "rejuvenation.replacer",
+        "string_maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-nested.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-nested.adb",
+      "Symlocation": "",
+      "Bytes": 3469,
+      "Lines": 85,
+      "Code": 78,
+      "Comment": 0,
+      "Blank": 7,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings.fixed",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-finder.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-finder.adb",
+      "Symlocation": "",
+      "Bytes": 10496,
+      "Lines": 320,
+      "Code": 271,
+      "Comment": 16,
+      "Blank": 33,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-match_patterns.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-match_patterns.ads",
+      "Symlocation": "",
+      "Bytes": 8172,
+      "Lines": 184,
+      "Code": 99,
+      "Comment": 59,
+      "Blank": 26,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_maps",
+        "ada.strings",
+        "ada.strings.hash"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-factory.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-factory.adb",
+      "Symlocation": "",
+      "Bytes": 3134,
+      "Lines": 94,
+      "Code": 82,
+      "Comment": 2,
+      "Blank": 10,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnatcoll.projects",
+        "gnatcoll.vfs",
+        "libadalang.project_provider"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-navigation.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-navigation.ads",
+      "Symlocation": "",
+      "Bytes": 1567,
+      "Lines": 37,
+      "Code": 19,
+      "Comment": 13,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-node_locations.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-node_locations.adb",
+      "Symlocation": "",
+      "Bytes": 6518,
+      "Lines": 192,
+      "Code": 164,
+      "Comment": 7,
+      "Blank": 21,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "langkit_support.text"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-printer.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-printer.ads",
+      "Symlocation": "",
+      "Bytes": 281,
+      "Lines": 8,
+      "Code": 3,
+      "Comment": 3,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation.ads",
+      "Symlocation": "",
+      "Bytes": 689,
+      "Lines": 21,
+      "Code": 11,
+      "Comment": 4,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.containers.vectors",
+        "libadalang.analysis",
+        "libadalang.common"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-indentation.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-indentation.adb",
+      "Symlocation": "",
+      "Bytes": 4307,
+      "Lines": 119,
+      "Code": 103,
+      "Comment": 2,
+      "Blank": 14,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings",
+        "ada.strings.fixed",
+        "langkit_support.text"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-environment_variables.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-environment_variables.adb",
+      "Symlocation": "",
+      "Bytes": 3028,
+      "Lines": 84,
+      "Code": 72,
+      "Comment": 2,
+      "Blank": 10,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.environment_variables",
+        "ada.text_io",
+        "gnat.regpat",
+        "interfaces.c",
+        "rejuvenation.file_utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-file_utils.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-file_utils.ads",
+      "Symlocation": "",
+      "Bytes": 765,
+      "Lines": 19,
+      "Code": 9,
+      "Comment": 5,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-string_utils.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-string_utils.adb",
+      "Symlocation": "",
+      "Bytes": 842,
+      "Lines": 30,
+      "Code": 27,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-navigation.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-navigation.adb",
+      "Symlocation": "",
+      "Bytes": 2115,
+      "Lines": 66,
+      "Code": 58,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-string_utils.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-string_utils.ads",
+      "Symlocation": "",
+      "Bytes": 4882,
+      "Lines": 117,
+      "Code": 73,
+      "Comment": 33,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.numerics.big_numbers.big_integers",
+        "ada.strings.fixed"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-replacer.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-replacer.ads",
+      "Symlocation": "",
+      "Bytes": 382,
+      "Lines": 13,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.placeholders",
+        "string_maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_maps.ads",
+      "Extension": "ads",
+      "Location": "src/string_maps.ads",
+      "Symlocation": "",
+      "Bytes": 160,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-text_rewrites.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-text_rewrites.ads",
+      "Symlocation": "",
+      "Bytes": 11634,
+      "Lines": 279,
+      "Code": 142,
+      "Comment": 81,
+      "Blank": 56,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.wide_wide_unbounded",
+        "langkit_support.text",
+        "rejuvenation.node_locations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-placeholders.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-placeholders.adb",
+      "Symlocation": "",
+      "Bytes": 5176,
+      "Lines": 143,
+      "Code": 112,
+      "Comment": 7,
+      "Blank": 24,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.regpat",
+        "rejuvenation.finder",
+        "rejuvenation.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-utils.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-utils.ads",
+      "Symlocation": "",
+      "Bytes": 2525,
+      "Lines": 62,
+      "Code": 24,
+      "Comment": 26,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.node_locations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-patterns.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-patterns.ads",
+      "Symlocation": "",
+      "Bytes": 781,
+      "Lines": 31,
+      "Code": 19,
+      "Comment": 0,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_vectors_utils.ads",
+      "Extension": "ads",
+      "Location": "src/string_vectors_utils.ads",
+      "Symlocation": "",
+      "Bytes": 173,
+      "Lines": 7,
+      "Code": 4,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "string_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-text_rewrites.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-text_rewrites.adb",
+      "Symlocation": "",
+      "Bytes": 21884,
+      "Lines": 602,
+      "Code": 475,
+      "Comment": 80,
+      "Blank": 47,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings",
+        "ada.text_io",
+        "rejuvenation.file_utils",
+        "rejuvenation.navigation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_sets.ads",
+      "Extension": "ads",
+      "Location": "src/string_sets.ads",
+      "Symlocation": "",
+      "Bytes": 140,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_ordered_sets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-parameters.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-parameters.ads",
+      "Symlocation": "",
+      "Bytes": 1196,
+      "Lines": 25,
+      "Code": 10,
+      "Comment": 10,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-pretty_print.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-pretty_print.ads",
+      "Symlocation": "",
+      "Bytes": 3488,
+      "Lines": 80,
+      "Code": 21,
+      "Comment": 46,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.text_rewrites"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-placeholders.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-placeholders.ads",
+      "Symlocation": "",
+      "Bytes": 2187,
+      "Lines": 52,
+      "Code": 18,
+      "Comment": 21,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-simple_factory.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-simple_factory.ads",
+      "Symlocation": "",
+      "Bytes": 4194,
+      "Lines": 92,
+      "Code": 26,
+      "Comment": 54,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.text_io",
+        "string_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-pretty_print.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-pretty_print.adb",
+      "Symlocation": "",
+      "Bytes": 5692,
+      "Lines": 144,
+      "Code": 129,
+      "Comment": 3,
+      "Blank": 12,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.text_io",
+        "gnat.os_lib",
+        "interfaces.c",
+        "rejuvenation.file_utils",
+        "rejuvenation.indentation",
+        "rejuvenation.navigation",
+        "rejuvenation.nested",
+        "rejuvenation.node_locations",
+        "rejuvenation.string_utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-printer.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-printer.adb",
+      "Symlocation": "",
+      "Bytes": 8443,
+      "Lines": 264,
+      "Code": 205,
+      "Comment": 2,
+      "Blank": 57,
+      "Complexity": 10,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "rejuvenation.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-node_locations.ads",
+      "Extension": "ads",
+      "Location": "src/rejuvenation-node_locations.ads",
+      "Symlocation": "",
+      "Bytes": 1716,
+      "Lines": 37,
+      "Code": 9,
+      "Comment": 23,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-simple_factory.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-simple_factory.adb",
+      "Symlocation": "",
+      "Bytes": 6218,
+      "Lines": 178,
+      "Code": 157,
+      "Comment": 2,
+      "Blank": 19,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.strings.unbounded",
+        "gnatcoll.projects",
+        "gnatcoll.vfs",
+        "libadalang.project_provider",
+        "rejuvenation.file_utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-utils.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-utils.adb",
+      "Symlocation": "",
+      "Bytes": 4998,
+      "Lines": 150,
+      "Code": 125,
+      "Comment": 7,
+      "Blank": 18,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.equal_case_insensitive",
+        "ada.strings.unbounded",
+        "langkit_support.text"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-replacer.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-replacer.adb",
+      "Symlocation": "",
+      "Bytes": 14049,
+      "Lines": 369,
+      "Code": 338,
+      "Comment": 9,
+      "Blank": 22,
+      "Complexity": 27,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings.fixed",
+        "rejuvenation.finder",
+        "rejuvenation.utils",
+        "string_vectors",
+        "string_vectors_utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-parameters.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-parameters.adb",
+      "Symlocation": "",
+      "Bytes": 17968,
+      "Lines": 444,
+      "Code": 406,
+      "Comment": 13,
+      "Blank": 25,
+      "Complexity": 21,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.strings.equal_case_insensitive",
+        "ada.text_io",
+        "rejuvenation.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_sets_utils.ads",
+      "Extension": "ads",
+      "Location": "src/string_sets_utils.ads",
+      "Symlocation": "",
+      "Bytes": 231,
+      "Lines": 10,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "string_sets",
+        "string_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_vectors.ads",
+      "Extension": "ads",
+      "Location": "src/string_vectors.ads",
+      "Symlocation": "",
+      "Bytes": 157,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-match_patterns.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-match_patterns.adb",
+      "Symlocation": "",
+      "Bytes": 121061,
+      "Lines": 2830,
+      "Code": 2761,
+      "Comment": 21,
+      "Blank": 48,
+      "Complexity": 56,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.assertions",
+        "ada.text_io",
+        "gnatcoll.gmp.integers",
+        "langkit_support.text",
+        "rejuvenation.placeholders",
+        "rejuvenation.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_sets_utils.adb",
+      "Extension": "adb",
+      "Location": "src/string_sets_utils.adb",
+      "Symlocation": "",
+      "Bytes": 773,
+      "Lines": 28,
+      "Code": 24,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rejuvenation-patterns.adb",
+      "Extension": "adb",
+      "Location": "src/rejuvenation-patterns.adb",
+      "Symlocation": "",
+      "Bytes": 390,
+      "Lines": 13,
+      "Code": 10,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "rejuvenation.simple_factory"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/string_vectors_utils.adb",
+      "Extension": "adb",
+      "Location": "src/string_vectors_utils.adb",
+      "Symlocation": "",
+      "Bytes": 595,
+      "Lines": 22,
+      "Code": 18,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.assertions": 7,
+    "ada.characters.handling": 1,
+    "ada.containers": 1,
+    "ada.containers.indefinite_hashed_maps": 1,
+    "ada.containers.indefinite_ordered_maps": 1,
+    "ada.containers.indefinite_ordered_sets": 1,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.vectors": 3,
+    "ada.directories": 3,
+    "ada.environment_variables": 1,
+    "ada.numerics.big_numbers.big_integers": 1,
+    "ada.streams.stream_io": 1,
+    "ada.strings": 5,
+    "ada.strings.equal_case_insensitive": 2,
+    "ada.strings.fixed": 5,
+    "ada.strings.hash": 1,
+    "ada.strings.unbounded": 8,
+    "ada.strings.wide_wide_unbounded": 1,
+    "ada.text_io": 7,
+    "gnat.os_lib": 1,
+    "gnat.regpat": 2,
+    "gnatcoll.gmp.integers": 1,
+    "gnatcoll.projects": 3,
+    "gnatcoll.vfs": 2,
+    "interfaces.c": 2,
+    "langkit_support.text": 5,
+    "libadalang.analysis": 1,
+    "libadalang.common": 1,
+    "libadalang.project_provider": 2,
+    "rejuvenation.file_utils": 4,
+    "rejuvenation.finder": 3,
+    "rejuvenation.indentation": 1,
+    "rejuvenation.match_patterns": 2,
+    "rejuvenation.navigation": 2,
+    "rejuvenation.nested": 1,
+    "rejuvenation.node_locations": 4,
+    "rejuvenation.patterns": 2,
+    "rejuvenation.placeholders": 3,
+    "rejuvenation.replacer": 1,
+    "rejuvenation.simple_factory": 1,
+    "rejuvenation.string_utils": 1,
+    "rejuvenation.text_rewrites": 2,
+    "rejuvenation.utils": 5,
+    "string_maps": 3,
+    "string_sets": 1,
+    "string_vectors": 4,
+    "string_vectors_utils": 1
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "Name": "Ada",
+  "Bytes": 58157,
+  "CodeBytes": 0,
+  "Lines": 1784,
+  "Code": 1203,
+  "Comment": 258,
+  "Blank": 323,
+  "Complexity": 57,
+  "Count": 10,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "example.adb",
+      "Extension": "adb",
+      "Location": "example.adb",
+      "Symlocation": "",
+      "Bytes": 1576,
+      "Lines": 56,
+      "Code": 42,
+      "Comment": 3,
+      "Blank": 11,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "colors.ads",
+      "Extension": "ads",
+      "Location": "colors.ads",
+      "Symlocation": "",
+      "Bytes": 2789,
+      "Lines": 66,
+      "Code": 54,
+      "Comment": 2,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "highlighter"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "html.ads",
+      "Extension": "ads",
+      "Location": "html.ads",
+      "Symlocation": "",
+      "Bytes": 1645,
+      "Lines": 45,
+      "Code": 21,
+      "Comment": 15,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "colors",
+        "highlighter",
+        "libadalang.analysis"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "highlighter.ads",
+      "Extension": "ads",
+      "Location": "highlighter.ads",
+      "Symlocation": "",
+      "Bytes": 3107,
+      "Lines": 97,
+      "Code": 69,
+      "Comment": 12,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "langkit_support.token_data_handlers",
+        "libadalang.analysis",
+        "libadalang.common"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "term256.ads",
+      "Extension": "ads",
+      "Location": "term256.ads",
+      "Symlocation": "",
+      "Bytes": 766,
+      "Lines": 25,
+      "Code": 15,
+      "Comment": 4,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "colors",
+        "highlighter",
+        "libadalang.analysis"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "highlighter.adb",
+      "Extension": "adb",
+      "Location": "highlighter.adb",
+      "Symlocation": "",
+      "Bytes": 16467,
+      "Lines": 493,
+      "Code": 334,
+      "Comment": 70,
+      "Blank": 89,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "langkit_support.text"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "term256.adb",
+      "Extension": "adb",
+      "Location": "term256.adb",
+      "Symlocation": "",
+      "Bytes": 2512,
+      "Lines": 84,
+      "Code": 59,
+      "Comment": 8,
+      "Blank": 17,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "langkit_support.text",
+        "libadalang.common"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "html.adb",
+      "Extension": "adb",
+      "Location": "html.adb",
+      "Symlocation": "",
+      "Bytes": 8103,
+      "Lines": 259,
+      "Code": 169,
+      "Comment": 49,
+      "Blank": 41,
+      "Complexity": 11,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "gnatcoll.strings",
+        "langkit_support.slocs",
+        "langkit_support.text",
+        "libadalang.common"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "ada2web.adb",
+      "Extension": "adb",
+      "Location": "ada2web.adb",
+      "Symlocation": "",
+      "Bytes": 14986,
+      "Lines": 460,
+      "Code": 312,
+      "Comment": 64,
+      "Blank": 84,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.containers.generic_array_sort",
+        "ada.containers.ordered_sets",
+        "ada.containers.vectors",
+        "ada.directories",
+        "ada.text_io",
+        "colors",
+        "gnatcoll.projects",
+        "gnatcoll.strings",
+        "gnatcoll.traces",
+        "gnatcoll.vfs",
+        "highlighter",
+        "html",
+        "libadalang.analysis",
+        "libadalang.project_provider"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "highlight.adb",
+      "Extension": "adb",
+      "Location": "highlight.adb",
+      "Symlocation": "",
+      "Bytes": 6206,
+      "Lines": 199,
+      "Code": 128,
+      "Comment": 31,
+      "Blank": 40,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "colors",
+        "gnatcoll.vfs",
+        "highlighter",
+        "html",
+        "libadalang.analysis",
+        "term256"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 2,
+    "ada.containers.generic_array_sort": 1,
+    "ada.containers.ordered_sets": 1,
+    "ada.containers.vectors": 1,
+    "ada.directories": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 3,
+    "colors": 4,
+    "gnatcoll.projects": 1,
+    "gnatcoll.strings": 2,
+    "gnatcoll.traces": 1,
+    "gnatcoll.vfs": 2,
+    "highlighter": 5,
+    "html": 2,
+    "langkit_support.slocs": 1,
+    "langkit_support.text": 3,
+    "langkit_support.token_data_handlers": 1,
+    "libadalang.analysis": 5,
+    "libadalang.common": 3,
+    "libadalang.project_provider": 1,
+    "term256": 1
+  }
+}

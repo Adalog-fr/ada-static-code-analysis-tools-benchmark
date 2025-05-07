@@ -1,0 +1,4 @@
+config/libadalang2xml_config.ads
+src/components.adb
+src/components.ads
+src/libadalang2xml.adb

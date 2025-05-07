@@ -1,0 +1,26 @@
+description = "Embedded Web Server - demonstrator"
+long-description = "\nEWS is a web server construction kit, designed for embedded\napplications using the GNAT Ada compiler.\n\nThe project is hosted at https://github.com/simonjwright/ews.\n\nThis subproject builds a program to demonstrate use of EWS.\nThe Makefile will also build PDF documentation; this depends on an\ninstallation of LaTeX (e.g. TeX Live).\n\n"
+name = "demonstrator"
+version = "1.11.0"
+authors = ["Simon Wright <simon@pushface.org>"]
+licenses = "Unlicense"
+maintainers = ["Simon Wright <simon@pushface.org>"]
+maintainers-logins = ["simonjwright"]
+project-files = ["demonstrator.gpr"]
+tags = ["web","server","demonstrator"]
+website = "https://github.com/simonjwright/ews"
+
+[[depends-on]]
+ews = "*"
+
+[[pins]]
+
+[pins.ews]
+path = ".."
+
+[[actions]]
+type = "pre-build"
+command = ["make","demo_code"]
+
+[build-switches."*"]
+Compile_Checks = "none"

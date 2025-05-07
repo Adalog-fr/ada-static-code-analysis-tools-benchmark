@@ -1,0 +1,77 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.adb"
+edge: { sourcename: "ada__finalization__TcontrolledCFD"
+  targetname: "-9:ada__finalization__controlled,ada__finalization__controlled"
+  label: "a-finali.ads:43:9"
+}
+edge: { sourcename: "ada__finalization__Tlimited_controlledCFD"
+  targetname: "-9:ada__finalization__limited_controlled,ada__finalization__limited_controlled"
+  label: "a-finali.ads:50:9"
+}
+class {
+  classname: "ada__finalization__controlled"
+  label: "ada__finalization__controlled\a-finali.ads:43:9"
+  parent: "ada__finalization__controlled"
+  virtuals: "1:ada__finalization__adjust,1:system__finalization_root__root_controlled\n
+             2:ada__finalization__finalize,2:system__finalization_root__root_controlled\n
+             3:ada__finalization__initialize,3:system__finalization_root__root_controlled\n
+             -1:ada__finalization___size__3,-1:system__finalization_root__root_controlled\n
+             -10:ada__finalization__controlledPI__2,-10:system__finalization_root__root_controlled\n
+             -2:ada__finalization__controlledSR__2,-2:system__finalization_root__root_controlled\n
+             -3:ada__finalization__controlledSW__2,-3:system__finalization_root__root_controlled\n
+             -5:ada__finalization__controlledSO__2,-5:system__finalization_root__root_controlled\n
+             -6:ada__finalization__Oeq__3,-6:system__finalization_root__root_controlled\n
+             -7:ada__finalization___assign__3,-7:system__finalization_root__root_controlled\n
+             -8:ada__finalization__controlledDA__2,-8:system__finalization_root__root_controlled\n
+             -9:ada__finalization__controlledDF__2,-9:system__finalization_root__root_controlled"
+}
+class {
+  classname: "ada__finalization__limited_controlled"
+  label: "ada__finalization__limited_controlled\a-finali.ads:50:9"
+  parent: "ada__finalization__limited_controlled"
+  virtuals: "2:ada__finalization__finalize__2,2:system__finalization_root__root_controlled\n
+             3:ada__finalization__initialize__2,3:system__finalization_root__root_controlled\n
+             -1:ada__finalization___size__4,-1:system__finalization_root__root_controlled\n
+             -10:ada__finalization__limited_controlledPI__2,-10:system__finalization_root__root_controlled\n
+             -9:ada__finalization__limited_controlledDF__2,-9:system__finalization_root__root_controlled"
+}
+node: { title: "ada__finalization__adjust" label: "Adjust\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:47:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization___size__3" label: "finalization\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization___assign__3" label: "finalization\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__controlledDA__2" label: "controlledDA\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__controlledPI__2" label: "controlledPI\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__put_images__put_image_unknown" label: "Put_Image_Unknown\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-putima.ads:106:14" shape : ellipse }
+edge: { sourcename: "ada__finalization__controlledPI__2" targetname: "system__put_images__put_image_unknown" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:59:9" }
+node: { title: "ada__finalization__limited_controlledPI__2" label: "limited_controlledPI\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__finalization__limited_controlledPI__2" targetname: "system__put_images__put_image_unknown" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:65:9" }
+node: { title: "ada__finalization__controlledSR__2" label: "controlledSR\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledSR" label: "Root_Controlledsr\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-finroo.ads:40:9" shape : ellipse }
+edge: { sourcename: "ada__finalization__controlledSR__2" targetname: "system__finalization_root__root_controlledSR" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:59:9" }
+node: { title: "ada__finalization__controlledSW__2" label: "controlledSW\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__root_controlledSW" label: "Root_Controlledsw\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-finroo.ads:40:9" shape : ellipse }
+edge: { sourcename: "ada__finalization__controlledSW__2" targetname: "system__finalization_root__root_controlledSW" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:59:9" }
+node: { title: "ada__finalization__controlledSO__2" label: "controlledSO\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__finalization__controlledSO__2" targetname: "system__finalization_root__root_controlledSW" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:59:9" }
+node: { title: "ada__finalization__Oeq__3" label: "=\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__finalization_root__Oeq" label: "=\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/s-finroo.ads:40:9" shape : ellipse }
+edge: { sourcename: "ada__finalization__Oeq__3" targetname: "system__finalization_root__Oeq" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:59:9" }
+node: { title: "ada__finalization__controlledDF__2" label: "controlledDF\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__finalize__2" label: "Finalize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:54:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization___size__4" label: "finalization\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__limited_controlledDF__2" label: "limited_controlledDF\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__initialize" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:46:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__finalize" label: "Finalize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:48:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__initialize__2" label: "Initialize\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:53:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__controlledIP" label: "controlledIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__controlledFD" label: "controlledFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__TcontrolledCFD" label: "TcontrolledCFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "__indirect_call" label: "Indirect Call Placeholder" shape : ellipse }
+edge: { sourcename: "ada__finalization__TcontrolledCFD" targetname: "__indirect_call" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:43:9" }
+node: { title: "ada__finalization__limited_controlledIP" label: "limited_controlledIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__limited_controlledFD" label: "limited_controlledFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__finalization__Tlimited_controlledCFD" label: "Tlimited_controlledCFD\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "ada__finalization__Tlimited_controlledCFD" targetname: "__indirect_call" }
+node: { title: "ada__finalization___elabs" label: "Finalization\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:40:1\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "ada__tags__register_tag" label: "Register_Tag\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-tags.ads:553:14" shape : ellipse }
+edge: { sourcename: "ada__finalization___elabs" targetname: "ada__tags__register_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:59:9" }
+edge: { sourcename: "ada__finalization___elabs" targetname: "ada__tags__register_tag" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570lc/gnat/a-finali.ads:65:9" }
+}

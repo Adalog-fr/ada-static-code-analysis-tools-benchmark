@@ -1,0 +1,15 @@
+with "../../../gnat/matreshka_league.gpr";
+with "../../dom/dom.gpr";
+
+project ODF is
+
+   for Object_Dir use ".objs";
+   for Source_Dirs use (".");
+
+   package Compiler is
+
+      for Default_Switches ("Ada") use ("-g", "-gnat12", "-gnatW8", "-gnatyo");
+
+   end Compiler;
+
+end ODF;

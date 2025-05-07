@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 4873,
+  "CodeBytes": 0,
+  "Lines": 76,
+  "Code": 11,
+  "Comment": 58,
+  "Blank": 7,
+  "Complexity": 0,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/audio-riff.ads",
+      "Extension": "ads",
+      "Location": "src/audio-riff.ads",
+      "Symlocation": "",
+      "Bytes": 2542,
+      "Lines": 43,
+      "Code": 9,
+      "Comment": 29,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/audio.ads",
+      "Extension": "ads",
+      "Location": "src/audio.ads",
+      "Symlocation": "",
+      "Bytes": 2331,
+      "Lines": 33,
+      "Code": 2,
+      "Comment": 29,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

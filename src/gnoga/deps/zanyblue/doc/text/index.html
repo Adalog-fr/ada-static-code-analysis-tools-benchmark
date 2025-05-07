@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Text Package &mdash; ZanyBlue 1.4.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="ZanyBlue 1.4.0 documentation" href="../index.html" />
+    <link rel="next" title="Messages and Arguments" href="messages.html" />
+    <link rel="prev" title="The Root Package" href="../root.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-text-package">
+<span id="zb-text"></span><h1>The Text Package<a class="headerlink" href="#the-text-package" title="Permalink to this headline">¶</a></h1>
+<p>The intent of the <tt class="docutils literal"><span class="pre">Text</span></tt> package is to allow the separate
+definition of the text messages displayed by an application into a
+<tt class="docutils literal"><span class="pre">.properties</span></tt> file.  Messages are reference in the source code
+by a key value (a simple string or accessor function returning the text
+associated with a particular key) within a group of related messages &#8211; a
+facility.  The message strings include Java style message argument
+place holders: argument number (zero-based) along with optional type specific
+formatting information enclosed in chain brackets.  Allowing formatting
+of message arguments in the context of a localized message.</p>
+<p>The divorce of the message text from the source code allows the easy
+localization of application messages.  The source language <tt class="docutils literal"><span class="pre">.properties</span></tt>
+file is delivered to translation vendors who then return localized
+<tt class="docutils literal"><span class="pre">.properties</span></tt> files.  E.g., for an application <tt class="docutils literal"><span class="pre">myapp</span></tt>, with
+application messages defined in the file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myapp</span><span class="o">.</span><span class="n">properties</span>
+</pre></div>
+</div>
+<p>the localized French and Japanese files would be:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myapp_fr</span><span class="o">.</span><span class="n">properties</span>
+<span class="n">myapp_ja</span><span class="o">.</span><span class="n">properties</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">Text</span></tt> package supports message text searching among a set of
+localized <tt class="docutils literal"><span class="pre">.properties</span></tt> files with fallback to available messages.
+For example, if the above application, <tt class="docutils literal"><span class="pre">myapp</span></tt>, is run in a Canadian
+French environment (<tt class="docutils literal"><span class="pre">ZB_LANG=fr_CA</span></tt> on Unix), localized display of each
+message is implemented by trying to locate the message in the files, in order:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">myapp_fr_CA</span><span class="o">.</span><span class="n">properties</span>
+<span class="n">myapp_fr</span><span class="o">.</span><span class="n">properties</span>
+<span class="n">myapp</span><span class="o">.</span><span class="n">properties</span>
+</pre></div>
+</div>
+<p>If no French localized message is available, i.e., the properties file which
+does not include a language code is used, the base properties file.  Frequently
+this is English (the final file shown above).</p>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="messages.html">Messages and Arguments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Example Using Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accessor-xmpl.html">Example Using Accessor Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msg-format.html">Message Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format-syntax.html">Formatting Syntax</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format-syntax.html#specifying-argument-types">Specifying Argument Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format-syntax.html#general-formatting-syntax">General Formatting Syntax</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="argtypes.html">Argument Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#boolean-type">Boolean Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#character-type">Character Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#duration-type">Duration Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#float-types">Float Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#enumeration-types">Enumeration Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#generic-float-types">Generic Float Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#generic-integer-types">Generic Integer Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#generic-modular-types">Generic Modular Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#integer-type">Integer Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#string-types">String Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="argtypes.html#date-and-time-types">Date and Time Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">Message Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stubs.html">Stub Implementations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stubs.html#generic-fixed">Generic_Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="format-impl.html">ZanyBlue Formatting Implementation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format-impl.html#format-functions">Format Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format-impl.html#print-procedures">Print Procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format-impl.html#plain-formatting-versions">Plain Formatting Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format-impl.html#localized-exceptions">Localized Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format-impl.html#missing-arguments-and-exceptions">Missing Arguments and Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="locale-type.html">Locale Type</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="locale-type.html#locale-encodings">Locale Encodings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale-type.html#locale-resolution">Locale Resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale-type.html#creating-locales">Creating Locales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale-type.html#changing-default-locale">Changing Default Locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale-type.html#id1">Creating Locales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="locale-type.html#message-source-locale">Message Source Locale</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="encodings.html">Encodings and The Codecs Type</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builtin-cldr.html">Built-in Localizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cldr-data.html">Unicode CLDR Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pseudo.html">Pseudo Translations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">Message &#8216;Metrics&#8217;</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zbmcompile.html">The zbmcompile Utility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#controlling-status-output">Controlling Status Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#definition-of-properties-directory">Definition of Properties Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#properties-file-extension">Properties File Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#auto-initialization">Auto-Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#optimization-of-messages">Optimization of Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#locale-selection">Locale Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#forced-compilation">Forced Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#definition-of-external-initialization-routine">Definition of External Initialization Routine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#generation-of-accessor-packages">Generation of Accessor Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#handling-non-ada-message-keys">Handling non-Ada Message Keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#output-directory">Output Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#adjusting-the-generated-code">Adjusting the Generated Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#consistency-checks">Consistency Checks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#selection-of-source-locale">Selection of Source Locale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#generating-ascii-only-sources">Generating ASCII Only Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zbmcompile.html#stamp-file">Stamp File</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/zb-logo.png" alt="Logo"/>
+            </a></p><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../root.html" title="previous chapter">The Root Package</a></li>
+      <li>Next: <a href="messages.html" title="next chapter">Messages and Arguments</a></li>
+  </ul></li>
+</ul>
+</div>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/text/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Michael Rohan <mrohan@zanyblue.com>.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.2.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/text/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

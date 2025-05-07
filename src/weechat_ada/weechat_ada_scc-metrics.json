@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 101473,
+  "CodeBytes": 0,
+  "Lines": 2602,
+  "Code": 2170,
+  "Comment": 179,
+  "Blank": 253,
+  "Complexity": 34,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/weechat.adb",
+      "Extension": "adb",
+      "Location": "src/weechat.adb",
+      "Symlocation": "",
+      "Bytes": 27292,
+      "Lines": 834,
+      "Code": 710,
+      "Comment": 20,
+      "Blank": 104,
+      "Complexity": 28,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/weechat.ads",
+      "Extension": "ads",
+      "Location": "src/weechat.ads",
+      "Symlocation": "",
+      "Bytes": 74181,
+      "Lines": 1768,
+      "Code": 1460,
+      "Comment": 159,
+      "Blank": 149,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

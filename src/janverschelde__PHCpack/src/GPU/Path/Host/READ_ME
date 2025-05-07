@@ -1,0 +1,45 @@
+Code to run on the host in the Path library, in PHCv2.4.37
+
+This directory is the reworked PATH_CPU subdirectory of the Path directory.
+The code is reworked to use templates properly.
+
+The makefile defines the compilation of the test programs.
+
+-------------------------------------------------------------------------------
+file name          : short description
+-------------------------------------------------------------------------------
+mgs_host.h         : templated prototypes for the modified Gram-Schmidt method
+mgs_host.tpp       : definition of the prototyped functions in mgs_host.h
+test_mgs.cpp       : test on solving a random linear system with mgs_host
+-------------------------------------------------------------------------------
+workspace_host.h   : prototypes for all data during the path tracking
+workspace_host.tpp : definition of templated methods of workspace_host.h
+path_data.h        : data structures for the path trackers
+path_data.tpp      : definition of templated code of path_data.h
+-------------------------------------------------------------------------------
+varset.h           : data structures for the evaluation and differentiation
+parameter.h        : settings for numerical constants
+test_parameter     : test on tuning the parameter settings
+eval_host.h        : evaluation and differentiation of polynomials
+eval_host.tpp      : definition of the tempated code in eval_host.h
+test_eval.cpp      : test on the evaluation and the differentation
+-------------------------------------------------------------------------------
+newton_host.h      : prototypes for applying Newton's method
+newton_host.tpp    : templated definitions for the functions in newton_host.h
+test_newton.cpp    : test on Newton's method with algorithmic differentiation
+-------------------------------------------------------------------------------
+predictor_host.h   : prototype for the predictor on the host
+predictor_host.tpp : templated code for the predictor
+path_host.h        : prototype for the path tracker on the host
+path_host.tpp      : templated code for the prototype in path_host.h
+path_track.h       : prototype to track many paths
+path_track.tpp     : templated code for the prototype in path_track.h
+test_path.cpp      : testing the path tracker
+-------------------------------------------------------------------------------
+jobqueue.h         : management of a job queue with mutex
+worker.h           : encapsulation of pthreads
+test_worker.cpp    : basic test on the methods in the Worker class
+test_jobs          : test on processing jobs
+-------------------------------------------------------------------------------
+lib2path           : connect Lib interface to the Path data structures
+-------------------------------------------------------------------------------

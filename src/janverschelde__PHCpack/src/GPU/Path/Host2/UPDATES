@@ -1,0 +1,46 @@
+Tue 26 Nov 2019 : new lib2path_d.h and lib2path_d.cpp to build the double
+  arithmetic version of the path library, without the QD library.
+
+Sun 21 Oct 2018 : improved test_start.cpp to be ready for multithreading.
+
+Wed 17 Oct 2018 : added test_start.cpp, to test solutions of a start system.
+
+Sat 13 Oct 2018 : in workspace_host.tpp removed output written to screen.
+  Added extra arrays for the predictor in workspace_host.h, with added
+  allocations in workspace_host.tpp.  Adjusted path_host.tpp to directly
+  use the predictor with the arrays stored in the workspace.
+
+Thu 11 Oct 2018 : added verbose parameter to the initialization methods
+  of workspace_host.h and workspace_host.tpp, called in cpuinsthom.
+  Added an extra function to predictor_host, to fix a memory leak.
+  Copied all remaining files, path_host, path_track, *job*, *worker*,
+  test_path.cpp and lib2path.cpp from ../Host, with updates to the makefile.
+
+Wed 10 Oct 2018 : extended the output at init when verbose in cpuinsthom.tpp,
+  set the verbose option in test_newton.cpp and fixed a bug in test_eval.cpp.
+  Must write max_deg_base only when eval_base in cpuinsthom.tpp,
+  added extra check in test_eval.cpp.
+
+Tue 9 Oct 2018 : updated workspace_host.h with the rhs for mgs, simplified
+  single line body loops in workspace_host.tpp and wrote an elementary
+  test program in test_workspace.cpp.  Separated the classes in varset.h,
+  making the files twoint.h, eqidxcoef.h, generalset.h, monidxset.h,
+  monset.h and including monset.h in the header eval_host.h.
+  Moved the seven class definitions out of eval_host.h and eval_host.tpp
+  into seven different cpuinsthom* header and tpp files.
+  The file eval_host.tpp no longer exists and eval_host.h just holds the
+  #include statements for evaluation and differentiation of homotopies.
+  The rhs in workspace_host.tpp must be allocated with one extra number.
+  Added verbose parameter to the functions in newton_host,
+  tested by test_newton.cpp.
+
+Mon 8 Oct 2018 : copied the mgs* files for the modified Gram-Schmidt method
+  from the Host folder.  Added a function to mgs_host.h and mgs_host.cpp
+  to work with an allocated right hand side vector rhs and deallocate this
+  vector also in the wrapper function.  Used templates in the test function
+  of test_mgs.cpp, so the test program turns out to be much shorter.
+  Copied parameter.h, parameter.cpp, and test_parameter.cpp from the Host
+  folder with some minor additions to the documentation.
+  The class PathStep is splitted off from the path_data files.
+  The code in path_step.h, path_step.tpp, path_data.h, path_data.tpp
+  is tested by test_pathdata.cpp.

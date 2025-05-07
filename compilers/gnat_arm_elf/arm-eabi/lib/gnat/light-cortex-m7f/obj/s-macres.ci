@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7f/gnat/s-macres.adb"
+node: { title: "_exit" label: "Os_Exit\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7f/gnat/s-macres.adb:60:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "abort" label: "Os_Abort\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7f/gnat/s-macres.adb:51:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "abort" targetname: "_exit" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7f/gnat/s-macres.adb:53:7" }
+node: { title: "system__machine_reset__stop" label: "Stop\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7f/gnat/s-macres.adb:100:4\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__machine_reset__stop" targetname: "_exit" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-cortex-m7f/gnat/s-macres.adb:102:7" }
+}

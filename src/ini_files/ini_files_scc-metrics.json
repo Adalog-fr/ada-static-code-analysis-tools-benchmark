@@ -1,0 +1,187 @@
+{
+  "Name": "Ada",
+  "Bytes": 36473,
+  "CodeBytes": 0,
+  "Lines": 928,
+  "Code": 707,
+  "Comment": 132,
+  "Blank": 89,
+  "Complexity": 47,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config.ads",
+      "Extension": "ads",
+      "Location": "config.ads",
+      "Symlocation": "",
+      "Bytes": 8325,
+      "Lines": 186,
+      "Code": 66,
+      "Comment": 90,
+      "Blank": 30,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tests/rosetta_updt_cfg.adb",
+      "Extension": "adb",
+      "Location": "tests/rosetta_updt_cfg.adb",
+      "Symlocation": "",
+      "Bytes": 584,
+      "Lines": 12,
+      "Code": 7,
+      "Comment": 3,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "config"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tests/rosetta_updt_cfg_reset.adb",
+      "Extension": "adb",
+      "Location": "tests/rosetta_updt_cfg_reset.adb",
+      "Symlocation": "",
+      "Bytes": 1937,
+      "Lines": 48,
+      "Code": 41,
+      "Comment": 2,
+      "Blank": 5,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tests/rosetta_read_cfg.adb",
+      "Extension": "adb",
+      "Location": "tests/rosetta_read_cfg.adb",
+      "Symlocation": "",
+      "Bytes": 962,
+      "Lines": 19,
+      "Code": 16,
+      "Comment": 1,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "config"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "tests/test_config.adb",
+      "Extension": "adb",
+      "Location": "tests/test_config.adb",
+      "Symlocation": "",
+      "Bytes": 3440,
+      "Lines": 101,
+      "Code": 85,
+      "Comment": 4,
+      "Blank": 12,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.exceptions",
+        "ada.text_io",
+        "config"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config.adb",
+      "Extension": "adb",
+      "Location": "config.adb",
+      "Symlocation": "",
+      "Bytes": 21225,
+      "Lines": 562,
+      "Code": 492,
+      "Comment": 32,
+      "Blank": 38,
+      "Complexity": 41,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.io_exceptions",
+        "ada.strings.fixed",
+        "ada.strings.maps",
+        "ada.text_io",
+        "ada.unchecked_deallocation"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.command_line": 1,
+    "ada.exceptions": 1,
+    "ada.io_exceptions": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.maps": 1,
+    "ada.text_io": 3,
+    "ada.unchecked_deallocation": 1,
+    "config": 3
+  }
+}

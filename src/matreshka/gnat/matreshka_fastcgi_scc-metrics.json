@@ -1,0 +1,889 @@
+{
+  "Name": "Ada",
+  "Bytes": 190339,
+  "CodeBytes": 0,
+  "Lines": 4223,
+  "Code": 1608,
+  "Comment": 2023,
+  "Blank": 592,
+  "Complexity": 64,
+  "Count": 32,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-application.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-application.adb",
+      "Symlocation": "",
+      "Bytes": 4153,
+      "Lines": 86,
+      "Code": 21,
+      "Comment": 55,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.fastcgi.server",
+        "matreshka.fastcgi.streaming_server"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-application.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-application.ads",
+      "Symlocation": "",
+      "Bytes": 4048,
+      "Lines": 72,
+      "Code": 18,
+      "Comment": 46,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "fastcgi.handlers.responder",
+        "fastcgi.replies",
+        "fastcgi.requests"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-field_names.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-field_names.adb",
+      "Symlocation": "",
+      "Bytes": 4237,
+      "Lines": 80,
+      "Code": 19,
+      "Comment": 52,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-field_names.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-field_names.ads",
+      "Symlocation": "",
+      "Bytes": 4143,
+      "Lines": 69,
+      "Code": 12,
+      "Comment": 48,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-field_values.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-field_values.ads",
+      "Symlocation": "",
+      "Bytes": 3943,
+      "Lines": 65,
+      "Code": 11,
+      "Comment": 46,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-replies-internals.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-replies-internals.adb",
+      "Symlocation": "",
+      "Bytes": 3763,
+      "Lines": 62,
+      "Code": 12,
+      "Comment": 46,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-requests-internals.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-requests-internals.adb",
+      "Symlocation": "",
+      "Bytes": 3766,
+      "Lines": 62,
+      "Code": 12,
+      "Comment": 46,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-requests-internals.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-requests-internals.ads",
+      "Symlocation": "",
+      "Bytes": 3535,
+      "Lines": 52,
+      "Code": 6,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.fastcgi"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-handlers-responder.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-handlers-responder.adb",
+      "Symlocation": "",
+      "Bytes": 6047,
+      "Lines": 149,
+      "Code": 59,
+      "Comment": 70,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-field_values.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-field_values.adb",
+      "Symlocation": "",
+      "Bytes": 3922,
+      "Lines": 67,
+      "Code": 12,
+      "Comment": 49,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-replies.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-replies.ads",
+      "Symlocation": "",
+      "Bytes": 5135,
+      "Lines": 107,
+      "Code": 44,
+      "Comment": 46,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.stream_element_vectors",
+        "league.strings",
+        "matreshka.fastcgi"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-protocol.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-protocol.ads",
+      "Symlocation": "",
+      "Bytes": 7525,
+      "Lines": 167,
+      "Code": 87,
+      "Comment": 51,
+      "Blank": 29,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-query_items.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-query_items.adb",
+      "Symlocation": "",
+      "Bytes": 9916,
+      "Lines": 253,
+      "Code": 126,
+      "Comment": 76,
+      "Blank": 51,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "matreshka.internals.unicode.characters.latin"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-streaming_server.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-streaming_server.ads",
+      "Symlocation": "",
+      "Bytes": 3551,
+      "Lines": 51,
+      "Code": 5,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "fastcgi.application"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi.ads",
+      "Symlocation": "",
+      "Bytes": 3392,
+      "Lines": 49,
+      "Code": 3,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-handlers.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-handlers.ads",
+      "Symlocation": "",
+      "Bytes": 3410,
+      "Lines": 49,
+      "Code": 3,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-server.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-server.ads",
+      "Symlocation": "",
+      "Bytes": 3538,
+      "Lines": 52,
+      "Code": 5,
+      "Comment": 43,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "fastcgi.application"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-replies-internals.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-replies-internals.ads",
+      "Symlocation": "",
+      "Bytes": 3531,
+      "Lines": 52,
+      "Code": 6,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.fastcgi"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-replies.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-replies.adb",
+      "Symlocation": "",
+      "Bytes": 6016,
+      "Lines": 154,
+      "Code": 66,
+      "Comment": 67,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.text_codecs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-descriptors.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-descriptors.ads",
+      "Symlocation": "",
+      "Bytes": 5561,
+      "Lines": 109,
+      "Code": 43,
+      "Comment": 48,
+      "Blank": 18,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastcgi.field_names",
+        "fastcgi.field_values",
+        "gnat.sockets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi.ads",
+      "Symlocation": "",
+      "Bytes": 4436,
+      "Lines": 78,
+      "Code": 26,
+      "Comment": 43,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "league.stream_element_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-query_items.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-query_items.ads",
+      "Symlocation": "",
+      "Bytes": 4205,
+      "Lines": 62,
+      "Code": 3,
+      "Comment": 56,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi.adb",
+      "Symlocation": "",
+      "Bytes": 3852,
+      "Lines": 66,
+      "Code": 15,
+      "Comment": 46,
+      "Blank": 5,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "ada.strings.hash"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-requests.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/fastcgi-requests.adb",
+      "Symlocation": "",
+      "Bytes": 5598,
+      "Lines": 134,
+      "Code": 53,
+      "Comment": 64,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-protocol.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-protocol.adb",
+      "Symlocation": "",
+      "Bytes": 6374,
+      "Lines": 150,
+      "Code": 63,
+      "Comment": 67,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-streaming_server-fcgi_listen_socket__posix.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-streaming_server-fcgi_listen_socket__posix.adb",
+      "Symlocation": "",
+      "Bytes": 3645,
+      "Lines": 54,
+      "Code": 8,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-handlers-responder.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-handlers-responder.ads",
+      "Symlocation": "",
+      "Bytes": 5864,
+      "Lines": 131,
+      "Code": 57,
+      "Comment": 48,
+      "Blank": 26,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastcgi.field_names",
+        "fastcgi.field_values",
+        "gnat.sockets",
+        "matreshka.fastcgi.descriptors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-streaming_server.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-streaming_server.adb",
+      "Symlocation": "",
+      "Bytes": 19841,
+      "Lines": 578,
+      "Code": 152,
+      "Comment": 369,
+      "Blank": 57,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.streams",
+        "ada.text_io",
+        "fastcgi.handlers.responder",
+        "gnat.sockets",
+        "matreshka.fastcgi.descriptors",
+        "matreshka.fastcgi.protocol"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/fastcgi-requests.ads",
+      "Extension": "ads",
+      "Location": "../source/web/fastcgi/fastcgi-requests.ads",
+      "Symlocation": "",
+      "Bytes": 5245,
+      "Lines": 113,
+      "Code": 42,
+      "Comment": 53,
+      "Blank": 18,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "league.stream_element_vectors",
+        "matreshka.fastcgi"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-server-fcgi_listen_socket__posix.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-server-fcgi_listen_socket__posix.adb",
+      "Symlocation": "",
+      "Bytes": 3635,
+      "Lines": 54,
+      "Code": 8,
+      "Comment": 43,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-server.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-server.adb",
+      "Symlocation": "",
+      "Bytes": 20188,
+      "Lines": 613,
+      "Code": 375,
+      "Comment": 104,
+      "Blank": 134,
+      "Complexity": 29,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "fastcgi.replies.internals",
+        "fastcgi.requests.internals",
+        "gnat.sockets",
+        "matreshka.fastcgi.protocol",
+        "matreshka.fastcgi.query_items",
+        "matreshka.internals.unicode.characters.latin"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/web/fastcgi/matreshka-fastcgi-descriptors.adb",
+      "Extension": "adb",
+      "Location": "../source/web/fastcgi/matreshka-fastcgi-descriptors.adb",
+      "Symlocation": "",
+      "Bytes": 14324,
+      "Lines": 383,
+      "Code": 236,
+      "Comment": 83,
+      "Blank": 64,
+      "Complexity": 17,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings",
+        "league.text_codecs",
+        "matreshka.fastcgi.protocol",
+        "matreshka.internals.unicode.characters.latin"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.hashed_maps": 1,
+    "ada.containers.ordered_maps": 1,
+    "ada.streams": 9,
+    "ada.strings.hash": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_conversion": 3,
+    "fastcgi.application": 2,
+    "fastcgi.field_names": 2,
+    "fastcgi.field_values": 2,
+    "fastcgi.handlers.responder": 2,
+    "fastcgi.replies": 1,
+    "fastcgi.replies.internals": 1,
+    "fastcgi.requests": 1,
+    "fastcgi.requests.internals": 1,
+    "gnat.sockets": 4,
+    "league.stream_element_vectors": 3,
+    "league.strings": 4,
+    "league.text_codecs": 2,
+    "matreshka.fastcgi": 4,
+    "matreshka.fastcgi.descriptors": 2,
+    "matreshka.fastcgi.protocol": 3,
+    "matreshka.fastcgi.query_items": 1,
+    "matreshka.fastcgi.server": 1,
+    "matreshka.fastcgi.streaming_server": 1,
+    "matreshka.internals.unicode.characters.latin": 3
+  }
+}

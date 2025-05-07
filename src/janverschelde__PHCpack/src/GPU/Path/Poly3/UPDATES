@@ -1,0 +1,64 @@
+Sat 13 Oct 2018 : fixed the reading of a monomial in PolyMon in the cases
+  when the order of the variables differs from monomial to monomial.
+
+Fri 12 Oct 2018 : added a print_tableau method to the PolyMon class in
+  polymon.h and polymon.tpp, refactoring code in test_utils.h, test_utils.tpp.
+  Added more diagnostics prints to polymon.tpp.
+
+Thu 11 Oct 2018 : in polymon.h, polymon.tpp, polyeq.h, polyeq.tpp, polysys.h,
+  polysys.tpp and test_polysys.cpp, added verbose options for debugging the
+  read() methods.
+
+Wed 10 Oct 2018 : fixed bug in test_utils.tpp with the output of a
+  polynomial in the tableau format, added #include <iomanip> to test_utils.h.
+
+Tue 9 Oct 2018 : extended test_polysys.cpp to allow the user to enter
+  the file name for an input polynomial system.
+
+Sun 7 Oct 2018 : to make polysys thread safe, added extra functions to
+  polysys to isolate the memory allocation to the main function.
+  Updated polysys.h, polysys.tpp, and test_polysys.cpp.
+  Splitted from polysol.h and polysol.tpp the class PolySolSet,
+  now defined in polysolset.h and polysolset.tpp.
+  Splitted the classes for the node from the linklist, modifying linklist.h
+  and linklist.tpp, with new files linknode.h and linknode.tpp.
+
+Sat 6 Oct 2018 : wrote more documentation in polysys.h and tested the
+  evaluation of the Jacobian matrix in test_polysys.cpp.
+  Adjusted test_polysys.cpp so evaluation of Jacobian matrix works for
+  any general polynomial system.
+
+Fri 5 Oct 2018 : improved the documentation in polysys.h and added a test
+  on the plain evaluation methods in test_polysys.cpp.
+
+Thu 4 Oct 2018 : updated polyeq.h, polyeq.tpp, and test_polyeq.cpp to
+  test the evaluation and differentiation of general polynomials.
+  Moved functions from test_polyeq.cpp to test_utils.h and test_utils.tpp.
+  Started writing of test_polysys.cpp to test polysys.
+
+Wed 3 Oct 2018 : moved update_max_deg from polysys.tpp to polymon.tpp
+  and documented this method.  Updated polyeq.h and polyeq.tpp, with
+  a test on the evaluation in test_polyeq.cpp.
+  Added test on computing the derivatives in test_polyeq.cpp.
+  In test_polyeq.cpp, computed the maximum degrees of the monomials.
+
+Tue 2 Oct 2018 : improved test_polymon.cpp with functions to generate a
+  random monomial and to prompt the user for a monomial.
+  Improved the documentation in polymon.h and the evaluation of higher
+  degree monomials is tested in test_polymon.cpp.  Differentiation tested 
+  in test_polymon.cpp and improved documentation in polymon.h.
+  New files test_utils.h and test_utils.tpp with test utility functions
+  for use in test_polymon.cpp and in test_polyeq.cpp.
+
+Mon 1 Oct 2018 : moved code from polysys.tpp into polymon.tpp and polyeq.tpp,
+  new test program test_polyeq.cpp, with updated makefile.
+  Added calling of speel function to test_polymon.cpp.
+
+Sun 30 Sep 2018 : improved documentation in polymon.h and better organization
+  of the tests in test_polymon.cpp.
+
+Sat 29 Sep 2018 : added better comments to polymon.h, tested the plain
+  evaluation of monomials in test_polymon.cpp, fixed test_polysol.cpp.
+
+Fri 28 Sep 2018 : new test program test_polymon.cpp, to test the data
+  structure to store a monomial, with added comments in polymon.h.

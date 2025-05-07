@@ -1,0 +1,18 @@
+authors = [
+"Alejandro R. Mosteo",
+]
+description = "ANSI escape sequences"
+licenses = "MIT"
+maintainers = [
+"Alejandro R. Mosteo <alejandro@mosteo.com>",
+]
+maintainers-logins = [
+"mosteo",
+]
+name = "ansiada"
+tags = [
+"ansi",
+"terminal",
+]
+version = "1.0.0"
+

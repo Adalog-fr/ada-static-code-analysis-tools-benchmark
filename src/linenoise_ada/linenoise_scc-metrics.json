@@ -1,0 +1,77 @@
+{
+  "Name": "Ada",
+  "Bytes": 16216,
+  "CodeBytes": 0,
+  "Lines": 584,
+  "Code": 344,
+  "Comment": 121,
+  "Blank": 119,
+  "Complexity": 17,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/linenoise.adb",
+      "Extension": "adb",
+      "Location": "src/linenoise.adb",
+      "Symlocation": "",
+      "Bytes": 6540,
+      "Lines": 289,
+      "Code": 193,
+      "Comment": 47,
+      "Blank": 49,
+      "Complexity": 17,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/linenoise.ads",
+      "Extension": "ads",
+      "Location": "src/linenoise.ads",
+      "Symlocation": "",
+      "Bytes": 9676,
+      "Lines": 295,
+      "Code": 151,
+      "Comment": 74,
+      "Blank": 70,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors",
+        "ada.io_exceptions",
+        "interfaces.c",
+        "interfaces.c.strings"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_vectors": 1,
+    "ada.io_exceptions": 1,
+    "ada.strings.maps": 1,
+    "interfaces.c": 1,
+    "interfaces.c.strings": 1
+  }
+}

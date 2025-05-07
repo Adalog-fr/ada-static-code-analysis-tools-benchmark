@@ -1,0 +1,5 @@
+limited with "p.gpr";
+
+project B is
+   package Compiler renames P.Compiler;
+end B;

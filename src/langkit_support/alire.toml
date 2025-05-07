@@ -1,0 +1,27 @@
+authors = ["AdaCore"]
+description = "Runtime support library for Langkit-generated libraries"
+licenses = "Apache-2.0"
+maintainers = ["Pierre-Marie de Rodat <pmderodat@kawie.fr>"]
+maintainers-logins = ["pmderodat"]
+name = "langkit_support"
+version = "23.0.0"
+website = "https://github.com/AdaCore/langkit"
+
+[[depends-on]]
+gnatcoll = "*"
+gnatcoll_gmp = "*"
+gnatcoll_iconv = "*"
+
+[[pins]]
+
+[pins.gnatcoll]
+path = "../gnatcoll-core"
+
+[pins.gnatcoll_gmp]
+path = "../gnatcoll-bindings/gmp"
+
+[pins.gnatcoll_iconv]
+path = "../gnatcoll-bindings/iconv"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,17 @@
+authors = ["Manuel Hatzl"]
+description = "Unbound data structures in Ada-Spark"
+licenses = "MIT"
+long-description = "Spark_Unbound is a take on providing generic unbound data structures in Spark.\n\nIn addition to proving general absence of runtime errors, the heap allocation is done in a non-Spark function to catch a possible `Storage_Error`.\nThis further increases the security and confident use of this library.\n\n**The following packages are currently available:**\n\n- `Spark_Unbound.Safe_Alloc`: Providing formally proven safe heap allocation functionality\n- `Spark_Unbound.Arrays`: Providing a formally proven alternative to `Ada.Containers.Vector`\n\n**Note:** If you use this library, starring the repository on GitHub helps me a lot to see if it is even useful for someone else.\n"
+maintainers = ["Manuel Hatzl <hatzlmanuel@outlook.com>"]
+maintainers-logins = ["mhatzl"]
+name = "spark_unbound"
+tags = ["spark","unbound"]
+version = "0.2.1"
+website = "https://github.com/mhatzl/spark_unbound"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

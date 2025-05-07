@@ -1,0 +1,35 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "lace_shared"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../../lace_shared"
+[[solution.state]]
+crate = "libexpat"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "direct"
+versions = "*"
+[solution.state.release]
+description = "Expat is a stream-oriented XML 1.0 parser library"
+maintainers = [
+"Rod Kay <rodakay5@gmail.com>",
+]
+maintainers-logins = [
+"charlie5",
+]
+name = "libexpat"
+notes = "Provided by system package: libexpat1-dev"
+version = "2.2.10"
+[solution.state.release.origin]
+url = "system:libexpat1-dev"
+

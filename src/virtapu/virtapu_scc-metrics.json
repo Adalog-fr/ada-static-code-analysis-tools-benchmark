@@ -1,0 +1,70 @@
+{
+  "Name": "Ada",
+  "Bytes": 30819,
+  "CodeBytes": 0,
+  "Lines": 918,
+  "Code": 660,
+  "Comment": 110,
+  "Blank": 148,
+  "Complexity": 28,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/virtapu.adb",
+      "Extension": "adb",
+      "Location": "src/virtapu.adb",
+      "Symlocation": "",
+      "Bytes": 16014,
+      "Lines": 558,
+      "Code": 387,
+      "Comment": 73,
+      "Blank": 98,
+      "Complexity": 28,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/virtapu.ads",
+      "Extension": "ads",
+      "Location": "src/virtapu.ads",
+      "Symlocation": "",
+      "Bytes": 14805,
+      "Lines": 360,
+      "Code": 273,
+      "Comment": 37,
+      "Blank": 50,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces": 2
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 5021,
+  "CodeBytes": 0,
+  "Lines": 138,
+  "Code": 75,
+  "Comment": 34,
+  "Blank": 29,
+  "Complexity": 5,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/xdg_base_dir.ads",
+      "Extension": "ads",
+      "Location": "src/xdg_base_dir.ads",
+      "Symlocation": "",
+      "Bytes": 2429,
+      "Lines": 66,
+      "Code": 29,
+      "Comment": 19,
+      "Blank": 18,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/xdg_base_dir.adb",
+      "Extension": "adb",
+      "Location": "src/xdg_base_dir.adb",
+      "Symlocation": "",
+      "Bytes": 2592,
+      "Lines": 72,
+      "Code": 46,
+      "Comment": 15,
+      "Blank": 11,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

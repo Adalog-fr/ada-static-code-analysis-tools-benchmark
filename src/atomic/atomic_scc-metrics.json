@@ -1,0 +1,357 @@
+{
+  "Name": "Ada",
+  "Bytes": 95498,
+  "CodeBytes": 0,
+  "Lines": 2265,
+  "Code": 1790,
+  "Comment": 233,
+  "Blank": 242,
+  "Complexity": 4,
+  "Count": 13,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-signed_16.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-signed_16.ads",
+      "Symlocation": "",
+      "Bytes": 109,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic.signed",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/atomic_config.ads",
+      "Extension": "ads",
+      "Location": "config/atomic_config.ads",
+      "Symlocation": "",
+      "Bytes": 789,
+      "Lines": 27,
+      "Code": 17,
+      "Comment": 1,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-signed_8.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-signed_8.ads",
+      "Symlocation": "",
+      "Bytes": 107,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic.signed",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-signed.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-signed.ads",
+      "Symlocation": "",
+      "Bytes": 6632,
+      "Lines": 185,
+      "Code": 136,
+      "Comment": 20,
+      "Blank": 29,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-unsigned_16.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-unsigned_16.ads",
+      "Symlocation": "",
+      "Bytes": 116,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic.unsigned",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-signed_32.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-signed_32.ads",
+      "Symlocation": "",
+      "Bytes": 109,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic.signed",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-unsigned_32.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-unsigned_32.ads",
+      "Symlocation": "",
+      "Bytes": 116,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic.unsigned",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/intrinsic/atomic.adb",
+      "Extension": "adb",
+      "Location": "src/intrinsic/atomic.adb",
+      "Symlocation": "",
+      "Bytes": 1628,
+      "Lines": 70,
+      "Code": 48,
+      "Comment": 12,
+      "Blank": 10,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic.ads",
+      "Extension": "ads",
+      "Location": "src/atomic.ads",
+      "Symlocation": "",
+      "Bytes": 2609,
+      "Lines": 92,
+      "Code": 50,
+      "Comment": 20,
+      "Blank": 22,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-unsigned_8.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-unsigned_8.ads",
+      "Symlocation": "",
+      "Bytes": 114,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic.unsigned",
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/atomic-unsigned.ads",
+      "Extension": "ads",
+      "Location": "src/atomic-unsigned.ads",
+      "Symlocation": "",
+      "Bytes": 11976,
+      "Lines": 329,
+      "Code": 259,
+      "Comment": 20,
+      "Blank": 50,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/intrinsic/atomic-signed.adb",
+      "Extension": "adb",
+      "Location": "src/intrinsic/atomic-signed.adb",
+      "Symlocation": "",
+      "Bytes": 22402,
+      "Lines": 483,
+      "Code": 395,
+      "Comment": 50,
+      "Blank": 38,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/intrinsic/atomic-unsigned.adb",
+      "Extension": "adb",
+      "Location": "src/intrinsic/atomic-unsigned.adb",
+      "Symlocation": "",
+      "Bytes": 48791,
+      "Lines": 1055,
+      "Code": 867,
+      "Comment": 110,
+      "Blank": 78,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "atomic.signed": 3,
+    "atomic.unsigned": 3,
+    "interfaces": 6,
+    "system": 3
+  }
+}

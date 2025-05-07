@@ -1,0 +1,57 @@
+project QD is
+
+    type OS_type is ("linux", "windows", "macosx");
+    os : OS_type := external("os", "linux");
+
+    case os is
+        when "linux" | "macosx" =>
+            for Source_Dirs use
+                (".", "../../System", "../../System/Unix_Timer",
+                 "../Numbers");
+        when "windows" =>
+            for Source_Dirs use
+                (".", "../../System", "../../System/Basic_Timer",
+                 "../Numbers");
+    end case;
+
+    for Languages use ("Ada");
+
+    for Object_Dir use "../../../Objects";
+    for Exec_Dir use "../../../bin";
+
+    for Main use
+    (
+        "ts_dbldbl.adb",   -- tests double doubles
+        "ts_qddbl.adb",    -- tests quad doubles
+        "ts_ddcmplx.adb",  -- tests complex double doubles
+        "ts_qdcmplx.adb",  -- tests complex quad doubles
+        "ts_mpddcv.adb",   -- tests multiprecision double double conversions
+        "ts_mpqdcv.adb",   -- tests multiprecision quad double conversions
+        "ts_ddfun.adb",    -- tests double double functions
+        "ts_qdfun.adb",    -- tests quad double function
+        "ts_cmpexp.adb",   -- tests complex exponentation
+        "ts_tridbl.adb",   -- tests triple doubles
+        "ts_tdcmplx.adb",  -- tests complex triple doubles
+        "ts_pentadbl.adb", -- tests_penta doubles
+        "ts_pdcmplx.adb",  -- tests complex penta doubles
+        "ts_octdbl.adb",   -- tests octo doubles
+        "ts_odcmplx.adb",  -- tests complex octo doubles
+        "ts_decadbl.adb",  -- tests deca doubles
+        "ts_dacmplx.adb",  -- tests complex deca doubles
+        "ts_hexdbl.adb",   -- tests hexa doubles
+        "ts_hdcmplx.adb",  -- tests complex hexa doubles
+        "ts_tdfun.adb",    -- tests triple double functions
+        "ts_pdfun.adb",    -- tests penta double functions
+        "ts_odfun.adb",    -- tests octo double functions
+        "ts_dafun.adb",    -- tests deca double functions
+        "ts_hdfun.adb",    -- tests hexa double functions
+        "ts_mpcasts.adb"   -- tests multiprecision multiple double casts
+    );
+
+    package Compiler is
+
+        for Default_Switches ("Ada") use ("-gnatwa", "-gnatva");
+
+    end Compiler;
+
+end QD;

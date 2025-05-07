@@ -1,0 +1,4 @@
+config/labs_radar_config.ads
+src/020_declarations/src/declarations_main.adb
+src/common/radar_internals.adb
+src/common/radar_internals.ads

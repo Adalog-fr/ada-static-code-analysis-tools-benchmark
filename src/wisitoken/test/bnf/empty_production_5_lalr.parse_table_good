@@ -1,0 +1,136 @@
+Tokens:
+ 0 => WHITESPACE
+ 1 => ACCEPT
+ 2 => LEFT_PAREN
+ 3 => RIGHT_PAREN
+ 4 => SEMICOLON
+ 5 => IDENTIFIER
+ 6 => Wisi_EOI
+ 7 => wisitoken_accept
+ 8 => compilation_unit
+ 9 => accept_statement
+ 10 => name
+ 11 => parameter_profile
+
+Productions:
+7.0: wisitoken_accept <= compilation_unit Wisi_EOI
+8.0: compilation_unit <= accept_statement accept_statement
+9.0: accept_statement <= ACCEPT name parameter_profile SEMICOLON
+10.0: name <= IDENTIFIER
+11.0: parameter_profile <= LEFT_PAREN IDENTIFIER RIGHT_PAREN
+11.1: parameter_profile <=
+
+Recursions:
+
+LALR Parse Table:
+State 0:
+      7.0:wisitoken_accept <= ^ compilation_unit Wisi_EOI
+
+   ACCEPT            => shift and goto state 1 9.0
+   default           => ERROR
+
+   compilation_unit  goto state 2
+   accept_statement  goto state 3
+
+   Minimal_Complete_Actions => 
+
+State 1:
+      9.0:accept_statement <= ACCEPT ^ name parameter_profile SEMICOLON
+
+   IDENTIFIER        => shift and goto state 4 10.0
+   default           => ERROR
+
+   name              goto state 5
+
+   Minimal_Complete_Actions => (IDENTIFIER 10.0)
+
+State 2:
+      7.0:wisitoken_accept <= compilation_unit ^ Wisi_EOI
+
+   Wisi_EOI          => accept it 7.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => 
+
+State 3:
+      8.0:compilation_unit <= accept_statement ^ accept_statement
+
+   ACCEPT            => shift and goto state 1 9.0
+   default           => ERROR
+
+   accept_statement  goto state 6
+
+   Minimal_Complete_Actions => (ACCEPT 9.0)
+
+State 4:
+     10.0:name <= IDENTIFIER ^
+
+   LEFT_PAREN        => reduce 1 tokens to name 10.0
+   SEMICOLON         => reduce 1 tokens to name 10.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (1 name 10.0)
+
+State 5:
+      9.0:accept_statement <= ACCEPT name ^ parameter_profile SEMICOLON
+
+   LEFT_PAREN        => shift and goto state 7 11.0
+   SEMICOLON         => reduce 0 tokens to parameter_profile 11.1
+   default           => ERROR
+
+   parameter_profile goto state 8
+
+   Minimal_Complete_Actions => (0 parameter_profile 11.1)
+
+State 6:
+      8.0:compilation_unit <= accept_statement accept_statement ^
+
+   Wisi_EOI          => reduce 2 tokens to compilation_unit 8.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (2 compilation_unit 8.0)
+
+State 7:
+     11.0:parameter_profile <= LEFT_PAREN ^ IDENTIFIER RIGHT_PAREN
+
+   IDENTIFIER        => shift and goto state 9 11.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (IDENTIFIER 11.0)
+
+State 8:
+      9.0:accept_statement <= ACCEPT name parameter_profile ^ SEMICOLON
+
+   SEMICOLON         => shift and goto state 10 9.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (SEMICOLON 9.0)
+
+State 9:
+     11.0:parameter_profile <= LEFT_PAREN IDENTIFIER ^ RIGHT_PAREN
+
+   RIGHT_PAREN       => shift and goto state 11 11.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (RIGHT_PAREN 11.0)
+
+State 10:
+      9.0:accept_statement <= ACCEPT name parameter_profile SEMICOLON ^
+
+   ACCEPT            => reduce 4 tokens to accept_statement 9.0
+   Wisi_EOI          => reduce 4 tokens to accept_statement 9.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (4 accept_statement 9.0)
+
+State 11:
+     11.0:parameter_profile <= LEFT_PAREN IDENTIFIER RIGHT_PAREN ^
+
+   SEMICOLON         => reduce 3 tokens to parameter_profile 11.0
+   default           => ERROR
+
+   Minimal_Complete_Actions => (3 parameter_profile 11.0)
+
+10 states with minimal_complete_actions; 10 total minimal_complete_actions.
+
+ 4 rules, 0 user actions, 1 checks, 12 states

@@ -1,0 +1,7 @@
+
+with "lib2";
+with "lib3";
+
+abstract project Demo is
+   for Source_Dirs use ();
+end Demo;

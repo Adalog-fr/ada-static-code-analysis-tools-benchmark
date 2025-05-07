@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-pack22.adb"
+node: { title: "system__pack_22__clusterIP" label: "clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__rev_clusterIP" label: "rev_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__clusteruIP" label: "clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__rev_clusteruIP" label: "rev_clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__get_22" label: "Get_22\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-pack22.adb:98:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__getu_22" label: "Getu_22\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-pack22.adb:137:4\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__set_22" label: "Set_22\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-pack22.adb:176:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_22__setu_22" label: "Setu_22\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-tms570/gnat/s-pack22.adb:215:4\n4 bytes (static)\n0 dynamic objects" }
+}

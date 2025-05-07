@@ -1,0 +1,105 @@
+{
+  "Name": "Ada",
+  "Bytes": 2961,
+  "CodeBytes": 0,
+  "Lines": 95,
+  "Code": 64,
+  "Comment": 16,
+  "Blank": 15,
+  "Complexity": 4,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/driver/load_library.ads",
+      "Extension": "ads",
+      "Location": "../sources/driver/load_library.ads",
+      "Symlocation": "",
+      "Bytes": 305,
+      "Lines": 10,
+      "Code": 4,
+      "Comment": 4,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/driver/ada_driver.adb",
+      "Extension": "adb",
+      "Location": "../sources/driver/ada_driver.adb",
+      "Symlocation": "",
+      "Bytes": 1550,
+      "Lines": 50,
+      "Code": 36,
+      "Comment": 8,
+      "Blank": 6,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.wide_wide_latin_1",
+        "ada.wide_wide_text_io",
+        "league.strings",
+        "load_library"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/driver/load_library.adb",
+      "Extension": "adb",
+      "Location": "../sources/driver/load_library.adb",
+      "Symlocation": "",
+      "Bytes": 1106,
+      "Lines": 35,
+      "Code": 24,
+      "Comment": 4,
+      "Blank": 7,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c.strings",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.wide_wide_latin_1": 1,
+    "ada.wide_wide_text_io": 1,
+    "interfaces.c.strings": 1,
+    "league.strings": 2,
+    "load_library": 1,
+    "system": 1
+  }
+}

@@ -1,0 +1,15 @@
+-- GNATcheck do not report timing by rules. It only reports a global timing
+-- Test command: time gnatcheck -m1 -t -l -o gnatcheck.report *.adb *.ads -rules -from=gnatcheck.rules
+
++RAbort_Statements
++RAbstract_Type_Declarations
++RBlocks
++RConstructors
+-- +RDeep_Inheritance_Hierarchies:2
++REnumeration_Representation_Clauses
++RRenamings
++RSlices
++RToo_Many_Parents:2
+-- +RUnconditional_Exits
+-- +RAccess_To_Local_Objects
+-- +RAnonymous_Subtypes

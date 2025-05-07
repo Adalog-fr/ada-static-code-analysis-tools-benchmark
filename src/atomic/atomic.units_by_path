@@ -1,0 +1,13 @@
+config/atomic_config.ads
+src/atomic-signed_16.ads
+src/atomic-signed_32.ads
+src/atomic-signed_8.ads
+src/atomic-signed.ads
+src/atomic-unsigned_16.ads
+src/atomic-unsigned_32.ads
+src/atomic-unsigned_8.ads
+src/atomic-unsigned.ads
+src/atomic.ads
+src/intrinsic/atomic-signed.adb
+src/intrinsic/atomic-unsigned.adb
+src/intrinsic/atomic.adb

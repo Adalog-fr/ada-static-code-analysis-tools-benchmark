@@ -1,0 +1,163 @@
+;; Test translate elisp wisi actions to Ada, auto token labels
+
+%code copyright_license %{
+;;  Copyright (C) 2013, 2017 - 2021 Stephen Leake.  All Rights Reserved.
+
+;;  This program is free software; you can redistribute it and/or
+;;  modify it under the terms of the GNU General Public License as
+;;  published by the Free Software Foundation; either version 3, or (at
+;;  your option) any later version.
+;;
+;;  This software is distributed in the hope that it will be useful,
+;;  but WITHOUT ANY WARRANTY; without even the implied warranty of
+;;  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+;;  General Public License for more details.
+;;
+;;  You should have received a copy of the GNU General Public License
+;;  along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+}%
+
+%meta_syntax EBNF
+
+%generate LALR Ada_Emacs re2c Process
+;; We don't do packrat here; that would require too many changes to
+;; the grammar, breaking what this is testing.
+
+%start compilation_unit
+
+%max_parallel 10
+
+%keyword BEGIN "begin"
+%keyword END "end"
+%keyword EXCEPTION "exception"
+%keyword FOR "for"
+%keyword FUNCTION "function"
+%keyword IN "in"
+%keyword LOOP "loop"
+%keyword PROCEDURE "procedure"
+%keyword WHEN "when"
+%keyword USE "use"
+
+%token <left-paren> LEFT_PAREN "("
+%token <right-paren> RIGHT_PAREN ")"
+
+%token <punctuation> COLON ":"
+%token <punctuation> COMMA ","
+%token <punctuation> DOT "."
+%token <punctuation> SEMICOLON ";"
+
+%token <symbol> SYMBOL %[ [a-zA-Z][0-9a-zA-Z_]* ]% "bogus_symbol"
+
+%non_grammar <non-reporting> WHITESPACE %[ [ \t] ]%
+%non_grammar <new-line> NEW_LINE %[ [\n] ]%
+%non_grammar <comment-new-line> COMMENT_1 %[ "--" ]%
+%non_grammar <comment-new-line> COMMENT_2 %[ "//" ]%
+
+%mckenzie_check_limit 3
+%mckenzie_zombie_limit 3
+%mckenzie_check_delta_limit 200
+%mckenzie_enqueue_limit 10_000
+%mckenzie_cost_default 4 4 4 4
+
+;; elisp names in face actions
+%elisp_face font-lock-keyword-face
+%elisp_face font-lock-type-face
+%elisp_face font-lock-function-name-face
+%elisp_face nil
+
+;; language-specific elisp names in indent actions
+%elisp_indent subp-indent-function_1 Function_1 2 1
+%elisp_indent subp-indent-function_2 Function_2 0
+%elisp_indent subp-indent-function_3 Function_2 2 2
+
+;; language-specific elisp action
+%elisp_action face wisi-mmmify-token MMMify_Token
+
+;; Auto generated token labels with holes in indent args
+block
+  : [SYMBOL COLON] BEGIN loop_statement [EXCEPTION WHEN name] END [SYMBOL]
+    %((wisi-statement-action [1 statement-start 3 motion 5 motion 9 motion])
+      (wisi-indent-action [nil nil nil subp-indent nil subp-indent nil nil nil]))%
+    %((wisi-match-names 1 9))%
+;
+
+;; No automatic token labels needed; {declaration} is replaced by declaration_list.
+compilation_unit
+  : {declaration}
+    %()%
+    %((wisi-terminate-partial-parse))%
+  ;
+
+declaration
+  : subprogram
+  | use_clause
+  ;
+
+;; No automatic token labels needed; manual labels preserved.
+loop_statement
+  : FOR SYMBOL IN nam=subtype LOOP SEMICOLON
+    %((wisi-face-remove-action [nam])
+      (wisi-indent-action [(- subp-indent) 0 (- subp-indent subp-indent-broken) subp-indent 0 0]))%
+  ;
+
+name
+  : [pre=name DOT] suf=SYMBOL
+    %((wisi-face-mark-action [pre prefix suf suffix]))%
+    %((wisi-merge-names pre suf))%
+  ;
+
+name_list
+  : name
+    %((wisi-mmmify-token [1]))%
+  | name_list COMMA name
+    %((wisi-mmmify-token [3])
+      (wisi-indent-action [nil
+                           0
+                           (wisi-hanging 0 java-indent-broken)]))%
+  ;
+
+parameter_list
+  : LEFT_PAREN SYMBOL? RIGHT_PAREN
+    %((wisi-statement-action [2 misc])
+      (wisi-indent-action [0 (wisi-anchored 1 1) (wisi-anchored 1 0)]))%
+  ;
+
+subprogram
+  : fun=FUNCTION nam=name? par=parameter_list? blo=block? sem=SEMICOLON
+    %(;; An example of each supported action, with somewhat complex
+      ;; parameter syntax, and optional tokens.
+      (wisi-statement-action [fun statement-start nam name par misc blo motion sem statement-end])
+      (wisi-motion-action [fun [blo EXCEPTION] sem])
+      (wisi-face-apply-action [fun nil font-lock-keyword-face nam font-lock-type-face font-lock-function-name-face])
+      (wisi-indent-action [(fun . 0)
+                           (nam . [subp-indent-broken subp-indent-broken])
+                           (par . (subp-indent-function_1 nam (* 2 subp-indent-broken)))
+                           (blo . 0)
+                           (sem . 0)]))%
+  | PROCEDURE name parameter_list END name SEMICOLON
+  ;; No manual or automatic token labels
+    %((wisi-statement-action [1 statement-start 2 name 6 statement-end])
+      (wisi-face-apply-action [1 nil font-lock-keyword-face 2 font-lock-type-face font-lock-function-name-face])
+      (wisi-indent-action [0 subp-indent-broken subp-indent-broken 0 0 0]))%
+  | FUNCTION name parameter_list [block] SEMICOLON
+  ;; Test elisp indent function with automatic token labels
+    %((wisi-indent-action [nil
+                           [(subp-indent-function_3 'FUNCTION 2) subp-indent-broken]
+                           (subp-indent-function_1 2 (* 2 subp-indent-broken))
+                           (subp-indent-function_2)
+                           nil]))%
+  ;
+
+subtype
+  : name
+    %((wisi-face-apply-action [1 font-lock-type-face font-lock-function-name-face]))%
+  ;
+
+use_clause
+  ;; simple group item to test auto token labels
+  : USE (name_list) SEMICOLON
+    %((wisi-face-apply-list-action [2 font-lock-type-face font-lock-function-name-face])
+      (wisi-indent-action [0 subp-indent-broken 0]))%
+  ;
+
+;; end of file

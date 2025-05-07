@@ -1,0 +1,70 @@
+{
+  "Name": "Ada",
+  "Bytes": 2586,
+  "CodeBytes": 0,
+  "Lines": 70,
+  "Code": 34,
+  "Comment": 27,
+  "Blank": 9,
+  "Complexity": 1,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/unix/system_random.adb",
+      "Extension": "adb",
+      "Location": "src/unix/system_random.adb",
+      "Symlocation": "",
+      "Bytes": 1001,
+      "Lines": 27,
+      "Code": 17,
+      "Comment": 7,
+      "Blank": 3,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/system_random.ads",
+      "Extension": "ads",
+      "Location": "src/system_random.ads",
+      "Symlocation": "",
+      "Bytes": 1585,
+      "Lines": 43,
+      "Code": 17,
+      "Comment": 20,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "interfaces.c"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "interfaces": 1,
+    "interfaces.c": 1
+  }
+}

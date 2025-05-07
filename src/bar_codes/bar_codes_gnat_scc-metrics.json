@@ -1,0 +1,388 @@
+{
+  "Name": "Ada",
+  "Bytes": 67610,
+  "CodeBytes": 0,
+  "Lines": 1736,
+  "Code": 1281,
+  "Comment": 342,
+  "Blank": 113,
+  "Complexity": 134,
+  "Count": 14,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes-encode_code_128.ads",
+      "Extension": "ads",
+      "Location": "bar_codes-encode_code_128.ads",
+      "Symlocation": "",
+      "Bytes": 160,
+      "Lines": 4,
+      "Code": 4,
+      "Comment": 0,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "demo/bar_codes_demo.adb",
+      "Extension": "adb",
+      "Location": "demo/bar_codes_demo.adb",
+      "Symlocation": "",
+      "Bytes": 2120,
+      "Lines": 59,
+      "Code": 42,
+      "Comment": 15,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "bar_codes.impl"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes.ads",
+      "Extension": "ads",
+      "Location": "bar_codes.ads",
+      "Symlocation": "",
+      "Bytes": 6069,
+      "Lines": 145,
+      "Code": 36,
+      "Comment": 78,
+      "Blank": 31,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes-encode_code_128.adb",
+      "Extension": "adb",
+      "Location": "bar_codes-encode_code_128.adb",
+      "Symlocation": "",
+      "Bytes": 10000,
+      "Lines": 297,
+      "Code": 258,
+      "Comment": 28,
+      "Blank": 11,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat/gnat_demo.ads",
+      "Extension": "ads",
+      "Location": "gnat/gnat_demo.ads",
+      "Symlocation": "",
+      "Bytes": 120,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bar_codes_demo",
+        "tb_wrap"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes-encode_qr.adb",
+      "Extension": "adb",
+      "Location": "bar_codes-encode_qr.adb",
+      "Symlocation": "",
+      "Bytes": 32394,
+      "Lines": 790,
+      "Code": 585,
+      "Comment": 166,
+      "Blank": 39,
+      "Complexity": 83,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes-impl.ads",
+      "Extension": "ads",
+      "Location": "bar_codes-impl.ads",
+      "Symlocation": "",
+      "Bytes": 2058,
+      "Lines": 46,
+      "Code": 21,
+      "Comment": 20,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes-impl.adb",
+      "Extension": "adb",
+      "Location": "bar_codes-impl.adb",
+      "Symlocation": "",
+      "Bytes": 5760,
+      "Lines": 141,
+      "Code": 129,
+      "Comment": 7,
+      "Blank": 5,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes-encode_qr.ads",
+      "Extension": "ads",
+      "Location": "bar_codes-encode_qr.ads",
+      "Symlocation": "",
+      "Bytes": 192,
+      "Lines": 4,
+      "Code": 4,
+      "Comment": 0,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bar_codes.adb",
+      "Extension": "adb",
+      "Location": "bar_codes.adb",
+      "Symlocation": "",
+      "Bytes": 2639,
+      "Lines": 89,
+      "Code": 68,
+      "Comment": 10,
+      "Blank": 11,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "bar_codes.encode_code_128",
+        "bar_codes.encode_qr"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat/tb_wrap.adb",
+      "Extension": "adb",
+      "Location": "gnat/tb_wrap.adb",
+      "Symlocation": "",
+      "Bytes": 927,
+      "Lines": 24,
+      "Code": 16,
+      "Comment": 6,
+      "Blank": 2,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat/gnat_test.ads",
+      "Extension": "ads",
+      "Location": "gnat/gnat_test.ads",
+      "Symlocation": "",
+      "Bytes": 120,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bar_codes_test",
+        "tb_wrap"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "test/bar_codes_test.adb",
+      "Extension": "adb",
+      "Location": "test/bar_codes_test.adb",
+      "Symlocation": "",
+      "Bytes": 4720,
+      "Lines": 119,
+      "Code": 109,
+      "Comment": 8,
+      "Blank": 2,
+      "Complexity": 21,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.numerics.float_random",
+        "ada.text_io",
+        "bar_codes.impl"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat/tb_wrap.ads",
+      "Extension": "ads",
+      "Location": "gnat/tb_wrap.ads",
+      "Symlocation": "",
+      "Bytes": 331,
+      "Lines": 10,
+      "Code": 3,
+      "Comment": 4,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "procedure my_main_procedure"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 1,
+    "ada.numerics.float_random": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 4,
+    "bar_codes.encode_code_128": 1,
+    "bar_codes.encode_qr": 1,
+    "bar_codes.impl": 2,
+    "bar_codes_demo": 1,
+    "bar_codes_test": 1,
+    "procedure my_main_procedure": 1,
+    "tb_wrap": 2
+  }
+}

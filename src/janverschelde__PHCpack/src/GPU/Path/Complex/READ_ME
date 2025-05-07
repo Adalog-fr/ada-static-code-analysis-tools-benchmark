@@ -1,0 +1,44 @@
+Complex arithmetic for the Path library in PHCv2.4.44.
+
+Definitions of complex types and arithmetic, with templates,
+ready for double, double double, and quad double precision.
+
+Header files end with the extension .h, c++ end with .cpp,
+and code for the device ends with .cu (short for CUDA).
+The big 'H' stands for Host.
+
+Type 'make test_complexH' to build a simple program to test
+the complex arithmetic on the host.
+
+The GQD library is the version of the QD library for GPUs
+and types on the host are different from types on the device.
+The utilities gqd_qd_util provide functions to convert from
+tuples on the device into types on the host.
+
+-------------------------------------------------------------------------------
+file name          : short description
+-------------------------------------------------------------------------------
+complexH.h         : templated code for complex arithmetic on the host
+test_complexH.cpp  : runs Newton's method for the square root on the host
+-------------------------------------------------------------------------------
+complex.h          : defines complex type for computations on the device
+complex.cu         : conditional include, based on precision flag
+-------------------------------------------------------------------------------
+complex_gd.h       : class definition for double precision complex numbers
+complex_gd.cu      : complex arithmetic in double precision
+complex_gdd.h      : class for double double precision complex numbers
+complex_gdd.cu     : complex arithmetic in double double precision
+complex_gqd.h      : class for quad double precision complex numbers
+complex_gqd.cu     : complex arithmetic in quad double precision
+-------------------------------------------------------------------------------
+gqd_qd_util.h      : conversion operations between CPU and GPU types
+gqd_qd_util.cpp    : defines function with prototypes in gqd_qd_util.h
+-------------------------------------------------------------------------------
+test_complexsqrt_d : test complex square root on device in double precision
+-------------------------------------------------------------------------------
+complexD.h         : templated prototypes for complex arithmetic on the device
+complexD.cu        : templated cuda code for complex arithmetic on the device
+test_complexdsqrt  : tests complexD, runs sqrt with Newton's method
+-------------------------------------------------------------------------------
+gqd2qd_convertors  : functions to convert types for device and host
+-------------------------------------------------------------------------------

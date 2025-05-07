@@ -1,0 +1,95 @@
+{
+  "Name": "Ada",
+  "Bytes": 3619,
+  "CodeBytes": 0,
+  "Lines": 144,
+  "Code": 79,
+  "Comment": 26,
+  "Blank": 39,
+  "Complexity": 5,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/stopwatch_config.ads",
+      "Extension": "ads",
+      "Location": "config/stopwatch_config.ads",
+      "Symlocation": "",
+      "Bytes": 567,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/stopwatch.ads",
+      "Extension": "ads",
+      "Location": "src/stopwatch.ads",
+      "Symlocation": "",
+      "Bytes": 1043,
+      "Lines": 39,
+      "Code": 18,
+      "Comment": 6,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/stopwatch.adb",
+      "Extension": "adb",
+      "Location": "src/stopwatch.adb",
+      "Symlocation": "",
+      "Bytes": 2009,
+      "Lines": 85,
+      "Code": 49,
+      "Comment": 19,
+      "Blank": 17,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.text_io": 1
+  }
+}

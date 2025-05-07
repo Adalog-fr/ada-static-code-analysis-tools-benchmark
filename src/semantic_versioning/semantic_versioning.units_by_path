@@ -1,0 +1,10 @@
+src/semantic_versioning-basic.adb
+src/semantic_versioning-basic.ads
+src/semantic_versioning-demo.adb
+src/semantic_versioning-expressions.ads
+src/semantic_versioning-extended-parser.adb
+src/semantic_versioning-extended.adb
+src/semantic_versioning-extended.ads
+src/semantic_versioning-parser.adb
+src/semantic_versioning.adb
+src/semantic_versioning.ads

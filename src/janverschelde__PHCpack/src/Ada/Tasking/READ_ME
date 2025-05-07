@@ -1,0 +1,129 @@
+Multitasked linear algebra, evaluation and path tracking in PHCv2.4.90
+
+This directory is entirely new in release 2.3.45 of PHCpack.
+Tasks in Ada are mapped to kernel threads.
+
+Version 2.3.56 released test programs to time the performance of
+multithreaded linear system solving and polynomial evaluation,
+described in the paper with Genady Yoffe on
+on "Polynomial Homotopies on Multicore Workstations" 
+published in the proceedings of PASCO 2010.
+
+An important side effect of this paper is the realization that the evaluation
+of a polynomial system and all its derivatives can be performed much faster
+than when evaluated as separated polynomials (even with nested Horner).
+In v2.3.69, this code was moved to the new directory Functions.
+
+Release 2.3.78 offered a new multithreaded implementation of polyhedral 
+homotopies.  New in release 2.3.79 are the multitasking root refiners.
+
+Pipelined polyhedral trackers were introduced in version 2.4.06.
+The pipelined solving a random coefficient system by polyhedral homotopies
+applies a heterogeneous multitasking.  The first task runs MixedVol with
+a callback function.  Each time a new mixed cell is computed, other tasks
+process that cell by tracking the new paths originating at the initial
+form system determined by the inner normal to that new mixed cell.
+With this pipelining, the tracking of the paths is interlaced with the
+mixed volume computation.
+
+Run "gprbuild tasking.gpr" to make all test programs.
+On windows, type "gprbuild tasking.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean tasking.gpr" removes all files created by gprbuild.
+
+-------------------------------------------------------------------------------
+file name                         : short description
+-------------------------------------------------------------------------------
+corecount.c                       : to get the number of cores
+corecountwindows.c                : version of corecount for Windows
+number_of_cores                   : wraps the C function in corecount
+ts_corecount                      : prints the number of cores
+-------------------------------------------------------------------------------
+multitasking                      : exports generic task creation
+ts_tasking                        : basic test on task creation
+semaphore                         : lock to guard a critical section
+ts_mutex                          : basic test on mutual exclusion
+ts_jobs                           : dynamic job scheduler
+-------------------------------------------------------------------------------
+global_counter                    : stores a global counter
+sigint_handler                    : simple SIGINT handler
+sigint_counter                    : counter with handling of ctrl+c
+sigint_handler_test               : test on SIGINT handling (fosdem 2019)
+-------------------------------------------------------------------------------
+multitasking_matrix_x_vector      : matrix times vector with multitasking
+ts_mtmatvec                       : test multitasked matrix*vector
+multitasking_polynomial_functions : evaluation with multiple tasks
+ts_mtpolval                       : test multitasked polynomial evaluation
+multitasking_linear_solvers       : linear system solving with multitasking
+ts_mtlinsol                       : test multitasked linear system solving
+-------------------------------------------------------------------------------
+ts_mtsols                         : multitasking on solutions
+ts_mtstref                        : multitasking solution refinement
+multitasked_dd_qd_refiners        : multitasked refiners in dd/qd precision
+ts_mtddref                        : multitasking refiner with dd cmplx numbers
+ts_mtqdref                        : multitasking refiner with qd cmplx numbers
+ts_mtsharp                        : multitasking multiprecision refinement
+standard_solutions_queue          : thread safe queue for standard solutions
+dobldobl_solutions_queue          : thread safe queue for dobldobl solutions
+quaddobl_solutions_queue          : thread safe queue for quaddobl solutions
+multitasking_continuation         : path trackers with multiple tasks
+ts_mtcont                         : test on multitasking continuation
+multitasking_sampling             : sampling solution sets with tasks
+ts_mtsam                          : test on multitasking sampling
+-------------------------------------------------------------------------------
+multitasking_volume_computation   : computing mixed volumes with threads
+ts_mtvol                          : test on multitasking volume computation
+polyhedral_start_systems          : inline binomial solvers
+multitasking_polyhedral_starters  : test to start up polyhedral homotopies
+mixed_cells_queue                 : thread safe queue for mixed cells
+single_polyhedral_trackers        : track one path in polyhedral homotopy
+multitasking_polyhedral_trackers  : multithreaded polyhedral continuation
+ts_mtvolcon                       : test on polyhedral path trackers
+mixed_labels_queue                : thread safe queue of labels to mixed cells
+pipelined_labeled_cells           : pipelined production of mixed cells
+pipelined_cell_trackers           : track all paths defined by one cell
+pipelined_polyhedral_trackers     : pipelining polyhedral continuation
+ts_mtmva                          : interlace cell production with processing
+multitasking_root_refiners        : root refinement by multiple tasks
+ts_mtverify                       : test on multitasked root refinement
+-------------------------------------------------------------------------------
+integer_permanents                : reference code for multitasking
+static_columns_queue              : thread safe queue of column indices
+multitasking_integer_permanents   : multitasked permanent computation
+ts_mtperm                         : test on multitasked permanent computation
+-------------------------------------------------------------------------------
+write_number_of_tasks             : write #tasks the end of a run
+-------------------------------------------------------------------------------
+multitasking_membership_tests     : multicore check if point on witness set
+ts_mtmbthom                       : develop multitasked homotopy membertest
+-------------------------------------------------------------------------------
+pipelined_cell_indices            : pipelined processing of cell indices
+pipelined_polyhedral_homotopies   : 2-stage pipeline for polyhedral homotopies
+ts_mtcelidx                       : test on pipelining cell indices
+-------------------------------------------------------------------------------
+multitasked_algodiff_convolutions : multitasked AD for power series
+multitasked_power_newton          : wraps call to multitasked newton
+test_mtalgodiff_convolutions      : tests multitasked AD for power series
+ts_mtadcnv                        : calls the main test on multitasked AD
+multitasked_series_linearization  : multitasked linearized series solver
+test_mtseries_linearization       : tests on multitasked linearization
+ts_mtserlin                       : calls the main test on mt linearization
+multitasked_newton_convolutions   : multitasked Newton on power series
+test_mtnewton_convolutions        : tests multitasked Newton for power series
+ts_mtnewton                       : calls the main test on multitasked Newton
+multitasked_hessian_convolutions  : multitasked Hessian criterion
+test_mthessian_convolutions       : tests the multitasked SVD on the Hessians
+ts_mthessian                      : calls the main test on mt Hessian
+multitasked_hessian_circuits      : multitasked Hessians on circuits
+test_mthessian_circuits           : tests multitasked Hessians on circuits
+ts_mthesscrc                      : calls the main test on mt Hessian circuits
+multitasked_pade_approximations   : multitasked rational approximations
+test_mtpade_approximations        : test on multitasked rational approximations
+ts_mtratapp                       : calls the main test on mt Pade approx
+multitasked_shift_circuits        : multitasked shift of circuit coefficients
+test_mtshift_convolutions         : test on multitasked shift of circuits
+ts_mtshiftcnv                     : calls the main test on mt shift circuits
+-------------------------------------------------------------------------------
+multitasked_path_convolutions     : multitasked trackers with convolutions
+ts_mtpcscnv                       : test mt predictor-corrector-shift loops
+-------------------------------------------------------------------------------

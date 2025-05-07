@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 12999,
+  "CodeBytes": 0,
+  "Lines": 390,
+  "Code": 254,
+  "Comment": 58,
+  "Blank": 78,
+  "Complexity": 4,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/ansiada_config.ads",
+      "Extension": "ads",
+      "Location": "config/ansiada_config.ads",
+      "Symlocation": "",
+      "Bytes": 555,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ansiada.ads",
+      "Extension": "ads",
+      "Location": "src/ansiada.ads",
+      "Symlocation": "",
+      "Bytes": 12444,
+      "Lines": 370,
+      "Code": 242,
+      "Comment": 57,
+      "Blank": 71,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

@@ -1,0 +1,14 @@
+with "mage.gpr";
+
+project Tests is
+   for Object_Dir use "obj/tests";
+   for Source_Dirs use ("tests");
+   for Main use ("init", "draw_rect",
+      "draw_circle", "mage-draw-pixels", "draw_line", "draw_sphere",
+      "draw_sphere_zoom", "draw_magic", "mage_hat",
+      "move_circle");
+
+   package Linker is
+      for Default_Switches ("Ada") use Mage.Linker_Ada_Switches;
+   end Linker;
+end Tests;

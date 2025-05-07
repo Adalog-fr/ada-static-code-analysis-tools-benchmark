@@ -1,0 +1,60 @@
+Wed 22 Mar 2023 : after removing the filter_and_split_solutions procedure,
+  updated feedback.gpr.  Updated feedback.gpr after the removal of 
+  the package multihomogeneous_solutions.  After removing testnine.adb
+  and testfivehom1.adb updated feedback.gpr.  Updated feedback.gpr
+  after fixing ts_elim.adb and removing ts_reorder.adb and ts_rewrite.adb.
+  After removing many files from Funky, updated feedback.gpr.
+
+Tue 21 Mar 2023 : updated feedback.gpr after fixing ts_diahom,
+  and the removal of ts_intcas, ts_squeeze, and ts_sqem.
+  Updated feedback.gpr after removing premature intrinsic packages.
+  After removing intrinsic_diagonal_{homotopies, solvers},
+  and drivers_to_intrinsic_solvers, updated feedback.gpr.
+
+Mon 20 Mar 2023 : updated feedback.gpr for fewer excluded source files.
+  Updated feedback.gpr for the removal of ts_ifactor.adb.
+  Updated feedback.gpr for the removal of phc_factor.adb.
+  Updated feedback.gpr for the removal of ts_endgm.adb and ts_mulsam.adb.
+
+Sun 19 Mar 2023 : updated feedback.gpr for the removal of files in Samplers.
+
+Thu 30 Dec 2021 : updated dc_matrix.c, dc_roots.c, and poly_matrix.c,
+  for functions to match the updated prototypes, altered in the corresponding
+  header files.
+
+Wed 30 Jun 2021 : in poly_gcd.h and poly_gcd.c, renamed the gcd function
+  into rootsGCD to resolve a conflict with a gcd in mixed_volume1.c.
+  Updated ts_gcd.c as well.  Renamed the function feedback in ts_feedback.c
+  into feedback2 to avoid a naming conflict with feedback.c.
+  Copied the skip function from pieri_sols into feedback.c as skip_info
+  because in need for the linker of phctop in the ../Main folder.
+
+Mon 31 Dec 2018 : took care of compiler warnings.  Fixed typo in timer.h.  
+  Fixed function declarations in ts_multiply.c and ts_divide.c.
+  Added #include <ctype.h> in pieri_sols.c and added "include "pieri_sols.h"
+  to feedback.c, ts_feedback.c, ts_explore_poles.c, ts_explore_Cpoles.c,
+  and ts_gcd.c, for the implicit declaration of the function skip().
+  Added #include "poly_matrix.h" to poly_smith.c and poly_hermite.c.
+  Added #include "dc_roots.h" to ts_gcd.c.
+  In poly_dcmplx.c, replaced the "return;" with "return result"
+  in the exceptional cases of a zero denominator.
+
+Thu 21 Jul 2016 : formatted code in feedback.c
+
+Sun 19 Dec 2010 : inserted "#include <stdlib.h>"
+  in the file c2ada_poly_matrix.c, dc_matrix.c, pieri_sols.c, poly_hermite.c
+  poly_matrix.c, poly_smith.c, and realization.c because of
+  GNAT GPL 2010 warnings.
+
+Tue 13 Jun 2006 : had to change poly_smith.c, line 285 for gcc 3.4.
+
+Mon 6 Sep 2004 : updated feedback.c, copied files from Yusong's directory,
+  changed the return type of pieri_sols from void to int.  For Mac OS X,
+  changed ts_interpolation.c, ts_poly_inverse.c, and ts_timer.c.
+
+Tue 31 Aug 2004 : created feedback.c to be called by mainfeed from phc -k
+
+Tue 27 Jan 2004
+   pieri_sols.c: semicolons are added after printing out the solution
+                 array for MATLAB input.
+   verify.m: prints out the solution array for each solution verification.

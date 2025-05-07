@@ -1,0 +1,1296 @@
+{
+  "Name": "Ada",
+  "Bytes": 126770,
+  "CodeBytes": 0,
+  "Lines": 3463,
+  "Code": 2891,
+  "Comment": 122,
+  "Blank": 450,
+  "Complexity": 135,
+  "Count": 45,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/command_line.ads",
+      "Extension": "ads",
+      "Location": "src/command_line.ads",
+      "Symlocation": "",
+      "Bytes": 567,
+      "Lines": 20,
+      "Code": 15,
+      "Comment": 0,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dependency_graph_extractor.adb",
+      "Extension": "adb",
+      "Location": "src/dependency_graph_extractor.adb",
+      "Symlocation": "",
+      "Bytes": 1885,
+      "Lines": 60,
+      "Code": 53,
+      "Comment": 0,
+      "Blank": 7,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.command_line",
+        "ada.strings.unbounded",
+        "ada.text_io",
+        "command_line",
+        "extraction",
+        "gnatcoll.vfs",
+        "graphml_writers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-decls.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-decls.ads",
+      "Symlocation": "",
+      "Bytes": 312,
+      "Lines": 13,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/command_line.adb",
+      "Extension": "adb",
+      "Location": "src/command_line.adb",
+      "Symlocation": "",
+      "Bytes": 2170,
+      "Lines": 64,
+      "Code": 55,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.command_line",
+        "gnat.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-decl_types.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-decl_types.ads",
+      "Symlocation": "",
+      "Bytes": 213,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-decls.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-decls.adb",
+      "Symlocation": "",
+      "Bytes": 2502,
+      "Lines": 71,
+      "Code": 64,
+      "Comment": 0,
+      "Blank": 7,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-bodies_for_decls.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-bodies_for_decls.ads",
+      "Symlocation": "",
+      "Bytes": 225,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-bodies_for_entries.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-bodies_for_entries.ads",
+      "Symlocation": "",
+      "Bytes": 229,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-decl_types.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-decl_types.adb",
+      "Symlocation": "",
+      "Bytes": 6965,
+      "Lines": 173,
+      "Code": 162,
+      "Comment": 0,
+      "Blank": 11,
+      "Complexity": 10,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-bodies_for_decls.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-bodies_for_decls.adb",
+      "Symlocation": "",
+      "Bytes": 1516,
+      "Lines": 39,
+      "Code": 35,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-bodies_for_entries.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-bodies_for_entries.adb",
+      "Symlocation": "",
+      "Bytes": 1244,
+      "Lines": 36,
+      "Code": 32,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-direct_calls.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-direct_calls.ads",
+      "Symlocation": "",
+      "Bytes": 217,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-file_system.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-file_system.adb",
+      "Symlocation": "",
+      "Bytes": 2716,
+      "Lines": 87,
+      "Code": 66,
+      "Comment": 7,
+      "Blank": 14,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "extraction.node_edge_types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-renamings.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-renamings.ads",
+      "Symlocation": "",
+      "Bytes": 211,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-generic_instantiations.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-generic_instantiations.adb",
+      "Symlocation": "",
+      "Bytes": 1869,
+      "Lines": 53,
+      "Code": 47,
+      "Comment": 0,
+      "Blank": 6,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-project_files.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-project_files.adb",
+      "Symlocation": "",
+      "Bytes": 1599,
+      "Lines": 53,
+      "Code": 44,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-primitive_subps.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-primitive_subps.ads",
+      "Symlocation": "",
+      "Bytes": 332,
+      "Lines": 13,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-subp_overrides.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-subp_overrides.ads",
+      "Symlocation": "",
+      "Bytes": 330,
+      "Lines": 13,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-node_edge_types.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-node_edge_types.adb",
+      "Symlocation": "",
+      "Bytes": 13346,
+      "Lines": 325,
+      "Code": 275,
+      "Comment": 21,
+      "Blank": 29,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "gnatcoll.vfs_utils",
+        "langkit_support.slocs",
+        "langkit_support.text"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-derived_type_defs.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-derived_type_defs.adb",
+      "Symlocation": "",
+      "Bytes": 2762,
+      "Lines": 75,
+      "Code": 68,
+      "Comment": 0,
+      "Blank": 7,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-source_files_from_projects.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-source_files_from_projects.ads",
+      "Symlocation": "",
+      "Bytes": 489,
+      "Lines": 16,
+      "Code": 12,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-utilities.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-utilities.ads",
+      "Symlocation": "",
+      "Bytes": 2892,
+      "Lines": 78,
+      "Code": 48,
+      "Comment": 8,
+      "Blank": 22,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-derived_type_defs.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-derived_type_defs.ads",
+      "Symlocation": "",
+      "Bytes": 227,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-utilities.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-utilities.adb",
+      "Symlocation": "",
+      "Bytes": 12848,
+      "Lines": 357,
+      "Code": 280,
+      "Comment": 32,
+      "Blank": 45,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "gnat.os_lib",
+        "gnatcoll.vfs_utils",
+        "libadalang.project_provider"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-references_of_decls.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-references_of_decls.adb",
+      "Symlocation": "",
+      "Bytes": 8313,
+      "Lines": 206,
+      "Code": 186,
+      "Comment": 9,
+      "Blank": 11,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-project_files.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-project_files.ads",
+      "Symlocation": "",
+      "Bytes": 384,
+      "Lines": 14,
+      "Code": 10,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-subp_overrides.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-subp_overrides.adb",
+      "Symlocation": "",
+      "Bytes": 1920,
+      "Lines": 55,
+      "Code": 48,
+      "Comment": 3,
+      "Blank": 4,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/graphml_writers.ads",
+      "Extension": "ads",
+      "Location": "src/graphml_writers.ads",
+      "Symlocation": "",
+      "Bytes": 3297,
+      "Lines": 94,
+      "Code": 73,
+      "Comment": 0,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.containers.hashed_maps",
+        "ada.containers.hashed_sets",
+        "ada.streams.stream_io",
+        "ada.strings.unbounded",
+        "ada.strings.unbounded.hash"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-file_system.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-file_system.ads",
+      "Symlocation": "",
+      "Bytes": 336,
+      "Lines": 13,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-references_of_decls.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-references_of_decls.ads",
+      "Symlocation": "",
+      "Bytes": 340,
+      "Lines": 13,
+      "Code": 9,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-renamings.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-renamings.adb",
+      "Symlocation": "",
+      "Bytes": 2937,
+      "Lines": 74,
+      "Code": 68,
+      "Comment": 0,
+      "Blank": 6,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction.adb",
+      "Extension": "adb",
+      "Location": "src/extraction.adb",
+      "Symlocation": "",
+      "Bytes": 5926,
+      "Lines": 161,
+      "Code": 129,
+      "Comment": 12,
+      "Blank": 20,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.strings.equal_case_insensitive",
+        "ada.text_io",
+        "extraction.bodies_for_decls",
+        "extraction.bodies_for_entries",
+        "extraction.decl_types",
+        "extraction.decls",
+        "extraction.deferred_constants",
+        "extraction.derived_type_defs",
+        "extraction.direct_calls",
+        "extraction.file_system",
+        "extraction.generic_instantiations",
+        "extraction.graph_operations",
+        "extraction.node_edge_types",
+        "extraction.primitive_subps",
+        "extraction.project_files",
+        "extraction.references_of_decls",
+        "extraction.renamings",
+        "extraction.source_files_from_projects",
+        "extraction.subp_overrides",
+        "extraction.utilities",
+        "extraction.with_clauses"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-deferred_constants.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-deferred_constants.adb",
+      "Symlocation": "",
+      "Bytes": 1435,
+      "Lines": 39,
+      "Code": 35,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-node_edge_types.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-node_edge_types.ads",
+      "Symlocation": "",
+      "Bytes": 6121,
+      "Lines": 155,
+      "Code": 103,
+      "Comment": 20,
+      "Blank": 32,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction.ads",
+      "Extension": "ads",
+      "Location": "src/extraction.ads",
+      "Symlocation": "",
+      "Bytes": 1013,
+      "Lines": 36,
+      "Code": 26,
+      "Comment": 0,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "gnatcoll.projects",
+        "gnatcoll.vfs",
+        "graphml_writers",
+        "libadalang.analysis",
+        "libadalang.common"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-generic_instantiations.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-generic_instantiations.ads",
+      "Symlocation": "",
+      "Bytes": 237,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-deferred_constants.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-deferred_constants.ads",
+      "Symlocation": "",
+      "Bytes": 229,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-source_files_from_projects.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-source_files_from_projects.adb",
+      "Symlocation": "",
+      "Bytes": 3273,
+      "Lines": 93,
+      "Code": 72,
+      "Comment": 8,
+      "Blank": 13,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-primitive_subps.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-primitive_subps.adb",
+      "Symlocation": "",
+      "Bytes": 1799,
+      "Lines": 55,
+      "Code": 48,
+      "Comment": 2,
+      "Blank": 5,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-with_clauses.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-with_clauses.adb",
+      "Symlocation": "",
+      "Bytes": 1251,
+      "Lines": 35,
+      "Code": 31,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-graph_operations.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-graph_operations.ads",
+      "Symlocation": "",
+      "Bytes": 3798,
+      "Lines": 94,
+      "Code": 74,
+      "Comment": 0,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.utilities"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-graph_operations.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-graph_operations.adb",
+      "Symlocation": "",
+      "Bytes": 9551,
+      "Lines": 240,
+      "Code": 223,
+      "Comment": 0,
+      "Blank": 17,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-direct_calls.adb",
+      "Extension": "adb",
+      "Location": "src/extraction-direct_calls.adb",
+      "Symlocation": "",
+      "Bytes": 3968,
+      "Lines": 110,
+      "Code": 99,
+      "Comment": 0,
+      "Blank": 11,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.node_edge_types",
+        "extraction.utilities",
+        "libadalang.analysis"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/extraction-with_clauses.ads",
+      "Extension": "ads",
+      "Location": "src/extraction-with_clauses.ads",
+      "Symlocation": "",
+      "Bytes": 217,
+      "Lines": 9,
+      "Code": 6,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "extraction.graph_operations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/graphml_writers.adb",
+      "Extension": "adb",
+      "Location": "src/graphml_writers.adb",
+      "Symlocation": "",
+      "Bytes": 12759,
+      "Lines": 349,
+      "Code": 311,
+      "Comment": 0,
+      "Blank": 38,
+      "Complexity": 11,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.characters.handling": 2,
+    "ada.command_line": 1,
+    "ada.containers": 1,
+    "ada.containers.hashed_maps": 1,
+    "ada.containers.hashed_sets": 1,
+    "ada.containers.vectors": 2,
+    "ada.exceptions": 1,
+    "ada.streams.stream_io": 1,
+    "ada.strings.equal_case_insensitive": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 4,
+    "ada.strings.unbounded.hash": 1,
+    "ada.text_io": 3,
+    "command_line": 1,
+    "extraction": 1,
+    "extraction.bodies_for_decls": 1,
+    "extraction.bodies_for_entries": 1,
+    "extraction.decl_types": 1,
+    "extraction.decls": 1,
+    "extraction.deferred_constants": 1,
+    "extraction.derived_type_defs": 1,
+    "extraction.direct_calls": 1,
+    "extraction.file_system": 1,
+    "extraction.generic_instantiations": 1,
+    "extraction.graph_operations": 17,
+    "extraction.node_edge_types": 18,
+    "extraction.primitive_subps": 1,
+    "extraction.project_files": 1,
+    "extraction.references_of_decls": 1,
+    "extraction.renamings": 1,
+    "extraction.source_files_from_projects": 1,
+    "extraction.subp_overrides": 1,
+    "extraction.utilities": 17,
+    "extraction.with_clauses": 1,
+    "gnat.command_line": 1,
+    "gnat.os_lib": 1,
+    "gnat.strings": 1,
+    "gnatcoll.projects": 1,
+    "gnatcoll.vfs": 2,
+    "gnatcoll.vfs_utils": 2,
+    "graphml_writers": 2,
+    "langkit_support.slocs": 1,
+    "langkit_support.text": 1,
+    "libadalang.analysis": 2,
+    "libadalang.common": 1,
+    "libadalang.project_provider": 1
+  }
+}

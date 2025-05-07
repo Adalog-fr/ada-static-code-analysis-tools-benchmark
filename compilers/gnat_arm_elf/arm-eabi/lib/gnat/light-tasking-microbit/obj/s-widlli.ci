@@ -1,0 +1,7 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-widlli.ads"
+node: { title: "system__wid_lli__width_long_long_integer" label: "Width_Long_Long_Integer\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-microbit/gnat/s-widthi.adb:35:1\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uldivmod" label: "aeabi_uldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__wid_lli__width_long_long_integer" targetname: "__aeabi_uldivmod" }
+node: { title: "__aeabi_ldivmod" label: "aeabi_ldivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__wid_lli__width_long_long_integer" targetname: "__aeabi_ldivmod" }
+}

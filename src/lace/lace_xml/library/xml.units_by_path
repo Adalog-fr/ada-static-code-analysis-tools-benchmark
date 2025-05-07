@@ -1,0 +1,6 @@
+../source/xml-reader.adb
+../source/xml-reader.ads
+../source/xml-writer.adb
+../source/xml-writer.ads
+../source/xml.adb
+../source/xml.ads

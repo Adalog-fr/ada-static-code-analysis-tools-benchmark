@@ -1,0 +1,22 @@
+authors = [
+"Gautier de Montmollin",
+]
+description = "Produce Excel spreadsheets"
+licenses = "MIT"
+maintainers = [
+"alejandro@mosteo.com",
+]
+maintainers-logins = [
+"mosteo",
+"zertovitch",
+]
+name = "excel_writer"
+project-files = [
+"excel_out_gnat.gpr",
+]
+tags = [
+"excel",
+"spreadsheet",
+]
+version = "17.0.1"
+

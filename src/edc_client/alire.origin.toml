@@ -1,0 +1,21 @@
+authors = [
+"Holger Rodriguez",
+]
+description = "Client library for: github.com/hgrodriguez/embedded-dashboard-console"
+licenses = "BSD-3-Clause"
+maintainers = [
+"Holger Rodriguez <github@roseng.ch>",
+]
+maintainers-logins = [
+"hgrodriguez",
+]
+name = "edc_client"
+tags = [
+"embedded",
+"rp2040",
+]
+version = "1.5.1"
+website = "https://github.com/hgrodriguez/edc_client"
+[[depends-on]]
+hal = "~0.3.0"
+

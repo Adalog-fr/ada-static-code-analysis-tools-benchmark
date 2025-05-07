@@ -1,0 +1,17 @@
+config/emacs_wisi_config.ads
+emacs_wisi_common_parse.adb
+emacs_wisi_common_parse.ads
+gen_emacs_wisi_lr_parse.adb
+gen_emacs_wisi_lr_parse.ads
+gen_emacs_wisi_lr_text_rep_parse.adb
+gen_emacs_wisi_lr_text_rep_parse.ads
+gen_run_wisi_lr_parse.adb
+gen_run_wisi_lr_parse.ads
+gen_run_wisi_lr_text_rep_parse.adb
+gen_run_wisi_lr_text_rep_parse.ads
+run_wisi_common_parse.adb
+run_wisi_common_parse.ads
+wisi-parse_context.adb
+wisi-parse_context.ads
+wisi.adb
+wisi.ads

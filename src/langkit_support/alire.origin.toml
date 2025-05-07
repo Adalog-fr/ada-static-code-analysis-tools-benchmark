@@ -1,0 +1,19 @@
+authors = [
+"AdaCore",
+]
+description = "Runtime support library for Langkit-generated libraries"
+licenses = "Apache-2.0"
+maintainers = [
+"Pierre-Marie de Rodat <pmderodat@kawie.fr>",
+]
+maintainers-logins = [
+"pmderodat",
+]
+name = "langkit_support"
+version = "23.0.0"
+website = "https://github.com/AdaCore/langkit"
+[[depends-on]]
+gnatcoll = "^23"
+gnatcoll_gmp = "^23"
+gnatcoll_iconv = "^23"
+

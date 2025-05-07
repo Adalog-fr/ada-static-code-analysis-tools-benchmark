@@ -1,0 +1,98 @@
+{
+  "Name": "Ada",
+  "Bytes": 12638,
+  "CodeBytes": 0,
+  "Lines": 362,
+  "Code": 208,
+  "Comment": 87,
+  "Blank": 67,
+  "Complexity": 19,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml_slicer.ads",
+      "Extension": "ads",
+      "Location": "src/toml_slicer.ads",
+      "Symlocation": "",
+      "Bytes": 1317,
+      "Lines": 29,
+      "Code": 13,
+      "Comment": 11,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/toml_slicer_config.ads",
+      "Extension": "ads",
+      "Location": "config/toml_slicer_config.ads",
+      "Symlocation": "",
+      "Bytes": 575,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/toml_slicer.adb",
+      "Extension": "adb",
+      "Location": "src/toml_slicer.adb",
+      "Symlocation": "",
+      "Bytes": 10746,
+      "Lines": 313,
+      "Code": 183,
+      "Comment": 75,
+      "Blank": 55,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.filesystem",
+        "aaa.strings",
+        "aaa.text_io",
+        "ada.text_io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "aaa.filesystem": 1,
+    "aaa.strings": 1,
+    "aaa.text_io": 1,
+    "ada.text_io": 1
+  }
+}

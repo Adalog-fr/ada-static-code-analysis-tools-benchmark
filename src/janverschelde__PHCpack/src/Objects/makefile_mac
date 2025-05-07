@@ -1,0 +1,3963 @@
+# The beginning of this makefile defines the names of the locations
+# of the Python development headers for phcpy, followed by the home
+# of MPI (message passing), and the QD library (with its GPU version).
+# The next set of names defines by this makefile refers to the
+# general directory structure of the library of PHCpack.
+# The targets are then listed, grouped by each directory.
+
+# This makefile is specific for Mac OS X, mainly because of the
+# Python bindings and the use of MPI.
+
+PYTHON=/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7
+# PYTHON=/usr/include/python2.7
+# PYTHON38=/opt/miniconda3/include/python3.8
+PYTHON39=/opt/miniconda3/include/python3.9
+MPI_HOME=/usr/local
+
+ADALIB=/Users/jan/opt/GNAT/2020/lib/gcc/x86_64-apple-darwin17.7.0/8.4.1/adalib
+
+# which gcc to use
+gcc=/usr/bin/gcc
+# which g++ to use
+gpp=/usr/bin/g++
+# gpp=g++
+# gpp=/usr/bin/clang++
+
+# To extend sage on Mac OS X with python, we must link with the python
+# of the Sage distribution, which is defined here:
+
+SAGEPYTHONLIB=/Users/jan/sage-8.5/local/lib
+
+# The location of the QD library
+
+# QD_ROOT=/usr/local/qd-2.3.17
+QD_ROOT=../QD/qd-2.3.22
+QD_LIB=/usr/local/lib
+
+# Definitions of the PHCpack specific names start here:
+
+PHCLib=../Lib
+PHCAda=../Ada
+MPILib=../MPI
+PHCgpu=../GPU
+BIN=../bin
+INCLULIBS=-I$(PHCAda)/System -I$(PHCAda)/System/Unix_Timer \
+ -I$(PHCAda)/Math_Lib/Numbers -I$(PHCAda)/Math_Lib/QD \
+ -I$(PHCAda)/Math_Lib/Vectors -I$(PHCAda)/Math_Lib/Matrices \
+ -I$(PHCAda)/Math_Lib/Divisors -I$(PHCAda)/Math_Lib/Reduction \
+ -I$(PHCAda)/Math_Lib/Polynomials -I$(PHCAda)/Math_Lib/Functions \
+ -I$(PHCAda)/Math_Lib/Supports -I$(PHCAda)/Math_Lib/Circuits \
+ -I$(PHCAda)/Math_Lib/Series -I$(PHCAda)/Math_Lib/AD \
+ -I$(PHCAda)/Deformations/Solutions -I$(PHCAda)/Deformations/Homotopy \
+ -I$(PHCAda)/Deformations/Newton -I$(PHCAda)/Deformations/Curves \
+ -I$(PHCAda)/Deformations/End_Games -I$(PHCAda)/Deformations/Sweep \
+ -I$(PHCAda)/Deformations/Trackers -I$(PHCAda)/Deformations/Continuation \
+ -I$(PHCAda)/Root_Counts/Product -I$(PHCAda)/Root_Counts/Binomials \
+ -I$(PHCAda)/Root_Counts/Implift -I$(PHCAda)/Root_Counts/Stalift \
+ -I$(PHCAda)/Root_Counts/Dynlift -I$(PHCAda)/Root_Counts/Symmetry \
+ -I$(PHCAda)/Root_Counts/MixedVol -I$(PHCAda)/Root_Counts/DEMiCs \
+ -I$(PHCAda)/Root_Counts/Puiseux \
+ -I$(PHCAda)/Schubert/SAGBI -I$(PHCAda)/Schubert/Pieri \
+ -I$(PHCAda)/Schubert/Induction \
+ -I$(PHCAda)/Components/Samplers -I$(PHCAda)/Components/Interpolators \
+ -I$(PHCAda)/Components/Factorization -I$(PHCAda)/Components/Decomposition \
+ -I$(PHCAda)/Components/Solver -I$(PHCAda)/Components/Tropical \
+ -I$(PHCAda)/CtoPHC/Funky -I$(PHCAda)/CtoPHC/State -I$(MPILib) \
+ -I$(PHCAda)/PHCtoC -I$(PHCAda)/Tasking -I$(PHCAda)/Main
+# flags with full optimization
+GNATFLAGS=-gnatv -O3 -gnatp -gnatf
+GNATOPTFLAGS=-gnatv -O3 -gnatp -gnatf
+# GNATOPTFLAGS=-gnatv -O3 -gnatp -gnatf --GNATBIND="gnatbind -static"
+# flags to turn on all warnings and validity checks
+GNATNOPFLAGS=-gnatv -gnatwa -gnatVa
+# GNATOPTFLAGS=-gnatv -gnatwa -gnatVa
+# GNATFLAGS=-gnatv -gnatwa -gnatVa
+# GNATFLAGS=-gnatv --GNATBIND="gnatbind -static"
+
+COFLAGS = -O2
+
+# Very likely the value for MPIR_HOME needs adjusting :
+
+MCC=/usr/bin/gcc
+# gpp=/usr/bin/g++
+# gpp=g++
+
+CC          = $(MPI_HOME)/bin/mpicc
+CLINKER     = $(CC)
+CCC         = $(MPI_HOME)/bin/mpiCC
+CCLINKER    = $(CCC)
+
+# the main executable 
+
+phc: lib.a parameter.o lib2path.o feedback.o get_clock.o get_clocks_per_sec.o \
+     inputData.o outputData.o iTest.o fTest.o reltab.o \
+     simplex4phc.o mvc4phc.o demicsrun4phc.o corecount.o
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) pieri_solver.adb
+	gnatmake -c $(INCLULIBS) -I$(PHCAda)/PHCtoC/Main_full \
+                    $(GNATOPTFLAGS) phctop.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind phctop use_c2phc pieri_solver
+	gnatlink phctop syscon.o solcon.o phcpack.o feedback.o \
+                 parameter.o lib2path.o corecount.o \
+                 inputData.o outputData.o iTest.o fTest.o reltab.o \
+                 simplex4phc.o mvc4phc.o demicsrun4phc.o \
+                 lib.a $(QD_LIB)/libqd.a \
+                 /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 get_clock.o get_clocks_per_sec.o \
+                 -Wl,-stack_size -Wl,0x10000000 -Wl,-no_compact_unwind \
+              -o $(BIN)/phc -lm --LINK=$(gpp)
+
+phc_noqd: lib.a feedback.o get_clock.o get_clocks_per_sec.o \
+     inputData.o outputData.o iTest.o fTest.o reltab.o parameter.o \
+     simplex4phc.o mvc4phc.o demicsrun4phc.o corecount.o lib2path_d.o
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) pieri_solver.adb
+	gnatmake -c $(INCLULIBS) -I$(PHCAda)/PHCtoC/Main_noqd \
+                    $(GNATOPTFLAGS) phctop.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind phctop use_c2phc pieri_solver
+	gnatlink phctop syscon.o solcon.o phcpack.o feedback.o \
+                 corecount.o parameter.o lib2path_d.o \
+                 inputData.o outputData.o iTest.o fTest.o reltab.o \
+                 simplex4phc.o mvc4phc.o demicsrun4phc.o lib.a \
+                 /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 get_clock.o get_clocks_per_sec.o \
+                 -Wl,-stack_size -Wl,0x10000000 -Wl,-no_compact_unwind \
+              -o $(BIN)/phc -lm --LINK=$(gpp)
+
+# Test program to see if compiler works, "hello world" :
+
+hello:
+	gnatmake -o $(BIN)/hello $(INCLULIBS) $(GNATOPTFLAGS) hello.adb
+
+# Test programs for the System library :
+
+ts_time:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_time.adb -o $(BIN)/ts_time
+
+ts_clock:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_clock.adb -o $(BIN)/ts_clock
+
+ts_stamps:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_stamps.adb -o $(BIN)/ts_stamps
+
+ts_timer:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_timer.adb -o $(BIN)/ts_timer
+
+get_clock.o:
+	$(gcc) -c $(PHCAda)/System/Basic_Timer/get_clock.c
+
+get_clocks_per_sec.o:
+	$(gcc) -c $(PHCAda)/System/Basic_Timer/get_clocks_per_sec.c
+
+ts_ctimer: get_clock.o get_clocks_per_sec.o
+	gnatmake -o $(BIN)/ts_ctimer $(INCLULIBS) ts_ctimer.adb \
+                 -largs get_clock.o get_clocks_per_sec.o
+
+ts_wintimer: get_clock.o get_clocks_per_sec.o
+	gnatmake -o $(BIN)/ts_wintimer $(INCLULIBS) ts_wintimer.adb \
+                 -largs get_clock.o get_clocks_per_sec.o
+
+ts_syscall:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_syscall.adb \
+                 -o $(BIN)/ts_syscall
+
+ts_mach:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mach.adb -o $(BIN)/ts_mach
+
+ts_cmdline:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cmdline.adb \
+                 -o $(BIN)/ts_cmdline
+
+ts_byemess:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_byemess.adb \
+                 -o $(BIN)/ts_byemess
+
+ts_strsplit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_strsplit.adb \
+                 -o $(BIN)/ts_strsplit
+
+ts_commuser:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_commuser.adb \
+                 -o $(BIN)/ts_commuser
+
+ts_filescan:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_filescan.adb \
+                 -o $(BIN)/ts_filescan
+
+ts_striscan:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_striscan.adb \
+                 -o $(BIN)/ts_striscan
+
+ts_threads:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_threads.adb \
+                 -o $(BIN)/ts_threads
+
+# Test programs for the library Math_Lib/Numbers :
+
+ts_strnum:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_strnum.adb -o $(BIN)/ts_strnum
+
+ts_printf:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_printf.adb -o $(BIN)/ts_printf
+
+ts_intnum:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intnum.adb -o $(BIN)/ts_intnum
+
+ts_natnum:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_natnum.adb -o $(BIN)/ts_natnum
+
+ts_natdiv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_natdiv.adb -o $(BIN)/ts_natdiv
+
+ts_longflt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_longflt.adb \
+                 -o $(BIN)/ts_longflt
+
+ts_fltnum:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fltnum.adb -o $(BIN)/ts_fltnum
+
+ts_cmpnum:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cmpnum.adb -o $(BIN)/ts_cmpnum
+
+ts_plrexp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_plrexp.adb -o $(BIN)/ts_plrexp
+
+ts_random:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_random.adb -o $(BIN)/ts_random
+
+ts_extran:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_extran.adb -o $(BIN)/ts_extran
+
+ts_matfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_matfun.adb -o $(BIN)/ts_matfun
+
+ts_intval:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intval.adb -o $(BIN)/ts_intval
+
+ts_mpcst:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mpcst.adb -o $(BIN)/ts_mpcst
+
+ts_numbio:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_numbio.adb -o $(BIN)/ts_numbio
+
+ts_isnan:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_isnan.adb -o $(BIN)/ts_isnan
+
+# Test programs for QD :
+
+ts_dbldbl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dbldbl.adb -o $(BIN)/ts_dbldbl
+
+ts_qddbl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qddbl.adb -o $(BIN)/ts_qddbl
+
+ts_ddcmplx:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddcmplx.adb \
+                 -o $(BIN)/ts_ddcmplx
+
+ts_qdcmplx:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdcmplx.adb \
+                 -o $(BIN)/ts_qdcmplx
+
+ts_mpddcv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mpddcv.adb -o $(BIN)/ts_mpddcv
+
+ts_mpqdcv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mpqdcv.adb -o $(BIN)/ts_mpqdcv
+
+ts_ddfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddfun.adb -o $(BIN)/ts_ddfun
+
+ts_qdfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdfun.adb -o $(BIN)/ts_qdfun
+
+ts_tdfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdfun.adb -o $(BIN)/ts_tdfun
+
+ts_pdfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdfun.adb -o $(BIN)/ts_pdfun
+
+ts_odfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odfun.adb -o $(BIN)/ts_odfun
+
+ts_dafun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dafun.adb -o $(BIN)/ts_dafun
+
+ts_cmpexp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cmpexp.adb -o $(BIN)/ts_cmpexp
+
+ts_tridbl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tridbl.adb -o $(BIN)/ts_tridbl
+
+ts_octdbl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_octdbl.adb -o $(BIN)/ts_octdbl
+
+ts_tdcmplx:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdcmplx.adb \
+              -o $(BIN)/ts_tdcmplx
+
+ts_odcmplx:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odcmplx.adb \
+              -o $(BIN)/ts_odcmplx
+
+ts_pentadbl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pentadbl.adb \
+              -o $(BIN)/ts_pentadbl
+
+ts_decadbl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_decadbl.adb \
+              -o $(BIN)/ts_decadbl
+
+ts_pdcmplx:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdcmplx.adb \
+              -o $(BIN)/ts_pdcmplx
+
+ts_dacmplx:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dacmplx.adb \
+              -o $(BIN)/ts_dacmplx
+
+# Test programs for Math_Lib/Vectors :
+
+ts_natvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_natvec.adb -o $(BIN)/ts_natvec
+
+ts_intvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intvec.adb -o $(BIN)/ts_intvec
+
+ts_fltvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fltvec.adb -o $(BIN)/ts_fltvec
+
+ts_cmpvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cmpvec.adb -o $(BIN)/ts_cmpvec
+
+ts_ddvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddvec.adb -o $(BIN)/ts_ddvec
+
+ts_qdvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdvec.adb -o $(BIN)/ts_qdvec
+
+ts_strvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_strvec.adb -o $(BIN)/ts_strvec
+
+ts_perfddvc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfddvc.adb \
+              -o $(BIN)/ts_perfddvc
+
+ts_perfqdvc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfqdvc.adb \
+              -o $(BIN)/ts_perfqdvc
+
+ts_nesvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_nesvec.adb -o $(BIN)/ts_nesvec
+
+ts_tdvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdvec.adb -o $(BIN)/ts_tdvec
+
+ts_pdvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdvec.adb -o $(BIN)/ts_pdvec
+
+ts_odvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odvec.adb -o $(BIN)/ts_odvec
+
+ts_davec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_davec.adb -o $(BIN)/ts_davec
+
+# Test programs for Math_Lib/Matrices :
+
+ts_natmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_natmat.adb -o $(BIN)/ts_natmat
+
+ts_intmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intmat.adb -o $(BIN)/ts_intmat
+
+ts_fltmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fltmat.adb -o $(BIN)/ts_fltmat
+
+ts_fltdls:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fltdls.adb -o $(BIN)/ts_fltdls
+
+ts_cmpmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cmpmat.adb -o $(BIN)/ts_cmpmat
+
+ts_ddmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddmat.adb -o $(BIN)/ts_ddmat
+
+ts_qdmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdmat.adb -o $(BIN)/ts_qdmat
+
+ts_tdmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdmat.adb -o $(BIN)/ts_tdmat
+
+ts_pdmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdmat.adb -o $(BIN)/ts_pdmat
+
+ts_odmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odmat.adb -o $(BIN)/ts_odmat
+
+ts_damat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_damat.adb -o $(BIN)/ts_damat
+
+# Test programs for Math_Lib/Divisors :
+
+ts_gcd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_gcd.adb -o $(BIN)/ts_gcd
+
+ts_intlina:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intlina.adb \
+              -o $(BIN)/ts_intlina
+
+ts_smith:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_smith.adb -o $(BIN)/ts_smith
+
+ts_intinv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intinv.adb -o $(BIN)/ts_intinv
+
+ts_circuit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_circuit.adb \
+              -o $(BIN)/ts_circuit
+
+# Test programs for Math_Lib/Reduction :
+
+ts_fltlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fltlu.adb -o $(BIN)/ts_fltlu
+
+ts_cmplu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cmplu.adb -o $(BIN)/ts_cmplu
+
+ts_ddlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddlu.adb -o $(BIN)/ts_ddlu
+
+ts_qdlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdlu.adb -o $(BIN)/ts_qdlu
+
+ts_qrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qrd.adb -o $(BIN)/ts_qrd
+
+ts_dqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dqrd.adb -o $(BIN)/ts_dqrd
+
+ts_ddqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddqrd.adb -o $(BIN)/ts_ddqrd
+
+ts_tdqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdqrd.adb -o $(BIN)/ts_tdqrd
+
+ts_qdqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdqrd.adb -o $(BIN)/ts_qdqrd
+
+ts_pdqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdqrd.adb -o $(BIN)/ts_pdqrd
+
+ts_odqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odqrd.adb -o $(BIN)/ts_odqrd
+
+ts_daqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_daqrd.adb -o $(BIN)/ts_daqrd
+
+ts_mpqrd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mpqrd.adb -o $(BIN)/ts_mpqrd
+
+ts_svd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_svd.adb -o $(BIN)/ts_svd
+
+ts_dsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dsvd.adb -o $(BIN)/ts_dsvd
+
+ts_ddsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddsvd.adb -o $(BIN)/ts_ddsvd
+
+ts_tdsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdsvd.adb -o $(BIN)/ts_tdsvd
+
+ts_qdsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdsvd.adb -o $(BIN)/ts_qdsvd
+
+ts_pdsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdsvd.adb -o $(BIN)/ts_pdsvd
+
+ts_odsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odsvd.adb -o $(BIN)/ts_odsvd
+
+ts_dasvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dasvd.adb -o $(BIN)/ts_dasvd
+
+ts_mpsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mpsvd.adb -o $(BIN)/ts_mpsvd
+
+ts_rowred:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rowred.adb -o $(BIN)/ts_rowred
+
+ts_eigval:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_eigval.adb -o $(BIN)/ts_eigval
+
+ts_mgs:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mgs.adb -o $(BIN)/ts_mgs
+
+ts_mgsrnk:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mgsrnk.adb -o $(BIN)/ts_mgsrnk
+
+ts_backsubs:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_backsubs.adb \
+              -o $(BIN)/ts_backsubs
+
+ts_perflu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perflu.adb -o $(BIN)/ts_perflu
+
+ts_perfdlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfdlu.adb \
+              -o $(BIN)/ts_perfdlu
+
+ts_perfdsvd:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfdsvd.adb \
+              -o $(BIN)/ts_perfdsvd
+
+ts_vvlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vvlu.adb -o $(BIN)/ts_vvlu
+
+ts_vmplu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vmplu.adb -o $(BIN)/ts_vmplu
+
+ts_tdlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdlu.adb -o $(BIN)/ts_tdlu
+
+ts_pdlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdlu.adb -o $(BIN)/ts_pdlu
+
+ts_odlu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odlu.adb -o $(BIN)/ts_odlu
+
+ts_dalu:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dalu.adb -o $(BIN)/ts_dalu
+
+ts_ddnorm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddnorm.adb -o $(BIN)/ts_ddnorm
+
+ts_tdnorm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tdnorm.adb -o $(BIN)/ts_tdnorm
+
+ts_qdnorm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdnorm.adb -o $(BIN)/ts_qdnorm
+
+ts_pdnorm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pdnorm.adb -o $(BIN)/ts_pdnorm
+
+ts_odnorm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_odnorm.adb -o $(BIN)/ts_odnorm
+
+ts_danorm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_danorm.adb -o $(BIN)/ts_danorm
+
+# Test programs for Math_Lib/Polynomials :
+
+ts_poly:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_poly.adb -o $(BIN)/ts_poly
+
+ts_laurpoly:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_laurpoly.adb \
+                 -o $(BIN)/ts_laurpoly
+
+ts_laurlist:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_laurlist.adb \
+                 -o $(BIN)/ts_laurlist
+
+ts_rpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rpol.adb -o $(BIN)/ts_rpol
+
+ts_ddpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddpol.adb -o $(BIN)/ts_ddpol
+
+ts_qdpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdpol.adb -o $(BIN)/ts_qdpol
+
+ts_polmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_polmat.adb -o $(BIN)/ts_polmat
+
+ts_jaco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jaco.adb -o $(BIN)/ts_jaco
+
+ts_parse:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_parse.adb -o $(BIN)/ts_parse
+
+ts_subs:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_subs.adb -o $(BIN)/ts_subs
+
+ts_tabform:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tabform.adb \
+              -o $(BIN)/ts_tabform
+
+ts_randpoly:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_randpoly.adb \
+              -o $(BIN)/ts_randpoly
+
+ts_str2pol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_str2pol.adb \
+              -o $(BIN)/ts_str2pol
+
+ts_termlist:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_termlist.adb \
+              -o $(BIN)/ts_termlist
+
+ts_rwspol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rwspol.adb \
+              -o $(BIN)/ts_rwspol
+
+ts_nbrvar:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_nbrvar.adb \
+              -o $(BIN)/ts_nbrvar
+
+ts_hessian:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hessian.adb \
+              -o $(BIN)/ts_hessian
+
+# Test programs for Math_Lib/Functions :
+
+ts_evaline:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_evaline.adb \
+                 -o $(BIN)/ts_evaline
+
+ts_evalpoly:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_evalpoly.adb \
+                 -o $(BIN)/ts_evalpoly
+
+ts_evalform:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_evalform.adb \
+                 -o $(BIN)/ts_evalform
+
+ts_lineva:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_lineva.adb -o $(BIN)/ts_lineva
+
+ts_polyflat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_polyflat.adb \
+                 -o $(BIN)/ts_polyflat
+ts_perfeval:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfeval.adb \
+                 -o $(BIN)/ts_perfeval
+
+ts_expvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_expvec.adb -o $(BIN)/ts_expvec
+
+ts_evddpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_evddpol.adb \
+              -o $(BIN)/ts_evddpol
+
+# Test programs for Math_Lib/Circuits :
+
+ts_cffsup:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cffsup -o $(BIN)/ts_cffsup
+
+ts_gradcirc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_gradcirc -o $(BIN)/ts_gradcirc
+
+ts_speel:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_speel -o $(BIN)/ts_speel
+
+ts_speelsys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_speelsys.adb \
+                 -o $(BIN)/ts_speelsys
+
+ts_cycfun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cycfun.adb -o $(BIN)/ts_cycfun
+
+ts_vmpeval:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vmpeval.adb \
+              -o $(BIN)/ts_vmpeval
+
+ts_vmpdiff:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vmpdiff.adb \
+              -o $(BIN)/ts_vmpdiff
+
+ts_speelser:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_speelser.adb \
+              -o $(BIN)/ts_speelser
+
+ts_speelcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_speelcnv.adb \
+              -o $(BIN)/ts_speelcnv
+
+ts_fabry:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fabry.adb -o $(BIN)/ts_fabry
+
+ts_evalcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_evalcnv.adb \
+              -o $(BIN)/ts_evalcnv
+
+ts_hesscnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hesscnv.adb \
+              -o $(BIN)/ts_hesscnv
+
+ts_jacocnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jacocnv.adb \
+              -o $(BIN)/ts_jacocnv
+
+ts_shiftcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_shiftcnv.adb \
+              -o $(BIN)/ts_shiftcnv
+
+ts_perfconv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfconv.adb \
+              -o $(BIN)/ts_perfconv
+
+ts_perfcirc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfcirc.adb \
+              -o $(BIN)/ts_perfcirc
+
+ts_perfade:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfade.adb \
+              -o $(BIN)/ts_perfade
+
+ts_perfhess:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfhess.adb \
+              -o $(BIN)/ts_perfhess
+
+# Test programs for Math_Lib/Supports :
+
+ts_basex:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_basex.adb -o $(BIN)/ts_basex
+
+ts_feasi:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_feasi.adb -o $(BIN)/ts_feasi
+
+ts_enurs:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_enurs.adb -o $(BIN)/ts_enurs
+
+ts_diclp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_diclp.adb -o $(BIN)/ts_diclp
+
+ts_givrot:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_givrot.adb -o $(BIN)/ts_givrot
+
+ts_lstvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_lstvec.adb -o $(BIN)/ts_lstvec
+
+ts_fvector:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fvector.adb \
+              -o $(BIN)/ts_fvector
+
+ts_giftwrap:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_giftwrap.adb \
+              -o $(BIN)/ts_giftwrap
+
+ts_giftwcon:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_giftwcon.adb \
+              -o $(BIN)/ts_giftwcon
+
+# Test programs for the Math_Lib/Series library :
+
+ts_pstrunc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pstrunc.adb \
+              -o $(BIN)/ts_pstrunc
+
+ts_bincff:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_bincff.adb \
+              -o $(BIN)/ts_bincff
+
+ts_series:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_series.adb \
+              -o $(BIN)/ts_series
+
+ts_series2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_series2.adb \
+              -o $(BIN)/ts_series2
+
+ts_cseries:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cseries.adb \
+              -o $(BIN)/ts_cseries
+
+ts_servec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_servec.adb \
+              -o $(BIN)/ts_servec
+
+ts_servec2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_servec2.adb \
+              -o $(BIN)/ts_servec2
+
+ts_cservec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cservec.adb \
+              -o $(BIN)/ts_cservec
+
+ts_sermat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sermat.adb \
+              -o $(BIN)/ts_sermat
+
+ts_sermat2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sermat2.adb \
+              -o $(BIN)/ts_sermat2
+
+ts_csermat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_csermat.adb \
+              -o $(BIN)/ts_csermat
+
+ts_seritp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_seritp.adb \
+              -o $(BIN)/ts_seritp
+
+ts_seritp2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_seritp2.adb \
+              -o $(BIN)/ts_seritp2
+
+ts_cseritp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cseritp.adb \
+              -o $(BIN)/ts_cseritp
+
+ts_sersin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sersin.adb \
+              -o $(BIN)/ts_sersin
+
+ts_sersin2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sersin2.adb \
+              -o $(BIN)/ts_sersin2
+
+ts_csersin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_csersin.adb \
+              -o $(BIN)/ts_csersin
+
+ts_serlin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serlin.adb \
+              -o $(BIN)/ts_serlin
+
+ts_serlin2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serlin2.adb \
+              -o $(BIN)/ts_serlin2
+
+ts_cserlin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cserlin.adb \
+              -o $(BIN)/ts_cserlin
+
+ts_cserlin2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cserlin2.adb \
+              -o $(BIN)/ts_cserlin2
+
+ts_perfserlin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_perfserlin.adb \
+              -o $(BIN)/ts_perfserlin
+
+ts_serinv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serinv.adb \
+              -o $(BIN)/ts_serinv
+
+ts_cserinv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cserinv.adb \
+              -o $(BIN)/ts_cserinv
+
+ts_serpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serpol.adb \
+              -o $(BIN)/ts_serpol
+
+ts_cserpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cserpol.adb \
+              -o $(BIN)/ts_cserpol
+
+ts_sersys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sersys.adb \
+              -o $(BIN)/ts_sersys
+
+ts_csersys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_csersys.adb \
+              -o $(BIN)/ts_csersys
+
+ts_sercffpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sercffpol.adb \
+              -o $(BIN)/ts_sercffpol
+
+# Test programs for the Math_Lib/AD library :
+
+ts_monom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_monom.adb \
+              -o $(BIN)/ts_monom
+
+ts_monvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_monvec.adb \
+              -o $(BIN)/ts_monvec
+
+ts_polvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_polvec.adb \
+              -o $(BIN)/ts_polvec
+
+ts_sys2vec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sys2vec.adb \
+              -o $(BIN)/ts_sys2vec
+
+# Test programs for the Deformations/Solutions library :
+
+ts_solfilt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_solfilt.adb \
+              -o $(BIN)/ts_solfilt
+
+ts_sols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sols.adb -o $(BIN)/ts_sols
+
+ts_ddsols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddsols.adb -o $(BIN)/ts_ddsols
+
+ts_qdsols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdsols.adb -o $(BIN)/ts_qdsols
+
+ts_solar:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_solar.adb -o $(BIN)/ts_solar
+
+ts_mapsols_io:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mapsols_io.adb \
+                 -o $(BIN)/ts_mapsols_io
+
+ts_dicsols_io:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dicsols_io.adb \
+                 -o $(BIN)/ts_dicsols_io
+
+ts_grepsols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_grepsols.adb \
+                 -o $(BIN)/ts_grepsols
+
+mergesols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) mergesols.adb -o $(BIN)/mergesols
+
+ts_contab:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_contab.adb -o $(BIN)/ts_contab
+
+ts_selsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_selsol.adb -o $(BIN)/ts_selsol
+
+ts_solstr:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_solstr.adb -o $(BIN)/ts_solstr
+
+ts_quadpart:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_quadpart.adb \
+              -o $(BIN)/ts_quadpart
+
+ts_quad:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_quad.adb -o $(BIN)/ts_quad
+
+ts_soldrop:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_soldrop.adb \
+              -o $(BIN)/ts_soldrop
+
+ts_ptlists:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ptlists.adb \
+              -o $(BIN)/ts_ptlists
+
+ts_trasols_io:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_trasols_io.adb \
+              -o $(BIN)/ts_trasols_io
+
+ts_mixres:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mixres.adb -o $(BIN)/ts_mixres
+
+# Test programs for the Deformations/Homotopy library :
+
+ts_drivscal:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivscal -o $(BIN)/ts_drivscal
+
+ts_scal:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_scal.adb -o $(BIN)/ts_scal
+
+ts_reduce:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_reduce.adb \
+                 -o $(BIN)/ts_reduce
+
+ts_homotopy:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_homotopy.adb \
+                 -o $(BIN)/ts_homotopy
+
+ts_homline:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_homline.adb \
+                 -o $(BIN)/ts_homline
+
+ts_linsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_linsol.adb -o $(BIN)/ts_linsol
+
+ts_qdhom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdhom.adb -o $(BIN)/ts_qdhom
+
+ts_poldrop:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_poldrop.adb \
+              -o $(BIN)/ts_poldrop
+
+ts_evalhomt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_evalhomt.adb \
+              -o $(BIN)/ts_evalhomt
+
+ts_vmphom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vmphom.adb -o $(BIN)/ts_vmphom
+
+ts_scalplane:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_scalplane.adb \
+              -o $(BIN)/ts_scalplane
+
+ts_multproj:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_multproj.adb \
+              -o $(BIN)/ts_multproj
+
+ts_homcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_homcnv.adb \
+              -o $(BIN)/ts_homcnv
+
+# Test programs for the Deformations/Newton library :
+
+ts_mreseva:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mreseva.adb \
+                 -o $(BIN)/ts_mreseva
+
+ts_rootrefi:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rootrefi.adb \
+                 -o $(BIN)/ts_rootrefi
+
+ts_newton:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_newton.adb -o $(BIN)/ts_newton
+
+ts_realnewt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_realnewt.adb \
+                 -o $(BIN)/ts_realnewt
+
+ts_numdif:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_numdif.adb -o $(BIN)/ts_numdif
+
+ts_jactrees:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jactrees.adb \
+                 -o $(BIN)/ts_jactrees
+
+ts_deftrees:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_deftrees.adb \
+                 -o $(BIN)/ts_deftrees
+
+ts_deflate:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_deflate.adb \
+                 -o $(BIN)/ts_deflate
+
+ts_straight:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_straight.adb \
+                 -o $(BIN)/ts_straight
+
+ts_stair:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_stair.adb -o $(BIN)/ts_stair
+
+ts_defmat:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_defmat.adb -o $(BIN)/ts_defmat
+
+ts_multip:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_multip.adb -o $(BIN)/ts_multip
+
+ts_muldef:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_muldef.adb -o $(BIN)/ts_muldef
+
+ts_deflop:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_deflop.adb -o $(BIN)/ts_deflop
+
+ts_ddnewt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddnewt.adb -o $(BIN)/ts_ddnewt
+
+ts_qdnewt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_qdnewt.adb -o $(BIN)/ts_qdnewt
+
+ts_vmpnewt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vmpnewt.adb \
+              -o $(BIN)/ts_vmpnewt
+
+ts_newcirc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_newcirc.adb \
+              -o $(BIN)/ts_newcirc
+
+# Test programs for the Deformations/Curves library :
+
+ts_durker:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_durker.adb \
+                 -o $(BIN)/ts_durker
+
+ts_extrapol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_extrapol.adb \
+                 -o $(BIN)/ts_extrapol
+
+ts_extrapts:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_extrapts.adb \
+                 -o $(BIN)/ts_extrapts
+
+ts_sernew:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sernew.adb \
+                 -o $(BIN)/ts_sernew
+
+ts_sersol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sersol.adb \
+                 -o $(BIN)/ts_sersol
+
+ts_serhom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serhom.adb \
+                 -o $(BIN)/ts_serhom
+
+ts_serpred:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serpred.adb \
+                 -o $(BIN)/ts_serpred
+
+ts_serpath:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serpath.adb \
+                 -o $(BIN)/ts_serpath
+
+ts_serpade:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serpade.adb \
+                 -o $(BIN)/ts_serpade
+
+ts_padepred:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_padepred.adb \
+                 -o $(BIN)/ts_padepred
+
+ts_padepcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_padepcnv.adb \
+                 -o $(BIN)/ts_padepcnv
+
+ts_jacrabin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jacrabin.adb \
+                 -o $(BIN)/ts_jacrabin
+
+ts_nxtpadsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_nxtpadsol.adb \
+                 -o $(BIN)/ts_nxtpadsol
+
+ts_hesscrit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hesscrit.adb \
+                 -o $(BIN)/ts_hesscrit
+
+ts_hesspred:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hesspred.adb \
+                 -o $(BIN)/ts_hesspred
+
+ts_hesspcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hesspcnv.adb \
+                 -o $(BIN)/ts_hesspcnv
+
+ts_predstep:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_predstep.adb \
+                 -o $(BIN)/ts_predstep
+
+ts_sernewcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sernewcnv.adb \
+                 -o $(BIN)/ts_sernewcnv
+
+ts_ratapp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ratapp.adb \
+                 -o $(BIN)/ts_ratapp
+
+ts_corcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_corcnv.adb \
+                 -o $(BIN)/ts_corcnv
+
+ts_pcscnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pcscnv.adb \
+                 -o $(BIN)/ts_pcscnv
+
+ts_scalecnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_scalecnv.adb \
+                 -o $(BIN)/ts_scalecnv
+
+ts_wrappade:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_wrappade.adb \
+                 -o $(BIN)/ts_wrappade
+
+ts_fabryhom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fabryhom.adb \
+                 -o $(BIN)/ts_fabryhom
+
+# Test programs for the Deformations/End_Games library :
+
+ts_vlprs:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_vlprs.adb -o $(BIN)/ts_vlprs
+
+postpoco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) postpoco.adb -o $(BIN)/postpoco
+
+valipoco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) valipoco.adb -o $(BIN)/valipoco
+
+# Test programs for the Deformations/Sweep library :
+
+ts_parcon:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_parcon.adb -o $(BIN)/ts_parcon
+
+ts_realcont:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_realcont.adb \
+                 -o $(BIN)/ts_realcont
+
+# Test programs for the Deformations/Trackers library :
+
+ts_preco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_preco.adb -o $(BIN)/ts_preco
+
+ts_correct:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_correct.adb \
+                 -o $(BIN)/ts_correct
+
+ts_ortocor:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ortocor.adb \
+                 -o $(BIN)/ts_ortocor
+
+ts_path:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_path.adb -o $(BIN)/ts_path
+
+ts_track:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_track.adb -o $(BIN)/ts_track
+
+ts_nxtsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_nxtsol.adb -o $(BIN)/ts_nxtsol
+
+# Test programs for the Deformations/Continuation library :
+
+ts_pactun:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pactun.adb -o $(BIN)/ts_pactun
+
+ts_autotune:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_autotune.adb \
+              -o $(BIN)/ts_autotune
+
+ts_poco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_poco.adb -o $(BIN)/ts_poco
+
+ts_bbpoco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_bbpoco.adb \
+              -o $(BIN)/ts_bbpoco
+
+ts_exp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_exp.adb -o $(BIN)/ts_exp
+
+mypoco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) mypoco.adb -o $(BIN)/mypoco
+
+# Test programs for the Root_Counts/Product homotopies library :
+
+ts_startsys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_startsys.adb \
+                 -o $(BIN)/ts_startsys
+
+ts_permanent:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_permanent \
+                 -o $(BIN)/ts_permanent
+
+ts_prodsys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_prodsys.adb \
+                 -o $(BIN)/ts_prodsys
+
+ts_strpart:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_strpart.adb \
+                 -o $(BIN)/ts_strpart
+
+ts_mainmhom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mainmhom.adb \
+                 -o $(BIN)/ts_mainmhom
+
+ts_mainmuho:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mainmuho.adb \
+                 -o $(BIN)/ts_mainmuho
+
+ts_mainsets:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mainsets.adb \
+              -o $(BIN)/ts_mainsets
+
+ts_strset:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_strset.adb -o $(BIN)/ts_strset
+
+ts_permstar:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_permstar.adb \
+              -o $(BIN)/ts_permstar
+
+ts_pivsel:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pivsel.adb \
+              -o $(BIN)/ts_pivsel
+
+# Test programs in the Root_Counts/Binomials library :
+
+ts_binsys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_binsys.adb -o $(BIN)/ts_binsys
+
+ts_kernel:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_kernel.adb -o $(BIN)/ts_kernel
+
+ts_binset:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_binset.adb -o $(BIN)/ts_binset
+
+ts_incols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_incols.adb -o $(BIN)/ts_incols
+
+ts_monmap:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_monmap.adb -o $(BIN)/ts_monmap
+
+ts_binsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_binsol.adb -o $(BIN)/ts_binsol
+
+ts_affpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_affpol.adb -o $(BIN)/ts_affpol
+
+ts_simsys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_simsys.adb -o $(BIN)/ts_simsys
+
+ts_simposol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_simposol.adb \
+                 -o $(BIN)/ts_simposol
+
+ts_powtrans:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_powtrans.adb \
+                 -o $(BIN)/ts_powtrans
+
+ts_binpser:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_binpser.adb \
+                 -o $(BIN)/ts_binpser
+
+ts_cspsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cspsol.adb -o $(BIN)/ts_cspsol
+
+ts_unimod:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_unimod.adb -o $(BIN)/ts_unimod
+
+# Test programs for the Root_Counts/Implift library :
+
+ts_supports:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_supports.adb \
+                 -o $(BIN)/ts_supports
+
+ts_supspan:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_supspan.adb \
+                 -o $(BIN)/ts_supspan
+
+ts_transfo:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_transfo.adb \
+                 -o $(BIN)/ts_transfo
+
+ts_mainvpts:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mainvpts.adb \
+                 -o $(BIN)/ts_mainvpts
+
+ts_impvol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_impvol.adb \
+                 -o $(BIN)/ts_impvol
+
+ts_drivimpl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivimpl.adb \
+                 -o $(BIN)/ts_drivimpl
+
+# Test programs for the Root_Counts/Stalift library :
+
+ts_rndcff:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rndcff.adb -o $(BIN)/ts_rndcff
+
+ts_supsub:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_supsub.adb -o $(BIN)/ts_supsub
+
+ts_conint:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_conint.adb -o $(BIN)/ts_conint
+
+ts_mixture:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mixture.adb \
+                 -o $(BIN)/ts_mixture
+
+ts_mixvol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mixvol.adb -o $(BIN)/ts_mixvol
+
+ts_mixlab:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mixlab.adb -o $(BIN)/ts_mixlab
+
+ts_jpmix:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jpmix.adb -o $(BIN)/ts_jpmix
+
+ts_drivcrit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivcrit.adb \
+                 -o $(BIN)/ts_drivcrit
+
+ts_drivstal:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivstal.adb \
+                 -o $(BIN)/ts_drivstal
+
+ts_mvasta:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mvasta.adb -o $(BIN)/ts_mvasta
+
+ts_exptrack:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_exptrack.adb \
+                 -o $(BIN)/ts_exptrack
+
+ts_stable:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_stable.adb -o $(BIN)/ts_stable
+
+ts_balance:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_balance.adb \
+              -o $(BIN)/ts_balance
+
+ts_userlift:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_userlift.adb \
+              -o $(BIN)/ts_userlift
+
+ts_demics: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+           reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_demics.adb
+	gnatbind ts_demics use_c2phc
+	gnatlink ts_demics inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_demics \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+# Test programs for the Root_Counts/Dynlift library :
+
+ts_dyntri:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dyntri.adb -o $(BIN)/ts_dyntri
+
+ts_drivmink:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivmink.adb \
+                 -o $(BIN)/ts_drivmink
+
+ts_drivdynl:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivdynl.adb \
+                 -o $(BIN)/ts_drivdynl
+
+# Test programs for the Root_Counts/Symmetry library :
+
+ts_group:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_group.adb -o $(BIN)/ts_group
+
+ts_equpol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_equpol.adb -o $(BIN)/ts_equpol
+
+ts_drivsss:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_drivsss.adb \
+                 -o $(BIN)/ts_drivsss
+
+# Test programs for the Root_Counts/MixedVol library :
+
+convsub:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) convsub.adb -o $(BIN)/convsub
+
+ts_mv2c:
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/mv.c
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/cell_stack.c
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/form_lp.c 
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/index_tree_lp.c 
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/zero_index_tree.c
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/one_level_lp.c
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/mixed_volume.c
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/relation_table.c
+	$(gcc) -c $(PHCAda)/Root_Counts/MixedVol/prepare_for_mv.c
+	gnatmake -o $(BIN)/ts_mv2c $(INCLULIBS) $(GNATOPTFLAGS) ts_mv2c.adb \
+                 -largs mv.o cell_stack.o form_lp.o index_tree_lp.o \
+                        zero_index_tree.o one_level_lp.o mixed_volume.o \
+                        relation_table.o prepare_for_mv.o -lm
+
+ts_mv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mv.adb -o $(BIN)/ts_mv 
+
+ts_mva:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mva.adb -o $(BIN)/ts_mva
+
+# Test programs for the Root_Counts/DEMiCs library :
+
+ts_calldemics:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_calldemics.adb \
+              -o $(BIN)/ts_calldemics
+
+DEMiCs_CFLAGS = -O3 -DNDEBUG
+
+inputData.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/inputData.cpp
+
+iTest.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/iTest.cpp
+
+fTest.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/fTest.cpp
+
+simplex.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/simplex.cpp
+
+reltab.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/reltab.cpp
+
+mvc.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/mvc.cpp
+
+main.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/main.cpp
+
+demics_objects = inputData.o iTest.o fTest.o simplex.o reltab.o mvc.o main.o
+
+demics: $(demics_objects)
+	$(gpp) -o $(BIN)/demics $(DEMiCs_CFLAGS) $(demics_objects) -lm
+
+ts_inputData:
+	$(gpp) $(DEMiCs_CFLAGS) -c \
+               $(PHCAda)/Root_Counts/DEMiCs/inputData.cpp
+	$(gpp) $(DEMiCs_CFLAGS) -c \
+               $(PHCAda)/Root_Counts/DEMiCs/ts_inputData.cpp
+	$(gpp) -o $(BIN)/ts_inputData $(DEMiCs_CFLAGS) ts_inputData.o \
+                  inputData.o -lm
+
+ts_outdata:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_outdata.adb \
+                 -o $(BIN)/ts_outdata
+
+ts_outputData:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	$(gpp) -O2 -Dcompilewgpp=1 \
+               -c $(PHCAda)/Root_Counts/DEMiCs/outputData.cpp
+	$(gpp) -O2 -Dcompilewgpp=1 \
+	       -c $(PHCAda)/Root_Counts/DEMiCs/ts_outputData.cpp
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc ts_outputData.o outputData.o \
+                 -o $(BIN)/ts_outputData \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 -lm --LINK=g++
+
+outputData.o:
+	$(gpp) -O2 -Dcompilewgpp=1 \
+               -c $(PHCAda)/Root_Counts/DEMiCs/outputData.cpp
+
+simplex4phc.o:
+	$(gpp) $(DEMiCs_CFLAGS) -Dcompile4phc=1 -Dcompilewgpp=1 \
+            -c $(PHCAda)/Root_Counts/DEMiCs/simplex.cpp -o simplex4phc.o
+
+mvc4phc.o:
+	$(gpp) $(DEMiCs_CFLAGS) -Dcompile4phc=1 -Dcompilewgpp=1 \
+            -c $(PHCAda)/Root_Counts/DEMiCs/mvc.cpp -o mvc4phc.o
+
+demicsrun4phc.o:
+	$(gpp) $(DEMiCs_CFLAGS) -Dcompile4phc=1 -Dcompilewgpp=1 \
+            -c $(PHCAda)/Root_Counts/DEMiCs/demicsrun.cpp -o demicsrun4phc.o
+
+demicsrun.o:
+	$(gpp) $(DEMiCs_CFLAGS) -c $(PHCAda)/Root_Counts/DEMiCs/demicsrun.cpp
+
+ts_demicsrun: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+              reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_demicsrun.adb \
+                 -o ts_demicsrun.o
+	gnatbind ts_demicsrun use_c2phc
+	gnatlink ts_demicsrun inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_demicsrun \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+# Test programs for the Root_Counts/Puiseux library :
+
+ts_degcurve:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_degcurve.adb \
+                 -o $(BIN)/ts_degcurve
+
+ts_puiseux:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_puiseux.adb \
+                 -o $(BIN)/ts_puiseux
+
+# Test programs for SAGBI library in numerical Schubert calculus :
+
+ts_subsets:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_subsets.adb \
+                 -o $(BIN)/ts_subsets
+
+ts_brackets:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_brackets.adb \
+                 -o $(BIN)/ts_brackets
+
+ts_brackmons:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_brackmons.adb \
+                 -o $(BIN)/ts_brackmons
+
+ts_brackpols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_brackpols.adb \
+                 -o $(BIN)/ts_brackpols
+
+ts_straighten:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_straighten.adb \
+                 -o $(BIN)/ts_straighten
+
+ts_expand:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_expand.adb -o $(BIN)/ts_expand
+
+ts_local:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_local.adb -o $(BIN)/ts_local
+
+ts_mathom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mathom.adb -o $(BIN)/ts_mathom
+
+ts_cheby:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cheby.adb -o $(BIN)/ts_cheby
+
+ts_shapiro:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_shapiro.adb \
+                 -o $(BIN)/ts_shapiro
+
+ts_eremenko:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_eremenko.adb \
+                 -o $(BIN)/ts_eremenko
+
+ts_detrock:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_detrock.adb \
+                 -o $(BIN)/ts_detrock
+
+ts_sagbi:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sagbi.adb -o $(BIN)/ts_sagbi
+
+ts_topos:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_topos.adb -o $(BIN)/ts_topos
+
+# Test programs for Pieri library in numerical Schubert calculus :
+
+ts_org_pieri:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_org_pieri.adb \
+                 -o $(BIN)/ts_org_pieri
+
+ts_canocurv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_canocurv.adb \
+                 -o $(BIN)/ts_canocurv
+
+ts_matinv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_matinv.adb -o $(BIN)/ts_matinv
+
+ts_pieri:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pieri.adb -o $(BIN)/ts_pieri
+
+ts_posets:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_posets.adb -o $(BIN)/ts_posets
+
+ts_detsys:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_detsys.adb -o $(BIN)/ts_detsys
+
+ts_defpos:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_defpos.adb -o $(BIN)/ts_defpos
+
+ts_piroco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_piroco.adb -o $(BIN)/ts_piroco
+
+# Test programs for Induction library in numerical Schubert calculus :
+
+ts_checkers:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_checkers.adb \
+	         -o $(BIN)/ts_checkers
+
+ts_induce:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_induce.adb \
+	         -o $(BIN)/ts_induce
+
+ts_flagcond:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_flagcond.adb \
+	         -o $(BIN)/ts_flagcond
+
+ts_lrhom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_lrhom.adb -o $(BIN)/ts_lrhom
+
+# Test programs for the Components/Samplers library :
+
+ts_roots:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_roots.adb -o $(BIN)/ts_roots
+
+ts_hypsam:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hypsam.adb -o $(BIN)/ts_hypsam
+
+ts_hyprts:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hyprts.adb -o $(BIN)/ts_hyprts
+
+ts_hyppts:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hyppts.adb -o $(BIN)/ts_hyppts
+
+ts_unisam:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_unisam.adb -o $(BIN)/ts_unisam
+
+ts_planes:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_planes.adb -o $(BIN)/ts_planes
+
+ts_flag:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_flag.adb -o $(BIN)/ts_flag
+
+ts_coords:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_coords.adb -o $(BIN)/ts_coords
+
+ts_itrack:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_itrack.adb -o $(BIN)/ts_itrack
+
+ts_ispan:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ispan.adb -o $(BIN)/ts_ispan
+
+ts_inewt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_inewt.adb -o $(BIN)/ts_inewt
+
+ts_iddnewt:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_iddnewt.adb \
+              -o $(BIN)/ts_iddnewt
+
+ts_iwset:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_iwset.adb -o $(BIN)/ts_iwset
+
+ts_ilocal:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ilocal.adb -o $(BIN)/ts_ilocal
+
+ts_sampar:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sampar.adb -o $(BIN)/ts_sampar
+
+ts_sample:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sample.adb -o $(BIN)/ts_sample
+
+ts_mulsam:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mulsam.adb -o $(BIN)/ts_mulsam
+
+ts_endgm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_endgm.adb -o $(BIN)/ts_endgm
+
+ts_locdim:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_locdim.adb -o $(BIN)/ts_locdim
+
+ts_ddqdsam:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ddqdsam.adb \
+              -o $(BIN)/ts_ddqdsam
+
+# Test programs for the Components/Interpolators libary :
+
+ts_stpolin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_stpolin.adb \
+                 -o $(BIN)/ts_stpolin
+
+ts_mupolin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mupolin.adb \
+                 -o $(BIN)/ts_mupolin
+
+ts_adpolin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_adpolin.adb \
+                 -o $(BIN)/ts_adpolin
+
+ts_project:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_project.adb \
+                 -o $(BIN)/ts_project
+
+ts_span:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_span.adb -o $(BIN)/ts_span
+
+ts_filter:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_filter.adb -o $(BIN)/ts_filter
+
+ts_nbterms:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_nbterms.adb \
+                 -o $(BIN)/ts_nbterms
+
+ts_divdif:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_divdif.adb -o $(BIN)/ts_divdif
+
+ts_dvdexp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dvdexp.adb -o $(BIN)/ts_dvdexp
+
+ts_newint:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_newint.adb -o $(BIN)/ts_newint
+
+ts_powtrc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_powtrc.adb -o $(BIN)/ts_powtrc
+
+ts_traces:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_traces.adb -o $(BIN)/ts_traces
+
+ts_trapol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_trapol.adb -o $(BIN)/ts_trapol
+
+ts_rewrite:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rewrite.adb \
+                 -o $(BIN)/ts_rewrite
+
+ts_elim:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_elim.adb -o $(BIN)/ts_elim
+
+ts_embed:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_embed.adb -o $(BIN)/ts_embed
+
+ts_square:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_square.adb -o $(BIN)/ts_square
+
+ts_squemb:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_squemb.adb -o $(BIN)/ts_squemb
+
+# Test programs in the Components/Factorization library :
+
+ts_rwpoly:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rwpoly.adb -o $(BIN)/ts_rwpoly 
+
+ts_irco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_irco.adb -o $(BIN)/ts_irco
+
+ts_combfac:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_combfac.adb \
+                 -o $(BIN)/ts_combfac
+
+ts_newfac:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_newfac.adb -o $(BIN)/ts_newfac
+
+ts_factor:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_factor.adb -o $(BIN)/ts_factor
+
+ts_ifactor:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ifactor.adb \
+                 -o $(BIN)/ts_ifactor
+
+ts_hypfac:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hypfac.adb -o $(BIN)/ts_hypfac
+
+ts_monfac:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_monfac.adb -o $(BIN)/ts_monfac
+
+ts_serwit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_serwit.adb -o $(BIN)/ts_serwit
+
+# Test programs in the Components/Decomposition library :
+
+ts_irdeco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_irdeco.adb -o $(BIN)/ts_irdeco
+
+ts_breakup:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_breakup.adb \
+                 -o $(BIN)/ts_breakup
+
+ts_cascade:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cascade.adb \
+                 -o $(BIN)/ts_cascade
+
+ts_intcas:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intcas.adb -o $(BIN)/ts_intcas
+
+ts_intdia:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intdia.adb -o $(BIN)/ts_intdia
+
+ts_reorder:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_reorder.adb \
+                 -o $(BIN)/ts_reorder
+
+ts_filfac:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_filfac.adb -o $(BIN)/ts_filfac
+
+ts_squeeze:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_squeeze.adb \
+                 -o $(BIN)/ts_squeeze
+
+ts_dimred:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dimred.adb -o $(BIN)/ts_dimred 
+
+ts_mbthom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mbthom.adb -o $(BIN)/ts_mbthom
+
+ts_diahom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_diahom.adb -o $(BIN)/ts_diahom
+
+ts_fillit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_fillit.adb -o $(BIN)/ts_fillit
+
+ts_jmpdia:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jmpdia.adb -o $(BIN)/ts_jmpdia
+
+ts_witsols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_witsols.adb \
+              -o $(BIN)/ts_witsols
+
+# Test programs in the Components/Solver library :
+
+ts_hypwit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_hypwit.adb -o $(BIN)/ts_hypwit
+
+ts_solver:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_solver.adb -o $(BIN)/ts_solver
+
+ts_rdisol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_rdisol.adb -o $(BIN)/ts_rdisol
+
+testnine:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) testnine.adb -o $(BIN)/testnine
+
+# Test programs in the Components/Tropical library :
+
+ts_tropawit:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tropawit.adb \
+              -o $(BIN)/ts_tropawit
+
+ts_tropisms:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tropisms.adb \
+              -o $(BIN)/ts_tropisms
+
+ts_inform:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_inform.adb -o $(BIN)/ts_inform
+
+ts_comfac:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_comfac.adb -o $(BIN)/ts_comfac
+
+ts_intorto:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_intorto.adb \
+              -o $(BIN)/ts_intorto
+
+ts_convhull:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_convhull.adb \
+              -o $(BIN)/ts_convhull
+
+ts_ptlstr:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_ptlstr.adb \
+              -o $(BIN)/ts_ptlstr
+
+ts_sumtope:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_sumtope.adb \
+              -o $(BIN)/ts_sumtope
+
+ts_pretrop:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pretrop.adb \
+              -o $(BIN)/ts_pretrop
+
+# Test programs in the Differentials library :
+
+ts_prolong:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_prolong.adb \
+                 -o $(BIN)/ts_prolong
+
+ts_dae:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_dae.adb -o $(BIN)/ts_dae
+
+# test programs for CtoPHC/Funky directory :
+
+ts_arrays:
+	gnatmake -o $(BIN)/ts_arrays $(INCLULIBS) $(GNATOPTFLAGS) ts_arrays.adb
+
+pass_poly:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) print_poly.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/pass_poly.c
+	gnatbind -n print_poly
+	gnatlink -C print_poly pass_poly.o -o $(BIN)/pass_poly
+
+ts_cosup:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cosup.adb -o $(BIN)/ts_cosup
+
+ts_cosupoly:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) cosupoly.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_cosupoly.c
+	gnatbind -n cosupoly
+	gnatlink -C cosupoly ts_cosupoly.o -o $(BIN)/ts_cosupoly
+
+ts_cosupsys:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) cosupsys.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_cosupsys.c
+	gnatbind -n cosupsys
+	gnatlink -C cosupsys ts_cosupsys.o -o $(BIN)/ts_cosupsys
+
+cosupoly_to_c.o:
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/cosupoly_to_c.c
+
+cosupsys_to_c.o:
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/cosupsys_to_c.c
+
+ts_cosuptoc: cosupoly_to_c.o cosupsys_to_c.o
+	gnatmake -o $(BIN)/ts_cosuptoc $(INCLULIBS) $(GNATOPTFLAGS) \
+                  ts_cosuptoc.adb -largs cosupoly_to_c.o cosupsys_to_c.o
+
+ts_getsys:
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/getsys2.c
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_getsys.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) getsys1.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) getsys3.adb
+	gnatbind -n getsys1 getsys3
+	gnatlink -C getsys3 ts_getsys.o getsys2.o -o $(BIN)/ts_getsys
+
+ts_phc_sys_rw:
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_phc_sys_rw.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) phc_sys_rw.adb
+	gnatbind -n phc_sys_rw
+	gnatlink -C phc_sys_rw ts_phc_sys_rw.o -o $(BIN)/ts_phc_sys_rw
+
+ts_phc_sol_rw:
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_phc_sol_rw.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) phc_sol_rw.adb
+	gnatbind -n phc_sol_rw
+	gnatlink -C phc_sol_rw ts_phc_sol_rw.o -o $(BIN)/ts_phc_sol_rw
+
+ts_cpm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cpm.adb -o $(BIN)/ts_cpm
+
+ts_pieri_count:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) pieri_count.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_pieri_count.c
+	gnatbind -n pieri_count
+	gnatlink -C pieri_count ts_pieri_count.o -o $(BIN)/ts_pieri_count
+
+ts_pieri_solver:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) pieri_solver.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_pieri_solver.c
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/pieri_sols.c
+	gnatbind -n pieri_solver
+	gnatlink -C pieri_solver ts_pieri_solver.o pieri_sols.o \
+                 -o $(BIN)/ts_pieri_solver -lm
+
+ts_phc_solver:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) phc_solver.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/ts_phc_solver.c
+	$(gcc) -c $(PHCAda)/CtoPHC/Funky/phc_sols.c
+	gnatbind -n phc_solver
+	gnatlink -C phc_solver ts_phc_solver.o phc_sols.o \
+                 -o $(BIN)/ts_phc_solver
+
+ts_csols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_csols.adb -o $(BIN)/ts_csols
+
+# test programs for the CtoPHC/State directory :
+
+ts_filman:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_filman.adb -o $(BIN)/ts_filman
+
+ts_solcon:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_solcon.adb -o $(BIN)/ts_solcon
+
+ts_solpool:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_solpool.adb \
+                 -o $(BIN)/ts_solpool
+
+ts_use_solcon:
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_solcon.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_solcon.adb
+	gnatbind -n use_solcon
+	gnatlink -C use_solcon ts_use_solcon.o -o $(BIN)/ts_use_solcon
+
+ts_use_solpool:
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_solpool.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_solpool.adb
+	gnatbind -n use_solpool
+	gnatlink -C use_solpool ts_use_solpool.o -o $(BIN)/ts_use_solpool
+
+ts_syscon:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_syscon.adb -o $(BIN)/ts_syscon
+
+ts_syspool:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_syspool.adb \
+                 -o $(BIN)/ts_syspool
+
+ts_use_syscon:
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_syscon.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_syscon.adb
+	gnatbind -n use_syscon
+	gnatlink -C use_syscon ts_use_syscon.o -o $(BIN)/ts_use_syscon
+
+ts_use_syspool:
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_syspool.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_syspool.adb
+	gnatbind -n use_syspool
+	gnatlink -C use_syspool ts_use_syspool.o -o $(BIN)/ts_use_syspool
+
+ts_c2phc:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) c_to_phcpack.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_c2phc.c
+	gnatbind -n c_to_phcpack
+	gnatlink -C c_to_phcpack ts_c2phc.o -o $(BIN)/ts_c2phc
+
+ts_c2str: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+          reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_c2str.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc ts_c2str.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_c2str \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+ts_use_c2phc: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+              reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_c2phc.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc ts_use_c2phc.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_use_c2phc \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+ts_pirhom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pirhom.adb -o $(BIN)/ts_pirhom
+
+ts_use_c2pieri:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2pieri.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_c2pieri.c
+	gnatbind -n use_c2pieri
+	gnatlink -C use_c2pieri ts_use_c2pieri.o -o $(BIN)/ts_use_c2pieri
+
+ts_use_c2fac:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2fac.adb
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_c2fac.c
+	gnatbind -n use_c2fac
+	gnatlink -C use_c2fac ts_use_c2fac.o -o $(BIN)/ts_use_c2fac
+
+ts_celcon:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_celcon.adb -o $(BIN)/ts_celcon
+
+ts_use_celcon:
+	$(gcc) -c $(PHCAda)/CtoPHC/State/ts_use_celcon.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_celcon.adb
+	gnatbind -n use_celcon
+	gnatlink -C use_celcon ts_use_celcon.o -o $(BIN)/ts_use_celcon
+
+ts_unisolve:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_unisolve.adb \
+              -o $(BIN)/ts_unisolve
+
+ts_use_giftwrap:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_use_giftwrap.adb \
+              -o $(BIN)/ts_use_giftwrap
+
+ts_use_sweep:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_use_sweep.adb \
+              -o $(BIN)/ts_use_sweep
+
+ts_runtrack:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_runtrack.adb \
+              -o $(BIN)/ts_runtrack
+
+# files in feedback :
+
+lib.a:$(PHCAda)/../Feedback/*.c $(PHCAda)/../Feedback/*.h
+	$(gcc) -c $(PHCAda)/../Feedback/*.c
+	ar ruv lib.a    dc_interpolation.o  dcmplx.o       poly_matrix.o\
+       append_dcmatrix.o    dc_inverse.o        pieri_sols.o   poly_smith.o\
+       c2ada_dc_matrix.o    dc_matrix.o         poly_dcmplx.o  realization.o\
+       c2ada_poly_matrix.o  dc_roots.o          poly_gcd.o     ts_feedback.o\
+       poly_hermite.o       append_polymatrix.o timer.o
+	ranlib lib.a
+
+ts_feedback: lib.a get_clock.o get_clocks_per_sec.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) pieri_solver.adb
+	gnatbind -n -C pieri_solver
+	gnatlink -C pieri_solver lib.a \
+                 -o $(BIN)/ts_feedback  -lm \
+                 get_clock.o get_clocks_per_sec.o
+
+feedback.o:
+	$(gcc) -c $(PHCAda)/../Feedback/feedback.c
+
+# Test program to test the C interface to GPU acceleration :
+
+ts_cpu2norm_d:
+	$(gcc) -c $(PHCAda)/PHCtoC/cpu2norm_d_in_c.c -o cpu2norm_d_in_c.o
+	gnatmake $(INCLULIBS) $(GNATFLAGS) ts_cpu2norm_d.adb \
+              -o $(BIN)/ts_cpu2norm_d -largs cpu2norm_d_in_c.o -lm
+
+ts_cpu2norm_dd:
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/Math_Lib/QD/double_double.c -o double_double.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/PHCtoC/cpu2norm_dd_in_c.c \
+               -o cpu2norm_dd_in_c.o
+	gnatmake $(INCLULIBS) $(GNATFLAGS) ts_cpu2norm_dd.adb \
+              -o $(BIN)/ts_cpu2norm_dd \
+              -largs double_double.o cpu2norm_dd_in_c.o -lm
+
+ts_cpu2norm_qd:
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/Math_Lib/QD/double_double.c -o double_double.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/Math_Lib/QD/quad_double.c -o quad_double.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/PHCtoC/cpu2norm_qd_in_c.c \
+               -o cpu2norm_qd_in_c.o
+	gnatmake $(INCLULIBS) $(GNATFLAGS) ts_cpu2norm_qd.adb \
+              -o $(BIN)/ts_cpu2norm_qd \
+              -largs double_double.o quad_double.o cpu2norm_qd_in_c.o -lm
+
+ts_cpu2norm:
+	$(gcc) -c $(PHCAda)/PHCtoC/cpu2norm_d_in_c.c -o cpu2norm_d_in_c.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/Math_Lib/QD/double_double.c -o double_double.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/PHCtoC/cpu2norm_dd_in_c.c \
+               -o cpu2norm_dd_in_c.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/Math_Lib/QD/quad_double.c -o quad_double.o
+	$(gcc) -I $(PHCAda)/Math_Lib/QD \
+               -c $(PHCAda)/PHCtoC/cpu2norm_qd_in_c.c \
+               -o cpu2norm_qd_in_c.o
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_cpu2norm.adb \
+              -o $(BIN)/ts_cpu2norm -largs cpu2norm_d_in_c.o \
+                 double_double.o cpu2norm_dd_in_c.o \
+                 quad_double.o cpu2norm_qd_in_c.o -lm
+
+ts_gpu2norm_Cmain:
+	$(gpp) -c $(PHCAda)/PHCtoC/callGPUnorm.cpp -o callGPUnorm.o
+	$(gcc) $(PHCAda)/PHCtoC/ts_gpu2norm_Cmain.c callGPUnorm.o \
+              -o $(BIN)/ts_gpu2norm_Cmain -lm
+
+ts_gpunewton:
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc.adb
+	@-echo ">>> compiling code for the containers ..."
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	@-echo ">>> compiling the C++ code ..."
+	g++ -c $(PHCAda)/PHCtoC/gpunewton_d.cpp -I$(PHCLib) \
+            -o gpunewton_d.o
+	@-echo ">>> compiling the main Ada procedure ..."
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) ts_gpunewton.adb \
+                 -o ts_gpunewton.o
+	gnatbind ts_gpunewton use_c2phc
+	@-echo ">>> linking ..."
+	gnatlink ts_gpunewton \
+                    gpunewton_d.o syscon.o solcon.o \
+                 -o $(BIN)/ts_gpunewton --LINK=g++
+
+utilities_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/utilities.cpp -o utilities_d.o
+utilities_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/utilities.cpp -o utilities_dd.o
+utilities_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/utilities.cpp -o utilities_qd.o
+
+poly_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/poly.cpp -o poly_d.o
+poly_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/poly.cpp -o poly_dd.o
+poly_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/poly.cpp -o poly_qd.o
+
+polysol_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/polysol.cpp -o polysol_d.o
+polysol_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/polysol.cpp -o polysol_dd.o
+polysol_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Poly/polysol.cpp -o polysol_qd.o
+
+workspace_host_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Path_CPU/workspace_host.cpp \
+                -o workspace_host_d.o
+workspace_host_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Path_CPU/workspace_host.cpp \
+                -o workspace_host_dd.o
+workspace_host_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -c $(PHCgpu)/Path/Path_CPU/workspace_host.cpp \
+                -o workspace_host_qd.o
+
+eval_host_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/eval_host.cpp \
+                -o eval_host_d.o
+eval_host_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/eval_host.cpp \
+                -o eval_host_dd.o
+eval_host_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/eval_host.cpp \
+                -o eval_host_qd.o
+
+mgs_host_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/mgs_host.cpp \
+                -o mgs_host_d.o
+mgs_host_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/mgs_host.cpp \
+                -o mgs_host_dd.o
+mgs_host_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/mgs_host.cpp \
+                -o mgs_host_qd.o
+
+newton_host_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/newton_host.cpp \
+                -o newton_host_d.o
+newton_host_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/newton_host.cpp \
+                -o newton_host_dd.o
+newton_host_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/newton_host.cpp \
+                -o newton_host_qd.o
+
+ada_test.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -I$(PHCLib) -I$(PHCgpu)/Path/Poly \
+                -c $(PHCgpu)/Path/Main/ada_test.cpp -o ada_test.o
+ada_test_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -I$(PHCLib) -I$(PHCgpu)/Path/Poly \
+                -c $(PHCgpu)/Path/Main/ada_test_dd.cpp -o ada_test_dd.o
+ada_test_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -I$(PHCLib) -I$(PHCgpu)/Path/Poly \
+                -c $(PHCgpu)/Path/Main/ada_test_qd.cpp -o ada_test_qd.o
+
+adenewton_d.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/adenewton_d.cpp -I$(PHCLib) \
+            -I $(PHCgpu)/Path/DefineTypesD -I $(PHCgpu)/Path/Main \
+            -I $(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o adenewton_d.o
+adenewton_dd.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/adenewton_dd.cpp -I$(PHCLib) \
+            -I $(PHCgpu)/Path/DefineTypesDD -I $(PHCgpu)/Path/Main \
+            -I $(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o adenewton_dd.o
+adenewton_qd.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/adenewton_qd.cpp -I$(PHCLib) \
+            -I $(PHCgpu)/Path/DefineTypesQD -I $(PHCgpu)/Path/Main \
+            -I $(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o adenewton_qd.o
+
+predictor_host_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/predictor_host.cpp \
+                -o predictor_host_d.o
+predictor_host_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/predictor_host.cpp \
+                -o predictor_host_dd.o
+predictor_host_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/predictor_host.cpp \
+                -o predictor_host_qd.o
+
+path_host_d.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/path_host.cpp \
+                -o path_host_d.o
+path_host_dd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesDD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/path_host.cpp \
+                -o path_host_dd.o
+path_host_qd.o:
+	$(gpp) -O2 -I$(PHCgpu)/Path/DefineTypesQD -I$(QD_ROOT)/include \
+                -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Main \
+                -c $(PHCgpu)/Path/Path_CPU/path_host.cpp \
+                -o path_host_qd.o
+
+adeonepath_d.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/adeonepath_d.cpp -I$(PHCLib) \
+            -I $(PHCgpu)/Path/DefineTypesD -I $(PHCgpu)/Path/Main \
+            -I $(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o adeonepath_d.o
+adeonepath_dd.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/adeonepath_dd.cpp -I$(PHCLib) \
+            -I $(PHCgpu)/Path/DefineTypesDD -I $(PHCgpu)/Path/Main \
+            -I $(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o adeonepath_dd.o
+adeonepath_qd.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/adeonepath_qd.cpp -I$(PHCLib) \
+            -I $(PHCgpu)/Path/DefineTypesQD -I $(PHCgpu)/Path/Main \
+            -I $(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o adeonepath_qd.o
+
+ademanypaths_d.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/ademanypaths_d.cpp -I$(PHCLib) \
+            -I$(PHCgpu)/Path/DefineTypesD -I$(PHCgpu)/Path/Main \
+            -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o ademanypaths_d.o
+ademanypaths_dd.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/ademanypaths_dd.cpp -I$(PHCLib) \
+            -I$(PHCgpu)/Path/DefineTypesDD -I$(PHCgpu)/Path/Main \
+            -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o ademanypaths_dd.o
+ademanypaths_qd.o: 
+	$(gpp) -c $(PHCAda)/PHCtoC/ademanypaths_qd.cpp -I$(PHCLib) \
+            -I$(PHCgpu)/Path/DefineTypesQD -I$(PHCgpu)/Path/Main \
+            -I$(PHCgpu)/Path/Poly -I$(PHCgpu)/Path/Path_CPU \
+            -o ademanypaths_qd.o
+
+ts_adepath_d: utilities_d.o poly_d.o polysol_d.o workspace_host_d.o \
+              eval_host_d.o mgs_host_d.o newton_host_d.o ada_test.o \
+              predictor_host_d.o \
+              path_host_d.o adenewton_d.o adeonepath_d.o ademanypaths_d.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc.adb
+	@-echo ">>> compiling code for the containers ..."
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main Ada procedure ..."
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) ts_adepath_d.adb \
+                 -o ts_adepath_d.o
+	gnatbind ts_adepath_d use_c2phc
+	@-echo ">>> linking ..."
+	gnatlink ts_adepath_d adenewton_d.o adeonepath_d.o \
+                 ademanypaths_d.o syscon.o solcon.o phcpack.o ada_test.o \
+                 utilities_d.o poly_d.o polysol_d.o workspace_host_d.o \
+                 eval_host_d.o mgs_host_d.o newton_host_d.o \
+                 predictor_host_d.o path_host_d.o \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/ts_adepath_d -lm --LINK=g++
+
+ts_adepath_dd: utilities_dd.o poly_dd.o polysol_dd.o workspace_host_dd.o \
+               eval_host_dd.o mgs_host_dd.o newton_host_dd.o ada_test_dd.o \
+               predictor_host_dd.o path_host_dd.o \
+               adenewton_dd.o adeonepath_dd.o ademanypaths_dd.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc.adb
+	@-echo ">>> compiling code for the containers ..."
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main Ada procedure ..."
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) ts_adepath_dd.adb \
+                 -o ts_adepath_dd.o
+	gnatbind ts_adepath_dd use_c2phc
+	@-echo ">>> linking ..."
+	gnatlink ts_adepath_dd adenewton_dd.o adeonepath_dd.o \
+                 ademanypaths_dd.o syscon.o solcon.o phcpack.o ada_test_dd.o \
+                 utilities_dd.o poly_dd.o polysol_dd.o workspace_host_dd.o \
+                 eval_host_dd.o mgs_host_dd.o newton_host_dd.o \
+                 predictor_host_dd.o path_host_dd.o \
+                 $(QD_LIB)/libqd.a \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/ts_adepath_dd -lm --LINK=g++
+
+ts_adepath_qd: utilities_qd.o poly_qd.o polysol_qd.o workspace_host_qd.o \
+               eval_host_qd.o mgs_host_qd.o newton_host_qd.o ada_test_qd.o \
+               predictor_host_qd.o path_host_qd.o \
+               adenewton_qd.o adeonepath_qd.o ademanypaths_qd.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc.adb
+	@-echo ">>> compiling code for the containers ..."
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main Ada procedure ..."
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) ts_adepath_qd.adb \
+                 -o ts_adepath_qd.o
+	gnatbind ts_adepath_qd use_c2phc
+	@-echo ">>> linking ..."
+	gnatlink ts_adepath_qd adenewton_qd.o adeonepath_qd.o \
+                 ademanypaths_qd.o syscon.o solcon.o phcpack.o ada_test_qd.o \
+                 utilities_qd.o poly_qd.o polysol_qd.o workspace_host_qd.o \
+                 eval_host_qd.o mgs_host_qd.o newton_host_qd.o \
+                 predictor_host_qd.o path_host_qd.o \
+                 $(QD_LIB)/libqd.a \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/ts_adepath_qd -lm --LINK=g++
+
+ts_adepath: utilities_d.o utilities_dd.o poly_d.o poly_dd.o \
+            polysol_d.o polysol_dd.o \
+            workspace_host_d.o workspace_host_dd.o \
+            eval_host_d.o eval_host_dd.o mgs_host_d.o mgs_host_dd.o \
+            newton_host_d.o newton_host_dd.o ada_test.o \
+            predictor_host_d.o predictor_host_dd.o \
+            path_host_d.o path_host_dd.o \
+            adenewton_d.o adenewton_dd.o \
+            adeonepath_d.o adeonepath_dd.o \
+            ademanypaths_d.o ademanypaths_dd.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc.adb
+	@-echo ">>> compiling code for the containers ..."
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main Ada procedure ..."
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) ts_adepath.adb \
+                 -o ts_adepath.o
+	gnatbind ts_adepath use_c2phc
+	@-echo ">>> linking ..."
+	gnatlink ts_adepath adenewton_d.o adenewton_dd.o \
+               adeonepath_d.o adeonepath_dd.o \
+               ademanypaths_d.o ademanypaths_dd.o \
+               syscon.o solcon.o phcpack.o ada_test.o \
+               utilities_d.o utilities_dd.o \
+               poly_d.o poly_dd.o polysol_d.o polysol_dd.o \
+               workspace_host_d.o workspace_host_dd.o \
+               eval_host_d.o eval_host_dd.o mgs_host_d.o mgs_host_dd.o \
+               newton_host_d.o newton_host_dd.o \
+               predictor_host_d.o predictor_host_dd.o \
+               path_host_d.o path_host_dd.o \
+               $(QD_LIB)/libqd.a \
+               /usr/lib/libc++.dylib \
+               /usr/lib/libstdc++.dylib \
+            -o $(BIN)/ts_adepath -lm --LINK=g++
+
+parameter.o:
+	$(gpp) -O3 -I$(PHCgpu)/Path/Host2 \
+               -c $(PHCgpu)/Path/Host2/parameter.cpp -o parameter.o
+
+lib2path_d.o:
+	$(gpp) -O3 -I$(PHCLib) \
+                   -I$(PHCgpu)/Path/Complex -I$(PHCgpu)/Path/Poly3 \
+                   -I$(PHCgpu)/Path/Host2 \
+               -c $(PHCgpu)/Path/Host2/lib2path_d.cpp -o lib2path_d.o
+
+lib2path.o:
+	$(gpp) -O3 -I$(PHCLib) -I$(QD_ROOT)/include \
+                   -I$(PHCgpu)/Path/Complex -I$(PHCgpu)/Path/Poly3 \
+                   -I$(PHCgpu)/Path/Host2 \
+               -c $(PHCgpu)/Path/Host2/lib2path.cpp -o lib2path.o
+
+ademanypaths.o:
+	$(gpp) -O2 -I$(PHCLib) -I$(QD_ROOT)/include \
+                   -I$(PHCgpu)/Path/Complex -I$(PHCgpu)/Path/Poly3 \
+                   -I$(PHCgpu)/Path/Host2 \
+               -c $(PHCAda)/PHCtoC/ademanypaths.cpp -o ademanypaths.o
+
+ts_ademanypaths: lib2path.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	@-echo ">>> compiling code for the containers ..."
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main Ada procedure ..."
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_ademanypaths.adb \
+                 -o ts_ademanypaths.o
+	gnatbind ts_ademanypaths use_c2phc
+	@-echo ">>> linking ..."
+	gnatlink ts_ademanypaths syscon.o solcon.o phcpack.o \
+                 lib2path.o $(QD_LIB)/libqd.a \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+              -o $(BIN)/ts_ademanypaths -lm --LINK=g++
+
+ts_pathpars:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_pathpars.adb \
+                 -o $(BIN)/ts_pathpars
+
+# Test programs for the Tasking :
+
+corecount.o:
+	$(gcc) -c $(PHCAda)/Tasking/corecount.c -o corecount.o
+
+ts_corecount: corecount.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_corecount.adb
+	gnatbind ts_corecount
+	gnatlink ts_corecount corecount.o -o $(BIN)/ts_corecount
+
+ts_mtmatvec:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtmatvec.adb \
+                 -o $(BIN)/ts_mtmatvec
+
+ts_mtpolval:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtpolval.adb \
+                 -o $(BIN)/ts_mtpolval
+
+ts_mtlinsol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtlinsol.adb \
+                 -o $(BIN)/ts_mtlinsol
+
+ts_mtlinsolV0:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtlinsolV0.adb \
+                 -o $(BIN)/ts_mtlinsolV0
+
+ts_mtlinsolV1:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtlinsolV1.adb \
+                 -o $(BIN)/ts_mtlinsolV1
+
+ts_mtlinsolV2:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtlinsolV2.adb \
+                 -o $(BIN)/ts_mtlinsolV2
+
+ts_tasking:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_tasking.adb \
+                 -o $(BIN)/ts_tasking
+
+ts_protect:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_protect.adb \
+              -o $(BIN)/ts_protect
+
+ts_access:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_access.adb \
+              -o $(BIN)/ts_access
+
+ts_mutex:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mutex.adb -o $(BIN)/ts_mutex
+
+ts_jobs:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_jobs.adb -o $(BIN)/ts_jobs
+
+ts_mtsols:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtsols.adb -o $(BIN)/ts_mtsols
+
+ts_mtcont:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtcont.adb -o $(BIN)/ts_mtcont
+
+ts_mtstref:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtstref.adb \
+                 -o $(BIN)/ts_mtstref
+
+ts_mtddref:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtddref.adb \
+                 -o $(BIN)/ts_mtddref
+
+ts_mtqdref:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtqdref.adb \
+                 -o $(BIN)/ts_mtqdref
+
+ts_mtsharp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtsharp.adb \
+                 -o $(BIN)/ts_mtsharp
+
+ts_mtpolco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtpolco.adb \
+                 -o $(BIN)/ts_mtpolco
+
+ts_mtsam:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtsam.adb -o $(BIN)/ts_mtsam
+
+ts_mtvol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtvol.adb -o $(BIN)/ts_mtvol
+
+ts_mtvolcon:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtvolcon.adb \
+              -o $(BIN)/ts_mtvolcon
+
+ts_mtverify:
+	gnatmake $(INCLULIBS) $(GNATFLAGS) ts_mtverify.adb \
+              -o $(BIN)/ts_mtverify
+
+ts_mtmva:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtmva.adb -o $(BIN)/ts_mtmva
+
+ts_mtperm:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtperm.adb -o $(BIN)/ts_mtperm
+
+ts_mtpermtrol:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtpermtrol.adb \
+              -o $(BIN)/ts_mtpermtrol
+
+ts_mtmbthom:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtmbthom.adb \
+              -o $(BIN)/ts_mtmbthom
+
+ts_mtcelidx: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+             reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_mtcelidx.adb \
+                 -o ts_demicsrun.o
+	gnatbind ts_mtcelidx use_c2phc
+	gnatlink ts_mtcelidx inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_mtcelidx \
+                 /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+ts_mtadcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtadcnv.adb \
+              -o $(BIN)/ts_mtadcnv
+
+ts_mtserlin:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtserlin.adb \
+              -o $(BIN)/ts_mtserlin
+
+ts_mtnewton:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtnewton.adb \
+              -o $(BIN)/ts_mtnewton
+
+ts_mthessian:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mthessian.adb \
+              -o $(BIN)/ts_mthessian
+
+ts_mthesscrc:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mthesscrc.adb \
+              -o $(BIN)/ts_mthesscrc
+
+ts_mtratapp:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtratapp.adb \
+              -o $(BIN)/ts_mtratapp
+
+ts_mtshiftcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtshiftcnv.adb \
+              -o $(BIN)/ts_mtshiftcnv
+
+ts_mtpcscnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtpcscnv.adb \
+              -o $(BIN)/ts_mtpcscnv
+ts_mtprdcnv:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_mtprdcnv.adb \
+              -o $(BIN)/ts_mtprdcnv
+
+# Test programs for the Main interactive drivers :
+
+ts_drivroco: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+             reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_drivroco.adb \
+                 -o ts_drivroco.o
+	gnatbind ts_drivroco use_c2phc
+	gnatlink ts_drivroco inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_drivroco \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+ts_blkroco:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_blkroco.adb \
+              -o $(BIN)/ts_blkroco
+
+use_phc:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_phc.adb -o $(BIN)/use_phc
+
+ts_greet:
+	gnatmake $(INCLULIBS) $(GNATOPTFLAGS) ts_greet.adb \
+              -o $(BIN)/ts_greet
+
+ts_actopt: corecount.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_actopt.adb
+	gnatbind ts_actopt
+	gnatlink ts_actopt corecount.o -o $(BIN)/ts_actopt
+
+ts_opthand: corecount.o inputData.o outputData.o iTest.o fTest.o \
+            simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o mvc4phc.o \
+            parameter.o lib2path.o feedback.o lib.a
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_opthand.adb
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) pieri_solver.adb
+	gnatbind ts_opthand use_c2phc mainfeed pieri_solver
+	gnatlink ts_opthand corecount.o inputData.o outputData.o iTest.o \
+                            fTest.o simplex4phc.o reltab.o mvc4phc.o \
+                            demicsrun4phc.o lib2path.o $(QD_LIB)/libqd.a \
+                            syscon.o solcon.o phcpack.o parameter.o \
+                            lib.a feedback.o \
+                 /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/ts_opthand --LINK=g++
+
+ts_bbsolve: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+            reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) ts_bbsolve.adb \
+                 -o ts_bbsolve.o
+	gnatbind ts_bbsolve use_c2phc
+	gnatlink ts_bbsolve inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o $(BIN)/ts_bbsolve \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=g++
+
+# Test programs for the Library Lib :
+
+phcpack.o:
+	$(gcc) -c $(PHCLib)/phcpack.c
+
+use_c2phc.o:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+
+ts_list2str:
+	$(gcc) -c $(PHCLib)/lists_and_strings.c
+	$(gcc) -c $(PHCLib)/ts_list2str.c
+	$(gcc) lists_and_strings.o ts_list2str.o -o $(BIN)/ts_list2str
+
+lib_syscon:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/lib_syscon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o lib_syscon.o \
+                 -o $(BIN)/lib_syscon --LINK=$(gcc) -Wl,-no_compact_unwind
+
+lib_syscon_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_syscon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o lib_syscon.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_syscon --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_tabform:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/tabform.c
+	$(gcc) -c $(PHCLib)/lib_tabform.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o tabform.o lib_tabform.o \
+                 -o $(BIN)/lib_tabform --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_tabform_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/tabform.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_tabform.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o tabform.o lib_tabform.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_tabform --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_solcon:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/lib_solcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c solcon.o lib_solcon.o \
+                 -o $(BIN)/lib_solcon --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_solcon_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1  -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_solcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c solcon.o lib_solcon.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_solcon --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_solrep:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/lib_solrep.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o phcpack.o lib_solrep.o \
+                 -o $(BIN)/lib_solrep --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_solrep_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1  -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1  -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1  -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_solrep.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o phcpack.o lib_solrep.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_solrep --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_read:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/lib_read.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o solcon.o lib_read.o \
+                 -o $(BIN)/lib_read -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_read_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_read.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o solcon.o lib_read.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_read -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_newton:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/lib_newton.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o lib_newton.o \
+                 -o $(BIN)/lib_newton -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_newton_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_newton.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o lib_newton.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_newton -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_multip:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/multiplicity.c
+	$(gcc) -c $(PHCLib)/lib_multip.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o multiplicity.o \
+                    lib_multip.o -o $(BIN)/lib_multip \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_multip_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/multiplicity.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_multip.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o multiplicity.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                    lib_multip.o -o $(BIN)/lib_multip \
+                 -lm --LINK=g++ -Wl,-no_compact_unwind 
+
+lib_roco:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/product.c
+	$(gcc) -c $(PHCLib)/lib_roco.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o product.o \
+                    lib_roco.o -o $(BIN)/lib_roco \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_roco_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/product.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_roco.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o product.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                    lib_roco.o -o $(BIN)/lib_roco \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_celcon:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/celcon.c
+	$(gcc) -c $(PHCLib)/intcelcon.c
+	$(gcc) -c $(PHCLib)/lib_celcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o celcon.o \
+                    intcelcon.o lib_celcon.o -o $(BIN)/lib_celcon \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_celcon_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/celcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/intcelcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_celcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o celcon.o \
+                    intcelcon.o lib_celcon.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_celcon \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_celphc:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/celcon.c
+	$(gcc) -c $(PHCLib)/lib_celphc.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o celcon.o \
+                    lib_celphc.o -o $(BIN)/lib_celphc \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_celphc_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/celcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_celphc.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o celcon.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                    lib_celphc.o -o $(BIN)/lib_celphc \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_scale:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/scalers.c
+	$(gcc) -c $(PHCLib)/lib_scale.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o scalers.o lib_scale.o \
+                 -o $(BIN)/lib_scale -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_scale_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/scalers.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_scale.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o scalers.o lib_scale.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_scale -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_reduce:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/reducers.c
+	$(gcc) -c $(PHCLib)/lib_reduce.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o reducers.o lib_reduce.o \
+                 -o $(BIN)/lib_reduce -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_reduce_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/reducers.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_reduce.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o reducers.o lib_reduce.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_reduce -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_conpar:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/lib_conpar.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o lib_conpar.o \
+                 -o $(BIN)/lib_conpar -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_conpar_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_conpar.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o lib_conpar.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_conpar -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_poco:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/lib_poco.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o lib_poco.o \
+                 -o $(BIN)/lib_poco -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_poco_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_poco.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o lib_poco.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_poco -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_track:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/jump_track.c
+	$(gcc) -c $(PHCLib)/witset.c
+	$(gcc) -c $(PHCLib)/lib_track.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o witset.o \
+                    jump_track.o lib_track.o \
+                 -o $(BIN)/lib_track -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_track_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/jump_track.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/witset.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_track.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o witset.o \
+                    jump_track.o lib_track.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_track -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_nxtsol:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/jump_track.c
+	$(gcc) -c $(PHCLib)/next_track.c
+	$(gcc) -c $(PHCLib)/lib_nxtsol.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o solcon.o syscon.o jump_track.o \
+                    next_track.o lib_nxtsol.o \
+                 -o $(BIN)/lib_nxtsol --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_nxtsol_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/jump_track.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/next_track.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_nxtsol.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o solcon.o syscon.o jump_track.o \
+                    next_track.o lib_nxtsol.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_nxtsol --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_sweep:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/sweep.c
+	$(gcc) -c $(PHCLib)/lib_sweep.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c sweep.o lib_sweep.o \
+                 -o $(BIN)/lib_sweep --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_sweep_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/sweep.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_sweep.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c sweep.o lib_sweep.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_sweep --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_pieri:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2pieri.adb
+	$(gcc) -c -O2 $(PHCLib)/lib_pieri.c
+	gnatbind -n use_c2pieri
+	gnatlink -C use_c2pieri lib_pieri.o -o $(BIN)/lib_pieri \
+                 --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_pieri_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2pieri.adb
+	$(gpp) -Dcompilewgpp=1 -c -O2 $(PHCLib)/lib_pieri.c
+	gnatbind -n use_c2pieri
+	gnatlink -C use_c2pieri lib_pieri.o -o $(BIN)/lib_pieri \
+                 --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_lrhom:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c -O2 $(PHCLib)/syscon.c
+	$(gcc) -c -O2 $(PHCLib)/solcon.c
+	$(gcc) -c -O2 $(PHCLib)/schubert.c
+	$(gcc) -c -O2 $(PHCLib)/lib_lrhom.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o schubert.o lib_lrhom.o \
+                 -o $(BIN)/lib_lrhom \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_lrhom_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c -O2 $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c -O2 $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O2 $(PHCLib)/schubert.c
+	$(gpp) -Dcompilewgpp=1 -c -O2 $(PHCLib)/lib_lrhom.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o schubert.o lib_lrhom.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_lrhom \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_factor:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/witset.c
+	$(gcc) -c $(PHCLib)/lib_factor.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o witset.o \
+                    lib_factor.o -o $(BIN)/lib_factor \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_factor_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/witset.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_factor.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o witset.o \
+                    lib_factor.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_factor \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_member:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/witset.c
+	$(gcc) -c $(PHCLib)/lib_member.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o witset.o \
+                    lib_member.o -o $(BIN)/lib_member \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_member_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/witset.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_member.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o syscon.o solcon.o witset.o \
+                    lib_member.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_member \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_usolve:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/unisolvers.c
+	$(gcc) -c $(PHCLib)/lib_usolve.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o unisolvers.o lib_usolve.o \
+                 -o $(BIN)/lib_usolve -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_usolve_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/unisolvers.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_usolve.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o unisolvers.o lib_usolve.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_usolve -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_giftwrap:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/giftwrappers.c
+	$(gcc) -c $(PHCLib)/lib_giftwrap.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c giftwrappers.o lib_giftwrap.o \
+                 -o $(BIN)/lib_giftwrap \
+                 -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_giftwrap_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/giftwrappers.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_giftwrap.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c giftwrappers.o lib_giftwrap.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_giftwrap \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_numbtrop:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/numbtrop.c
+	$(gcc) -c $(PHCLib)/lib_numbtrop.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c numbtrop.o lib_numbtrop.o \
+                 -o $(BIN)/lib_numbtrop \
+                  -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_numbtrop_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/numbtrop.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_numbtrop.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c numbtrop.o lib_numbtrop.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_numbtrop \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_series:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/syspool.c
+	$(gcc) -c $(PHCLib)/series.c
+	$(gcc) -c $(PHCLib)/lib_series.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c \
+                    phcpack.o syscon.o syspool.o series.o lib_series.o \
+                 -o $(BIN)/lib_series -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_series_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/syspool.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/series.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_series.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c \
+                    phcpack.o syscon.o syspool.o series.o lib_series.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_series -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_padcon:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/syscon.c
+	$(gcc) -c $(PHCLib)/solcon.c
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/padcon.c
+	$(gcc) -c $(PHCLib)/lib_padcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o phcpack.o padcon.o \
+                    lib_padcon.o \
+                 -o $(BIN)/lib_padcon -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_padcon_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/padcon.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_padcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c solcon.o phcpack.o padcon.o lib_padcon.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_padcon -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+lib_nbrvar:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gcc) -c $(PHCLib)/phcpack.c
+	$(gcc) -c $(PHCLib)/lib_nbrvar.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o lib_nbrvar.o \
+                 -o $(BIN)/lib_nbrvar -lm --LINK=$(gcc) -Wl,-no_compact_unwind 
+
+lib_nbrvar_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c $(PHCLib)/lib_nbrvar.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c phcpack.o lib_nbrvar.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_nbrvar -lm --LINK=$(gpp) -Wl,-no_compact_unwind 
+
+adepath_d.o: adenewton_d.o adeonepath_d.o ademanypaths_d.o
+	g++ -O2 -Dcompilewgpp=1 -I$(PHCAda)/PHCtoC \
+            -I$(PHCgpu)/Path/DefineTypesD -I$(PHCgpu)/Path/Poly \
+            -I$(PHCgpu)/Path/Complex -I$(PHCgpu)/Path/Poly \
+            -c $(PHCLib)/adepath_d.c
+adepath_dd.o: adenewton_dd.o adeonepath_dd.o ademanypaths_dd.o
+	g++ -O2 -Dcompilewgpp=1 -I$(PHCAda)/PHCtoC \
+            -I$(PHCgpu)/Path/DefineTypesDD -I$(PHCgpu)/Path/Poly \
+            -I$(PHCgpu)/Path/Complex -I$(PHCgpu)/Path/Poly \
+            -c $(PHCLib)/adepath_dd.c
+adepath_qd.o: adenewton_qd.o adeonepath_qd.o ademanypaths_qd.o
+	g++ -O2 -Dcompilewgpp=1 -I$(PHCAda)/PHCtoC \
+            -I$(PHCgpu)/Path/DefineTypesQD -I$(PHCgpu)/Path/Poly \
+            -I$(PHCgpu)/Path/Complex -I$(PHCgpu)/Path/Poly \
+            -c $(PHCLib)/adepath_qd.c
+
+lib_adepath_d: utilities_d.o poly_d.o polysol_d.o workspace_host_d.o \
+               eval_host_d.o mgs_host_d.o newton_host_d.o ada_test.o \
+               predictor_host_d.o path_host_d.o adepath_d.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc4c.adb
+	@-echo ">>> compiling code for the containers ..."
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main C program ..."
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/lib_adepath_d.c
+	@-echo ">>> linking ..."
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c lib_adepath_d.o adepath_d.o \
+                    adenewton_d.o adeonepath_d.o ademanypaths_d.o \
+                    syscon.o solcon.o phcpack.o ada_test.o \
+                    utilities_d.o poly_d.o polysol_d.o workspace_host_d.o \
+                    eval_host_d.o mgs_host_d.o newton_host_d.o \
+                    predictor_host_d.o path_host_d.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_adepath_d -lm --LINK=g++
+
+lib_adepath_dd: utilities_dd.o poly_dd.o polysol_dd.o workspace_host_dd.o \
+                eval_host_dd.o mgs_host_dd.o newton_host_dd.o ada_test_dd.o \
+                predictor_host_dd.o path_host_dd.o adepath_dd.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc4c.adb
+	@-echo ">>> compiling code for the containers ..."
+	/usr/bin/g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	/usr/bin/g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	/usr/bin/g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main C program ..."
+	/usr/bin/g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/lib_adepath_dd.c
+	@-echo ">>> linking ..."
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c lib_adepath_dd.o adepath_dd.o \
+                    adenewton_dd.o adeonepath_dd.o ademanypaths_dd.o \
+                    syscon.o solcon.o phcpack.o ada_test_dd.o \
+                    utilities_dd.o poly_dd.o polysol_dd.o workspace_host_dd.o \
+                    eval_host_dd.o mgs_host_dd.o newton_host_dd.o \
+                    predictor_host_dd.o path_host_dd.o \
+                    $(QD_LIB)/libqd.a \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_adepath_dd -lm -lqd --LINK=g++
+
+lib_adepath_qd: utilities_qd.o poly_qd.o polysol_qd.o workspace_host_qd.o \
+                eval_host_qd.o mgs_host_qd.o newton_host_qd.o ada_test_qd.o \
+                predictor_host_qd.o path_host_qd.o adepath_qd.o
+	gnatmake -c $(INCLULIBS) $(GNATFLAGS) use_c2phc4c.adb
+	@-echo ">>> compiling code for the containers ..."
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	@-echo ">>> compiling the main C program ..."
+	g++ -O2 -Dcompilewgpp=1 -c $(PHCLib)/lib_adepath_qd.c
+	@-echo ">>> linking ..."
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c lib_adepath_qd.o adepath_qd.o \
+                    adenewton_qd.o adeonepath_qd.o ademanypaths_qd.o \
+                    syscon.o solcon.o phcpack.o ada_test_qd.o \
+                    utilities_qd.o poly_qd.o polysol_qd.o workspace_host_qd.o \
+                    eval_host_qd.o mgs_host_qd.o newton_host_qd.o \
+                    predictor_host_qd.o path_host_qd.o \
+                    $(QD_LIB)/libqd.a \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_adepath_qd -lm --LINK=g++
+
+phc_solve: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+           reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/phc_solve.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc syscon.o solcon.o phcpack.o phc_solve.o \
+                    inputData.o outputData.o iTest.o fTest.o \
+                    simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/phc_solve -lm --LINK=g++
+
+phc_solve_cpp: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+               reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/phcpack.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/phc_solve.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc syscon.o solcon.o phcpack.o phc_solve.o \
+                    inputData.o outputData.o iTest.o fTest.o \
+                    simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/phc_solve -lm --LINK=g++
+
+lib_witsols:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/witsols.c
+	gcc -c $(PHCLib)/lib_witsols.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o witsols.o lib_witsols.o \
+                 -o $(BIN)/lib_witsols -lm
+
+lib_witsols_cpp:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/syscon.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/solcon.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/witsols.c
+	g++ -Dcompilewgpp=1 -c $(PHCLib)/lib_witsols.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c syscon.o solcon.o witsols.o lib_witsols.o \
+                    /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+                 -o $(BIN)/lib_witsols -lm --LINK=g++
+
+phcpy2c2.so: lib2path.o parameter.o inputData.o outputData.o iTest.o fTest.o \
+             simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/tabform.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/product.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/lists_and_strings.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/celcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/intcelcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/scalers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/reducers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/numbtrop.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/sweep.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/multiplicity.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/witset.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/witsols.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/schubert.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/unisolvers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/giftwrappers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/mapcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/jump_track.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/next_track.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/syspool.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/series.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/padcon.c
+	$(gpp) -Dcompilewgpp=1 -c -I$(PYTHON) -I$(PYTHON)/Include \
+            $(PHCLib)/phcpy2c2.c
+	gnatmake -c -static -O3 $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind -n use_c2phc
+	gnatlink -dynamiclib -C use_c2phc phcpy2c2.o phcpack.o syscon.o \
+            solcon.o witset.o mapcon.o jump_track.o next_track.o unisolvers.o \
+            giftwrappers.o product.o lists_and_strings.o celcon.o intcelcon.o \
+            scalers.o reducers.o numbtrop.o sweep.o multiplicity.o schubert.o \
+            syspool.o series.o witsols.o padcon.o tabform.o \
+            inputData.o outputData.o iTest.o fTest.o \
+            simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+            parameter.o lib2path.o $(QD_LIB)/libqd.a \
+                 -o ../Python/PHCpy2/phcpy/phcpy2c2.so \
+                 -lm --LINK=$(gpp) -Wl,-no_compact_unwind \
+-L/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config \
+-lpython2.7 -ldl -framework CoreFoundation
+
+# The above last two lines are the output of python-config --ldflags,
+# where python is the default python2.7 interpreter.
+# As gpp, the /usr/bin/clang++ was used for python2.
+
+# to extend the Python interpreter of Sage with phcpy2c2.so :
+
+sage_phcpy2c2.so: parameter.o lib2path.o inputData.o outputData.o iTest.o \
+                  fTest.o simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/tabform.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/product.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/lists_and_strings.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/celcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/intcelcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/scalers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/reducers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/numbtrop.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/sweep.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/multiplicity.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/witset.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/witsols.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/schubert.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/unisolvers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/giftwrappers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/mapcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/jump_track.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/next_track.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/syspool.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/series.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/padcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 \
+            -I$(PYTHON) -I$(PYTHON)/Include $(PHCLib)/phcpy2c2.c
+	gnatmake -c -O3 -static $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind -n -static use_c2phc
+	gnatlink -dynamiclib -C use_c2phc phcpy2c2.o phcpack.o syscon.o \
+            solcon.o witset.o mapcon.o jump_track.o next_track.o unisolvers.o \
+            giftwrappers.o product.o lists_and_strings.o celcon.o intcelcon.o \
+            scalers.o reducers.o numbtrop.o sweep.o multiplicity.o schubert.o \
+            syspool.o series.o padcon.o parameter.o lib2path.o witsols.o \
+            inputData.o outputData.o iTest.o fTest.o tabform.o \
+            simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 $(QD_LIB)/libqd.a \
+                 /usr/lib/libc++.dylib /usr/lib/libstdc++.dylib \
+            -o sage_phcpy2c2.so \
+            -lm --LINK=$(gpp) -Wl,-no_compact_unwind \
+            $(SAGEPYTHONLIB)/libpython2.7.dylib \
+-L/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config \
+            -lpython2.7 -ldl -framework CoreFoundation
+
+# not to be omitted from the linking?
+# $(SAGEPYTHONLIB)/libpython2.7.dylib
+# replace by the output of the ./python-config --ldflags,
+# executed in the local/bin folder of the sage distribution
+
+# Use sage_phcpy2c2.so as follows:
+# (1) Rename into phcpy2c2.so and with the python interpreter of sage,
+#     check if import phcpy2c2 works at the python shell prompt.
+# (2) If (1) gave no errors, then move phcpy2c2.so into the phcpy folder
+#     of the source directory Python/PHCpy2.
+# (3) Uncomment two lines in the try block of the __init__.py to do
+#     init_cysignals() after the import of phcpy2c2
+# (4) With the sage python interpreter do 'python setup.py install'
+#     and then check if import phcpy works at the sage prompt.
+
+phcpy2c3.so: parameter.o lib2path.o inputData.o outputData.o iTest.o fTest.o \
+             simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/syscon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/tabform.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/solcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/product.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/lists_and_strings.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/celcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/intcelcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/scalers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/reducers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/sweep.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/multiplicity.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/numbtrop.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/witset.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/witsols.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/schubert.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/unisolvers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/giftwrappers.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/phcpack.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/mapcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/jump_track.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/next_track.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/syspool.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/series.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 $(PHCLib)/padcon.c
+	$(gpp) -Dcompilewgpp=1 -c -O3 \
+               -I/opt/miniconda3/include -I$(PYTHON39) $(PHCmod)/phcpy2c3.c
+	gnatmake -c -O3 -static $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind -n -static use_c2phc -o use_c2phc_binder.adb
+	gnatmake -static -c use_c2phc_binder.adb
+	ar ruv phcpy2c3.a *.o
+	ranlib phcpy2c3.a
+	g++ -dynamiclib -undefined dynamic_lookup phcpy2c3.o \
+               -L/opt/miniconda3/lib \
+               -arch x86_64 -L/opt/miniconda3/lib -arch x86_64 \
+               -L/opt/miniconda3/lib/python3.9/site-packages \
+               phcpy2c3.a $(QD_LIB)/libqd.a $(ADALIB)/libgnat.a \
+               $(ADALIB)/libgnarl.a -lm -Wl,-no_compact_unwind \
+               -L/opt/miniconda3/lib/python3.9/config-3.9-darwin \
+               -ldl -framework CoreFoundation \
+               -o ../Python/PHCpy3/phcpy/phcpy2c3.so
+
+# In setting up the last linker instruction, the output of
+# python3-config --ldflags
+# turned out useful.  Adding the phcpy2c3.o was needed...
+
+# phcpy2c with double version of Path library :
+
+phcpy2cpath_d.so: utilities_d.o poly_d.o polysol_d.o workspace_host_d.o \
+            eval_host_d.o mgs_host_d.o newton_host_d.o ada_test.o \
+            predictor_host_d.o path_host_d.o adepath_d.o
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/syscon.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/solcon.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/product.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/lists_and_strings.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/celcon.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/scalers.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/witset.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/schubert.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/unisolvers.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/giftwrappers.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/phcpack.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/mapcon.c
+	g++ -Dcompilewgpp=1 -c -O2 $(PHCLib)/next_track.c
+	g++ -Dcompilewgpp=1 -O2 -c -I$(PYTHON) -I$(PYTHON)/Include \
+                     $(PHCLib)/phcpy2cpath_d.cpp -o phcpy2cpath_d.o
+	gnatmake -c -static $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind -n use_c2phc
+	gnatlink -dynamiclib -C use_c2phc phcpy2cpath_d.o \
+            phcpack.o syscon.o witset.o mapcon.o next_track.o unisolvers.o \
+            giftwrappers.o solcon.o product.o lists_and_strings.o celcon.o \
+            scalers.o schubert.o \
+            utilities_d.o poly_d.o polysol_d.o workspace_host_d.o \
+            eval_host_d.o mgs_host_d.o newton_host_d.o ada_test.o \
+            predictor_host_d.o path_host_d.o \
+            adenewton_d.o adeonepath_d.o ademanypaths_d.o adepath_d.o \
+                 -lm --LINK=g++ \
+                 -o ../Python/PHCpy/phcpy/phcpy2cpath_d.so -framework Python
+
+# how to make the executables with MPI:
+
+adatest:
+	$(CC) -c $(MPILib)/call_hello.c
+	$(CC) -c $(MPILib)/adatest.c
+	gnatmake -c $(MPILib)/hello.adb
+	gnatbind -n hello
+	gnatlink -C hello call_hello.o adatest.o -o ../bin/adatest \
+                 --LINK=$(CLINKER)
+
+mpi2sys:
+	gcc -c $(MPILib)/mpi2sys.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_syscon.adb
+	gnatbind -n use_syscon
+	gnatlink -C use_syscon mpi2sys.o -o ../bin/mpi2sys \
+                 --LINK=$(CLINKER)
+
+mpi2sol:
+	gcc -c $(MPILib)/mpi2sol.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_solcon.adb
+	gnatbind -n use_solcon
+	gnatlink -C use_solcon mpi2sol.o -o ../bin/mpi2sol \
+                 --LINK=$(CLINKER)
+
+mpi2hom:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/mpi2hom.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c mpi2hom.o syscon.o solcon.o phcpack.o \
+                    jump_track.o parallel_phcpack.o \
+                 -o $(BIN)/mpi2hom \
+                 --LINK=$(CLINKER)
+
+mpi2phc_s: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+           reltab.o mvc4phc.o demicsrun4phc.o
+	gcc -c $(MPILib)/mpi2phc_s.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc mpi2phc_s.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2phc_s \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2phc_d2: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+            reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(MPILib)/mpi2phc_d2.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o mpi2phc_d2.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2phc_d2 \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+double_double.o:
+	gcc -c -I$(PHCAda)/Math_Lib/QD $(PHCAda)/Math_Lib/QD/double_double.c \
+            -o double_double.o
+
+quad_double.o:
+	gcc -c -I$(PHCAda)/Math_Lib/QD $(PHCAda)/Math_Lib/QD/quad_double.c \
+            -o quad_double.o
+
+mpi2phc_dd: double_double.o \
+            inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+            reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c -I$(PHCAda)/Math_Lib/QD $(MPILib)/mpi2phc_dd.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o double_double.o \
+                    mpi2phc_dd.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2phc_dd \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER) -lm
+
+mpi2phc_qd: double_double.o quad_double.o \
+            inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+            reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(MPILib)/mpi2phc_qd.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o double_double.o \
+                    quad_double.o mpi2phc_qd.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2phc_qd \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2track: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+           reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(COFLAGS) $(PHCLib)/phcpack.c
+	gcc -c $(COFLAGS) $(PHCLib)/syscon.c
+	gcc -c $(COFLAGS) $(PHCLib)/solcon.c
+	gcc -c $(COFLAGS) $(PHCLib)/witset.c
+	gcc -c $(COFLAGS) $(PHCLib)/jump_track.c
+	gcc -c $(COFLAGS) $(MPILib)/parallel_phcpack.c
+	gcc -c $(COFLAGS) $(MPILib)/mpi2track.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o witset.o \
+                    jump_track.o parallel_phcpack.o mpi2track.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2track \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+parallel_pieri:
+	gcc -c $(MPILib)/parallel_pieri.c $(MPILib)/parallel_tree.c \
+	       $(MPILib)/queue.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2pieri.adb
+	gnatbind -n use_c2pieri
+	gnatlink -C use_c2pieri parallel_pieri.o parallel_tree.o queue.o \
+                 -o $(BIN)/parallel_pieri --LINK=$(CLINKER)
+
+parallel_subsystem: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+                    reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/witset.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_subsystem.c
+	gcc -c $(MPILib)/job_queue.c
+	gcc -c $(MPILib)/idle_queue.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/from_mpi2track.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o witset.o \
+                    jump_track.o from_mpi2track.o parallel_phcpack.o \
+                    job_queue.o idle_queue.o parallel_subsystem.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/parallel_subsystem \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2fac: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+         reltab.o mvc4phc.o demicsrun4phc.o
+	gcc -c $(MPILib)/mpi2fac.c
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc mpi2fac.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2fac \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2fac_s: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+           reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/witset.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/parallel_monodromy.c
+	gcc -c $(MPILib)/mpi2fac_s.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o witset.o \
+                    jump_track.o parallel_phcpack.o parallel_monodromy.o \
+                    mpi2fac_s.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2fac_s \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2fac_d: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+           reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/witset.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/parallel_monodromy.c
+	gcc -c $(MPILib)/manage_components.c
+	gcc -c $(MPILib)/mpi2fac_d.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o witset.o \
+                    jump_track.o parallel_phcpack.o parallel_monodromy.o \
+		    manage_components.o mpi2fac_d.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2fac_d \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+monodromyMPI: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+              reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/witset.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/parallel_monodromy.c
+	gcc -c $(MPILib)/manage_components.c
+	gcc -c $(MPILib)/monodromyMPI.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o witset.o \
+                    jump_track.o parallel_phcpack.o parallel_monodromy.o \
+		    manage_components.o monodromyMPI.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/monodrom \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2cell_s: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+            reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/celcon.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/parallel_cells.c
+	gcc -c $(MPILib)/mpi2cell_s.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o celcon.o \
+                    jump_track.o parallel_phcpack.o parallel_cells.o \
+                    mpi2cell_s.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2cell_s \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2cell_d: inputData.o outputData.o iTest.o fTest.o simplex4phc.o \
+            reltab.o mvc4phc.o demicsrun4phc.o
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc.adb
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/celcon.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c $(MPILib)/parallel_cells.c
+	gcc -c $(MPILib)/mpi2cell_d.c
+	gnatbind -n use_c2phc
+	gnatlink -C use_c2phc phcpack.o solcon.o syscon.o celcon.o \
+                    jump_track.o parallel_phcpack.o parallel_cells.o \
+                    mpi2cell_d.o \
+                 inputData.o outputData.o iTest.o fTest.o \
+                 simplex4phc.o reltab.o mvc4phc.o demicsrun4phc.o \
+                 -o ../bin/mpi2cell_d \
+                 /usr/lib/libc++.dylib \
+                 /usr/lib/libstdc++.dylib \
+                 --LINK=$(CLINKER)
+
+mpi2padcon:
+	gnatmake -c $(INCLULIBS) $(GNATOPTFLAGS) use_c2phc4c.adb
+	gcc -c $(PHCLib)/syscon.c
+	gcc -c $(PHCLib)/solcon.c
+	gcc -c $(PHCLib)/phcpack.c
+	gcc -c $(PHCLib)/jump_track.c
+	gcc -c $(PHCLib)/padcon.c
+	gcc -c $(MPILib)/parallel_phcpack.c
+	gcc -c -I$(PHCLib) $(MPILib)/mpi2padcon.c
+	gnatbind -n use_c2phc4c
+	gnatlink -C use_c2phc4c mpi2padcon.o syscon.o solcon.o phcpack.o \
+                    jump_track.o padcon.o parallel_phcpack.o \
+                 -o $(BIN)/mpi2padcon \
+                 --LINK=$(CLINKER)
+
+# cleaning up the object files :
+
+clean:
+	/bin/rm -f  b* *.o *.ali lib.a

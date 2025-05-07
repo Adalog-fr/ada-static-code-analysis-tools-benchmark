@@ -1,0 +1,9 @@
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql-databases.adb
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql-databases.ads
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql-factory.adb
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql-factory.ads
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql-queries.adb
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql-queries.ads
+../source/sql/postgresql/matreshka-internals-sql_drivers-postgresql.ads
+../source/sql/postgresql/matreshka-internals-sql_parameter_rewriters-postgresql.adb
+../source/sql/postgresql/matreshka-internals-sql_parameter_rewriters-postgresql.ads

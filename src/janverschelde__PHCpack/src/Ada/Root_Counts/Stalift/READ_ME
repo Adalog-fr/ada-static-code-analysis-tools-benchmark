@@ -1,0 +1,102 @@
+Static lifting for mixed volumes and polyhedral continuation in PHCv2.4.91
+
+In release 2.3, one file had to be changed for the optimizer in Mac OS X
+and default options were set to floating-point point-wise lifting.
+Release 2.3.16 has new facilities to jumpstart the polyhedral homotopies,
+along with an exponential continuation parameter.  
+The direct input of Laurent systems led to changes in release 2.3.26.
+Support for stable mixed volumes was added in release 2.3.31.
+In release 2.3.90, versions of polyhedral homotopies in double double
+and quad double precision were provided.
+
+The algorithm used is based on the construction of a mixed subdivision,
+based on Betke's formula for mixed volumes and the polyhedral homotopy
+continuation methods developed by Huber and Sturmfels.
+
+This library features integer-valued and floating-point lifting functions.
+The implementation of integer static lifting typically induces nested
+subdivisions, with non-fine cells recursively refined by subdivisions.
+
+In version 2.4.06, the application of heterogeneous multitasking 
+makes that the MixedVol algorithm runs in parallel with the polyhedral
+path trackers to solve a random coefficient system.
+
+There are four parts in this library:
+
+1. Integer-valued lifting, mixed subdivisions and polyhedral continuation
+2. Floating-point lifting, mixed subdivisions and polyhedral continuation
+3. Influence of points to mixed volume: a simple criterion
+4. Driver packages
+
+Run "gprbuild stalift.gpr" to make all test programs.
+On windows, type "gprbuild stalift.gpr -Xos=windows"
+at the PowerShell prompt.
+The "gprclean stalift.gpr" removes all files created by gprbuild.
+
+-------------------------------------------------------------------------------
+file name                         : short description
+-------------------------------------------------------------------------------
+random_coefficient_systems        : create random systems with given supports
+test_rndcff_systems               : tests the making of random systems
+ts_rndcff                         : calls the main test on random systems
+integer_mixed_subdivisions        : mixed subdivisions with integer lifting
+integer_mixed_subdivisions_io     : input/output of mixed subdivisions
+integer_lifting_functions         : lifting supports with integer values
+integer_lifting_utilities         : utilities for integer lifting functions
+integer_pruning_methods           : pruning methods for integer subdivisions
+integer_polyhedral_continuation   : polyhedral continuation by integer lifting
+mixed_volume_computation          : functions to compute mixed volumes
+ts_mixvol                         : mixed volume of supports
+bkk_bound_computations            : black-box mixed volumes and solvers
+main_lifting_functions            : determines lifting based on user input
+ts_userlift                       : test user defined integer lifting
+-------------------------------------------------------------------------------
+floating_integer_convertors       : convertors integer<->floating data
+floating_mixed_subdivisions       : mixed subdivisions with floating lifting
+floating_mixed_subdivisions_io    : input/output of mixed subdivisions
+floating_lifting_functions        : lifting supports with floating values
+floating_lifting_utilities        : utilities for floating lifting functions
+induced_permutations              : deal with permuted supports
+floating_pruning_methods          : pruning methods for floating subdivisions
+floating_polyhedral_continuation  : polyhedral continuation by floating lifting
+dobldobl_polyhedral_continuation  : versions for double double coefficients
+quaddobl_polyhedral_continuation  : versions for quad double coefficients
+stable_polyhedral_continuation    : to compute solutions with zero components
+test_stable_mixed_volumes         : test on stable mixed volumes
+ts_stable                         : calls the test on stable mixed volumes
+-------------------------------------------------------------------------------
+inner_normal_cones                : representations of cones of inner normals
+normal_cone_intersections         : taking intersections of normal cones
+contributions_to_mixed_volume     : contributions of points to mixed volume
+-------------------------------------------------------------------------------
+drivers_for_mixed_contributions   : application of the contribution checks
+driver_for_criterion              : driver for the criterion
+ts_drivcrit                       : calls the menu-driver for the criterion
+driver_for_lifting_functions      : menu-driver for selecting lifting function
+pruning_statistics                : writes pruning statistics
+drivers_for_static_lifting        : menu-driver for static lifting
+ts_drivstal                       : calls the driver for static lifting
+drivers_for_mixedvol_algorithm    : drivers to the MixedVol Algorithm
+ts_mvasta                         : calls the MixedVol algorithm
+drivers_for_demics_algorithm      : drivers to the DEMiCs Algorithm
+-------------------------------------------------------------------------------
+ts_mixlab                         : coordinate/labeled subdivision convertors
+ts_jpmix                          : template to prepare jumpstarting
+polyhedral_coefficient_homotopies : for efficient evaluation of the homotopies
+polyhedral_coefficient_parameters : default values of numerical tolerances
+polyhedral_coefficient_predictors : step control and predictors
+polyhedral_coefficient_correctors : correctors for polyhedral homotopies
+polyhedral_coefficient_tracking   : path tracking with coefficient homotopies
+jumpstart_polyhedral_homotopies   : drivers to jumpstart polyhedral trackers
+ts_exptrack                       : test exponential continuation parameters
+-------------------------------------------------------------------------------
+lifted_configurations             : for balancing the lifting values
+test_balance_lifting              : development of balancing lifting values
+ts_balance                        : calls the main test on balancing
+-------------------------------------------------------------------------------
+taylor_polyhedral_homotopies      : making of Taylor coefficient homotopies
+ts_rptmccsol                      : tests robust polyhedral continuation
+-------------------------------------------------------------------------------
+
+Subdivisions induced by integer lifting functions have to be recursive,
+since one cannot guarantee that all cells will be fine mixed.

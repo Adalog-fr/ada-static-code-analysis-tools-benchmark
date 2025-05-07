@@ -1,0 +1,105 @@
+#!/bin/sh
+# run all the tests that can reasonably run in a batch
+#
+# FLAGS determines the degree of verbosity of the output.
+# Setting it to "-t" give the tersest form of output.
+#FLAGS="-t"
+# Setting it to "-v" give the verbose form of output.
+FLAGS="-v"
+# BIN_PATH determines the binaries location from test.dir
+BIN_PATH=../bin
+#
+# set up resource limits, to help catch any runaway tests
+#
+echo ulimit -d 10000
+ulimit -d 10000
+echo ulimit -s 5000
+ulimit -s 5000
+echo ulimit -t 10
+ulimit -t 10
+# virtual memory limit not supported by Linux (2.0.33)
+#echo ulimit -v 200000
+#ulimit -v 200000
+#
+# remove the old log file
+#
+rm -f run_tests_1.log
+#
+# run the tests
+#
+ ${BIN_PATH}/p020400 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p021000 ${FLAGS} >> run_tests_1.log 2>&1
+if [ ! -h bin ]
+then rm -f ./bin;
+     ln -fs ${BIN_PATH} ./bin;
+fi
+ln -fs ${BIN_PATH}/p030100b
+ ${BIN_PATH}/p030100 ${FLAGS} >> run_tests_1.log 2>&1
+ln -fs ${BIN_PATH}/p030101b
+ ${BIN_PATH}/p030101 ${FLAGS} >> run_tests_1.log 2>&1
+ln -fs ${BIN_PATH}/p030102
+ ${BIN_PATH}/p030102 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p030200 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p030300 ${FLAGS} >> run_tests_1.log 2>&1
+ln -fs ${BIN_PATH}/p030301b
+ ${BIN_PATH}/p030301 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p030303 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p030304 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p030305 ${FLAGS} >> run_tests_1.log 2>&1
+ln -fs ${BIN_PATH}/p030306a
+ ${BIN_PATH}/p030306 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p040100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p040101 ${FLAGS} >> run_tests_1.log 2>&1
+#p040300 requires PWD to be set to the current working directory
+PWD=`pwd`
+export PWD
+ ${BIN_PATH}/p040300 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p040301 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p050100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p050200 ${FLAGS} >> run_tests_1.log 2>&1
+umask 033
+ ${BIN_PATH}/p050300 ${FLAGS} >> run_tests_1.log 2>&1
+# p060100 requires Standard_Error to be a terminal device
+ ${BIN_PATH}/p060100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p060200 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p060300 ${FLAGS} >> run_tests_1.log 2>&1
+# p070200 requires Standard_Error to be a terminal device
+# and (apparently) cannot be run in background without hanging
+# on attempt to set terminal characteristics "after output"
+# or "after input and output".
+ ${BIN_PATH}/p070200 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p090100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p090200 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p110100 ${FLAGS} >> run_tests_1.log 2>&1
+#   p110101 required raising ulimit -v to 20000
+ ${BIN_PATH}/p110101 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p110200 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p110201 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p110300 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120101 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120200 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120300 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120400 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120500 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p120501 ${FLAGS} >> run_tests_1.log 2>&1
+ln -fs ${BIN_PATH}/p120502a
+ ${BIN_PATH}/p120502 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p140100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p140101 ${FLAGS} >> run_tests_1.log 2>&1
+ln -fs ${BIN_PATH}/p150100b
+ ${BIN_PATH}/p150100 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p150101 ${FLAGS} >> run_tests_1.log 2>&1
+# Run the following tests by hand, since they take a very long
+# time to run and generally exceed the resource and time limits set
+# in this script to catch infinite loops.
+ ${BIN_PATH}/p990010 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990011 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990020 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990030 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990040 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990050 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990060 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990070 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990080 ${FLAGS} >> run_tests_1.log 2>&1
+ ${BIN_PATH}/p990090 ${FLAGS} >> run_tests_1.log 2>&1

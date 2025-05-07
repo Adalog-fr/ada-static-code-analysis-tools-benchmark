@@ -1,0 +1,17 @@
+../source/web/spikedog/core/matreshka-servlet_containers-loader__posix.adb
+../source/web/spikedog/core/matreshka-servlet_containers.adb
+../source/web/spikedog/core/matreshka-servlet_containers.ads
+../source/web/spikedog/core/matreshka-servlet_defaults.adb
+../source/web/spikedog/core/matreshka-servlet_defaults.ads
+../source/web/spikedog/core/matreshka-servlet_dispatchers.adb
+../source/web/spikedog/core/matreshka-servlet_dispatchers.ads
+../source/web/spikedog/core/matreshka-servlet_http_requests.adb
+../source/web/spikedog/core/matreshka-servlet_http_requests.ads
+../source/web/spikedog/core/matreshka-servlet_http_responses.adb
+../source/web/spikedog/core/matreshka-servlet_http_responses.ads
+../source/web/spikedog/core/matreshka-servlet_registrations.adb
+../source/web/spikedog/core/matreshka-servlet_registrations.ads
+../source/web/spikedog/core/matreshka-servlet_servers.ads
+../source/web/spikedog/core/matreshka-spikedog_deployment_descriptors-parsers.adb
+../source/web/spikedog/core/matreshka-spikedog_deployment_descriptors-parsers.ads
+../source/web/spikedog/core/matreshka-spikedog_deployment_descriptors.ads

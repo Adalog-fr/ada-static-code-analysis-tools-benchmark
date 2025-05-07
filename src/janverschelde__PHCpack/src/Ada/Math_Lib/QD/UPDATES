@@ -1,0 +1,363 @@
+Sat 18 Mar 2023 : moved all header and .c files into a new folder C,
+  to avoid working with excluded source files in building libPHCpack.
+
+Thu 9 Dec 2021 : added the file hexa_double_ring_io.ads.
+
+Wed 8 Dec 2021 : new hexadobl_complex_numbers_io, test_hexadobl_complex,
+  and hexadobl_complex_numbers_polar, with ts_hdcmplx as the main test.
+  Updated the project file qd.gpr for the new test procedure.
+  Added type casts to other multiple double types to hexa_double_numbers.
+  New hexadobl_complex_numbers_cv, multprec_hexadobl_convertors,
+  test_multprec_hexadobl_casts, and updated ts_mpcasts.
+
+Tue 7 Dec 2021 : new hexadobl_complex_ring.ads, hexa_double_ring-ffield.ads,
+  hexadobl_complex_numbers.ads, hexadobl_complex_ring_io.ads,
+  hexadobl_complex_ring-ffield.ads, hexadobl_random_numbers,
+  hexadobl_mathematical_functions, test_hexadobl_functions, ts_hdfun.adb.
+  Updated qd.gpr for the new test procedures.
+
+Sun 5 Dec 2021 : updated sincostables.py for 256 decimal places.
+  Defined hexa_double_constants.ads with the aid of test_hexa_doubles.
+  The main test is called by ts_hexdbl.adb.
+
+Sat 4 Dec 2021 : defined more operations in hexa_double_numbers.adb.
+  New hexa_double_numbers_io for the i/o of hexa double numbers.
+  Added the definition of exp and log10 to hexa_double_numbers.adb.
+
+Fri 3 Dec 2021 : first version of hexa_double_numbers, with stubs for
+  the exponential and the logarithm of numbers of 16-double precision.
+
+Wed 1 Dec 2021 : fixed counts documenting hexa_double.c.  Extended
+  fast_double_renormalizations with three procedures for hexa doubles.
+
+Sun 28 Nov 2021 : new hexa_double.h, hexa_double.c, hd_test.c with the
+  basic arithmetical operations on hexa double numbers.
+  Updated the makefile and the file qd.gpr.
+
+Sat 26 Jun 2021 : removed double_double.cpp and downgraded dd_funtest.cpp
+  to dd_funtest.c.  Added the building of the C tests to qd.gpr.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to qd.gqr.
+
+Tue 8 Jun 2021 : defined qd.gpr to build the test procedures.
+
+Wed 21 Oct 2020 : extended deca_double_numbers with type casts to
+  double double, triple double, quad double, penta double, and octo double,
+  with similar extensions to decadobl_complex_numbers_cv.
+
+Tue 20 Oct 2020 : added to_triple_double function in quad_double_numbers
+  and other converters in quaddobl_complex_numbers_cv.
+
+Sun 11 Oct 2020 : added a forgotten last step in the definition of od_div
+  in octo_double.c.
+
+Fri 9 Oct 2020 : new penta_double.h, penta_double.c, and pd_test.c with
+  the basic operations on penta double numbers.
+  Corrected a documentation error in fast_double_renormalizations.ads.
+  Edited {triple,penta}_double.h with uniform prefix, added output;
+  updated {triple,penta}_double.c, td_test.c, and pd_test.c.
+  New octo_double.h, octo_double.c, and od_test for octo doubles.
+  New deca_double.h, deca_double.c, and da_test for deca doubles.
+
+Thu 8 Oct 2020 : in double_double.c and double_double.cpp,
+  replaced abs(t[0]) by fabs(t[0]).
+  New triple_double.h and triple_double.c, with basic triple double 
+  arithmetical operations, tested by td_test.c, updated the makefile.
+
+Wed 7 Oct 2020 : extended double_double.h and double_double.c
+  (the corresponding double_double.cpp as well) with functions to compute
+  sin and cos in double precision, tested by dd_funtest.cpp.
+  Updated dd_test.c for a renaming of dd_nint into dd_nint_d.
+  Extended the makefile for the new test function.
+  Adjusted code for dd_sqrt in double_double.c and double_double.cpp.
+  Two bugs fixed in double_double.c (and double_double.cpp):
+  in sin/cos worked with original argument instead of reduced, and
+  forgot abs() in stop criterion in sin_taylor and cos_taylor.
+
+Mon 5 Oct 2020 : used explicit calloc statement to allocate arrays of
+  characters in double_double.c, as needed in Microsofts VS.
+  Made a copy of double_double.c into double_double.cpp, as was needed
+  get it linked correctly with MS VS.
+
+Sat 19 Sep 2020 : new multprec_{trip,pent,octo,deca}dobl_convertors,
+  {trip,pent,octo,deca}dobl_complex_numbers_cv, and
+  test_multprec_{trip,pent,octo,deca}dobl_casts, called in ts_mpcasts.
+
+Tue 15 Sep 2020 : extended {penta,octo}_double_constants.ads with enough
+  inverse factorials so primitive complex roots are sufficiently accurate.
+
+Mon 14 Sep 2020 : new {pentdobl,octodobl,decadobl}_complex_numbers_polar
+  with definitions for angle, root, and polar_exponentiation, applied
+  in {pentdobl,octodobl,decadobl}_random_numbers, with tests added to
+  test_{pentdobl,octodobl,decadobl}_complex.  Minor corrections to
+  tripdobl_random_numbers.ads and test_tripdobl_complex.adb.
+  Improved the accuracy of exp() in penta_double_numbers.adb.
+  Added a test procedure on exp and log in test_{triple,penta}_doubles.
+  Improved the accuracy of exp() in {octo,deca}_double_numbers.adb and
+  added a test on exp and log in test_{octo,deca}_doubles.
+  To test_deca_doubles.adb added the computation of more inverse factorials,
+  defined in deca_double_constants.ads, for accurate primitive complex roots.
+
+Sun 13 Sep 2020 : extended deca_double_constants with the table of sines
+  and cosines of multiples of pi/1024, with the aid of sincostables.py,
+  with the help of a new test procedure in test_deca_doubles.
+  Added a nint function to deca_double_numbers.  Added trig functions to
+  decadobl_mathematical_functions, with tests in test_decadobl_functions.
+  Added nint to octo_double_numbers, extended octo_double_constants.ads,
+  defined trig functions to octodobl_mathematical_functions, with tests
+  added in test_octodobl_functions.
+  Added nint to penta_double_numbers, extended penta_double_constants.ads,
+  defined trig functions to pentdobl_mathematical_functions, with tests
+  added in test_pentdobl_functions.
+
+Sat 12 Sep 2020 : to {penta,octo,deca}_double_constants.ads, added 
+  inverse factorials.
+
+Thu 10 Sep 2020 : added the nint funtion to triple_double_numbers,
+  extended triple_double_constants.ads and tripdobl_mathematical_functions,
+  tested by test_tripdobl_functions.  Extended tripdobl_random_numbers with
+  random numbers on the unit circle, tested by test_tripdobl_complex.
+  New package tripdobl_complex_numbers_polar, with a new test on primitive
+  roots in test_tripdobl_complex.adb.  Added test to test_deca_doubles
+  to write pi, its multiples and factors as needed in the constants,
+  updated {deca,octo,penta}_double_constants.ads.
+
+Wed 9 Sep 2020 : verified the definition of dd_eps in test_double_doubles,
+  corrected the qd_eps in quad_double_constants.ads, to correspond 
+  to the test on qd_eps in test_quad_doubles.  Also updated the value
+  of qd_eps in quad_double_numbers.adb.  In all test*doubles.ads,
+  clarified the relation between the precision and the size of the
+  decimal expansion of a multiple precision number.  New packages
+  {triple,penta,octo,deca}_double_constants.ads with the definition
+  of eps, tested by test_{triple,penta,octo,deca}_doubles.adb.
+  Modified {triple,penta,octo,deca}_double_numbers.adb with the
+  updated value for eps.  Fixed the quad double precision to 2^(-210)
+  to be consistent with the precision of 63 in to_digits, and changed files
+  test_quad_doubles.*, quad_double_numbers.adb, quad_double_constants.ads.
+ 
+Tue 8 Sep 2020 : to {triple,penta,octo,deca}_double_numbers, added the
+  exponentiation for floating-point powers.
+
+Mon 7 Sep 2020 : fixed definition of <= and >= for penta doubles and doubles
+  in penta_double_numbers.adb.
+
+Fri 4 Sep 2020 : added a very basic definition of sqr to the packages
+  {triple,penta,octo,deca}_double_numbers.
+
+Mon 31 Aug 2020 : bug fixed in comparison in deca_double_numbers.adb,
+  added a test to test_deca_doubles to write a double as a deca double.
+  Add a "-" for a double float as first operand in triple_double_numbers
+  and octo_double_numbers.  Defined the SQRT and Radius functions in
+  {tripdobl,pentdobl,octodobl,decadobl}_mathematical_functions with tests
+  in test_{tripdobl,pentdobl,octodobl,decadobl}_functions, and main
+  procedures in ts_tdfun, ts_pdfun, ts_odfun, ts_dafun.
+
+Sun 30 Aug 2020 : instantiated io for triple, penta, octo, and deca doubles,
+  yielding the packages {triple,penta,octo,deca}_double_ring_io.ads;
+  instantiated {tripdobl,pentdobl,octodobl,decadobl}_complex_ring and
+  {tripdobl,pentdobl,octodobl,decadobl}_complex_ring_io.
+
+Sat 29 Aug 2020 : moved code from ts_{dd,td,qd,pd,od,da}cmplx.adb into new
+  test_{dobldobl,tripdobl,quaddobl,pentdobl,octodobl,decadobl}_complex
+  packages, collecting all test procedures on complex arithmetic.
+  Moved code from ts_ddfun and ts_qdfun into new packages
+  test_dobldobl_functions and test_quaddobl_functions, code from
+  ts_cmpexp into the new package test_polar_exponentiation, and code from
+  ts_mpddcv and ts_mpqdcv into new packages test_multprec_dobldobl_casts
+  and test_multprec_quaddobl_casts.
+
+Fri 28 Aug 2020 : in {triple,quad,penta,octo}_double_numbers.adb,
+  fixed the comparison functions to take lower doubles into account.
+  Extended deca_double_numbers to complete deca_double_numbers_io.adb,
+  with added tests to ts_decadbl.  Extracted procedures from ts_dbldbl,
+  ts_qddbl, ts_tridbl, ts_pentadbl, ts_octdbl, and ts_decadbl to make
+  new packages test_{double,triple,quad,penta,octo,deca}_doubles.
+  Instantiated penta_double_ring, penta_double_ring-ffield,
+  deca_double_ring, deca_double_ring-ffield, defined complex numbers in
+  {pentdobl,decadobl}_complex_numbers.ads, with the input and output in
+  {pentdobl,decadobl}_complex_numbers_io, with random numbers in
+  {pentdobl,decadobl}_random_numbers, tested in ts_pdcmplx and ts_dacmplx.
+  Instantiated {pentdobl,decadobl}_complex_ring-ffield.ads.
+
+Thu 27 Aug 2020 : bug fix in fast_double_renormalizations.adb:
+  the fast_renorm applies quick_two_sum, the renorm_add1 applies two_sum.
+  New test procedure ts_decadbl to develop deca double arithmetic.
+  Extended fast_double_renormalizations and copied code from ts_decadbl
+  into a new package deca_double_numbers.  Bug fix in the ** operator
+  in deca_double_numbers.adb, defined deca_double_numbers_io, and tested
+  reading from string in ts_decadbl.adb.
+
+Wed 26 Aug 2020 : defined complex numbers in triple and octo double precision,
+  with the packages triple_double_ring, triple_double_ring-ffield,
+  octo_double_ring, octo_double_ring-ffield (which required updates to 
+  triple_double_numbers and octo_double_numbers); and 
+  tripdobl_complex_numbers, tripdobl_complex_numbers_io, tested by ts_tdcmplx,
+  octodobl_complex_numbers, octodobl_complex_numbers_io, tested by od_tdcmplx.
+  Instantiated tripdobl_complex_ring-ffield and octodobl_complex_ring-ffield.
+  New packages tripdobl_random_numbers and octodobl_random_numbers,
+  with test procedures added in ts_tdcmplx and ts_odcmplx.
+  New test procedure ts_pentadbl with the basis arithmetical operations
+  for numbers in penta double precision.  Moved code from ts_pentadbl
+  to fast_double_renormalizations and to the new package penta_double_numbers,
+  with new penta_double_numbers_io; added tests to ts_pentadbl.
+
+Tue 25 Aug 2020 : new test procedure ts_octdbl to work with octo doubles.
+  New package octo_double_numbers, extended fast_double_renormalizations,
+  ts_octdbl tests all basic arithmetical operations on octo doubles.
+  New package octo_double_numbers_io, with reading from string defined,
+  added exponentiation to octo_double_numbers, tested by ts_octdbl.
+  Extended octo_double_numbers and completed octo_double_numbers_io.adb,
+  with added tests to ts_octdbl.adb.
+
+Mon 24 Aug 2020 : moved code from ts_tridbl into two new packages:
+  triple_double_numbers and fast_double_renormalizations.
+  Updated documentation error in quad_double_numbers_io.ads.
+  New package triple_double_numbers_io, tested by ts_tridbl,
+  extended triple_double_numbers and fast_double_renormalizations.
+  Fixed definition of is_one() in quad_double_numbers.
+  Completed the triple_double_numbers_io.adb, after added the needed
+  operations to triple_double_numbers, tested by ts_tridbl.
+
+Sun 23 Aug 2020 : added "-" functions to ts_tridbl.
+  Added multiplication and division functions to ts_tridbl.
+
+Sat 22 Aug 2020 : new test procedure ts_tridbl to develop arithmetic with
+  triple doubles.
+
+Sat 25 Jan 2020 : added function to quaddobl_complex_numbers_cv to convert
+  a quad double complex number into a double double complex number.
+
+Thu 26 Dec 2019 : modified {dobldobl,quaddobl}_random_numbers.adb 
+  and {dobldobl,quaddobl}_complex_numbers_io.adb for compiler warnings.
+
+Wed 26 Oct 2016 : wrong end of comment symbol fixed in dd_test.c.
+
+Sat 22 Oct 2016 : to *dobl_random_numbers added random number generators
+  with given seeds to produce independent sequences of random numbers.
+
+Sun 2 Oct 2016 : to {dobldobl,quaddobl}_complex_numbers_polar, added
+  polar_exponentiation, for double double and quad double exponents.
+
+Mon 27 Jun 2016 : bug fix in division of double double by complex number
+  in dobldobl_complex_numbers.adb.
+
+Tue 6 Oct 2015 : added to {double,quad}_double_numbers a create function
+  for 64-bit natural and integer numbers.  Also added exponentiation for
+  64-bit integer numbers to double doubles and quad doubles.
+
+Sat 3 Oct 2015 : extended {double,quad}_double_numbers with x^y where y is of
+  the type double_float, needed for polyhedral path tracking.
+
+Sat 22 Nov 2014 : added one extra character in the strings for tiny numbers
+  in {dobl,quad}dobl_complex_numbers_io.adb.
+
+Mon 17 Nov 2014 : to {dobl,quad}dobl_complex_numbers_io added get/put
+  procedures to parse/write complex numbers from/to strings.
+
+Mon 3 Nov 2014 : test "is_zero" in {double,quad}_double_numbers.adb
+  must test on all parts of the dd/qd number, not just highest part!
+
+Thu 26 Jun 2014 : new package dobldobl_complex_exponentiation as needed
+  by the binomial solvers for multiprecision exponent matrices and
+  quaddobl_complex_exponentiation is the version for quad doubles.
+
+Tue 18 Feb 2013 : extended double_double.h and double_double.c with
+  dd_sin_taylor and dd_cos_taylor functions...
+  Changed dobldobl_random_numbers.adb so the precision is respected
+  when generating random complex numbers on the unit circle,
+  also changed quaddobl_random_numbers.adb accordingly.
+
+Thu 6 Jun 2013 : because of the natural32 and integer32 data types, updated
+ standard_complex_exponentiation.a*, tested by ts_cmpexp.adb,
+ multprec_quaddobl_convertors.adb, quaddobl_complex_numbers_io.a*,
+ quaddobl_complex_numbers_polar.a*, tested by ts_qdcmplx.adb
+ quad_double_numbers_io.a*, quad_double_numbers.a*,
+ quaddobl_random_numbers.a*, quad_double_ring.ads, tested by ts_qddbl,
+ double_double_numbers.a*, double_double_numbers_io.a*,
+ dobldobl_random_numbers.a*, double_double_ring.ads, tested by ts_dbldbl,
+ dobldobl_complex_numbers_io.a*, dobldobl_complex_numbers_polar.a*,
+ multprec_dobldobl_convertors.adb, tested by ts_ddcmplx.
+
+Tue 12 Feb 2013 : corrected error in documentation string of qd_test.c
+  and a much more serious error: forgotten to assign qd_pi!
+
+Wed 26 Sep 2012 : added routines to {dobldobl,quaddobl}_random_numbers 
+  to generate numbers with a magnitude within a given range, tested by 
+  ts_dbldbl.adb, ts_qddbl.adb, ts_ddcmplx.adb, and ts_qdcmplx.adb.
+
+Thu 9 Jun 2011 : new changes in standard_complex_exponentiation.adb lead
+  to a correct binomial solvers, tested by ts_cmpexp.adb.
+
+Wed 8 Jun 2011 : adjusted standard_complex_exponentiation.adb.
+
+Tue 7 Jun 2011 : changed double_double_numbers_io.adb for a warning.  Added
+  conversion from integer number to multprec_{dobldobl,quaddobl}_convertors.
+  Updated standard_complex_exponentiation.adb, tested by ts_cmpexp.adb.
+
+Mon 6 Jun 2011 : updated ts_ddcmplx.adb for warnings.  New package
+  standard_complex_exponentiation tested by ts_cmpexp.adb.
+
+Wed 1 Jun 2011 : changed {dobldobl,quaddobl}_mathematical_functions.adb 
+  for warnings.
+
+Sun 14 Nov 2010 : bug fix in quad_double_numbers.adb: "x <= y" and "x >= y"
+  for x and y both quad doubles.
+
+Sun 19 Sep 2010 : fixed bug in double_double_numbers_io.adb: return without
+  adjusting sign of the exponent.
+
+Fri 17 Sep 2010 : added get(x,y) to {double,quad}_double_numbers_io,
+  for use in {quaddobl,dobldobl}_complex_numbers_io.adb, with tests in
+  ts_dbldbl.adb, ts_qddbl.adb, ts_ddcmplx.adb and ts_qdcmplx.adb.
+
+Mon 6 Sep 2010 :  bug fix in double_double_numbers_io.adb, crash on full
+  set of cyclic 10-roots, with dd but not in qd.
+
+Fri 25 Jun 2010 : fixed bug in read of {double,quad}_double_numbers_io.adb
+  with modified ts_dbldbl.adb and ts_qddbl.adb for testing.
+  Added tan, arctan, sin, arcsin, cos, arcos, radius and angle
+  to dobldobl_mathematical_functions, tested by ts_ddfun,
+  and did likewise to quaddobl_mathematical_functions and ts_qdfun.
+  New packages {dobldobl,quaddobl}_complex_numbers_polar for primitive roots,
+  tested by ts_ddcmplx and ts_qdcmplx.
+
+Thu 24 Jun 2010 : added nint to quad_double_numbers and extended
+  quaddobl_mathematical_functions with SIN & COS, tested by ts_qdfun.adb.
+
+Wed 23 Jun 2010 : quaddobl_mathematical_functions exports SQRT,
+  tested by ts_qdfun.adb.  Added nint to double_double_numbers.
+  The sin and cos in dobldobl_mathematical_functions are available
+  for testing in ts_ddfun.adb, with new package double_double_constants.
+  Also new package quad_double_constants collects quad double constants.
+
+Tue 22 Jun 2010 : started dobldobl_mathematical_functions because will be
+  needed in simplicial solvers, tested by ts_ddfun.adb.
+
+Tue 8 Jun 2010 : changed multprec_{dobldobl,quaddobl}_convertors.adb
+  for a GNAT GPL 2009 warning about unused with/use clause.
+
+Fri 4 Jun 2010 : double_double_numbers.ads was touched to test inline
+  pragma, but it did not help, so removed it.
+
+Fri 28 May 2010 : added convertors between complex number types in
+  the packages {dobldobl,quaddobl}_complex_numbers_cv, called by
+  ts_mpddcv and ts_mpqdcv.  Instantiated field extensions 
+  {dobldobl,quaddobl}_complex_ring-ffield.
+
+Thu 27 May 2010 : added multprec_dobldobl_convertors, tested by ts_mpddcv,
+  to convert between multiprecision floats and double doubles.
+  Likewise for multprec_quaddobl_convertors, tested by ts_mpqdcv.
+  Added get/put for standard input/output to double_double_numbers_io 
+  and to quad_double_numbers_io.  
+
+Tue 25 May 2010 : quad_double_numbers completed, tested by ts_qddbl.adb.
+  Updates in documentation of double_double_numbers_io.ads,
+  new quad_double_numbers_io package.  After ring and field instantiations,
+  created complex and random numbers, tested by ts_ddcmplx and ts_qdcmplx.
+  Packages {quaddobl,dobldobl}_complex_ring + io are needed for vectors.
+
+Mon 24 May 2010 : ts_dbldbl.adb works as well as dd_test.c,
+  created quad_*ad* files, tested by ts_qddbl.adb.
+
+Fri 21 May 2010 : creation of directory with C code and starting of the
+  translations into Ada.

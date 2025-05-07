@@ -1,0 +1,8 @@
+eeprom_i2c-mc24xx01.ads
+eeprom_i2c-mc24xx02.ads
+eeprom_i2c-mc24xx16.ads
+eeprom_i2c-mc24xx256.ads
+eeprom_i2c-mc24xx512.ads
+eeprom_i2c-mc24xx64.ads
+eeprom_i2c.adb
+eeprom_i2c.ads

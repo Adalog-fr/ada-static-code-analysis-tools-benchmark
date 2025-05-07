@@ -1,0 +1,128 @@
+# THIS IS A MACHINE-GENERATED FILE. DO NOT EDIT MANUALLY.
+
+[solution]
+[solution.context]
+solved = true
+[[solution.state]]
+crate = "gnatcoll"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../gnatcoll-core"
+[[solution.state]]
+crate = "gnatcoll_gmp"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../gnatcoll-bindings/gmp"
+[[solution.state]]
+crate = "gnatcoll_iconv"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../gnatcoll-bindings/iconv"
+[[solution.state]]
+crate = "gpr_unit_provider"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../gpr_unit_provider"
+[[solution.state]]
+crate = "langkit_support"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../langkit_support"
+[[solution.state]]
+crate = "libadalang"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../libadalang"
+[[solution.state]]
+crate = "libgmp"
+fulfilment = "solved"
+pinned = false
+shared = false
+transitivity = "indirect"
+versions = "*"
+[solution.state.release]
+description = "The GNU Multiple Precision Arithmetic Library"
+licenses = "LGPL-3.0-only"
+maintainers = [
+"derodat@adacore.com",
+"chouteau@adacore.com",
+]
+maintainers-logins = [
+"pmderodat",
+"Fabien-Chouteau",
+]
+name = "libgmp"
+notes = "Provided by system package: libgmp-dev"
+version = "6.2.1"
+[solution.state.release.origin]
+url = "system:libgmp-dev"
+[[solution.state]]
+crate = "libgpr"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../gprbuild"
+[[solution.state]]
+crate = "libgpr2"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../libgpr2"
+[[solution.state]]
+crate = "markdown"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../markdown"
+[[solution.state]]
+crate = "vss"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "*"
+[solution.state.link]
+lockfiled = true
+path = "../vss"
+[[solution.state]]
+crate = "xmlada"
+fulfilment = "linked"
+pinned = false
+transitivity = "direct"
+versions = "^23.0.0"
+[solution.state.link]
+lockfiled = true
+path = "../xmlada"
+

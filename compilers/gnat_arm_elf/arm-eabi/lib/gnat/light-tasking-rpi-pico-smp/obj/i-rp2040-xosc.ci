@@ -1,0 +1,24 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-xosc.ads"
+node: { title: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" label: "ctrl_freq_range_fieldH\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_uidivmod" label: "aeabi_uidivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+node: { title: "__aeabi_idivmod" label: "aeabi_idivmod\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__ctrl_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__xosc__ctrl_freq_range_fieldRP" label: "ctrl_freq_range_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__xosc__ctrl_enable_fieldRP" label: "ctrl_enable_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__xosc__status_freq_range_fieldH" label: "status_freq_range_fieldH\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__xosc__status_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__status_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__status_freq_range_fieldH" targetname: "__aeabi_uidivmod" }
+edge: { sourcename: "interfaces__rp2040__xosc__status_freq_range_fieldH" targetname: "__aeabi_idivmod" }
+node: { title: "interfaces__rp2040__xosc__ctrl_registerIP" label: "ctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__xosc__status_registerIP" label: "status_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__xosc__startup_registerIP" label: "startup_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__xosc__count_registerIP" label: "count_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__xosc__xosc_peripheralIP" label: "xosc_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__xosc__xosc_peripheralIP" targetname: "interfaces__rp2040__xosc__status_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-rpi-pico-smp/gnat/i-rp2040-xosc.ads:186:7" }
+}

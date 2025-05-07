@@ -1,0 +1,28 @@
+Mon 16 Jan 2017 : reformatted eval_host.cpp and newton_host.cpp.
+
+Sat 31 Dec 2016 : reformatted varset.h.
+
+Sat 3 Sep 2016 : fixed bug in newton_host.cpp, introduced by reformatting.
+  Finished reformatting of eval_host.cpp.
+
+Fri 2 Sep 2016 : reformatted newton_host.cpp.
+
+Fri 4 Sep 2015 : reformatting in eval_host.cpp for better readability.
+
+Wed 2 Sep 2015 : updated and reformatted eval_host.h and eval_host.cpp,
+  also newton_host.cpp was updated.
+
+Wed 19 Aug 2015 : reformatted workspace_host.h and workspace_host.cpp.
+  The instantiation in parameter.h is rendered mute.
+  Reformatted eval_host.h and eval_host.cpp, adding verbose option.
+
+Tue 18 Aug 2015 : reformatted newton_host.h and newton_host.cpp.
+  Added a verbose option to the path_tracker function in path_host.h
+  and in path_host.cpp.
+
+Mon 17 Aug 2015 : updated varset.h, eval_host.h, eval_host.cpp, 
+  workspace_host.h and workspace_host.cpp.
+
+Sat 15 Aug 2015 : edited workspace_host.h, workspace_host.cpp, path_host.h,
+  and path_host.cpp.  Similar edits in parameter.h, predictor_host.h,
+  and predictor_host.cpp.

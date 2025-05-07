@@ -1,0 +1,13 @@
+../source/web/wsse/web_services-soap-security-constants.ads
+../source/web/wsse/web_services-soap-security-headers-decoders.adb
+../source/web/wsse/web_services-soap-security-headers-decoders.ads
+../source/web/wsse/web_services-soap-security-headers-encoders.adb
+../source/web/wsse/web_services-soap-security-headers-encoders.ads
+../source/web/wsse/web_services-soap-security-headers.ads
+../source/web/wsse/web_services-soap-security-modules.adb
+../source/web/wsse/web_services-soap-security-modules.ads
+../source/web/wsse/web_services-soap-security-password_digest_utilities.adb
+../source/web/wsse/web_services-soap-security-password_digest_utilities.ads
+../source/web/wsse/web_services-soap-security-setup.adb
+../source/web/wsse/web_services-soap-security-setup.ads
+../source/web/wsse/web_services-soap-security.ads

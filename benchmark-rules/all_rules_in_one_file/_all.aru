@@ -1,0 +1,13 @@
+set verbose on;
+set timing global;
+set statistics 3;
+set format Gnat_Long;
+Abort_Statements : search statements (abort);
+Abstract_Type_Declarations : search declarations (abstract_type);
+Blocks : search statements (block);
+Constructors : search declarations (constructor);
+Enumeration_Representation_Clauses : search Representation_Clauses (Enumeration);
+Renamings : search renaming_declarations (all);
+Slices : search expressions (slice);
+Too_Many_Parents : search derivations (max_parents, 2);
+--Variable_Usage : search usage (variable);

@@ -1,0 +1,18 @@
+description = "Embedded Web Server - generator"
+long-description = "\nEWS is a web server construction kit, designed for embedded\napplications using the GNAT Ada compiler.\n\nThe project is hosted at https://github.com/simonjwright/ews.\n\nThis subproject builds a program (generator) which generates Ada\nsource code corresponding to a web source directory tree.\n\n"
+name = "generator"
+version = "1.11.0"
+authors = ["Simon Wright <simon@pushface.org>"]
+licenses = "GPL-3.0-or-later WITH GCC-exception-3.1"
+maintainers = ["Simon Wright <simon@pushface.org>"]
+maintainers-logins = ["simonjwright"]
+project-files = ["ews_generator.gpr"]
+tags = ["web","server","generator"]
+website = "https://github.com/simonjwright/ews"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

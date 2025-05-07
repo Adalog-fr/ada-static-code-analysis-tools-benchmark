@@ -1,0 +1,3 @@
+config/lvgl_ada_simulator_config.ads
+src/lvgl_ada_simulator.adb
+src/lvgl_ada_simulator.ads

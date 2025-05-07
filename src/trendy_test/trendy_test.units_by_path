@@ -1,0 +1,12 @@
+src/trendy_locations.adb
+src/trendy_locations.ads
+src/trendy_test-assertions-discrete.ads
+src/trendy_test-assertions-integer_assertions.ads
+src/trendy_test-assertions.adb
+src/trendy_test-assertions.ads
+src/trendy_test-generics.adb
+src/trendy_test-generics.ads
+src/trendy_test-reports.adb
+src/trendy_test-reports.ads
+src/trendy_test.adb
+src/trendy_test.ads

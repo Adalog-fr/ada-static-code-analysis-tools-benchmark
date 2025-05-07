@@ -1,0 +1,10 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-pack54.adb"
+node: { title: "system__pack_54__clusterIP" label: "clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__rev_clusterIP" label: "rev_clusterIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__clusteruIP" label: "clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__rev_clusteruIP" label: "rev_clusteruIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__get_54" label: "Get_54\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-pack54.adb:98:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__getu_54" label: "Getu_54\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-pack54.adb:137:4\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__set_54" label: "Set_54\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-pack54.adb:176:4\n12 bytes (static)\n0 dynamic objects" }
+node: { title: "system__pack_54__setu_54" label: "Setu_54\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-pack54.adb:215:4\n8 bytes (static)\n0 dynamic objects" }
+}

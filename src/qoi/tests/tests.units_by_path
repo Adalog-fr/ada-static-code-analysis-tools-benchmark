@@ -1,0 +1,6 @@
+src/reference_qoi.adb
+src/reference_qoi.ads
+src/stb-image.adb
+src/stb-image.ads
+src/stb.ads
+src/tests.adb

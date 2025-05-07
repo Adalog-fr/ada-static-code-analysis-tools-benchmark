@@ -1,0 +1,12 @@
+persistent-sqlite_keys-arrays.ads
+persistent-sqlite_keys-sets.ads
+persistent-sqlite_keys.adb
+persistent-sqlite_keys.ads
+persistent-sqlite_links.adb
+persistent-sqlite_links.ads
+persistent-sqlite-text_io.adb
+persistent-sqlite-text_io.ads
+persistent-sqlite.adb
+persistent-sqlite.ads
+sqlite.adb
+sqlite.ads

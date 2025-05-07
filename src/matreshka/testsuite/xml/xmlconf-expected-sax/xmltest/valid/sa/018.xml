@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes/>
+  </startElement>
+  <startCDATA/>
+  <characters>&lt;</characters>
+  <characters>f</characters>
+  <characters>o</characters>
+  <characters>o</characters>
+  <characters>&gt;</characters>
+  <endCDATA/>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

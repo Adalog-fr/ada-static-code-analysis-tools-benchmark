@@ -1,0 +1,17 @@
+awa-storages-beans.adb
+awa-storages-beans.ads
+awa-storages-models.adb
+awa-storages-models.ads
+awa-storages-modules.adb
+awa-storages-modules.ads
+awa-storages-services.adb
+awa-storages-services.ads
+awa-storages-servlets.adb
+awa-storages-servlets.ads
+awa-storages-stores-databases.adb
+awa-storages-stores-databases.ads
+awa-storages-stores-files.adb
+awa-storages-stores-files.ads
+awa-storages-stores.ads
+awa-storages.adb
+awa-storages.ads

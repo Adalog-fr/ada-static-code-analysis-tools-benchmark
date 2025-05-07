@@ -1,0 +1,308 @@
+{
+  "Name": "Ada",
+  "Bytes": 66981,
+  "CodeBytes": 0,
+  "Lines": 2001,
+  "Code": 1330,
+  "Comment": 288,
+  "Blank": 383,
+  "Complexity": 79,
+  "Count": 10,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-expressions.ads",
+      "Extension": "ads",
+      "Location": "src/semantic_versioning-expressions.ads",
+      "Symlocation": "",
+      "Bytes": 3250,
+      "Lines": 80,
+      "Code": 53,
+      "Comment": 3,
+      "Blank": 24,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "semantic_versioning.basic"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-demo.adb",
+      "Extension": "adb",
+      "Location": "src/semantic_versioning-demo.adb",
+      "Symlocation": "",
+      "Bytes": 8732,
+      "Lines": 201,
+      "Code": 143,
+      "Comment": 19,
+      "Blank": 39,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.io",
+        "semantic_versioning.basic",
+        "semantic_versioning.extended"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-basic.ads",
+      "Extension": "ads",
+      "Location": "src/semantic_versioning-basic.ads",
+      "Symlocation": "",
+      "Bytes": 7188,
+      "Lines": 172,
+      "Code": 102,
+      "Comment": 26,
+      "Blank": 44,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-extended.ads",
+      "Extension": "ads",
+      "Location": "src/semantic_versioning-extended.ads",
+      "Symlocation": "",
+      "Bytes": 3467,
+      "Lines": 111,
+      "Code": 57,
+      "Comment": 22,
+      "Blank": 32,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.multiway_trees",
+        "ada.strings.unbounded",
+        "semantic_versioning.basic"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-extended-parser.adb",
+      "Extension": "adb",
+      "Location": "src/semantic_versioning-extended-parser.adb",
+      "Symlocation": "",
+      "Bytes": 795,
+      "Lines": 27,
+      "Code": 23,
+      "Comment": 1,
+      "Blank": 3,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-parser.adb",
+      "Extension": "adb",
+      "Location": "src/semantic_versioning-parser.adb",
+      "Symlocation": "",
+      "Bytes": 546,
+      "Lines": 23,
+      "Code": 18,
+      "Comment": 1,
+      "Blank": 4,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-basic.adb",
+      "Extension": "adb",
+      "Location": "src/semantic_versioning-basic.adb",
+      "Symlocation": "",
+      "Bytes": 7483,
+      "Lines": 248,
+      "Code": 181,
+      "Comment": 30,
+      "Blank": 37,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.exceptions",
+        "ada.strings.fixed",
+        "gnat.case_util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning.ads",
+      "Extension": "ads",
+      "Location": "src/semantic_versioning.ads",
+      "Symlocation": "",
+      "Bytes": 6684,
+      "Lines": 174,
+      "Code": 111,
+      "Comment": 27,
+      "Blank": 36,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "ada.strings.unbounded",
+        "semantic_versioning.basic",
+        "semantic_versioning.extended"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning.adb",
+      "Extension": "adb",
+      "Location": "src/semantic_versioning.adb",
+      "Symlocation": "",
+      "Bytes": 9099,
+      "Lines": 303,
+      "Code": 202,
+      "Comment": 51,
+      "Blank": 50,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.maps",
+        "semantic_versioning.basic",
+        "semantic_versioning.extended"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/semantic_versioning-extended.adb",
+      "Extension": "adb",
+      "Location": "src/semantic_versioning-extended.adb",
+      "Symlocation": "",
+      "Bytes": 19737,
+      "Lines": 662,
+      "Code": 440,
+      "Comment": 108,
+      "Blank": 114,
+      "Complexity": 35,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.handling",
+        "ada.exceptions",
+        "gnat.io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.handling": 2,
+    "ada.command_line": 2,
+    "ada.containers.multiway_trees": 1,
+    "ada.containers.vectors": 1,
+    "ada.exceptions": 2,
+    "ada.strings": 1,
+    "ada.strings.fixed": 2,
+    "ada.strings.maps": 1,
+    "ada.strings.unbounded": 2,
+    "ada.text_io": 2,
+    "gnat.case_util": 1,
+    "gnat.io": 2,
+    "semantic_versioning.basic": 5,
+    "semantic_versioning.extended": 3
+  }
+}

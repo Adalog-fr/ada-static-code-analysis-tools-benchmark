@@ -1,0 +1,91 @@
+Thu 24 Jun 2021 : fixed test_double_lseries_polynomials.adb for the move
+  Write procedure, moved out of the test_double_lseries_matrices.
+
+Sun 20 Jun 2021 : moved allocate procedure from test_double_lseries_matrices
+  into double_linear_laurent_solvers.  Added interactive Newton procedure
+  to test_double_lseries_newton.  Moved write procedures from test_double_
+  lseries_matrices into double_linear_laurent_solvers, updated the test_
+  double_lseries_newton.adb, added procedure to double_lseries_newton_steps.
+  Added output procedures to double_{laurent_series,linear_laurent_solvers},
+  updated test_double_lseries_newton.adb, double_lseries_newton_steps, and
+  main_laurent_series_newton, so phc -u now writes to file.
+
+Sat 19 Jun 2021 : filled in the stub of main_laurent_series_newton, so
+  phc -u now has the same ad hoc functionality as ts_lsernew.
+
+Fri 18 Jun 2021 : new main_laurent_series_newton with a stub procedure.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to laurent.gpr.
+
+Tue 8 Jun 2021 : added a basic laurent.gpr to make the test programs.
+
+Mon 7 Jun 2021 : new package test_double_lseries_newton, with code from
+  ts_lsernew.
+
+Sun 6 Jun 2021 : to the evaluators in double_lseries_polynomials, added
+  the verbose flag to make them silent in double_lseries_newton_steps.adb,
+  tested by ts_lsernew.adb.
+
+Sun 11 Apr 2021 : added test on determinant of a random 2-by-2 matrix
+  to test_double_lseries_matrices.
+
+Sun 4 Apr 2021 : new double_lseries_newton_steps with code from ts_lsernew.
+
+Sat 3 Apr 2021 : updated ts_lsernew to prompt for the leading degree.
+
+Tue 30 Mar 2021 : fixed bug in double_laurent_series.adb, in the normalize
+  procedure, applied normalization in ts_lsernew, on the series read.
+  Added verbose flag to an eval procedure in double_laurent_series,
+  fixed bug in the evaluation of a monomial.  Third bug fix in ts_lsernew,
+  fixed initialization of the leading exponent in the right hand side in
+  the linear system for the update.
+
+Sun 28 Mar 2021 : bug fix in evaluation of table vector array, for null
+  polynomial in a Jacobian matrix, in double_lseries_polynomials.adb.
+  Added procedure to ts_lsernew to run Newton's method starting at
+  a power series.
+  
+Sat 27 Mar 2021 : to ts_lsernew, added new test procedure to start Newton
+  at some initial terms of a power series.
+
+Fri 26 Mar 2021 : new test_standard_lseries_polynomials with the tests
+  taken from ts_lserpol.  Replace 'standard' by 'double' in the names
+  of all packages in this folder.  This changed all ts_ files as well.
+  The Newton step in ts_lsernew works in the regular case.
+
+Thu 25 Mar 2021 : to standard_lseries_polynomials, added Table, Table_Vector,
+  and Table_Vector_Array data types with wrapper functions.
+  To standard_lseries_polynomials, added the construction of the table
+  representations for the Jacobian matrix, tested by ts_lserpol.
+  Fixed index error in standard_lseries_polynomials.adb.
+  Tested evaluation of Jacobian in ts_lserpol.
+
+Wed 24 Mar 2021 : added a proposed degree calculation to ts_lserpol.
+  Improved in standard_lseries_polynomials the making of a series polynomial 
+  and sharped the formula for the proposed degree in ts_lserpol.
+  Extended standard_lseries_polynomials with code for Laurent systems,
+  modified ts_lserpol.
+
+Tue 23 Mar 2021 : new package test_standard_lseries_matrices, with code
+  extracted from ts_laurmat.  To test_standard_lseries_matrices, added
+  a specific test to demonstrate the LU factorization on a matrix series
+  with a singular leading coefficient matrix.  New test procedure ts_lserpol
+  to develop the polynomial evaluation and differentiation at Laurent series.
+  New package standard_lseries_polynomials with code from ts_lserpol.
+
+Mon 22 Mar 2021 : added a plain LU factorization to ts_laurmat.
+  Added a first LU factorization with pivoting to ts_laurmat.
+  Fixed the test in ts_laurmat on LU factorization with pivoting,
+  added the LU with pivoting to the standard_linear_laurent_solvers.
+
+Sun 21 Mar 2021 : fixed initialization of the matrix-vector product
+  in ts_laurmat.  Added Is_Zero function to standard_laurent_series,
+  extended ts_laurmat with a forward substitution solver.
+  Modified ts_laurmat to control the seed of the random number generators.
+  Added exponent_gap function to standard_laurent_series.
+  To ts_laurmat, added a backward substitution solver.
+  New package random_laurent_series with code taken from ts_laurmat.
+  Move code from ts_laurmat into the package standard_linear_laurent_solvers.
+
+Sat 20 Mar 2021 : moved all code for Laurent series from ../Series.
+  New ts_laurmat to develop the matrix-vector product of Laurent series.

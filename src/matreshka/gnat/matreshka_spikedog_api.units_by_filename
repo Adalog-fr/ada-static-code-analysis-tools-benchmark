@@ -1,0 +1,7 @@
+spikedog-generic_application_initializer.adb
+spikedog-generic_application_initializer.ads
+spikedog-http_session_managers.ads
+spikedog-http_sessions.adb
+spikedog-http_sessions.ads
+spikedog-servlet_contexts.ads
+spikedog.ads

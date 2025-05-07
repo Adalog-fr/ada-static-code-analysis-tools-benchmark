@@ -1,0 +1,38 @@
+name = "septum_tests"
+description = "Tests for septum"
+version = "0.0.4"
+authors = ["Paul Jarrett"]
+maintainers = ["Paul Jarrett <jarrett.paul.young@gmail.com>"]
+maintainers-logins = ["pyjarrett"]
+executables = ["septum_tests"]
+
+[[depends-on]]
+septum = "~0.0.1"
+trendy_test = "*"
+dir_iterators = "*"  # Added by alr
+progress_indicators = "*"  # Added by alr
+trendy_terminal = "*"  # Added by alr
+atomic = "*"  # Added by alr
+
+[[pins]]
+
+[pins.septum]
+path = ".."
+
+[pins.trendy_test]
+path = "../../trendy_test"
+
+[pins.dir_iterators]
+path = "../../dir_iterators"
+
+[pins.progress_indicators]
+path = "../../progress_indicators"
+
+[pins.trendy_terminal]
+path = "../../trendy_terminal"
+
+[pins.atomic]
+path = "../../atomic"
+
+[build-switches."*"]
+Compile_Checks = "none"

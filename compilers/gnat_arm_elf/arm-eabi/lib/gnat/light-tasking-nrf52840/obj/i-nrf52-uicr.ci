@@ -1,0 +1,17 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52840/gnat/i-nrf52-uicr.ads"
+node: { title: "interfaces__nrf52__uicr__approtect_pall_fieldRP" label: "approtect_pall_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__debugctrl_cpuniden_fieldRP" label: "debugctrl_cpuniden_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__debugctrl_cpufpben_fieldRP" label: "debugctrl_cpufpben_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__regout0_vout_fieldH" label: "regout0_vout_fieldH\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__regout0_vout_fieldRP" label: "regout0_vout_fieldRP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__Tnrffw_registersBIP" label: "Tnrffw_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__Tnrfhw_registersBIP" label: "Tnrfhw_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__Tcustomer_registersBIP" label: "Tcustomer_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__pselreset_registerIP" label: "pselreset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__Tpselreset_registersBIP" label: "Tpselreset_registersBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__approtect_registerIP" label: "approtect_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__nfcpins_registerIP" label: "nfcpins_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__debugctrl_registerIP" label: "debugctrl_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__regout0_registerIP" label: "regout0_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__uicr__uicr_peripheralIP" label: "uicr_peripheralIP\n<built-in>\n4 bytes (static)\n0 dynamic objects" }
+}

@@ -1,0 +1,1739 @@
+Wed 20 Mar 2024 : prepared files for version 1.1.4.
+
+Sun 17 Mar 2024 : extended the curves module with a function to get the
+  predicted solution.
+
+Sat 16 Mar 2024 : bug fix in the symbolic_pade_approximant function of
+  the curves module.
+
+Tue 20 Feb 2024 : extended decomposition.py with the retrieval and the
+  writing of the irreducible factor string.
+
+Mon 19 Feb 2024 : different gamma in last test in tropisms.py makes
+  all test pass.
+
+Sat 17 Feb 2024 : corrected incfixaposteriori.rst and .ipynb for the
+  initialization of the homotopy in the step-by-step path tracker.
+  To decomposition.py, added a wrapper solve() function and a function
+  to write the decomposition.  In factor.py, renamed write_decomposition
+  into write_factorization.  In sets.py, added clear_symbol_table()
+  in the making of a witness set of a hypersurface.
+  Added tests to diagonal.py, and fixed some bugs.
+  To snippets.py in PHCpy/manual, added functions to illustrate the
+  numerical irreducible decomposition of positive dimensional solution sets.
+  Extended snippets.rst for the user manual.  New posdimsolsets.ipynb to
+  prepare another extension of the user manual.
+  Added posdimsolsets.rst to the user manual.
+
+Fri 16 Feb 2024 : added incfixapriori.ipynb to PHCpy/manual folder,
+  updated incfixaposteriori.pynb.  Added the section about the apriori
+  step control trackers incfixapriori.rst to the user manual.
+
+Thu 15 Feb 2024 : added a section on scaling in the user manual chapter.
+  Three functions added to snippets.py on power series expansions.
+  Added seriesexpansions.ipynb to the PHCpy/manual folder.
+  To the user manual, added the section seriesexpansions.rst.
+  Extended snippets.rst for the user manual with functions on series.
+
+Wed 14 Feb 2024 : made sweephomotopies.ipynb in PHCpy/manual on arc length
+  parameter continuation.  Added sweephomotopies.rst to the user manual.
+  New notebook scaling.ipynb in PHCpy/manual.
+
+Tue 13 Feb 2024 : to polynomials.py, added a function to count the number
+  of semicolons, applied it in the checkin of the solve of solver.py.
+  Extended the newtondeflation.ipynb in the folder PHCpy/manual.
+  Added the section newtondeflation.rst to the user manual chapter.
+
+Mon 12 Feb 2024 : added newtondeflation.ipynb to the PHCpy/manual folder.
+
+Sun 11 Feb 2024 : as suggested by pylint, used f-strings in curves.py.
+  In schubert.py, added =0 as the default value for qdeg to some functions.
+  Truncated the string for the Pieri localization poset properly
+  in schubert.py.  Added schubert.ipynb to the PHCpy/manual folder.
+  To the user manual of the documentation, I added schubert.rst.
+  Added snippets.rst to the user manual.
+
+Sat 10 Feb 2024 : fixed verbose level use in trackers.py so that all
+  test functions are mute when the verbose level is set to zero.
+  Added write_parameters function to trackers.py.
+  New incfixaposteriori.ipynb to prepare section in user manual.
+  Added incfixaposteriori.rst to the user manual.
+
+Fri 9 Feb 2024 : truncated returned strings properly in starters.py.
+  Added rootcounts.ipynb to the PHCpy/manual folder.
+  New rootcounts.rst for the new section in the user manual.
+
+Thu 8 Feb 2024 : to volumes.py, added wrappers for the mixed volume,
+  stable mixed volume, and to make a random coefficient system.
+  Added speedup.py and qualityup to PHCpy/manual.
+  To PHCpy/manual, added the notebook parallelruns.ipynb.
+  Added parallelruns.rst to the user manual chapter.
+
+Wed 7 Feb 2024 : small edits in the phcpy user manual files 
+  reproducibleruns.rst and numericalsolutions.rst.
+  Updated starters.py, sweepers.py, trackers.py, solutions.py, scaling.py,
+  and schubert.py for the simplification of solutions.verify and pylint.
+
+Tue 6 Feb 2024 : used vrblvl-1 consistently in the phc calls in solver.py.
+  Fix in documentation string of solver.solve() function.
+  Added blackbox.ipynb and numericalpolynomials.ipynb to the manual folder.
+  Notebook reproducibleruns.ipynb to illustrate setting of seed.
+  Added four sections to the phcpy user manual chapter.
+  Fixed length of roco string in solve_* functions in solver.py.
+
+Mon 5 Feb 2024 : added an entry in progman.rst for the tropisms module.
+  Broke tutorial.rst up into nine files, one for each use case.
+  Add numericalsolutions.ipynb to the manual folder.
+  In the verify() of the solutions.py returned absolute values.
+
+Sun 4 Feb 2024 : added computation of multiplicity structure to deflation.py.
+  Wrote start of new module tropisms ... and completed it, updated
+  __init__.py and setup.py.  Extended snippets.py for the user manual.
+
+Sat 3 Feb 2024 : completed sweepers.py, updated __init__.py and setup.py.
+  Updated the programmer manual with the auto generated documentation
+  on the sweepers module.  To the schubert.py, added test on Pieri homotopies
+  to compute line producing curves that meet lines at interpolation points.
+  Extended snippets.py with four examples on the schubert module.
+
+Fri 2 Feb 2024 : start of new module sweepers.py.
+
+Thu 1 Feb 2024 : completed the scaling module in scaling.py, fixed errors
+  and added scaling of solutions with double doubles and quad doubles.
+  Added code snippets.py to prepare for the phcpy user manual.
+  Extended schubert.py with a function to run Littlewood-Richardson
+  homotopies in double precision.
+
+Wed 31 Jan 2024 : new module scaling for equation and variable scaling
+  for systems with coefficients of varying magnitudes.
+  Added scaling of solutions in double precision to scaling.py.
+
+Tue 30 Jan 2024 : added the 2-by-2 minors test to the phcpy tutorial,
+  added the sevenbar test, and finally, the touchcircle test is
+  added to the phcpy tutorial.  Edited tutorial.rst for markdown use.
+
+Mon 29 Jan 2024 : fixed missing entry in README.md of tests folder.
+  Added the plotting of paths and poles to the documentation,
+  updated showpaths.ipynb and showpoles.ipynb.
+
+Sun 28 Jan 2024 : extended __init__.py so that it also can load the
+  libPHCpack on systems where dist-packages instead of site-packages
+  are used.  Completed welcome.rst in the phcpy documentation.
+  Added the 'haas.ipynb' to the tutorial of the documentation.
+  Updated haas.ipynb for saving of figures.
+  Added fourbar and fourlines to the phcpy documentation,
+  updated fourbar.ipynb and fourlines.ipynb.
+
+Sat 27 Jan 2024 : shorted 'verbose_level' to 'vrblvl' in the solve()
+  of solver.py, updated sets.py, cascades.py, and factor.py.
+  Fixed documentation strings in sets.py and factor.py.
+  Corrected the tests haas.py and haas.ipynb for the 'verbose_level'
+  change and added two sentences about the counterexample.
+  Initialized documentation, added programmer manual, started
+  the other sections.
+
+Fri 26 Jan 2024 : added haas.ipynb to the tests, with the plots of
+  the roots of the counter example of Bertrand Haas.
+
+Thu 25 Jan 2024 : added polyhedral homotopies in double double and
+  quad double precision to volumes.py.  Added haas.py to tests.py,
+  to illustrate the solver on many cores.
+
+Wed 24 Jan 2024 : to volumes.py added polyhedral homotopies to solve
+  a random coefficient system in double precision.
+
+Tue 23 Jan 2024 : added function to volumes.py to return the number of
+  stable mixed cells.
+
+Mon 22 Jan 2024 : extended volumes.py with functions to work with
+  the computed mixed cells.
+
+Sun 21 Jan 2024 : extended polynomials.py with function to return the
+  number of terms in a polynomial system.  New module binomials.py
+  to compute monomial maps as solutions of binomial systems.
+  Small edits in binomials.py for pylint warnings.
+
+Sat 20 Jan 2024 : added touchcircle.ipynb to the tests folder
+  to better explain the test of computing tangent lines to a circle.
+  Improved touchcircle.py for pylint warnings.
+  Add fourspheres.py to the tests folder.  Added Jupyter notebook to
+  make the pictures for the fourspheres test script.
+
+Fri 19 Jan 2024 : improved diagonal.py for pylint suggestions.
+  Added touchcircle.py to the tests folder.
+
+Thu 18 Jan 2024 : fixed verbose level in calls to phc in decomposition.py,
+  made solving of sevenbar in example uniform as in the other examples.
+  Improvements in decomposition.py and __init__.py for pylint.
+
+Wed 17 Jan 2024 : new module decomposition.py exports the extended
+  blackbox solvers for a numerical irreducible decomposition.
+  Fixed import statements at the top of decomposition.py.
+  Added function solve_sevenbar() to the examples module.
+
+Tue 16 Jan 2024 : added a Jupyter notebook version of the sevenbar.py
+  test example.
+
+Mon 15 Jan 2024 : improved starters.py, homotopies.py, and schubert.py
+  for pylint warnings.  Path tracking works for Laurent homotopies,
+  after extensions in polynomials.py, homotopies.py, and trackers.py.
+  Extensions in sets.py and cascades.py to work for Laurent systems.
+  Bug fixes in cascades.py for dd/qd Laurent systems.
+  Extended sets.py with membership tests for Laurent witness sets.
+  Added sevenbar.py to the tests.
+
+Sun 14 Jan 2024 : improved use of vrblvl in sets.py and for pylint.
+  Cleared solutions in the *_double_solve functions in solver.py
+  and used f-strings to format numbers.  Simplified test minors2x2.py.
+  To the tests folder, added the Jupyter notebook minors2x2.ipynb,
+  and the notebooks showpaths.ipynb and showpoles.ipynb.
+  Added to tests the notebook apollonius.ipynb, fourbar.ipynb,
+  and fourlines.ipynb.  In function names, replaced "Laurent" by
+  "laurent" updating dimension.py, polynomials.py, solver.py, sets.py
+  and factor.py for better pylint scores.
+
+Sat 13 Jan 2024 : added test on the adjacent 2-by-2 minors of a matrix.
+  New function to write the numerical irreducible decomposition.
+  Fixed factor.py and all tests now pass.
+  Better use of verbose level vrblvl flag in solver.py.
+  Edited solver.py for pylint warnings.
+  New module deflation.py with Newton steps and deflation methods.
+
+Fri 12 Jan 2024 : monodromy breakup in factor.py works in double precision.
+  To factor.py, added versions of the monodromy breakup algorithm in
+  double double and quad double precision.
+
+Thu 11 Jan 2024 : extended factor.py with monodromy loops.
+
+Wed 10 Jan 2024 : improved curves.py for pylint warnings.
+
+Tue 9 Jan 2024 : fixed bug in verify of solutions.py so it works also for
+  coordinates that are not of type complex.  Improved use of verbose level
+  in polynomials.py, homotopies.py, trackers.py and curves.py.
+  Fixed calls to strsol2dict() regarding the verbose level.  Extended
+  factor.py to the computation of the trace grid in double precision.
+
+Mon 8 Jan 2024 : start of a new module factor, to factor positive dimensional
+  solution sets into irreducible components.  Improved the use of the verbose
+  level vrblvl in dimension.py, polynomials.py, volumes.py, starters.py.
+  Improved use of verbose level vrblvl in series.py.
+
+Sun 7 Jan 2024 : in version.py, replaced verbose by vrblvl,
+  updated __init__.py, dimension.py, polynomials.py, solutions.py,
+  and volumes.py.  Improved diagonal.py for pylint warnings.
+
+Sat 6 Jan 2024 : renamed homotopies.py into starters.py, moved functions
+  to define homotopies from trackers.py into the new homotopies module.
+  Improved tests in trackers.py and curves.py, updated cascades.py.
+  Completed copy functions in homotopies.py, renamings caused updates
+  in the functions of cascades.  Extended sets.py with functions to
+  compute witness sets of hypersurfaces.  Added diagonal.py to
+  intersect positive dimensional solution sets with diagonal homotopies.
+
+Fri 5 Jan 2024 : added double double and quad double versions of the
+  functions in cascades.py.  Added copy functions to trackers.py.
+
+Thu 4 Jan 2024 : in trackers.py added new functions with code that is
+  factored out of the track functions for better modularity.
+  To polynomials.py, added a function to clear the symbol table.
+  To sets.py, added functions to drop variables and coordinates.
+  New module cascades.py to compute generic points on all components.
+
+Wed 3 Jan 2024 : added test showpoles.py to PHCpy/tests.
+  Extended homotopies.py with linear-product root counts and systems.
+  Add a first version of sets.py to represent witness sets.
+
+Tue 2 Jan 2024 : fixed homotopies.py to import version as phcpy.version.
+  Extended curves.py with double double and quad double versions of the
+  trackers and added the filename parameter to the track functions.
+  Bug fix in trackers.py for the trackers in double double precision
+  with a generator, improved set of start and target system so that
+  in principle also overdetermined systems can be handled.
+  Completed curves.py with all trackers and tests.
+
+Mon 1 Jan 2024 : extended trackers.py with trackers in double double
+  and quad double precision.  Added step-by-step track to trackers.py.
+  Added the script showpaths.py to PHCpy/tests.
+  Added m-homogeneous Bezout numbers and start systems to homotopies.py.
+
+Sun 31 Dec 2023 : moved the tuning module into the trackers module.
+  In version.py, dimension.py, polynomials.py, solutions.py, series.py,
+  solver.py, volumes.py, and homotopies.py: replaced c_int by c_int32.
+  Basic version of the curves module for apriori step size control.
+
+Sat 30 Dec 2023 : extended schubert.py with the Littlewood-Richardson rule.
+  Added function to make Pieri problems to schubert.py which completes
+  the families module.  Added the verify function to the solutions module
+  and added the running of the Pieri homotopies to the schubert module.
+  New module trackers with aposteriori step size control.
+  Added the script fourlines.py to tests.
+
+Fri 29 Dec 2023 : fixed the imports in the modules of phcpy so that the
+  import phcpy works from a Python script.  Added the circle problem of
+  Apollonius and the testimport.py to the tests folder.
+  Added fourbar.py to the tests folder of PHCpy.
+  Extended polynomials.py with a function to return the degree of
+  a polynomial.  Three new modules: families, tuning, homotopies.
+  Updated __init__.py, setup.py, and README.md.
+  New module schubert.py with Pieri root count,
+  updated __init__.py, setup.py, and README.md.
+
+Thu 28 Dec 2023 : in PHCpy simplified the folder structure, removing src,
+  and added setup.py.  Added two functions to __init__.py: one to locate
+  the folder with the site-packages and another to get the phc function.
+  Then 'pip install .' works on a miniconda python on Linux and Windows.
+  Updated __init__.py with loading of the modules and version.py with
+  and extra function to get the phcpy.phc function.
+
+Wed 27 Dec 2023 : renamed the name of the function version in version.py 
+  into version_string and fixed the verbosity when verbose is False.
+  Renamed the folder Ctypes into PHCpy, in preparation for packaging.  
+  The UPDATES of the old Ctypes are merged here.
+
+Tue 26 Dec 2023 : following suggestions of pylint, updated examples.py,
+  polynomials.py, and solutions.py.
+
+Sun 24 Dec 2023 : fixed parameters in solver.py for multithreading.
+
+Sat 23 Dec 2023 : added is_square() to polynomials.py and wrapped the
+  solvers in one solve() function in solver.py.
+  Enlarged numbers in the allocation for the 'roco' string in solver.py.
+  New module examples.py with demonstration systems.
+
+Fri 22 Dec 2023 : fixed bugs in solutions.py and from solutions.py removed
+  the imports of the polynomials and the solvers.
+  Improved solver.py with better tests.  Improved tests in volumes.py.
+  Added solvers for Laurent systems to solver.py.
+
+Thu 21 Dec 2023 : added Pade approximants to series.
+  Extended dimension with a function to get the number of available cores.
+  Extended dimension for Laurent polynomials.
+  Extended polynomials for Laurent polynomials and systems.
+
+Wed 20 Dec 2023 : extended solver.py with trinomial system test.
+  Extended solutions.py with the functions and class from phcpy.solutions.
+  Improved version.py for pylint recommendations.
+  Extended series.py with newton starting at series.
+
+Tue 19 Dec 2023 : added tests to version.py and fixed the format
+  conversions for all 32-bit natural numbers.  Fixed buffer size 
+  in polynomials.py; initialized buffers in solutions.py and solver.py.
+  First working version of series.py in double precision.
+  Extended series.py to double double and quad double precision.
+
+Mon 18 Dec 2023 : attempt to fix int4a2nbr() in version.py for numbers
+  larger than 255.  Updates in solutions.py.
+
+Sun 17 Dec 2023 : extended polynomials.py for nonsquare polynomial systems.
+  Extended polynomials.py with functions to store many polynomial systems.
+  Extended solutions.py with functions to append solution strings.
+  In solver.py, doubled the size of the buffer for the root counter string.
+
+Sat 16 Dec 2023 : extended dimension.py, polynomials.py, solutions.py,
+  and solver.py for double double and quad double precisions.
+
+Sat 21 Jan 2023 : in version.py renamed the function getPHCmod into 
+  get_phcfun which returned the function instead of the module.
+  All other .py files were adjusted which led to close to perfect
+  pylint scores.
+
+Fri 20 Jan 2023 : extended solutions.py to write all solutions
+  stored in double precision.
+
+Thu 19 Jan 2023 : started solutions.py ...  Ran pylint on all .py files
+  and convert camel case to snake case of function names.
+
+Wed 18 Jan 2023 : edits to version.py, dimension.py, polynomials.py,
+  volumes.py and solver.py for pylint warnings, for improved ratings.
+
+Tue 17 Jan 2023 : in solver.py, used int.from_bytes() on a[0] to get the
+  number of solutions returned as an integer.
+
+Mon 16 Jan 2023 : extended version.py with int4a2str and str2int4a functions.
+  Extended version.py with int4a2nbr function, improved dimension.py,
+  and added a new module polynomials.  New volumes.py to export functions
+  to compute mixed volumes and stable mixed volumes.
+  The blackbox solver is wrapped in the new solver.py module.
+
+Sun 15 Jan 2023 : made version.py platform independent, as it works for
+  windows, macos X (both Intel and M1), and linux (of course).
+  Extended version.py with the function getPHCmod() to give access to
+  the shared object or dynamic library in a platform independent manner.
+  New dimension.py to get the number of polynomials in double precision.
+
+Mon 30 May 2022 : prepared files for version 1.1.2 of phcpy.
+
+Sun 29 May 2022 : in the sets module of the python2 and python3 versions,
+  added the verbose_level parameter to the embed functions.
+
+Tue 10 May 2022 : added a reset function to the curves module of the
+  python2 and python3 versions of phcpy.
+
+Fri 26 Feb 2021 : prepared files for version 1.1.1 of phcpy.
+
+Thu 14 Jan 2021 : fixed type error in factor.py of the python2 and python3
+  versions of phcpy.
+
+Mon 14 Dec 2020 : updated the solve method in the Polynomials class to
+  store the gamma constant after calling the blackbox solver.
+  Updates files for version 1.1.0 of phcpy.
+
+Fri 11 Dec 2020 : extended track functions in trackers.py, both for python2
+  and python3 with the option to set power of t in the homotopy.
+
+Mon 30 Nov 2020 : to polynomials.py for python2 and python3, added the
+  retrieval of the start system and start solutions.
+  In the solve method of the Polynomials class in polynomials, stored
+  the start solutions as Solution objects.
+  Updates setup.py, __init__.py, and conf.py files for 1.0.9.
+
+Thu 19 Nov 2020 : added a function support_sets to the polytopes module for
+  python2 and python3.
+
+Sat 31 Oct 2020 : in polytopes.py for python2 added a warning to the support
+  function in case the value for the number of variables is too small.
+  Added the same warning to the python3 version of polytopes.py.
+  Prepared files for version 1.0.8 of phcpy.
+
+Wed 30 Sep 2020 : added reference to SciPy 2019 paper to welcome.rst in
+  the phcpy documentation.  In blackbox.rst, added descriptions on the
+  options mvfocus, dictionary_output, and verbose_level of the solver.
+  To welcome.rst, added the talk at the Python devroom at FOSDEM 2019.
+
+Tue 29 Sep 2020 : updated files for version 1.0.7.
+
+Mon 28 Sep 2020 : added the option mvfocus to the double precision solve()
+  functions in the solver module of python2 and python3.
+
+Thu 30 Jul 2020 : updated files for version 1.0.6.
+
+Wed 29 Jul 2020 : to the blackbox solver functions, added added the parameter
+  verbose_level for listing the called procedures during the solving.
+
+Wed 1 Jul 2020 : added a function to the solver module to compute a
+  condition report in double precision.  Updated files for version 1.0.5.
+
+Fri 12 Jun 2020 : added the computation of condition tables to the
+  solution modules of the python2 and python3 versions.
+  Updated __init__.py, setup.py, and conf.py for version 1.0.4.
+
+Wed 29 Apr 2020 : updated files for version 1.0.3 of phcpy.
+
+Tue 28 Apr 2020 : commented out some print statements in the sweepers module
+  of the python2 and python3 versions.
+
+Thu 21 Oct 2019 : updated the documentation of phcpy to include the new
+  module polynomials.  Added a couple of lines about the polynomials module
+  to the __init__.py of both the python2 and the python3 versions of phcpy.
+  Updates files for version 1.0.2 of phcpy.
+
+Thu 3 Oct 2019 : updates files for version 1.0.1 of phcpy.
+
+Sun 29 Sep 2019 : added the number of tasks to the solve() method in the
+  class polynomials.
+
+Sat 28 Sep 2019 : added the list of variables as a data attribute in the
+  class polynomials.
+
+Mon 23 Sep 2019 : modified the setup.py for python3 to include polynomials.py
+  and did the same for the python2 version, after adding the polynomials.py.
+
+Sun 22 Sep 2019 : start of a new module polynomials for the python3 version
+  of phcpy which exports the class Polynomials.
+
+Sat 21 Sep 2019 : extended the constructor of a Solution in solutions
+  with the alternative dictionary argument, for python3.
+  Did the same for the python2 version of the solutions module.
+
+Wed 18 Sep 2019 : swapped the string representation for the dictionary
+  in the definition of the class Solution.  Did the same for the python2
+  version of the Solution class in the solutions module.
+
+Tue 17 Sep 2019 : added to solutions.py in PHCpy3/phcpy a basic definition
+  of the class Solution, and a test_class() function.  Also updated the
+  python2 version of the module solutions with a basic Solution class.
+
+Sun 8 Sep 2019 : to the interface.py module added functions to read solutions
+  from file, given a file name, both for python2 and python3.
+
+Sun 1 Sep 2019 : prepared files for version 1.0.0 of phcpy.
+
+Sat 31 Aug 2019 : test on 2-homogenization and 1-homogenization in the
+  curves module improved.
+
+Fri 30 Aug 2019 : extended the curves module with a test on 2-homogenization.
+
+Sun 25 Aug 2019 : extended the call to the tracking functions in the curves
+  modules (both for python2 and python3) to include the m-homogenization
+  value and the index representation of the partition of the variable set.
+
+Tue 13 Aug 2019 : updated functions in the curves module to show also the
+  pole step, estimated distance, and Hessian step; fixed initialization of
+  the homotopy for the step-by-step with default 0 flag for homogeneous.
+  The step-by-step trackers in curves support homogeneous coordinates.
+  Prepared files for version 0.9.9 of phcpy.
+
+Mon 12 Aug 2019 : fixed writing of homotopy parameters in curves, after the
+  removal of the beta for the series step.
+
+Sun 11 Aug 2019 : to the curves module, added default values for the new
+  parameters in the track functions for Pade continuation.
+
+Sun 28 Jul 2019 : updated random_system in the solver modules for python2
+  and python3 so systems with double double and quad double precision can
+  be generated.
+
+Sat 27 Jul 2019 : updated random_system in the solver modules for python2
+  and python3 so nonsquare systems can be generated.
+
+Thu 25 Jul 2019 : prepared files for release 0.9.8.
+
+Mon 15 Jul 2019 : updated the interface module for the python2 phcpy.
+
+Sun 14 Jul 2019 : added test_tableau function to the interface module
+  of the python3 version of phcpy.
+
+Sat 13 Jul 2019 : prepared code for retrieval of tableau form in the
+  interface module of the python3 version of phcpy.
+  Completed first version of load tableau form in interface.py for python3.
+
+Fri 12 Jul 2019 : fixed flattening of complex coefficients in the
+  interface module for python3.  Update store_standard_tableau in the
+  interface.py for python3 and python2.  Fixed the import inside the
+  store_standard_tableau function of the interface.py for python2.
+
+Thu 11 Jul 2019 : added the SciPy 2019 paper to the reference list in
+  the file welcome.rst of the python2 and python3 documentation.
+  Added to interface.py in PHCpy3/phcpy a function to store the
+  tableau representation of a system.
+
+Fri 5 Jul 2019 : updated files for version 0.9.7 of phcpy.
+
+Thu 4 Jul 2019 : added functions to the curves module to return the various
+  different step sizes.
+
+Tue 25 Jun 2019 : extended the curves modules with functions to tune the
+  multiplication factor for the curvature step control.
+
+Fri 21 Jun 2019 : fixed copying of target solutions with zero coordinates
+  for the solving of the random coefficient start system.
+  Updates files for version 0.9.6 of phcpy.
+
+Thu 20 Jun 2019 : additions to solver.py for zero coordinate solutions,
+  both for python2 and python3.
+
+Mon 17 Jun 2019 : updates in random_coefficient_system() functions in
+  python2 and python3 for stable mixed volumes.
+
+Sun 26 May 2019 : in the trackers module, replaced silent by verbose in
+  the test_track(), both for python2 and python3.
+
+Sat 25 May 2019 : replaced deprecated 'silent' option by 'verbose' in the
+  solve() called in the tropism module, for both python2 and python3.
+
+Fri 17 May 2019 : prepared files for version 0.9.5 of phcpy.
+  Updated the step-by-step trackers in curves to print the previous
+  t value with the printing of series, Pade approximants and poles.
+
+Tue 14 May 2019 : extended the python2 version of the curves module with an
+  interactive step-by-step loop on a parameter homotopy, tested on hyperbola.
+  Also extended the python3 version of the curves module in a similar way.
+
+Sat 11 May 2019 : prompted user for verbose option in the test_solve()
+  of the factor module, both for python2 and python3.  Also added a prompt
+  for verbose in test_run_cascade() in the cascades module.
+
+Wed 8 May 2019 : improved the pylint score of the solutions module for
+  the Python3 version.  Also imported the python2 solutions module and
+  added the j = complex(0, 1) definition back in for the test().
+
+Tue 9 Apr 2019 : to wilkinson.py added print of solutions at the end.
+
+Sun 7 Apr 2019 : added the script wilkinson.py to the examples folder of
+  PHCpy2, to run a polynomial homotopy on the Wilkinson polynomials.
+
+Fri 29 Mar 2019 : prepared files for version 0.9.4 of phcpy.
+
+Thu 28 Mar 2019 : added gamma constant as optional parameter to initialize
+  the homotopies in the step-by-step path trackers in the trackers module,
+  which changed the file tracker.py both in the PHCpy2 and PHCpy3 folders.
+
+Sat 23 Mar 2019 : improved the make_solution function of the solutions
+  module, adding also a function numerals.
+
+Thu 21 Mar 2019 : added functions to the solutions module to return the
+  coordinates in Python complex number string representations. 
+  To the solve functions in the solver modules of python2 and python3
+  added the dictionary_output option.
+
+Wed 20 Mar 2019 : started adding the option dictionary_output to the
+  solver module.
+
+Tue 19 Mar 2019 : added the function formdictlist to the solutions modules
+  in the PHCpy2 and PHCpy3 folders.
+
+Thu 28 Feb 2019 : fixed errors in the documentation for the path trackers.
+  Prepared files for version 0.9.3 of phcpy.
+
+Mon 21 Jan 2019 : added functions to the curves module to initialize
+  a parameter homotopy for the step-by-step Pade continuation.
+  Prepared files for version 0.9.2 of phcpy.
+  In the __init__.py, added the import of the new module curves.
+
+Fri 11 Jan 2019 : added the functions for a symbolic Pade vector to the
+  curves module for python3.
+
+Wed 9 Jan 2019 : to the curves module for python2, added a function to
+  compute a symbolic representation of a Pade vector.
+
+Fri 28 Dec 2018 : the curves module has functions to extract the coefficients
+  of the power series and the Pade approximants.
+  Extended the curves module with functions to return all poles.
+  Prepared files for version 0.9.1 of phcpy.
+
+Thu 27 Dec 2018 : extended the curves module with functions to return
+  the t value, the step size, pole radius, and closest pole.
+
+Tue 25 Dec 2018 : added the step-by-step run of the series-Pade tracker
+  to the module curves, both for python2 and python3.
+
+Mon 10 Dec 2018 : improved the track functions in curves.py.
+
+Sun 9 Dec 2018 : prepared files for release 0.9.0 of phcpy.
+
+Sat 8 Dec 2018 : to the module curves.py added extra function to document
+  better each parameter, in the python2 version.  Updated for python3 too.
+
+Thu 6 Dec 2018 : updated the documentation with a few words about the
+  new module curves.
+
+Wed 5 Dec 2018 : new module curves, to export Pade continuation,
+  defines the tuning of the homotopy continuation parameters.
+  Wrapped the path trackers in the new module curves.py.
+
+Sun 11 Nov 2018 : prepare files setup.py, __init__.py, and conf.py, for
+  version 0.8.9 of phcpy for python2 and python3.
+
+Fri 9 Nov 2018 : to series.py, added the maximal degree bound, both
+  for the Python2 and Python3 versions.
+
+Sun 14 Oct 2018 : updated setup.py, __init__.py, conf.py for version 0.8.8
+  in the PHCpy2 and PHCpy3 folders.
+
+Thu 27 Sep 2018 : in factor.py in the PHCpy2/phcpy folder, replaced the
+  import of phcpy2c3 by phcpy2c2.  Updated __init__.py, conf.py and setup.py
+  in the PHCpy2 and PHCpy3 folders for version 0.8.7.
+
+Fri 31 Aug 2018 : adjustment for version 0.8.6 of phcpy.
+
+Tue 28 Aug 2018 : added the eacute definition to blackbox.rst to write
+  the e in Bezout properly.  Added a wrapper to the polysys and laursys
+  solve functions in factor.py, to wrap the precision levels.
+
+Sun 26 Aug 2018 : added function for double double and quad double precision
+  to the factor module of phcpy for python2.  Did the same for python3.
+
+Sat 25 Aug 2018 : extended the factor module of PHCpy2 with the functions
+  standard_polysys_solve and test_polysys_solve.  Added the corresponding
+  function to the factor module of PHCpy3.
+
+Tue 14 Aug 2018 : adjustments for version 0.8.5 of phcpy.
+
+Sat 2 Jun 2018 : prepared files __init__.py, setup.py, conf.py for 0.8.4
+  of python2 and python3.
+
+Fri 1 Jun 2018 : extended mixed_volume_by_demics() with the stable option,
+  to compute the stable mixed volume.
+
+Wed 16 May 2018 : added mixed_volume_by_demics() to the solver module of phcpy,
+  with an added test_mixed_volume() to compare with MixedVol.
+  Updated the files welcome.rst and blackbox.rst to document the new function
+  to compute mixed volumes by DEMiCs.  Updates files setup.py, __init__.py,
+  and conf.py in the documentation for version 0.8.3.
+
+Tue 1 May 2018 : updated blackbox.rst in the Python documentation with a
+  small section on computing the multiplicity structure.
+  Updates files for version 0.8.2.
+
+Sun 29 Apr 2018 : extended solver.py in PHCpy2/phcpy with wrappers to compute
+  the multiplicity structure and a test function.
+  Extended the solver.py for python3 in PHCpy3/phcpy similarly.
+
+Tue 10 Apr 2018 : improved test in sets.py in PHCpy2/phcpy and PHCpy3/phcpy,
+  adding the number of tasks.  Prepared files for version 0.8.1,
+  in PHCpy2 and PHCpy3: setup.py, conf.py (doc/source), __init__.py (phcpy).
+
+Thu 5 Apr 2018 : extended sets.py for python2 and python3 with the parameter
+  tasks in the functions for the homotopy membership tests.
+  In sets.py, updated the calls to the C membership tests to take the
+  number of tasks as the extra second parameter.
+
+Mon 26 Mar 2018 : prepared files for version 0.8.0.
+
+Tue 13 Mar 2018 : updated setup.py, __init__.py, and conf.py for 0.7.9.
+  In the documentation string of solve() in solver.py, referred explicitly to
+  the solve in the factor module for a numerical irreducible decomposition.
+
+Mon 12 Mar 2018 : added a tolerance to the membership filters in sets.py
+  to bypass the homotopy membership tests for regular solutions,
+  modified cascades.py and factor.py in the Python2 version of phcpy.
+  Made the similar updates to the Python3 version of phcpy.
+
+Mon 5 Mar 2018 : added a checkin_newton_power_series_function() to check
+  the input of the newton_power_series functions in the series.py module.
+  Updated files setup.py, __init__.py, conf.py in the PHCpy2/PHCpy3,
+  in the phcpy and doc/source directories for version 0.7.8.
+
+Sun 4 Mar 2018 : added snippets.rst to the user manual, listing all code
+  snippets for the Jupyter notebook extension in the documentation.
+
+Thu 4 Jan 2018 : added comment lines to the __init__.py of phcpy to 
+  suggest the init_cysignals() when using phcpy in SageMath.
+
+Tue 2 Jan 2018 : replaced the silent=True option in the test() of series.py
+  by verbose=False, when calling the blackbox solver solve().
+
+Sat 30 Dec 2017 : added the work around of Marc Culler for the signals
+  when importing phcpy in Sage session to the welcome.rst files.
+  Updated setup.py, conf.py, and __init__.py for version 0.7.7 of phcpy.
+
+Thu 19 Oct 2017 : added lower dimension to run_cascade of cascades.py.
+
+Wed 18 Oct 2017 : in solutions.py, converted the value for t from a string
+  to a complex number.  In solver.py, provided a checkin for mixed_volume.
+  Also fixed the python3 version and returned -1 for nonsquare input.
+
+Tue 17 Oct 2017 : fixed verbose option in appolonius.py files.
+  In the __init__.py, added the import of the modules, so dir(phcpy)
+  shows the modules and phcpy.solver.solve can be used directly
+  and did the same for the __init__.py in the PHCpy2/phcpy folder.
+  Fixed the example touchcircle.py for the updated options and the
+  module diagonal, extracted out of the old sets.
+  Fixed the tangents4spheres.sage and tangents4spheres.sws for the
+  deprecated option silent of the blackbox solver.
+  Fixed the documentation apollonius.rst, touchcircle.rst, and
+  tangents4spheres.rst for the deprecated silent option and the
+  diagonal module.  With the checkin option of the blackbox solver,
+  the number of tasks is checked for being nonnegative.
+  Prepared the __init__.py, conf.py, and setup.py for phcpy 0.7.6.
+
+Mon 16 Oct 2017 : fixed bug in random_coefficient_system() by clearing the
+  systems container for a subsequent mixed volume computation.
+  Applied the same changes also to the python3 version.
+
+Thu 28 Sep 2017 : prepared version 0.7.5 of phcpy.
+
+Sun 24 Sep 2017 : added a short paragraph about nonlinear reduction in the
+  documentation file blackbox.rst for python 2 and 3.
+
+Sat 23 Sep 2017 : to the solver module for python2 and python3 added a
+  function for nonlinear reduction, along with a simple test.
+
+Wed 20 Sep 2017 : added wrapper function, linear_reduce, to the solver.py,
+  wrote short section in the user manual to document linear_reduce.
+
+Tue 19 Sep 2017 : added a simple linear reduction to the solver modules
+  for python 2 and 3.  Added double double and quad double versions.
+
+Wed 13 Sep 2017 : corrected the silent= option into the verbose= options into
+  the calls to the solve function in cascades.py and factor.py.
+  Fixed the test_factor function in the factor module.
+
+Tue 12 Sep 2017 : extended the definition of the blackbox solver, in the
+  source file blackbox.rst of the Sphinx documentation of python 2 and 3.
+  Added an example to blackbox.rst to illustrate the value of rco.
+  The start of the user manual chapter in userman.rst summarizes the
+  inventory and the structure of the chapter.
+  Updated setup.py, __init__.py, and conf.py for version 0.7.4 of phcpy.
+
+Mon 11 Sep 2017 : added documentation about the four computed root counts
+  of the blackbox solver.
+
+Sun 10 Sep 2017 : the solve functions in the solver module print the root
+  counter output strings, both for the python 2 and 3 versions.
+  In solver.py, the solver should not print empty strings for special cases.
+  Instead of calling a function to write the set structure, a function is
+  called which returns the set structure string in solver.py; replaced the
+  silent argument by verbose in solver.py.
+
+Fri 8 Sep 2017 : replaced the silent option of the solve function in the
+  solver module by a verbose option.  Updated the documentation.
+
+Tue 5 Sep 2017 : added two code snippets to custom.js to illustrate the use
+  of multitasking in the solver and the path tracker.  Removed the GPU snippet
+  from the path trackers in the file custom.js, as not ready for production.
+  Prepared __init__.py, setup.py, and conf.py for version 0.7.3 of phcpy,
+  in both the PHCpy2 and PHCpy3 folders.
+
+Mon 4 Sep 2017 : fixed the code in the documentation blocks for the
+  Pieri homotopies in the file numschub.rst in the PHCpy2 and PHCpy3 folders.
+  Fixed snippets for the Schubert calculus and the extension module,
+  in the file Jupyter/custom.js.  Correct the use of get_seed and set_seed
+  in the file blackbox.rst in PHCpy2 and PHCpy3 folders.  All snippets in
+  the blackbox solver work.  Fixed import phcpy.series in newtopes.rst.
+  Updated diagonal.py for the drop_coordinate_ and drop_variable_ functions.
+  In custom.js, fixed all snippets for the solution sets menu.
+  Updated snippets in custom.js for the path trackers.
+
+Sun 3 Sep 2017 : added a new folder Jupyter into the src/Python directory,
+  with the custom.js file to define the menu Jupyter notebook extension.
+  Fixed the blackbox coding blocks in custom.js.  Corrected the blackbox.rst
+  in the PHCpy2 and PHCpy3, fixing the "from solver import deflate" into
+  "from solver import standard_deflate"; fixed the call standard_deflate().
+  In custom.js, added titles to 12 titles in the sub-menus.
+
+Thu 31 Aug 2017 : fixed a bug in the a documentation block in newtopes.rst,
+  both in the source of the python2 and python3 documentation.
+  Improved the documentation string of the mixed_volume function in the
+  polytopes module, with two examples.  Fixed another documentation block
+  in newtopes.rst with an example of a volume computation.
+  For Sage, forced the type of the values in make_solution in blackbox.rst.
+
+Sun 20 Aug 2017 : extended the examples.py module in PHCpy2/phcpy with
+  the special sevenbar example, added new functions, refactoring the main
+  test function.  In the interface module, when storing a solution fails,
+  the failure should not cause a break out of the loop.  Replaced the break
+  in interface.py with an error message.  Updates the examples modules for
+  the Python 2 and 3 versions of phcpy.  Added references to the sevenbar()
+  documentation string in the examples module.  Adjusted setup.py, conf.py,
+  and __init__.py for version 0.7.2 of phcpy.
+
+Sun 13 Aug 2017 : updated setup.py, __init__.py, and conf.py for version
+  0.7.1 of phcpy for python2 and python3.
+
+Sat 12 Aug 2017 : added a solve() to factor.py in the PHCpy2/phcpy folder,
+  and did the same addition to factor.py for the python3 version of phcpy.
+  Bug fixed in the run_cascade() functions of the cascades module.
+  Rearranged documentation strings in the *top_cascade() functions in the
+  cascades module, because of complaint of sphinx.
+  Many fixes in the factor module.  In the interface module, initialized the
+  failure code in the store_* functions, so storing nothing does not crash.
+  Passed the verbose flag properly in the top_cascade routines so the
+  split_filter() remains silent if verbose is set to False.
+
+Fri 11 Aug 2017 : added parameters to the run_cascade() function in the
+  python2 and python3 cascades modules.  Added a decompose() function to
+  the factor module in the PHCpy2 and PHCpy3 folders.  Augmented the
+  run_cascade() with an islaurent option for python 2 and 3.
+
+Thu 10 Aug 2017 : the ismember() tests return a tuple of booleans, in order
+  to filter also the end points of diverging paths, with are junk points;
+  updated the sets modules, both for python2 and python3.
+  Used the filters in the sevenbar.py in the examples of PHCpy2 and PHCpy3.
+  Added a run_cascade function and a test to cascades.py in PHCpy2/phcpy.
+  Updated the python3 version of cascades.py with a run_cascade().
+
+Wed 9 Aug 2017 : added ismember_filter() functions to the sets module in
+  the PHCpy2 folder, tested in the illusex2.py script.  Did the same for
+  the python3 versions, updating sets.py and the illusex3.py script.
+  Added laurent_cascade_filter to the cascades module for python2 and 3.
+  Bug fixed in laurent_ismember_filter() functions in the sets module.
+
+Tue 8 Aug 2017 : added top_cascade() to the cascades module for python2 and 3,
+  developed in the illustrated example illusex.py.  Added a cascade_filter()
+  function in cascades.py in PHCpy2 and PHCpy3, updated illusex.py.
+  The function laurent_top_cascade() is tested on the sevenbar.py example.
+
+Mon 7 Aug 2017 : bug fix in sets.py for python2.  Added an illustrative
+  example for the witness generate, illusex.py, to the examples in PHCpy2.
+  Added a split_filter function to the cascades modules for python2 and 3.
+
+Sun 6 Aug 2017 : to the module sets in the PHCpy2 and PHCpy3 folders,
+  added functions to run the homotopy membership test for Laurent systems,
+  with the test point given in the symbolic representation of a solution.
+  Added functions to the module sets for python2 and python3, to drop
+  a variable from a Laurent system.
+
+Sat 5 Aug 2017 : extended the python2 module sets with membership tests
+  and extended the python3 module sets as well.
+
+Fri 4 Aug 2017 : added a function ismember to the module sets, a function
+  which takes the test points as a PHCpack solution string.
+
+Thu 3 Aug 2017 : used store-witness-set functions in the cascades module,
+  both in the python2 and python3 versions.  Updated the documentation of
+  the cascade_step in posdimsols.rst for the extra dimension parameter.
+
+Wed 2 Aug 2017 : added six functions to the python2 interface module to store
+  witness sets, with the swapping of the symbols for the slack variables.
+  Did the same additions to the python3 interface module.
+  Used the store-witness-set functions in the factor modules for python2
+  and python3.  Also used these functions in the sets modules.
+
+Mon 31 Jul 2017 : added function to make a witness set of a hypersurface
+  defined by a Laurent polynomial to sets.py in the PHCpy2 and PHCpy3 folders.
+  Updated the files setup.py, __init__.py, and conf.py for version 0.7.0.
+
+Tue 18 Jul 2017 : prepared files for version 0.6.9 of phcpy, adjusting
+  setup.py, __init__.py, and conf.py in the PHCpy2 and PHCpy3 folders.
+  Corrected the documentation for the new modules, factor, cascades,
+  and diagonal.
+
+Mon 17 Jul 2017 : to the function in the factor module, stored the embedded
+  system before the initialization of the monodromy breakup sampler.
+
+Sun 16 Jul 2017 : to sets added functions to drop variables and coordinates
+  in double double and quad double precision.  This changed cascades.
+  Extended the functions in factor.py to decompose witness sets defined
+  by a Laurent system.  Updated the sevenbar.py in the examples folder
+  in the PHCpy2 directory.
+
+Sat 15 Jul 2017 : moved the cascade homotopies from the sets module into
+  the new module cascades.p, extended __init__.py and modified setup.py,
+  all for Python 2.  Did the same for Python 3 in PHCpy3.
+  Added the autodoc for the new cascade module to refman.rst in the
+  source of the documentation in the PHCpy2 and PHCpy3 folders.
+  Likewise, made a new module factor with code from sets.py,
+  and also from sets.py extracted the code for the diagonal homotopies.
+
+Fri 14 Jul 2017 : in sets.py, added a parameter to the calls to the
+  functions *_track_paths(), to take into account the islaurent flag.
+
+Mon 11 Jul 2017 : added homotopy membership tests for witness sets defined
+  by Laurent systems in sets.py of PHCpy2 and PHCpy3.
+
+Thu 6 Jul 2017 : to sets.py in PHCpy2 and PHCpy3, added functions to run
+  one step of a cascade homotopy for Laurent polynomial systems.
+  Added main laurent_cascade_step() function to sets.py.
+
+Wed 5 Jul 2017 : prepared files for release 0.6.8.
+
+Fri 30 Jun 2017 : shortened the code to embed systems in sets.py of PHCpy2
+  and PHCpy3, using functions of the interface module.
+  Applied the deallocation methods in trackers.py of PHCpy2 and PHCpy3.
+  Added embedding of Laurent systems to sets.py in PHCpy2 and PHCpy3.
+
+Sun 11 Jun 2017 : added functions for the crude trackers to the trackers
+  module of phcpy in PHCpy2 and PHCpy3.
+
+Wed 7 Jun 2017 : updated files, setup.py, __init__.py, and conf.py in
+  the folders PHCpy2 and PHCpy3 to prepare release 0.6.7.
+
+Sun 4 Jun 2017 : added functions to the series module for Python 3,
+  to compute the Pade approximants for the regular case.
+  Fixed the precision in the example test for Pade approximants.
+
+Sat 3 Jun 2017 : made a start extending the series module for Python 2;
+  adjusted the routines for double double and quad double precision.
+
+Wed 17 May 2017 : prepared files for version 0.6.6, after introduction of
+  a new use case: all tangent lines to four given spheres.
+
+Fri 14 Apr 2017 : fixed bug in the run_pieri_homotopies of the schubert
+  module which occurred with repeated calls to the function.
+  Add the verbose as a last keyword argument.
+
+Tue 11 Apr 2017 : added check_mixture() function to the polytopes module
+  to check the input format because wrong input crashed python.
+
+Tue 21 Mar 2017 : adjusted solver.py in PHCpy2/phcpy and PHCpy3/phcpy
+  for the normalized name to call the blackbox solver in standard precision.
+
+Sun 19 Feb 2017 : added tuned versions of the path trackers with AD to the
+  trackers module of phcpy in PHCpy2; also did this addition to PHCpy3.
+  Prepared files for version 0.6.5 of phcpy.
+
+Sat 18 Feb 2017 : to tuning.py in PHCpy2 and PHCpy3 added function to get
+  the default values for the path parameters, to write and tune them.
+
+Fri 17 Feb 2017 : to interface.py in PHCpy2 and PHCpy3 added function to
+  read a system and a list of solutions from file.
+
+Thu 16 Feb 2017 : added functions to the interface module to read
+  polynomial systems directly from file.
+
+Tue 7 Feb 2017 : prepared files for version 0.6.4 of phcpy.
+
+Fri 3 Feb 2017 : added tests on the algorithmic differentiation path trackers
+  in trackers.py, both in PHCpy2/phcpy and PHCpy3/phcpy.
+
+Thu 5 Jan 2017 : prepared for version 0.6.2 of phcpy, with updated conf.py
+  in doc/source, updated __init__.py and setup.py, in PHCpy2 and PHCpy3.
+
+Wed 4 Jan 2017 : added instructions to welcome.rst of the documentation for
+  phcpy to extend Sage with phcpy.
+
+Sun 1 Jan 2017 : fixed a bug in the writing of a power series, in the
+  module series.py of PHCpy2 and of PHCpy3.
+
+Fri 30 Dec 2016 : prepared for release 0.6.1 in PHCpy2 and PHCpy3.
+
+Fri 23 Dec 2016 : added g48big.py as test script to the examples folder
+  in the PHCpy2 and PHCpy3 directories.
+
+Tue 20 Dec 2016 : added apollonius as a test to the series module,
+  for both python2 and python3.  Adjusted the setup.py, __init__.py,
+  and the conf.py in the doc/source for version 0.6.0 of phcpy,
+  both for python2 and python3.
+
+Mon 19 Dec 2016 : updated series.py in both PHCpy2 and PHCpy3 with three
+  methods to compute power series starting at more than one term,
+  using a lower triangular echelon form in Newton's method.
+
+Sat 3 Dec 2016 : added cite() function to the __init__.py of python2
+  and python3 versions of phcpy.
+
+Thu 1 Dec 2016 : simplified the structure in welcome.rst, calling the
+  chapter Getting Started.
+
+Wed 30 Nov 2016 : prepared release 0.5.9 of phcpy.
+
+Mon 28 Nov 2016 : in PHCpy2/doc/source and PHCpy3/doc/source reorganized
+  the documentation chapters into one larger chapter, the User Manual.
+
+Sun 20 Nov 2016 : improved the documentation, adding an example of the
+  computation of a power series solution.  Prepared release 0.5.8 of phcpy.
+
+Mon 31 Oct 2016 : prepared files for release 0.5.7 of phcpy.
+
+Thu 27 Oct 2016 : restructured text added in the documentation strings
+  of maps of PHCpy3 and of the modules tuning and series of PHCpy2.
+  For Python2 modules trackers, sweepers, and tropisms, added documentation
+  strings to have a better reference manual.
+
+Wed 26 Oct 2016 : added restructured text in the documentation strings of
+  the module interface.  For Python3, improved the documentation strings
+  for the modules tuning and sets with restructured text and did the same
+  for the Python3 modules polytopes, tropisms, and series.
+
+Tue 25 Oct 2016 : used raw strings in the solver.py documentation strings
+  which turns out better in the generated Sphinx documentation.
+  Added restructured text is the documentation strings for solver.py.
+  To blackbox.rst, added an illustration of make_solution.
+  The documentation strings in solutions.py use restructured text.
+  Also made the reference manual a bit better with restructured text
+  in schubert.py, trackers.py, sweepers.py (the latter two only for Python3).
+
+Sun 23 Oct 2016 : added paragraph in newtopes.rst about the alternative to
+  mixed_volume, about the integer_mixed_cells function.
+
+Sun 16 Oct 2016 : added writing of mixed cell configuration to polytopes.py,
+  started adding a function to retrieve all data of a mixed cell.
+  The function integer_mixed_cell in the module polytopes.py returns all 
+  data of a mixed cell in a regular subdivision induced by an integer lifting.
+  Prepared release files for version 0.5.6 of phcpy.
+
+Sat 15 Oct 2016 : added to polytopes.py in PHCpy2/phcpy and PHCpy3/phcpy
+  a function to compute the mixed cells in a regular subdivision induced
+  by an integer value lifting function.
+
+Tue 20 Sep 2016 : added checkin parameters to the start system constructors
+  in solver.py to test whether the input system is square.
+  Updated the __init__.py, conf.py, and setup.py for version 0.5.5.
+
+Mon 1 Sep 2016 : renamed the phcwulf.py module to server.py in PHCpy2
+  and also in PHCpy3.
+
+Wed 31 Aug 2016 : prepared release 0.5.4, with the setup.py, conf.py, and
+  the __init__.py files for Python 2 and 3.
+
+Tue 30 Aug 2016 : added line in refman.rst concerning the sets module.
+
+Mon 29 Aug 2016 : one more update in refman.rst in the doc folder of PHCpy3.
+
+Sun 28 Aug 2016 : still some more updates in refman.rst in PHCpy3/doc.
+
+Sat 27 Aug 2016 : more updates in refman.rst in PHCpy3/doc.
+
+Fri 26 Aug 2016 : more text added to refman.rst for Python 3.
+
+Thu 25 Aug 2016 : added text to the end of the reference manual of phcpy,
+  both for Python 2 and Python 3.
+
+Wed 24 Aug 2016 : corrected the refman.rst in the PHCpy2/doc/source and
+  applied proper chapter headings for the Python 2 version.
+
+Tue 23 Aug 2016 : used proper chapter headings for the phcpy documentation,
+  as needed to restructure the reference manual.
+
+Mon 22 Aug 2016 : moved the autogenerated module documentation for phcpy
+  to the new reference manual chapter.
+
+Sun 21 Aug 2016 : updated the documentation fourlines.rst and figfourlines.png
+  so that the intersection points are marked on the plot.
+  Updated the fourlines.py scripts in PHCpy2/examples and PHCpy3/examples.
+  Extended in the documentation the introduction to the use cases,
+  as the new use case applies numpy for the verification of the conditions.
+
+Sat 20 Aug 2016 : added matplotlib plots to show the four given lines
+  and the two lines that meet them, added to the fourlines.py scripts
+  in the PHCpy2/examples and PHCpy3/examples directories.
+  Extended the Sphinx documentation with a figure and text in fourlines.rst.
+
+Fri 19 Aug 2016 : extracted the points from the lines in fourlines.py
+  and computed the range of the coordinates needed for the plot.
+
+Thu 18 Aug 2016 : verification of the four lines problem with determinants
+  on numpy matrices, updated fourlines.py scripts for python 2 and 3.
+  Added a verbose option to the run_pieri_homotopies function of schubert.
+  Extended the fourlines.py with the solution of a real instance.
+  Started the restructured text documentation of the use case.
+
+Wed 17 Aug 2016 : fixed bug in schubert.py of PHCpy2/phcpy and PHCpy3/phcpy,
+  the pieri_root_count must return the root_count; added verbose option.
+  Added the start of another use case in the examples folders.
+
+Tue 16 Aug 2016 : added an introductory paragraph to the use cases.
+
+Sat 13 Aug 2016 : extended the documentation for the use case on computing
+  tangent lines to a circle.  Made corrections to the touchcircle.py scripts
+  in the PHCpy2/examples and PHCpy3/examples folders.
+  Completed the documentation for this use case.  Prepared setup.py,
+  phcpy/__init__.py and doc/source/conf.py for version 0.5.3, in the
+  PHCpy2 and PHCpy3 folders.
+
+Fri 12 Aug 2016 : added is_vanishing() and filter_vanishing() functions
+  to the solutions module.  The diagonal solver in the module sets is
+  extended with a multi staged cascade.  Updated the touchcircle?.py
+  scripts in the examples folders of PHCpy2 and PHCpy3.
+  Started the description of the documentation of this new use case.
+
+Wed 10 Aug 2016 : added names_of_variables() function to the solver module.
+  To the module sets, fixed a bug in the python3 version for the membership
+  test, added a wrapper to the membertest to given points as solutions.
+  New scripts touchcircle.py in PHCpy2/examples and PHCpy3/examples.
+
+Tue 9 Aug 2016 : fixed numbering of the figures in appolonius.rst and
+  fourbar.rst to correspond better to LaTeX conventions.
+  Also fixed the numbering of figures in dashboard.rst, in pathtrack.rst,
+  and in the modphcpy2c2.rst, modphcpy2c3.rst documentation files.
+
+Mon 8 Aug 2016 : merged the use cases into one chapter in the Sphinx doc.
+
+Sun 7 Aug 2016 : added a picture with the complete coupler curve of the
+  straight line 4-bar mechanism to the PHCpy2 and PHCpy3 documentation.
+  Updated the scripts fourbar.py in PHCpy2/examples and PHCpy3/examples.
+  Adjusted the documentation is fourbar.rst in PHCpy2/doc and PHCpy3/doc.
+
+Sat 6 Aug 2016 : added reference to the script appolonius.py in the examples
+  folders in PHCpy2 and PHCpy3.
+
+Fri 5 Aug 2016 : added a picture of part of the coupler curve for the
+  straight line 4-bar mechanism.  Added matplotlib code to the fourbar.py
+  scripts in the PHCpy2/examples and PHCpy3/examples directories.
+
+Thu 4 Aug 2016 : added a picture of a straight line 4-bar design to the
+  documentation, to introduce the design problem.  Added more text to
+  the fourbar.rst files, with an extra section about the straight line.
+  Added the matplotlib visualization to the fourbar.py scripts in the
+  PHCpy2/examples and PHCpy3/examples directories.
+
+Wed 3 Aug 2016 : start of postprocessing in the python2 fourbar.py script.
+
+Tue 2 Aug 2016 : refactored the fourbar.py scripts, with functions.
+  Fixed the toctree of the PHCpy2 Sphinx documentation source, in index.rst.
+  Added a mathematical description of the equations to fourbar.rst.
+  Corrected in mistake in the fourbar.py scripts and added a special case.
+
+Mon 1 Aug 2016 : added fourbar.py to PHCpy2/examples and PHCpy3/examples
+  to prepare another use case, to design a 4-bar mechanism.
+  Made a first version of fourbar.rst in the Sphinx documentation.
+
+Sun 31 Jul 2016 : prepared setup.py, __init__.py, and conf.py for version
+  0.5.2 of phcpy for python2 and python3.
+
+Fri 29 Jul 2016 : more symmetric perturbed instance in appolonius.py,
+  in the examples folders of PHCpy2 and PHCpy3.  In the doc/source folders
+  of PHCpy, added the circle problem of Appolonius as a use case.
+
+Thu 28 Jul 2016 : updated appolonius.py in PHCpy2 with a special case,
+  with more refactoring and generalized setup.
+  Added in PHCpy3 the appolonius.py script for version 3 of Python.
+  Add to appolonius.py a perturbed instance of the special configuration,
+  in the PHCpy2 and PHCpy3 folders.
+
+Wed 27 Jul 2016 : refactored appolonius.py scripts in PHCpy2 and PHCpy3.
+  Fixed a bug in the storing the second coordinate of each center.
+  Added matplotlib code to the appolonius.py scripts.
+
+Tue 26 Jul 2016 : added appolonius.py to PHCpy2/examples and the version for
+  Python 3 of appolonius.py in PHCpy3/examples.
+
+Fri 22 Jul 2016 : prepared version 0.5.1 for python2 and python3.
+
+Fri 1 Jul 2016 : new module series.py in PHCpy2 and PHCpy3, prepared setup.py
+  and __init__.py for version 0.5.0.
+
+Wed 15 Jun 2016 : updated setup.py, __init__.py, and conf.py for both PHCpy2
+  and PHCpy3 to prepare for version 0.4.9 of phcpy.
+
+Sun 5 Jun 2016 : improved dashboard.rst with figure (instead of image),
+  with captions and references.
+
+Sat 4 Jun 2016 : improved the documentation string of solutions.coordinates.
+  Add a coordinate plot to the dashboard.py.  Improved and augmented the
+  documentation in dashboard.rst, with a coordinate plot for cyclic 5-roots.
+
+Fri 3 Jun 2016 : added a SolveButton to PHCpy3/phcpy/dashboard.py, which 
+  provides a very basic GUI to the blackbox solver.  Updated for python2.
+  Added documentation about the GUI to the blackbox solver, with screen shot.
+  Updated setup.py, __init__.py, and conf.py for version 0.4.8.
+
+Thu 2 Jun 2016 : new module dashboard.py for GUI in PHCpy3, updated setup.py;
+  did the same for PHCpy2, the python2 version of phcpy.
+  Added on section in the Sphinx documentation.
+
+Thu 26 May 2016 : prepared version 0.4.7 of phcpy.
+
+Sun 22 May 2016 : added lrhomprob.py to the PHCpy3/examples directory.
+
+Fri 20 May 2016 : improved interface to Littlewood-Richardson homotopies
+  in python2 version, the file schubert.py in PHCpy2/phcpy.
+  Also fixed the corresponding schubert.py in PHCpy3/phcpy.
+  Prepared version 0.4.6 updating conf.py in doc, __init__.py in phcpy,
+  and setup.py in PHCpy2 and PHCpy3.
+
+Sat 30 Apr 2016 : added is_real and filter_real function to the solutions
+  module in PHCpy2 and PHCpy3, with better documentation in welcome.rst
+  and blackbox.rst.  Prepared version 0.4.4 of phcpy.
+
+Tue 29 Mar 2016 : updated the documentation of the deflate in blackbox.rst
+  of both PHCpy2 and PHCpy3 to illustrate the tolerance of the rank.
+
+Sat 26 Mar 2016 : updated the deflate functions in the solver module for
+  the additional parameters and tolerances, both in PHCpy2 and PHCpy3.
+
+Fri 25 Mar 2016 : extended the newton_step function in the solver module
+  so it should work for overdetermined polynomial systems.
+  Made updates to the interface module for overdetermined Laurent systems.
+
+Thu 24 Mar 2016 : extended the deflate functions in the solver module
+  to work for overdetermined polynomial systems.
+
+Fri 18 Mar 2016 : updates for version 0.4.2, setup.py, __init__.py and conf.py
+  in the documentation.
+
+Tue 23 Feb 2016 : added detailed installation instructions to welcome.rst
+  in PHCpy2/doc/source and PHCpy3/doc/source.
+
+Fri 19 Feb 2016 : updated setup.py, __init__.py, and conf.py for 0.4.1
+  of phcpy, both for python2 and python3.
+
+Wed 17 Feb 2016 : wrote a checkin function for the blackbox solver,
+  for both the python2 and python3 versions.
+
+Tue 16 Feb 2016 : added functions to the solver module of PHCpy2 and PHCpy3
+  to determine if a polynomial system is square or not.
+
+Fri 12 Feb 2016 : updated __init__.py and setup.py, both in PHCpy2 and
+  PHCpy3 for version 0.4.0 of phcpy.
+
+Thu 11 Feb 2016 : updated the tropisms.py in PHCpy2/phcpy for python2.
+
+Wed 10 Feb 2016 : updated test in tropisms.py for 'dd' and 'qd'.
+
+Tue 9 Feb 2016 : random_coefficient_system in solver.py had no branch for
+  the quad double precision.  Added test function to tropisms.py that runs
+  a polyhedral end game.
+
+Fri 5 Feb 2016 : testing for quaddobl versions of tropisms.py in python3.
+
+Thu 4 Feb 2016 : dobldobl and quaddobl versions of functions in tropisms,
+  tested for double double precision with python3.
+
+Tue 2 Feb 2016 : updated tropisms.py with a new function to change the values
+  of a stored tropism.
+
+Sun 31 Jan 2016 : added python 2 version of tropisms.py.
+
+Sat 30 Jan 2016 : start of code in a new module tropisms.py.
+
+Sun 17 Jan 2016 : changed setup.py and MANIFEST.in in PHCpy2, with also most
+  of the .py files in PHCpy2/phcpy.  Updated setup.py, __init__.py, and
+  conf.py for both python2 and python3 versions of phcpy to 0.3.9.
+
+Sat 16 Jan 2016 : Copied the new wrappers in tuning.py for python2,
+  in PHCpy2/phcpy.
+
+Fri 15 Jan 2016 : extended the tuning module with wrappers for the parameters
+  and settings for the predictor and the corrector in PHCpy3/phcpy.
+  Completed the wrappers in tuning.py for python3.
+
+Thu 14 Jan 2016 : new module tuning with the wrappers from trackers
+  to tune the parameters of the continuation in PHCpy2 and PHCpy3.
+  Fixed bug in trackers, caused by standard making of names.
+  Added auto documentation of the functions in the tuning module
+  as an extra section to pathtrack.rst, in PHCpy3/doc.
+
+Wed 13 Jan 2016 : started the extension of trackers in PHCpy3/phcpy with
+  wrappers to get and set values of the continuation parameters.
+  Did the same thing in the trackers module of PHCpy2/phcpy.
+
+Sat 2 Jan 2016 : renamed the directory PHCpy into PHCpy2.  Prepared setup.py,
+  __init__.py, and conf.py for version 0.3.8 of phcpy.
+
+Fri 1 Jan 2016 : minor formatting changes in solutions.py both for PHCpy/phcpy
+  and PHCpy3/phcpy.  As recommended by pylint, used ast.literal_eval() in
+  the module solutions.py.  New documentation in PHCpy/doc with sphinx-1.3.3,
+  processed with Python 3.5.
+
+Thu 31 Dec 2015 : new directory PHCpy3 with the version of phcpy for
+  Python 3.5.
+
+Mon 28 Dec 2015 : made the tolerances in the membertest in sets.py
+  explicit arguments with large default values.  Improved posdimsols.rst,
+  modified about.rst, conf.py, __init__.py, and setup.py for 0.3.7.
+
+Sun 27 Dec 2015 : added functions for membership tests to sets.py.
+  Fixed type error in the test_member() function of sets.py.
+  Started the documentation in posdimsols.rst a section on the
+  homotopy membership test.
+
+Thu 24 Dec 2015 : changes in sets.py for renamed functions in phcpy2c.
+  More changes in sets.py for muting the monodromy breakup.
+  Still more changes in sets.py for making the monodromy breakup verbose.
+  Added a paragraph to posdimsols.rst about the factor method in
+  double double and quad double precision, updated conf.py, __init__.py,
+  and setup.py for version 0.3.6 of phcpy.
+
+Wed 23 Dec 2015 : extended functionality of the monodromy breakup in sets.py
+  Made some small change for the verbosity.  Added the reporting of the
+  trace grid diagnostics in the monodromy breakup method.
+
+Tue 22 Dec 2015 : improved tests on the monodromy in sets.py.
+
+Mon 21 Dec 2015 : added functions to sets.py to run the monodromy_breakup
+  in double double and quad double precision.
+
+Sun 13 Dec 2015 : added functions to sets.py to embed systems with coefficients
+  in double double and quad double precision.
+
+Sat 12 Dec 2015 : added factor method to sets.py, which calls the
+  methods monodromy_breakup and decomposition, tested by test_factor().
+  In the phcpy documentation, added a subsection to posdimsols.rst
+
+Fri 11 Dec 2015 : for version 0.3.5, adjusted setup.py, __init__.py and
+  the conf.py in the documentation.
+
+Sat 28 Nov 2015 : adjusted the checkout function for the convex hulls of
+  polytopes in polytopes.py for points that are not vertices.
+  Added a function to collect the edges of the facets.
+  For 3-dimensional polytopes, the test computes the Euler characteristic.
+
+Thu 26 Nov 2015 : added a checkout function to polytopes.py to check the
+  correctness of the computed inner normals to the facets.
+
+Wed 25 Nov 2015 : a checkout function is added to check the correctness of
+  the planar convex hull function, in polytopes.py.  Added dim as argument
+  to the test_convex_hull().  Also added parameters for the number of points
+  and the range of the values for the coordinates.
+
+Tue 24 Nov 2015 : added a function to polytopes.py to check the input type
+  of the arguments to the convex hull function.  Fixed errors in polytopes.py
+  reported by pylint and added a function 'initial_support'.
+
+Mon 23 Nov 2015 : for version 0.3.4, updated setup.py, __init__.py and the
+  conf.py in the documentation.
+
+Sun 22 Nov 2015 : updated the documentation of positive dimensional solutions
+  with a simple illustration of diagonal homotopies.  Added a picture about
+  the design of phcpy to modphcpy2c.rst.  Documentation about the interface
+  module is moved towards the description of the module phcpy2c.
+  Integrated the documentation for the interesting example with the
+  families into one restructured text chapter.
+
+Sat 21 Nov 2015 : added an illustration of cascade_step to posdimsols.rst,
+  on the illustrative example of a sphere, twisted cubic, and a point.
+
+Fri 20 Nov 2015 : modified the diagonal solvers in sets.py to use the top
+  dimension as needed in the collapsing of the diagonal.
+
+Thu 12 Nov 2015 : updated witness_set_of_hypersurface in sets.py with an
+  extra argument to select the precision.
+
+Tue 10 Nov 2015 : extended sets.py with function to define the diagonal
+  homotopies in double double and quad double precision.
+  Versions of the diagonal solver in sets.py are available for double double
+  and quad double precision.
+
+Mon 9 Nov 2015 : modified sets.py for py2c_standard_diagonal_homotopy,
+  renamed from the old py2c_create_diagonal_homotopy.
+
+Sun 8 Nov 2015 : added the function standard_diagonal_solver to sets.py.
+
+Sat 7 Nov 2015 : fixed bugs in sets.py with the standard_double_cascade_steps
+  and started introduction of diagonal homotopies.
+
+Fri 6 Nov 2015 : updated __init__.py, setup.py, and conf.py for version 0.3.3
+  of phcpy.
+
+Thu 5 Nov 2015 : extended sweepers.py with tests on the real sweep,
+  and with double double and quad double versions for the real sweep.
+  Started writing documentation on the sweepers module, with a new
+  sweep.rst and a picture in circles.png.
+
+Wed 4 Nov 2015 : in sweepers.py adjusted the names to the calls of the 
+  functions that run the sweep, as they got changed in phcpy2c.
+  Extended sweepers.py with functions to do a real parameter sweep.
+
+Mon 2 Nov 2015 : in interface.py, added an optional argument nbvar to store
+  systems that are not square with the parameter number of variables, in case
+  that is different from the number of equations.  Adjusted sweepers.py
+  so no trick is needed when storing the family of polynomial systems.
+
+Sun 1 Nov 2015 : added skeleton for a new module sweepers.py, updating
+  setup.py, to track paths defined by a sweep homotopy.
+  Provided routines for a sweep in the module sweepers.py.
+
+Fri 23 Oct 2015 : in schubert.py, changed parameter verify into vrfcnd
+  for pylint warnings; improved random_trinomials() in solver.py.
+  Some small changes in trackers.py for pylint warnings.
+
+Thu 22 Oct 2015 : extended schubert.py to run L-R homotopies in double double
+  and quad double precision.  
+  For version 0.3.2, updated setup.py, __init__.py, and conf.py.
+
+Wed 7 Oct 2015 : updated setup.py, __init__.py, and conf.py for version 0.3.1.
+
+Sun 27 Sep 2015 : to solver.py extended the solve() with an extra option
+  to set the working precision, to double, double double, or quad double.
+
+Thu 24 Sep 2015 : in preparation for 0.3.0, updated setup.py, __init__.py,
+  and conf.py, added reference to GPU paper in references.rst.
+
+Mon 31 Aug 2015 : updated setup.py, __init__.py and conf.py for 0.2.9.
+  Added a sentence to the history.rst to note that 0.2.9 coincides with
+  release 2.4 of PHCpack.  Added the content of the runcyc10d.py of the
+  examples directory to the documentation in pathtrack.rst.
+
+Sun 30 Aug 2015 : extended ade_double_track in trackers.py with gamma option,
+  added gpu_double_track to trackers.py, and created versions for double
+  double and quad double precision.
+
+Thu 27 Aug 2015 : fixed an error in the standard_double_track of trackers
+  and added a function (with a test) to trackers that calls ade_manypaths_d
+  to use algorithmic differentiation in the trackers in double precision.
+
+Fri 31 Jul 2015 : updated setup.py and __init__.py for version 0.2.8.
+  Replace input by raw_input in schubert.py.  Changed solutions.py
+  for a pylint warning (unused variables).  Replaced fixedGamma by
+  fixedgamma in trackers.py, also because of a pylint complaint.
+  Added scaling.py to the demo folder in PHCpy.
+  Updated the conf.py and blackbox.rst in the documentation.
+
+Thu 30 Jul 2015 : test_scale() in solver.py works.
+
+Wed 29 Jul 2015 : extended solver.py with a function to scale a polynomial
+  system with standard double precision arithmetic.
+
+Tue 28 Jul 2015 : changes in trackers.py for name changes in py2c functions.
+  Also made changes to interface.py, solver.py, schubert.py, and sets.py
+  for changed py2c_clear_solutions into py2c_clear_standard_solutions,
+  and other name changes involving standard double precision.
+  Also maps.py changed for later name changes in py2c functions.
+
+Mon 20 Jul 2015 : added demo directory to the PHCpy distribution.
+
+Wed 8 Jul 2015 : fixed bug in the test of sets.py, because the 
+  py2c_solve_by_standard_homotopy_continuation() now requires the
+  number of tasks as input parameter.  Fixed spelling error in the
+  documentation, in posdimsols.rst.
+
+Tue 7 Jul 2015 : added extra input parameter to the solve in solver.py.
+
+Thu 25 Jun 2015 : updated __init__.py, setup.py for version 0.2.7.
+  Then added one paragraph to the documentation for the py2c_get_seed
+  and updated the version number of the documentation.
+
+Wed 24 Jun 2015 : interface.py has faster load_*_solutions functions.
+
+Fri 22 May 2015 : updated PHCpy for version 0.2.6.
+
+Thu 21 May 2015 : improved Sphinx documentation with proper use of toctree
+  and splitted index.rst into more meaningful subtitles.
+
+Thu 26 Mar 2015 : new function initial_form in polytopes.py to compute the
+  initial form of a Laurent polynomial system.
+
+Wed 25 Mar 2015 : added support function to polytopes.py to compute the
+  support of a Laurent polynomial.
+
+Wed 25 Feb 2015 : updated trackers.py with next_varbprec_solution.
+
+Tue 24 Feb 2015 : add initialization with solution for the variable precision
+  path tracker with a generator.
+
+Mon 23 Feb 2015 : initializer for variable precision tracker with generator
+  added to trackers.py.
+
+Tue 23 Dec 2014 : added more benchmark test cases to the degree computation
+  list of backelin.py.
+
+Sun 21 Dec 2014 : extended backelin.py with the degree computation of a list
+  of benchmark systems.
+
+Sat 20 Dec 2014 : extended backelin.py with degree computation.
+
+Fri 19 Dec 2014 : linear instead of double indexing in pierisystems.py
+  and generation of pairs of systems of hypersurface Pieri conditions.
+
+Thu 18 Dec 2014 : updated pierisystems.py with path tracking between
+  systems in a sequence of Pieri conditions.
+
+Wed 17 Dec 2014 : updated pierisystems.py with computation of solutions
+  and special plane to start the Pieri homotopy.
+
+Tue 16 Dec 2014 : new script pierisystems.py in examples directory of PHCpy.
+
+Mon 15 Dec 2014 : updated script backelin.py to generate generic points
+  on the components of cyclic n-roots as defined by the tropical version
+  of Backelin's Lemma, with one sampled point in a witness set.
+
+Thu 27 Nov 2014 : fixed bug in documentation regarding refactoring of the
+  solver module to the interface module, moving an example of a session
+  to the documentation section on the interface module.
+
+Wed 26 Nov 2014 : in solver.py took the failure codes into account
+  when storing polynomials or solutions and computing the mixed_volume.
+  New module interface.py with routines factored out from solver,
+  which caused changes in sets.py, trackers.py, schubert.py, __init__.py,
+  and updated setup.py for version 0.2.5.
+
+Tue 25 Nov 2014 : minor changes in solver.py and schubert.py 
+  for pylint warnings.  Fixed bugs in sets.py, found by pylint.
+
+Mon 24 Nov 2014 : added Newton_steps function to solver.py.
+
+Fri 31 Oct 2014 : updated __init__.py, setup.py for version 0.2.4.
+
+Tue 16 Sep 2014 : forgot to clear the solutions container in the running
+  of the Littlewood-Richardson homotopy function in the file schubert.py.
+  Updated the Sphinx documentation with example sessions.
+
+Fri 12 Sep 2014 : added mixed volume function to polytopes with test.
+  Adjusted setup.py, __init__.py, and conf.py for version 0.2.3 of phcpy.
+
+Mon 8 Sep 2014 : extended polytopes with function to compute the
+  convex hull in 3-space and in 4-space, with a test function.
+
+Thu 4 Sep 2014 : new Python package polytopes, updated setup.py.
+
+Sun 31 Aug 2014 : updated READ_ME, __init__.py, setup.py, and conf.py
+  for version 0.2.2 of phcpy.
+
+Sat 30 Aug 2014 : extended solver.py with usolve functions to compute all
+  roots of a univariate polynomial at various precision levels.
+
+Sun 10 Aug 2014 : updated __init__.py, setup.py, and conf.py for 0.2.1
+  version of phcpy.
+
+Fri 8 Aug 2014 : upgraded the solver.py with deflate operations in
+  double double and quad double precision and extended test_deflate.
+
+Wed 30 Jul 2014 : added newton_laurent_step in solver.py with test routines
+  for Newton's method on ordinary polynomial and Laurent polynomial systems.
+  Upgraded READ_ME, __init__.py and setup.py to version 0.2.0.
+  Upgraded conf.py in doc/source to version 0.2.0.
+
+Tue 29 Jul 2014 : renaming of Newton_step into standard_Newton_step caused
+  changes in the module solver.py of phcpy.
+
+Mon 28 Jul 2014 : added store/load operations for systems of Laurent
+  polynomials with multiprecision coefficients.
+
+Thu 24 Jul 2014 : new store/load operations for Laurent systems to solver.
+
+Tue 22 Jul 2014 : added permute operations to solver.py for systems with
+  coefficients in double double and quad double precision.
+
+Fri 18 Jul 2014 : extended solver.py with polyhedral homotopies in 
+  double double and quad double precision.
+
+Mon 30 Jun 2014 : updates in __init__.py, setup.py for version 0.1.9.
+
+Sat 28 Jun 2014 : new directory "examples" in PHCpy directory with the
+  randlrhom.py module.
+
+Wed 25 Jun 2014 : modified seed constant in examples.py
+  and added random_system function solver.py.
+
+Thu 5 Jun 2014 : schubert.py now also shows the coordinates of the flags
+  and adjusted __init__.py for the version number 0.1.8.
+  Updated setup.py and README.txt for version 0.1.8.
+
+Wed 4 Jun 2014 : added littlewood_richardson_homotopies to schubert.py,
+  and a simple test function test_lrhom.
+
+Fri 23 May 2014 : added resolve_schubert_conditions to schubert.py.
+
+Thu 27 Mar 2014 : fixed_gamma option added to trackers.py.
+
+Thu 6 Mar 2014 : added multitasking to trackers.py, the test script is in
+  Tests/testpoco.py.
+
+Mon 23 Dec 2013 : renamed phcsols, phcsets, phcmaps into solutions, sets,
+  and maps respectively, changing schubert.py.  Also updated __init__.py,
+  the documentation in doc/source and conf.py (for version 0.1.7).
+  Updated PHCpy/setup.py.  Added nbodyeqs to families.py.
+
+Thu 19 Dec 2013 : updated documentation and schubert.py.
+
+Wed 18 Dec 2013 : documentation day!  The extra module trackers.py created
+  severe inconsistencies in the index.rst in the PHCpy/doc/source directory.
+  Modified solver.py and trackers.py for inserting _standard_ into the
+  load and store operations for systems and solutions.
+
+Tue 17 Dec 2013 : added three functions to solver.py to compute m-homogeneous
+  Bezout numbers and construct m-homogeneous start systems.
+  Separate module trackers.py (with code taken from solver.py).
+  Updated setup.py for the trackers.py and the version number: 0.1.6.
+  Also modified schubert.py and __init__.py.
+  Added the chandra function to the families.py, modified the documentation.
+
+Fri 6 Dec 2013 : changed almost all .py files so that localized run works,
+  removing the "import phcpy" and "from phcpy import" constructions.
+
+Wed 4 Dec 2013 : the auto tuning of the continuation parameters for the
+  multiprecision tracker needs the number of decimal places.
+  Added next() for multiprecision to solver.py.  Added to families.py
+  the function Pieri_problem() to generate Pieri intersection problems,
+  after extending schubert.py with the function random_complex_matrices.
+
+Tue 3 Dec 2013 : added first version of multiprecision_track to solver.py.
+
+Thu 28 Nov 2013 : extended solver.py with multiprecision operations on
+  systems, solutions, and a newton_step in arbitrary precision.
+
+Wed 25 Sep 2013 : fixed a bug in phcsols.py and updated documentation
+  string in families.py.  Documented generators in the index.rst and
+  adjusted conf.py in the Sphinx documentation for version 0.1.4.
+
+Tue 24 Sep 2013 : added routines to phcpy.solver for path trackers with
+  a generator, tested by test_next_track(), __init__.py ready for 0.1.4.
+
+Wed 18 Sep 2013 : moved all test scripts into the directory Tests.
+  Touched phcmaps.py for chasing a bug.
+
+Tue 17 Sep 2013 : added references to families.py.  Added puretopdim as
+  option to the solver in phcmaps.py; upgraded version number to 0.1.3
+  in setup.py and __init__.py.
+
+Thu 5 Sep 2013 : improved phcmaps.py with pylint and functions to return
+  string representations of monomial maps.  Updated the index.rst in doc,
+  ready for release 0.1.2, scheduled for tomorrow...
+
+Wed 4 Sep 2013 : more adjustments in phcmaps.py, added two lines of
+  documentation in __init__.py; added adjacent minors to families.py.
+
+Tue 3 Sep 2013 : new module phcmaps.py, __init__.py has version 0.1.2.
+
+Fri 30 Aug 2013 : updated schubert.py, phcsets.py, phcwulf.py, and
+  solver.py so pylint gives almost no warnings.
+  The rating of pylint *py has now increased to 9.73/10.
+
+Thu 29 Aug 2013 : updated solver.py and __init__.py to get a global rating
+  of 9.14/10.  Also updated phcsets.py.
+
+Wed 28 Aug 2013 : modified schubert.py to raise the score to 8.41/10
+  and improved phcsets.py and phcwulf.py as well.
+
+Tue 27 Aug 2013 : modified solver.py so the code has pylint score of 8.77/10
+  and examples.py now has an almost perfect pylint score of 9.93.
+  Modified __init__.py, solver.py, phcwulf.py and schubert.py so that
+  pylint *py gives a global score of 7.52/10.
+
+Mon 26 Aug 2013 : to improve the pylint score for phcsols.py, lengthened
+  the names of some of the variables, e.g.: "sol" instead of "s".
+  Modified solver.py so its pylint score is now positive.
+
+Sat 24 Aug 2013 : running pylint on setup.py warns for docstring and I put
+  the comments previously preceded by # into a docstring.
+  On families.py raised the pylint score to 5+ from a negative score.
+  Also edited phcsols.py, schubert.py, and phcsets.py.
+
+Wed 21 Aug 2013 : added __version__ to __init__.py of phcpy
+
+Thu 8 Aug 2013 : made directory PHCpy to prepare for packaged distribution.
+
+Wed 20 Feb 2013 : added witness_set_of_hypersurface function to phcsets.py.
+  Added function noon to families.py.
+
+Tue 19 Feb 2013 : new families.py exports the function cyclic.
+
+Fri 15 Feb 2013 : added drop functions to phcsets.py and test_cascade.
+
+Thu 14 Feb 2013 : added filters to phcsols.py and cascade_step to phcsets.py,
+  made a change in phcpy.py.
+
+Wed 13 Feb 2013 : added a session on the use of embed on twisted cubic.
+
+Tue 12 Feb 2013 : extended the track functions in phcpy.py with the
+  optional gamma constant.
+
+Sun 10 Feb 2013 : added a deflate() and test_deflate() to phcpy.py.
+  Function total_degree_start_system() added to phcpy.py.
+  Used this function to solve the "mickey" system in the documentation.
+  Added make_solution function to phcsols.py.
+
+Thu 7 Feb 2013 : added total degree to phcpy.py and added one interactive
+  session illustrating the root counts to the documentation.
+  Fixed some typos in examples.py and updated the documentation.
+  Added tune_track_parameters function to phcpy.py.
+
+Wed 6 Feb 2013 : extended phcpy.py with double double and quad double track.
+
+Fri 1 Feb 2013 : added {store,load}_{dobl,quad}dobl_solutions,
+  store_{dobl,quad}dobl_system to phcpy.py, for a newton_step
+  with double double and quad double arithmetic.
+
+Sun 27 Jan 2013 : adding clears at the start of test_polyhedral_homotopy
+  in phcpy.py allows for successful consecutive runs.
+
+Tue 15 Jan 2013 : added linear_product_root_count function to phcpy.py,
+  and a random_linear_product_system.
+
+Fri 28 Dec 2012 : phcsets.py has the same functionality as lib_factor.c.
+
+Thu 27 Dec 2012 : added monodromy_breakup to phcsets.py.
+
+Wed 19 Dec 2012 : added Newton_step to phcpy.py and changed schubert.py.
+  Wrapping of celcon led to random_coefficient_system in phcpy.py.
+
+Tue 18 Dec 2012 : updates in schubert.py
+
+Thu 13 Dec 2012 : the run_pieri_homotopies gets system and solutions
+  from the containers which can then be tested with phcsols.
+
+Wed 12 Dec 2012 : random input data is generated by schubert.py
+  and passed to the run_Pieri_homotopies method.
+
+Tue 11 Dec 2012 : new schubert.py exports Pieri root count.
+
+Sun 9 Dec 2012 : new phcsets.py to manipulate algebraic sets.
+
+Wed 5 Dec 2012 : extended phcpy.py with test_track, improved phcsols.py.
+
+Tue 4 Dec 2012 : updates in phcpy.py and examples.py.
+  Added a silent flag to phcpy.solve and stable flag to phcpy.mixed_volume.
+
+Sun 2 Dec 2012 : added banners to the tests in examples.py.
+
+Sat 1 Dec 2012 : added "binomials", "d1", "game4two", katsura6", "noon3",
+  "rps10", and "tangents" to examples.py, so now there are 10 examples.
+
+Fri 30 Nov 2012 : added "stewgou40" to examples.py and then discovered
+  that this example no longer works!
+
+Thu 29 Nov 2012 : added "test" function to phcpy.p and fixed phcwulf.py
+  on dezon: closing the server before all handler threads are finished
+  is a very bad thing to do!  Replaced "remove_padding" by "strip".
+  Added examples.py and the doc directory to generate documentation
+  with sphinx.
+
+Wed 28 Nov 2012 : updated makefile_unix so the python interface works
+  on Redhat 6.3 with python2.6 and GNAT GPL 2012.  New module phcsols.py
+  to convert solutions in PHCpack string format to dictionaries.
+
+Tue 6 Sep 2011 : updated makefile_mac so the python interface works
+  on MacOS X!
+
+Wed 30 Jul 2008 : added line to print number of solutions client sends
+  in phcwulf.py to track down a bug.
+
+Thu 5 Jun 2008 : random_trinomials() added to phcpy.py and used in
+  the server in phcwulf.py.  Extended phcwulf.py with multithreading.
+
+Tue 3 Jun 2008 : added a basic track function to phcpy.py.
+
+Mon 2 Jun 2008 : phcwulf.py export basic client/server routines to solve
+  many polynomial systems in a distributed manner.

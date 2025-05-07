@@ -1,0 +1,15 @@
+{
+    "deno.enable": true,
+    "todo-tree.regex.regex": "(--|//|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+    "terminal.integrated.cursorStyle": "underline",
+    "vue.server.hybridMode": false,
+    "files.watcherExclude": {
+        "**/src/**": true,
+        "**/compilers/**": true,
+        "**/githubAnalysis/repos/**": true,
+        "**/phdBenchmark/**": true,
+        "**/rootfs/**": true
+    },
+    "search.followSymlinks": false,
+    "git.enabled": false
+}

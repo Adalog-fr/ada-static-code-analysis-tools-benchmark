@@ -1,0 +1,84 @@
+{
+  "Name": "Ada",
+  "Bytes": 3633,
+  "CodeBytes": 0,
+  "Lines": 104,
+  "Code": 84,
+  "Comment": 4,
+  "Blank": 16,
+  "Complexity": 4,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/utf8test_config.ads",
+      "Extension": "ads",
+      "Location": "config/utf8test_config.ads",
+      "Symlocation": "",
+      "Bytes": 563,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/utf8test.adb",
+      "Extension": "adb",
+      "Location": "src/utf8test.adb",
+      "Symlocation": "",
+      "Bytes": 3070,
+      "Lines": 84,
+      "Code": 72,
+      "Comment": 3,
+      "Blank": 9,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.conversions",
+        "ada.command_line",
+        "ada.integer_text_io",
+        "ada.streams",
+        "ada.strings.utf_encoding.strings",
+        "ada.strings.utf_encoding.wide_wide_strings",
+        "ada.text_io",
+        "ada.wide_wide_text_io",
+        "gnat.io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.conversions": 1,
+    "ada.command_line": 1,
+    "ada.integer_text_io": 1,
+    "ada.streams": 1,
+    "ada.strings.utf_encoding.strings": 1,
+    "ada.strings.utf_encoding.wide_wide_strings": 1,
+    "ada.text_io": 1,
+    "ada.wide_wide_text_io": 1,
+    "gnat.io": 1
+  }
+}

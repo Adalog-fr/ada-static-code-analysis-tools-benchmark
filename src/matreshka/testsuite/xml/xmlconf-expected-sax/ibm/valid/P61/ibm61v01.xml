@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>ibm/valid/P61</baseURI>
+    <systemID>ibm61v01.dtd</systemID>
+  </resolveEntity>
+  <startElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+    <attributes/>
+  </startElement>
+  <characters>&#xA;</characters>
+  <characters>&#x20;</characters>
+  <startElement>
+    <namespaceURI/>
+    <localName>tiger</localName>
+    <qualifiedName>tiger</qualifiedName>
+    <attributes/>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>tiger</localName>
+    <qualifiedName>tiger</qualifiedName>
+  </endElement>
+  <characters>&#xA;</characters>
+  <endElement>
+    <namespaceURI/>
+    <localName>animal</localName>
+    <qualifiedName>animal</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

@@ -1,0 +1,146 @@
+{
+  "Name": "Ada",
+  "Bytes": 42918,
+  "CodeBytes": 0,
+  "Lines": 937,
+  "Code": 467,
+  "Comment": 309,
+  "Blank": 161,
+  "Complexity": 71,
+  "Count": 5,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spark_unbound.ads",
+      "Extension": "ads",
+      "Location": "src/spark_unbound.ads",
+      "Symlocation": "",
+      "Bytes": 711,
+      "Lines": 15,
+      "Code": 2,
+      "Comment": 12,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spark_unbound-safe_alloc.adb",
+      "Extension": "adb",
+      "Location": "src/spark_unbound-safe_alloc.adb",
+      "Symlocation": "",
+      "Bytes": 1176,
+      "Lines": 42,
+      "Code": 33,
+      "Comment": 0,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spark_unbound-safe_alloc.ads",
+      "Extension": "ads",
+      "Location": "src/spark_unbound-safe_alloc.ads",
+      "Symlocation": "",
+      "Bytes": 2582,
+      "Lines": 62,
+      "Code": 22,
+      "Comment": 31,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spark_unbound-arrays.adb",
+      "Extension": "adb",
+      "Location": "src/spark_unbound-arrays.adb",
+      "Symlocation": "",
+      "Bytes": 12449,
+      "Lines": 392,
+      "Code": 289,
+      "Comment": 20,
+      "Blank": 83,
+      "Complexity": 43,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "spark_unbound.safe_alloc"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/spark_unbound-arrays.ads",
+      "Extension": "ads",
+      "Location": "src/spark_unbound-arrays.ads",
+      "Symlocation": "",
+      "Bytes": 26000,
+      "Lines": 426,
+      "Code": 121,
+      "Comment": 246,
+      "Blank": 59,
+      "Complexity": 28,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.big_numbers.big_integers"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics.big_numbers.big_integers": 1,
+    "ada.unchecked_deallocation": 1,
+    "spark_unbound.safe_alloc": 1
+  }
+}

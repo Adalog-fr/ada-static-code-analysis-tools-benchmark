@@ -1,0 +1,18 @@
+authors = [
+"Henrik Härkönen",
+]
+description = "Command based text UI, inspired by Python cmd module"
+licenses = "Apache-2.0"
+maintainers = [
+"Henrik Härkönen <heharkon@iki.fi>",
+]
+maintainers-logins = [
+"heharkon",
+]
+name = "cmd_ada"
+tags = [
+"ui",
+"command-line",
+]
+version = "0.0.1"
+

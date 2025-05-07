@@ -1,0 +1,44 @@
+authors = ["Alejandro R. Mosteo"]
+description = "An English word list"
+licenses = "MIT"
+maintainers = ["Alejandro R. Mosteo <alejandro@mosteo.com>"]
+maintainers-logins = ["mosteo"]
+name = "wordlist"
+tags = ["wordlist","english"]
+version = "0.1.3"
+
+[configuration]
+auto_gpr_with = true
+disabled = false
+generate_ada = true
+generate_c = true
+generate_gpr = true
+output_dir = "config"
+
+[configuration.variables.Logging]
+default = false
+type = "Boolean"
+
+[configuration.variables.Wordset]
+default = "large"
+type = "Enum"
+values = ["small","large","wordle"]
+
+[[depends-on]]
+aaa = "*"
+ada_toml = "*"
+resources = "*"
+
+[[pins]]
+
+[pins.aaa]
+path = "../aaa"
+
+[pins.ada_toml]
+path = "../ada_toml"
+
+[pins.resources]
+path = "../resources"
+
+[build-switches."*"]
+Compile_Checks = "none"

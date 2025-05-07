@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 23937,
+  "CodeBytes": 0,
+  "Lines": 637,
+  "Code": 510,
+  "Comment": 52,
+  "Blank": 75,
+  "Complexity": 54,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/unzipdcf.adb",
+      "Extension": "adb",
+      "Location": "src/unzipdcf.adb",
+      "Symlocation": "",
+      "Bytes": 15912,
+      "Lines": 411,
+      "Code": 335,
+      "Comment": 30,
+      "Blank": 46,
+      "Complexity": 33,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/zipdcf.adb",
+      "Extension": "adb",
+      "Location": "src/zipdcf.adb",
+      "Symlocation": "",
+      "Bytes": 8025,
+      "Lines": 226,
+      "Code": 175,
+      "Comment": 22,
+      "Blank": 29,
+      "Complexity": 21,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

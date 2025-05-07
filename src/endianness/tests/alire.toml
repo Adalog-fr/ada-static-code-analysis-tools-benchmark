@@ -1,0 +1,25 @@
+name = "endianness_tests"
+description = "Test suite for endianness crate"
+version = "1.0.0"
+authors = ["Anton Fediushin"]
+maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
+maintainers-logins = ["AntonMeep"]
+executables = ["endianness_tests"]
+
+[configuration]
+disabled = true
+
+[[depends-on]]
+aunit = "*"
+endianness = "*"
+
+[[pins]]
+
+[pins.endianness]
+path = "../"
+
+[pins.aunit]
+path = "../../aunit"
+
+[build-switches."*"]
+Compile_Checks = "none"

@@ -1,0 +1,5 @@
+(library
+   (name libadalang)
+   (public_name libadalang)
+   (flags (-w -32-9))
+   (libraries ctypes ctypes.foreign camomile zarith))

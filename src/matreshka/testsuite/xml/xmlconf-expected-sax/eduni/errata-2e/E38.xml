@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <startElement>
+    <namespaceURI/>
+    <localName>foo</localName>
+    <qualifiedName>foo</qualifiedName>
+    <attributes/>
+  </startElement>
+  <resolveEntity>
+    <name>e</name>
+    <baseURI>eduni/errata-2e</baseURI>
+    <systemID>E38.ent</systemID>
+  </resolveEntity>
+  <fatalError>external&#x20;general&#x20;entity&#x20;has&#x20;later&#x20;version&#x20;number</fatalError>
+  <endDocument/>
+</SAXEvents>

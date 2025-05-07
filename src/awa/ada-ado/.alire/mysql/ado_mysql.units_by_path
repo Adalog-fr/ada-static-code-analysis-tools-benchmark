@@ -1,0 +1,16 @@
+../../src/mysql/ado-connections-mysql.adb
+../../src/mysql/ado-connections-mysql.ads
+../../src/mysql/ado-mysql.adb
+../../src/mysql/ado-mysql.ads
+../../src/mysql/ado-schemas-mysql.adb
+../../src/mysql/ado-schemas-mysql.ads
+../../src/mysql/ado-statements-mysql.adb
+../../src/mysql/ado-statements-mysql.ads
+../../src/mysql/mysql-com.ads
+../../src/mysql/mysql-my_list.ads
+../../src/mysql/mysql-mysql.ads
+../../src/mysql/mysql-perfect_hash.adb
+../../src/mysql/mysql-perfect_hash.ads
+../../src/mysql/mysql-time.ads
+../../src/mysql/mysql.ads
+mysql-lib.ads

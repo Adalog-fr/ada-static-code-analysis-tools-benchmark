@@ -1,0 +1,7 @@
+[toolchain]
+assistant = false
+[user]
+email = "dauprat@adalog.fr"
+github_login = "Heziode"
+name = "Quentin Dauprat"
+

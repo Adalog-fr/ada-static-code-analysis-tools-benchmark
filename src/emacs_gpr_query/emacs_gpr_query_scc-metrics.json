@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 49560,
+  "CodeBytes": 0,
+  "Lines": 1399,
+  "Code": 1117,
+  "Comment": 109,
+  "Blank": 173,
+  "Complexity": 69,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/emacs_gpr_query_config.ads",
+      "Extension": "ads",
+      "Location": "config/emacs_gpr_query_config.ads",
+      "Symlocation": "",
+      "Bytes": 591,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gpr_query.adb",
+      "Extension": "adb",
+      "Location": "gpr_query.adb",
+      "Symlocation": "",
+      "Bytes": 48969,
+      "Lines": 1379,
+      "Code": 1105,
+      "Comment": 108,
+      "Blank": 166,
+      "Complexity": 69,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

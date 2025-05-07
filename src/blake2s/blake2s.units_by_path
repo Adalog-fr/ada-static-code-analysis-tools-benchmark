@@ -1,0 +1,6 @@
+common/blake2s.adb
+common/blake2s.ads
+common/octearra.ads
+common/octets.ads
+gnat/quadlets.adb
+gnat/quadlets.ads

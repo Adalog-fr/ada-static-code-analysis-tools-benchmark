@@ -1,0 +1,34 @@
+--  SPDX-FileCopyrightText: 2020 Max Reznik <reznikmm@gmail.com>
+--
+--  SPDX-License-Identifier: MIT
+----------------------------------------------------------------
+
+with "jupyter.gpr";
+with "spawn.gpr";
+
+project Jupyter_Ada_Kernel is
+
+   for Source_Dirs use ("../sources/ada");
+   for Main use ("ada_kernel.adb");
+   for Object_Dir use "../.objs/ada_kernel";
+
+   package Compiler renames Jupyter.Compiler;
+
+   package Binder renames Jupyter.Binder;
+
+   package Naming is
+      case Spawn.OS_API is
+         when "unix" =>
+            for Specification ("Ada_Kernels.Configuration")
+              use "ada_kernels-config__linux.ads";
+
+         when "osx" =>
+            for Specification ("Ada_Kernels.Configuration")
+              use "ada_kernels-config__osx.ads";
+
+         when "Windows_NT" =>
+            null;
+      end case;
+   end Naming;
+
+end Jupyter_Ada_Kernel;

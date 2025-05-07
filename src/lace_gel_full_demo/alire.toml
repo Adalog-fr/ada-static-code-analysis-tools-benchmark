@@ -1,0 +1,20 @@
+authors = ["Rod Kay"]
+description = "A demo of most of GEL's features."
+executables = ["launch_full_demo"]
+licenses = "ISC"
+maintainers = ["Rod Kay <rodakay5@gmail.com>"]
+maintainers-logins = ["charlie5"]
+name = "lace_gel_full_demo"
+project-files = ["full_demo.gpr"]
+version = "0.1.0"
+
+[[depends-on]]
+lace_gel = "*"
+
+[[pins]]
+
+[pins.lace_gel]
+path = "../lace/lace_gel"
+
+[build-switches."*"]
+Compile_Checks = "none"

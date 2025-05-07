@@ -1,0 +1,359 @@
+{
+  "Name": "Ada",
+  "Bytes": 46816,
+  "CodeBytes": 0,
+  "Lines": 1449,
+  "Code": 733,
+  "Comment": 470,
+  "Blank": 246,
+  "Complexity": 52,
+  "Count": 13,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_calendar.ads",
+      "Extension": "ads",
+      "Location": "src/euler_calendar.ads",
+      "Symlocation": "",
+      "Bytes": 1304,
+      "Lines": 31,
+      "Code": 12,
+      "Comment": 14,
+      "Blank": 5,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_calendar.adb",
+      "Extension": "adb",
+      "Location": "src/euler_calendar.adb",
+      "Symlocation": "",
+      "Bytes": 1311,
+      "Lines": 39,
+      "Code": 19,
+      "Comment": 16,
+      "Blank": 4,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_text.adb",
+      "Extension": "adb",
+      "Location": "src/euler_text.adb",
+      "Symlocation": "",
+      "Bytes": 3836,
+      "Lines": 115,
+      "Code": 74,
+      "Comment": 22,
+      "Blank": 19,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "euler_tools"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_package.ads",
+      "Extension": "ads",
+      "Location": "src/euler_package.ads",
+      "Symlocation": "",
+      "Bytes": 11337,
+      "Lines": 283,
+      "Code": 117,
+      "Comment": 97,
+      "Blank": 69,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "ada.containers.ordered_sets",
+        "ada.containers.vectors",
+        "euler_tools_config"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_text.ads",
+      "Extension": "ads",
+      "Location": "src/euler_text.ads",
+      "Symlocation": "",
+      "Bytes": 880,
+      "Lines": 21,
+      "Code": 4,
+      "Comment": 14,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_package.adb",
+      "Extension": "adb",
+      "Location": "src/euler_package.adb",
+      "Symlocation": "",
+      "Bytes": 18484,
+      "Lines": 723,
+      "Code": 434,
+      "Comment": 172,
+      "Blank": 117,
+      "Complexity": 37,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.elementary_functions",
+        "ada.strings.fixed",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_tools_int3.ads",
+      "Extension": "ads",
+      "Location": "src/euler_tools_int3.ads",
+      "Symlocation": "",
+      "Bytes": 797,
+      "Lines": 17,
+      "Code": 2,
+      "Comment": 13,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_tools_int1.ads",
+      "Extension": "ads",
+      "Location": "src/euler_tools_int1.ads",
+      "Symlocation": "",
+      "Bytes": 787,
+      "Lines": 17,
+      "Code": 2,
+      "Comment": 13,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_tools.ads",
+      "Extension": "ads",
+      "Location": "src/euler_tools.ads",
+      "Symlocation": "",
+      "Bytes": 777,
+      "Lines": 17,
+      "Code": 2,
+      "Comment": 13,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_package-decimal_division.adb",
+      "Extension": "adb",
+      "Location": "src/euler_package-decimal_division.adb",
+      "Symlocation": "",
+      "Bytes": 3860,
+      "Lines": 91,
+      "Code": 18,
+      "Comment": 68,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_tools_int2.ads",
+      "Extension": "ads",
+      "Location": "src/euler_tools_int2.ads",
+      "Symlocation": "",
+      "Bytes": 792,
+      "Lines": 17,
+      "Code": 2,
+      "Comment": 13,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "euler_package"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/euler_tools_config.ads",
+      "Extension": "ads",
+      "Location": "config/euler_tools_config.ads",
+      "Symlocation": "",
+      "Bytes": 571,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/euler_package-decimal_division_increase.adb",
+      "Extension": "adb",
+      "Location": "src/euler_package-decimal_division_increase.adb",
+      "Symlocation": "",
+      "Bytes": 2080,
+      "Lines": 58,
+      "Code": 35,
+      "Comment": 14,
+      "Blank": 9,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.doubly_linked_lists": 1,
+    "ada.containers.ordered_sets": 1,
+    "ada.containers.vectors": 1,
+    "ada.numerics.elementary_functions": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "euler_package": 4,
+    "euler_tools": 1,
+    "euler_tools_config": 1
+  }
+}

@@ -1,0 +1,2733 @@
+{
+  "Name": "Ada",
+  "Bytes": 668985,
+  "CodeBytes": 0,
+  "Lines": 16468,
+  "Code": 8607,
+  "Comment": 5396,
+  "Blank": 2465,
+  "Complexity": 276,
+  "Count": 100,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ascon-hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/ascon-hash.ads",
+      "Symlocation": "",
+      "Bytes": 2122,
+      "Lines": 38,
+      "Code": 10,
+      "Comment": 26,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ascon.sponge",
+        "keccak.generic_hash"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ascon-sponge.ads",
+      "Extension": "ads",
+      "Location": "src/common/ascon-sponge.ads",
+      "Symlocation": "",
+      "Bytes": 2222,
+      "Lines": 40,
+      "Code": 12,
+      "Comment": 26,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ascon.permutations",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ascon-xof.ads",
+      "Extension": "ads",
+      "Location": "src/common/ascon-xof.ads",
+      "Symlocation": "",
+      "Bytes": 2082,
+      "Lines": 37,
+      "Code": 9,
+      "Comment": 26,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ascon.sponge",
+        "keccak.generic_xof"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ascon-permutations.ads",
+      "Extension": "ads",
+      "Location": "src/common/ascon-permutations.ads",
+      "Symlocation": "",
+      "Bytes": 1969,
+      "Lines": 35,
+      "Code": 7,
+      "Comment": 26,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ascon.adb",
+      "Extension": "adb",
+      "Location": "src/common/ascon.adb",
+      "Symlocation": "",
+      "Bytes": 9911,
+      "Lines": 278,
+      "Code": 169,
+      "Comment": 64,
+      "Blank": 45,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ascon.ads",
+      "Extension": "ads",
+      "Location": "src/common/ascon.ads",
+      "Symlocation": "",
+      "Bytes": 4463,
+      "Lines": 117,
+      "Code": 58,
+      "Comment": 42,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_hash.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_hash.adb",
+      "Symlocation": "",
+      "Bytes": 5091,
+      "Lines": 137,
+      "Code": 74,
+      "Comment": 40,
+      "Blank": 23,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/gimli-hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/gimli-hash.ads",
+      "Symlocation": "",
+      "Bytes": 2042,
+      "Lines": 39,
+      "Code": 9,
+      "Comment": 28,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gimli.sponge",
+        "keccak.generic_hash"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_cshake.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_cshake.adb",
+      "Symlocation": "",
+      "Bytes": 5546,
+      "Lines": 157,
+      "Code": 86,
+      "Comment": 38,
+      "Blank": 33,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_1600-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_1600-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3084,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_duplex.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_duplex.adb",
+      "Symlocation": "",
+      "Bytes": 4732,
+      "Lines": 129,
+      "Code": 64,
+      "Comment": 38,
+      "Blank": 27,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/gimli.adb",
+      "Extension": "adb",
+      "Location": "src/common/gimli.adb",
+      "Symlocation": "",
+      "Bytes": 8718,
+      "Lines": 254,
+      "Code": 152,
+      "Comment": 55,
+      "Blank": 47,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_100.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_100.ads",
+      "Symlocation": "",
+      "Bytes": 2591,
+      "Lines": 53,
+      "Code": 18,
+      "Comment": 28,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.bit_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/kangarootwelve.ads",
+      "Extension": "ads",
+      "Location": "src/common/kangarootwelve.ads",
+      "Symlocation": "",
+      "Bytes": 3614,
+      "Lines": 84,
+      "Code": 38,
+      "Comment": 36,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_kangarootwelve",
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_12",
+        "keccak.parallel_keccak_1600.rounds_12"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-bit_lanes.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf-bit_lanes.adb",
+      "Symlocation": "",
+      "Bytes": 9679,
+      "Lines": 289,
+      "Code": 179,
+      "Comment": 50,
+      "Blank": 60,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_1600-rounds_24.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_1600-rounds_24.ads",
+      "Symlocation": "",
+      "Bytes": 3084,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_1600-rounds_14.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_1600-rounds_14.ads",
+      "Symlocation": "",
+      "Bytes": 3084,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_kangarootwelve.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_kangarootwelve.adb",
+      "Symlocation": "",
+      "Bytes": 21099,
+      "Lines": 614,
+      "Code": 372,
+      "Comment": 105,
+      "Blank": 137,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/gimli.ads",
+      "Extension": "ads",
+      "Location": "src/common/gimli.ads",
+      "Symlocation": "",
+      "Bytes": 4333,
+      "Lines": 111,
+      "Code": 53,
+      "Comment": 43,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_200-rounds_18.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_200-rounds_18.ads",
+      "Symlocation": "",
+      "Bytes": 3072,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_200-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_200-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3072,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_1600.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_1600.ads",
+      "Symlocation": "",
+      "Bytes": 2928,
+      "Lines": 61,
+      "Code": 25,
+      "Comment": 28,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_25-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_25-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3060,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_200.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_200.ads",
+      "Symlocation": "",
+      "Bytes": 2915,
+      "Lines": 61,
+      "Code": 25,
+      "Comment": 28,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_50-rounds_14.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_50-rounds_14.ads",
+      "Symlocation": "",
+      "Bytes": 3060,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_50.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_50.ads",
+      "Symlocation": "",
+      "Bytes": 2582,
+      "Lines": 53,
+      "Code": 18,
+      "Comment": 28,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.bit_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_25.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_25.ads",
+      "Symlocation": "",
+      "Bytes": 2582,
+      "Lines": 53,
+      "Code": 18,
+      "Comment": 28,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.bit_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/cshake.ads",
+      "Extension": "ads",
+      "Location": "src/common/cshake.ads",
+      "Symlocation": "",
+      "Bytes": 2993,
+      "Lines": 72,
+      "Code": 25,
+      "Comment": 37,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_24"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_400-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_400-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3072,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_cshake.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_cshake.ads",
+      "Symlocation": "",
+      "Bytes": 7964,
+      "Lines": 192,
+      "Code": 56,
+      "Comment": 119,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_xof",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_hash.ads",
+      "Symlocation": "",
+      "Bytes": 8773,
+      "Lines": 215,
+      "Code": 70,
+      "Comment": 116,
+      "Blank": 29,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_sponge",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_400-rounds_20.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_400-rounds_20.ads",
+      "Symlocation": "",
+      "Bytes": 3072,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_800-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_800-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3051,
+      "Lines": 61,
+      "Code": 27,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_800-rounds_22.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_800-rounds_22.ads",
+      "Symlocation": "",
+      "Bytes": 3051,
+      "Lines": 61,
+      "Code": 27,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_50-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_50-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3060,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_400.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_400.ads",
+      "Symlocation": "",
+      "Bytes": 2917,
+      "Lines": 61,
+      "Code": 25,
+      "Comment": 28,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_duplex.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_duplex.ads",
+      "Symlocation": "",
+      "Bytes": 8526,
+      "Lines": 186,
+      "Code": 70,
+      "Comment": 94,
+      "Blank": 22,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/gimli-sponge.ads",
+      "Extension": "ads",
+      "Location": "src/common/gimli-sponge.ads",
+      "Symlocation": "",
+      "Bytes": 2273,
+      "Lines": 42,
+      "Code": 12,
+      "Comment": 28,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gimli",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-arch.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-arch.ads",
+      "Symlocation": "",
+      "Bytes": 1841,
+      "Lines": 32,
+      "Code": 3,
+      "Comment": 28,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_kangarootwelve.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_kangarootwelve.ads",
+      "Symlocation": "",
+      "Bytes": 8724,
+      "Lines": 208,
+      "Code": 74,
+      "Comment": 105,
+      "Blank": 29,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_cshake.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_cshake.ads",
+      "Symlocation": "",
+      "Bytes": 8499,
+      "Lines": 194,
+      "Code": 54,
+      "Comment": 123,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_xof",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_sponge.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_sponge.ads",
+      "Symlocation": "",
+      "Bytes": 11589,
+      "Lines": 255,
+      "Code": 107,
+      "Comment": 119,
+      "Blank": 29,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-reference_permutation.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf-reference_permutation.adb",
+      "Symlocation": "",
+      "Bytes": 11616,
+      "Lines": 286,
+      "Code": 205,
+      "Comment": 58,
+      "Blank": 23,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_tuple_hash.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_tuple_hash.adb",
+      "Symlocation": "",
+      "Bytes": 3469,
+      "Lines": 98,
+      "Code": 45,
+      "Comment": 38,
+      "Blank": 15,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/kmac.ads",
+      "Extension": "ads",
+      "Location": "src/common/kmac.ads",
+      "Symlocation": "",
+      "Bytes": 2057,
+      "Lines": 43,
+      "Code": 9,
+      "Comment": 30,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "cshake",
+        "keccak.generic_kmac"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_kmac.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_kmac.ads",
+      "Symlocation": "",
+      "Bytes": 8482,
+      "Lines": 198,
+      "Code": 52,
+      "Comment": 131,
+      "Blank": 15,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_permutation_parallel_fallback.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_permutation_parallel_fallback.adb",
+      "Symlocation": "",
+      "Bytes": 4674,
+      "Lines": 132,
+      "Code": 73,
+      "Comment": 41,
+      "Blank": 18,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-byte_lanes.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf-byte_lanes.ads",
+      "Symlocation": "",
+      "Bytes": 9365,
+      "Lines": 232,
+      "Code": 71,
+      "Comment": 149,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "function shift_left (value  : in lane_type",
+        "function shift_right (value  : in lane_type",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-byte_lanes-twisted.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf-byte_lanes-twisted.ads",
+      "Symlocation": "",
+      "Bytes": 5597,
+      "Lines": 115,
+      "Code": 66,
+      "Comment": 38,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "function shift_left (value  : in lane_type",
+        "function shift_right (value  : in lane_type"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_xof.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_xof.ads",
+      "Symlocation": "",
+      "Bytes": 4675,
+      "Lines": 121,
+      "Code": 61,
+      "Comment": 38,
+      "Blank": 22,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_tuple_hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_tuple_hash.ads",
+      "Symlocation": "",
+      "Bytes": 6655,
+      "Lines": 153,
+      "Code": 44,
+      "Comment": 97,
+      "Blank": 12,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/marsupilamifourteen.ads",
+      "Extension": "ads",
+      "Location": "src/common/marsupilamifourteen.ads",
+      "Symlocation": "",
+      "Bytes": 4148,
+      "Lines": 93,
+      "Code": 38,
+      "Comment": 45,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_kangarootwelve",
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_14",
+        "keccak.parallel_keccak_1600.rounds_14"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-byte_lanes-twisted.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf-byte_lanes-twisted.adb",
+      "Symlocation": "",
+      "Bytes": 15654,
+      "Lines": 416,
+      "Code": 269,
+      "Comment": 71,
+      "Blank": 76,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-lane_complementing_permutation.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf-lane_complementing_permutation.ads",
+      "Symlocation": "",
+      "Bytes": 2835,
+      "Lines": 58,
+      "Code": 10,
+      "Comment": 44,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_xof.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_xof.adb",
+      "Symlocation": "",
+      "Bytes": 3931,
+      "Lines": 106,
+      "Code": 53,
+      "Comment": 38,
+      "Blank": 15,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_monkeyduplex.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_monkeyduplex.adb",
+      "Symlocation": "",
+      "Bytes": 6752,
+      "Lines": 164,
+      "Code": 92,
+      "Comment": 41,
+      "Blank": 31,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_hash.ads",
+      "Symlocation": "",
+      "Bytes": 10400,
+      "Lines": 238,
+      "Code": 79,
+      "Comment": 128,
+      "Blank": 31,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_cshake",
+        "keccak.generic_parallel_xof",
+        "keccak.generic_xof",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_800.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_800.ads",
+      "Symlocation": "",
+      "Bytes": 2917,
+      "Lines": 61,
+      "Code": 25,
+      "Comment": 28,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf",
+        "keccak.generic_keccakf.byte_lanes",
+        "keccak.generic_keccakf.lane_complementing_permutation",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_permutation_parallel_fallback.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_permutation_parallel_fallback.ads",
+      "Symlocation": "",
+      "Bytes": 7838,
+      "Lines": 173,
+      "Code": 71,
+      "Comment": 82,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-optimized_permutation.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf-optimized_permutation.adb",
+      "Symlocation": "",
+      "Bytes": 19927,
+      "Lines": 546,
+      "Code": 465,
+      "Comment": 29,
+      "Blank": 52,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_sponge.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_sponge.adb",
+      "Symlocation": "",
+      "Bytes": 17718,
+      "Lines": 441,
+      "Code": 258,
+      "Comment": 94,
+      "Blank": 89,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-reference_permutation.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf-reference_permutation.ads",
+      "Symlocation": "",
+      "Bytes": 3628,
+      "Lines": 92,
+      "Code": 37,
+      "Comment": 46,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_permutation_serial_fallback.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_permutation_serial_fallback.adb",
+      "Symlocation": "",
+      "Bytes": 4743,
+      "Lines": 132,
+      "Code": 71,
+      "Comment": 41,
+      "Blank": 20,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_keccakf.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_keccakf.ads",
+      "Symlocation": "",
+      "Bytes": 11489,
+      "Lines": 274,
+      "Code": 78,
+      "Comment": 164,
+      "Blank": 32,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_sponge.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_sponge.ads",
+      "Symlocation": "",
+      "Bytes": 14363,
+      "Lines": 321,
+      "Code": 101,
+      "Comment": 181,
+      "Blank": 39,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-bit_lanes.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf-bit_lanes.ads",
+      "Symlocation": "",
+      "Bytes": 4092,
+      "Lines": 88,
+      "Code": 49,
+      "Comment": 30,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-optimized_permutation.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf-optimized_permutation.ads",
+      "Symlocation": "",
+      "Bytes": 2473,
+      "Lines": 51,
+      "Code": 10,
+      "Comment": 38,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/parallel_hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/parallel_hash.ads",
+      "Symlocation": "",
+      "Bytes": 5165,
+      "Lines": 119,
+      "Code": 55,
+      "Comment": 49,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "cshake",
+        "keccak.generic_parallel_hash",
+        "keccak.generic_parallel_xof",
+        "keccak.parallel_keccak_1600.rounds_24",
+        "shake"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_monkeyduplex.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_monkeyduplex.ads",
+      "Symlocation": "",
+      "Bytes": 8114,
+      "Lines": 172,
+      "Code": 121,
+      "Comment": 28,
+      "Blank": 23,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_xof.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_xof.adb",
+      "Symlocation": "",
+      "Bytes": 5004,
+      "Lines": 135,
+      "Code": 74,
+      "Comment": 38,
+      "Blank": 23,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-padding.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-padding.adb",
+      "Symlocation": "",
+      "Bytes": 8960,
+      "Lines": 233,
+      "Code": 101,
+      "Comment": 83,
+      "Blank": 49,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_keccakf.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_keccakf.adb",
+      "Symlocation": "",
+      "Bytes": 30748,
+      "Lines": 823,
+      "Code": 657,
+      "Comment": 58,
+      "Blank": 108,
+      "Complexity": 24,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf.adb",
+      "Symlocation": "",
+      "Bytes": 2443,
+      "Lines": 60,
+      "Code": 22,
+      "Comment": 32,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-byte_lanes.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf-byte_lanes.adb",
+      "Symlocation": "",
+      "Bytes": 13547,
+      "Lines": 354,
+      "Code": 221,
+      "Comment": 68,
+      "Blank": 65,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generic/keccak-parallel_keccak_1600-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/generic/keccak-parallel_keccak_1600-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 4453,
+      "Lines": 82,
+      "Code": 47,
+      "Comment": 26,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.keccak_1600.rounds_12",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_permutation_serial_fallback.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_parallel_permutation_serial_fallback.ads",
+      "Symlocation": "",
+      "Bytes": 6255,
+      "Lines": 138,
+      "Code": 59,
+      "Comment": 63,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/sha3.ads",
+      "Extension": "ads",
+      "Location": "src/common/sha3.ads",
+      "Symlocation": "",
+      "Bytes": 3640,
+      "Lines": 97,
+      "Code": 47,
+      "Comment": 35,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_hash",
+        "keccak.keccak_1600.rounds_24"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf-lane_complementing_permutation.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_keccakf-lane_complementing_permutation.adb",
+      "Symlocation": "",
+      "Bytes": 18396,
+      "Lines": 487,
+      "Code": 410,
+      "Comment": 27,
+      "Blank": 50,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-util.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-util.adb",
+      "Symlocation": "",
+      "Bytes": 7467,
+      "Lines": 249,
+      "Code": 123,
+      "Comment": 50,
+      "Blank": 76,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_monkeywrap.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_monkeywrap.ads",
+      "Symlocation": "",
+      "Bytes": 10956,
+      "Lines": 252,
+      "Code": 97,
+      "Comment": 126,
+      "Blank": 29,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_monkeyduplex",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_sponge.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_sponge.adb",
+      "Symlocation": "",
+      "Bytes": 16807,
+      "Lines": 522,
+      "Code": 323,
+      "Comment": 64,
+      "Blank": 135,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_hash.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_hash.adb",
+      "Symlocation": "",
+      "Bytes": 18228,
+      "Lines": 497,
+      "Code": 306,
+      "Comment": 83,
+      "Blank": 108,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generic/keccak-parallel_keccak_1600-rounds_14.ads",
+      "Extension": "ads",
+      "Location": "src/generic/keccak-parallel_keccak_1600-rounds_14.ads",
+      "Symlocation": "",
+      "Bytes": 4453,
+      "Lines": 82,
+      "Code": 47,
+      "Comment": 26,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.keccak_1600.rounds_14",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_keccakf.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_keccakf.ads",
+      "Symlocation": "",
+      "Bytes": 4224,
+      "Lines": 100,
+      "Code": 25,
+      "Comment": 61,
+      "Blank": 14,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-padding.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-padding.ads",
+      "Symlocation": "",
+      "Bytes": 9341,
+      "Lines": 191,
+      "Code": 56,
+      "Comment": 121,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_xof.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-generic_xof.ads",
+      "Symlocation": "",
+      "Bytes": 7712,
+      "Lines": 187,
+      "Code": 63,
+      "Comment": 99,
+      "Blank": 25,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_parallel_cshake.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_parallel_cshake.adb",
+      "Symlocation": "",
+      "Bytes": 9679,
+      "Lines": 284,
+      "Code": 161,
+      "Comment": 62,
+      "Blank": 61,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-util.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-util.ads",
+      "Symlocation": "",
+      "Bytes": 6851,
+      "Lines": 149,
+      "Code": 60,
+      "Comment": 74,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/shake.ads",
+      "Extension": "ads",
+      "Location": "src/common/shake.ads",
+      "Symlocation": "",
+      "Bytes": 2438,
+      "Lines": 57,
+      "Code": 17,
+      "Comment": 33,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_24"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/rawshake.ads",
+      "Extension": "ads",
+      "Location": "src/common/rawshake.ads",
+      "Symlocation": "",
+      "Bytes": 2451,
+      "Lines": 57,
+      "Code": 17,
+      "Comment": 33,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_xof",
+        "keccak.keccak_1600.rounds_24"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/tuple_hash.ads",
+      "Extension": "ads",
+      "Location": "src/common/tuple_hash.ads",
+      "Symlocation": "",
+      "Bytes": 2071,
+      "Lines": 41,
+      "Code": 8,
+      "Comment": 30,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "cshake",
+        "keccak.generic_tuple_hash"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generic/keccak-parallel_keccak_1600-rounds_24.ads",
+      "Extension": "ads",
+      "Location": "src/generic/keccak-parallel_keccak_1600-rounds_24.ads",
+      "Symlocation": "",
+      "Bytes": 4453,
+      "Lines": 82,
+      "Code": 47,
+      "Comment": 26,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_sponge",
+        "keccak.keccak_1600.rounds_24",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak.ads",
+      "Symlocation": "",
+      "Bytes": 1836,
+      "Lines": 33,
+      "Code": 4,
+      "Comment": 28,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-types.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-types.ads",
+      "Symlocation": "",
+      "Bytes": 6341,
+      "Lines": 171,
+      "Code": 88,
+      "Comment": 50,
+      "Blank": 33,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generic/keccak-parallel_keccak_1600.ads",
+      "Extension": "ads",
+      "Location": "src/generic/keccak-parallel_keccak_1600.ads",
+      "Symlocation": "",
+      "Bytes": 7643,
+      "Lines": 192,
+      "Code": 92,
+      "Comment": 73,
+      "Blank": 27,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_parallel_permutation_serial_fallback",
+        "keccak.keccak_1600",
+        "keccak.types"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/ketje.ads",
+      "Extension": "ads",
+      "Location": "src/common/ketje.ads",
+      "Symlocation": "",
+      "Bytes": 9051,
+      "Lines": 205,
+      "Code": 127,
+      "Comment": 42,
+      "Blank": 36,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.generic_keccakf.byte_lanes.twisted",
+        "keccak.generic_monkeyduplex",
+        "keccak.generic_monkeywrap",
+        "keccak.keccak_1600",
+        "keccak.keccak_1600.rounds_12",
+        "keccak.keccak_200",
+        "keccak.keccak_200.rounds_12",
+        "keccak.keccak_400",
+        "keccak.keccak_400.rounds_12",
+        "keccak.keccak_800",
+        "keccak.keccak_800.rounds_12",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_100-rounds_16.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_100-rounds_16.ads",
+      "Symlocation": "",
+      "Bytes": 3072,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-keccak_100-rounds_12.ads",
+      "Extension": "ads",
+      "Location": "src/common/keccak-keccak_100-rounds_12.ads",
+      "Symlocation": "",
+      "Bytes": 3072,
+      "Lines": 62,
+      "Code": 28,
+      "Comment": 28,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.generic_duplex",
+        "keccak.generic_sponge",
+        "keccak.padding"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_kmac.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_kmac.adb",
+      "Symlocation": "",
+      "Bytes": 4296,
+      "Lines": 119,
+      "Code": 72,
+      "Comment": 27,
+      "Blank": 20,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "keccak.util"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/common/keccak-generic_monkeywrap.adb",
+      "Extension": "adb",
+      "Location": "src/common/keccak-generic_monkeywrap.adb",
+      "Symlocation": "",
+      "Bytes": 28178,
+      "Lines": 703,
+      "Code": 446,
+      "Comment": 89,
+      "Blank": 168,
+      "Complexity": 39,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "keccak.util"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ascon.permutations": 1,
+    "ascon.sponge": 2,
+    "cshake": 3,
+    "function shift_left (value  : in lane_type": 2,
+    "function shift_right (value  : in lane_type": 2,
+    "gimli": 1,
+    "gimli.sponge": 1,
+    "interfaces": 17,
+    "keccak.generic_cshake": 4,
+    "keccak.generic_duplex": 14,
+    "keccak.generic_hash": 3,
+    "keccak.generic_kangarootwelve": 2,
+    "keccak.generic_keccakf": 7,
+    "keccak.generic_keccakf.bit_lanes": 3,
+    "keccak.generic_keccakf.byte_lanes": 4,
+    "keccak.generic_keccakf.byte_lanes.twisted": 1,
+    "keccak.generic_keccakf.lane_complementing_permutation": 7,
+    "keccak.generic_kmac": 1,
+    "keccak.generic_monkeyduplex": 2,
+    "keccak.generic_monkeywrap": 1,
+    "keccak.generic_parallel_hash": 1,
+    "keccak.generic_parallel_permutation_serial_fallback": 1,
+    "keccak.generic_parallel_sponge": 4,
+    "keccak.generic_parallel_xof": 6,
+    "keccak.generic_sponge": 17,
+    "keccak.generic_tuple_hash": 1,
+    "keccak.generic_xof": 9,
+    "keccak.keccak_1600": 2,
+    "keccak.keccak_1600.rounds_12": 3,
+    "keccak.keccak_1600.rounds_14": 2,
+    "keccak.keccak_1600.rounds_24": 5,
+    "keccak.keccak_200": 1,
+    "keccak.keccak_200.rounds_12": 1,
+    "keccak.keccak_400": 1,
+    "keccak.keccak_400.rounds_12": 1,
+    "keccak.keccak_800": 1,
+    "keccak.keccak_800.rounds_12": 1,
+    "keccak.padding": 22,
+    "keccak.parallel_keccak_1600.rounds_12": 1,
+    "keccak.parallel_keccak_1600.rounds_14": 1,
+    "keccak.parallel_keccak_1600.rounds_24": 1,
+    "keccak.types": 26,
+    "keccak.util": 7,
+    "shake": 1
+  }
+}

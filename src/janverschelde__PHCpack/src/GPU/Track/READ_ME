@@ -1,0 +1,19 @@
+Accelerated Path Tracking using Power Series in PHCv2.4.87.
+
+------------------------------------------------------------------------------
+file name              : short description
+------------------------------------------------------------------------------
+dbl_fabry_host         : Fabry ratio in double precision on host
+dbl_path_tracker       : tracker in double precision on real numbers
+cmplx_path_tracker     : tracker in double precision on complex numbers
+dbl2_path_tracker      : tracker in double double precision on real numbers
+cmplx2_path_tracker    : tracker in double double precision on complex numbers
+dbl4_path_tracker      : tracker in quad double precision on real numbers
+cmplx4_path_tracker    : tracker in quad double precision on complex numbers
+dbl8_path_tracker      : tracker in octo double precision on real numbers
+cmplx8_path_tracker    : tracker in octo double precision on complex numbers
+test_dbl_track         : tests the tracker in double precision
+test_dbl2_track        : tests the tracker in double double precision
+test_dbl4_track        : tests the tracker in quad double precision
+test_dbl8_track        : tests the tracker in octo double precision
+------------------------------------------------------------------------------

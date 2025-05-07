@@ -1,0 +1,19 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-uart.ads"
+node: { title: "interfaces__nrf51__uart__enable_enable_fieldRP" label: "enable_enable_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_CE_Invalid_Data" label: "gnat_rcheck_CE_Invalid_Data\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__nrf51__uart__enable_enable_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-uart.ads:596:9" }
+node: { title: "interfaces__nrf51__uart__config_parity_fieldRP" label: "config_parity_fieldRP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf51__uart__config_parity_fieldRP" targetname: "__gnat_rcheck_CE_Invalid_Data" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-uart.ads:672:9" }
+node: { title: "interfaces__nrf51__uart__shorts_registerIP" label: "shorts_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__intenset_registerIP" label: "intenset_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__intenclr_registerIP" label: "intenclr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__errorsrc_registerIP" label: "errorsrc_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__enable_registerIP" label: "enable_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__rxd_registerIP" label: "rxd_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__txd_registerIP" label: "txd_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__config_registerIP" label: "config_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__power_registerIP" label: "power_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf51__uart__uart_peripheralIP" label: "uart_peripheralIP\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__nrf51__uart__uart_peripheralIP" targetname: "interfaces__nrf51__uart__intenset_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-uart.ads:759:7" }
+edge: { sourcename: "interfaces__nrf51__uart__uart_peripheralIP" targetname: "interfaces__nrf51__uart__intenclr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/i-nrf51-uart.ads:761:7" }
+}

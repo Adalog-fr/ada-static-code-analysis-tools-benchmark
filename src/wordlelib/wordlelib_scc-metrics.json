@@ -1,0 +1,92 @@
+{
+  "Name": "Ada",
+  "Bytes": 5400,
+  "CodeBytes": 0,
+  "Lines": 212,
+  "Code": 117,
+  "Comment": 35,
+  "Blank": 60,
+  "Complexity": 9,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/wordlelib_config.ads",
+      "Extension": "ads",
+      "Location": "config/wordlelib_config.ads",
+      "Symlocation": "",
+      "Bytes": 563,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/wordlelib.ads",
+      "Extension": "ads",
+      "Location": "src/wordlelib.ads",
+      "Symlocation": "",
+      "Bytes": 1603,
+      "Lines": 61,
+      "Code": 31,
+      "Comment": 6,
+      "Blank": 24,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/wordlelib.adb",
+      "Extension": "adb",
+      "Location": "src/wordlelib.adb",
+      "Symlocation": "",
+      "Bytes": 3234,
+      "Lines": 131,
+      "Code": 74,
+      "Comment": 28,
+      "Blank": 29,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "aaa.strings": 1
+  }
+}

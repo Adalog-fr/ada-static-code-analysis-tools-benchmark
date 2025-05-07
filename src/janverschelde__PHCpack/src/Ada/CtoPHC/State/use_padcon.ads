@@ -1,0 +1,158 @@
+with Standard_Integer_Numbers;          use Standard_Integer_Numbers;
+with C_Integer_Arrays;                  use C_Integer_Arrays;
+with C_Double_Arrays;                   use C_Double_Arrays;
+
+function use_padcon ( job : integer32;
+                      a : C_intarrs.Pointer;
+                      b : C_intarrs.Pointer;
+                      c : C_dblarrs.Pointer;
+                      vrblvl : integer32 := 0 ) return integer32;
+
+-- DESCRIPTION :
+--   Function to access the Pade continuation.
+
+-- ON ENTRY :
+--   job   =   0 : gives homotopy continuation parameters default values;
+--   job   =   1 : clears the homotopy continuation parameters;
+--   job   =   2 : given in a[0] is a number k between 1 and 12,
+--                 on return in b[0] or c is the value of the k-th
+--                 homotopy continuation parameter, as follows:
+--                 if k = 1, then c[0] contains the real part of gamma,
+--                 and c[1] contains the imaginary part of gamma;
+--                 if k = 2, then b[0] is the degree of Pade numerator,
+--                 if k = 3, then b[0] is the degree of Pade denominator,
+--                 if k = 4, then c[0] is the maximum step size,
+--                 if k = 5, then c[0] is the minimum step size,
+--                 if k = 6, then c[0] is the series step factor,
+--                 if k = 7, then c[0] is the pole radius step factor,
+--                 if k = 8, then c[0] is the curvature step factor,
+--                 if k = 9, then c[0] is the predictor residual tolerance,
+--                 if k = 10, then c[0] is the corrector residual tolerance,
+--                 if k = 11, then c[0] is the zero coefficient tolerance,
+--                 if k = 12, then b[0] is the maximum #corrector steps,
+--                 if k = 13, then b[0] is the maximum #steps on a path.
+--   job   =   3 : given in a[0] is a number k between 1 and 12,
+--                 and in b[0] or c the value of the k-th parameter,
+--                 sets the value of the k-th parameter to c[0],
+--                 if k = 1, then c[0] must contain the real part
+--                 of gamma and c[1] the imaginary part of gamma,
+--                 if k = 2, then b[0] is the degree of Pade numerator,
+--                 if k = 3, then b[0] is the degree of Pade denominator,
+--                 if k = 4, then c[0] is the maximum step size,
+--                 if k = 5, then c[0] is the minimum step size,
+--                 if k = 6, then c[0] is the series step factor,
+--                 if k = 7, then c[0] is the pole radius step factor,
+--                 if k = 8, then c[0] is the curvature step factor,
+--                 if k = 9, then c[0] is the predictor residual tolerance,
+--                 if k = 10, then c[0] is the corrector residual tolerance,
+--                 if k = 11, then c[0] is the zero coefficient tolerance,
+--                 if k = 12, then b[0] is the maximum #corrector steps,
+--                 if k = 13, then b[0] is the maximum #steps on a path.
+--   job   =   4 : tracks the paths with the Pade predictors,
+--                 for an artificial parameter homotopy,
+--                 the value of a[0] is 0, 1, 2, for double, double double,
+--                 or quad double precision, with target, start system, and
+--                 start solutions defined via PHCpack_Operations,
+--                 in a[1] is the number of characters of the name of the
+--                 output file, if a[1] is zero, then no output is written,
+--                 otherwise, the characters of the output file name are
+--                 defined by b, in a[2] is the value of the verbose flag;
+--                 in a[3] is the value of the homogeneous coordinates flag,
+--                 in a[4] is the flag to indicate whether the file is local,
+--                 on return are the end of the solution paths in the
+--                 double, double double, or quad double solutions container.
+--   job   =   5 : initializes homotopy for a step-by-step execution
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2, the verbose option
+--                 is in b[0], and in b[1] is the flag for homogeneous
+--                 coordinates (1 if on, 0 for affine), before execution,
+--                 the homotopy continuation parameters with job 0 is set,
+--                 target and start system are defined in PHCpack_Operations.
+--   job   =   6 : initializes next start solution in series-Pade tracker,
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 the index of the solution is a[1],
+--                 the verbose option is in b[0],
+--                 on return in a[0] is the failure code of the retrieval;
+--   job   =   7 : runs the next predict-correct step in series-Pade tracker,
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 the verbose option is in b[0],
+--                 on return in a[0] is the failure code of the next
+--                 predict-correct step;
+--   job   =   8 : gets the current solution at index a[1], 
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 the verbose option is in b[0],
+--                 the current solution is placed at position index in
+--                 the solutions container and the failure code of the
+--                 placement is returned in a[0];
+--   job   =   9 : clears the data in the series-pade tracker,
+--                 in double, double double, or quad double precision,
+--                 depending on whether a[0] is 0, 1, or 2;
+--   job   =  10 : returns in c[0] the value of the pole radius,
+--                 computed in double, double double, or quad double,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  11 : returns in c[0] and c[1] the real and imaginary parts
+--                 of the closest pole (only meaningful if c[0] >= 0.0),
+--                 computed in double, double double, or quad double,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  12 : returns in c[0] the current t value of the path tracker
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  13 : returns in c[0] the current step size of the path tracker
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  19 : returns in c[0] the current series step of the path tracker
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  20 : returns in c[0] the current pole step of the path tracker
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  21 : returns in c[0] the distance to the closest solution
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  22 : returns in c[0] the current Hessian step of the path tracker
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2;
+--   job   =  14 : returns in c[0] and c[1] the real and imaginary parts of
+--                 the series coefficient at component a[1] with power a[2],
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 the verbose flag (0 or 1) is in b[0].
+--   job   =  15 : returns in c[0] and c[1] the real and imaginary parts of
+--                 the Pade coefficient at component a[2] with power a[3],
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 if a[1] = 0, then the denominator coefficient is returned,
+--                 otherwise, on return is the numerator coefficient,
+--                 the verbose flag (0 or 1) is in b[0];
+--   job   =  16 : returns in c[0] and c[1] the real and imaginary parts of
+--                 the pole of Pade approximant a[1] at position a[2],
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 the verbose flag (0 or 1) is in b[0].
+--   job   =  17 : writes the homotopy continuation parameters to the
+--                 defined output file.
+--   job   =  18 : initializes homotopy for a step-by-step execution
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 for a natural parameter homotopy with index in b[0],
+--                 the index of the continuation parameter,
+--                 the verbose option is in b[1], before execution,
+--                 the homotopy continuation parameters with job 0 is set
+--                 and target system is defined in PHCpack_Operations.
+--   job   =  23 : resets the homotopy continuation parameters for the
+--                 step-by-step path tracker, using the value for a[0]
+--                 for double (0), double double (1), or quad double (2).
+--   job   =  24 : gets the predicted solution at index a[1], 
+--                 in double, double double, or quad double precision,
+--                 depending whether a[0] is 0, 1, or 2,
+--                 the verbose option is in b[0],
+--                 the predicted solution is placed at position index in
+--                 the solutions container and the failure code of the
+--                 placement is returned in a[0];
+
+-- ON RETURN :
+--   0 if the operation was successful, otherwise something went wrong,
+--   or job not in the right range.

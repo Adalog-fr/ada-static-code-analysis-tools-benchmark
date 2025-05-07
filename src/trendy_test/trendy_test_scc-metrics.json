@@ -1,0 +1,360 @@
+{
+  "Name": "Ada",
+  "Bytes": 25587,
+  "CodeBytes": 0,
+  "Lines": 679,
+  "Code": 498,
+  "Comment": 72,
+  "Blank": 109,
+  "Complexity": 26,
+  "Count": 12,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-assertions-integer_assertions.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_test-assertions-integer_assertions.ads",
+      "Symlocation": "",
+      "Bytes": 142,
+      "Lines": 4,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test.assertions.discrete"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_locations.adb",
+      "Extension": "adb",
+      "Location": "src/trendy_locations.adb",
+      "Symlocation": "",
+      "Bytes": 698,
+      "Lines": 19,
+      "Code": 14,
+      "Comment": 3,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-generics.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_test-generics.ads",
+      "Symlocation": "",
+      "Bytes": 978,
+      "Lines": 30,
+      "Code": 21,
+      "Comment": 4,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_locations"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-generics.adb",
+      "Extension": "adb",
+      "Location": "src/trendy_test-generics.adb",
+      "Symlocation": "",
+      "Bytes": 977,
+      "Lines": 29,
+      "Code": 26,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-assertions.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_test-assertions.ads",
+      "Symlocation": "",
+      "Bytes": 757,
+      "Lines": 20,
+      "Code": 13,
+      "Comment": 2,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-reports.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_test-reports.ads",
+      "Symlocation": "",
+      "Bytes": 234,
+      "Lines": 8,
+      "Code": 4,
+      "Comment": 1,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-reports.adb",
+      "Extension": "adb",
+      "Location": "src/trendy_test-reports.adb",
+      "Symlocation": "",
+      "Bytes": 1762,
+      "Lines": 54,
+      "Code": 47,
+      "Comment": 0,
+      "Blank": 7,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.command_line",
+        "ada.strings.unbounded",
+        "ada.strings.unbounded.text_io",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-assertions-discrete.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_test-assertions-discrete.ads",
+      "Symlocation": "",
+      "Bytes": 694,
+      "Lines": 16,
+      "Code": 11,
+      "Comment": 1,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "trendy_test.generics"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_locations.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_locations.ads",
+      "Symlocation": "",
+      "Bytes": 1155,
+      "Lines": 28,
+      "Code": 18,
+      "Comment": 6,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test.adb",
+      "Extension": "adb",
+      "Location": "src/trendy_test.adb",
+      "Symlocation": "",
+      "Bytes": 11542,
+      "Lines": 306,
+      "Code": 248,
+      "Comment": 19,
+      "Blank": 39,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.synchronized_queue_interfaces",
+        "ada.containers.unbounded_synchronized_queues",
+        "ada.exceptions",
+        "ada.numerics.discrete_random",
+        "ada.strings.fixed",
+        "ada.strings.unbounded.text_io",
+        "ada.text_io",
+        "gnat.traceback.symbolic",
+        "system.multiprocessors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test-assertions.adb",
+      "Extension": "adb",
+      "Location": "src/trendy_test-assertions.adb",
+      "Symlocation": "",
+      "Bytes": 926,
+      "Lines": 28,
+      "Code": 24,
+      "Comment": 0,
+      "Blank": 4,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/trendy_test.ads",
+      "Extension": "ads",
+      "Location": "src/trendy_test.ads",
+      "Symlocation": "",
+      "Bytes": 5722,
+      "Lines": 137,
+      "Code": 69,
+      "Comment": 36,
+      "Blank": 32,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.containers.indefinite_vectors",
+        "ada.containers.vectors",
+        "ada.strings.unbounded",
+        "trendy_locations"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 2,
+    "ada.command_line": 1,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.synchronized_queue_interfaces": 1,
+    "ada.containers.unbounded_synchronized_queues": 1,
+    "ada.containers.vectors": 1,
+    "ada.exceptions": 1,
+    "ada.numerics.discrete_random": 1,
+    "ada.strings.fixed": 2,
+    "ada.strings.unbounded": 2,
+    "ada.strings.unbounded.text_io": 2,
+    "ada.text_io": 2,
+    "gnat.traceback.symbolic": 1,
+    "interfaces.c.strings": 1,
+    "system.multiprocessors": 1,
+    "trendy_locations": 2,
+    "trendy_test": 2,
+    "trendy_test.assertions.discrete": 1,
+    "trendy_test.generics": 1
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "Name": "Ada",
+  "Bytes": 32277,
+  "CodeBytes": 0,
+  "Lines": 993,
+  "Code": 509,
+  "Comment": 316,
+  "Blank": 168,
+  "Complexity": 6,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/rtmidi_config.ads",
+      "Extension": "ads",
+      "Location": "config/rtmidi_config.ads",
+      "Symlocation": "",
+      "Bytes": 555,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rtmidi.ads",
+      "Extension": "ads",
+      "Location": "src/rtmidi.ads",
+      "Symlocation": "",
+      "Bytes": 21478,
+      "Lines": 582,
+      "Code": 269,
+      "Comment": 225,
+      "Blank": 88,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c",
+        "interfaces.c.extensions",
+        "interfaces.c.strings",
+        "system",
+        "system.storage_elements"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/rtmidi.adb",
+      "Extension": "adb",
+      "Location": "src/rtmidi.adb",
+      "Symlocation": "",
+      "Bytes": 10244,
+      "Lines": 391,
+      "Code": 228,
+      "Comment": 90,
+      "Blank": 73,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "interfaces.c",
+        "interfaces.c.strings"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.unchecked_deallocation": 1,
+    "interfaces.c": 2,
+    "interfaces.c.extensions": 1,
+    "interfaces.c.strings": 2,
+    "system": 1,
+    "system.storage_elements": 1
+  }
+}

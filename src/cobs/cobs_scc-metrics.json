@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 20312,
+  "CodeBytes": 0,
+  "Lines": 497,
+  "Code": 238,
+  "Comment": 177,
+  "Blank": 82,
+  "Complexity": 10,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/cobs_config.ads",
+      "Extension": "ads",
+      "Location": "config/cobs_config.ads",
+      "Symlocation": "",
+      "Bytes": 543,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/cobs.ads",
+      "Extension": "ads",
+      "Location": "src/cobs.ads",
+      "Symlocation": "",
+      "Bytes": 1843,
+      "Lines": 36,
+      "Code": 8,
+      "Comment": 26,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generic_cobs.adb",
+      "Extension": "adb",
+      "Location": "src/generic_cobs.adb",
+      "Symlocation": "",
+      "Bytes": 7702,
+      "Lines": 217,
+      "Code": 123,
+      "Comment": 45,
+      "Blank": 49,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generic_cobs.ads",
+      "Extension": "ads",
+      "Location": "src/generic_cobs.ads",
+      "Symlocation": "",
+      "Bytes": 10224,
+      "Lines": 224,
+      "Code": 95,
+      "Comment": 105,
+      "Blank": 24,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

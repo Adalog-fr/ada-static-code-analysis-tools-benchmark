@@ -1,0 +1,201 @@
+{
+  "Name": "Ada",
+  "Bytes": 46447,
+  "CodeBytes": 0,
+  "Lines": 860,
+  "Code": 731,
+  "Comment": 23,
+  "Blank": 106,
+  "Complexity": 85,
+  "Count": 7,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/vaton_config.ads",
+      "Extension": "ads",
+      "Location": "config/vaton_config.ads",
+      "Symlocation": "",
+      "Bytes": 547,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/vaton-float_conversions.ads",
+      "Extension": "ads",
+      "Location": "src/vaton-float_conversions.ads",
+      "Symlocation": "",
+      "Bytes": 2596,
+      "Lines": 39,
+      "Code": 29,
+      "Comment": 0,
+      "Blank": 10,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/vaton-float_conversions.adb",
+      "Extension": "adb",
+      "Location": "src/vaton-float_conversions.adb",
+      "Symlocation": "",
+      "Bytes": 6814,
+      "Lines": 152,
+      "Code": 123,
+      "Comment": 1,
+      "Blank": 28,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.big_numbers.big_reals"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/vaton-integer_conversions.adb",
+      "Extension": "adb",
+      "Location": "src/vaton-integer_conversions.adb",
+      "Symlocation": "",
+      "Bytes": 3301,
+      "Lines": 60,
+      "Code": 47,
+      "Comment": 1,
+      "Blank": 12,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.big_numbers.big_integers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/vaton-integer_conversions.ads",
+      "Extension": "ads",
+      "Location": "src/vaton-integer_conversions.ads",
+      "Symlocation": "",
+      "Bytes": 1753,
+      "Lines": 33,
+      "Code": 23,
+      "Comment": 1,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/vaton.ads",
+      "Extension": "ads",
+      "Location": "src/vaton.ads",
+      "Symlocation": "",
+      "Bytes": 12401,
+      "Lines": 188,
+      "Code": 144,
+      "Comment": 18,
+      "Blank": 26,
+      "Complexity": 29,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.numerics.big_numbers.big_integers",
+        "ada.numerics.big_numbers.big_reals",
+        "spark_unbound.arrays"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/vaton.adb",
+      "Extension": "adb",
+      "Location": "src/vaton.adb",
+      "Symlocation": "",
+      "Bytes": 19035,
+      "Lines": 368,
+      "Code": 353,
+      "Comment": 1,
+      "Blank": 14,
+      "Complexity": 35,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "vaton.float_conversions",
+        "vaton.integer_conversions"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.numerics.big_numbers.big_integers": 2,
+    "ada.numerics.big_numbers.big_reals": 2,
+    "spark_unbound.arrays": 1,
+    "vaton.float_conversions": 1,
+    "vaton.integer_conversions": 1
+  }
+}

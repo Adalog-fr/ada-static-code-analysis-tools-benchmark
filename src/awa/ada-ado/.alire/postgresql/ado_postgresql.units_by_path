@@ -1,0 +1,11 @@
+../../src/postgresql/ado-connections-postgresql.adb
+../../src/postgresql/ado-connections-postgresql.ads
+../../src/postgresql/ado-postgresql.adb
+../../src/postgresql/ado-postgresql.ads
+../../src/postgresql/ado-schemas-postgresql.adb
+../../src/postgresql/ado-schemas-postgresql.ads
+../../src/postgresql/ado-statements-postgresql.adb
+../../src/postgresql/ado-statements-postgresql.ads
+../../src/postgresql/pq-perfect_hash.adb
+../../src/postgresql/pq-perfect_hash.ads
+../../src/postgresql/pq.ads

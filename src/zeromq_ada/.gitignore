@@ -1,0 +1,24 @@
+lib
+.obj
+*~
+*.pyc
+new\ file
+.temp
+make
+default.gpr
+temp_
+metrix.xml
+gnatcheck.out
+gnatcheck-source-list.out
+
+*.tgz
+.dist
+Makefile.config
+gnatinspect.db
+fontconfig
+temp.out
+.#*#
+_temp.sed
+libzmq.gpr
+libsodium.gpr
+_

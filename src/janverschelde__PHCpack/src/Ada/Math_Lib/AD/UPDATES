@@ -1,0 +1,65 @@
+Thu 10 Jun 2021 : added the exec_dir attribute to ad.gpr.
+
+Tue 8 Jun 2021 : defined ad.gpr to build the test procedures.
+
+Fri 21 Dec 2018 : new type system in generic_polynomial_vectors to
+  hold maximal exponents, which extended random_polynomial_vectors,
+  all *polynomial_vectors_io, system_vector_convertors, and the
+  test procedures ts_polvec.adb and ts_sys2vec.adb.
+  To generic_polynomial_vectors, added speel() procedure to use the cached
+  power tables for evaluation and differentiation.
+
+Thu 20 Dec 2018 : modified random_monomials to retry if the degree of the
+  generated monomial equals zero.  Set verbose flag in ts_monom.adb.
+  Made similar modifications to random_monomial_vectors.a* and
+  random_polynomial_vectors.adb.  Added the computation of the largest
+  exponents to generic_monomial_vectors, updated the *_io.adb packages.
+  Added maximal exponents and power table to the data structure record
+  of a polynomial in generic_monomial_vectors, which changed their *io.adb.
+  Updated generic_monomials, ts_monvec, random_monomial_vectors.adb,
+  and system_vector_convertors.adb.  Distinguished case with m.n_base = 0
+  in generic_monomial_vectors, added speel_without_cache for bug fix...
+  In generic_monomial_vectors.adb, fixed bug in Largest_Exponents.
+
+Wed 19 Dec 2018 : fixed bug in system_vector_convertors, added a function
+  to check on the constant term, fixed bug in generic_polynomial_vectors.adb,
+  updated the ts_sys2vec.adb to compute norms of the differences.
+  Added power table code to generic_monomials for general evaluation,
+  which changed the instantiations *complex_monomials.ads and also
+  added more output to the *complex_monomials_io.adb, with better tests
+  in ts_monvec.adb.  The generic_monomial_vectors.ads changed and all its
+  instantiations in *monomial_vectors.ads, improved ts_monvec.adb.
+  The generic_polynomial_vectors.ads changed and so did all its
+  instantiations in *polynomial_vectors.ads, improved ts_polvec.adb.
+  Added degree() functions to generic_monomial_vectors and updated
+  {standard,dobldobl,quaddobl}_monomial_vectors_io.adb.
+
+Tue 18 Dec 2018 : added a polynomial type to generic_monomial_vectors,
+  which changed {standard,dobldobl,quaddobl}_monomial_vectors_io.
+  This caused changes in generic_polynomial_vectors and ts_polvec.
+  All generators for random instances, the random_monomials, the
+  random_monomial_vectors, and random_polynomial_vectors were modified.
+  Extended the evaluation and differentiation in generic_monomials
+  and generic_monomial_vectors, tested by ts_monvec.adb.
+  Added differentiation to generic_polynomial_vectors, tested by ts_polvec.
+  Added a Create() function to generic_monomials.
+  New package system_vector_convertors tested by ts_sys2vec.adb.
+
+Mon 17 Dec 2018 : added the straightforward evaluation functions to
+  generic_monomials, generic_monomial_vectors, generic_polynomial_vectors,
+  tested by ts_monom, ts_monvec, and ts_polvec.
+  Modified generic_monomials.adb and generic_monomial_vectors.adb
+  so the Eval() functions perform the multiplications in place.
+  Added the straighforward differentiation and Speelpenning algorithm
+  for a product of variables to generic_monomials, tested by ts_monom.adb.
+
+Sun 16 Dec 2018 : moved the put procedures from ts_monom into separate i/o,
+  into the packages {standard,dobldobl,quaddobl}_monomials_io.
+  New package random_monomials with the code from ts_monom.adb.
+  Defined vectors of monomials in generic_monomial_vectors and instantiated
+  {standard,dobldobl,quaddobl}_monomial_vectors, with output in the
+  corresponding _io packages, defined random_monomial_vectors, tested
+  by ts_monvec.adb.  Defined the analogue polynomial_vectors packages.
+
+Sat 15 Dec 2018 : new package generic_monomials, instantiated for double,
+  double double and quad double complex coefficients, tested by ts_monom.

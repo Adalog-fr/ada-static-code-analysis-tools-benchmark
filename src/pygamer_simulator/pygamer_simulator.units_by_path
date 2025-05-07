@@ -1,0 +1,12 @@
+src/pygamer-audio.adb
+src/pygamer-audio.ads
+src/pygamer-controls.adb
+src/pygamer-controls.ads
+src/pygamer-screen.adb
+src/pygamer-screen.ads
+src/pygamer-time.adb
+src/pygamer-time.ads
+src/pygamer.adb
+src/pygamer.ads
+src/simulator_assets.adb
+src/simulator_assets.ads

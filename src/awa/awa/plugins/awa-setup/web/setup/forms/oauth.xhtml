@@ -1,0 +1,100 @@
+<!-- Form to configure the Facebook/Google+ OAuth access
+  -  Copyright (C) 2016, 2018 Stephane Carrez
+  -  Written by Stephane Carrez (Stephane.Carrez@gmail.com)
+  -
+  -  Licensed under the Apache License, Version 2.0 (the "License");
+  -  you may not use this file except in compliance with the License.
+  -  You may obtain a copy of the License at
+  -
+  -      http://www.apache.org/licenses/LICENSE-2.0
+  -
+  -  Unless required by applicable law or agreed to in writing, software
+  -  distributed under the License is distributed on an "AS IS" BASIS,
+  -  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  -  See the License for the specific language governing permissions and
+  -  limitations under the License.
+  -->
+<f:view contentType="text/html; charset=UTF-8"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:w="http://code.google.com/p/ada-asf/widget"
+        xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id='setup-oauth'>
+        <h2>
+            #{setupMsg.setup_oauth_message}
+        </h2>
+        <div>
+            <p class="setup-description">
+                The OAuth configuration form allows you to configure the Google+ and Facebook authentication.
+                If you want to use this authentication method you must have created an
+                application in
+                <a href="https://console.developers.google.com/" target="google-plus">
+                    GoogleAPIs Console
+                </a>
+                or
+                <a href="https://developers.facebook.com/" target="facebook">
+                    Facebook for developpers
+                </a>
+                .
+            </p>
+
+            <p class="setup-description">
+                You can skip this step if you don't want to use Google+ or Facebook authentication.
+            </p>
+
+            <p class="setup-description">
+                You will register there a callback URL that Google+ and Facebook will
+                use to return back to the application after authentication is finished.
+                Google+ and Facebook impose that it is a public URL with a valid
+                hostname that you own (IP addresses are refused).
+            </p>
+            <w:inputText id='callback' title="#{setupMsg.setup_callback_url}"
+                         styleClass="awa-required ui-corner-all"
+                         size='80' required="false"
+                         value="#{setup.callback_url}">
+                <span id="callback-fixed">#{contextPath}/auth/verify</span>
+            </w:inputText>
+        </div>
+        <h2>
+            #{setupMsg.setup_facebook_auth_title}
+        </h2>
+        <div>
+            <w:inputText id='fb-app-id' title="#{setupMsg.setup_facebook_client_id}"
+                         styleClass="awa-required ui-corner-all"
+                         size='80' placeholder="#{setupMsg.setup_database_name_placeholder}"
+                         value="#{setup['facebook.client_id']}"/>
+
+            <w:inputText id='fb-user' title="#{setupMsg.setup_facebook_secret}"
+                         styleClass="awa-required ui-corner-all"
+                         size='80' placeholder="#{setupMsg.setup_database_user_placeholder}"
+                         value="#{setup['facebook.secret']}"/>
+
+        </div>
+        <h2>
+            #{setupMsg.setup_google_auth_title}
+        </h2>
+        <div>
+            <w:inputText id='google-app-id' title="#{setupMsg.setup_google_client_id}"
+                         styleClass="awa-required ui-corner-all"
+                         size='80' placeholder="#{setupMsg.setup_database_name_placeholder}"
+                         value="#{setup['google-plus.client_id']}"/>
+
+            <w:inputText id='google-user' title="#{setupMsg.setup_google_secret}"
+                         styleClass="awa-required ui-corner-all"
+                         size='80' placeholder="#{setupMsg.setup_database_user_placeholder}"
+                         value="#{setup['google-plus.secret']}"/>
+
+        </div>
+        <ul class='awa-buttons'>
+            <li class="previous">
+                <input type="submit" value="#{setupMsg.setup_previous_label}"
+                       class="ui-button ui-state-default ui-corner-all"
+                       onclick="return previous_step('settings');"/>
+            </li>
+            <li>
+                <h:commandButton id='setup-oauth-button' value='#{setupMsg.setup_database_configure}'
+                                 styleClass="ui-button ui-state-default ui-corner-all"
+                                 action="#{setup.save}" title="#{setupMsg.setup_database_configure_tooltip}"/>
+            </li>
+        </ul>
+    </h:form>
+</f:view>

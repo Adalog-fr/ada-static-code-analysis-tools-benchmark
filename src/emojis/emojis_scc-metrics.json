@@ -1,0 +1,112 @@
+{
+  "Name": "Ada",
+  "Bytes": 75135,
+  "CodeBytes": 0,
+  "Lines": 2038,
+  "Code": 1907,
+  "Comment": 65,
+  "Blank": 66,
+  "Complexity": 23,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/strings.ads",
+      "Extension": "ads",
+      "Location": "src/strings.ads",
+      "Symlocation": "",
+      "Bytes": 1610,
+      "Lines": 45,
+      "Code": 16,
+      "Comment": 18,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/strings.adb",
+      "Extension": "adb",
+      "Location": "src/strings.adb",
+      "Symlocation": "",
+      "Bytes": 2635,
+      "Lines": 75,
+      "Code": 50,
+      "Comment": 15,
+      "Blank": 10,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/emojis.adb",
+      "Extension": "adb",
+      "Location": "src/emojis.adb",
+      "Symlocation": "",
+      "Bytes": 4695,
+      "Lines": 145,
+      "Code": 108,
+      "Comment": 15,
+      "Blank": 22,
+      "Complexity": 19,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/emojis.ads",
+      "Extension": "ads",
+      "Location": "src/emojis.ads",
+      "Symlocation": "",
+      "Bytes": 66195,
+      "Lines": 1773,
+      "Code": 1733,
+      "Comment": 17,
+      "Blank": 23,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

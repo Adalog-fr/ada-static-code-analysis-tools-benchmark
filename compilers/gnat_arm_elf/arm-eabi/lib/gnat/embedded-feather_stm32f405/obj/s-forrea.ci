@@ -1,0 +1,12 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-forrea.adb"
+node: { title: "system__fore_real__fore_fixed" label: "Fore_Fixed\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-feather_stm32f405/gnat/s-forrea.adb:38:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "__aeabi_dcmpun" label: "aeabi_dcmpun\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fore_real__fore_fixed" targetname: "__aeabi_dcmpun" }
+edge: { sourcename: "system__fore_real__fore_fixed" targetname: "__aeabi_dcmpun" }
+node: { title: "__aeabi_dcmpge" label: "aeabi_dcmpge\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fore_real__fore_fixed" targetname: "__aeabi_dcmpge" }
+edge: { sourcename: "system__fore_real__fore_fixed" targetname: "__aeabi_dcmpge" }
+node: { title: "__aeabi_ddiv" label: "aeabi_ddiv\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__fore_real__fore_fixed" targetname: "__aeabi_ddiv" }
+edge: { sourcename: "system__fore_real__fore_fixed" targetname: "__aeabi_dcmpge" }
+}

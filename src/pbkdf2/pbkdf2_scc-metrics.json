@@ -1,0 +1,105 @@
+{
+  "Name": "Ada",
+  "Bytes": 7487,
+  "CodeBytes": 0,
+  "Lines": 208,
+  "Code": 177,
+  "Comment": 2,
+  "Blank": 29,
+  "Complexity": 6,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/pbkdf2.ads",
+      "Extension": "ads",
+      "Location": "src/pbkdf2.ads",
+      "Symlocation": "",
+      "Bytes": 3116,
+      "Lines": 76,
+      "Code": 65,
+      "Comment": 0,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "hmac",
+        "pbkdf2_generic",
+        "sha1",
+        "sha2"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/pbkdf2_generic.adb",
+      "Extension": "adb",
+      "Location": "src/pbkdf2_generic.adb",
+      "Symlocation": "",
+      "Bytes": 3302,
+      "Lines": 102,
+      "Code": 85,
+      "Comment": 2,
+      "Blank": 15,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces",
+        "system"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/pbkdf2_generic.ads",
+      "Extension": "ads",
+      "Location": "src/pbkdf2_generic.ads",
+      "Symlocation": "",
+      "Bytes": 1069,
+      "Lines": 30,
+      "Code": 27,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "hmac": 1,
+    "interfaces": 1,
+    "pbkdf2_generic": 1,
+    "sha1": 1,
+    "sha2": 1,
+    "system": 1
+  }
+}

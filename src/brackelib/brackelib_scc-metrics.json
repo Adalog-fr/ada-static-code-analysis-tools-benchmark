@@ -1,0 +1,142 @@
+{
+  "Name": "Ada",
+  "Bytes": 4748,
+  "CodeBytes": 0,
+  "Lines": 192,
+  "Code": 106,
+  "Comment": 39,
+  "Blank": 47,
+  "Complexity": 3,
+  "Count": 5,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/brackelib-stacks.adb",
+      "Extension": "adb",
+      "Location": "src/brackelib-stacks.adb",
+      "Symlocation": "",
+      "Bytes": 894,
+      "Lines": 46,
+      "Code": 35,
+      "Comment": 0,
+      "Blank": 11,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/brackelib-stacks.ads",
+      "Extension": "ads",
+      "Location": "src/brackelib-stacks.ads",
+      "Symlocation": "",
+      "Bytes": 1621,
+      "Lines": 55,
+      "Code": 20,
+      "Comment": 21,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/brackelib-queues.ads",
+      "Extension": "ads",
+      "Location": "src/brackelib-queues.ads",
+      "Symlocation": "",
+      "Bytes": 1332,
+      "Lines": 48,
+      "Code": 19,
+      "Comment": 17,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/brackelib.ads",
+      "Extension": "ads",
+      "Location": "src/brackelib.ads",
+      "Symlocation": "",
+      "Bytes": 126,
+      "Lines": 7,
+      "Code": 4,
+      "Comment": 1,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/brackelib-queues.adb",
+      "Extension": "adb",
+      "Location": "src/brackelib-queues.adb",
+      "Symlocation": "",
+      "Bytes": 775,
+      "Lines": 36,
+      "Code": 28,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.doubly_linked_lists": 2
+  }
+}

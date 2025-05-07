@@ -1,0 +1,102 @@
+{
+  "Name": "Ada",
+  "Bytes": 15153,
+  "CodeBytes": 0,
+  "Lines": 441,
+  "Code": 345,
+  "Comment": 42,
+  "Blank": 54,
+  "Complexity": 12,
+  "Count": 3,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha1.ads",
+      "Extension": "ads",
+      "Location": "src/sha1.ads",
+      "Symlocation": "",
+      "Bytes": 655,
+      "Lines": 19,
+      "Code": 7,
+      "Comment": 10,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams",
+        "sha1_generic"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha1_generic.ads",
+      "Extension": "ads",
+      "Location": "src/sha1_generic.ads",
+      "Symlocation": "",
+      "Bytes": 2798,
+      "Lines": 87,
+      "Code": 38,
+      "Comment": 28,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/sha1_generic.adb",
+      "Extension": "adb",
+      "Location": "src/sha1_generic.adb",
+      "Symlocation": "",
+      "Bytes": 11700,
+      "Lines": 335,
+      "Code": 300,
+      "Comment": 4,
+      "Blank": 31,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.byte_swapping",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "gnat.byte_swapping": 1,
+    "interfaces": 1,
+    "sha1_generic": 1,
+    "system": 1
+  }
+}

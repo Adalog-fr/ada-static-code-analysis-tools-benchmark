@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <processingInstruction>
+    <target>NAME_09-</target>
+    <data>_0A-&#xA;_0D-&#xA;_20-&#x20;_D7FF-퟿_6c0f-氏_E000-_FFFD-�_effe-_010000-𐀀_10FFFF-􏿿_08ffff-򏿿&#x20;This&#x20;is&#x20;a&#x20;PI&#x20;target&#x20;</data>
+  </processingInstruction>
+  <startElement>
+    <namespaceURI/>
+    <localName>book</localName>
+    <qualifiedName>book</qualifiedName>
+    <attributes/>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>book</localName>
+    <qualifiedName>book</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

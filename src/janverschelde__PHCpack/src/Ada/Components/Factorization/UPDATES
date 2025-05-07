@@ -1,0 +1,271 @@
+Tue 21 Mar 2023 : updated factorization.gpr for ts_filfac.adb,
+  moved from the ../Decomposition folder.
+
+Mon 20 Mar 2023 : fixed rewrite_polynomials and ts_rwpoly.adb, adjusted
+  factorization.gpr.  Removed ts_ifactor, updated factorization.gpr again.
+  Removed ts_ifactor.adb, updated factorization.gpr.  Removed phc_factor.adb.
+
+Fri 11 Jun 2021 : defined factorization.gpr to build all test procedures.
+
+Wed 17 Feb 2021 : updated main_factorization for the removal of mainfilt.
+
+Fri 4 Dec 2020 : moved mainfac into the new package main_factorization.
+  Added the verbose level to the main procedures in this new package.
+
+Thu 3 Dec 2020 : updated irreducible_component_creators.adb, mainfac.adb,
+  monodromy_component_breakup.adb and drivers_to_breakup_solutions.adb,
+  for the renaming of drivers_to_grid_creators into make_sample_grids.
+
+Sun 8 Nov 2020 : updated drivers_for_component_creators.adb for the renaming
+  of drivers_for_poly_continuation into main_poly_continuation.
+
+Mon 27 Jan 2020 : updated ts_serwit because of shortening of the name
+  Convolution_Circuit into Circuit.
+
+Mon 6 Jan 2020 : updated ts_serwit for the removal of the package
+  linearized_series_coefficients.  Updated ts_serwit for the system
+  encapsulation of the convolution circuits.
+
+Sun 5 Jan 2020 : new test procedure ts_serwit on Newton's methods to 
+  compute power series with convolution circuits.
+
+Sat 7 Apr 2018 : removed code from homotopy_membership_filters to a new
+  package cascade_membership_filters, for filtering superwitness sets.
+
+Fri 30 Mar 2018 : updated mainfac for multitasking homotopy membership tests.
+  In homotopy_membership_filters, the multitasked versions must use
+  homtol instead of restol for their tolerance.
+
+Wed 28 Mar 2018 : new package homotopy_membership_target with code factored
+  out of homotopy_membership_tests, added make of target system in the test.
+  Bug fix in homotopy_membership_target.adb, forgotten offset.
+  Added multitasked versions to homotopy_membership_filters.
+
+Tue 27 Mar 2018 : new package random_test_points with code factored out
+  of ts_mbthom.adb.
+
+Sun 18 Mar 2018 : fixed ts_mbthom.adb for added parameter rcotol in the
+  homotopy membership tests filter.
+
+Sun 11 Mar 2018 : added tolerance on the inverse of the estimated condition
+  number to the tests in homotopy_membership_filters, to bypass the more
+  expensive homotopy membership test for obvious regular isolated solutions.
+
+Fri 29 Dec 2017 : fixed the formatting in the output of the solution lists 
+  in monodromy_homotopies_io.adb.
+
+Tue 26 Dec 2017 : in monodromy_homotopies.adb, the polynomial_type must be
+  set properly to laurent before making the grids for monodromy stop test.
+
+Mon 25 Dec 2017 : more fixes in monodromy_homotopies_io.adb,
+  fixed the counting of the factors.  In monodromy_component_breakup,
+  the top drivers do not depend on the polynomial system.  The removal
+  of a superfluous input parameter changed drivers_to_factor_components.adb,
+  ts_newfac.adb, and monodromy_homotopies.adb.
+  Removed the patch with copiedeqs from monodromy_homotopies.adb.
+
+Sun 24 Dec 2017 : if there are no factors, then nothing should be written,
+  fixed this in monodromy_homotopies_io.adb.
+
+Fri 22 Dec 2017 : fixed a bug in writing the generic points on the factors
+  in monodromy_homotopies_io.adb.  Added the writing of the isolated points
+  in the writing of the decomposition in monodromy_homotopies_io.adb.
+
+Wed 20 Dec 2017 : added more information to the writing of the factors and
+  decomposition in monodromy_homotopies_io.adb.
+
+Sat 21 Oct 2017 : fixed write_components in monodromy_homotopies_io.
+  Reversed the order of writing a decomposition in monodromy_homotopies_io.adb
+  starting at the top dimension.
+
+Thu 19 Oct 2017 : added the parameter on the maximum number of loops to
+  monodromy_component_breakup, which changed drivers_to_factor_components.adb,
+  monodromy_homotopies.adb, and ts_newfac.adb.  No generic points at a level
+  implies no witness_factor at that level, fixed monodromy_homotopies.adb.
+  Corrected filter counts in homotopy_membership_filters.adb.
+
+Tue 17 Oct 2017 : new package monodromy_homotopies_io to write the output
+  of phc -B.
+
+Sun 15 Oct 2017 : extended monodromy homotopies with versions for Laurent
+  systems and for double double precision.  First complete versions for
+  the procedures in monodromy_homotopies which do not write to file.
+
+Wed 11 Oct 2017 : provide code for a Factor in monodromy_homotopies.adb.
+
+Tue 10 Oct 2017 : new package monodromy_homotopies to encapsulate the
+  classification of the witness sets for an irreducible decomposition.
+
+Sun 8 Oct 2017 : added extra information in the verbose mode in the
+  homotopy_membership_filters.adb.
+
+Sat 7 Oct 2017 : fixed a bug in homotopy_membership_tests.adb, removed
+  debugging printing in homotopy_membership_filters.adb.
+  Timings are returned in the homotopy_membership_filters.
+  Added counters on the number of witness points in each stage of the
+  junk removal filtering in homotopy_membership_filters.
+
+Thu 5 Oct 2017 : extended homotopy_membership_filters with procedures which
+  write their output to file, tested by ts_mbthom.adb.  Added filters to
+  homotopy_membership_filters to remove junk points from witness supersets.
+  Added double double and quad double versions of the junk removal filters
+  to homotopy_membership_filters.  Fixed several bugs.
+
+Wed 4 Oct 2017 : new package homotopy_membership_filters, to split solutions
+  with a homotopy membership test, tested by ts_mbthom.adb
+
+Thu 13 Jul 2017 : moved code from mainfac.adb to witness_sets_io.
+  Updated drivers_to_breakup_solutions so the names of the input and
+  output files passed at the command line are taken into account.
+  In monodromy_component_breakup.adb, fixed the flag for Laurent systems,
+  tested by ts_newfac.  Extended drivers_to_breakup_solution so phc -f
+  now factors witness sets defined by Laurent polynomial systems.
+
+Wed 12 Jul 2017 : new package drivers_to_breakup_solutions with code
+  refactored from ts_combfac.adb and mainfac.adb.
+  Extended drivers_to_breakup_solutions and drivers_to_factor_components
+  with versions for Laurent sytems.  Extended monodromy_component_breakup
+  which implemented the stubs in drivers_to_factor_components.adb.
+
+Tue 11 Jul 2017 : updated ts_combfac.adb with test routines for the 
+  combinatorial factorization of witness sets defined by Laurent systems.
+
+Sun 9 Jul 2017 : refactored code in homotopy_membership_tests and extended
+  to Laurent systems, tested by ts_mbthom.  Fixed a bug in ts_mbthom.
+  Bug fix in homotopy_membership_tests.adb.
+
+Wed 28 Jun 2017 : added writing of seed and version number to mainfac.adb
+  for reproducible homotopy memberhip test and monodromy.
+
+Wed 10 Aug 2016 : made homotopy_membership_tests.adb completely silent if
+  the verbose variable is set to false.
+
+Fri 18 Mar 2016 : updated sensitivity_of_factorization.adb for change in
+  driver to the continuation procedures.
+
+Mon 28 Dec 2015 : minor improvement in homotopy_membership_tests.adb.
+
+Fri 25 Dec 2015 : changed mainfac.adb to explain the input in the membership
+  test of phc -f.  Added extra procedures to homotopy_membership_tests,
+  tested by ts_mbthom.adb.
+
+Sun 20 Sep 2015 : extended black_box_factorization into a package with versions
+  for double double and quad double precision.
+
+Sat 19 Sep 2015 : change in ts_factor.adb for compiler warning and removed
+  code from ts_factor.adb that was already in drivers_to_factor_polynomials.
+
+Fri 18 Sep 2015 : multivariate_factorization exports the factorization of
+  complex multivariate polynomials in double double and quad double precision,
+  with the combinatorial exploration using the linear trace.
+  Extended monodromy_polynomial_breakup with factorization procedures to run
+  in standard double, double double, and quad double precision arithmetic.
+  Updated multivariate_factorization with extended monodromy poly breakup.
+  The new routines are called in the updated drivers_to_factor_polynomials,
+  and in mainfac.adb.
+
+Thu 17 Sep 2015 : new package factored_witness_vectors with code factored out
+  of multivariate_factorization.adb, extended with operations for double
+  double and quad double precision.  The new package certify_factor_with_trace
+  extracts code of multivariate_factorization, extended to work with
+  double double and quad double arithmetic.  In similar fashion, the new
+  package interpolate_multivariate_factor extracts code from the package
+  multivariate_factorization, for extension to double doubles and quad doubles.
+  The move of Normalize() from multivariate_factorization to this new package
+  changed drivers_to_factor_polynomials.adb and ts_factor.adb.
+
+Wed 16 Sep 2015 : edits in multivariate_factorization to make room to extend
+  the package for double double and quad double precision.
+
+Mon 14 Sep 2015 : changes in multivariate_factorization.adb and
+  monodromy_polynomial_breakup.adb for the new standard_lined_hypersurfaces.
+
+Sat 9 Aug 2014 : upgraded drivers_to_factor_components with procedures to
+  call the monodromy factorization in double double and quad double precision.
+  The main driver mainfac exports factorization as options 8 and 9,
+  respectively in double double and quad double precision.
+
+Fri 1 Aug 2014 : extended combinatorial_factorization to operate on samples
+  in double double and quad double precision, tested by ts_combfac.adb.
+  Extended monodromy_partitions and monodromy_component_breakup to run
+  in double double and quad double precision, tested by ts_newfac.adb.
+
+Mon 24 Mar 2014 : mainfac.adb adjusted so membership homotopy test
+  enabled for double double and quad double precision.
+
+Sun 23 Mar 2014 : updated homotopy_membership_tests with routines for
+  double double and quad double precision, with changed ts_mbthom.adb.
+
+Wed 26 Jun 2013 : updated drivers_to_factor_components and
+  drivers_to_factor_polynomials as need in mainfac.adb.
+
+Mon 24, Tue 25 2013 : more reorganization to rebuilt ts_irco.
+  Copied ts_mbthom.adb from ../Decomposition to this directory,
+  because homotopy membership test is historically related to monodromy.
+
+Fri 21 Jun 2013 : because of natural32 and integer32, updated ts_monfac,
+  monodromy_partitions, combinatorial_factorization, ts_combfac...
+
+Tue 1 Jan 2013 : ts_monfac.adb no longer compiled, fixed...
+
+Sun 30 Dec 2012 : sensitivity_of_factorization.adb no longer compiled,
+  fixed.
+
+Thu 2 Jun 2011 : changed ts_combfac.adb, ts_factor.adb, ts_ifactor.adb,
+  ts_hypfac.adb for warnings.
+
+Wed 1 Jun 2011 : changed combinatorial_factorization.adb,
+  drivers_to_factor_{polynomials,components}.adb for warnings.
+
+Sun 29 May 2011 : too many warnings for irreducible_component_creators.adb
+  to be fixed in one time...  Modified homotopy_membership_tests.* for warnings.
+
+Mon 2 May 2011 : fixed ts_ifactor.adb because it no longer compiled.
+
+Fri 24 Sep 2010 : updated mainfac.adb because of string_splitters.
+
+Tue 28 Jul 2009 : extended mainfac.adb with 7th option.
+
+Sun 29 Apr 2007 : fixed homotopy_membership_tests.adb so that eventually
+  test solutions may have already an embedding.
+
+Sat 28 Apr 2007 : the user can now control the tolerances in membership test,
+  changed mainfac.adb.  Copied homotopy_membership_tests from ../Decomposition.
+
+Thu 14 Dec 2006 : because witness_points* became *sets*, mainfac.adb changed;
+  also drivers_to_factor_components.adb, irreducible_component_lists.adb,
+  monodromy_component_breakup.adb, monodromy_actions_breakup.adb, ts_ifactor,
+  ts_combfac, ts_irco, driver_to_factor_components.adb, ts_rwpoly, ts_newfac
+  changed.  ts_monfac.adb seems obsolete...
+
+Tue 12 Dec 2006 : updated monodromy_polynomial_breakup.adb because renamed
+  lists_of_complex_vectors into standard_complex_veclists.
+
+Thu 15 Jun 2006 : updated mainfac.adb because standard_complex_solutions.get
+  has become obsolete.
+
+Wed 14 Jun 2006 : because of warnings on AIX, changed the files
+  irreducible_component_lists.a* and irreducible_component_creators.adb.
+
+Fri 12 May 2006 : added option #0 to phc -f to filter solution lists,
+  subject to criteria provided by the user.
+
+Tue 10 Jan 2006 : removed old_driver* from mainfac.adb, allowed user to tune
+  the continuation parameters in the driver_to_factor_components.adb.
+
+Tue 6 Sep 2005 : added "Trace_Sum_Difference" to monodromy_component_breakup.
+
+Thu 24 Jun 2004 : monodromy with intrinsic coordinates entered
+
+Tue 8 Jun 2004 : changed drivers_to_factor_components and mainfac.adb
+  to create separate files for witness sets of factors.
+
+Tue 11 May 2004 : blackbox factorization writes factors
+  to separate files
+
+Mon 25 Aug 2003 : black_box_factorization has been added,
+  multivariate_factorization.adb slightly modified.
+
+Fri 23 May 2003 : changed ts_factor and ts_hypfac so that they use
+  standard_random_polynomials instead of random_complex_polynomials.
+  The latter package should disappear...

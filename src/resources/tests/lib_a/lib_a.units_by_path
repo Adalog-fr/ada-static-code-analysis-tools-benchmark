@@ -1,0 +1,3 @@
+config/lib_a_config.ads
+src/lib_a.adb
+src/lib_a.ads

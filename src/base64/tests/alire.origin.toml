@@ -1,0 +1,22 @@
+name = "base64_tests"
+description = "Test suite for base64"
+version = "0.0.0"
+website = "https://github.com/AntonMeep/base64"
+licenses = "ISC"
+tags = ["base64", "encoder", "decoder"]
+
+executables = ["base64_tests"]
+
+authors = ["Anton Fediushin"]
+maintainers = ["Anton Fediushin <imantonmeep@gmail.com>"]
+maintainers-logins = ["AntonMeep"]
+
+[configuration]
+disabled = true
+
+[[depends-on]]
+aunit = "^22.0.0"
+base64 = "*"
+
+[[pins]]
+base64 = { path = "../" }

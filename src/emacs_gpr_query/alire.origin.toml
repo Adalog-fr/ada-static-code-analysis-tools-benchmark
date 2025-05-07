@@ -1,0 +1,30 @@
+authors = [
+"Stephen Leake",
+]
+description = "Emacs xref backend using information output by GNAT compiler."
+executables = [
+"gpr_query",
+]
+licenses = "GPL-3.0-or-later"
+maintainers = [
+"Stephen Leake <stephen_leake@stephe-leake.org>",
+]
+maintainers-logins = [
+"stephe-ada-guru",
+]
+name = "emacs_gpr_query"
+project-files = [
+"emacs_gpr_query.gpr",
+]
+tags = [
+"emacs",
+"xref",
+]
+version = "1.0.1"
+website = "https://elpa.gnu.org/packages/gpr-query.html"
+[[depends-on]]
+gnat = ">=11 & <2000"
+gnatcoll = "^22.0.0"
+gnatcoll_sqlite = "^22.0.0"
+gnatcoll_xref = "^22.0.0"
+

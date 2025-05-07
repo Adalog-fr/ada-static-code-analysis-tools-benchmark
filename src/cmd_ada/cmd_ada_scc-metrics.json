@@ -1,0 +1,77 @@
+{
+  "Name": "Ada",
+  "Bytes": 4799,
+  "CodeBytes": 0,
+  "Lines": 192,
+  "Code": 120,
+  "Comment": 24,
+  "Blank": 48,
+  "Complexity": 6,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/cmd_ada.ads",
+      "Extension": "ads",
+      "Location": "src/cmd_ada.ads",
+      "Symlocation": "",
+      "Bytes": 1344,
+      "Lines": 45,
+      "Code": 30,
+      "Comment": 0,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.containers.vectors",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/cmd_ada.adb",
+      "Extension": "adb",
+      "Location": "src/cmd_ada.adb",
+      "Symlocation": "",
+      "Bytes": 3455,
+      "Lines": 147,
+      "Code": 90,
+      "Comment": 24,
+      "Blank": 33,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "gnat.os_lib"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers": 1,
+    "ada.containers.vectors": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.os_lib": 1
+  }
+}

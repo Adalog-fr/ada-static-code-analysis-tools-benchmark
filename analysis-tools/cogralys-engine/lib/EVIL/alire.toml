@@ -1,0 +1,10 @@
+name = "evil"
+description = ""
+version = "0.1.0-dev"
+
+authors = ["Heziode"]
+maintainers = ["Heziode <heziode@protonmail.com>"]
+maintainers-logins = ["heziode"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []

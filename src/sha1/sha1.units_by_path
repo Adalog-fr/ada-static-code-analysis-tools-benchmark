@@ -1,0 +1,3 @@
+src/sha1_generic.adb
+src/sha1_generic.ads
+src/sha1.ads

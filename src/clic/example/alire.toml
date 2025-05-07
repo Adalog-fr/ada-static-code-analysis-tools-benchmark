@@ -1,0 +1,18 @@
+name = "clic_example"
+description = "Shiny new project"
+version = "0.0.0"
+authors = ["Fabien Chouteau"]
+maintainers = ["Fabien Chouteau <fabien.chouteau@gmail.com>"]
+maintainers-logins = ["Fabien-Chouteau"]
+executables = ["clic_example"]
+
+[[depends-on]]
+clic = "~0.1.0"
+
+[[pins]]
+
+[pins.clic]
+path = "../../clic"
+
+[build-switches."*"]
+Compile_Checks = "none"

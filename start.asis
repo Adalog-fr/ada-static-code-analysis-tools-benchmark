@@ -1,0 +1,12 @@
+  Initialize ("-ws")
+  set (Ctx)
+  Associate (Ctx, "", "-CA -FM")
+  Open (Ctx)
+  Printdetail ("DT")
+
+  -- Faire set (unit, "nom unite")
+  -- puis run:
+  pause
+
+  set (unit, Compilation_Unit_Body (unit, Ctx))
+  set (x, browse (unit))

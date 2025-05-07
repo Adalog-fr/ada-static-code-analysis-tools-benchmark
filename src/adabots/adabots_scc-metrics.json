@@ -1,0 +1,228 @@
+{
+  "Name": "Ada",
+  "Bytes": 105055,
+  "CodeBytes": 0,
+  "Lines": 2943,
+  "Code": 2782,
+  "Comment": 21,
+  "Blank": 140,
+  "Complexity": 23,
+  "Count": 7,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots_exceptions.ads",
+      "Extension": "ads",
+      "Location": "src/adabots_exceptions.ads",
+      "Symlocation": "",
+      "Bytes": 87,
+      "Lines": 3,
+      "Code": 3,
+      "Comment": 0,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots_lua_dispatcher.ads",
+      "Extension": "ads",
+      "Location": "src/adabots_lua_dispatcher.ads",
+      "Symlocation": "",
+      "Bytes": 1107,
+      "Lines": 32,
+      "Code": 22,
+      "Comment": 0,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots_lua_dispatcher.adb",
+      "Extension": "adb",
+      "Location": "src/adabots_lua_dispatcher.adb",
+      "Symlocation": "",
+      "Bytes": 5633,
+      "Lines": 155,
+      "Code": 138,
+      "Comment": 4,
+      "Blank": 13,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.strings",
+        "ada.exceptions",
+        "ada.text_io",
+        "aws.config",
+        "aws.config.set",
+        "aws.mime",
+        "aws.response",
+        "aws.server",
+        "aws.status"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots_nodetypes.adb",
+      "Extension": "adb",
+      "Location": "src/adabots_nodetypes.adb",
+      "Symlocation": "",
+      "Bytes": 994,
+      "Lines": 34,
+      "Code": 31,
+      "Comment": 0,
+      "Blank": 3,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "ada.strings.maps",
+        "adabots_exceptions"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots.ads",
+      "Extension": "ads",
+      "Location": "src/adabots.ads",
+      "Symlocation": "",
+      "Bytes": 5678,
+      "Lines": 162,
+      "Code": 111,
+      "Comment": 10,
+      "Blank": 41,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.strings.unbounded",
+        "adabots_lua_dispatcher",
+        "adabots_nodetypes"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots.adb",
+      "Extension": "adb",
+      "Location": "src/adabots.adb",
+      "Symlocation": "",
+      "Bytes": 14000,
+      "Lines": 466,
+      "Code": 391,
+      "Comment": 5,
+      "Blank": 70,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "aaa.strings",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/adabots_nodetypes.ads",
+      "Extension": "ads",
+      "Location": "src/adabots_nodetypes.ads",
+      "Symlocation": "",
+      "Bytes": 77556,
+      "Lines": 2091,
+      "Code": 2086,
+      "Comment": 2,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "aaa.strings": 2,
+    "ada.exceptions": 1,
+    "ada.finalization": 2,
+    "ada.strings": 1,
+    "ada.strings.fixed": 1,
+    "ada.strings.maps": 1,
+    "ada.strings.unbounded": 2,
+    "ada.text_io": 2,
+    "adabots_exceptions": 1,
+    "adabots_lua_dispatcher": 1,
+    "adabots_nodetypes": 1,
+    "aws.config": 1,
+    "aws.config.set": 1,
+    "aws.mime": 1,
+    "aws.response": 1,
+    "aws.server": 1,
+    "aws.status": 1
+  }
+}

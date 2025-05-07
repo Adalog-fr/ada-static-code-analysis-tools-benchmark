@@ -1,0 +1,159 @@
+{
+  "Name": "Ada",
+  "Bytes": 61733,
+  "CodeBytes": 0,
+  "Lines": 2165,
+  "Code": 1275,
+  "Comment": 479,
+  "Blank": 411,
+  "Complexity": 53,
+  "Count": 5,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lmdb-utils.adb",
+      "Extension": "adb",
+      "Location": "src/lmdb-utils.adb",
+      "Symlocation": "",
+      "Bytes": 3025,
+      "Lines": 136,
+      "Code": 84,
+      "Comment": 26,
+      "Blank": 26,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lmdb-utils.ads",
+      "Extension": "ads",
+      "Location": "src/lmdb-utils.ads",
+      "Symlocation": "",
+      "Bytes": 2510,
+      "Lines": 73,
+      "Code": 39,
+      "Comment": 18,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lmdb.adb",
+      "Extension": "adb",
+      "Location": "src/lmdb.adb",
+      "Symlocation": "",
+      "Bytes": 22631,
+      "Lines": 989,
+      "Code": 594,
+      "Comment": 196,
+      "Blank": 199,
+      "Complexity": 44,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "interfaces.c.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lmdb.ads",
+      "Extension": "ads",
+      "Location": "src/lmdb.ads",
+      "Symlocation": "",
+      "Bytes": 20242,
+      "Lines": 549,
+      "Code": 265,
+      "Comment": 182,
+      "Blank": 102,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_holders",
+        "ada.io_exceptions",
+        "ada.iterator_interfaces",
+        "ada.streams",
+        "ada.strings.utf_encoding",
+        "gnatcoll.refcount",
+        "interfaces.c",
+        "lmdb_h"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/lmdb_h.ads",
+      "Extension": "ads",
+      "Location": "src/lmdb_h.ads",
+      "Symlocation": "",
+      "Bytes": 13325,
+      "Lines": 418,
+      "Code": 293,
+      "Comment": 57,
+      "Blank": 68,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_holders": 1,
+    "ada.directories": 1,
+    "ada.io_exceptions": 1,
+    "ada.iterator_interfaces": 1,
+    "ada.streams": 1,
+    "ada.strings.utf_encoding": 1,
+    "gnatcoll.refcount": 1,
+    "interfaces.c": 1,
+    "interfaces.c.strings": 1,
+    "lmdb_h": 1
+  }
+}

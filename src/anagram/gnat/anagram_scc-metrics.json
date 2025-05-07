@@ -1,0 +1,1612 @@
+{
+  "Name": "Ada",
+  "Bytes": 474563,
+  "CodeBytes": 0,
+  "Lines": 14802,
+  "Code": 10805,
+  "Comment": 1710,
+  "Blank": 2287,
+  "Complexity": 612,
+  "Count": 59,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-ast_nodes.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-ast_nodes.ads",
+      "Symlocation": "",
+      "Bytes": 994,
+      "Lines": 35,
+      "Code": 21,
+      "Comment": 5,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-abstract_sources.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-abstract_sources.ads",
+      "Symlocation": "",
+      "Bytes": 842,
+      "Lines": 26,
+      "Code": 13,
+      "Comment": 5,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.unicode"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-ayacc.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-ayacc.adb",
+      "Symlocation": "",
+      "Bytes": 7875,
+      "Lines": 264,
+      "Code": 188,
+      "Comment": 29,
+      "Blank": 47,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.generic_anonymous_array_sort",
+        "ada.wide_wide_text_io",
+        "anagram.grammars.rule_templates",
+        "league.string_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_debug.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars_debug.adb",
+      "Symlocation": "",
+      "Bytes": 8148,
+      "Lines": 254,
+      "Code": 195,
+      "Comment": 17,
+      "Blank": 42,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io",
+        "anagram.grammars.lr"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr_tables.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-lr_tables.adb",
+      "Symlocation": "",
+      "Bytes": 6369,
+      "Lines": 280,
+      "Code": 175,
+      "Comment": 62,
+      "Blank": 43,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-parser_utils.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-parser_utils.ads",
+      "Symlocation": "",
+      "Bytes": 7913,
+      "Lines": 249,
+      "Code": 189,
+      "Comment": 5,
+      "Blank": 55,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.doubly_linked_lists",
+        "ada.containers.ordered_maps",
+        "ada.containers.vectors",
+        "anagram.grammars.constructors",
+        "league.string_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_debug.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars_debug.ads",
+      "Symlocation": "",
+      "Bytes": 485,
+      "Lines": 18,
+      "Code": 8,
+      "Comment": 5,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars",
+        "anagram.grammars.lr_tables"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_convertors.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars_convertors.ads",
+      "Symlocation": "",
+      "Bytes": 697,
+      "Lines": 23,
+      "Code": 10,
+      "Comment": 8,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-conflicts.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-conflicts.adb",
+      "Symlocation": "",
+      "Bytes": 3358,
+      "Lines": 113,
+      "Code": 81,
+      "Comment": 15,
+      "Blank": 17,
+      "Complexity": 10,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr-simple.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-lr-simple.ads",
+      "Symlocation": "",
+      "Bytes": 364,
+      "Lines": 13,
+      "Code": 4,
+      "Comment": 5,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.lr_tables"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_checks.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars_checks.adb",
+      "Symlocation": "",
+      "Bytes": 11270,
+      "Lines": 349,
+      "Code": 274,
+      "Comment": 28,
+      "Blank": 47,
+      "Complexity": 34,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_checks.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars_checks.ads",
+      "Symlocation": "",
+      "Bytes": 788,
+      "Lines": 25,
+      "Code": 10,
+      "Comment": 10,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-conflicts.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-conflicts.ads",
+      "Symlocation": "",
+      "Bytes": 1125,
+      "Lines": 43,
+      "Code": 25,
+      "Comment": 7,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "anagram.grammars.lr",
+        "anagram.grammars.lr_tables"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_convertors.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars_convertors.adb",
+      "Symlocation": "",
+      "Bytes": 25120,
+      "Lines": 753,
+      "Code": 562,
+      "Comment": 66,
+      "Blank": 125,
+      "Complexity": 53,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.ordered_sets",
+        "ada.containers.vectors",
+        "anagram.grammars.constructors",
+        "anagram.grammars.rule_templates",
+        "league.string_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars.ads",
+      "Symlocation": "",
+      "Bytes": 9656,
+      "Lines": 270,
+      "Code": 208,
+      "Comment": 10,
+      "Blank": 52,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr-lalr.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-lr-lalr.adb",
+      "Symlocation": "",
+      "Bytes": 14836,
+      "Lines": 448,
+      "Code": 331,
+      "Comment": 51,
+      "Blank": 66,
+      "Complexity": 43,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.tools"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-ayacc.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-ayacc.ads",
+      "Symlocation": "",
+      "Bytes": 293,
+      "Lines": 11,
+      "Code": 3,
+      "Comment": 5,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr_tables.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-lr_tables.ads",
+      "Symlocation": "",
+      "Bytes": 4320,
+      "Lines": 155,
+      "Code": 111,
+      "Comment": 8,
+      "Blank": 36,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "anagram.grammars.lr"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-scanners.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-scanners.ads",
+      "Symlocation": "",
+      "Bytes": 2392,
+      "Lines": 74,
+      "Code": 48,
+      "Comment": 5,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ag_tokens",
+        "anagram.abstract_sources",
+        "anagram.grammars.scanner_handlers",
+        "anagram.grammars.scanner_types",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lexers.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-lexers.ads",
+      "Symlocation": "",
+      "Bytes": 443,
+      "Lines": 16,
+      "Code": 5,
+      "Comment": 6,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-lr.adb",
+      "Symlocation": "",
+      "Bytes": 9031,
+      "Lines": 324,
+      "Code": 220,
+      "Comment": 48,
+      "Blank": 56,
+      "Complexity": 23,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr-lalr.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-lr-lalr.ads",
+      "Symlocation": "",
+      "Bytes": 631,
+      "Lines": 20,
+      "Code": 7,
+      "Comment": 9,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.lr_tables"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-scanner_handler.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-scanner_handler.adb",
+      "Symlocation": "",
+      "Bytes": 15831,
+      "Lines": 554,
+      "Code": 399,
+      "Comment": 92,
+      "Blank": 63,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.scanners"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/ag-goto_table.ads",
+      "Extension": "ads",
+      "Location": "../sources/generated/ag-goto_table.ads",
+      "Symlocation": "",
+      "Bytes": 3612,
+      "Lines": 260,
+      "Code": 82,
+      "Comment": 97,
+      "Blank": 81,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/anagram-grammars-scanners-tables.adb",
+      "Extension": "adb",
+      "Location": "../sources/generated/anagram-grammars-scanners-tables.adb",
+      "Symlocation": "",
+      "Bytes": 94582,
+      "Lines": 1841,
+      "Code": 1826,
+      "Comment": 0,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.unicode.ucd"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-constructors.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-constructors.ads",
+      "Symlocation": "",
+      "Bytes": 7147,
+      "Lines": 236,
+      "Code": 180,
+      "Comment": 8,
+      "Blank": 48,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr_parsers.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-lr_parsers.adb",
+      "Symlocation": "",
+      "Bytes": 2370,
+      "Lines": 89,
+      "Code": 65,
+      "Comment": 11,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr-simple.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-lr-simple.adb",
+      "Symlocation": "",
+      "Bytes": 4634,
+      "Lines": 140,
+      "Code": 101,
+      "Comment": 16,
+      "Blank": 23,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.tools"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/ag.ads",
+      "Extension": "ads",
+      "Location": "../sources/generated/ag.ads",
+      "Symlocation": "",
+      "Bytes": 468,
+      "Lines": 22,
+      "Code": 14,
+      "Comment": 2,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.constructors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_recursive_descent.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars_recursive_descent.adb",
+      "Symlocation": "",
+      "Bytes": 29619,
+      "Lines": 988,
+      "Code": 735,
+      "Comment": 87,
+      "Blank": 166,
+      "Complexity": 82,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io",
+        "anagram.grammars.rule_templates",
+        "anagram.grammars_checks",
+        "league.string_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-lr.ads",
+      "Symlocation": "",
+      "Bytes": 3400,
+      "Lines": 99,
+      "Code": 50,
+      "Comment": 28,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-string_sources.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-string_sources.adb",
+      "Symlocation": "",
+      "Bytes": 1029,
+      "Lines": 41,
+      "Code": 24,
+      "Comment": 11,
+      "Blank": 6,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-constructors.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-constructors.adb",
+      "Symlocation": "",
+      "Bytes": 32905,
+      "Lines": 1025,
+      "Code": 781,
+      "Comment": 105,
+      "Blank": 139,
+      "Complexity": 41,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "ada.wide_wide_text_io",
+        "anagram.grammars.rule_templates"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-tools.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-tools.adb",
+      "Symlocation": "",
+      "Bytes": 9627,
+      "Lines": 318,
+      "Code": 232,
+      "Comment": 35,
+      "Blank": 51,
+      "Complexity": 31,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-scanner_handler.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-scanner_handler.ads",
+      "Symlocation": "",
+      "Bytes": 8858,
+      "Lines": 233,
+      "Code": 192,
+      "Comment": 5,
+      "Blank": 36,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ag_tokens",
+        "anagram.grammars.scanner_handlers",
+        "anagram.grammars.scanner_types",
+        "anagram.grammars.scanners"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-ordered.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-ordered.ads",
+      "Symlocation": "",
+      "Bytes": 1524,
+      "Lines": 52,
+      "Code": 33,
+      "Comment": 7,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "anagram.grammars"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-ordered.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-ordered.adb",
+      "Symlocation": "",
+      "Bytes": 20853,
+      "Lines": 639,
+      "Code": 442,
+      "Comment": 96,
+      "Blank": 101,
+      "Complexity": 61,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.graphs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-rnglr.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-rnglr.adb",
+      "Symlocation": "",
+      "Bytes": 27751,
+      "Lines": 1003,
+      "Code": 696,
+      "Comment": 136,
+      "Blank": 171,
+      "Complexity": 50,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "anagram.grammars.lr",
+        "system.pool_local"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-rnglr.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-rnglr.ads",
+      "Symlocation": "",
+      "Bytes": 1319,
+      "Lines": 51,
+      "Code": 33,
+      "Comment": 5,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars.lexers",
+        "anagram.grammars.lr_tables"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-string_sources.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-string_sources.ads",
+      "Symlocation": "",
+      "Bytes": 914,
+      "Lines": 33,
+      "Code": 20,
+      "Comment": 5,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.abstract_sources",
+        "league.strings",
+        "league.strings.cursors.characters"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/anagram-grammars-scanner_types.ads",
+      "Extension": "ads",
+      "Location": "../sources/generated/anagram-grammars-scanner_types.ads",
+      "Symlocation": "",
+      "Bytes": 374,
+      "Lines": 15,
+      "Code": 10,
+      "Comment": 0,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars_recursive_descent.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars_recursive_descent.ads",
+      "Symlocation": "",
+      "Bytes": 412,
+      "Lines": 16,
+      "Code": 7,
+      "Comment": 5,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "anagram.grammars"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/ag-shift_reduce.ads",
+      "Extension": "ads",
+      "Location": "../sources/generated/ag-shift_reduce.ads",
+      "Symlocation": "",
+      "Bytes": 4327,
+      "Lines": 273,
+      "Code": 145,
+      "Comment": 97,
+      "Blank": 31,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-tools.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-tools.ads",
+      "Symlocation": "",
+      "Bytes": 3024,
+      "Lines": 93,
+      "Code": 71,
+      "Comment": 5,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-graphs.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-graphs.adb",
+      "Symlocation": "",
+      "Bytes": 4088,
+      "Lines": 174,
+      "Code": 108,
+      "Comment": 35,
+      "Blank": 31,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-rule_templates.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-rule_templates.ads",
+      "Symlocation": "",
+      "Bytes": 1533,
+      "Lines": 55,
+      "Code": 33,
+      "Comment": 8,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "league.string_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-scanners.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-scanners.adb",
+      "Symlocation": "",
+      "Bytes": 7238,
+      "Lines": 263,
+      "Code": 180,
+      "Comment": 34,
+      "Blank": 49,
+      "Complexity": 13,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "matreshka.internals.unicode"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram.ads",
+      "Symlocation": "",
+      "Bytes": 249,
+      "Lines": 9,
+      "Code": 3,
+      "Comment": 5,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-lr_parsers.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-lr_parsers.ads",
+      "Symlocation": "",
+      "Bytes": 1651,
+      "Lines": 62,
+      "Code": 43,
+      "Comment": 7,
+      "Blank": 12,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/ag_tokens.ads",
+      "Extension": "ads",
+      "Location": "../sources/generated/ag_tokens.ads",
+      "Symlocation": "",
+      "Bytes": 1557,
+      "Lines": 52,
+      "Code": 44,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.vectors",
+        "anagram.grammars.parser_utils",
+        "league.string_vectors",
+        "league.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-reader.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-reader.adb",
+      "Symlocation": "",
+      "Bytes": 1538,
+      "Lines": 56,
+      "Code": 39,
+      "Comment": 5,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories",
+        "ada.streams.stream_io",
+        "ag",
+        "league.strings",
+        "league.text_codecs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-graphs.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-graphs.ads",
+      "Symlocation": "",
+      "Bytes": 1923,
+      "Lines": 68,
+      "Code": 35,
+      "Comment": 14,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-reader.ads",
+      "Extension": "ads",
+      "Location": "../sources/anagram-grammars-reader.ads",
+      "Symlocation": "",
+      "Bytes": 544,
+      "Lines": 17,
+      "Code": 5,
+      "Comment": 9,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/anagram-grammars-scanner_handlers.ads",
+      "Extension": "ads",
+      "Location": "../sources/generated/anagram-grammars-scanner_handlers.ads",
+      "Symlocation": "",
+      "Bytes": 8818,
+      "Lines": 221,
+      "Code": 187,
+      "Comment": 0,
+      "Blank": 34,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ag_tokens",
+        "anagram.grammars.scanner_types",
+        "anagram.grammars.scanners"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/anagram-grammars-scanners-on_accept.adb",
+      "Extension": "adb",
+      "Location": "../sources/generated/anagram-grammars-scanners-on_accept.adb",
+      "Symlocation": "",
+      "Bytes": 2741,
+      "Lines": 103,
+      "Code": 73,
+      "Comment": 0,
+      "Blank": 30,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-rule_templates.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-rule_templates.adb",
+      "Symlocation": "",
+      "Bytes": 5468,
+      "Lines": 207,
+      "Code": 142,
+      "Comment": 29,
+      "Blank": 36,
+      "Complexity": 11,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.ordered_maps",
+        "ada.containers.ordered_sets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/generated/ag.adb",
+      "Extension": "adb",
+      "Location": "../sources/generated/ag.adb",
+      "Symlocation": "",
+      "Bytes": 14027,
+      "Lines": 486,
+      "Code": 309,
+      "Comment": 51,
+      "Blank": 126,
+      "Complexity": 25,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.wide_wide_text_io",
+        "ag.goto_table",
+        "ag.shift_reduce",
+        "ag_tokens",
+        "anagram.grammars.parser_utils",
+        "anagram.grammars.scanner_handler",
+        "anagram.grammars.scanners",
+        "anagram.string_sources",
+        "league.string_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars.adb",
+      "Symlocation": "",
+      "Bytes": 9622,
+      "Lines": 488,
+      "Code": 227,
+      "Comment": 158,
+      "Blank": 103,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../sources/anagram-grammars-parser_utils.adb",
+      "Extension": "adb",
+      "Location": "../sources/anagram-grammars-parser_utils.adb",
+      "Symlocation": "",
+      "Bytes": 22036,
+      "Lines": 757,
+      "Code": 551,
+      "Comment": 93,
+      "Blank": 113,
+      "Complexity": 60,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "ada.wide_wide_text_io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.doubly_linked_lists": 1,
+    "ada.containers.generic_anonymous_array_sort": 1,
+    "ada.containers.ordered_maps": 7,
+    "ada.containers.ordered_sets": 2,
+    "ada.containers.vectors": 5,
+    "ada.directories": 1,
+    "ada.streams.stream_io": 1,
+    "ada.unchecked_deallocation": 5,
+    "ada.wide_wide_text_io": 7,
+    "ag": 1,
+    "ag.goto_table": 1,
+    "ag.shift_reduce": 1,
+    "ag_tokens": 4,
+    "anagram.abstract_sources": 2,
+    "anagram.grammars": 5,
+    "anagram.grammars.constructors": 3,
+    "anagram.grammars.lexers": 1,
+    "anagram.grammars.lr": 4,
+    "anagram.grammars.lr_tables": 5,
+    "anagram.grammars.parser_utils": 2,
+    "anagram.grammars.rule_templates": 4,
+    "anagram.grammars.scanner_handler": 1,
+    "anagram.grammars.scanner_handlers": 2,
+    "anagram.grammars.scanner_types": 3,
+    "anagram.grammars.scanners": 4,
+    "anagram.grammars.tools": 2,
+    "anagram.grammars_checks": 1,
+    "anagram.graphs": 1,
+    "anagram.string_sources": 1,
+    "interfaces": 1,
+    "league.string_vectors": 7,
+    "league.strings": 9,
+    "league.strings.cursors.characters": 1,
+    "league.text_codecs": 1,
+    "matreshka.internals.unicode": 2,
+    "matreshka.internals.unicode.ucd": 1,
+    "system.pool_local": 1
+  }
+}

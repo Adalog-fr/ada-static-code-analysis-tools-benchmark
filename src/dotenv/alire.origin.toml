@@ -1,0 +1,23 @@
+authors = [
+"Heziode",
+]
+description = "Loads environment variables from .env for Ada projects."
+licenses = "BSD-2-Clause"
+maintainers = [
+"Heziode <heziode@protonmail.com>",
+]
+maintainers-logins = [
+"Heziode",
+]
+name = "dotenv"
+tags = [
+"dotenv",
+"env",
+"environment",
+"variables",
+"config",
+"settings",
+]
+version = "1.0.0"
+website = "https://github.com/Heziode/ada-dotenv"
+

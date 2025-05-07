@@ -1,0 +1,15 @@
+name = "syntax_examples"
+description = "Analysis and manipulation of Ada code based on concrete patterns"
+version = "22.0.0"
+licenses = "BSD-3-Clause"
+
+[[depends-on]]
+rejuvenation = "*"
+
+[[pins]]
+
+[pins.rejuvenation]
+path = "../../../rejuvenation"
+
+[build-switches."*"]
+Compile_Checks = "none"

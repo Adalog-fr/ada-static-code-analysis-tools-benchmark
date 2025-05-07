@@ -1,0 +1,16 @@
+../source/collada-asset.ads
+../source/collada-document.adb
+../source/collada-document.ads
+../source/collada-libraries.ads
+../source/collada-library-animations.adb
+../source/collada-library-animations.ads
+../source/collada-library-controllers.adb
+../source/collada-library-controllers.ads
+../source/collada-library-geometries.adb
+../source/collada-library-geometries.ads
+../source/collada-library-visual_scenes.adb
+../source/collada-library-visual_scenes.ads
+../source/collada-library.adb
+../source/collada-library.ads
+../source/collada.adb
+../source/collada.ads

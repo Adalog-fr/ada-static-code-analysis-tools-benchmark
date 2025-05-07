@@ -1,0 +1,48 @@
+authors = [
+"nytpu",
+]
+description = "Bindings for libtls"
+licenses = "MPL-2.0"
+maintainers = [
+"nytpu <alex@nytpu.com>",
+]
+maintainers-logins = [
+"nytpu",
+]
+name = "tlsada"
+tags = [
+"tls",
+"ssl",
+]
+version = "2.5.2"
+website = "https://git.sr.ht/~nytpu/tlsada"
+[gpr-externals]
+TLSADA_BUILD_MODE = [
+"debug",
+"optimize",
+]
+TLSADA_COMPILE_CHECKS = [
+"enabled",
+"disabled",
+]
+TLSADA_CONTRACTS = [
+"enabled",
+"disabled",
+]
+TLSADA_LIBRARY_TYPE = [
+"dynamic",
+"relocatable",
+"static",
+"static-pic",
+]
+TLSADA_RUNTIME_CHECKS = [
+"enabled",
+"disabled",
+]
+TLSADA_STYLE_CHECKS = [
+"enabled",
+"disabled",
+]
+[[depends-on]]
+libtls = "^3.5"
+

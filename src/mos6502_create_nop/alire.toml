@@ -1,0 +1,23 @@
+authors = ["Martin Krischik <krischik@users.sourceforge.net>"]
+description = "Create NOP ROM"
+executables = ["create_nop"]
+licenses = "GPL-3.0-or-later"
+long-description = "This is a tool to create a rom image with NOP commands.\n\nThis program can be used to create a ROM immage for the MOS 6502 tutorial from Ben Eater.\n\nDevelopment versions available with:\n\n```sh\nalr index --add \"git+https://github.com/krischik/alire-index.git#develop\" --name krischik\n``` \n\nSource code and testsuite available on [SourceForge](https://git.code.sf.net/p/tutorial-6502/git)\n"
+maintainers = ["Martin Krischik <krischik@users.sourceforge.net>"]
+maintainers-logins = ["krischik"]
+name = "mos6502_create_nop"
+tags = ["mos-6502","tools","retrocomputing","ada2022"]
+version = "1.1.1"
+website = "https://sourceforge.net/projects/tutorial-6502"
+
+[[actions]]
+command = ["alr","run"]
+directory = "test"
+type = "test"
+
+[[depends-on]]
+
+[[pins]]
+
+[build-switches."*"]
+Compile_Checks = "none"

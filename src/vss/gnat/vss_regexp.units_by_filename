@@ -1,0 +1,14 @@
+vss-regular_expressions-ecma_parser.adb
+vss-regular_expressions-ecma_parser.ads
+vss-regular_expressions-engines.adb
+vss-regular_expressions-engines.ads
+vss-regular_expressions-matches.adb
+vss-regular_expressions-matches.ads
+vss-regular_expressions-name_sets.adb
+vss-regular_expressions-name_sets.ads
+vss-regular_expressions-pike_engines.adb
+vss-regular_expressions-pike_engines.ads
+vss-regular_expressions-utilities.adb
+vss-regular_expressions-utilities.ads
+vss-regular_expressions.adb
+vss-regular_expressions.ads

@@ -1,0 +1,32 @@
+authors = [
+"Alexander Herr <thissideup@riseup.net>",
+"Nicolai Ruckel <nicolai.ruckel@uni-weimar.de>",
+"Christopher Lübbemeier <christopher.luebbemeier@googlemail.com>",
+]
+description = "Ada bindings for Fuse (Filesystem in Userspace)"
+licenses = "GPL-3.0-only"
+maintainers = [
+"Nicolai Ruckel <nicolai.ruckel@uni-weimar.de>",
+]
+maintainers-logins = [
+"NicolaiRuckel",
+"medsec",
+]
+name = "ada_fuse"
+project-files = [
+"ada_fuse.gpr",
+]
+version = "1.0.1"
+website = "https://github.com/medsec/ada-fuse"
+[gpr-externals]
+ADA_FUSE_SYSTEM = [
+"Linux x86_64",
+"Linux i386",
+"Darwin i386",
+"Darwin x86_64",
+]
+[gpr-set-externals]
+ADA_FUSE_SYSTEM = "Linux x86_64"
+[[depends-on]]
+libfuse = "^2.0.0"
+

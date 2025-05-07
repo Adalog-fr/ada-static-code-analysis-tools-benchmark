@@ -1,0 +1,3 @@
+src/sys/http/curl/util-http-clients-curl-constants.ads
+src/sys/http/curl/util-http-clients-curl.adb
+src/sys/http/curl/util-http-clients-curl.ads

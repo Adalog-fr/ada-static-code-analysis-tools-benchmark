@@ -1,0 +1,72 @@
+<!--
+  Copyright 2013-2022, Simon Wright <simon@pushface.org>
+
+  This unit is free software; you can redistribute it and/or modify
+  it as you wish. This unit is distributed in the hope that it will
+  be useful, but WITHOUT ANY WARRANTY; without even the implied
+  warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  -->
+
+<html>
+<head>
+<title>EWS</title>
+</head>
+<body bgcolor="white">
+
+<h1>Embedded Web Server</h1>
+
+<h2>Introduction</h2>
+
+<p>EWS is a web server construction kit, designed for embedded
+applications using the GNAT Ada compiler.
+
+<p>The project is hosted
+on <a href="https://github.com/simonjwright/ews">Github</a>.
+
+<h2>Prerequisites</h2>
+
+<p>EWS requires GNAT (GNAT GPL 2012 or later, FSF GCC 4.8.0 or later)
+and XML/Ada. GNAT GPL 2013 (and, hopefully, later) includes XML/Ada;
+earlier versions supply XML/Ada as source which has to be built and
+installed.
+
+<p>In the EWS distribution's top-level directory, <tt>make</tt> will
+build the library, and
+<tt>make demo</tt> will create a server <tt>doc/ews_demo</tt>, which
+when executed will listen on port 8080 and respond with the web in
+the <tt>doc/</tt> directory.
+
+<p>The package can be installed with the compiler by <tt>make
+install</tt> (more likely, <tt>sudo make install</tt>). You can
+install in an alternative place by setting <tt>prefix</tt>, for
+example
+
+<pre>
+   $ make install prefix=~/local/ews
+</pre>
+
+<h2>Documentation</h2>
+
+<p>The facilities available in EWS, and the code for the
+demonstration, are described in <a href="ews.pdf">this document</a>,
+which also acts as the source code using
+the <a href="http://www.literateprogramming.com/">Literate
+Programming</a> facilities
+of <a href="https://github.com/simonjwright/nuweb.py">nuweb.py</a>.
+
+<h2>Demonstration</h2>
+
+<p>If you're seeing this page via the demonstration
+(<tt>ews_demo</tt>), you can view a page with <a
+href="http://www.amazon.co.uk/exec/obidos/ASIN/0471777781/qid%3D1146719450/203-6928631-0011916">AJAX</a>
+content <a href="ajax.html">here</a>.
+
+<hr>
+<i>
+<address>
+<a href="mailto:simon@pushface.org">Simon Wright</a>
+</address>
+</i>
+
+</body>
+</html>

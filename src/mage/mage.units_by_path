@@ -1,0 +1,13 @@
+config/mage_config.ads
+src/mage_config-hardware.No.ads
+src/mage-draw.adb
+src/mage-draw.ads
+src/mage-event.adb
+src/mage-event.ads
+src/mage-input.adb
+src/mage-input.ads
+src/mage-log.adb
+src/mage-log.ads
+src/mage-model.ads
+src/mage.adb
+src/mage.ads

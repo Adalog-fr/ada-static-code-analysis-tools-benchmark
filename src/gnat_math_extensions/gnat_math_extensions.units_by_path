@@ -1,0 +1,6 @@
+src/ada_numerics.ads
+src/ada_numerics-float_arrays.ads
+src/ada_numerics-generic_arrays.ads
+src/ada_numerics-generic_arrays.adb
+src/ada_numerics-long_float_arrays.ads
+config/gnat_math_extensions_config.ads

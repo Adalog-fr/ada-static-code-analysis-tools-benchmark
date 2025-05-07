@@ -1,0 +1,30 @@
+authors = [
+"Alejandro R. Mosteo",
+"Fabien Chouteau",
+]
+description = "Command Line Interface Components"
+licenses = "MIT AND GPL-3.0-or-later WITH GCC-exception-3.1"
+long-description = "Command Line Interface Components:\n - \"git like\" subcommand handling\n - TTY color and formatting\n - User input queries\n - User configuration\n"
+maintainers = [
+"alejandro@mosteo.com",
+"Fabien Chouteau <fabien.chouteau@gmail.com>",
+]
+maintainers-logins = [
+"mosteo",
+"Fabien-Chouteau",
+]
+name = "clic"
+tags = [
+"cli",
+"command-line",
+"user-input",
+"tty",
+]
+version = "0.2.1"
+website = "https://github.com/alire-project/clic"
+[[depends-on]]
+aaa = "~0.2.4"
+ada_toml = "~0.2|~0.3"
+ansiada = "^1.0"
+simple_logging = "^1.2.0"
+

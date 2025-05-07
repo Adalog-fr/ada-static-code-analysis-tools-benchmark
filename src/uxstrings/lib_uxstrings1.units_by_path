@@ -1,0 +1,14 @@
+src/uxstrings-conversions.adb
+src/uxstrings-conversions.ads
+src/uxstrings-formatting.adb
+src/uxstrings-formatting.ads
+src/uxstrings-hash_case_insensitive.adb
+src/uxstrings-hash_case_insensitive.ads
+src/uxstrings-hash.adb
+src/uxstrings-hash.ads
+src/uxstrings-text_io-text_streams.adb
+src/uxstrings-text_io-text_streams.ads
+src/uxstrings-text_io1.adb
+src/uxstrings-text_io1.ads
+src/uxstrings1.adb
+src/uxstrings1.ads

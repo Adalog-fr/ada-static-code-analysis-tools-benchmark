@@ -1,0 +1,195 @@
+GTKADA NEW FEATURES LIST
+========================
+
+Copyright (c) 2010-2011, AdaCore
+
+This file contains a list of new features introduced in GtkAda.
+
+An ISO date (YYYY-MM-DD) appears in parentheses after the
+description line. This date shows the implementation date
+of the feature.
+
+New features in GtkAda 17
+-------------------------
+
+OC21-020 additions to Gtkada.MDI.Float_Child and Gtkada.MDI.Put
+
+   New parameters allow controlling the position of the child as it is
+   being put in the MDI or when it is being floated.
+
+New features in GtkAda 3.14.1
+-----------------------------
+
+O916-009 Gtk.Cell_Layout.Get_Cells returns a Cell_Renderer_List (2015-09-21)
+
+   This function used to return a generic Object_List, but now returns a
+   more specialized Cell_Renderer_List, which avoids type casts in user code.
+
+O317-025 New API for Activating the application under Mac OS (2015-03-17)
+
+   A new API Glib.Main.Activate_Application can be used to give
+   the focus to the frontmost window of the executable under Mac OS X.
+
+N701-030 New API for adding fonts to an application (2015-04-20)
+
+   A new package Fontconfig has been added, adding an API to add fonts
+   to the application.
+
+N606-015 Transition to Gtk 3.14 (2015-03-06)
+
+   GtkAda now supports Gtk+ 3.14.x.
+   A number of new APIs have been introduced in existing packages.
+
+   The following new packages have been introduced:
+
+    Glib.Notification
+    Gtk.Action_Bar
+    Gtk.Event_Controller
+    Gtk.Flow_Box
+    Gtk.Flow_Box_Child
+    Gtk.Gesture    (and a number of Gtk.Gesture_*)
+    Gtk.Header_Bar
+    Gtk.List_Box
+    Gtk.Popover
+    Gtk.Revealer
+    Gtk.Stack
+    Gtk.Stack_Switcher
+
+New features in GtkAda 3.8.3
+----------------------------
+
+N423-008 Creating signals with return types (2014-04-23)
+
+  It is now possible to create new signals that return values, when you
+  create new widgets. In particular, when a callback returns a boolean,
+  the propagation of the signal is stopped as soon as one of the callbacks
+  returns True.
+
+N326-016 Implementing gtk+ interfaces (2014-03-26)
+
+  It is now possible to implement gtk+ interfaces (for instance
+  Gtk_Scrollable) when you create new widgets. This required minor changes
+  to Glib.Object.Initialize_Class_Record.
+
+N226-019 New widget Gtkada.Canvas_View (2014-03-20)
+
+  This new widget is a rewrite of Gtkada.Canvas. It provides a cleaner API
+  (clarifying confusion between the various coordinate systems for instance)
+  and has support for creating hierarchies of basic item (text, boxes,
+  polygons,..) to easily create more complex items.
+
+New features in GtkAda 3.8.2
+----------------------------
+
+M731-021 Gtkada.MDI limit possible positions of children (2013-07-31)
+
+  It is now possible, via a new parameter to Gtk_New, to limit whether
+  a child can be put in the central area, on the sides, or both.
+
+M723-015 New bindings and Gtk Application enhancement (2013-07-23)
+
+  New bindings for GApplicationCommandLine, in Glib.Application.
+  New bindings for GOptionContext, GOptionGroup and GOptionEntry, in
+    Glib.Option.
+  New package GtkAda.Application, to support opening files from OS-specific
+    inter-process calls (DDE on Windows, System events on OSX).
+
+New features in GtkAda 3.4.1
+----------------------------
+
+L726-002 New On_* procedures to ease signal connection (2012-12-20)
+
+  Each widget has a number of additional primitives to ease signal
+  connection. For instance, one can use
+      Button.On_Clicked (Handler'Access);
+  now. See the user's guide for more information.
+
+LB30-013 New subprogram Gtk.Handlers.Set_On_Exception (2012-11-30)
+
+  It was always recommended that Ada callbacks should not propagate
+  exceptions to the C gtk+ layer. To enforce this, GtkAda now has its
+  own internal exception handlers. But it is possible for applications
+  to register a subprogram to call when a callback has raised an
+  exception, presumably to log the exception in an application-specific
+  manner (the default is to output the exception on stderr).
+
+  These handlers are set automatically on signal and event callbacks,
+  and on idle and timeout callbacks.
+
+LB20-008 Gtk_New_* as functions (2012-12-17)
+
+  GtkAda now includes a function for each version of Gtk_New*_, which
+  might be simpler to use in some contexts. In particular, local variables
+  can now be initialized directly in their declarations.
+
+L413-025 Binding for Gtk.Recent_Chooser_Menu
+
+  A new binding for Gtk.Recent_Chooser_Menu has been added.  This
+  widget shows a list of recently used resources in menu form.
+
+L125-027 Remove support for GNOME widgets (2012-01-25)
+
+  These widgets were no longer support nor up-to-date with regards to
+  the GNOME libraries themselves, so were removed.
+
+New features in GtkAda 2.24.1
+-----------------------------
+
+KC08-027 Documentation converted to Sphinx (2011-12-08)
+
+  The new format provides nicer output, as well as an integrated search
+  facility for the HTML version
+
+New features in GtkAda 2.22.0
+-----------------------------
+
+K506-019 Binding for GtkSpinner
+
+  A new binding Gtk.Spinner has been added.  A Gtk.Spinner is an animated
+  widget that can be used to signal the user that some program activity is
+  occurring.
+
+K422-015 Design changes and preparation for Gtk-3
+
+  Gtkada.MDI has been slightly changed so that MDI children now have nicer
+  looking menubars. MDI notebooks now contain a close button that allows
+  the user to close tabs that are not in front.
+
+  The Gtkada.Canvas widget has been completely redesigned to make use of
+  Cairo instead of Gdk. Its API should now be Gtk-3 ready.
+
+  Added new Cairo bindings: Cairo.PDF, Cairo.Region, Cairo.SVG. Gdk.Window has
+  also been completed with Cairo bindings.
+
+  New package Gtkada.Style to provide Gtk.Style-like drawing primitives that
+  use Cairo instead of Gdk.
+
+K125-039 Glade-3 GUI builder
+
+  The GUI builder shipped with GtkAda has been upgraded to Glade-3.
+
+JC10-012 MDI: short titles also applies to title bars
+
+  The MDI can be configured so that floating windows use a short title
+  rather than a full title (in particular, for file names, this will generally
+  be the base name rather than full path name). This preference now also
+  applies to title bars for non-floating windows.
+
+JB29-030 MDI: support for independent perspectives
+
+  It is now possible to configure the MDI so that the perspectives do not
+  share the central area (as a result, no window is preserved when switching
+  among perspectives, unless they are explicitly part of the new perspective).
+
+JB09-025 High-level API for using Glade-3 and Gtk.Builder
+
+  A new package Gtkada.Builder has been introduced. This provides a
+  high-level API for developing GtkAda applications using the Glade-3
+  GUI builder.
+
+JA07-018 Bindings to GTK+ printing API
+
+  In addition to bindings already added as part of J510-028, additional
+  packages have been provided so that full use of the printing API provided
+  by GTK+ is possible.  The existing printing example in testgtk has been
+  enhanced to demonstrate how to use the new API.

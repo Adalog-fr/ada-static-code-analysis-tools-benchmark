@@ -1,0 +1,6 @@
+src/spdx-exceptions.adb
+src/spdx-exceptions.ads
+src/spdx-licenses.adb
+src/spdx-licenses.ads
+src/spdx.adb
+src/spdx.ads

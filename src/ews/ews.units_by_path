@@ -1,0 +1,17 @@
+src/ews-dynamic.adb
+src/ews-dynamic.ads
+src/ews-http-ews_attachments_friend.adb
+src/ews-http-ews_attachments_friend.ads
+src/ews-http.adb
+src/ews-http.ads
+src/ews-reference_counted_pointers_g.adb
+src/ews-reference_counted_pointers_g.ads
+src/ews-server.adb
+src/ews-server.ads
+src/ews-static.adb
+src/ews-static.ads
+src/ews-types.adb
+src/ews-types.ads
+src/ews.ads
+src/input_sources-ews_attachments.adb
+src/input_sources-ews_attachments.ads

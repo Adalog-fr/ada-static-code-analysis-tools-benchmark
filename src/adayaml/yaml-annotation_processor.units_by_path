@@ -1,0 +1,15 @@
+src/annotation_processor/implementation/yaml-events-context.adb
+src/annotation_processor/implementation/yaml-events-context.ads
+src/annotation_processor/implementation/yaml-transformator-annotation_processor.adb
+src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.adb
+src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.ads
+src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.adb
+src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.ads
+src/annotation_processor/implementation/yaml-transformator-annotation-identity.adb
+src/annotation_processor/implementation/yaml-transformator-annotation-identity.ads
+src/annotation_processor/implementation/yaml-transformator-annotation-inject.adb
+src/annotation_processor/implementation/yaml-transformator-annotation-inject.ads
+src/annotation_processor/implementation/yaml-transformator-annotation-vars.adb
+src/annotation_processor/implementation/yaml-transformator-annotation-vars.ads
+src/annotation_processor/implementation/yaml-transformator-annotation.ads
+src/annotation_processor/interface/yaml-transformator-annotation_processor.ads

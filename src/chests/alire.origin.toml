@@ -1,0 +1,21 @@
+authors = [
+"Jeremy Grosser",
+]
+description = "Chests are bounded containers"
+licenses = "BSD-3-Clause"
+maintainers = [
+"Jeremy Grosser <jeremy@synack.me>",
+]
+maintainers-logins = [
+"JeremyGrosser",
+]
+name = "chests"
+tags = [
+"containers",
+"bounded",
+"nostd",
+"embedded",
+]
+version = "0.1.1"
+website = "https://github.com/JeremyGrosser/chests"
+

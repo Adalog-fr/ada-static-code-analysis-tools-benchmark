@@ -1,0 +1,126 @@
+{
+  "Name": "Ada",
+  "Bytes": 14969,
+  "CodeBytes": 0,
+  "Lines": 384,
+  "Code": 321,
+  "Comment": 33,
+  "Blank": 30,
+  "Complexity": 33,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/endianness-standard.ads",
+      "Extension": "ads",
+      "Location": "src/endianness-standard.ads",
+      "Symlocation": "",
+      "Bytes": 2506,
+      "Lines": 58,
+      "Code": 51,
+      "Comment": 2,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/endianness.ads",
+      "Extension": "ads",
+      "Location": "src/endianness.ads",
+      "Symlocation": "",
+      "Bytes": 3310,
+      "Lines": 84,
+      "Code": 49,
+      "Comment": 29,
+      "Blank": 6,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.streams"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/endianness-interfaces.ads",
+      "Extension": "ads",
+      "Location": "src/endianness-interfaces.ads",
+      "Symlocation": "",
+      "Bytes": 3799,
+      "Lines": 87,
+      "Code": 79,
+      "Comment": 2,
+      "Blank": 6,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/endianness.adb",
+      "Extension": "adb",
+      "Location": "src/endianness.adb",
+      "Symlocation": "",
+      "Bytes": 5354,
+      "Lines": 155,
+      "Code": 142,
+      "Comment": 0,
+      "Blank": 13,
+      "Complexity": 18,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "gnat.byte_swapping",
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.streams": 1,
+    "ada.unchecked_conversion": 1,
+    "gnat.byte_swapping": 1,
+    "interfaces": 1,
+    "system": 1
+  }
+}

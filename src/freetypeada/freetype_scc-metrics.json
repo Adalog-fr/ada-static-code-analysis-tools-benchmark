@@ -1,0 +1,343 @@
+{
+  "Name": "Ada",
+  "Bytes": 53234,
+  "CodeBytes": 0,
+  "Lines": 1287,
+  "Code": 979,
+  "Comment": 125,
+  "Blank": 183,
+  "Complexity": 37,
+  "Count": 12,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-api.ads",
+      "Extension": "ads",
+      "Location": "src/ft-api.ads",
+      "Symlocation": "",
+      "Bytes": 2625,
+      "Lines": 66,
+      "Code": 48,
+      "Comment": 2,
+      "Blank": 16,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.errors",
+        "ft.faces",
+        "interfaces.c.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-errors.adb",
+      "Extension": "adb",
+      "Location": "src/ft-errors.adb",
+      "Symlocation": "",
+      "Bytes": 6695,
+      "Lines": 103,
+      "Code": 100,
+      "Comment": 2,
+      "Blank": 1,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-api-glyphs.ads",
+      "Extension": "ads",
+      "Location": "src/ft-api-glyphs.ads",
+      "Symlocation": "",
+      "Bytes": 1209,
+      "Lines": 33,
+      "Code": 22,
+      "Comment": 4,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.errors",
+        "ft.faces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft.adb",
+      "Extension": "adb",
+      "Location": "src/ft.adb",
+      "Symlocation": "",
+      "Bytes": 1808,
+      "Lines": 56,
+      "Code": 41,
+      "Comment": 9,
+      "Blank": 6,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.api",
+        "ft.errors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-utilities.adb",
+      "Extension": "adb",
+      "Location": "src/ft-utilities.adb",
+      "Symlocation": "",
+      "Bytes": 1863,
+      "Lines": 43,
+      "Code": 31,
+      "Comment": 4,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "ft.glyphs"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-faces.ads",
+      "Extension": "ads",
+      "Location": "src/ft-faces.ads",
+      "Symlocation": "",
+      "Bytes": 7668,
+      "Lines": 169,
+      "Code": 126,
+      "Comment": 12,
+      "Blank": 31,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-utilities.ads",
+      "Extension": "ads",
+      "Location": "src/ft-utilities.ads",
+      "Symlocation": "",
+      "Bytes": 373,
+      "Lines": 10,
+      "Code": 6,
+      "Comment": 2,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.faces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-glyphs.ads",
+      "Extension": "ads",
+      "Location": "src/ft-glyphs.ads",
+      "Symlocation": "",
+      "Bytes": 1946,
+      "Lines": 49,
+      "Code": 32,
+      "Comment": 9,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.faces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-faces.adb",
+      "Extension": "adb",
+      "Location": "src/ft-faces.adb",
+      "Symlocation": "",
+      "Bytes": 6390,
+      "Lines": 187,
+      "Code": 146,
+      "Comment": 14,
+      "Blank": 27,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.api",
+        "ft.errors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft.ads",
+      "Extension": "ads",
+      "Location": "src/ft.ads",
+      "Symlocation": "",
+      "Bytes": 11248,
+      "Lines": 300,
+      "Code": 199,
+      "Comment": 53,
+      "Blank": 48,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "interfaces.c",
+        "interfaces.c.strings",
+        "system"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-glyphs.adb",
+      "Extension": "adb",
+      "Location": "src/ft-glyphs.adb",
+      "Symlocation": "",
+      "Bytes": 3706,
+      "Lines": 116,
+      "Code": 80,
+      "Comment": 12,
+      "Blank": 24,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ft.api.glyphs",
+        "ft.errors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ft-errors.ads",
+      "Extension": "ads",
+      "Location": "src/ft-errors.ads",
+      "Symlocation": "",
+      "Bytes": 7703,
+      "Lines": 155,
+      "Code": 148,
+      "Comment": 2,
+      "Blank": 5,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.finalization": 1,
+    "ada.text_io": 1,
+    "ft.api": 2,
+    "ft.api.glyphs": 1,
+    "ft.errors": 5,
+    "ft.faces": 4,
+    "ft.glyphs": 1,
+    "interfaces.c": 1,
+    "interfaces.c.strings": 2,
+    "system": 1
+  }
+}

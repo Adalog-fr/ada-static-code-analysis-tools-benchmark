@@ -1,0 +1,167 @@
+{
+  "Name": "Ada",
+  "Bytes": 38389,
+  "CodeBytes": 0,
+  "Lines": 1220,
+  "Code": 856,
+  "Comment": 250,
+  "Blank": 114,
+  "Complexity": 49,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bin/spark_io.ads",
+      "Extension": "ads",
+      "Location": "bin/spark_io.ads",
+      "Symlocation": "",
+      "Bytes": 3652,
+      "Lines": 123,
+      "Code": 43,
+      "Comment": 60,
+      "Blank": 20,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bin/spark_io.adb",
+      "Extension": "adb",
+      "Location": "bin/spark_io.adb",
+      "Symlocation": "",
+      "Bytes": 7014,
+      "Lines": 277,
+      "Code": 255,
+      "Comment": 2,
+      "Blank": 20,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bin/spaiosta.ads",
+      "Extension": "ads",
+      "Location": "bin/spaiosta.ads",
+      "Symlocation": "",
+      "Bytes": 348,
+      "Lines": 18,
+      "Code": 8,
+      "Comment": 6,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "spark_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bin/spaiosta.adb",
+      "Extension": "adb",
+      "Location": "bin/spaiosta.adb",
+      "Symlocation": "",
+      "Bytes": 168,
+      "Lines": 6,
+      "Code": 5,
+      "Comment": 1,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bin/b2stest.adb",
+      "Extension": "adb",
+      "Location": "bin/b2stest.adb",
+      "Symlocation": "",
+      "Bytes": 17084,
+      "Lines": 458,
+      "Code": 278,
+      "Comment": 143,
+      "Blank": 37,
+      "Complexity": 20,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "bin/b2ssum.adb",
+      "Extension": "adb",
+      "Location": "bin/b2ssum.adb",
+      "Symlocation": "",
+      "Bytes": 10123,
+      "Lines": 338,
+      "Code": 267,
+      "Comment": 38,
+      "Blank": 33,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "spark_io": 1,
+    "text_io": 1
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "Name": "Ada",
+  "Bytes": 9496,
+  "CodeBytes": 0,
+  "Lines": 324,
+  "Code": 194,
+  "Comment": 59,
+  "Blank": 71,
+  "Complexity": 9,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "hungarian_solver.ads",
+      "Extension": "ads",
+      "Location": "hungarian_solver.ads",
+      "Symlocation": "",
+      "Bytes": 4448,
+      "Lines": 143,
+      "Code": 91,
+      "Comment": 9,
+      "Blank": 43,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "hungarian_solver.adb",
+      "Extension": "adb",
+      "Location": "hungarian_solver.adb",
+      "Symlocation": "",
+      "Bytes": 5048,
+      "Lines": 181,
+      "Code": 103,
+      "Comment": 50,
+      "Blank": 28,
+      "Complexity": 9,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.finalization": 1,
+    "interfaces.c": 1
+  }
+}

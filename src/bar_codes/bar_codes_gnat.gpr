@@ -1,0 +1,90 @@
+--  This is a GNAT, GCC or GNAT Programming Studio (GPS) project file
+--  for the Ada Bar Codes project:
+--
+--      home page:     http://ada-bar-codes.sf.net/
+--      project page:  http://sf.net/projects/ada-bar-codes/
+--      mirror:        https://github.com/svn2github/abc
+--
+--  Build me with "gprbuild -p -P bar_codes_gnat", or "gnatmake -p -P bar_codes_gnat",
+--  or open me with GPS
+--
+project Bar_Codes_GNAT is
+
+   type Build_Mode_Type is
+      ("Debug", 
+       "Fast",
+       --  Check_2005 mode is for checking that the *library* is strictly
+       --  Ada-2005-compliant, for being compiled by the broadest set of compilers.
+       --  The demos, tools and tests may use some Ada 2012 features.
+       "Check_2005",
+       --  Check_Style mode is for checking that the source code is pretty.
+       "Check_Style"  
+       );
+   Build_Mode : Build_Mode_Type := external ("Build_Mode", "Debug");
+   case Build_Mode is
+      when "Check_2005" =>
+         for Source_Dirs use (".");
+         for Main use ();
+      when others =>
+         for Source_Dirs use (
+           ".",      --  Library: Bar_Codes[.*]
+           "demo",   --  Demos
+           "test",   --  Tests
+           "gnat"    --  GNAT-specific stuff
+         );
+         for Main use (
+           "bar_codes_demo.adb",   --  Main demo
+           "gnat_demo.ads",        --  bar_codes_demo with GNAT Trace-Back
+           "bar_codes_test.adb",   --  Tests
+           "gnat_test.ads"         --  bar_codes_test with GNAT Trace-Back
+         );
+   end case;
+   for Exec_Dir use ".";
+
+   case Build_Mode is
+
+      when "Debug" | "Check_2005" | "Check_Style" =>
+         for Object_Dir use "obj_debug";
+
+      when "Fast" =>
+         for Object_Dir use "obj_fast";
+   end case;
+
+   package Compiler is
+
+      case Build_Mode is
+
+         when "Check_2005" => for Default_Switches ("ada") use (
+              "-gnat05", "-gnatwaC",
+              "-gnato", "-gnatVa"
+              );
+
+         when "Check_Style" =>
+            for Default_Switches ("ada") use (
+              "-gnatyaknpr",  --  Style: check all casings: a:attribute, k:keywords, n:package Standard identifiers, p:pragma, r:identifier references
+              "-gnatybfhiu",  --  Style: check b:no blanks at end of lines, f:no ff/vtabs, h: no htabs, i:if-then layout, u:no unnecessary blank lines
+              "-gnatyxtc",    --  Style: check x:no extra parens, t:token separation rules, c:comment format (two spaces)
+              "-gnaty2",      --  Style: check indentation
+              "-gnatyO",      --  Style: check O:check overriding indicators
+              "-gnato", "-fno-inline", "-fstack-check", "-g", "-gnatwaC", "-gnatVa", "-gnatec=" & project'Project_Dir & "gnat/debug.pra");
+
+         when "Debug" =>
+            for Default_Switches ("ada") use (
+              "-gnato", "-fno-inline", "-fstack-check", "-g", "-gnatwaC", "-gnatVa", "-gnatec=" & project'Project_Dir & "gnat/debug.pra");
+
+         when "Fast" =>
+            for Default_Switches ("ada") use ("-O2", "-gnatn", "-gnatp", "-gnatwaC", "-fno-strict-aliasing", "-funroll-loops", "-fpeel-loops", "-ftracer", "-funswitch-loops", "-fweb", "-frename-registers");
+      end case;
+   end Compiler;
+   
+   package Binder is
+      for Default_Switches ("ada") use ("-E");
+   end Binder;
+
+   package Builder is
+      --   "If -j0 is used, then the maximum number of simultaneous compilation
+      --    jobs is the number of core processors on the platform."
+      for Default_Switches ("ada") use ("-j0");
+   end Builder;
+
+end Bar_Codes_GNAT;

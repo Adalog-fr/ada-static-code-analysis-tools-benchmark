@@ -1,0 +1,6 @@
+src/test_cases-strings-vector.adb
+src/test_cases-strings-vector.ads
+src/test_cases-strings.ads
+src/test_cases.adb
+src/test_cases.ads
+src/tests.adb

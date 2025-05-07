@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 37715,
+  "CodeBytes": 0,
+  "Lines": 1097,
+  "Code": 832,
+  "Comment": 217,
+  "Blank": 48,
+  "Complexity": 29,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-connection_state_machine-http_server-sqlite_browser.ads",
+      "Extension": "ads",
+      "Location": "gnat-sockets-connection_state_machine-http_server-sqlite_browser.ads",
+      "Symlocation": "",
+      "Bytes": 13033,
+      "Lines": 371,
+      "Code": 164,
+      "Comment": 191,
+      "Blank": 16,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-connection_state_machine-http_server-sqlite_browser.adb",
+      "Extension": "adb",
+      "Location": "gnat-sockets-connection_state_machine-http_server-sqlite_browser.adb",
+      "Symlocation": "",
+      "Bytes": 24682,
+      "Lines": 726,
+      "Code": 668,
+      "Comment": 26,
+      "Blank": 32,
+      "Complexity": 25,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

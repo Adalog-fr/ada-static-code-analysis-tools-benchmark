@@ -1,0 +1,11 @@
+[
+    ["Abort_Statements"],
+    ["Abstract_Type_Declarations"],
+    ["Blocks"],
+    ["Constructors"],
+    ["Enumeration_Representation_Clauses"],
+    ["Renamings"],
+    ["Slices"],
+    ["Too_Many_Parents", { "minNbParents": 2 }],
+    ["Variable_Usage"]
+]

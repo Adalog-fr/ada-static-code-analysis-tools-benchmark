@@ -1,0 +1,163 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "black": "#282c34",
+    "blue": "#61afef",
+    "cyan": "#56b6c2",
+    "darkGrey": "#5c6370",
+    "darkRed": "#be5046",
+    "darkYellow": "#d19a66",
+    "green": "#98c379",
+    "lightRed": "#e06c75",
+    "lightYellow": "#e5c07b",
+    "magenta": "#c678dd",
+    "true-white": "#FFFFFF",
+    "white": "#abb2bf"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "foreground": "p:black",
+          "background": "p:true-white",
+          "type": "os",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "style": "full"
+          },
+          "template": " \uf0e7 ",
+          "foreground": "p:true-white",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:blue",
+          "type": "root",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "folder_separator_icon": " \ue0b1 ",
+            "style": "full"
+          },
+          "template": " {{ .Path }} ",
+          "foreground": "p:true-white",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:blue",
+          "type": "path",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " {{ .HEAD }} ",
+          "foreground": "p:black",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:lightYellow",
+          "type": "git",
+          "style": "powerline"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ if gt .Code 0 }}\uf057{{else}}\uf058{{ end }} ",
+          "foreground": "p:green",
+          "type": "exit",
+          "style": "diamond",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:lightRed{{ end }}"
+          ]
+        },
+        {
+          "properties": {
+            "always_enabled": false,
+            "cache_duration": "none",
+            "style": "roundrock",
+            "threshold": 3000
+          },
+          "foreground": "p:true-white",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:magenta",
+          "type": "executiontime",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} <transparent>\ue0b6</>",
+          "foreground": "p:black",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:lightYellow",
+          "type": "python",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": " {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} <transparent>\ue0b6</>",
+          "foreground": "p:true-white",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:cyan",
+          "type": "go",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "15:04:05"
+          },
+          "leading_diamond": "\ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "template": " {{ .CurrentDate | date .Format }}",
+          "foreground": "p:black",
+          "powerline_symbol": "\ue0b4",
+          "background": "p:white",
+          "type": "time",
+          "style": "powerline"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "template": " ❯ ",
+          "foreground": "#98C379",
+          "type": "exit",
+          "style": "plain",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}p:lightRed{{ end }}"
+          ]
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "version": 3
+}

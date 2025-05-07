@@ -1,0 +1,2 @@
+config/wordle_config.ads
+src/wordle.adb

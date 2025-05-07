@@ -1,0 +1,145 @@
+package SPDX.Exceptions is
+
+   pragma Style_Checks (Off); --  Genrated code
+
+   Version : constant String :="3.10-14-g0fb8a59";
+
+   type Id is (
+               GCC_exception_2_0,
+               openvpn_openssl_exception,
+               GPL_3_0_linking_exception,
+               Fawkes_Runtime_exception,
+               u_boot_exception_2_0,
+               PS_or_PDF_font_exception_20170817,
+               gnu_javamail_exception,
+               LGPL_3_0_linking_exception,
+               DigiRule_FOSS_exception,
+               LLVM_exception,
+               Linux_syscall_note,
+               GPL_3_0_linking_source_exception,
+               Qwt_exception_1_0,
+               Id_389_exception,
+               mif_exception,
+               eCos_exception_2_0,
+               CLISP_exception_2_0,
+               Bison_exception_2_2,
+               Libtool_exception,
+               LZMA_exception,
+               OpenJDK_assembly_exception_1_0,
+               Font_exception_2_0,
+               OCaml_LGPL_linking_exception,
+               GCC_exception_3_1,
+               Bootloader_exception,
+               SHL_2_0,
+               Classpath_exception_2_0,
+               Swift_exception,
+               Autoconf_exception_2_0,
+               FLTK_exception,
+               freertos_exception_2_0,
+               Universal_FOSS_exception_1_0,
+               WxWindows_exception_3_1,
+               OCCT_exception_1_0,
+               Autoconf_exception_3_0,
+               i2p_gpl_java_exception,
+               GPL_CC_1_0,
+               Qt_LGPL_exception_1_1,
+               SHL_2_1,
+               Qt_GPL_exception_1_0);
+
+   type String_Access is not null access constant String;
+   Img_Ptr : constant array (Id) of String_Access :=
+     (
+      GCC_exception_2_0 => new String'("GCC-exception-2.0"),
+      openvpn_openssl_exception => new String'("openvpn-openssl-exception"),
+      GPL_3_0_linking_exception => new String'("GPL-3.0-linking-exception"),
+      Fawkes_Runtime_exception => new String'("Fawkes-Runtime-exception"),
+      u_boot_exception_2_0 => new String'("u-boot-exception-2.0"),
+      PS_or_PDF_font_exception_20170817 => new String'("PS-or-PDF-font-exception-20170817"),
+      gnu_javamail_exception => new String'("gnu-javamail-exception"),
+      LGPL_3_0_linking_exception => new String'("LGPL-3.0-linking-exception"),
+      DigiRule_FOSS_exception => new String'("DigiRule-FOSS-exception"),
+      LLVM_exception => new String'("LLVM-exception"),
+      Linux_syscall_note => new String'("Linux-syscall-note"),
+      GPL_3_0_linking_source_exception => new String'("GPL-3.0-linking-source-exception"),
+      Qwt_exception_1_0 => new String'("Qwt-exception-1.0"),
+      Id_389_exception => new String'("389-exception"),
+      mif_exception => new String'("mif-exception"),
+      eCos_exception_2_0 => new String'("eCos-exception-2.0"),
+      CLISP_exception_2_0 => new String'("CLISP-exception-2.0"),
+      Bison_exception_2_2 => new String'("Bison-exception-2.2"),
+      Libtool_exception => new String'("Libtool-exception"),
+      LZMA_exception => new String'("LZMA-exception"),
+      OpenJDK_assembly_exception_1_0 => new String'("OpenJDK-assembly-exception-1.0"),
+      Font_exception_2_0 => new String'("Font-exception-2.0"),
+      OCaml_LGPL_linking_exception => new String'("OCaml-LGPL-linking-exception"),
+      GCC_exception_3_1 => new String'("GCC-exception-3.1"),
+      Bootloader_exception => new String'("Bootloader-exception"),
+      SHL_2_0 => new String'("SHL-2.0"),
+      Classpath_exception_2_0 => new String'("Classpath-exception-2.0"),
+      Swift_exception => new String'("Swift-exception"),
+      Autoconf_exception_2_0 => new String'("Autoconf-exception-2.0"),
+      FLTK_exception => new String'("FLTK-exception"),
+      freertos_exception_2_0 => new String'("freertos-exception-2.0"),
+      Universal_FOSS_exception_1_0 => new String'("Universal-FOSS-exception-1.0"),
+      WxWindows_exception_3_1 => new String'("WxWindows-exception-3.1"),
+      OCCT_exception_1_0 => new String'("OCCT-exception-1.0"),
+      Autoconf_exception_3_0 => new String'("Autoconf-exception-3.0"),
+      i2p_gpl_java_exception => new String'("i2p-gpl-java-exception"),
+      GPL_CC_1_0 => new String'("GPL-CC-1.0"),
+      Qt_LGPL_exception_1_1 => new String'("Qt-LGPL-exception-1.1"),
+      SHL_2_1 => new String'("SHL-2.1"),
+      Qt_GPL_exception_1_0 => new String'("Qt-GPL-exception-1.0"));
+
+   function Img (I : Id) return String
+   is (Img_Ptr (I).all);
+
+   Name_Ptr : constant array (Id) of String_Access :=
+     (
+      GCC_exception_2_0 => new String'("GCC Runtime Library exception 2.0"),
+      openvpn_openssl_exception => new String'("OpenVPN OpenSSL Exception"),
+      GPL_3_0_linking_exception => new String'("GPL-3.0 Linking Exception"),
+      Fawkes_Runtime_exception => new String'("Fawkes Runtime Exception"),
+      u_boot_exception_2_0 => new String'("U-Boot exception 2.0"),
+      PS_or_PDF_font_exception_20170817 => new String'("PS/PDF font exception (2017-08-17)"),
+      gnu_javamail_exception => new String'("GNU JavaMail exception"),
+      LGPL_3_0_linking_exception => new String'("LGPL-3.0 Linking Exception"),
+      DigiRule_FOSS_exception => new String'("DigiRule FOSS License Exception"),
+      LLVM_exception => new String'("LLVM Exception"),
+      Linux_syscall_note => new String'("Linux Syscall Note"),
+      GPL_3_0_linking_source_exception => new String'("GPL-3.0 Linking Exception (with Corresponding Source)"),
+      Qwt_exception_1_0 => new String'("Qwt exception 1.0"),
+      Id_389_exception => new String'("389 Directory Server Exception"),
+      mif_exception => new String'("Macros and Inline Functions Exception"),
+      eCos_exception_2_0 => new String'("eCos exception 2.0"),
+      CLISP_exception_2_0 => new String'("CLISP exception 2.0"),
+      Bison_exception_2_2 => new String'("Bison exception 2.2"),
+      Libtool_exception => new String'("Libtool Exception"),
+      LZMA_exception => new String'("LZMA exception"),
+      OpenJDK_assembly_exception_1_0 => new String'("OpenJDK Assembly exception 1.0"),
+      Font_exception_2_0 => new String'("Font exception 2.0"),
+      OCaml_LGPL_linking_exception => new String'("OCaml LGPL Linking Exception"),
+      GCC_exception_3_1 => new String'("GCC Runtime Library exception 3.1"),
+      Bootloader_exception => new String'("Bootloader Distribution Exception"),
+      SHL_2_0 => new String'("Solderpad Hardware License v2.0"),
+      Classpath_exception_2_0 => new String'("Classpath exception 2.0"),
+      Swift_exception => new String'("Swift Exception"),
+      Autoconf_exception_2_0 => new String'("Autoconf exception 2.0"),
+      FLTK_exception => new String'("FLTK exception"),
+      freertos_exception_2_0 => new String'("FreeRTOS Exception 2.0"),
+      Universal_FOSS_exception_1_0 => new String'("Universal FOSS Exception, Version 1.0"),
+      WxWindows_exception_3_1 => new String'("WxWindows Library Exception 3.1"),
+      OCCT_exception_1_0 => new String'("Open CASCADE Exception 1.0"),
+      Autoconf_exception_3_0 => new String'("Autoconf exception 3.0"),
+      i2p_gpl_java_exception => new String'("i2p GPL+Java Exception"),
+      GPL_CC_1_0 => new String'("GPL Cooperation Commitment 1.0"),
+      Qt_LGPL_exception_1_1 => new String'("Qt LGPL exception 1.1"),
+      SHL_2_1 => new String'("Solderpad Hardware License v2.1"),
+      Qt_GPL_exception_1_0 => new String'("Qt GPL exception 1.0"));
+
+   function Name (I : Id) return String
+   is (Name_Ptr (I).all);
+
+   function Valid_Id (Str : String) return Boolean;
+   function From_Id (Str : String) return Id;
+
+end SPDX.Exceptions;

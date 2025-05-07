@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAXEvents>
+  <startDocument/>
+  <resolveEntity>
+    <name>[dtd]</name>
+    <baseURI>xmltest/valid/not-sa</baseURI>
+    <systemID>025.ent</systemID>
+  </resolveEntity>
+  <warning/>
+  <startElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+    <attributes>
+      <attribute>
+        <namespaceURI/>
+        <localName>a1</localName>
+        <qualifiedName>a1</qualifiedName>
+        <value>x</value>
+        <type>CDATA</type>
+        <isDeclared>true</isDeclared>
+        <isSpecified>false</isSpecified>
+      </attribute>
+    </attributes>
+  </startElement>
+  <endElement>
+    <namespaceURI/>
+    <localName>doc</localName>
+    <qualifiedName>doc</qualifiedName>
+  </endElement>
+  <endDocument/>
+</SAXEvents>

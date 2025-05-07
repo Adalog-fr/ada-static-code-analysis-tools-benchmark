@@ -1,0 +1,75 @@
+{
+  "Name": "Ada",
+  "Bytes": 7925,
+  "CodeBytes": 0,
+  "Lines": 243,
+  "Code": 221,
+  "Comment": 6,
+  "Blank": 16,
+  "Complexity": 7,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tiny_text.adb",
+      "Extension": "adb",
+      "Location": "src/tiny_text.adb",
+      "Symlocation": "",
+      "Bytes": 2511,
+      "Lines": 92,
+      "Code": 80,
+      "Comment": 3,
+      "Blank": 9,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tiny_text.ads",
+      "Extension": "ads",
+      "Location": "src/tiny_text.ads",
+      "Symlocation": "",
+      "Bytes": 5414,
+      "Lines": 151,
+      "Code": 141,
+      "Comment": 3,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.characters.latin_1",
+        "hal",
+        "hal.bitmap"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.characters.latin_1": 1,
+    "hal": 1,
+    "hal.bitmap": 1,
+    "interfaces": 1
+  }
+}

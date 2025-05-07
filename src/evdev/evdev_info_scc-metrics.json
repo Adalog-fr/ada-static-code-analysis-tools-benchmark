@@ -1,0 +1,40 @@
+{
+  "Name": "Ada",
+  "Bytes": 15787,
+  "CodeBytes": 0,
+  "Lines": 393,
+  "Code": 348,
+  "Comment": 16,
+  "Blank": 29,
+  "Complexity": 55,
+  "Count": 1,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tools/info.adb",
+      "Extension": "adb",
+      "Location": "src/tools/info.adb",
+      "Symlocation": "",
+      "Bytes": 15787,
+      "Lines": 393,
+      "Code": 348,
+      "Comment": 16,
+      "Blank": 29,
+      "Complexity": 55,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

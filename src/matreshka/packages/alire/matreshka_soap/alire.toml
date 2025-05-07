@@ -1,0 +1,28 @@
+description = "Framework for work with SOAP 1.2"
+name = "matreshka_soap"
+version = "22.0.0"
+website = "https://forge.ada-ru.org/matreshka"
+authors = ["Vadim Godunko"]
+licenses = "BSD-3-Clause"
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>","Maxim Reznik <reznikmm@gmail.com>"]
+maintainers-logins = ["godunko","reznikmm"]
+project-files = ["../../../gnat/matreshka_soap.gpr"]
+tags = ["soap","rpc","protocol","web"]
+
+[configuration]
+disabled = true
+
+[[depends-on]]
+matreshka_league = "*"
+matreshka_xml = "*"
+
+[[pins]]
+
+[pins.matreshka_league]
+path = "../matreshka_league"
+
+[pins.matreshka_xml]
+path = "../matreshka_xml"
+
+[build-switches."*"]
+Compile_Checks = "none"

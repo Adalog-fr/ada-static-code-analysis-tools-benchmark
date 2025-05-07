@@ -1,0 +1,5 @@
+src/game.adb
+src/game.ads
+src/play_2048.adb
+src/storage.adb
+src/storage.ads

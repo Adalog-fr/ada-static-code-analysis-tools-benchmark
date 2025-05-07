@@ -1,0 +1,8 @@
+src/simple_logging-decorators.adb
+src/simple_logging-decorators.ads
+src/simple_logging-filtering.adb
+src/simple_logging-filtering.ads
+src/simple_logging-support.adb
+src/simple_logging-support.ads
+src/simple_logging.adb
+src/simple_logging.ads

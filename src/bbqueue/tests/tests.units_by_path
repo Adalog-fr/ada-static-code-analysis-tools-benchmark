@@ -1,0 +1,3 @@
+src/main_buffer.adb
+src/main_framed.adb
+src/main_offsets.adb

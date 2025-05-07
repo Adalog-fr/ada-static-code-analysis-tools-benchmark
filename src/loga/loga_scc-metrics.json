@@ -1,0 +1,77 @@
+{
+  "Name": "Ada",
+  "Bytes": 3512,
+  "CodeBytes": 0,
+  "Lines": 113,
+  "Code": 89,
+  "Comment": 7,
+  "Blank": 17,
+  "Complexity": 5,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/loga.ads",
+      "Extension": "ads",
+      "Location": "src/loga.ads",
+      "Symlocation": "",
+      "Bytes": 1174,
+      "Lines": 30,
+      "Code": 25,
+      "Comment": 0,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/loga.adb",
+      "Extension": "adb",
+      "Location": "src/loga.adb",
+      "Symlocation": "",
+      "Bytes": 2338,
+      "Lines": 83,
+      "Code": 64,
+      "Comment": 7,
+      "Blank": 12,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.environment_variables",
+        "ada.integer_text_io",
+        "ada.text_io",
+        "gnat.string_split"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.environment_variables": 1,
+    "ada.integer_text_io": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "gnat.string_split": 1
+  }
+}

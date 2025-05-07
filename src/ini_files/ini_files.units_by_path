@@ -1,0 +1,6 @@
+config.adb
+config.ads
+tests/rosetta_read_cfg.adb
+tests/rosetta_updt_cfg_reset.adb
+tests/rosetta_updt_cfg.adb
+tests/test_config.adb

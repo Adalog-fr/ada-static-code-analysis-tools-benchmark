@@ -1,0 +1,26 @@
+name = "unit_tests"
+description = "Shiny new project"
+version = "0.1.0-dev"
+authors = ["Daniel King"]
+maintainers = ["Daniel King <damaki.gh@gmail.com>"]
+maintainers-logins = ["damaki"]
+executables = ["unit_tests"]
+
+[[depends-on]]
+aunit = "*"
+gnatcov = "*"
+cobs = "*"
+
+[[pins]]
+
+[pins.cobs]
+path = "../"
+
+[pins.aunit]
+path = "../../aunit"
+
+[pins.gnatcov]
+path = "../../gnatcov"
+
+[build-switches."*"]
+Compile_Checks = "none"

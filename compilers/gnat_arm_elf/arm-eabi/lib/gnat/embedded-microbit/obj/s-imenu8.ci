@@ -1,0 +1,5 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-imenu8.ads"
+node: { title: "system__img_enum_8__impl__image_enumeration" label: "Image_Enumeration\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-imagen.adb:40:4\n24 bytes (static)\n0 dynamic objects" }
+node: { title: "memmove" label: "builtin_memmove\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__img_enum_8__impl__image_enumeration" targetname: "memmove" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-microbit/gnat/s-imagen.adb:75:29" }
+}

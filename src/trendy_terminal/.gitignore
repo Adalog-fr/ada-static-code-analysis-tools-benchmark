@@ -1,0 +1,9 @@
+obj/
+lib/
+build/
+alire/
+config/
+bin/
+lib/
+
+.vscode/

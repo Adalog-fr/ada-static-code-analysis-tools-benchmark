@@ -1,0 +1,36 @@
+# alias gpr2dirlist="/workspaces/bench-source/gpr_to_source_dirs/bin/gpr_to_source_dirs"
+# alias gpr2withlist="/workspaces/bench-source/gpr_to_source_dirs/bin/gpr_with_extract"
+alias cogralys-bench-util="deno run --config /workspaces/bench-source/deno.jsonc --allow-all --unsafely-ignore-certificate-errors --unstable-ffi --v8-flags=--max-old-space-size=16384 /workspaces/bench-source/utils/cogralys-bench-util.ts"
+alias checkRunningJobPopulateDb="deno run --config /workspaces/bench-source/deno.jsonc --allow-all --v8-flags=--max-old-space-size=16384 /workspaces/bench-source/utils/checkRunningJobPopulateDb.ts"
+alias rmi="rm *.ali *.adt"
+alias clocAda="scc --include-ext=ads,adb,ada $@"
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ls="ls --color $@"
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -CF'
+alias l="ls --color -ali $@"
+
+# System
+alias update='sudo apt update && sudo apt upgrade -y'
+alias install='sudo apt install'
+alias remove='sudo apt remove'
+
+# Git
+alias gs='git status'
+alias gl='git log'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gd='git diff'
+
+# Ada development
+alias gpr='gprbuild'
+alias gcov='gnatcoverage'
+alias gtest='gnattest'
+alias alb="alr -n build"
+alias alu="alr -n update"
+

@@ -1,0 +1,75 @@
+{
+  "Name": "Ada",
+  "Bytes": 7568,
+  "CodeBytes": 0,
+  "Lines": 253,
+  "Code": 160,
+  "Comment": 36,
+  "Blank": 57,
+  "Complexity": 3,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ajunitgen.adb",
+      "Extension": "adb",
+      "Location": "src/ajunitgen.adb",
+      "Symlocation": "",
+      "Bytes": 5074,
+      "Lines": 176,
+      "Code": 120,
+      "Comment": 24,
+      "Blank": 32,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "mckae.xml.ez_out.text_file"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/ajunitgen.ads",
+      "Extension": "ads",
+      "Location": "src/ajunitgen.ads",
+      "Symlocation": "",
+      "Bytes": 2494,
+      "Lines": 77,
+      "Code": 40,
+      "Comment": 12,
+      "Blank": 25,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_doubly_linked_lists",
+        "ada.text_io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.indefinite_doubly_linked_lists": 1,
+    "ada.strings.unbounded": 1,
+    "ada.text_io": 1,
+    "mckae.xml.ez_out.text_file": 1
+  }
+}

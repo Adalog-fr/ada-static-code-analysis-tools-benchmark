@@ -1,0 +1,22 @@
+This directory contains the main test programs for the the library
+to accelerate path tracking.
+
+To define the location of the input files to run the tests,
+the constant string DATA needs to be changed in init_test.cpp
+and path_test.cpp.
+
+-------------------------------------------------------------------------------
+file name              : short description
+-------------------------------------------------------------------------------
+ada_test               : interaction with the containers of PHClib
+ada_test_dd            : double double version of ada_test
+ada_test_qd            : quad double version of ada_test
+-------------------------------------------------------------------------------
+init_test              : initializes homotopy with systems and solutions
+path_test              : calls the path trackers in the main_test
+path_multi_test        : path trackers for many solution paths
+newton_test            : calls Newton's method on CPU and GPU
+eval_test              : calls evaluation and differentiation methods
+mgs_test               : calls modified Gram-Schmidt method
+path_data              : data structures for the path trackers
+-------------------------------------------------------------------------------

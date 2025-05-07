@@ -1,0 +1,15 @@
+shared.adb
+shared.ads
+test_examples.adb
+test_examples.ads
+test_exercises_intro.adb
+test_exercises_intro.ads
+test_exercises_match.adb
+test_exercises_match.ads
+test_exercises_navigate.adb
+test_exercises_navigate.ads
+test_exercises_rewrite.adb
+test_exercises_rewrite.ads
+tests_workshop.adb
+workshop_suite.adb
+workshop_suite.ads

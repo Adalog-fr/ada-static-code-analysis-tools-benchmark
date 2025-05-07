@@ -1,0 +1,428 @@
+{
+  "Name": "Ada",
+  "Bytes": 92442,
+  "CodeBytes": 0,
+  "Lines": 2244,
+  "Code": 1992,
+  "Comment": 45,
+  "Blank": 207,
+  "Complexity": 125,
+  "Count": 15,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.ads",
+      "Symlocation": "",
+      "Bytes": 2367,
+      "Lines": 51,
+      "Code": 39,
+      "Comment": 2,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.store"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-identity.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-identity.ads",
+      "Symlocation": "",
+      "Bytes": 695,
+      "Lines": 19,
+      "Code": 12,
+      "Comment": 2,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.ads",
+      "Symlocation": "",
+      "Bytes": 2054,
+      "Lines": 47,
+      "Code": 36,
+      "Comment": 2,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "text.builder",
+        "yaml.events.store"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-identity.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-identity.adb",
+      "Symlocation": "",
+      "Bytes": 939,
+      "Lines": 29,
+      "Code": 23,
+      "Comment": 2,
+      "Blank": 4,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-for_loop.adb",
+      "Symlocation": "",
+      "Bytes": 11581,
+      "Lines": 279,
+      "Code": 261,
+      "Comment": 2,
+      "Blank": 16,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation_processor.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation_processor.adb",
+      "Symlocation": "",
+      "Bytes": 19050,
+      "Lines": 454,
+      "Code": 428,
+      "Comment": 4,
+      "Blank": 22,
+      "Complexity": 40,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation",
+        "yaml.transformator.annotation.concatenation",
+        "yaml.transformator.annotation.for_loop",
+        "yaml.transformator.annotation.identity",
+        "yaml.transformator.annotation.inject",
+        "yaml.transformator.annotation.vars"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-inject.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-inject.adb",
+      "Symlocation": "",
+      "Bytes": 6743,
+      "Lines": 170,
+      "Code": 158,
+      "Comment": 2,
+      "Blank": 10,
+      "Complexity": 10,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-vars.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-vars.ads",
+      "Symlocation": "",
+      "Bytes": 1652,
+      "Lines": 39,
+      "Code": 29,
+      "Comment": 2,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.queue",
+        "yaml.events.store"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-inject.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-inject.ads",
+      "Symlocation": "",
+      "Bytes": 1688,
+      "Lines": 40,
+      "Code": 30,
+      "Comment": 2,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.store"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-events-context.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-events-context.ads",
+      "Symlocation": "",
+      "Bytes": 5555,
+      "Lines": 139,
+      "Code": 103,
+      "Comment": 2,
+      "Blank": 34,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.hashed_maps",
+        "yaml.events.store"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-concatenation.adb",
+      "Symlocation": "",
+      "Bytes": 10875,
+      "Lines": 267,
+      "Code": 251,
+      "Comment": 2,
+      "Blank": 14,
+      "Complexity": 14,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation.ads",
+      "Symlocation": "",
+      "Bytes": 1659,
+      "Lines": 36,
+      "Code": 16,
+      "Comment": 15,
+      "Blank": 5,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_hashed_maps",
+        "ada.strings.hash",
+        "text.pool",
+        "yaml.events.context"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/interface/yaml-transformator-annotation_processor.ads",
+      "Extension": "ads",
+      "Location": "src/annotation_processor/interface/yaml-transformator-annotation_processor.ads",
+      "Symlocation": "",
+      "Bytes": 2204,
+      "Lines": 59,
+      "Code": 44,
+      "Comment": 2,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "text.pool",
+        "yaml.events.context",
+        "yaml.events.store",
+        "yaml.transformator.annotation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-transformator-annotation-vars.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-transformator-annotation-vars.adb",
+      "Symlocation": "",
+      "Bytes": 7724,
+      "Lines": 199,
+      "Code": 186,
+      "Comment": 2,
+      "Blank": 11,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "yaml.events.context"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/annotation_processor/implementation/yaml-events-context.adb",
+      "Extension": "adb",
+      "Location": "src/annotation_processor/implementation/yaml-events-context.adb",
+      "Symlocation": "",
+      "Bytes": 17656,
+      "Lines": 416,
+      "Code": 376,
+      "Comment": 2,
+      "Blank": 38,
+      "Complexity": 35,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.hashed_maps": 1,
+    "ada.containers.indefinite_hashed_maps": 1,
+    "ada.strings.hash": 1,
+    "ada.unchecked_deallocation": 3,
+    "text.builder": 1,
+    "text.pool": 2,
+    "yaml.events.context": 3,
+    "yaml.events.queue": 1,
+    "yaml.events.store": 6,
+    "yaml.transformator.annotation": 1,
+    "yaml.transformator.annotation.concatenation": 1,
+    "yaml.transformator.annotation.for_loop": 1,
+    "yaml.transformator.annotation.identity": 1,
+    "yaml.transformator.annotation.inject": 1,
+    "yaml.transformator.annotation.vars": 1
+  }
+}

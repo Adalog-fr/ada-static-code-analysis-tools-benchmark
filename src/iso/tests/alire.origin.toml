@@ -1,0 +1,15 @@
+name = "iso_tests"
+description = "Unit tests for ada_iso"
+version = "0.1.0"
+
+authors = ["AJ Ianozi"]
+maintainers = ["AJ Ianozi <aj@ianozi.com>"]
+maintainers-logins = ["aj-ianozi"]
+
+executables = ["iso_tests"]
+
+[[depends-on]]
+iso = "*"
+
+[[pins]]
+iso = { path = "../" }

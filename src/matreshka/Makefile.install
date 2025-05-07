@@ -1,0 +1,1021 @@
+include Makefile.config
+
+CLDRDATA = data/cldr/27.0.1
+
+DESTDIR ?=
+DATAROOTDIR ?= $(PREFIX)/share
+INSTALL_PROJECT_DIR    ?= $(DESTDIR)$(GPRDIR)
+INSTALL_INCLUDE_DIR    ?= $(DESTDIR)$(PREFIX)/include/matreshka
+INSTALL_SHARE_DIR      ?= $(DESTDIR)$(DATAROOTDIR)/matreshka
+INSTALL_GDB_PLUGIN_DIR ?= $(DESTDIR)$(DATAROOTDIR)/gdb/python/matreshka
+INSTALL_EXEC_DIR       ?= $(DESTDIR)$(BINDIR)
+INSTALL_LIBRARY_DIR    ?= $(DESTDIR)$(LIBDIR)
+INSTALL_ALI_DIR        ?= ${INSTALL_LIBRARY_DIR}/matreshka
+INSTALL_GPRCONFIG_DIR   = $(DESTDIR)$(DATAROOTDIR)/gprconfig
+INSTALL_ali = $(INSTALL) -m 444
+INSTALL_project = $(INSTALL) -m 644
+INSTALL_source = $(INSTALL) -m 644
+INSTALL_data = $(INSTALL) -m 644
+CHMOD = chmod
+LN_S = ln -sf
+MKDIR = mkdir -p 
+
+ifeq ($(OPERATING_SYSTEM), POSIX)
+LIBEXT = so
+EXEEXT =
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+LIBEXT = dylib
+EXEEXT =
+else ifeq ($(OPERATING_SYSTEM), Windows)
+LIBEXT = dll
+EXEEXT = .exe
+endif
+
+INSTALL_TARGETS = league cldr_data xml fastcgi servlet spikedog-api \
+                  spikedog-core soap wsse wsdl2ada sql uaflex
+
+ifdef HAS_ASIS
+INSTALL_TARGETS += a2js a2js-webapi
+endif
+
+ifdef HAS_AWS
+INSTALL_TARGETS += spikedog-aws
+
+ifeq ($(OPERATING_SYSTEM), Windows)
+INSTALL_TARGETS += spikedog-service
+endif
+endif
+
+ifdef ENABLE_AMF
+INSTALL_TARGETS += amf dd uml mofext ocl utp
+endif
+
+ifdef HAS_FIREBIRD
+INSTALL_TARGETS += firebird
+endif
+
+ifdef HAS_MYSQL
+INSTALL_TARGETS += mysql
+endif
+
+ifdef HAS_OCI
+INSTALL_TARGETS += oci
+endif
+
+ifdef HAS_POSTGRESQL
+INSTALL_TARGETS += postgresql
+endif
+
+ifdef HAS_SQLITE3
+INSTALL_TARGETS += sqlite3
+endif
+
+INSTALL_TARGETS += cleanup
+
+GPRINSTALL_FLAGS = --prefix=$(PREFIX) --sources-subdir=$(INSTALL_INCLUDE_DIR) --lib-subdir=${INSTALL_ALI_DIR} --project-subdir=${INSTALL_PROJECT_DIR} --link-lib-subdir=$(INSTALL_LIBRARY_DIR)
+
+install: $(INSTALL_TARGETS)
+
+league:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_league.gpr --install-name=league
+	$(INSTALL) -d $(INSTALL_GDB_PLUGIN_DIR)
+	$(INSTALL_data) gdb/python/matreshka.py $(INSTALL_GDB_PLUGIN_DIR)/matreshka.py
+else
+ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) -d $(INSTALL_EXEC_DIR)
+endif
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/league
+	$(INSTALL) -d ${INSTALL_PROJECT_DIR}
+	$(INSTALL) -d ${INSTALL_ALI_DIR}
+	$(INSTALL) -d $(INSTALL_GDB_PLUGIN_DIR)
+	gnat ls -d -s -P gnat/matreshka_league.gpr | sort | uniq | grep -v '^$$' > league-src.lst
+	gnat ls -o -P gnat/matreshka_league.gpr | sort | uniq | sed -e 's/.o$$/.ali/' | grep -v '^$$' > league-ali.lst
+	cat league-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/league
+	cat league-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) gdb/python/matreshka.py $(INSTALL_GDB_PLUGIN_DIR)/matreshka.py
+	$(INSTALL_project) gnat/install/matreshka_config.gpr  $(INSTALL_PROJECT_DIR)/matreshka_config.gpr
+	$(INSTALL_project) gnat/install/league.gpr  $(INSTALL_PROJECT_DIR)/matreshka_league.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libleague$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libleague$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libleague$(RTL_VERSION).$(LIBEXT).$(VERSION) libleague$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libleague$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/league-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libleague$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libleague$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libleague$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/league-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libleague$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libleague$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libleague$(RTL_VERSION).$(LIBEXT)" > .objs/league-lib.files
+endif
+	cat league-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/league/{}" > .objs/league-devel.files
+	cat league-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/league-devel.files
+	echo "%attr(-,root,root) %{_datadir}/gdb/python/matreshka/matreshka.py" >> .objs/league-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_config.gpr" >> .objs/league-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_league.gpr" >> .objs/league-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libleague$(RTL_VERSION).$(LIBEXT)" >> .objs/league-devel.files
+endif
+
+fastcgi:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_fastcgi.gpr --install-name=fastcgi
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/fastcgi
+	gnat ls -d -s -P gnat/matreshka_fastcgi.gpr | sort | uniq | grep -v '^$$' > fastcgi-src.aux
+	diff -u league-src.lst fastcgi-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > fastcgi-src.lst
+	gnat ls -o -P gnat/matreshka_fastcgi.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > fastcgi-ali.lst
+	cat fastcgi-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/fastcgi
+	cat fastcgi-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/fastcgi.gpr $(INSTALL_PROJECT_DIR)/matreshka_fastcgi.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/fastcgi-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-fastcgi$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-fastcgi$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-fastcgi$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/fastcgi-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT)" > .objs/fastcgi-lib.files
+endif
+	cat fastcgi-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/fastcgi/{}" > .objs/fastcgi-devel.files
+	cat fastcgi-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/fastcgi-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_fastcgi.gpr" >> .objs/fastcgi-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-fastcgi$(RTL_VERSION).$(LIBEXT)" >> .objs/fastcgi-devel.files
+endif
+
+servlet:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_servlet.gpr --install-name=servlet
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/servlet
+	gnat ls -d -s -P gnat/matreshka_servlet.gpr | sort | uniq | grep -v '^$$' > servlet-src.aux
+	diff -u league-src.lst servlet-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > servlet-src.lst
+	gnat ls -o -P gnat/matreshka_servlet.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > servlet-ali.lst
+	cat servlet-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/servlet
+	cat servlet-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/servlet.gpr $(INSTALL_PROJECT_DIR)/matreshka_servlet.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-servlet$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-servlet$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/servlet-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-servlet$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-servlet$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-servlet$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/servlet-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT)" > .objs/servlet-lib.files
+endif
+	cat servlet-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/servlet/{}" > .objs/servlet-devel.files
+	cat servlet-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/servlet-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_servlet.gpr" >> .objs/servlet-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-servlet$(RTL_VERSION).$(LIBEXT)" >> .objs/servlet-devel.files
+endif
+
+spikedog-api: servlet
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_spikedog_api.gpr --install-name=spikedog_api
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/spikedog
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/spikedog/api
+	gnat ls -d -s -P gnat/matreshka_spikedog_api.gpr | sort | uniq | grep -v '^$$' > spikedog-api-src.aux
+#	diff -u league-src.lst spikedog-api-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > spikedog-api-src.lst
+	cat league-src.lst servlet-src.aux | diff -u - spikedog-api-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > spikedog-api-src.lst
+	gnat ls -o -P gnat/matreshka_spikedog_api.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > spikedog-api-ali.lst
+	cat spikedog-api-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/spikedog/api
+	cat spikedog-api-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/spikedog_api.gpr $(INSTALL_PROJECT_DIR)/matreshka_spikedog_api.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libspikedog-api$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libspikedog-api$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libspikedog-api$(RTL_VERSION).$(LIBEXT).$(VERSION) libspikedog-api$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-api$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/spikedog-api-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libspikedog-api$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libspikedog-api$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-api$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/spikedog-api-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libspikedog-api$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libspikedog-api$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libspikedog-api$(RTL_VERSION).$(LIBEXT)" > .objs/spikedog-api-lib.files
+endif
+	cat spikedog-api-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/spikedog/api/{}" > .objs/spikedog-api-devel.files
+	cat spikedog-api-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/spikedog-api-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_spikedog_api.gpr" >> .objs/spikedog-api-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-api$(RTL_VERSION).$(LIBEXT)" >> .objs/spikedog-api-devel.files
+endif
+
+spikedog-core: spikedog-api
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_spikedog_core.gpr --install-name=spikedog_core
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/spikedog/core
+	gnat ls -d -s -P gnat/matreshka_spikedog_core.gpr | sort | uniq | grep -v '^$$' > spikedog-core-src.aux
+	cat league-src.lst servlet-src.aux spikedog-api-src.aux | sort | uniq | diff -u - spikedog-core-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > spikedog-core-src.lst
+	gnat ls -o -P gnat/matreshka_spikedog_core.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > spikedog-core-ali.lst
+	cat spikedog-core-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/spikedog/core
+	cat spikedog-core-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/spikedog_core.gpr $(INSTALL_PROJECT_DIR)/matreshka_spikedog_core.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libspikedog-core$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libspikedog-core$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libspikedog-core$(RTL_VERSION).$(LIBEXT).$(VERSION) libspikedog-core$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-core$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/spikedog-core-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libspikedog-core$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libspikedog-core$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-core$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/spikedog-core-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libspikedog-core$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libspikedog-core$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libspikedog-core$(RTL_VERSION).$(LIBEXT)" > .objs/spikedog-core-lib.files
+endif
+	cat spikedog-core-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/spikedog/core/{}" > .objs/spikedog-core-devel.files
+	cat spikedog-core-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/spikedog-core-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_spikedog_core.gpr" >> .objs/spikedog-core-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-core$(RTL_VERSION).$(LIBEXT)" >> .objs/spikedog-core-devel.files
+endif
+
+spikedog-aws: spikedog-core
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_spikedog_aws.gpr --install-name=spikedog_aws  -XAWS_BUILD=$(AWS_BUILD) -XXMLADA_BUILD=relocatable
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/spikedog/aws
+	gnat ls -d -s -P gnat/matreshka_spikedog_aws.gpr | sort | uniq | grep -v '^$$' > spikedog-aws-src.aux
+	cat league-src.lst servlet-src.aux spikedog-api-src.aux | sort | uniq | diff -u - spikedog-aws-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > spikedog-aws-src.lst
+	gnat ls -o -P gnat/matreshka_spikedog_aws.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > spikedog-aws-ali.lst
+	cat spikedog-aws-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/spikedog/aws
+	cat spikedog-aws-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/spikedog_aws.gpr $(INSTALL_PROJECT_DIR)/matreshka_spikedog_aws.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libspikedog-aws$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libspikedog-aws$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libspikedog-aws$(RTL_VERSION).$(LIBEXT).$(VERSION) libspikedog-aws$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-aws$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/spikedog-aws-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libspikedog-aws$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libspikedog-aws$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-aws$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/spikedog-aws-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libspikedog-aws$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libspikedog-aws$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libspikedog-aws$(RTL_VERSION).$(LIBEXT)" > .objs/spikedog-aws-lib.files
+endif
+	cat spikedog-aws-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/spikedog/aws/{}" > .objs/spikedog-aws-devel.files
+	cat spikedog-aws-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/spikedog-aws-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_spikedog_aws.gpr" >> .objs/spikedog-aws-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libspikedog-aws$(RTL_VERSION).$(LIBEXT)" >> .objs/spikedog-aws-devel.files
+endif
+	$(INSTALL) -d $(INSTALL_EXEC_DIR)
+	$(INSTALL) .objs/spikedog_awsd/spikedog_awsd$(EXEEXT) $(INSTALL_EXEC_DIR)/spikedog_awsd$(EXEEXT)
+
+spikedog-service:
+	$(INSTALL) .objs/spikedog_service/spikedog$(EXEEXT) $(INSTALL_EXEC_DIR)/spikedog$(EXEEXT)
+
+soap:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_soap.gpr --install-name=soap
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/soap
+	gnat ls -d -s -P gnat/matreshka_soap.gpr | sort | uniq | grep -v '^$$' > soap-src.aux
+	cat league-src.lst xml-src.aux | sort | uniq | diff -u - soap-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > soap-src.lst
+	gnat ls -o -P gnat/matreshka_soap.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > soap-ali.lst
+	cat soap-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/soap
+	cat soap-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/soap.gpr $(INSTALL_PROJECT_DIR)/matreshka_soap.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-soap$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-soap$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-soap$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-soap$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-soap$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/soap-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-soap$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-soap$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-soap$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/soap-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-soap$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-soap$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-soap$(RTL_VERSION).$(LIBEXT)" > .objs/soap-lib.files
+endif
+	cat soap-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/soap/{}" > .objs/soap-devel.files
+	cat soap-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/soap-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_soap.gpr" >> .objs/soap-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-soap$(RTL_VERSION).$(LIBEXT)" >> .objs/soap-devel.files
+endif
+
+wsse:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_soap_wsse.gpr --install-name=wsse
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/soap/wsse
+	gnat ls -d -s -P gnat/matreshka_soap_wsse.gpr | sort | uniq | grep -v '^$$' > soap_wsse-src.aux
+	cat league-src.lst xml-src.aux soap-src.aux | sort | uniq | diff -u - soap_wsse-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > soap_wsse-src.lst
+	gnat ls -o -P gnat/matreshka_soap_wsse.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > soap_wsse-ali.lst
+	cat soap_wsse-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/soap/wsse
+	cat soap_wsse-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/soap_wsse.gpr $(INSTALL_PROJECT_DIR)/matreshka_soap_wsse.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/soap_wsse-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-soap-wsse$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-soap-wsse$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-soap-wsse$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/soap_wsse-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT)" > .objs/soap_wsse-lib.files
+endif
+	cat soap_wsse-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/soap/wsse/{}" > .objs/soap_wsse-devel.files
+	cat soap_wsse-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/soap_wsse-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_soap_wsse.gpr" >> .objs/soap_wsse-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-soap-wsse$(RTL_VERSION).$(LIBEXT)" >> .objs/soap_wsse-devel.files
+endif
+
+wsdl2ada:
+	$(INSTALL) -d $(INSTALL_EXEC_DIR)
+	$(INSTALL) .objs/wsdl2ada/wsdl2ada$(EXEEXT) $(INSTALL_EXEC_DIR)/wsdl2ada$(EXEEXT)
+
+a2js:
+	$(INSTALL) -d $(INSTALL_EXEC_DIR)
+	$(INSTALL) -d $(INSTALL_GPRCONFIG_DIR)
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/a2js/rtl
+	$(INSTALL) .objs/a2js/a2js$(EXEEXT) $(INSTALL_EXEC_DIR)/a2js$(EXEEXT)
+	$(INSTALL_data) source/web/tools/a2js/gprconfig/a2js-compilers.xml $(INSTALL_GPRCONFIG_DIR)/a2js-compilers.xml
+	$(INSTALL_data) source/web/tools/a2js/gprconfig/a2js-configurations.xml $(INSTALL_GPRCONFIG_DIR)/a2js-configurations.xml
+	$(INSTALL_data) source/web/tools/a2js/gprconfig/a2js-targets.xml $(INSTALL_GPRCONFIG_DIR)/a2js-targets.xml
+	$(INSTALL_data) source/web/tools/a2js/rtl/ada.js $(INSTALL_SHARE_DIR)/a2js/rtl/ada.js
+	$(INSTALL_data) source/web/tools/a2js/rtl/interfaces.js $(INSTALL_SHARE_DIR)/a2js/rtl/interfaces.js
+	$(INSTALL_data) source/web/tools/a2js/rtl/standard.js $(INSTALL_SHARE_DIR)/a2js/rtl/standard.js
+	$(INSTALL_data) source/web/tools/a2js/rtl/system.js $(INSTALL_SHARE_DIR)/a2js/rtl/system.js
+	$(INSTALL_data) source/web/tools/a2js/rtl/system-storage_elements.js $(INSTALL_SHARE_DIR)/a2js/rtl/system-storage_elements.js
+
+a2js-webapi:
+ifdef HAS_GPRINSTALL
+	$(GPRBUILD) -p -P gnat/matreshka_webapi.gpr
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_webapi.gpr --install-name=webapi
+else
+	$(GPRBUILD) -p -P gnat/matreshka_webapi.gpr
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/webapi
+	gnat ls -d -s -P gnat/matreshka_webapi.gpr | sort | uniq | grep -v '^$$' > webapi-src.aux
+	diff -u league-src.lst webapi-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > webapi-src.lst
+	gnat ls -o -P gnat/matreshka_webapi.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > webapi-ali.lst
+	cat webapi-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/webapi
+	cat webapi-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/webapi.gpr $(INSTALL_PROJECT_DIR)/matreshka_webapi.gpr
+	cat webapi-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/webapi/{}" > .objs/webapi-devel.files
+	cat webapi-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/webapi-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_webapi.gpr" >> .objs/webapi-devel.files
+endif
+
+uaflex:
+	$(INSTALL) -d $(INSTALL_EXEC_DIR)
+	$(INSTALL) .objs/uaflex/uaflex$(EXEEXT) $(INSTALL_EXEC_DIR)/uaflex$(EXEEXT)
+
+sql:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_sql.gpr --install-name=sql
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/sql
+	gnat ls -d -s -P gnat/matreshka_sql.gpr | sort | uniq | grep -v '^$$' > sql-src.aux
+	diff -u league-src.lst sql-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > sql-src.lst
+	gnat ls -o -P gnat/matreshka_sql.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > sql-ali.lst
+	cat sql-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/sql
+	cat sql-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/sql.gpr $(INSTALL_PROJECT_DIR)/matreshka_sql.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-sql$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-sql$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-sql$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/sql-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-sql$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/sql-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-sql$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-sql$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-sql$(RTL_VERSION).$(LIBEXT)" > .objs/sql-lib.files
+endif
+	cat sql-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/sql/{}" > .objs/sql-devel.files
+	cat sql-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/sql-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_sql.gpr" >> .objs/sql-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql$(RTL_VERSION).$(LIBEXT)" >> .objs/sql-devel.files
+endif
+
+mysql:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_sql_mysql.gpr --install-name=sql_mysql
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/sql/mysql
+	gnat ls -d -s -P gnat/matreshka_sql_mysql.gpr | sort | uniq | grep -v '^$$' > sql_mysql-src.aux
+	cat league-src.lst sql-src.aux | diff -u - sql_mysql-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > sql_mysql-src.lst
+	gnat ls -o -P gnat/matreshka_sql_mysql.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > sql_mysql-ali.lst
+	cat sql_mysql-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/sql/mysql
+	cat sql_mysql-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/sql_mysql.gpr $(INSTALL_PROJECT_DIR)/matreshka_sql_mysql.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/sql_mysql-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-sql-mysql$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-mysql$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-mysql$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/sql_mysql-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT)" > .objs/sql_mysql-lib.files
+endif
+	cat sql_mysql-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/sql/mysql/{}" > .objs/sql_mysql-devel.files
+	cat sql_mysql-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/sql_mysql-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_sql_mysql.gpr" >> .objs/sql_mysql-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-mysql$(RTL_VERSION).$(LIBEXT)" >> .objs/sql_mysql-devel.files
+endif
+
+oci:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_sql_oracle.gpr --install-name=sql_oci
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/sql/oci
+	gnat ls -d -s -P gnat/matreshka_sql_oracle.gpr | sort | uniq | grep -v '^$$' > sql_oci-src.aux
+	cat league-src.lst sql-src.aux | diff -u - sql_oci-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > sql_oci-src.lst
+	gnat ls -o -P gnat/matreshka_sql_oracle.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > sql_oci-ali.lst
+	cat sql_oci-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/sql/oci
+	cat sql_oci-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/sql_oracle.gpr $(INSTALL_PROJECT_DIR)/matreshka_sql_oracle.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/sql_oci-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-sql-oci$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-oci$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-oci$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/sql_oci-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT)" > .objs/sql_oci-lib.files
+endif
+	cat sql_oci-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/sql/oci/{}" > .objs/sql_oci-devel.files
+	cat sql_oci-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/sql_oci-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_sql_oracle.gpr" >> .objs/sql_oci-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-oci$(RTL_VERSION).$(LIBEXT)" >> .objs/sql_oci-devel.files
+endif
+
+postgresql:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_sql_postgresql.gpr --install-name=sql_postgresql
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/sql/postgresql
+	gnat ls -d -s -P gnat/matreshka_sql_postgresql.gpr | sort | uniq | grep -v '^$$' > sql_postgresql-src.aux
+	cat league-src.lst sql-src.aux | diff -u - sql_postgresql-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > sql_postgresql-src.lst
+	gnat ls -o -P gnat/matreshka_sql_postgresql.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > sql_postgresql-ali.lst
+	cat sql_postgresql-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/sql/postgresql
+	cat sql_postgresql-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/sql_postgresql.gpr $(INSTALL_PROJECT_DIR)/matreshka_sql_postgresql.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/sql_postgresql-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-sql-postgresql$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-postgresql$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-postgresql$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/sql_postgresql-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT)" > .objs/sql_postgresql-lib.files
+endif
+	cat sql_postgresql-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/sql/postgresql/{}" > .objs/sql_postgresql-devel.files
+	cat sql_postgresql-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/sql_postgresql-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_sql_postgresql.gpr" >> .objs/sql_postgresql-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-postgresql$(RTL_VERSION).$(LIBEXT)" >> .objs/sql_postgresql-devel.files
+endif
+
+sqlite3:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_sql_sqlite3.gpr --install-name=sql_sqlite3
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/sql/sqlite3
+	gnat ls -d -s -P gnat/matreshka_sql_sqlite3.gpr | sort | uniq | grep -v '^$$' > sql_sqlite3-src.aux
+	cat league-src.lst sql-src.aux | diff -u - sql_sqlite3-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > sql_sqlite3-src.lst
+	gnat ls -o -P gnat/matreshka_sql_sqlite3.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > sql_sqlite3-ali.lst
+	cat sql_sqlite3-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/sql/sqlite3
+	cat sql_sqlite3-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/sql_sqlite3.gpr $(INSTALL_PROJECT_DIR)/matreshka_sql_sqlite3.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/sql_sqlite3-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-sql-sqlite3$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-sqlite3$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-sqlite3$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/sql_sqlite3-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT)" > .objs/sql_sqlite3-lib.files
+endif
+	cat sql_sqlite3-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/sql/sqlite3/{}" > .objs/sql_sqlite3-devel.files
+	cat sql_sqlite3-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/sql_sqlite3-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_sql_sqlite3.gpr" >> .objs/sql_sqlite3-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-sqlite3$(RTL_VERSION).$(LIBEXT)" >> .objs/sql_sqlite3-devel.files
+endif
+
+firebird:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_sql_firebird.gpr --install-name=sql_firebird
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/sql/firebird
+	gnat ls -d -s -P gnat/matreshka_sql_firebird.gpr | sort | uniq | grep -v '^$$' > sql_firebird-src.aux
+	cat league-src.lst sql-src.aux | diff -u - sql_firebird-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > sql_firebird-src.lst
+	gnat ls -o -P gnat/matreshka_sql_firebird.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > sql_firebird-ali.lst
+	cat sql_firebird-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/sql/firebird
+	cat sql_firebird-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/sql_firebird.gpr $(INSTALL_PROJECT_DIR)/matreshka_sql_firebird.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/sql_firebird-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-sql-firebird$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-sql-firebird$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-firebird$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/sql_firebird-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT)" > .objs/sql_firebird-lib.files
+endif
+	cat sql_firebird-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/sql/firebird/{}" > .objs/sql_firebird-devel.files
+	cat sql_firebird-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/sql_firebird-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_sql_firebird.gpr" >> .objs/sql_firebird-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-sql-firebird$(RTL_VERSION).$(LIBEXT)" >> .objs/sql_firebird-devel.files
+endif
+
+xml:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_xml.gpr --install-name=xml
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/xml
+	gnat ls -d -s -P gnat/matreshka_xml.gpr | sort | uniq | grep -v '^$$' > xml-src.aux
+	diff -u league-src.lst xml-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > xml-src.lst
+	gnat ls -o -P gnat/matreshka_xml.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > xml-ali.lst
+	cat xml-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/xml
+	cat xml-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_project) gnat/install/xml.gpr $(INSTALL_PROJECT_DIR)/matreshka_xml.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-xml$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-xml$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-xml$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-xml$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-xml$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/xml-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-xml$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-xml$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-xml$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/xml-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-xml$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-xml$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-xml$(RTL_VERSION).$(LIBEXT)" > .objs/xml-lib.files
+endif
+	cat xml-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/xml/{}" > .objs/xml-devel.files
+	cat xml-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/xml-devel.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_xml.gpr" >> .objs/xml-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-xml$(RTL_VERSION).$(LIBEXT)" >> .objs/xml-devel.files
+endif
+
+amf:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_amf.gpr --install-name=sql_amf
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/metamodels
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/models
+	$(INSTALL_data) source/amf/mof/metamodels/mapping.xml $(INSTALL_SHARE_DIR)/amf/metamodels/mapping.xml
+	$(INSTALL_data) source/amf/mof/metamodels/CMOF24.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/CMOF24.cmof
+	$(INSTALL_data) source/amf/mof/models/mapping.xml $(INSTALL_SHARE_DIR)/amf/models/mapping.xml
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/amf
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/metamodels
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/models
+	gnat ls -d -s -P gnat/matreshka_amf.gpr | sort | uniq | grep -v '^$$' > amf-src.aux
+	cat league-src.lst xml-src.aux | sort | uniq | diff -u - amf-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > amf-src.lst
+	gnat ls -o -P gnat/matreshka_amf.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > amf-ali.lst
+	cat amf-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/amf
+	cat amf-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) source/amf/mof/metamodels/mapping.xml $(INSTALL_SHARE_DIR)/amf/metamodels/mapping.xml
+	$(INSTALL_data) source/amf/mof/metamodels/CMOF24.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/CMOF24.cmof
+	$(INSTALL_data) source/amf/mof/models/mapping.xml $(INSTALL_SHARE_DIR)/amf/models/mapping.xml
+	$(INSTALL_project) gnat/install/amf.gpr $(INSTALL_PROJECT_DIR)/matreshka_amf.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-amf$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-amf$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-amf$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/amf-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-amf$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/amf-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-amf$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-amf$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-amf$(RTL_VERSION).$(LIBEXT)" > .objs/amf-lib.files
+endif
+	cat amf-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/amf/{}" > .objs/amf-devel.files
+	cat amf-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/amf-devel.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/mapping.xml" >> .objs/amf-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/CMOF24.cmof" >> .objs/amf-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/models/mapping.xml" >> .objs/amf-lib.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_amf.gpr" >> .objs/amf-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf$(RTL_VERSION).$(LIBEXT)" >> .objs/amf-devel.files
+endif
+
+dd:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_amf_dd.gpr --install-name=sql_amf_dd
+	$(INSTALL_data) source/amf/dd/metamodels/DC10.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/DC10.cmof
+	$(INSTALL_data) source/amf/dd/metamodels/DG10.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/DG10.cmof
+	$(INSTALL_data) source/amf/dd/metamodels/DI10.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/DI10.cmof
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/amf/dd
+	gnat ls -d -s -P gnat/matreshka_amf_dd.gpr | sort | uniq | grep -v '^$$' > amf_dd-src.aux
+	cat league-src.lst xml-src.aux amf-src.aux | sort | uniq | diff -u - amf_dd-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > amf_dd-src.lst
+	gnat ls -o -P gnat/matreshka_amf_dd.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > amf_dd-ali.lst
+	cat amf_dd-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/amf/dd
+	cat amf_dd-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) source/amf/dd/metamodels/DC10.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/DC10.cmof
+	$(INSTALL_data) source/amf/dd/metamodels/DG10.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/DG10.cmof
+	$(INSTALL_data) source/amf/dd/metamodels/DI10.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/DI10.cmof
+	$(INSTALL_project) gnat/install/amf_dd.gpr $(INSTALL_PROJECT_DIR)/matreshka_amf_dd.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/amf_dd-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-amf-dd$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-dd$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-dd$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/amf_dd-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT)" > .objs/amf_dd-lib.files
+endif
+	cat amf_dd-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/amf/dd/{}" > .objs/amf_dd-devel.files
+	cat amf_dd-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/amf_dd-devel.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/DC10.cmof" >> .objs/amf_dd-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/DG10.cmof" >> .objs/amf_dd-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/DI10.cmof" >> .objs/amf_dd-lib.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_amf_dd.gpr" >> .objs/amf_dd-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-dd$(RTL_VERSION).$(LIBEXT)" >> .objs/amf_dd-devel.files
+endif
+
+uml:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_amf_uml.gpr --install-name=sql_amf_uml
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/models/UML23
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/models/UML24
+	$(INSTALL_data) source/amf/uml/metamodels/PrimitiveTypes24.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/PrimitiveTypes24.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/StandardProfileL224.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/StandardProfileL224.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/StandardProfileL324.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/StandardProfileL324.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/UML24.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/UML24.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/UMLDI25.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/UMLDI25.cmof
+	$(INSTALL_data) source/amf/uml/models/UML23/UML.xmi $(INSTALL_SHARE_DIR)/amf/models/UML23/UML.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/PrimitiveTypes.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/PrimitiveTypes.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/StandardProfileL2.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/StandardProfileL2.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/StandardProfileL3.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/StandardProfileL3.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/UML.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/UML.xmi
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/amf/uml
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/models/UML23
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/amf/models/UML24
+	gnat ls -d -s -P gnat/matreshka_amf_uml.gpr | sort | uniq | grep -v '^$$' > amf_uml-src.aux
+	cat league-src.lst xml-src.aux amf-src.aux amf_dd-src.aux | sort | uniq | diff -u - amf_uml-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > amf_uml-src.lst
+	gnat ls -o -P gnat/matreshka_amf_uml.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > amf_uml-ali.lst
+	cat amf_uml-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/amf/uml
+	cat amf_uml-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) source/amf/uml/metamodels/PrimitiveTypes24.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/PrimitiveTypes24.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/StandardProfileL224.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/StandardProfileL224.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/StandardProfileL324.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/StandardProfileL324.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/UML24.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/UML24.cmof
+	$(INSTALL_data) source/amf/uml/metamodels/UMLDI25.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/UMLDI25.cmof
+	$(INSTALL_data) source/amf/uml/models/UML23/UML.xmi $(INSTALL_SHARE_DIR)/amf/models/UML23/UML.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/PrimitiveTypes.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/PrimitiveTypes.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/StandardProfileL2.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/StandardProfileL2.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/StandardProfileL3.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/StandardProfileL3.xmi
+	$(INSTALL_data) source/amf/uml/models/UML24/UML.xmi $(INSTALL_SHARE_DIR)/amf/models/UML24/UML.xmi
+	$(INSTALL_project) gnat/install/amf_uml.gpr $(INSTALL_PROJECT_DIR)/matreshka_amf_uml.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/amf_uml-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-amf-uml$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-uml$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-uml$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/amf_uml-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT)" > .objs/amf_uml-lib.files
+endif
+	cat amf_uml-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/amf/uml/{}" > .objs/amf_uml-devel.files
+	cat amf_uml-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/amf_uml-devel.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/PrimitiveTypes24.cmof" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/StandardProfileL224.cmof" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/StandardProfileL324.cmof" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/UML24.cmof" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/UMLDI25.cmof" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/models/UML23/UML.xmi" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/models/UML24/PrimitiveTypes.xmi" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/models/UML24/StandardProfileL2.xmi" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/models/UML24/StandardProfileL3.xmi" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/models/UML24/UML.xmi" >> .objs/amf_uml-lib.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_amf_uml.gpr" >> .objs/amf_uml-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-uml$(RTL_VERSION).$(LIBEXT)" >> .objs/amf_uml-devel.files
+endif
+
+ocl:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_amf_ocl.gpr --install-name=sql_amf_ocl
+	$(INSTALL_data) source/amf/ocl/metamodels/OCL23.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/OCL23.cmof
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/amf/ocl
+	gnat ls -d -s -P gnat/matreshka_amf_ocl.gpr | sort | uniq | grep -v '^$$' > amf_ocl-src.aux
+	cat league-src.lst xml-src.aux amf-src.aux amf_uml-src.aux | sort | uniq | diff -u - amf_ocl-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > amf_ocl-src.lst
+	gnat ls -o -P gnat/matreshka_amf_ocl.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > amf_ocl-ali.lst
+	cat amf_ocl-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/amf/ocl
+	cat amf_ocl-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) source/amf/ocl/metamodels/OCL23.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/OCL23.cmof
+	$(INSTALL_project) gnat/install/amf_ocl.gpr $(INSTALL_PROJECT_DIR)/matreshka_amf_ocl.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/amf_ocl-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-amf-ocl$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-ocl$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-ocl$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/amf_ocl-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT)" > .objs/amf_ocl-lib.files
+endif
+	cat amf_ocl-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/amf/ocl/{}" > .objs/amf_ocl-devel.files
+	cat amf_ocl-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/amf_ocl-devel.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/OCL23.cmof" >> .objs/amf_ocl-lib.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_amf_ocl.gpr" >> .objs/amf_ocl-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-ocl$(RTL_VERSION).$(LIBEXT)" >> .objs/amf_ocl-devel.files
+endif
+
+utp:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_amf_utp.gpr --install-name=sql_amf_utp
+	$(INSTALL_data) source/amf/utp/metamodels/UTPSA11.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/UTPSA11.cmof
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/amf/utp
+	gnat ls -d -s -P gnat/matreshka_amf_utp.gpr | sort | uniq | grep -v '^$$' > amf_utp-src.aux
+	cat league-src.lst xml-src.aux amf-src.aux amf_uml-src.aux | sort | uniq | diff -u - amf_utp-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > amf_utp-src.lst
+	gnat ls -o -P gnat/matreshka_amf_utp.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > amf_utp-ali.lst
+	cat amf_utp-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/amf/utp
+	cat amf_utp-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) source/amf/utp/metamodels/UTPSA11.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/UTPSA11.cmof
+	$(INSTALL_project) gnat/install/amf_utp.gpr $(INSTALL_PROJECT_DIR)/matreshka_amf_utp.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/amf_utp-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-amf-utp$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-utp$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-utp$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/amf_utp-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT)" > .objs/amf_utp-lib.files
+endif
+	cat amf_utp-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/amf/utp/{}" > .objs/amf_utp-devel.files
+	cat amf_utp-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/amf_utp-devel.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/UTPSA11.cmof" >> .objs/amf_utp-lib.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_amf_utp.gpr" >> .objs/amf_utp-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-utp$(RTL_VERSION).$(LIBEXT)" >> .objs/amf_utp-devel.files
+endif
+
+mofext:
+ifdef HAS_GPRINSTALL
+	$(GPRINSTALL) $(GPRINSTALL_FLAGS) -p -P gnat/matreshka_amf_mofext.gpr --install-name=sql_amf_mofext
+	$(INSTALL_data) source/amf/mofext/metamodels/MOFEXT241.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/MOFEXT241.cmof
+else
+	$(INSTALL) -d $(INSTALL_INCLUDE_DIR)/amf/mofext
+	gnat ls -d -s -P gnat/matreshka_amf_mofext.gpr | sort | uniq | grep -v '^$$' > amf_mofext-src.aux
+	cat league-src.lst xml-src.aux amf-src.aux amf_uml-src.aux | sort | uniq | diff -u - amf_mofext-src.aux | tail -n +4 | grep '^+' | tr -s ' ' | cut -f 2- -d ' ' > amf_mofext-src.lst
+	gnat ls -o -P gnat/matreshka_amf_mofext.gpr | sort | uniq | grep -v '^$$' | sed -e 's/.o$$/.ali/' > amf_mofext-ali.lst
+	cat amf_mofext-src.lst | tr '\\' '/' | xargs -I sources $(INSTALL_source) sources $(INSTALL_INCLUDE_DIR)/amf/mofext
+	cat amf_mofext-ali.lst | tr '\\' '/' | xargs -I alis $(INSTALL_ali) alis $(INSTALL_ALI_DIR)
+	$(INSTALL_data) source/amf/mofext/metamodels/MOFEXT241.cmof $(INSTALL_SHARE_DIR)/amf/metamodels/MOFEXT241.cmof
+	$(INSTALL_project) gnat/install/amf_mofext.gpr $(INSTALL_PROJECT_DIR)/matreshka_amf_mofext.gpr
+ifeq ($(OPERATING_SYSTEM), POSIX)
+	$(INSTALL) .libs/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT).$(VERSION) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT).$(VERSION)
+	cd $(INSTALL_LIBRARY_DIR) && ${LN_S} libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT).$(VERSION) libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT).$(VERSION)" > .objs/amf_mofext-lib.files
+else ifeq ($(OPERATING_SYSTEM), MacOS)
+	$(INSTALL) .libs/libmatreshka-amf-mofext$(RTL_VERSION).$(VERSION).$(LIBEXT) $(INSTALL_LIBRARY_DIR)/libmatreshka-amf-mofext$(RTL_VERSION).$(VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-mofext$(RTL_VERSION).$(VERSION).$(LIBEXT)" > .objs/amf_mofext-lib.files
+else ifeq ($(OPERATING_SYSTEM), Windows)
+	$(INSTALL) .libs/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT) $(INSTALL_EXEC_DIR)/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT)
+	echo "%attr(-,root,root) %{_bindir}/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT)" > .objs/amf_mofext-lib.files
+endif
+	cat amf_mofext-src.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(-,root,root) %{_includedir}/matreshka/amf/mofext/{}" > .objs/amf_mofext-devel.files
+	cat amf_mofext-ali.lst | xargs -I{} basename {} | xargs -I{} echo "%attr(0444, root, root) %{_libdir}/matreshka/{}" >> .objs/amf_mofext-devel.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/amf/metamodels/MOFEXT241.cmof" >> .objs/amf_mofext-lib.files
+	echo "%attr(-,root,root) %{_gprdir}/matreshka/matreshka_amf_mofext.gpr" >> .objs/amf_mofext-devel.files
+	echo "%attr(-,root,root) %{_libdir}/libmatreshka-amf-mofext$(RTL_VERSION).$(LIBEXT)" >> .objs/amf_mofext-devel.files
+endif
+
+cldr_data:
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/cldr/common/collation
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/cldr/common/dtd
+	$(INSTALL) -d $(INSTALL_SHARE_DIR)/cldr/common/uca
+	$(INSTALL_data) $(CLDRDATA)/common/uca/allkeys_CLDR.txt $(INSTALL_SHARE_DIR)/cldr/common/uca/allkeys_CLDR.txt
+	$(INSTALL_data) $(CLDRDATA)/common/dtd/ldml.dtd $(INSTALL_SHARE_DIR)/cldr/common/dtd/ldml.dtd
+	$(INSTALL_data) $(CLDRDATA)/common/collation/af.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/af.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ar.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ar.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/as.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/as.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/az.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/az.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/be.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/be.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/bg.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/bg.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/bn.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/bn.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/bs.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/bs.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ca.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ca.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/chr.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/chr.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/cs.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/cs.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/cy.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/cy.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/da.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/da.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/de.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/de.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/dz.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/dz.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ee.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ee.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/el.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/el.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/en.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/en.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/eo.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/eo.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/es.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/es.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/et.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/et.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/fa.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fa.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/fil.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fil.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/fi.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fi.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/fo.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fo.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/fr.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fr.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ga.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ga.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/gl.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/gl.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/gu.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/gu.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/haw.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/haw.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ha.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ha.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/he.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/he.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/hi.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/hi.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/hr.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/hr.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/hu.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/hu.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/hy.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/hy.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/id.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/id.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ig.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ig.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/is.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/is.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/it.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/it.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ja.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ja.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ka.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ka.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/kk.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/kk.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/kl.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/kl.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/km.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/km.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/kn.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/kn.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/kok.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/kok.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ko.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ko.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ky.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ky.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/lkt.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/lkt.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ln.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ln.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/lt.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/lt.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/lv.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/lv.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/mk.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/mk.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ml.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ml.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/mr.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/mr.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ms.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ms.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/mt.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/mt.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/my.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/my.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/nb.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/nb.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/nl.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/nl.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/nn.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/nn.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/om.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/om.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/or.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/or.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/pa.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/pa.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/pl.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/pl.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ps.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ps.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/pt.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/pt.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ro.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ro.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ru.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ru.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/se.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/se.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/si.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/si.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/sk.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sk.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/sl.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sl.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/sq.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sq.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/sr.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sr.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/sv.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sv.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/sw.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sw.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ta.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ta.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/te.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/te.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/th.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/th.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/to.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/to.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/tr.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/tr.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ug.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ug.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/uk.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/uk.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/ur.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/ur.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/vi.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/vi.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/wae.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/wae.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/yo.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/yo.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/zh.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/zh.xml
+	$(INSTALL_data) $(CLDRDATA)/common/collation/zu.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/zu.xml
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/uca/allkeys_CLDR.txt" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/dtd/ldml.dtd" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/af.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ar.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/as.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/az.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/be.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/bg.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/bn.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/bs.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ca.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/chr.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/cs.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/cy.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/da.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/de.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/dz.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ee.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/el.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/en.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/eo.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/es.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/et.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fa.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fil.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fi.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fo.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fr.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ga.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/gl.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/gu.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/haw.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ha.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/he.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/hi.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/hr.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/hu.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/hy.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/id.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ig.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/is.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/it.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ja.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ka.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/kk.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/kl.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/km.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/kn.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/kok.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ko.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ky.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/lkt.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ln.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/lt.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/lv.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/mk.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ml.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/mr.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ms.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/mt.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/my.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/nb.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/nl.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/nn.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/om.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/or.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/pa.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/pl.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ps.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/pt.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ro.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ru.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/se.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/si.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sk.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sl.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sq.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sr.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sv.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sw.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ta.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/te.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/th.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/to.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/tr.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ug.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/uk.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/ur.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/vi.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/wae.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/yo.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/zh.xml" >> .objs/league-lib.files
+	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/zu.xml" >> .objs/league-lib.files
+#  Matreshka uses only language name component to lookup for data file, so files below can't be used now.
+#	$(INSTALL_data) data/cldr/25/common/collation/bs_Cyrl.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/bs_Cyrl.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/en_US_POSIX.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/en_US_POSIX.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/en_US.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/en_US.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/fa_AF.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fa_AF.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/fr_CA.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/fr_CA.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/root.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/root.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/sr_Latn.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/sr_Latn.xml
+#	$(INSTALL_data) data/cldr/25/common/collation/zh_Hant.xml $(INSTALL_SHARE_DIR)/cldr/common/collation/zh_Hant.xml
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/bs_Cyrl.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/en_US_POSIX.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/en_US.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fa_AF.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/fr_CA.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/root.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/sr_Latn.xml" >> .objs/league-lib.files
+#	echo "%attr(-,root,root) %{_datadir}/matreshka/cldr/common/collation/zh_Hant.xml" >> .objs/league-lib.files
+
+cleanup:
+	rm -f league-src.lst league-ali.lst
+	rm -f xml-src.lst xml-ali.lst xml-src.aux
+	rm -f fastcgi-src.lst fastcgi-ali.lst fastcgi-src.aux
+	rm -f servlet-src.lst servlet-ali.lst servlet-src.aux
+	rm -f spikedog-api-src.lst spikedog-api-ali.lst spikedog-api-src.aux
+	rm -f spikedog-core-src.lst spikedog-core-ali.lst spikedog-core-src.aux
+	rm -f spikedog-aws-src.lst spikedog-aws-ali.lst spikedog-aws-src.aux
+	rm -f soap-src.lst soap-ali.lst soap-src.aux
+	rm -f soap_wsse-src.lst soap_wsse-ali.lst soap_wsse-src.aux
+	rm -f sql-src.lst sql-ali.lst sql-src.aux
+	rm -f sql_mysql-src.lst sql_mysql-ali.lst sql_mysql-src.aux
+	rm -f sql_oci-src.lst sql_oci-ali.lst sql_oci-src.aux
+	rm -f sql_postgresql-src.lst sql_postgresql-ali.lst sql_postgresql-src.aux
+	rm -f sql_sqlite3-src.lst sql_sqlite3-ali.lst sql_sqlite3-src.aux
+	rm -f amf-src.lst amf-ali.lst amf-src.aux
+	rm -f amf_dd-src.lst amf_dd-ali.lst amf_dd-src.aux
+	rm -f amf_uml-src.lst amf_uml-ali.lst amf_uml-src.aux
+	rm -f amf_ocl-src.lst amf_ocl-ali.lst amf_ocl-src.aux
+	rm -f amf_utp-src.lst amf_utp-ali.lst amf_utp-src.aux
+	rm -f amf_mofext-src.lst amf_mofext-ali.lst amf_mofext-src.aux
+
+# Disable parallel build, it is handled by gnatmake/gprbuild
+.NOTPARALLEL:

@@ -1,0 +1,75 @@
+{
+  "Name": "Ada",
+  "Bytes": 3823,
+  "CodeBytes": 0,
+  "Lines": 147,
+  "Code": 116,
+  "Comment": 10,
+  "Blank": 21,
+  "Complexity": 4,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/epoll.ads",
+      "Extension": "ads",
+      "Location": "src/epoll.ads",
+      "Symlocation": "",
+      "Bytes": 2115,
+      "Lines": 75,
+      "Code": 57,
+      "Comment": 5,
+      "Blank": 13,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sockets",
+        "interfaces",
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/epoll.adb",
+      "Extension": "adb",
+      "Location": "src/epoll.adb",
+      "Symlocation": "",
+      "Bytes": 1708,
+      "Lines": 72,
+      "Code": 59,
+      "Comment": 5,
+      "Blank": 8,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "gnat.sockets": 1,
+    "interfaces": 1,
+    "interfaces.c": 1,
+    "system": 1
+  }
+}

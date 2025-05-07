@@ -1,0 +1,6 @@
+config/labs_standalone_config.ads
+src/160_genericity_text/src/genericity_text_main.adb
+src/160_genericity_text/src/sorts.adb
+src/160_genericity_text/src/sorts.ads
+src/160_genericity_text/src/swaps.adb
+src/160_genericity_text/src/swaps.ads

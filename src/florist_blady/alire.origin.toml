@@ -1,0 +1,41 @@
+authors = [
+"Florida State University (FSU)",
+"AdaCore",
+]
+description = "POSIX Ada Bindings"
+licenses = "GPL-3.0-only"
+maintainers = [
+"Pascal Pignard <blady.net@orange.fr>",
+]
+maintainers-logins = [
+"Blady-Com",
+]
+name = "florist_blady"
+project-files = [
+"lib_florist.gpr",
+]
+provides = [
+"florist=22.0.0",
+]
+tags = [
+"florist",
+"posix",
+"bindings",
+]
+version = "6.0.0"
+website = "https://github.com/Blady-Com/florist"
+[[actions]]
+command = [
+"sh",
+"configure",
+]
+directory = "."
+type = "post-fetch"
+[[actions]]
+command = [
+"make",
+"gen",
+]
+directory = "."
+type = "post-fetch"
+

@@ -1,0 +1,265 @@
+Fri 10 December : added hexa_double_vector_norms, ts_hdnorm.adb,
+  new test_hexadobl_vector_norms, hexa_double_linear_solvers.ads,
+  hexadobl_complex_linear_solvers, test_hexadobl_linear_solvers, ts_hdlu.adb.
+  Extended test_lu_decompositions and reduction.gpr.
+  Added hexa_double_qr_least_squares and hexadobl_complex_qr_least_squares,
+  test_hexadobl_qrls_solvers, tested by ts_hdqrd.adb.  Update reduction.gpr.
+  Added hexadobl_complex_singular_values, test_hexadobl_singular_values,
+  and ts_hdsvd.adb.  Corrected a spelling error in test*singular_values.adb.
+  Updated reduction.gpr.
+
+Thu 9 Dec 2021 : new hexadobl_complex_vector_norms, extended ts_errfree
+  to demonstrate the computation of the 2-norm with hexa double numbers.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to reduction.gpr.
+
+Tue 8 Jun 2021 : defined reduction.gpr to build the test procedures.
+
+Sat 7 Nov 2020 : test program ts_errfree to illustrate the concept of the
+  error free transformations.  Adjusted the output of ts_errfree.
+
+Mon 7 Sep 2020 : fixed test_{tripdobl,pentdobl}_singular_values.adb,
+  fixed the bug in the loop tests on random problems.
+  In all *dobl_complex_singular_values.adb, patched the cdabs function
+  to deal with zero imaginary parts as a special case.
+
+Sat 5 Sep 2020 : improved the tests on the singular values, modified all
+  test_{standard,dobldobl,tripdobl,quaddobl,pentdobl,octodobl,decadobl,
+  multprec}_singular_values packages.
+
+Fri 4 Sep 2020 : moved the definion of sqr function from the body of
+  {triple,penta,octo,deca}_double_qr_least squares and
+  {tripdobl,pentdobl,octodobl,decadobl}_complex_qr_least squares.
+  New packages {tripdobl,pentdobl,octodobl,decadobl}_complex_singular_values,
+  tested in test_{tripdobl,pentdobl,octodobl,decadobl}_singular_values,
+  with main test procedures in ts_tdsvd, ts_pdsvd, ts_odsvd, ts_dasvd,
+  with updated ts_svd.
+  
+Thu 3 Sep 2020 : moved test procedures from ts_svd into new test packages
+  test_{standard,dobldobl,quaddobl,multprec}_singular_values with new
+  main testers in ts_dsvd, ts_ddsvd, ts_qdsvd, and ts_mpsvd.
+
+Wed 2 Sep 2020 : moved code from ts_qrd into the new test packages
+  test_{standard,dobldobl,quaddobl,multprec}_qrls_solvers, with separate
+  main tests in ts_dqrd, ts_ddqrd, ts_qdqrd, and ts_mpqrd.
+  Fixed documentation error in {double,quad}_double_qr_least_squares.ads
+  and added new {triple,penta,octo,deca}_double_qr_least_squares packages,
+  and {tripdobl,pentdobl,octodobl,decadobl}_complex_qr_least_squares, and
+  test_{tripdobl,pentdobl,octodobl,decadobl}_qrls_solvers, with new test
+  procedures ts_tdqrd, ts_pdqrd, ts_odqrd, ts_daqrd, and updated ts_qrd.
+  Improved the main menu in test_{dobldobl,quaddobl}_qrls_solvers.adb.
+
+Tue 1 Sep 2020 : new packages {triple,penta,octo,deca}_vector_norms and
+  {tripdobl,pentdobl,octodobl,decadobl}_complex_vector_norms, with tests in
+  test_{dobldobl,tripdobl,quaddobl,pentdobl,octodobl,decadobl}_vector_norms,
+  main tests in ts_ddnorm, ts_tdnorm, ts_qdnorm, ts_pdnorm, ts_odnorm, 
+  and ts_danorm.
+
+Sun 30 Aug 2020 : moved test procedures from ts_ddlu and ts_qdlu into
+  packages test_{dobldobl,quaddobl}_linear solvers.
+  Instantiated {triple,penta,octo,deca}_double_linear_solvers, defined
+  {tripdobl,pentdobl,octodobl,decadobl}_linear_solvers, and extented
+  test_lu_decompositions for triple, penta, octo, and deca doubles.
+  Defined test_{tripdobl,pentdobl,octodobl,decadobl}_linear_solvers,
+  with new main testers in ts_tdlu, ts_pdlu, ts_odlu, ts_dalu.
+
+Wed 22 Jul 2020 : new package standard_inlined_singular_values has wrapper,
+  with a test defined in ts_perfdsvd.  Added some additional operations to
+  standard_complex_blas_helpers, updated standard_inlined_singular_values,
+  and ts_perfdsvd.  Fixed bug in standard_inlined_singular_values.adb.
+  Added time test to ts_perfdsvd.
+
+Tue 21 Jul 2020 : moved from standard_complex_singular_values.adb
+  helper routines into a separate package standard_complex_blas_helpers.
+  Added inlined versions of the dznrm2 functions to ts_perfdsvd.
+  New package standard_inlined_blas_helpers, tested by ts_perfdsvd.
+
+Mon 20 Jul 2020 : new test procedure ts_perfdsvd.
+
+Wed 15 Jul 2020 : fixed bug in lufac in standard_inlined_linear_solvers.adb.
+
+Wed 24 Jun 2020 : defined vectorized lusolve and estco in ts_perfdlu.
+  New package standard_inlined_linear_solvers with code from ts_perfdlu.
+
+Tue 23 Jun 2020 : new test procedure ts_perfdlu, to develop a more performant
+  LU factorization for complex matrices in double precision.
+  Moved complex_parts and complex_merge out of ts_perfdlu and into
+  the new package standard_matrix_splitters.
+
+Wed 3 Jun 2020 : added a test on job = 0 in ts_svd to compute only the
+  singular values.
+
+Sun 5 Apr 2020 : to {standard,dobldobl,quaddobl}_complex_singular_values.a*,
+  added a SVD procedure with a work vector to make it thread safe.
+
+Mon 2 Mar 2020 : added another solve() to *_complex_singular_values.a* for
+  a thread safe application in the multitasked solvers.
+
+Wed 19 Dec 2018 : defined the max norm for complex matrices in the packages
+  {standard,dobldobl,quaddobl}_complex_matrix_norms.
+
+Thu 23 Jun 2016 : bug fix in range of wrk in Basis() procedure of all 
+  eight *qr_least_squares.adb files.
+
+Sun 25 Oct 2015 : new packages {double, quad}_double_two_norms and
+  {double, quad}_double_eigenvales, tested by ts_eigval, to compute eigenvalues
+  and eigenvectors of real matrices in double double and quad double precision.
+
+Tue 6 Oct 2015 : used sqr() in {dobldobl,quaddobl}_complex_singular_values,
+  in {double,quad}_double_qr_least_squares and
+  in {dobldobl,quaddobl}_complex_qr_least_squares. 
+
+Tue 16 Jun 2015 : extra tests in ts_vmplu.adb.
+
+Mon 15 Jun 2015 : extended varbprec_complex_linear_solvers with versions
+  for matrices stored as vectors of columns.  Factored out code of ts_vvlu
+  into a new package matrix_to_vecvec_conversions, in the ../Matrices folder.
+
+Sun 14 Jun 2015 : version of lusolve in standard_complex_linear_solvers
+  for matrices defined as vectors of columns, tested by ts_vvlu.
+  Add lusolve for vecvecs to {dobldobl,quaddobl}_complex_linear_solvers,
+  with extra test procedures in ts_vvlu.  Refactored lufco in the package
+  multprec_complex_linear_solvers in estco, tested by ts_cmplu.
+  Added versions for lusolve for vectors of vectors to 
+  multprec_complex_linear_solvers, tested by ts_vvlu.
+
+Sat 13 Jun 2015 : tested estco for standard, double double, and quad double
+  precision in ts_vvlu, with changed specifications in the complex linear
+  solvers packages.
+
+Fri 12 Jun 2015 : updates in {standard,dobldobl,quaddobl,multprec}_
+  complex_linear_solvers for matrices stores as vectors of columns.
+  New test program ts_vvlu, bug fix in standard_complex_linear_solvers.adb.
+  Updated ts_vvlu for other precision and fixed a bug in
+  dobldobl_complex_linear_solvers.adb.
+
+Thu 11 Jun 2015 : to standard_complex_linear_solvers added procedures to
+  estimate the condition number, some small changes in ts_cmplu.
+  Did the same for the double double and quad double versions.
+
+Wed 10 Jun 2015 : factored vvlufac out of ts_perflu into the
+  standard_complex_linear_solvers.
+
+Fri 7 Nov 2014 : new package multprec_floating_qr_least_squares, tested
+  by ts_qrd.adb.  Extended varbprec_floating_linear_solvers, with extended
+  testing done in ts_vmplu.adb.
+
+Thu 6 Nov 2014 : extended multprec_complex_linear_solvers with versions
+  for arbitrary multiprecision, tested in ts_vmplu.adb.
+  Added solvers to multprec_complex_linear_solvers, tested by ts_vmplu.adb.
+
+Wed 5 Nov 2014 : extended varbprec_{complex,floating}_linear_solvers
+  with solvers, and added tests in ts_vmplu.adb.
+
+Tue 4 Nov 2014 : package double_double_qr_least_squares is tested by ts_qrd
+  and ts_qrd tests also the new package double_double_qr_least_squares.
+  Extended varbprec_complex_linear_solvers and made a new package
+  varbprec_floating_linear_solvers, tested by ts_vmplu.
+
+Mon 3 Nov 2014 : moved code from ts_vmplu.adb to random_conditioned_matrices
+  and various other changes.  New package varbprec_complex_linear_solvers with
+  estimators for loss of number of correct decimal places.
+
+Sun 2 Nov 2014 : ts_vmplu.adb tests variable precision linear solving with
+  estimation of the condition number via LU decomposition.
+
+Thu 14 Aug 2014 : to {dobl,quad}dobl_complex_vector_norms, added normalize 
+  procedure.
+
+Mon 11 Aug 2014 : extended {dobl,quad}dobl_vector_norms with a conjugated
+  inner product, as needed for rescaling coordinates.
+
+Sun 3 Aug 2014 : new packages {dobldobl,quaddobl}_complex_qr_least_squares,
+  tested by ts_qrd.adb.
+
+Sat 2 Aug 2014 : new packages {dobldobl,quaddobl}_complex_singular_values,
+  tested by ts_svd.adb.
+
+Fri 13 Jun 2014 : reformatting of standard_complex_qr_least_squares
+  for warnings and readability (replaced l by ell).
+
+Wed 11 Jun 2014 : found the reason why ts_perflu does not work that well
+  for complex vectors: gcc auto vectorization does not support complex.
+
+Fri 6 Jun 2014 : ts_perflu to measure performance of lufac with the
+  matrix type and the vector of vectors type.
+
+Thu 27 Mar 2014 : small optimization change in the lufac of
+  standard_complex_linear_solvers.adb, with change in ts_mgs.adb.
+
+Tue 28 Jan 2014 : new ts_backsubs.adb to illustrate insufficiency
+  of double precision arithmetic when solving larger linear systems.
+
+Thu 14 Nov 2013 : for GNAT GPL 2013 warnings, modified
+  generic_floating_linear_solvers.
+
+Thu 13 Jun 2013 : in updating {dobldobl,quaddobl}_complex_row_reduction,
+  extended ts_rowred.adb for interactive testing in extended precision.
+
+Fri 7 Jun 2013 : the introduction of integer32 types led to many changes:
+  ts_fltdls.adb, multprec_complex_norms_equals.adb
+  multprec_complex_linear_solvers.a*, tested by ts_cmplu, ts_fltlu.adb.
+  standard_{floating,complex}_qr_least_squares.a*, tested by ts_qrd.
+  quaddobl_complex_vector_norms.adb, quaddobl_complex_linear_solvers.a*
+  quad_double_vector_norms.adb, tested by ts_qdlu.
+  generic_norms_equals.adb, generic_floating_linear_solvers.a*
+  standard_complex_norms_equals.adb, standard_complex_linear_solvers.a*
+  double_double_vector_norms.a*, dobldobl_complex_linear_solvers.a*,
+  tested by test_lu_decompositions.a* and ts_ddlu.adb.
+  Other updates occurred in standard_{floating,complex}_vector_norms.adb,
+  standard_complex_row_reduction, tested by ts_rowred,
+  standard_floating_eigenvalues, tested by ts_eigval,
+  {standard,complex}_singular_values, tested by ts_svd,
+  multprec_complex_qr_least_squares, tested by ts_qrd, and all versions
+  of the modified Gram-Schmidt method, tested by ts_mgs and ts_mgsrnk, in
+  standard_{floating,complex}_gramschmidt
+  and {dobldobl,quaddobl}_complex_gramschmidt.
+
+Thu 6 Jun 2013 : copied ../Matrices/ts_fltdls.adb to here.
+
+Thu 27 Dec 2012 : copied ts_{flt,cmp,dd,qd}mat.adb from ../Matrices 
+  into ts_{flt,cmp,dd,qd}lu.adb and added tests on the LU factorizations.
+  New package test_lu_decompositions, for use in ts_{flt,dd,qd}lu.adb.
+  New test functions in generic_floating_linear_solvers and also updated
+  {standard,dobldobl,quaddobl}_complex_linear_solvers with test functions.
+  Added accuracy tests on LU to ts_mgs.
+
+Wed 21 Nov 2012 : new directory with code copied from Matrices, the files are
+
+dobldobl_complex_gramschmidt.adb
+dobldobl_complex_gramschmidt.ads       standard_complex_gramschmidt.adb
+dobldobl_complex_linear_solvers.adb    standard_complex_gramschmidt.ads
+dobldobl_complex_linear_solvers.ads    standard_complex_linear_solvers.adb
+dobldobl_complex_row_reduction.adb     standard_complex_linear_solvers.ads
+dobldobl_complex_row_reduction.ads     standard_complex_norms_equals.adb
+dobldobl_complex_vector_norms.adb      standard_complex_norms_equals.ads
+dobldobl_complex_vector_norms.ads      standard_complex_qr_least_squares.adb
+double_double_linear_solvers.ads       standard_complex_qr_least_squares.ads
+double_double_vector_norms.adb         standard_complex_row_reduction.adb
+double_double_vector_norms.ads         standard_complex_row_reduction.ads
+generic_floating_linear_solvers.adb    standard_complex_singular_values.adb
+generic_floating_linear_solvers.ads    standard_complex_singular_values.ads
+generic_norms_equals.adb               standard_complex_vector_norms.adb
+generic_norms_equals.ads               standard_complex_vector_norms.ads
+multprec_complex_linear_solvers.adb    standard_floating_eigenvalues.adb
+multprec_complex_linear_solvers.ads    standard_floating_eigenvalues.ads
+multprec_complex_norms_equals.adb      standard_floating_gramschmidt.adb
+multprec_complex_norms_equals.ads      standard_floating_gramschmidt.ads
+multprec_complex_qr_least_squares.adb  standard_floating_linear_solvers.ads
+multprec_complex_qr_least_squares.ads  standard_floating_norms_equals.ads
+multprec_complex_singular_values.adb   standard_floating_qr_least_squares.adb
+multprec_complex_singular_values.ads   standard_floating_qr_least_squares.ads
+multprec_floating_linear_solvers.ads   standard_floating_singular_values.adb
+multprec_floating_norms_equals.ads     standard_floating_singular_values.ads
+quaddobl_complex_gramschmidt.adb       standard_floating_two_norms.adb
+quaddobl_complex_gramschmidt.ads       standard_floating_two_norms.ads
+quaddobl_complex_linear_solvers.adb    standard_floating_vector_norms.adb
+quaddobl_complex_linear_solvers.ads    standard_floating_vector_norms.ads
+quaddobl_complex_row_reduction.adb     ts_eigval.adb
+quaddobl_complex_row_reduction.ads     ts_mgs.adb
+quaddobl_complex_vector_norms.adb      ts_mgsrnk.adb
+quaddobl_complex_vector_norms.ads      ts_qrd.adb
+quad_double_linear_solvers.ads         ts_rowred.adb
+quad_double_vector_norms.adb           ts_svd.adb
+quad_double_vector_norms.ads
+

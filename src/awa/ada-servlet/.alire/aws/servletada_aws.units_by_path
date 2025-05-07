@@ -1,0 +1,10 @@
+../../src/aws/aws-attachments-extend.adb
+../../src/aws/aws-attachments-extend.ads
+../../src/aws/servlet-parts-web.adb
+../../src/aws/servlet-parts-web.ads
+../../src/aws/servlet-requests-web.adb
+../../src/aws/servlet-requests-web.ads
+../../src/aws/servlet-responses-web.adb
+../../src/aws/servlet-responses-web.ads
+../../src/aws/servlet-server-web__2.adb
+../../src/aws/servlet-server-web.ads

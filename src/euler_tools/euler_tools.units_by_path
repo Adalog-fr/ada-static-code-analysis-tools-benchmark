@@ -1,0 +1,13 @@
+config/euler_tools_config.ads
+src/euler_calendar.adb
+src/euler_calendar.ads
+src/euler_package-decimal_division_increase.adb
+src/euler_package-decimal_division.adb
+src/euler_package.adb
+src/euler_package.ads
+src/euler_text.adb
+src/euler_text.ads
+src/euler_tools_int1.ads
+src/euler_tools_int2.ads
+src/euler_tools_int3.ads
+src/euler_tools.ads

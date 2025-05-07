@@ -1,0 +1,787 @@
+{
+  "Name": "Ada",
+  "Bytes": 199589,
+  "CodeBytes": 0,
+  "Lines": 4989,
+  "Code": 2866,
+  "Comment": 1297,
+  "Blank": 826,
+  "Complexity": 104,
+  "Count": 29,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/usb_embedded_config.ads",
+      "Extension": "ads",
+      "Location": "config/usb_embedded_config.ads",
+      "Symlocation": "",
+      "Bytes": 1140,
+      "Lines": 36,
+      "Code": 24,
+      "Comment": 1,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-gamepad.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-hid-gamepad.adb",
+      "Symlocation": "",
+      "Bytes": 3369,
+      "Lines": 68,
+      "Code": 24,
+      "Comment": 36,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-joystick.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-hid-joystick.ads",
+      "Symlocation": "",
+      "Bytes": 4504,
+      "Lines": 97,
+      "Code": 48,
+      "Comment": 35,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-mouse.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-hid-mouse.adb",
+      "Symlocation": "",
+      "Bytes": 3231,
+      "Lines": 63,
+      "Code": 20,
+      "Comment": 36,
+      "Blank": 7,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-hid.ads",
+      "Symlocation": "",
+      "Bytes": 5742,
+      "Lines": 116,
+      "Code": 64,
+      "Comment": 35,
+      "Blank": 17,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-gamepad.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-hid-gamepad.ads",
+      "Symlocation": "",
+      "Bytes": 4692,
+      "Lines": 102,
+      "Code": 51,
+      "Comment": 36,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-keyboard.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-hid-keyboard.adb",
+      "Symlocation": "",
+      "Bytes": 4471,
+      "Lines": 119,
+      "Code": 55,
+      "Comment": 48,
+      "Blank": 16,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-midi.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-midi.ads",
+      "Symlocation": "",
+      "Bytes": 6203,
+      "Lines": 138,
+      "Code": 76,
+      "Comment": 33,
+      "Blank": 29,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic",
+        "bbqueue",
+        "bbqueue.buffers",
+        "hal"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-joystick.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-hid-joystick.adb",
+      "Symlocation": "",
+      "Bytes": 3228,
+      "Lines": 64,
+      "Code": 20,
+      "Comment": 36,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-control.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-control.ads",
+      "Symlocation": "",
+      "Bytes": 3774,
+      "Lines": 74,
+      "Code": 22,
+      "Comment": 36,
+      "Blank": 16,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-midi.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-midi.adb",
+      "Symlocation": "",
+      "Bytes": 17227,
+      "Lines": 530,
+      "Code": 325,
+      "Comment": 107,
+      "Blank": 98,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bbqueue",
+        "bbqueue.buffers",
+        "system",
+        "usb.logging.device",
+        "usb.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-hid.adb",
+      "Symlocation": "",
+      "Bytes": 9631,
+      "Lines": 292,
+      "Code": 186,
+      "Comment": 61,
+      "Blank": 45,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system",
+        "usb.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-hal.ads",
+      "Extension": "ads",
+      "Location": "src/usb-hal.ads",
+      "Symlocation": "",
+      "Bytes": 2404,
+      "Lines": 34,
+      "Code": 2,
+      "Comment": 30,
+      "Blank": 2,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-utils.ads",
+      "Extension": "ads",
+      "Location": "src/usb-utils.ads",
+      "Symlocation": "",
+      "Bytes": 3372,
+      "Lines": 67,
+      "Code": 23,
+      "Comment": 31,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-keyboard.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-hid-keyboard.ads",
+      "Symlocation": "",
+      "Bytes": 7297,
+      "Lines": 164,
+      "Code": 89,
+      "Comment": 51,
+      "Blank": 24,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-hid-mouse.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-hid-mouse.ads",
+      "Symlocation": "",
+      "Bytes": 4555,
+      "Lines": 92,
+      "Code": 48,
+      "Comment": 33,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb.adb",
+      "Extension": "adb",
+      "Location": "src/usb.adb",
+      "Symlocation": "",
+      "Bytes": 2814,
+      "Lines": 51,
+      "Code": 13,
+      "Comment": 33,
+      "Blank": 5,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-control.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-control.adb",
+      "Symlocation": "",
+      "Bytes": 16165,
+      "Lines": 507,
+      "Code": 319,
+      "Comment": 91,
+      "Blank": 97,
+      "Complexity": 29,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "system.storage_elements",
+        "usb.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-logging-device.ads",
+      "Extension": "ads",
+      "Location": "src/usb-logging-device.ads",
+      "Symlocation": "",
+      "Bytes": 4670,
+      "Lines": 106,
+      "Code": 63,
+      "Comment": 32,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "usb.hal.device"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-logging.ads",
+      "Extension": "ads",
+      "Location": "src/usb-logging.ads",
+      "Symlocation": "",
+      "Bytes": 2411,
+      "Lines": 33,
+      "Code": 2,
+      "Comment": 30,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb.ads",
+      "Extension": "ads",
+      "Location": "src/usb.ads",
+      "Symlocation": "",
+      "Bytes": 6993,
+      "Lines": 172,
+      "Code": 107,
+      "Comment": 36,
+      "Blank": 29,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "system",
+        "system.storage_elements",
+        "usb_embedded_config"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-logging-device__null.adb",
+      "Extension": "adb",
+      "Location": "src/usb-logging-device__null.adb",
+      "Symlocation": "",
+      "Bytes": 3385,
+      "Lines": 58,
+      "Code": 25,
+      "Comment": 30,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-serial.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device-serial.ads",
+      "Symlocation": "",
+      "Bytes": 7141,
+      "Lines": 161,
+      "Code": 95,
+      "Comment": 37,
+      "Blank": 29,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "atomic",
+        "bbqueue",
+        "bbqueue.buffers"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-lang.ads",
+      "Extension": "ads",
+      "Location": "src/usb-lang.ads",
+      "Symlocation": "",
+      "Bytes": 12120,
+      "Lines": 151,
+      "Code": 151,
+      "Comment": 0,
+      "Blank": 0,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device.adb",
+      "Symlocation": "",
+      "Bytes": 19179,
+      "Lines": 602,
+      "Code": 384,
+      "Comment": 101,
+      "Blank": 117,
+      "Complexity": 23,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "system.storage_elements",
+        "usb.device.control",
+        "usb.logging.device"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device-serial.adb",
+      "Extension": "adb",
+      "Location": "src/usb-device-serial.adb",
+      "Symlocation": "",
+      "Bytes": 16819,
+      "Lines": 540,
+      "Code": 347,
+      "Comment": 96,
+      "Blank": 97,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "bbqueue",
+        "bbqueue.buffers",
+        "system",
+        "system.storage_elements",
+        "usb.logging.device",
+        "usb.utils"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-device.ads",
+      "Extension": "ads",
+      "Location": "src/usb-device.ads",
+      "Symlocation": "",
+      "Bytes": 11749,
+      "Lines": 287,
+      "Code": 159,
+      "Comment": 66,
+      "Blank": 62,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "usb.hal.device"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-utils.adb",
+      "Extension": "adb",
+      "Location": "src/usb-utils.adb",
+      "Symlocation": "",
+      "Bytes": 4957,
+      "Lines": 130,
+      "Code": 56,
+      "Comment": 52,
+      "Blank": 22,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "system.storage_elements"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/usb-hal-device.ads",
+      "Extension": "ads",
+      "Location": "src/usb-hal-device.ads",
+      "Symlocation": "",
+      "Bytes": 6346,
+      "Lines": 135,
+      "Code": 68,
+      "Comment": 48,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.text_io": 2,
+    "ada.unchecked_conversion": 3,
+    "atomic": 2,
+    "bbqueue": 4,
+    "bbqueue.buffers": 4,
+    "hal": 4,
+    "interfaces": 3,
+    "system": 4,
+    "system.storage_elements": 5,
+    "usb.device.control": 1,
+    "usb.hal.device": 2,
+    "usb.logging.device": 3,
+    "usb.utils": 4,
+    "usb_embedded_config": 1
+  }
+}

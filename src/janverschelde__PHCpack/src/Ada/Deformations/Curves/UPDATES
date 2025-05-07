@@ -1,0 +1,1304 @@
+Wed 19 Jun 2024 : added two procedures to power_series_methods to return
+  the evaluated power series at the end solution.
+
+Sun 2 Jun 2024 : new taylor_homotopy_series to make cseries systems from
+  Taylor monomial homotopies, tested in ts_fliphom.
+
+Sat 1 Jun 2024 : new double_taylor_homotopies and double_taylor_homotopies_io,
+  called in ts_fliphom.
+
+Tue 28 May 2024 : updated ts_fliphom.adb with one run of Fabry test.
+
+Mon 27 May 2024 : new ts_fliphom.adb to develop homotopies with real powers
+  of the continuation parameter.
+
+Mon 18 Mar 2024 : modified {standard,dobldobl,quaddobl}_seriespade_tracker.adb
+  so the power tpow in the homotopy is set always to 1, and not 2.
+
+Sun 17 Mar 2024 : extended {standard,dobldobl,quaddobl}_seriespade_tracker
+  with a function to return the predicted solution.  Updated the
+  interactive_path_trackers.adb to print the predicted solution.
+
+Thu 7 Dec 2023 : new hexadobl_newton_convolution_steps and
+  test_hexadobl_newtconvsteps, extended ts_sernewcnv.adb.
+  New hexadobl_fabry_on_homotopy and hexadobl_homotopy_convolutions_io;
+  extended fabry_on_homotopy_helpers, newton_fabry_on_homotopy.adb,
+  series_and_homotopies, series_path_trackers, homotopy_series_readers,
+  and test_series_predictors.
+
+Wed 6 Dec 2023 : new test_{sd,dd,qd}_newton_matrix_series with code taken
+  from ts_sernew.adb.  New test_{td,pd,od,da}_newton_matrix_series for
+  triple, penta, octo, and deca double precision; updated ts_sernew.adb.
+  New hexadobl_newton_matrix_series and test_hd_newton_matrix_series for
+  hexa double precision; updated ts_sernew.adb.  Extended 
+  series_and_solutions, power_series_methods, and test_series_solutions.
+
+Fri 18 Jun 2021 : extended main_pade_trackers, to prompt the user for the
+  Laurent series option to run Newton's method at a series.
+  Updated the documentation in main_pade_trackers.ads for the extended
+  precision levels: triple, penta, octo, and deca double precision.
+
+Thu 10 Jun 2021 : added the exec_dir attribute to curves.gpr.
+
+Wed 9 Jun 2021 : defined curves.gpr to build the test procedures.
+
+Tue 15 Dec 2020 : in {trip,pent,octo,deca}dobl_newton_matrix_series.adb,
+  applied the echelon solvers for linear systems.
+
+Thu 10 Dec 2020 : to fabry_on_homotopy_helpers.adb, *_fabry_on_homotopy.adb,
+  for * in {standard, *dobl}, applied the procedures in numbers_io,
+  to make the prompting of input parameters more robust.
+
+Wed 9 Dec 2020 : added a procedure to fabry_homotopy_on_helpers and
+  rearranged code in standard_fabry_on_homotopy to ask for all input
+  of the user before the time consuming creation of the homotopy.
+  Updated {dobl,trip,quad}dobl_fabry_on_homotopy similarly.
+  Updated {pent,octo,deca}dobl_fabry_on_homotopy similarly.
+
+Tue 8 Dec 2020 : extended *dobl_fabry_on_homotopy.adb with multitasked runs.
+  Updated standard_fabry_on_homotopy.ads and its body in the .adb file.
+  Added a test to newton_fabry_on_homotopy to generate a test homotopy,
+  which can be called from ts_fabryhom.
+  Updated all *_fabry_on_homotopy packages to pass the number of tasks
+  and updated main_pade_trackers.
+
+Mon 7 Dec 2020 : fixed *_newton_convolution_steps.adb so the output is
+  properly written to file in verbose mode.  Extended to write to output
+  file the procedures in decadobl_fabry_on_homotopy.  New package
+  fabry_on_homotopy_helpers, used in all *_fabry_on_homotopy.adb files.
+  Extended all *_fabry_on_homotopy packages to procedures that write to file.
+
+Sat 5 Dec 2020 : extended main_pade_trackers.adb to run Newton's method
+  starting at a constant term in triple double precision, using the new
+  package tripdobl_newton_matrix_series, the extended series_and_solutions,
+  power_series_methods, and run_power_series_methods.
+  New {pent,octo,deca}dobl_newton_matrix_series, with extensions in
+  series_and_solutions, power_series_methods, run_power_series_methods,
+  and main_pade_trackers to penta, octo, and deca double precision.
+
+Tue 1 Dec 2020 : eliminated the procedure mainseries, as it only calls the
+  Main of the main_pade_trackers.  New package test_series_solutions with
+  code taken from ts_sersol.adb.
+
+Fri 23 Oct 2020 : new packages {tripdobl,pentdobl,octodobl,decadobl}_
+  rational_approximations, test_rational_approximations, called by ts_ratapp.
+
+Tue 29 Sep 2020 : new package run_power_series_methods with code taken
+  from mainseries.adb.  Moved the code from the test procedure ts_serpade
+  into the packages test_{standard,dobldobl,quaddobl}_pade_approximants.
+  Moved code from mainseries.adb to main_pade_trackers.
+
+Fri 25 Sep 2020 : new {standard,dobldobl,tripdobl,quaddobl}_convolution_steps,
+  with code taken from newton_power_convolutions (which will be removed),
+  and test_{standard,dobldobl,tripdobl,quaddobl}_newtconvsteps, with code
+  from ts_sernewcnv.  The removal of newton_power_convolutions leads to
+  updates in {standard,dobldobl,quaddobl}_predictor_convolutions.adb
+  and {dobl,trip,quad}dobl_fabry_on_homotopy.  Extended ts_sernewcnv
+  to penta, octo, and deca double precision with the new packages
+  {pent,octo,deca}dobl_newton_convolution_steps and
+  test_{pent,octo,deca}dobl_newtconvsteps.
+  To series_and_homotopies, series_path_trackers, test_series_predictors,
+  homotopy_series_readers added operations with penta, octo, and deca doubles.
+  New packages {pent,octo,deca}dobl_homotopy_convolutions_io and
+  {pent,octo,deca}dobl_fabry_on_homotopy, called in ts_fabryhom.
+
+Wed 23 Sep 2020 : bug fix in mainseries.adb so menus options 1 and 2
+  of phc -u are again accessible for proper choices of precision levels.
+  New packages {standard,dobldobl,quaddobl}_fabry_on_homotopy with code
+  from ts_fabryhom.  For triple double precision, extended 
+  newton_power_convolutions, series_and_homotopies, series_path_trackers,
+  homotopy_series_readers, test_series_predictors, with new packages
+  tripdobl_homotopy_convolutions_io and tripdobl_fabry_on_homotopy,
+  called by ts_fabryhom.
+
+Tue 22 Sep 2020 : because of split of newton_convolutions package,
+  updated {standard,dobldobl,quaddobl}_predictor_convolutions.adb,
+  newton_power_convolutions.adb, staggered_newton_convolutions.adb,
+  ts_sernewcnv.adb, and ts_fabryhom.adb.
+
+Wed 12 Aug 2020 : extended ts_fabryhom with test procedures in double double
+  and quad double precision.
+
+Tue 11 Aug 2020 : new test procedure ts_fabryhom on the application of
+  Fabry's theorem to a homotopy defined as a coefficient convolution system.
+  Added the convergence radius estimates to ts_fabryhom.
+
+Mon 10 Aug 2020 : the "n" as the parameter in the Run procedures of
+  wrapped_pade_trackers is changed into "idxpar", as this better indicates
+  that it is the index of the continuation parameter.
+
+Fri 7 Aug 2020 : added mhom := 0 for the natural parameter homotopies in
+  {standard,dobldobl,quaddobl}_homotopy_convolutions_io.adb.
+  Corrected call to the Run in ts_wrappade.adb to p'last+1 = #variables.
+  Extended wrapped_pade_trackers with procedures on lists of solutions,
+  with more tests in ts_wrappade.  Fixed a test in ts_wrappade and
+  simplified code for the run on one pathin wrapped_pade_trackers.adb.
+
+Thu 6 Aug 2020 : new package wrapped_pade_trackers, tested by ts_wrappade.
+
+Thu 30 Jul 2020 : in track_path_convolutions.adb, set the default to 
+  coefficient convolution circuits.
+
+Thu 23 Jul 2020 : applied the inlined singular value computation in
+  standard_predictor_convolutions.
+
+Thu 16 Jul 2020 : minor improvement in the menu for the settings of the
+  parameters in homotopy_continuation_parameters_io.adb.
+
+Tue 14 Jul 2020 : to staggered_newton_convolutions, added indexed LU Newton
+  procedures, tested by ts_sernewcnv.  In standard_predictor_convolutions.adb,
+  replaced the Inlined_LU_Newton_Steps by Indexed_LU_Newton_Steps.
+  Added verbose level to the main procedures in track_path_convolutions,
+  predictor_corrector_trackers, predictor_corrector_loops, and
+  standard_predictor_convolutions.
+
+Sun 12 Jul 2020 : updated standard_predictor_convolutions.adb so that for
+  lower degree polynomials the Hessians are computed only once.
+
+Sat 11 Jul 2020 : to standard_predictor_convolutions, added procedure to
+  compute the singular values of Hessians only once for low degree polynomials.
+
+Thu 9 Jul 2020 : bug fix in predictor_corrector_loops.adb, added the case
+  for when the predictor is of LU type.
+
+Wed 8 Jul 2020 : to staggered_newton_convolutions, added inlined procedures,
+  added tests to ts_sernewcnv.  In predictor_corrector_trackers.adb,
+  changed the predictor type to LU for coefficient convolutions,
+  in predictor_corrector_loops.adb, added the call to the LU_Predictor
+  procedure in case the predictor is of type LU, and changed the
+  LU_Newton_Steps to staggered ones in standard_predictor_convolutions,
+  for homotopies given as coefficient convolution systems.
+  To standard_predictor_convolutions, added the 8 parameters for the
+  staggered inlined LU Newton steps to the LU_Predictor type and
+  applied the inlined LU in the Newton_Fabry procedures.
+
+Fri 3 Jul 2020 : updated predictor_corrector_trackers for the new
+  package standard_floating_vecvecvecs, updated ts_pcscnv.
+
+Thu 2 Jul 2020 : in predictor_corrector_{loops,trackers}.adb replaced
+  the Newton steps on coefficient circuits by inlined versions.
+
+Tue 30 Jun 2020 : updated track_path_convolutions.adb to reflect that
+  homogeneous coordinates are not yet supported for coefficient circuits.
+  Adjusted mainseries to pass the number of tasks at the command line.
+
+Mon 29 Jun 2020 : in track_path_convolutions.adb, started wall clock
+  timer after the interactions with the user, just before the track.
+
+Sun 28 Jun 2020 : modified homotopy_series_readers setting tpow to 1,
+  updated test_series_predictors.adb and ts_serpade.adb.
+  Added extra procedures to track_path_convolutions, for use in the
+  multitasked versions.
+
+Sat 27 Jun 2020 : updated newton_power_convolutions.adb, for the new
+  package newton_coefficient_convolutions.  Added new package
+  staggered_newton_convolutions, tested by ts_sernewconv.
+  In predictor_corrector_loops.adb, passed the verbose flag correctly
+  when applied on coefficient convolutions circuits.
+  In standard_predictor_convolutions.adb, set newton's method to the
+  staggered degree versions.  In staggered_newton_convolutions.adb,
+  for homotopies that are quadratic in t, check convergence only after
+  the second degree -- this is a patch!
+
+Thu 25 Jun 2020 : improved step_by_step track in ts_pcscnv.
+  Reset all higher order coefficients of the series when assigning the
+  lead coefficient in {standard,dobldobl,quaddobl}_predictor_convolutions.
+  Called the Set_Lead_Coefficients in the predictor_corrector_loops.adb,
+  when coefficient convolution circuits are applied.
+
+Mon 22 Jun 2020 : updated the shift in predictor_corrector_trackers, to
+  shift with the accumulated t value, instead of accumulating the steps,
+  updated ts_pcscnv for change procedure prototypes.
+
+Sat 20 Jun 2020 : added extra procedures to predictor_corrector_trackers,
+  modified ts_pcscnv.  To predictor_corrector_trackers.adb, added assignment
+  of solution at the end of the path.  To track_path_convolutions, added
+  a procedure to track all paths, tested by ts_pcscnv.
+
+Fri 19 Jun 2020 : updates in predictor_corrector_loops.adb, added procedures
+  to track one path in predictor_corrector_trackers, tested by ts_pcscnv.
+  Tracking one path with the new coefficient circuits seems to work now.
+
+Wed 17 Jun 2020 : new package predictor_corrector_trackers, with code from
+  predictor_corrector_loops.  This changed track_path_convolutions.adb and
+  ts_pcscnv.  Fixed ts_corcnv.adb.  To predictor_corrector_loops, added
+  procedures for coefficient circuits, with EvalCffRad procedure added to
+  standard_predictor_convolutions, tested by ts_pcscnv.
+
+Tue 16 Jun 2020 : fixed bug in standard_predictor_convolutions, in the eta
+  computation on coefficient circuits, added test to ts_padepcnv.
+
+Mon 15 Jun 2020 : defined Predictor_Feedback procedures on coefficient
+  convolution circuits in standard_predictor_convolutions.
+  Added the main predictor procedures on coefficient convolution circuits
+  to standard_predictor_convolutions.
+
+Sat 13 Jun 2020 : in standard_predictor_convolutions, added the computation
+  of the Hesse-Pade step on coefficient circuits.
+
+Wed 3 Jun 2020 : in *_predictor_convolutions.adb, replaced the 11 by 0
+  in the calls to SVD.
+
+Sun 10 May 2020 : added Newton_Fabry procedures on coefficient convolutions,
+  to the package standard_predictor_convolutions.
+
+Sat 9 May 2020 : added procedures to newton_power_convolutions, to apply
+  the faster coefficient convolution circuits when running Newton's method.
+  Tested new Newton procedures in ts_sernewcnv.
+
+Fri 1 May 2020 : updated track_path_convolutions so it writes the seed
+  number at the end of a run for reproducibility.
+
+Thu 30 Apr 2020 : in corrector_convolutions.adb, applied extra Newton steps,
+  added one extra corrector step value in the predictor_corrector_loops.adb.
+  At the end of each path trackers, in predictor_corrector_loops.adb, also
+  applied the extra corrector steps.
+
+Mon 27 Apr 2020 : updated mainseries.adb with the question for multitasking,
+  so the multitasked Newton-Fabry-Pade-Hesse tracker can be called in phc -u.
+
+Sat 25 Apr 2020 : added procedures to hyperplane_convolution_scaling
+  for m-homogenization, applied in predictor_corrector_loops.adb, 
+  and tested in ts_pcscnv.  In ts_pcscnv, transformed the solutions into
+  affine coordinates after a multi-homogeneous run.
+  New package track_path_convolutions, with code from ts_pcscnv.
+  Updated mainseries.adb to call the main procedures in of track_path_
+  convolutions so phc -u has the faster Newton-Fabry-Pade-Hesse tracker.
+
+Fri 24 Apr 2020 : added tests for ts_scalecnv for m-homogenization.
+  Added the multi-homogenization parameters from ts_pcscnv to the
+  procedures in predictor_corrector_loops.
+
+Wed 22 Apr 2020 : fixed the adjustments of the coefficient vector for
+  multi-homogeneous coordinates in hyperplane_convolution_scaling,
+  tested by ts_scalecnv.
+
+Tue 21 Apr 2020 : in predictor_corrector_loops.adb, changed the 1 into
+  pars.corsteps in the final corrector steps, after running a path.
+  Added affine transformations on the solutions to ts_pcscnv.
+
+Sun 19 Apr 2020 : in corrector_convolutions, added the max |dx| into the
+  stop criterion of the LU Newton steps, changed predictor_corrector_loop.adb.
+
+Sat 18 Apr 2020 : added a parameter to the correctors for some extra steps,
+  updates in corrector_convolutions changed predictor_corrector_loops.adb.
+
+Thu 16 Apr 2020 : started the development of multi-homogeneous scaling,
+  with updates in hyperplane_convolution_scaling and ts_scalecnv.
+
+Wed 15 Apr 2020 : new package hyperplane_convolution_scaling with code
+  from ts_scalecnv.  Made additions to hyperplane_convolution_scaling,
+  applied scaling in predictor_corrector_loops and tested in the 
+  step-by-step trackers in ts_pcscnv.adb.  Adjusted the path trackers
+  in predictor_corrector_loops for scaling in homogeneous coordinates,
+  tested in ts_pcscnv.
+
+Tue 14 Apr 2020 : added scaling of the solutions and adjusting of the
+  coefficients of the last equation in the circuit to ts_scalecnv.
+
+Mon 13 Apr 2020 : extended series_path_trackers with procedures that take
+  in the gamma constant directly (instead of via pars.gamma) and added on
+  procedure to standard_homotopy_convolutions_io for the new ts_scalecnv.
+  Extended {dobldobl,quaddobl}_homotopy_convolutions_io and added tests
+  to ts_scalecnv.
+
+Sat 11 Apr 2020 : modified ts_pcscnv so it also writes start system and
+  start solution to the output file and predictor_corrector_loops.adb,
+  so the end solution at each path is written before the path statistics.
+  Adjusted ts_pcscnv.adb for a square natural-parameter homotopy.
+
+Fri 10 Apr 2020 : added computation of the average ratio of step sizes
+  and timers to predictor_corrector_loops, updated ts_pcscnv.
+  Added computation of smallest and largest step sizes and number of steps
+  to predictor_corrector_loops, updated ts_pcscnv.
+  Fixed setting of the number of corrector iterations in the procedures
+  of corrector_convolutions.adb.  Added counters to predictor_corrector_loops
+  for the corrector iterations, updated ts_pcscnv.
+
+Thu 9 Apr 2020 : extended corrector_convolutions with LU Newton methods that
+  estimate inverse condition numbers, called in predictor_corrector_loops.adb.
+  Added writing of some counters to file in predictor_corrector_loops,
+  with minor addition to ts_pcscnv.adb.
+
+Wed 8 Apr 2020 : added printing of target system and timers to ts_pcscnv,
+  with extra procedures towards future packaging of path trackers.
+  Updated procedures in predictor_corrector_loops with the mixed residual
+  on output, with updated calls in ts_pcscnv.
+
+Tue 7 Apr 2020 : fixed the application of the corrector by storing the
+  leading coefficients before evaluation of the step size in the
+  procedures of predictor_corrector_loops.adb.
+
+Mon 6 Apr 2020 : updated predictor_corrector_loops.adb, setting the number
+  of the iterations relative to the degree of Pade approximants.
+
+Sun 5 Apr 2020 : updated {standard,dobldobl,quaddobl}_predictor_convolutions,
+  so the SVD procedures are called with work space vectors.
+
+Sat 4 Apr 2020 : fixed bug in predictor_corrector_loops: must use the
+  accumulated value for t instead of the step in Step_Coefficient.
+  Updated homotopy_continuation_parameters_io.adb to allow for a zero
+  value for the number of corrector steps.  In predictor_corrector_loops,
+  added a test on this zero value to toggle off the corrector.
+
+Fri 3 Apr 2020 : added procedures without output to the packages
+  *predictor_convolutions, corrector_convolutions, predictor_corrector_loops,
+  and ts_pcscnv.  Add printing of solution list to ts_pcscnv.
+
+Thu 2 Apr 2020 : added array types to the predictor convolutions packages
+  {standard,dobldobl,quaddobl}_predictor_convolutions.
+
+Wed 1 Apr 2020 : added a create procedure to wrap the allocation of a
+  pointer to the data for the Hessians in *predictor_convolutions,
+  with updates and improvements in ts_pcscnv.  New package with code
+  from ts_pcscnv, predictor_corrector_loops to track a path.
+  Corrected output to file mistake in corrector_convolutions.adb.
+  Added procedures to predictor_corrector_loops to track all paths,
+  tested by ts_pcscnv.
+
+Tue 31 Mar 2020 : added end value for homotopy continuation parameter t
+  to *predictor_convolutions, tested by ts_padepcnv and ts_pcscnv;
+  added Bounded_Update procedures to three_way_minima.
+  Applied the new update of radii of constants for the computation
+  of the mixed residuals in ts_pcscnv.  Extended corrector_convolutions
+  with procedures to allocate, store, and restore all coefficients of
+  convolution systems, tested by ts_pcscnv.
+
+Mon 30 Mar 2020 : added minimum step size to *predictor_convolutions with
+  an explicit setting of the fail, tested by ts_padepcnv and ts_pcscnv.
+  Added cutting of step size to predictor-corrector loop in ts_pcscnv.
+
+Sun 29 Mar 2020 : added store and restore procedures for the leading
+  coefficients to corrector_convolutions, tested by ts_pcscnv.
+  Added mixed residuals to corrector_convolutions, tested by ts_corcnv
+  and ts_pcscnv.  Simplified procedures in ts_pcscnv, the sol parameter
+  can be elinated because of the predictor vectors in psv.
+
+Sat 28 Mar 2020 : new predictor_corrector_loop procedures in ts_pcscnv.
+  Added application of corrector in ts_pcscnv.
+
+Fri 27 Mar 2020 : moved step_coefficients functions and procedures from
+  the ts_corcnv test procedure into the corrector_convolutions package.
+  New test procedure ts_pcscnv for one predictor-corrector-shift step.
+
+Thu 26 Mar 2020 : basic version of one Newton step in ts_corcnv.
+  New package corrector_convolutions with LU correctors, with code from
+  the text procedure ts_corcnv.  Added procedures to ts_corcnv to evaluate
+  the coefficients of the homotopy at a positive step size.
+
+Mon 23 Mar 2020 : new {standard,dobldobl_quaddobl}_homotopy_convolutions_io,
+  packages for prompting homotopies represented by convolution circuits,
+  tested by ts_padepcnv and ts_hesspcnv.  Skeleton for a new test procedure
+  ts_corcnv to test corrector convolutions.
+
+Sun 22 Mar 2020 : new packages test_predictor_convolutions, with code
+  taken from ts_padepcnv and ts_hesspcnv.  Updated 14 other test procedures
+  ts_jacrabin, ts_serhom, ts_sernew, ts_sernewcnv, ts_sersol, ts_serpade,
+  ts_serpath, ts_serpred, ts_predstep, ts_hesscrit, ts_hesspred, ts_ratapp,
+  ts_padepred, ts_nxtpadsol to use the prompt for the precision.
+
+Sat 21 Mar 2020 : moved predictor procedures from ts_padepcnv to the
+  {standard,dobldobl,quaddobl}_predictor_convolutions packages.
+  Added array types to all predictor_convolutions packages.
+  New procedure in ts_padepcnv to check all start solutions.
+
+Fri 20 Mar 2020 : used discriminant records for a new predictor type in
+  {standard,dobldobl,quaddobl}_predictor_convolutions, tested by ts_padepcnv.
+  Added frequency counters to ts_padepcnv.  Add type Predictor_Vectors to
+  {standard,dobldobl,quaddobl}_predictor_convolutions, tested by ts_padepcnv.
+
+Thu 19 Mar 2020 : eliminated a superfluous vector variable in the Prediction
+  procedures of ts_padepcnv, added a prompt for checking all start solutions.
+
+Wed 18 Mar 2020 : new package three_way_minima, tested by ts_padepcnv,
+  moved output procedures from ts_padepcnv to the predictor convolutions,
+  to {standard,dobldobl,quaddobl}_predictor_convolutions, and added file
+  type parameters to write output to file.  New Hesse_Pade procedures in
+  *_predictor_convolutions, with code from ts_padepcnv.
+
+Tue 17 Mar 2020 : added reporting procedure to ts_padepcnv.
+  Added verbose option to the predictor test procedures in ts_padepcnv.
+
+Mon 16 Mar 2020 : moved functions for the mixed residual computations from
+  ts_padepcnv to {standard,dobldobl,quaddobl}_mixed_residuals.
+  Moved the predictor feedback loop from ts_padepcnv to the packages
+  {standard,dobldobl,quaddobl}_predictor_convolutions.
+
+Sun 15 Mar 2020 : added computation of mixed residuals to ts_padepcnv.
+
+Fri 13 Mar 2020 : added functions to series_and_predictors to evaluate
+  a formula for the distance in double double and quad double precision.
+  Added functions to ts_padepcnv to compute the minimum step size.
+
+Thu 12 Mar 2020 : extended and improved ts_padepcnv.  In the specifications
+  of the Predictor Convolution packages, documented the requirement on the
+  degree of the power series, relative to the degrees of the approximants.
+  Small update in ts_padepred.adb for the verbose flag.
+  Applied the offset index in *_predictor_convolutions.adb, tested by
+  ts_padepcnv, with also some modifications in ts_padepred.
+
+Wed 11 Mar 2020 : moved the distance functions from ts_padepcnv into
+  the *_predictor_convolution packages.  Computed the SVD for the Jacobian
+  in the LU predictor in ts_padepcnv and applied the pole step.
+  Added functions and procedures to homotopy_pade_approximants to compute
+  the solution error estimates directly on coefficients vectors.
+
+Tue 10 Mar 2020 : added comparison checks to ts_hesspcnv.
+  Extended *_predictor_convolutions with the singular values of Hessians,
+  tested by ts_padepcnv.  Added the distance computation to ts_padepcnv.
+
+Mon 9 Mar 2020 : added SVD predictor types to the packages on convolution
+  homotopies: *_predictor_convolutions, tested by ts_padepcnv.
+  Add Predict procedures to *_predictor_convolutions, tested by ts_padepcnv.
+  Started new test procedure ts_hesspcnv to apply the Hessian criterion
+  on homotopies represented by convolutions.
+
+Sun 8 Mar 2020 : better control of output in ts_padepcnv.
+  Added SVD to ts_padepcnv.
+
+Sat 7 Mar 2020 : new package standard_predictor_convolutions, tested
+  by ts_padepcnv.  Added {dobldobl,quaddobl}_predictor_convolutions,
+  with tests in ts_padepcnv.
+
+Fri 6 Mar 2020 : updates to the ts_padepcnv to develop a predictor
+  for homotopies given by convolution circuits.
+
+Thu 5 Mar 2020 : updated homotopy_series_readers.adb to use the get
+  procedures of the new package artificial_parameter_homotopy_io.
+
+Wed 4 Mar 2020 : modifications to ts_padepred.adb for compiler warnings.
+  New test procedures ts_padepcnv to develop the Pade predictor based
+  on convolution circuits.
+
+Sun 23 Feb 2020 : fixed dimensions for the SVD in ts_sernewcnv.adb.
+
+Sat 22 Feb 2020 : fixed stop criterion in newton_power_convolutions.adb.
+
+Fri 21 Feb 2020 : improved ts_sernewcnv for overdetermined problems.
+  Fixed the passing of the proper dim parameter in the creation of
+  the systems of convolution circuits in ts_sernewcnv.
+  Improved stop criterion in newton_power_convolutions.adb,
+  fixed dimension of work space vectors in ts_sernewcnv for QRLS.
+
+Sat 15 Feb 2020 : new test procedure ts_ratapp to test the new thread safe
+  procedures to construct rational approximations.  Added extra evaluation
+  operations to {standard,dobldobl,quaddobl}_rational_approximations.
+
+Fri 14 Feb 2020 : improved organization of tests in ts_sernewcnv.
+  Added procedures to standard_rational_approximations for thread safety.
+  Added similar procedures to the double double and quad double versions,
+  to {dobldobl,quaddobl}_rational_approximations.
+
+Mon 27 Jan 2020 : to newton_power_convolutions, added a verbose flag to
+  print the progress index.
+
+Sat 25 Jan 2020 : updated ts_sernewcnv for Convolution_Circuit name change.
+
+Mon 20 Jan 2020 : added a scale option to newton_power_convolutions,
+  with ts_sernewcnv prompting the user for the value of this flag.
+
+Mon 13 Jan 2020 : extracted code from ts_sernewcnv into the new package
+  homotopy_convolution_circuits, in the ../../Math_Lib/Circuits folder.
+
+Sat 11 Jan 2020 : new package newton_power_convolutions to run several
+  Newton steps on power series, with convolution circuits and linearization,
+  tested by ts_sernewcnv.  Extended newton_power_convolutions with versions
+  for double double and quad double precision, tested by ts_sernewcnv.
+  Completed newton_power_convolutions with QR and SVD procedures,
+  with tests added to ts_sernewcnv.
+
+Thu 2 Jan 2020 : added verbose level to power_series_methods, modified
+  series_and_predictors, {standard,dobldobl,quaddobl}_pade_trackers.adb.
+  Added verbose level in {standard,dobldobl,quaddobl}_newton_matrix_series,
+  modified power_series_methods.adb.  For compiler warnings, modified
+  {standard,dobldobl,quaddobl}_newton_series.adb.
+
+Wed 1 Jan 2020 : for compiler warnings, modified test_pade_predictors,
+  ts_padepred.adb, ts_sernew.adb, ts_serpade.adb, ts_serpred.adb,
+  ts_sersol.adb, ts_serhom.adb, ts_jacrabin.adb, ts_durker.adb.
+
+Wed 28 Aug 2019 : updated homotopy_pade_approximants with the computation
+  of a threshold index and zero checks on the solution error norm estimate.
+
+Tue 27 Aug 2019 : added verbose level to the step_control procedures in
+  {standard,dobldobl,quaddobl}_pade_trackers.  If the step-by-step tracker
+  runs in the verbose mode, then all Newton iterations are shown,
+  updated *_seriespade_tracker.adb.
+
+Mon 26 Aug 2019 : initialized mhom to zero in series_path_trackers.adb.
+
+Wed 21 Aug 2019 : to series_path_trackers, added a procedure to write the 
+  partition of the variables to file.
+
+Tue 20 Aug 2019 : in series_and_trackers, used the coefficient homotopy also
+  when no output to file and passed the (mhom,idz) parameters through,
+  which changed drivers_to_series_trackers.  Removal of the series step 
+  counter and ratio modified also series_path_trackers.adb.
+  Updated series_and_trackers and drivers_to_series_trackers for double
+  double and quad double versions, for passing mhom and idz.
+
+Mon 19 Aug 2019 : added on extra iteration on Newton's method for power
+  series in standard_pade_trackers.adb, also in the silent version.
+
+Sun 18 Aug 2019 : to homotopy_coefficient_scalling, added a procedure to
+  verify the coefficients of the last m equations for m-homogenization,
+  tested in {standard,dobldobl,quaddobl}_pade_trackers.adb.
+  Completed the scaling of the m-homogeneous solutions and coefficients
+  and homotopy_coefficient_scaling, applied in the procedures in
+  in {standard,dobldobl,quaddobl}_pade_trackers.adb.
+
+Sat 17 Aug 2019 : added the multihomogeneous parameters to *_pade_trackers,
+  which changed series_path_trackers, series_and_trackers, and
+  drivers_to_series_trackers.  Initialized the coefficient homotopy,
+  also for multi-homogenization, updating series_path_trackers, and
+  {standard,dobldobl,quaddobl}_pade_trackers.adb.  In the root refiners 
+  in driver_to_series_trackers, transformed from multihomogeneous to affine
+  coordinates, which also updated series_path_trackers.adb.
+
+Fri 16 Aug 2019 : improved internal structure of series_path_trackers,
+  with better entering of the partition of the set of unknowns.
+
+Thu 15 Aug 2019 : updated series_path_trackers, interactive_pade_trackers.adb,
+  replacing the homogeneous boolean by a natural number of m-homogenization.
+  Added multi-homogeneous transformations to homotopy_series_readers and
+  applied them in series_path_trackers, with extra procedures.
+
+Mon 12 Aug 2019 : ignoring corrector failure, disabled the corrector
+  feedback loop in {standard,dobldobl,quaddobl}_pade_trackers.adb.
+  Separated projective transformation of solutions and systems in
+  homotopy_series_readers, adjusted interactive_pade_readers and
+  the *_seriespade_trackers for homogeneous coordinates.
+  Updated dobldobl_seriespade_tracker.adb and quaddobl_seriespade_tracker.adb
+  so the step-by-step tracker works in homogeneous coordinates also in
+  double double and quad double precision.
+
+Fri 9 Aug 2019 : double double and quad double extensions to the procedures
+  in homotopy_coefficient_scaling, updates in standard_pade_trackers.adb,
+  dobldobl_pade_trackers.adb and quaddobl_pade_trackes.adb.
+  In drivers_to_series_trackers, transformed back to affine coordinates,
+  updated series_path_trackers.adb to pass the verbose level.
+  Moved code to transform a system into affine coordinates from
+  drivers_to_series_trackers.adb to a new package affine_coordinates.
+
+Wed 7 Aug 2019 : extended homotopy_coefficient_scaling with a silent version
+  of the scaling procedure, updated standard_pade_trackers.adb.
+  Changed the defaults for the degrees in homotopy_continuation_parameters,
+  elimination of sbeta changed homotopy_continuation_parameters_io.adb.
+
+Tue 6 Aug 2019 : fixed the scaling of the last coefficients in the homotopies
+  in standard_pade_trackers.adb so tracking in homogeneous coordinates works.
+  Moved two procedures out of standard_pade_trackers into a new package
+  homotopy_coefficient_scaling.
+
+Mon 5 Aug 2019 : adjusted homotopy_mixed_residuals so that, when the
+  coefficient homotopy is defined, then it is used to compute the residual.
+  Managed to get the scaling of solutions and the last coefficients to work for
+  t = 0.0 in standard_pade_trackers.adb.  Improved standard_pade_trackers.adb.
+
+Sat 3 Aug 2019 : printing of coefficients of the last equation in the
+  homotopies shows the correspondence between the coefficient homotopy
+  and homotopy with series coefficients in standard_pade_trackers.adb.
+
+Fri 2 Aug 2019 : forgot to enlarge the symbol table when adding the extra
+  symbol Z0 for the homogenization of the homotopy.
+
+Thu 1 Aug 2019 : adjusted double double and quad double versions in 
+  homotopy_series_readers.adb and homotopy_newton_steps.adb.
+  Set the value for tpow to one in homotopy_series_readers.adb if homcrd.
+
+Wed 31 Jul 2019 : made coefficient homotopy in homotopy_series_readers.adb,
+  called in homotopy_newton_steps.adb for homogeneous coordinates, and
+  added diagnostic prints in standard_pade_trackers.adb.
+
+Tue 30 Jul 2019 : updated homotopy_series_readers.adb with versions for
+  double double and quad double precision of the projective transformations.
+
+Mon 29 Jul 2019 : added prompts for homogeneous coordinates in 
+  interactive_pade_trackers.adb and series_path_trackers; with projective
+  transformations done in homotopy_series_readers.
+
+Thu 25 Jul 2019 : in series_and_trackers.adb, commented out the reporting
+  on the counts and ratios for the series step.
+
+Fri 19 Jul 2019 : disabled the series step in *_pade_trackers.adb and also
+  in *_seriespade_tracker.adb.
+
+Fri 5 Jul 2019 : removed "Testing ..." line in homotopy_series_readers.adb.
+  New package interactive_pade_trackers with code from ts_nxtpadsol.
+  Added verbose level to the main procedues in interactive_pade_trackers
+  and updated mainseries.adb, so step-by-step is possible with phc -u.
+
+Wed 3 Jul 2019 : refactored code in standard_seriespade_tracker and added
+  the curvature bound with better output statistics, tested by ts_nxtpadsol.
+  Updated also the double double and quad double versions in the files
+  *_seriespade_tracker.*, with extra output written by ts_nxtpadsol.
+  Exported the value for eta in the *_seriespade_tracker.* files.
+
+Tue 2 Jul 2019 : improve the output in series_and_trackers.adb and in
+  the standard_pade_trackers.adb.  Bug fixed in standard_pade_trackers.adb,
+  forgot to extend the solution vector with t for the eta computation.
+  Improved the output in *dobl_pade_trackers.adb.
+  Added ratio of times which step sizes were minimal to the output,
+  modified series_and_trackers and series_path_trackers.adb.
+
+Mon 1 Jul 2019 : modified {standard,*dobl}_pade_approximants.adb for a 
+  compiler warning.  Modified test_series_predictors.adb for compiler warning.
+  Fixed the number of iterations in Newton's method for power series
+  in the test procedures in ts_hesspred.adb.
+  Added initialization, construction, and destruction of the Jacobian
+  and Hessians to *_seriespade_tracker.adb.
+
+Sun 30 Jun 2019 : added a 3-way minimum to standard_pade_trackers,
+  updated series_path_trackers.adb and series_and_trackers.adb.
+  Fixed some errors in standard_pade_trackers.adb, updated the double double
+  and quad double versions in *dobl_pade_trackers, with updates in
+  series_path_trackers.adb and series_and_trackers.adb.
+  Updated writing of the path statistics in series_and_trackers
+  and in series_path_trackers.adb.
+
+Sat 29 Jun 2019 : the number of iterations in the Newton method for power
+  series should depend on the degree of the series, updated the packages
+  standard_pade_trackers, and *dobl_pade_trackers.adb.
+  Fixed the extra corrector steps in homotopy_newton_steps.adb.
+
+Fri 28 Jun 2019 : added the verbose level parameter to the main procedures
+  in drivers_to_series_trackers.
+
+Thu 27 Jun 2019 : refactored quaddobl_pade_trackers, updated the packages
+  series_path_trackers.adb and series_and_trackers.adb.
+  Some minor changes in dobldobl_pade_trackers.  Forgot to update 
+  the smallest and largest step sizes in quaddobl_pade_trackers.adb.
+  Exported the minimum function in standard_pade_trackers, updated
+  dobldobl_pade_trackers.adb and quaddobl_pade_trackers.adb.
+
+Wed 26 Jun 2019 : moved the predictor-corrector feedback loop in separate
+  procedures in standard_pade_trackers, updated series_and_trackers,
+  and series_path_trackers.adb.  Moved the step control in the
+  standard_pade_trackers into separate procedures.  Did this too for
+  double double precision, changed dobldobl_pade_trackers, 
+  updated series_and_trackers.adb and series_path_trackers.adb.
+
+Tue 25 Jun 2019 : removed superfluous with/use clauses from the
+  headers of the package dobldobl_pade_trackers.
+  Added the curvature beta parameter to homotopy_continuation_parameters,
+  updated homotopy_continuation_parameters_io, and used the cbeta in
+  the {standard,dobldobl,quaddobl}_pade_trackers.
+
+Mon 24 Jun 2019 : refactored series_and_trackers into the new package
+  standard_pade_trackers, which changed series_path_trackers.adb and
+  {standard,dobldobl,quaddobl}_seriespade_tracker.adb.
+  New package dobldobl_pade_trackers, with code from series_and_trackers,
+  which changed series_path_trackers.adb.
+  Removed residual prediction from series_and_trackers in double double
+  precision, updated dobldobl_seriespade_tracker.adb.
+  New package quaddobl_pade_trackers, with code from series_and_trackers,
+  which changed series_path_trackers.adb and quaddobl_seriespade_tracker.adb.
+
+Sun 23 Jun 2019 : updated mainseries.adb to pass the verbose level.
+  Applied the verbose level in the procedures of series_and_trackers.adb.
+
+Sat 15 Jun 2019 : added the verbose level to mainseries.
+  Added the verbose level to the procedures in mainseries.adb,
+  to series_path_trackers and series_and_trackers, tested by ts_serpath.
+
+Sat 1 Jun 2019 : updates in power_series_methods.adb for compiler warnings.
+ 
+Tue 14 May 2019 : fixed bug with the value of extra in the stop criterion
+  in homotopy_newton_steps.adb.
+
+Sat 6 Apr 2019 : in black_box_univariate_solvers.adb, set the t-value in
+  the returned solutions to 0.0 instead of to 1.0.
+
+Sat 20 Mar 2019 : to the correctors in homotopy_newton_steps, added the 
+  extra parameter, to allow for possible extra corrector steps.
+  This changed series_and_trackers.adb and *seriespade_tracker.adb.
+
+Thu 28 Mar 2019 : fixed a bug in series_and_trackers.adb, allowing for
+  smaller step sizes than alpha, ignored corrector failures, and toggled
+  off the Hessian step size, for path 155 of cyclic 11-roots which takes
+  large values for some specific gamma value.
+
+Tue 26 Mar 2019 : toggled of the series step size also for double double
+  and quad double precision in series_and_trackers.adb.
+  Added Newton step with SVD to homotopy_newton_steps and made numerous
+  small changes to series_and_trackers, in search for a bug.
+
+Mon 25 Mar 2019 : modified the homotopy_newton_steps.adb to have the stop
+  criterion for the convergence to involve the err as well.
+
+Sun 24 Mar 2019 : added mixed residuals corrector to the step-by-step run
+  of the series-Pade tracker in *seriespade_tracker.adb.
+  Updated the drivers_to_series_trackers and series_path_trackers.adb
+  to pass the absolute coefficient homotopy polynomials to the refiners.
+
+Wed 20 Mar 2019 : cleared abh in series_path_trackers.adb at the end of a run.
+  In series_and_trackers, added functions to compute the predictor residual
+  with mixed residuals.  More output in series_and_predictors.adb for
+  information about the series step size criterion.
+  Turned off the series step in series_and_trackers.adb for doubles.
+
+Tue 19 Mar 2019 : added application to the 'abh' parameter in the body of
+  series_and_trackers.adb.
+
+Mon 18 Mar 2019 : added homotopies with absolute value coefficients to the
+  input parameters of series_and_trackers, and then series_path_trackers.adb
+  had to be modified as well.
+  
+Sat 16 Mar 2019 : added making of the absolute value coefficients of the
+  homotopy polynomials to series_path_trackers.adb.
+
+Wed 13 Mar 2019 : to homotopy_newton_steps, added correctors which compute
+  the mixed residuals for the stored homotopy polynomials.
+
+Mon 11 Mar 2019 : added newton step with mixed residuals to the 
+  package homotopy_newton_steps.
+
+Sun 10 Mar 2019 : added the making of the absolute value coefficients
+  polynomials of the homotopy system to homotopy_mixed_residuals.
+
+Sat 9 Mar 2019 : new package homotopy_mixed_residuals to compute the mixed
+  residuals for stored homotopies.
+
+Thu 28 Feb 2019 : added to homotopy_newton_steps.adb the calculation of the
+  max norm of the solution vector in the stop criterion.
+  Relaxed criterion for divergence in homotopy_newton_steps.adb and
+  increased the maximum number of corrector steps in series_and_trackers.adb.
+
+Wed 27 Feb 2019 : applied step_distance also to double double and quad double
+  versions in series_and_trackers.adb.  Instead of residual, used the size
+  of the update in homotopy_newton_steps.adb and checked the predres against
+  alpha instead of minstep in series_and_trackers.adb.
+
+Tue 26 Feb 2019 : added extra interface functions for the "step_distance"
+  to series_and_predictors, for use in the series_and_trackers.adb.
+
+Mon 25 Feb 2019 : added functions to series_and_predictors, to wrap the
+  computation of the step size based on the distance to the nearest solution.
+
+Sun 24 Feb 2019 : removed redundant clauses from test_pade_predictors.adb.
+
+Sat 23 Feb 2019 : added extra parameters for the Hessian step size criterium
+  to series_and_trackers, series_path_trackers.adb, with updates in
+  drivers_to_series_trackers.
+
+Fri 22 Feb 2019 : new test procedure ts_predstep.adb sets the step based
+  on both the closest pole and the nearest solution estimate.
+
+Thu 21 Feb 2019 : new test procedure ts_hesspred.adb to test the setting
+  the step size based on the estimate for the nearest solution vector.
+
+Wed 20 Feb 2019 : added the candidate step size based on the estimate
+  of the distance to the nearest solution.
+
+Tue 19 Feb 2019 : to singular_values_of_hessians, added the making of the
+  Jacobian and Hessians, with code extracted from ts_hesscrit.adb.
+  Added wrapper for the distance estimate for solution data types to
+  the singular_values_of_hessians, extracting code from ts_hesscrit.
+  Fixed closest_pole name in test_pade_predictors.adb and ts_padepred.adb.
+  To homotopy_pade_approximants, added functions to estimate the error
+  on the solution vector.
+
+Mon 18 Feb 2019 : in singular_values_of_hessians.adb, multiplied the
+  sigma1 for the evaluation Jacobian with the factor 2.0.
+
+Sun 17 Feb 2019 : extracted Jacobian and Hessian computation in separate
+  procedures in ts_hesscrit.
+
+Sat 16 Feb 2019 : extended singular_values_of_hessians with a function
+  to return the estimate of the distance to the nearest solution,
+  tested by ts_hesscrit.  Extended ts_hesscrit for dd & qd precision.
+
+Fri 15 Feb 2019 : introduced real vectors in singular_values_of_hessians
+  with extensions to arrays of Hessians.  Also ts_hesscrit.adb changed.
+  Exposed wrappers in singular_values_of_hessians, used to compute the
+  singular values of the Jacobian matrix in ts_hesscrit.adb.
+
+Thu 14 Feb 2019 : new package singular_values_of_hessians wraps the SVD,
+  called in ts_hesscrit.adb.
+
+Wed 13 Feb 2019 : new file ts_hesscrit to develop the Hessian criterion.
+
+Tue 12 Feb 2019 : reset the degree of the power series (adding one)
+  and in homotopy_pade_approximants, compute the radius of the closest pole,
+  among all poles, not just the poles with positive real part.
+  Updated *_seriespade_tracker.adb, series_and_predictors, and
+  the series_and_trackers.adb.
+
+Mon 4 Feb 2019 : decreased the degree of the power series by one and added
+  one to the number of iterations in series_and_trackers.adb and in the
+  {standard,dobldobl,quaddobl}_seriespade_tracker.adb files.
+
+Mon 21 Jan 2019 : added range check on order in series_and_predictors.adb.
+  Removed some with clauses from series_and_predictors.ads.
+  In *_rational_approximations.adb, ensured that the returned denominator
+  coefficients are never zero.  Updates in series_and_trackers for warnings.
+  Added writing of the Pade vector (if verbose) in *_seriespade_tracker.adb.
+
+Sun 20 Jan 2019 : added natural parameter homotopy modifications to
+  standard_seriespade_tracker and ts_nxtpadsol.adb.
+
+Sat 19 Jan 2019 : adjusted the writing of the homotopy for natural parameter
+  homotopies in series_path_trackers.  Dropped value for the natural parameter
+  from the solutions in series_path_trackers.adb, but only when idxpar /= 0!
+  Fixed setting dimension in series_path_trackers.adb, toggled off the
+  root refinement for natural parameter homotopies.
+
+Thu 10 Jan 2019 : modified series_path_trackers for runs with natural
+  parameter homotopies.
+
+Wed 9 Jan 2019 : modified drivers_to_series_trackers.adb to take into 
+  account the monitor flag, in addition to the verbose parameter.
+
+Sat 5 Jan 2019 : extended series_path_trackers.adb with double double and
+  quad double versions of coefficient-parameter evaluation.
+
+Fri 4 Jan 2019 : from standard_newton_matrix_series, power_series_methods,
+  series_and_predictors.adb, removed superfluous parameters.
+  Improved the residual prediction in series_and_trackers, which changed
+  {standard,dobldobl,quaddobl}_seriespade_tracker.adb.
+  In standard_newton_matrix_series, added coefficient-parameter homotopies 
+  to the QR methods, improved power_series_methods, series_and_predictors,
+  series_and_trackers, updated series_path_trackers.adb.
+  Completed definitions in standard_newton_matrix_series.adb and made
+  extensions in {dobldobl,quaddobl}_newton_matrix_series, applied in
+  power_series_methods, series_and_predictors, and series_and_trackers.
+
+Thu 3 Jan 2019 : added tests on coefficient-parameter homotopies 
+  to ts_serhom.adb.  Added coefficient-parameter evaluation to
+  standard_newton_matrix_series, power_series_methods, series_and_predictors,
+  series_and_trackers, and series_path_trackers.adb.
+
+Tue 1 Jan 2019 : added consistently the max norm computation to
+  {standard,dobldobl,quaddobl}_newton_matrix_series.adb.
+  Improved the shift procedures in series_and_homotopies.adb.
+  Applied the improved shift procedures in series_and_trackers.adb.
+
+Fri 28 Dec 2018 : modified series_path_trackers.adb so target system,
+  start system, and start solutions are written to the output file.
+  Added function to *seriespade_tracker.a* to return all poles.
+
+Thu 27 Dec 2018 : added functions to return the current step size and
+  t value in the *tracker.a* packages.
+
+Wed 26 Dec 2018 : in *seriespade_tracker.adb, output of all poles.
+  In homotopy_pade_approximants.adb, simplified the computation of
+  the smallest forward pole radius.  Fixed bug in the allocation of a
+  Pade approximant in {standard,dobldobl,quaddobl}_pade_approximants.adb.
+  Fixed yet another bug in homotopy_pade_approximants.adb, with the
+  computation of the smallest forward pole radius.
+  Extended the *tracker.a* packages with functions to return the
+  smallest forward pole radius and the closest pole, after extending
+  series_and_predictors, and updating series_and_trackers.adb.
+  Improved the name of a function in *seriespade_tracker.a*.
+
+Mon 24 Dec 2018 : bug fix in *seriespade_tracker.adb, must reset the
+  cseries homotopy with each new start solution.  Updated the test
+  procedure ts_nxtpadsol.adb with a loop for all start solutions.
+
+Sat 22 Dec 2018 : added more selectors to the *seriespade_predictors.a*
+  and extended the verbose option for the Newton predictor and step size.
+
+Fri 14 Dec 2018 : added procedures to homotopy_pade_approximants to
+  compute the poles without memory allocation, adjusted the corresponding
+  procedures in series_and_predictors, applied in series_and_trackers.adb.
+  Added procedures to {standard,dobldobl,quaddobl}_pade_approximants
+  to define the Pade vector in place, without extra allocations,
+  updated series_and_predictors, and applied the new procedures 
+  in series_and_trackers.adb.  Adjusted the calls to the new procedures
+  in the bodies of the packages *_seriespade_tracker.adb.
+
+Thu 13 Dec 2018 : new package homotopy_newton_steps contains the correct
+  procedures from series_and_trackers, with memory improvements.
+  Relaxed alpha and tolres defaults in homotopy_continuation_parameters.adb.
+  The Correct in *seriespade_tracker works, tested in ts_nxtpadsol 
+  on the first given start solution.
+  Fixed bug in resetting gamma in series_path_trackers.adb,
+  changed drivers_to_series_trackers, exposing the tpow value.
+  Basic version of the get_next() works for standard double precision,
+  in standard_seriespade_trackers.adb, tested by ts_nxtpadsol.adb.
+
+Wed 12 Dec 2018 : started writing of standard_seriespade_tracker, with
+  a test in ts_nxtpadsol, for a get_next() method for tracking curves.
+  Defined the init in standard_seriespade_tracker, and added new packages
+  dobldobl_seriespade_tracker and quaddobl_seriespade_tracker, with
+  test procedures in ts_nxtpadsol.
+
+Tue 11 Dec 2018 : added a corrector feedback loop to the package
+  series_and_trackers, relaxed the default corrector residual tolerance
+  in homotopy_continuation_parameters.adb.  To series_and_trackers, added
+  a counter for the corrector failures, changed series_path_trackers.adb.
+
+Mon 10 Dec 2018 : added time stamp writing to drivers_to_series_trackers,
+  updated series_and_trackers, and series_path_trackers.adb.
+
+Fri 7 Dec 2018 : only drop out with too small step size if the predictor
+  residual is larger than alpha, modified series_and_trackers.adb.
+
+Wed 5 Dec 2018 : flipped the sign of the t when assigning to the solution
+  data structure at the end of tracking a path in series_and_trackers.adb.
+
+Tue 4 Dec 2018 : added new_line(file); after printing solutions
+  in series_and_trackers.adb.
+
+Mon 3 Dec 2018 : extended drivers_to_series_trackers with procedures to
+  launch the path trackers.  Added to drivers_to_series_trackers the
+  procedures which take values of the homotopy continuation parameters.
+
+Sat 1 Dec 2018 : added an access type to homotopy_continuation_parameters,
+  plus operations for the storage of an instance of the parameters.
+  Adjusted the output in the tune of homotopy_continuation_parameters_io.adb.
+
+Thu 29 Nov 2018 : added a parameter for the tolerance on the corrector
+  residual to homotopy_continuation_parameters and updated the tuning
+  in homotopy_continuation_parameters_io.adb and updated the trackers
+  in series_and_trackers.adb.  To series_and_trackers, computed the
+  smallest and largest step sizes on a path, tested by ts_serpath.
+  Corrected wrong initialization in series_and_trackers.adb and
+  in ts_serpath.  Refactored the Main procedures in mainseries.adb.
+  Moved code from ts_serpath into series_path_trackers, for use in
+  mainseries.adb.  Remove superfluous new_line in series_and_trackers.adb.
+
+Wed 28 Nov 2018 : renamed the beta in homotopy_continuation_parameters
+  into pbeta and added the sbeta parameter, which then changed the put
+  and tune in homotopy_continuation_parameters_io.adb, and also changed
+  series_and_trackers.adb.  Added parameters to the Correct procedures
+  in series_and_trackers.  Updated path tracking statistics to
+  series_and_trackers and ts_serpath.adb.
+
+Tue 27 Nov 2018 : set the default number of steps on a path to 1000
+  in homotopy_continuation_parameters.adb and flipped the sign of the
+  argument of the shift() in series_and_trackers.adb.
+
+Mon 26 Nov 2018 : in series_and_trackers.adb, set the verbose option to
+  false when calling the Series_and_Predictors.Newton_Prediction().
+  In series_and_trackers.adb, swapped the correct() before the shift
+  and added an extra round of corrections at the end of the tracking.
+  Added stop condition also in the reporting version of the correct()
+  in series_and_trackers.adb.
+
+Sun 25 Nov 2018 : added residual computation on prediction solution to
+  series_and_trackers.adb, with a step reduction.  Adjusted the default
+  values in homotopy_continuation_parameters.adb.
+
+Sat 24 Nov 2018 : improved the output in series_and_trackers.adb and
+  ts_serpath.adb.
+
+Fri 23 Nov 2018 : in Tune() of homotopy_continuation_parameters_io,
+  changed the out into an in out type and did not reset the pars to
+  the default values.  In ts_serpath, reset the gamma constant to
+  the accessibility constant from the homotopy packages.
+  Reset the gamma constant in ts_serpath, for repeatable runs.
+  New package drivers_to_series_trackers, with code from ts_serpath.
+
+Thu 22 Nov 2018 : made the prompting for the Jacobian Rabinowitsch trick
+  optional in homotopy_series_readers.  New packages to manage the values
+  of parameters: homotopy_continuation_parameters, and its *_io,
+  used in series_and_trackers, tested by ts_serpath.
+  Added root refiners to ts_serpath.
+
+Wed 21 Nov 2018 : fixed another memory leak in series_and_homotopies.adb.
+
+Tue 20 Nov 2018 : cleared the Jacobian series matrices in
+  {standard,dobldobl,quaddobl}_newton_matrix_series.adb.
+  Added timers to series_and_trackers.adb and ts_serpath.adb.
+
+Mon 19 Nov 2018 : added clear() of Pade approximants vector after use in
+  series_and_trackers.adb.  Fixed memory leak in series_and_homotopies.adb.
+  In the verbose methods in power_series_methods.adb, clear(eva) added.
+
+Sat 17 Nov 2018 : added degrees of numerator and denominator to the
+  procedures in series_and_trackers, tested by ts_serpath.
+
+Fri 16 Nov 2018 : added clear()'s to standard_newton_matrix_series.adb.
+
+Thu 15 Nov 2018 : added clear() calls in series_and_trackers.adb in an
+  attempt to stop the memory leak.  To series_and_trackers.adb, added
+  the application of the Pade approximants in the predictors.
+
+Wed 14 Nov 2018 : added the construction of Pade approximants to
+  series_and_predictors.  Factored the setting of the step size into
+  a separate procedure in series_and_trackers.  Added a function to
+  cap the step size with the smallest forward pole radius in
+  series_and_predictors.
+
+Tue 13 Nov 2018 : made double double and quad double version like the
+  double versions, updated *dobl_rational_approximations and
+  *dobl_pade_approximants, wrapped smallest_forward_pole procedure into
+  a function in homotopy_pade_approximants, better tests in ts_padepred.
+  Documented a verbose option in standard_rational_approximations.ads.
+
+Sat 10 Nov 2018 : added value for the maximal degree of the series 
+  in series_and_trackers.adb, improved ts_serpath.adb.
+
+Fri 9 Nov 2018 : prompt for the maximal degree bound in mainseries.adb.
+
+Thu 8 Nov 2018 : added bound on the degrees of the series in
+  {standard,dobldobl,quaddobl}_newton_series and adjusted ts_sernew.adb.
+  Did the same for the *_newton_matrix_series packages.
+  Because of this added degree bound, adjusted power_series_methods,
+  ts_sersol, series_and_predictors, homotopy_series_readers.adb,
+  series_and_trackers.adb, and ts_padepred.adb.
+
+Wed 7 Nov 2018 : adjusted all *newton* and *pade_approximants.a*
+  files for the new series definitions.  Adjusted power_series_methods,
+  series_and_solutions, series_and_predictors, series_and_homotopies,
+  and homotopy_series_readers, ts_sernew, ts_sersol, and mainseries.adb.
+  Modified test_series_predictors, ts_serpred, ts_serhom, ts_serpath,
+  series_and_trackers, test_pade_predictors, ts_serpade, ts_padepred.
+
+Fri 26 Oct 2018 : moved test procedures into test_pade_predictors, code
+  taken from ts_padepred.adb.  Added procedures and functions to
+  test_pade_predictors to compute the forward pole radius and tested
+  the computation of the forward pole radius in ts_padepred.
+
+Thu 25 Oct 2018 : extended jacobian_rabinowitsch trick to extend solutions
+  with extra coordinates introduced by the trick, tested in ts_jacrabin.adb.
+  Updated homotopy_series_readers.adb to prompt the user if the Rabinowitsch
+  trick needs to be applied.  Also updated homotopy_series_readers.adb
+  for the trick in double double and quad double precision.
+
+Wed 24 Oct 2018 : new test procedure to develop the application of
+  the trick of Rabinowitsch.  Moved code out of ts_jacrabin.adb into
+  the new package jacobian_rabinowitsch_trick, with new versions for
+  double double and quad double precision.
+
+Tue 23 Oct 2018 : fixed the computation of the poles for denominators with
+  leading zero coefficients, modifying homotopy_pade_approximants
+  and ts_padepred.adb.
+
+Mon 22 Oct 2018 : wrapped reading of natural parameter homotopies into
+  homotopy_series_readers, adjusted test_series_predictors, tested by
+  ts_serpred.adb.  Also updated ts_padepred.adb for natural homotopies.
+
+Sat 20 Oct 2018 : added the computation to the smallest forward pole to
+  homotopy_pade_approximants, tested in ts_padepred.adb.
+
+Fri 19 Oct 2018 : test_series_predictors and test_pade_predictors are two
+  new packages with code taken from ts_serpred.adb, with new ts_padepred
+  to develop the Pade predictors.
+
+Thu 18 Oct 2018 : to *_pade_approximants, added Eval functions which take
+  double, double double, or quad double arguments.  Extended the test
+  procedures in ts_serpred.adb to evaluate the Pade approximant predictor.
+
+Wed 17 Oct 2018 : the homotopy in ts_serpred.adb needs to be constructed
+  with tpow = 1.  To black_box_univariate_solvers, added procedures which
+  take coefficient vectors on input, extended homotopy_pade_approximants.adb
+  with procedures to copute all poles, tested by ts_serpred.adb.
+
+Tue 16 Oct 2018 : added computation of poles to homotopy_pade_approximants,
+  tested by ts_serpred.adb.  Added verbose options to ts_serpred.adb,
+  standard_rational_approximations, standard_pade_approximants, and
+  homotopy_pade_approximants.
+
+Mon 15 Oct 2018 : in ts_serpade.adb, wrapped test code into procedures.
+
+Tue 27 Feb 2018 : added exception handlers to some procedures in
+  standard_newton_matrix_series.adb and power_series_methods.adb
+  to track down the cause of a crash.
+
+Sun 4 Jun 2017 : added index parameter in homotopy_series_readers and
+  homotopy_pade_approximants, fixed bug in example Pade test in ts_serpade.
+
+Fri 2 Jun 2017 : prompted for random gamma or not in the artificial parameter
+  homotopy in ts_serpade.  Patched the computation of the denominator of the
+  Pade approximant in case of a singular coefficient matrix with a zero right
+  hand size in the *_rational_approximations.adb bodies, tested by ts_serpade.
+  The homotopy system should not be cleared in homotopy_series_readers.adb.
+
+Wed 31 May 2017 : added the conversion of a Pade vector to a system of
+  polynomials in the *_pade_approximants_io packages.
+
+Mon 29 May 2017 : exposed the info parameter in the construction of the Pade
+  approximants in *_rational_approximations, which altered the body of the
+  *_pade_approximants packages, tested by ts_serpade.
+  To homotopy_series_readers, added an interface to take complex vectors
+  on input to construct a power series solution.
+  Added default symbol 't' to the *_pade_approximants_io packages.
+  New package homotopy_pade_approximants, tested in ts_serpade,
+  to wrap series Newton and the Pade approximant creators.
+
+Sun 28 May 2017 : new package standard_pade_approximants_io to compute the
+  string representation of a Pade approximant, called in ts_serpade.adb.
+  Similarly, made the packages {dobldobl,quaddobl}_pade_approximants_io.
+
+Sat 27 May 2017 : added vector of vector of Pade approximant types to the
+  *_pade_approximants packages.
+
+Thu 25 May 2017 : for the example test case, extended the range so it shows
+  a converging Pade approximant versus a diverging series.
+  For the general homotopy test, prompt for the number of steps to set
+  the range of evaluation of the series and Pade approximations.
+
+Wed 24 May 2017 : added an example test case to ts_serpade.
+
+Tue 23 May 2017 : new package standard_pade_approximations to encapsulate
+  a Pade approximant and a vector of Pade approximants, tested by ts_serpade.
+  Added {dobldobl,quaddobl}_pade_approximants packages.
+  Comparison with power series approximation added to ts_serpade.
+
+Mon 22 May 2017 : added coefficients function to ts_serpade and constructed
+  a rational pade approximation for the solution in the homotopy.
+  Added loop to test the Pade approximations at 5 points.
+
+Sun 21 May 2017 : the package homotopy_series_readers collects code of the
+  test procedures ts_serpred and ts_serpath.  Added default value for the
+  power of the continuation parameter in homotopy_series_readers.
+  Extra procedures in homotopy_series_readers for the given gamma constant.
+  Added series Newton to homotopy_series_readers, tested in ts_serpade.
+
+Sat 20 May 2017 : new package dobldobl_rational_approximations, tested by
+  ts_serpade, to compute Pade approximations with double doubles.
+  Added new package quaddobl_rational_approximations, for quad doubles.
+  Fixed call to proper double double and quad double functions to
+  evaluate the exp() and the log() function.
+
+Fri 19 May 2017 : new ts_serpade.adb to develop a rational approximation,
+  given a power series.  Added more tests: exp(x), sin(x), cos(x).
+  Refactored code in ts_serpade into standard_rational_approximations,
+  a new package.
+
+Tue 20 Dec 2016 : refactored mainseries.adb, with better questions to
+  select the options of phc -u and make room for echelon Newton.
+  To phc -u added the option of starting Newton at a series which
+  has several leading terms.
+
+Sat 17 Dec 2016 : refactored ts_sersol, to allow to start Newton's method
+  at series with more than just the leading term.
+
+Fri 16 Dec 2016 : in ts_sernew, fixed the call to echelon Newton.
+  In *newton_matrix_series.adb, fixed an error in the output. 
+  Started adding the echelon Newton methods to power_series_methods,
+  added more with tests in ts_sersol.
+
+Thu 15 Dec 2016 : added echelon Newton methods to more precision levels in 
+  the {standard,dobldobl,quaddobl}_newton_matrix_series.
+  Added tests to ts_sernew on the echelon Newton matrix series methods.
+
+Wed 14 Dec 2016 : extended standard_newton_matrix_series with the echelon
+  form of the linear solvers.
+
+Wed 30 Nov 2016 : fixed compilation error in series_and_predictors.adb.
+
+Sun 9 Oct 2016 : edits in series_and_trackers.adb for compiler warnings.
+
+Sat 8 Oct 2016 : to mainseries.adb added call to Newton-Puiseux method
+  for regular solution series.
+
+Mon 8 Aug 2016 : added a put_vector to power_series_methods.adb,
+  also for the dobldobl and quaddobl versions, and not only for SVD.
+
+Sun 31 Jul 2016 : extended power_series_methods to return rcond with LU.
+  Modified mainseries.adb so SVD_Newton is always applied.
+
+Sat 30 Jul 2016 : added test procedures to ts_sernew to test the SVD
+  Newton methods on matrix series.  To power_series_methods, added SVD Newton.
+
+Fri 29 Jul 2016 : extended *newton_matrix_series* with SVD_newton methods.
+
+Thu 28 Jul 2016 : cleaned up ts_serpath.adb, for compiler warnings,
+  and printing of the solution list at the end of the paths.
+  Added condition number estimate to standard_newton_matrix_series,
+  and the double double and quad double versions.
+
+Wed 27 Jul 2016 : used *newton_matrix_series in power_series_methods.adb,
+  which seems to work much better in the path trackers ts_serpath.adb.
+
+Mon 25 Jul 2016 : new package standard_newton_matrix_series which applies
+  linearization for the update in Newton's method, tested by ts_sernew.
+  For double double and quad double precision, Newton with linearization 
+  is defined in the packages {dobldobl,quaddobl}_newton_matrix_series.
+  Added test procedures in ts_sernew for double double and quad doubles.
+
+Sat 16 Jul 2016 : added track_many_paths procedures to series_and_trackers.
+
+Thu 14 Jul 2016 : changed series_and_predictors.adb so output is written
+  to file when in verbose mode.  Refactored code in ts_serpath to procedure.
+
+Wed 13 Jul 2016 : added prompting for file to ts_serpath.
+
+Tue 12 Jul 2016 : added double double and quad double versions to the
+  series_and_trackers, tested by ts_serpath.  Provided silent and verbose
+  versions in series_and_trackers, for testing by ts_serpath.
+  Added file to the arguments in series_and_predictors, which changed
+  ts_serpred and series_and_trackers.adb.
+
+Mon 11 Jul 2016 : new package series_and_trackers, with code from ts_serpath.
+
+Sun 10 Jul 2016 : ts_serpath contains a very simple path tracker.
+
+Sat 9 Jul 2016 : new test procedure ts_serpath to develop the path tracking
+  with power series.
+
+Thu 7 Jul 2016 : replacing order by degree changed *newton_series*,
+  ts_sernew, and series_and_predictors.  In series_and_predictors,
+  renamed Least_Order() to Order().
+
+Wed 6 Jul 2016 : extra functions in series_and_solutions to work directly
+  with the coordinate vectors of solutions.  Refactored code from ts_serpred
+  to series_and_predictors, for the first stage of the series predictor.
+  Tested the setting of step size in ts_serpred, also for dd/qd.
+
+Tue 5 Jul 2016 : bug fix in series_and_solutions.adb with the create
+  in case idx = 0; this special case must have a separate loop.
+  Made not verbose versions in power_series_methods.adb silent.
+  New package series_and_predictors, tested by ts_serpred.
+  Added setting of the step size to series_and_predictors.
+
+Mon 4 Jul 2016 : added eval function to series_and_homotopies, tested
+  by ts_serhom.  Added shift operations to series_and_homotopies,
+  with added test in ts_serhom.  DoblDobl and QuadDobl versions of
+  the functions and procedures are added to series_and_homotopies,
+  with corresponding tests in ts_serhom.
+
+Sun 3 Jul 2016 : new package series_and_homotopies, tested by ts_serhom.
+
+Wed 29 Jun 2016 : new package series_and_solutions, tested by ts_sersol.
+  Added tests in double double and quad double precision to ts_sersol.
+  New package power_series_methods with code factored out of ts_sersol.
+  Added mainseries to define the phc -u.
+
+Tue 28 Jun 2016 : in _newton_series.adb, for QR_Newton, also write the
+  result of the polynomial evaluation at the start.
+  Applied set_order() to the polynomial systems and its Jacobian matrix
+  in standard_newton_series.adb.
+
+Mon 27 Jun 2016 : new packages {dobldobl,quaddobl}_newton_series for double
+  double and quad double Newton on series, tested by ts_sernew.
+
+Fri 24 Jun 2016 : added QR Newton to standard_newton_series,
+  with added tests in ts_sernew.
+
+Tue 21 Jun 2016 : updated standard_newton_series with many steps,
+  tested by ts_sernew.
+
+Mon 20 Jun 2016 : new packages standard_newton_series, tested by ts_sernew.
+
+Wed 7 Oct 2015 : fixed call to silent root refiners in ts_extrapts for
+  double double and quad double precisin.
+
+Mon 21 Sep 2015 : extended black_box_univariate_solvers with routines in
+  double double and quad double precision.
+
+Thu 28 Aug 2013 : extended black_box_univariate_solvers with routines to
+  solving univariate Laurent polynomials with multiprecision arithmetic.
+  Exported more routines for the C to PHCpack interface.
+
+Sat 30 Nov 2013 : updated black_box_univariate_solvers.a*,
+  sample_plane_curves.a*, ts_extrapol.adb and ts_extrapts for multiprecision.
+
+Fri 29 Nov 2013 : changed sample_plane_curves.adb and ts_extrapol.adb
+  in search for a bug that turned out to be in the copy of lists in
+  multprec_complex_solutions.adb.
+
+Thu 28 Nov 2013 : higher-order predictors in multiprecision arithmetic
+  in a new package multprec_extrapolators, and for testing purposes,
+  updated sample_plane_curves, multprec_durand_kerner, ts_extrapol, and
+  black_box_univariate_solvers.
+
+Mon 10 Jun 2013 : all files in this directory changed because of the
+  new types natural32 and integer32.
+
+Tue 14 May 2013 : new directory with code from Root_Counts/Implift 
+  and ../Trackers.  New package sample_plane_curves, with updates in
+  ts_extrapol and a new ts_extrapts.

@@ -1,0 +1,6 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnat/s-imgboo.adb"
+node: { title: "system__img_bool__image_boolean" label: "Image_Boolean\n/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-zynq7000/gnat/s-imgboo.adb:48:4\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "memcpy" label: "builtin_memcpy\n<built-in>" shape : ellipse }
+edge: { sourcename: "system__img_bool__image_boolean" targetname: "memcpy" }
+edge: { sourcename: "system__img_bool__image_boolean" targetname: "memcpy" }
+}

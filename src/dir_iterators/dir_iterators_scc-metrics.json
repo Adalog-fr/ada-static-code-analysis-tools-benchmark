@@ -1,0 +1,154 @@
+{
+  "Name": "Ada",
+  "Bytes": 14476,
+  "CodeBytes": 0,
+  "Lines": 417,
+  "Code": 300,
+  "Comment": 46,
+  "Blank": 71,
+  "Complexity": 8,
+  "Count": 5,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dir_iterators-ancestor.ads",
+      "Extension": "ads",
+      "Location": "src/dir_iterators-ancestor.ads",
+      "Symlocation": "",
+      "Bytes": 1703,
+      "Lines": 51,
+      "Code": 36,
+      "Comment": 1,
+      "Blank": 14,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "ada.iterator_interfaces",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dir_iterators.ads",
+      "Extension": "ads",
+      "Location": "src/dir_iterators.ads",
+      "Symlocation": "",
+      "Bytes": 45,
+      "Lines": 3,
+      "Code": 2,
+      "Comment": 0,
+      "Blank": 1,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dir_iterators-recursive.ads",
+      "Extension": "ads",
+      "Location": "src/dir_iterators-recursive.ads",
+      "Symlocation": "",
+      "Bytes": 3761,
+      "Lines": 97,
+      "Code": 64,
+      "Comment": 14,
+      "Blank": 19,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.directories",
+        "ada.finalization",
+        "ada.iterator_interfaces",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dir_iterators-recursive.adb",
+      "Extension": "adb",
+      "Location": "src/dir_iterators-recursive.adb",
+      "Symlocation": "",
+      "Bytes": 7198,
+      "Lines": 206,
+      "Code": 146,
+      "Comment": 31,
+      "Blank": 29,
+      "Complexity": 8,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/dir_iterators-ancestor.adb",
+      "Extension": "adb",
+      "Location": "src/dir_iterators-ancestor.adb",
+      "Symlocation": "",
+      "Bytes": 1769,
+      "Lines": 60,
+      "Code": 52,
+      "Comment": 0,
+      "Blank": 8,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.directories"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.vectors": 1,
+    "ada.directories": 2,
+    "ada.finalization": 2,
+    "ada.iterator_interfaces": 2,
+    "ada.strings.unbounded": 2
+  }
+}

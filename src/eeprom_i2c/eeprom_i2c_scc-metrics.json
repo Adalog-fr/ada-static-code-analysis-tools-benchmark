@@ -1,0 +1,226 @@
+{
+  "Name": "Ada",
+  "Bytes": 29250,
+  "CodeBytes": 0,
+  "Lines": 669,
+  "Code": 371,
+  "Comment": 227,
+  "Blank": 71,
+  "Complexity": 12,
+  "Count": 8,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c-mc24xx256.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c-mc24xx256.ads",
+      "Symlocation": "",
+      "Bytes": 1834,
+      "Lines": 44,
+      "Code": 25,
+      "Comment": 15,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c-mc24xx02.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c-mc24xx02.ads",
+      "Symlocation": "",
+      "Bytes": 1938,
+      "Lines": 43,
+      "Code": 24,
+      "Comment": 15,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c-mc24xx64.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c-mc24xx64.ads",
+      "Symlocation": "",
+      "Bytes": 1984,
+      "Lines": 43,
+      "Code": 24,
+      "Comment": 15,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c-mc24xx01.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c-mc24xx01.ads",
+      "Symlocation": "",
+      "Bytes": 1938,
+      "Lines": 43,
+      "Code": 24,
+      "Comment": 15,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c-mc24xx16.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c-mc24xx16.ads",
+      "Symlocation": "",
+      "Bytes": 1959,
+      "Lines": 43,
+      "Code": 24,
+      "Comment": 15,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c-mc24xx512.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c-mc24xx512.ads",
+      "Symlocation": "",
+      "Bytes": 1986,
+      "Lines": 43,
+      "Code": 24,
+      "Comment": 15,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal.i2c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c.adb",
+      "Extension": "adb",
+      "Location": "src/eeprom_i2c.adb",
+      "Symlocation": "",
+      "Bytes": 8602,
+      "Lines": 226,
+      "Code": 147,
+      "Comment": 54,
+      "Blank": 25,
+      "Complexity": 12,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/eeprom_i2c.ads",
+      "Extension": "ads",
+      "Location": "src/eeprom_i2c.ads",
+      "Symlocation": "",
+      "Bytes": 9009,
+      "Lines": 184,
+      "Code": 79,
+      "Comment": 83,
+      "Blank": 22,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "hal",
+        "hal.i2c"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "hal": 1,
+    "hal.i2c": 7
+  }
+}

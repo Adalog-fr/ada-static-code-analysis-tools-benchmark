@@ -1,0 +1,13 @@
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-driver.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-readers.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-readers.ads
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers-inputs.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers-inputs.ads
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers-outputs.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers-outputs.ads
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers-types.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers-types.ads
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema-writers.ads
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema.adb
+/workspaces/bench-source/src/vss/tools/json_schema/json_schema.ads

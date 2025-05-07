@@ -1,0 +1,329 @@
+{
+  "Name": "Ada",
+  "Bytes": 69651,
+  "CodeBytes": 0,
+  "Lines": 2217,
+  "Code": 1412,
+  "Comment": 404,
+  "Blank": 401,
+  "Complexity": 51,
+  "Count": 11,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-contexts-server.adb",
+      "Extension": "adb",
+      "Location": "src/tls-contexts-server.adb",
+      "Symlocation": "",
+      "Bytes": 1753,
+      "Lines": 67,
+      "Code": 34,
+      "Comment": 15,
+      "Blank": 18,
+      "Complexity": 2,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-contexts-server.ads",
+      "Extension": "ads",
+      "Location": "src/tls-contexts-server.ads",
+      "Symlocation": "",
+      "Bytes": 1614,
+      "Lines": 46,
+      "Code": 24,
+      "Comment": 12,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "gnat.sockets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls.ads",
+      "Extension": "ads",
+      "Location": "src/tls.ads",
+      "Symlocation": "",
+      "Bytes": 2853,
+      "Lines": 84,
+      "Code": 34,
+      "Comment": 35,
+      "Blank": 15,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.io_exceptions",
+        "ada.streams",
+        "ada.strings.maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-contexts-client.ads",
+      "Extension": "ads",
+      "Location": "src/tls-contexts-client.ads",
+      "Symlocation": "",
+      "Bytes": 2221,
+      "Lines": 67,
+      "Code": 36,
+      "Comment": 18,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.finalization",
+        "gnat.sockets"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-configure.adb",
+      "Extension": "adb",
+      "Location": "src/tls-configure.adb",
+      "Symlocation": "",
+      "Bytes": 954,
+      "Lines": 47,
+      "Code": 21,
+      "Comment": 15,
+      "Blank": 11,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-configure.ads",
+      "Extension": "ads",
+      "Location": "src/tls-configure.ads",
+      "Symlocation": "",
+      "Bytes": 5866,
+      "Lines": 155,
+      "Code": 45,
+      "Comment": 78,
+      "Blank": 32,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls.adb",
+      "Extension": "adb",
+      "Location": "src/tls.adb",
+      "Symlocation": "",
+      "Bytes": 2819,
+      "Lines": 122,
+      "Code": 90,
+      "Comment": 15,
+      "Blank": 17,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "interfaces.c.strings",
+        "libtls_bindings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-contexts-client.adb",
+      "Extension": "adb",
+      "Location": "src/tls-contexts-client.adb",
+      "Symlocation": "",
+      "Bytes": 3607,
+      "Lines": 141,
+      "Code": 104,
+      "Comment": 15,
+      "Blank": 22,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "interfaces.c"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-contexts.ads",
+      "Extension": "ads",
+      "Location": "src/tls-contexts.ads",
+      "Symlocation": "",
+      "Bytes": 8042,
+      "Lines": 227,
+      "Code": 103,
+      "Comment": 74,
+      "Blank": 50,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.finalization",
+        "ada.streams",
+        "ada.strings.unbounded",
+        "interfaces.c.strings",
+        "libtls_bindings",
+        "tls.configure"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/generated/libtls_bindings.ads",
+      "Extension": "ads",
+      "Location": "src/generated/libtls_bindings.ads",
+      "Symlocation": "",
+      "Bytes": 23161,
+      "Lines": 651,
+      "Code": 516,
+      "Comment": 27,
+      "Blank": 108,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/tls-contexts.adb",
+      "Extension": "adb",
+      "Location": "src/tls-contexts.adb",
+      "Symlocation": "",
+      "Bytes": 16761,
+      "Lines": 610,
+      "Code": 405,
+      "Comment": 100,
+      "Blank": 105,
+      "Complexity": 35,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar.formatting",
+        "interfaces",
+        "interfaces.c",
+        "system.storage_elements"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.calendar.formatting": 1,
+    "ada.containers.vectors": 1,
+    "ada.finalization": 2,
+    "ada.io_exceptions": 1,
+    "ada.streams": 2,
+    "ada.strings.maps": 1,
+    "ada.strings.unbounded": 3,
+    "gnat.sockets": 2,
+    "interfaces": 1,
+    "interfaces.c": 3,
+    "interfaces.c.strings": 2,
+    "libtls_bindings": 2,
+    "system.storage_elements": 1,
+    "tls.configure": 1
+  }
+}

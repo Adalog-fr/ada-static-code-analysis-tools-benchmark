@@ -1,0 +1,128 @@
+{
+  "Name": "Ada",
+  "Bytes": 4253,
+  "CodeBytes": 0,
+  "Lines": 145,
+  "Code": 97,
+  "Comment": 20,
+  "Blank": 28,
+  "Complexity": 7,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/libadalang2xml.adb",
+      "Extension": "adb",
+      "Location": "src/libadalang2xml.adb",
+      "Symlocation": "",
+      "Bytes": 1107,
+      "Lines": 43,
+      "Code": 31,
+      "Comment": 2,
+      "Blank": 10,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line",
+        "ada.text_io",
+        "components",
+        "libadalang.analysis"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/components.ads",
+      "Extension": "ads",
+      "Location": "src/components.ads",
+      "Symlocation": "",
+      "Bytes": 258,
+      "Lines": 11,
+      "Code": 5,
+      "Comment": 2,
+      "Blank": 4,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "libadalang.analysis"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "config/libadalang2xml_config.ads",
+      "Extension": "ads",
+      "Location": "config/libadalang2xml_config.ads",
+      "Symlocation": "",
+      "Bytes": 587,
+      "Lines": 20,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 7,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/components.adb",
+      "Extension": "adb",
+      "Location": "src/components.adb",
+      "Symlocation": "",
+      "Bytes": 2301,
+      "Lines": 71,
+      "Code": 49,
+      "Comment": 15,
+      "Blank": 7,
+      "Complexity": 4,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.fixed",
+        "ada.text_io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.command_line": 1,
+    "ada.strings.fixed": 1,
+    "ada.text_io": 2,
+    "components": 1,
+    "libadalang.analysis": 2
+  }
+}

@@ -1,0 +1,5 @@
+project B is
+
+   Variable2 := "B.Var2";
+
+end B;

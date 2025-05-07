@@ -1,0 +1,9 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/light-tasking-nrf52832/gnat/i-nrf52-nvmc.ads"
+node: { title: "interfaces__nrf52__nvmc__ready_registerIP" label: "ready_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__nvmc__config_registerIP" label: "config_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__nvmc__eraseall_registerIP" label: "eraseall_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__nvmc__eraseuicr_registerIP" label: "eraseuicr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__nvmc__icachecnf_registerIP" label: "icachecnf_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__nvmc__nvmc_peripheralEQ" label: "nvmc_peripheralEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__nrf52__nvmc__nvmc_peripheralIP" label: "nvmc_peripheralIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+}

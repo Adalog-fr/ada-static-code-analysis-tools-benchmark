@@ -1,0 +1,30 @@
+name = "tests"
+description = "tests for rewriters"
+version = "23.0.0"
+authors = ["Pierre van de Laar"]
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+executables = ["tests"]
+
+[[depends-on]]
+aunit = "*"
+libadalang = "*"
+rejuvenation = "*"
+rewriters = "^23.0.0"
+
+[[pins]]
+
+[pins.rewriters]
+path = ".."
+
+[pins.aunit]
+path = "../../aunit"
+
+[pins.libadalang]
+path = "../../libadalang"
+
+[pins.rejuvenation]
+path = "../../rejuvenation"
+
+[build-switches."*"]
+Compile_Checks = "none"

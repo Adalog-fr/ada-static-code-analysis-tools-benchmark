@@ -1,0 +1,18 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/i-rp2040-timer.ads"
+node: { title: "interfaces__rp2040__timer__armed_registerIP" label: "armed_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__Tdbgpause_dbg_field_arrayBIP" label: "Tdbgpause_dbg_field_arrayBIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__dbgpause_dbg_fieldEQ" label: "dbgpause_dbg_fieldEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__dbgpause_dbg_fieldIP" label: "dbgpause_dbg_fieldIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__dbgpause_registerEQ" label: "dbgpause_registerEQ\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+node: { title: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "gnat_rcheck_PE_Unchecked_Union_Restriction\n<built-in>" shape : ellipse }
+edge: { sourcename: "interfaces__rp2040__timer__dbgpause_registerEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/i-rp2040-timer.ads:88:9" }
+node: { title: "interfaces__rp2040__timer__dbgpause_registerIP" label: "dbgpause_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__pause_registerIP" label: "pause_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__intr_registerIP" label: "intr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__inte_registerIP" label: "inte_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__intf_registerIP" label: "intf_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__ints_registerIP" label: "ints_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "interfaces__rp2040__timer__timer_peripheralEQ" label: "timer_peripheralEQ\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "interfaces__rp2040__timer__timer_peripheralEQ" targetname: "__gnat_rcheck_PE_Unchecked_Union_Restriction" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/i-rp2040-timer.ads:247:9" }
+node: { title: "interfaces__rp2040__timer__timer_peripheralIP" label: "timer_peripheralIP\n<built-in>\n16 bytes (static)\n0 dynamic objects" }
+}

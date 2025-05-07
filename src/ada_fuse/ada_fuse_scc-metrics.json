@@ -1,0 +1,336 @@
+{
+  "Name": "Ada",
+  "Bytes": 117091,
+  "CodeBytes": 0,
+  "Lines": 4329,
+  "Code": 2677,
+  "Comment": 608,
+  "Blank": 1044,
+  "Complexity": 63,
+  "Count": 11,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-aux.ads",
+      "Extension": "ads",
+      "Location": "src/fuse-aux.ads",
+      "Symlocation": "",
+      "Bytes": 6267,
+      "Lines": 239,
+      "Code": 162,
+      "Comment": 25,
+      "Blank": 52,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-aux.adb",
+      "Extension": "adb",
+      "Location": "src/fuse-aux.adb",
+      "Symlocation": "",
+      "Bytes": 16470,
+      "Lines": 747,
+      "Code": 452,
+      "Comment": 79,
+      "Blank": 216,
+      "Complexity": 34,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar.conversions",
+        "ada.directories",
+        "ada.io_exceptions"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse.adb",
+      "Extension": "adb",
+      "Location": "src/fuse.adb",
+      "Symlocation": "",
+      "Bytes": 354,
+      "Lines": 17,
+      "Code": 12,
+      "Comment": 1,
+      "Blank": 4,
+      "Complexity": 1,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse.ads",
+      "Extension": "ads",
+      "Location": "src/fuse.ads",
+      "Symlocation": "",
+      "Bytes": 816,
+      "Lines": 29,
+      "Code": 10,
+      "Comment": 9,
+      "Blank": 10,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.indefinite_vectors"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-general.ads",
+      "Extension": "ads",
+      "Location": "src/fuse-general.ads",
+      "Symlocation": "",
+      "Bytes": 1917,
+      "Lines": 81,
+      "Code": 50,
+      "Comment": 10,
+      "Blank": 21,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.exceptions",
+        "ada.text_io",
+        "fuse.system",
+        "interfaces.c",
+        "interfaces.c.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-operations.ads",
+      "Extension": "ads",
+      "Location": "src/fuse-operations.ads",
+      "Symlocation": "",
+      "Bytes": 9796,
+      "Lines": 342,
+      "Code": 173,
+      "Comment": 120,
+      "Blank": 49,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "fuse.general",
+        "fuse.system",
+        "interfaces.c",
+        "interfaces.c.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-general.adb",
+      "Extension": "adb",
+      "Location": "src/fuse-general.adb",
+      "Symlocation": "",
+      "Bytes": 2563,
+      "Lines": 110,
+      "Code": 84,
+      "Comment": 4,
+      "Blank": 22,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.calendar",
+        "ada.directories",
+        "gnat.calendar.time_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-main.adb",
+      "Extension": "adb",
+      "Location": "src/fuse-main.adb",
+      "Symlocation": "",
+      "Bytes": 25966,
+      "Lines": 1069,
+      "Code": 648,
+      "Comment": 122,
+      "Blank": 299,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.command_line"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/fuse-main.ads",
+      "Extension": "ads",
+      "Location": "src/fuse-main.ads",
+      "Symlocation": "",
+      "Bytes": 25239,
+      "Lines": 972,
+      "Code": 527,
+      "Comment": 176,
+      "Blank": 269,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.direct_io",
+        "ada.environment_variables",
+        "fuse.general",
+        "fuse.operations",
+        "fuse.system",
+        "interfaces.c",
+        "interfaces.c.strings"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/system/linux64/fuse-system.adb",
+      "Extension": "adb",
+      "Location": "src/system/linux64/fuse-system.adb",
+      "Symlocation": "",
+      "Bytes": 775,
+      "Lines": 40,
+      "Code": 30,
+      "Comment": 1,
+      "Blank": 9,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/system/linux64/fuse-system.ads",
+      "Extension": "ads",
+      "Location": "src/system/linux64/fuse-system.ads",
+      "Symlocation": "",
+      "Bytes": 26928,
+      "Lines": 683,
+      "Code": 529,
+      "Comment": 61,
+      "Blank": 93,
+      "Complexity": 16,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "interfaces",
+        "interfaces.c"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.calendar": 1,
+    "ada.calendar.conversions": 1,
+    "ada.command_line": 2,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.direct_io": 1,
+    "ada.directories": 2,
+    "ada.environment_variables": 1,
+    "ada.exceptions": 1,
+    "ada.io_exceptions": 1,
+    "ada.text_io": 1,
+    "ada.unchecked_conversion": 1,
+    "fuse.general": 2,
+    "fuse.operations": 1,
+    "fuse.system": 3,
+    "gnat.calendar.time_io": 1,
+    "interfaces": 1,
+    "interfaces.c": 4,
+    "interfaces.c.strings": 3
+  }
+}

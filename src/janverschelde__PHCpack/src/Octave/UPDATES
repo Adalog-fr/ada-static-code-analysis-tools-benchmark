@@ -1,0 +1,7 @@
+Mon 31 Aug 2020 : fixed deflation.m by reverting the default algorithmic
+  evaluation to the symbolic evaluation so the deflated system is written.
+
+Sun 24 May 2015 : mixed_volume of PHClab now also works for start systems,
+  when the first option is turned on.
+
+Sat 23 May 2015 : fixed bug in mixed_volume of PHClab.

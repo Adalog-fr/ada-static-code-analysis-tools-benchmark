@@ -1,0 +1,5 @@
+src/sha1_custom_tests.adb
+src/sha1_custom_tests.ads
+src/sha1_streams_tests.adb
+src/sha1_streams_tests.ads
+src/sha1_tests.adb

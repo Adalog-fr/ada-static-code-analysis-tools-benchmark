@@ -1,0 +1,137 @@
+Accelerated Vector Norm computation in PHCv2.4.90.
+
+The code in this folder is to experiment with GPU accelerated algorithms
+to compute 2-norms of vectors in multiple double precision.
+
+-----------------------------------------------------------------------------
+file name               : short description
+-----------------------------------------------------------------------------
+double_double_functions : double double precision arithmetic on host
+double_double_gpufun    : double double precision arithmetic on device
+dbl2_sqrt_kernels       : sqrt in double double precision on device
+test_double_doubles     : a test on double double_functions
+triple_double_functions : triple double precision arithmetic on host
+triple_double_gpufun    : triple double precision arithmetic on device
+dbl3_sqrt_kernels       : sqrt in triple double precision on device
+test_triple_doubles     : a test on triple double_functions
+quad_double_functions   : quad double precision arithmetic on host
+quad_double_gpufun      : quad double precision arithmetic on device
+dbl4_sqrt_kernels       : sqrt in quad double precision on device
+test_quad_doubles       : a test on quad double_functions
+penta_double_functions  : penta double precision arithmetic on host
+penta_double_gpufun     : penta double precision arithmetic on device
+dbl5_sqrt_kernels       : sqrt in penta double precision on device
+test_penta_doubles      : a test on penta double_functions
+octo_double_functions   : octo double precision arithmetic on host
+octo_double_gpufun      : octo double precision arithmetic on device
+dbl8_sqrt_kernels       : sqrt in octo double precision on device
+test_octo_doubles       : a test on octo double_functions
+deca_double_functions   : deca double precision arithmetic on host
+deca_double_gpufun      : deca double precision arithmetic on device
+dbl10_sqrt_kernels      : sqrt in deca double precision on device
+test_deca_doubles       : a test on deca double_functions
+hexa_double_functions   : hexa double precision arithmetic on host
+hexa_double_gpufun      : hexa double precision arithmetic on device
+dbl16_sqrt_kernels      : sqrt in hexa double precision on device
+test_hexa_doubles       : a test on hexa double_functions
+-----------------------------------------------------------------------------
+random_numbers          : generators of random doubles and random angles
+random_numbers_windows  : specific include for windows MS VC
+random_vectors          : random vectors in double precision
+random2_vectors         : random vectors in double double precision
+random3_vectors         : random vectors in triple double precision
+random4_vectors         : random vectors in quad double precision
+random5_vectors         : random vectors in penta double precision
+random8_vectors         : random vectors in octo double precision
+random10_vectors          random vectors in deca double precision
+parse_run_arguments     : parse command line arguments for run_ functions
+-----------------------------------------------------------------------------
+dbl_norm_host           : 2-norm of double vectors on host
+dbl2_norm_host          : 2-norm of double double vectors on host
+dbl3_norm_host          : 2-norm of triple double vectors on host
+dbl4_norm_host          : 2-norm of quad double vectors on host
+dbl5_norm_host          : 2-norm of penta double vectors on host
+dbl8_norm_host          : 2-norm of octo double vectors on host
+dbl10_norm_host         : 2-norm of deca double vectors on host
+dbl_norm_kernels        : kernels for 2-norm of double vectors
+dbl2_norm_kernels       : kernels for 2-norm of double double vectors
+dbl3_norm_kernels       : kernels for 2-norm of triple double vectors
+dbl4_norm_kernels       : kernels for 2-norm of quad double vectors
+dbl5_norm_kernels       : kernels for 2-norm of penta double vectors
+dbl8_norm_kernels       : kernels for 2-norm of octo double vectors
+dbl10_norm_kernels      : kernels for 2-norm of deca double vectors
+run_dbl_norm            : test norm computation of double vectors
+run_dbl2_norm           : test norm computation of double double vectors
+run_dbl3_norm           : test norm computation of triple double vectors
+run_dbl4_norm           : test norm computation of quad double vectors
+run_dbl5_norm           : test norm computation of penta double vectors
+run_dbl8_norm           : test norm computation of octo double vectors
+run_dbl10_norm          : test norm computation of deca double vectors
+test_dbl_norm           : test double 2-norm without command line parameters
+test_dbl2_norm          : test double double 2-norm
+test_dbl3_norm          : test triple double 2-norm
+test_dbl4_norm          : test quad double 2-norm
+test_dbl5_norm          : test penta double 2-norm
+test_dbl8_norm          : test octo double 2-norm
+test_dbl10_norm         : test deca double 2-norm
+-----------------------------------------------------------------------------
+cmplx_norm_host         : 2-norm of complex double vectors on host
+cmplx2_norm_host        : 2-norm of complex double double vectors on host
+cmplx3_norm_host        : 2-norm of complex triple double vectors on host
+cmplx4_norm_host        : 2-norm of complex quad double vectors on host
+cmplx5_norm_host        : 2-norm of complex penta double vectors on host
+cmplx8_norm_host        : 2-norm of complex octo double vectors on host
+cmplx10_norm_host       : 2-norm of complex deca double vectors on host
+cmplx_norm_kernels      : 2-norm kernels for complex double vectors
+cmplx2_norm_kernels     : 2-norm kernels for complex double double vectors
+cmplx3_norm_kernels     : 2-norm kernels for complex triple double vectors
+cmplx4_norm_kernels     : 2-norm kernels for complex quad double vectors
+cmplx5_norm_kernels     : 2-norm kernels for complex penta double vectors
+cmplx8_norm_kernels     : 2-norm kernels for complex octo double vectors
+cmplx10_norm_kernels    : 2-norm kernels for complex deca double vectors
+run_cmplx_norm          : test norms of complex double vectors
+run_cmplx2_norm         : test norms of complex double double vectors
+run_cmplx3_norm         : test norms of complex triple double vectors
+run_cmplx4_norm         : test norms of complex quad double vectors
+run_cmplx5_norm         : test norms of complex penta double vectors
+run_cmplx8_norm         : test norms of complex octo double vectors
+run_cmplx10_norm        : test norms of complex deca double vectors
+test_cmplx_norm         : test complex 2-norm without command line parameters
+test_cmplx2_norm        : test 2-norm of complex double double vectors
+test_cmplx3_norm        : test 2-norm of complex triple double vectors
+test_cmplx4_norm        : test 2-norm of complex quad double vectors
+test_cmplx5_norm        : test 2-norm of complex penta double vectors
+test_cmplx8_norm        : test 2-norm of complex octo double vectors
+test_cmplx10_norm       : test 2-norm of complex deca double vectors
+-----------------------------------------------------------------------------
+
+To build, type "make run_dbl_norm" and "make clean" to clean up.
+
+An example of a run with the programs:
+
+$ time ./run_dbl_norm 64 1024 10000 0
+
+real	0m0.965s
+user	0m0.414s
+sys	0m0.548s
+$ time ./run_dbl_norm 64 1024 10000 1
+
+real	0m0.073s
+user	0m0.072s
+sys	0m0.001s
+$ time ./run_dbl_norm 64 1024 10000 2
+GPU norm : 26.2328
+GPU norm after normalization : 1
+CPU norm : 26.2328
+CPU norm after normalization : 1
+
+real	0m0.973s
+user	0m0.453s
+sys	0m0.519s
+$ 
+
+On windows, use Measure-Command:
+
+Norms> Measure-Command {./run_dbl_norm 32 32 1000 0}
+Norms> Measure-Command {./run_dbl_norm 32 32 1000 1}
+Norms> Measure-Command {./run_dbl_norm 32 32 1000 2}

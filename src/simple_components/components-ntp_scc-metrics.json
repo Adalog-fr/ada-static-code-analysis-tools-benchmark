@@ -1,0 +1,64 @@
+{
+  "Name": "Ada",
+  "Bytes": 8082,
+  "CodeBytes": 0,
+  "Lines": 178,
+  "Code": 93,
+  "Comment": 76,
+  "Blank": 9,
+  "Complexity": 3,
+  "Count": 2,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-ntp.ads",
+      "Extension": "ads",
+      "Location": "gnat-sockets-ntp.ads",
+      "Symlocation": "",
+      "Bytes": 2615,
+      "Lines": 53,
+      "Code": 8,
+      "Comment": 42,
+      "Blank": 3,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "gnat-sockets-ntp.adb",
+      "Extension": "adb",
+      "Location": "gnat-sockets-ntp.adb",
+      "Symlocation": "",
+      "Bytes": 5467,
+      "Lines": 125,
+      "Code": 85,
+      "Comment": 34,
+      "Blank": 6,
+      "Complexity": 3,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": []
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {}
+}

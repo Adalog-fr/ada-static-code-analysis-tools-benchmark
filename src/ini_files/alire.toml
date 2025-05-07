@@ -1,0 +1,13 @@
+authors = ["Rolf Ebert","Gautier de Montmollin"]
+description = "A standalone, portable Ada package for configuration files"
+licenses = "MIT"
+maintainers = ["rolf.ebert.gcc@gmx.de","gdemont@hotmail.com"]
+maintainers-logins = ["RREE","zertovitch"]
+name = "ini_files"
+project-files = ["ini_files.gpr"]
+tags = ["ini","cfg","config"]
+version = "10.0.0"
+website = "https://sourceforge.net/p/ini-files/"
+
+[build-switches."*"]
+Compile_Checks = "none"

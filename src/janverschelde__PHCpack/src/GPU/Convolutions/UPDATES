@@ -1,0 +1,285 @@
+Wed 7 Jun 2023 : new makefile_windows2 for 2022 Community Microsoft visual
+  Studio and NVIDIA CUDA 12.1.
+
+Tue 30 May 2023 : extended {random2, random4, random8}_series with
+  functions to generate random series following the exponentials.
+
+Mon 22 May 2023 : new function random_octo_double to generate a random
+  complex number on the unit circle in octo double precision.
+
+Tue 9 May 2023 : added __syncthreads()'s to dbl_convolutions_kernels.cu.
+
+Wed 19 Oct 2022 : extended random2_series with a dbl2_exponential function;
+  also extended {random4, random8}_series likewise.
+
+Mon 17 Oct 2022 : extended random4_series with cmplx4_exponentials function
+  and random8_series with cmplx8_exponentials function.
+
+Sun 16 Oct 2022 : extended random2_series with cmplx2_exponentials function.
+
+Thu 29 Sep 2022 : in {dbl,dbl2,dbl4,dbl8}_monomials_host.cpp fixed index
+  error for the special case of two variables.
+
+Fri 16 Sep 2022 : fixed CPU_cmplx8_evaldiff in dbl8_monomials_host.cpp,
+  for the special case of two variables.
+
+Sun 11 Sep 2022 : fixed deallocation in CPU_cmplx4_evaldiff for two variables
+  in dbl4_monomials_host.cpp.
+
+Wed 1 Jun 2022 : fixed bug in dbl4_monomials_host.cpp for the case of
+  two variables in CPU_dbl4_evaldiff and CPU_cmplx4_evaldiff.
+  Applied the same fix in dbl8_monomials_host.cpp.
+
+Thu 26 May 2022 : bugs fixed in dbl_monomials_host.cpp for the special case
+  of two variables in the functions CPU_dbl_evaldiff and CPU_cmplx_evaldiff.
+  Fixed similar bugs in dbl2_monomials_host.cpp.
+
+Mon 28 Jun 2021 : extended random_series with function to generate series
+  following the expansion of log(1+x).
+
+Mon 5 Apr 2021 : extended dbl_convolutions_host with functions to multiply
+  Laurent series and to compute the inverse of a Laurent series.
+
+Sat 13 Feb 2021 : extended dbl_convolutions_host with a function to
+  compute the inverse of a series with complex coefficients.
+
+Fri 12 Feb 2021 : changed GPU_dbl_inverse into CPU_dbl_inverse in
+  dbl_convolutions_host.
+
+Wed 10 Feb 2021 : to dbl_convolutions_host, added a function to compute
+  the inverse of a power series.
+
+Mon 8 Feb 2021 : extended random_series with functions to generate series
+  for one exp(x), for complex x.  Fixed index error in random_series.cpp.
+
+Sat 6 Feb 2021 : extended random_series with functions for one exp(x) series.
+
+Sun 17 Jan 2021 : in random2_monomials.cpp, fixed the sqrt into sqr in
+  the generation of random double double complex number.
+
+Tue 12 Jan 2021 : restored the bounds on the shared memory size to 128
+  in dbl4_convolutions_kernels.h and in dbl5_convolutions_kernels.h.
+
+Sat 9 Jan 2021 : restored the bounds on the shared memory size to 64,
+  in dbl8_convolutions_kernels.h and dbl10_convolutions_kernels.h.
+
+Fri 8 Jan 2021 : in {dbl4,dbl5}_convolutions_kernels.h increased the shared
+  memory size to 192, realizing that this will not work for complex inputs...
+
+Thu 7 Jan 2021 : in dbl8_convolutions_kernels.h, dbl10_convolution_kernels.h
+  increased the shared memory size from 64 to 192 and 153 respectively.
+
+Mon 4 jan 2021 : in dbl2_convolutions_kernels.h, increased the shared memory 
+  size from 128 to 192.
+
+Thu 17 Dec 2020 : added verbose option to dbl_monomials_host.h and
+  output statements to dbl_monomials_host.cpp.
+
+Sat 28 Nov 2020 : bug fixed in dbl2_convolution_kernels.cu, the mode 3
+  reverted to the default first kernel to convolute complex vectors.
+  Updated the makefile_unix to compile the monomial kernels.
+  Moved code from test_{dbl,dbl2,dbl3}_monomials into {dbl,dbl2,dbl3}_
+  monomials_testers (.h and .cpp); new test_monomials.cpp.
+  Updated makefiles.  Factored out functions from test_{dbl4,dbl5,dbl8,dbl10}_
+  functions.cpp into new {dbl4,dbl5,dbl8,dbl10}_monomials_testers.
+  Extended test_monomials.cpp and the makefiles.
+
+Fri 27 Nov 2020 : moved a __syncthreads() in dbl8_convolutions_kernels.cu.
+  Improved the test functions in test_dbl*_convolutions.cpp.
+  Added __syncthreads() to {dbl3,dbl4}_convolutions_kernels.cu.
+  Moved code from test_dbl*_convolutions into separate headers,
+  corresponding to dbl*_convolutions_testers.h, with .cpp files.
+  Adjusted all dbl*_convolutions_kernels.cu for conditional inclusion
+  of the multiple double arithmetical operations in the *gpufun.cu files.
+  New convolution_kernels.cu, to include all cuda convolutions code.
+  New test_convolutions, to test in all precisions.  Updated makefiles.
+  Added tests on random data in dbl*_convolution_testers,
+  reported the seed used in the random number generators.
+  Fixed dbl5_convolutions_testers.cpp.
+
+Thu 26 Nov 2020 : fixed the problems caused by the thread divergence 
+  in dbl2_convolutions_kernels.cu by additional __syncthreads() statements,
+  so test_dbl2_monomials works correctly on the C2050.
+  Added synchronization statements in the padded convolute for complex vectors
+  in dbl8_convolutions_kernels.cu.
+  Improved dbl3_convolution_kernels.cu.  Added padded kernels to {dbl4,
+  dbl5}_convolutions_kernels, extended test_{dbl4,dbl5}_convolutions.cpp.
+  Applied the padded kernels in {dbl4,dbl5}_monomials_kernels.cu.
+  Added padded convolutions to dbl10_convolutions_kernels, updated
+  test_dbl10_convolutions, and applied in dbl10_monomials_kernels.cu.
+
+Wed 25 Nov 2020 : improved all tests in test_dbl*_convolutions.cpp.
+  Added padded convolute operations to {dbl,dbl2,dbl3}_convolutions_kernels,
+  tested in test_{dbl,dbl2,dbl3}_convolutions.cpp, applied the padded kernels
+  in {dbl,dbl2,dbl3}_monomials_kernels.cu.  Added padded convolute kernels
+  to dbl8_convolution_kernels, tested in test_dbl8_convolutions.cpp, and
+  applied in dbl8_monomials_kernels.cu.
+
+Mon 23 Nov 2020 : to dbl_convolutions_kernels and dbl2_convolutions_kernels,
+  added double looped convolute kernels to compute the imaginary parts in
+  the next loop with reversed indexing.  Extended the test_dbl_convolutions
+  and test_dbl2_convolutions.  In dbl_monomials_kernels.cu and
+  dbl2_monomials_kernels.cu, applied the looped_convolute.
+  To all dbl*_convolution_kernels added increment, decrement kernels
+  and the option to compute complex convolutions via real convolutions.
+  Adjusted all test_dbl*_convolutions.cpp.
+
+Fri 20 Nov 2020 : two bugs fixed in dbl3_convolutions_host.cpp.
+  Extended dbl10_monomials_host, dbl10_monomials_kernels, with tests
+  added to test_dbl10_monomials.cpp for complex deca doubles.
+
+Thu 19 Nov 2020 : bug fixed in dbl10_monomials_host.cpp (at last!).
+  In random10_monomials.cpp, swapped one to the middle for odd dimensions.
+  To dbl8_monomials_host and dbl8_monomials_kernels, added code for complex
+  coefficients, with tests added to test_dbl8_monomials.
+
+Wed 18 Nov 2020 : Redefined dbl5_monomials_kernels, it works on the C2050.
+  Edited dbl4_monomials_kernels.h and dbl5_monomials_kernels.h.
+  Redefined dbl8_monomials_kernels and dbl10_monomials_kernels.
+  Small fix in dbl10_monomials_kernels.cu for a compiler warning.
+
+Tue 17 Nov 2020 : redefined the dbl_monomials_kernels and corrected tests
+  on the values of the derivatives in test_dbl_monomials.cpp.
+  Redefined dbl2_monomials_kernels, corrected tests in test_dbl2_monomials.
+  Redefined dbl3_monomials_kernels.  Edited dbl3_monomials_kernels.h.
+  Redefined dbl4_monomials_kernels.
+
+Mon 16 Nov 2020 : fixed one bug in dbl10_monomials_kernels.cu.
+  Updated makefile_unix to pass the proper architecture flag.
+
+Sat 14 Nov 2020 : more edits in dbl5_monomials_host.h.
+  New dbl10_monomials_host.h and dbl10_monomials_host.cpp to evaluate and
+  differentiation in deca double precision, tested in test_dbl10_monomials.
+  Edited dbl5_monomials_kernels.h.
+  New dbl10_monomials_kernels.h and dbl10_monomials_kernels.cu,
+  tested by test_dbl10_monomials.cpp.
+
+Fri 13 Nov 2020 : edited dbl4_monomials_host.h and dbl4_monomials_host.cpp.
+  New dbl8_monomials_host.h, dbl8_monomials_host.cpp, random8_monomials.h,
+  random8_monomials.cpp, tested by test_dbl8_monomials.cpp, with updated
+  makefiles.  New dbl8_monomials_kernels.h and dbl8_monomial_kernels.cu,
+  with added tests in test_dbl8_monomials.cpp.
+  Edited random5_monomials.h and dbl5_monomials_host.h.
+  New random10_monomials.h, random10_monomials.cpp, test_dbl10_monomials.cpp
+  with the setup for deca double precision.  Updated makefiles.
+
+Thu 12 Nov 2020 : edited the documentation in dbl3_monomials_kernels.h.
+  New dbl5_monomials_kernels, tested by test_dbl5_monomials.cpp.
+  Fixed bug in special case in dbl3_monomials_host.cpp.
+  Added the complex case to random5_monomials.cpp, dbl5_monomials_host.cpp,
+  and test_dbl5_monomials.cpp.  Edited dbl3_monomials_kernels.cu,
+  added code to dbl5_monomials_kernels.cu and test_dbl5_monomials.cpp.
+
+Wed 11 Nov 2020 : extracted from test_{dbl,dbl2,dbl3,dbl4}_monomials.cpp
+  the code to define the setup of the tests, into new random_monomials,
+  random2_monomials, random3_monomials, and random4_monomials.
+  Improved the setup of input series in random*_monomials, with better
+  tests in test_*monomials.  Bug fixed in dbl4_monomials_host.cpp.
+  Bug fix in the function make_real4_input of random4_monomials.cpp.
+  Added __syncthreads(); after every convolute in *monomials_kernels.cu,
+  as this resolved a bug in triple double precision.  Restored the original
+  input in random3_monomials.cpp, edited test_dbl3_monomials.cpp.
+  In test_dbl4_monomials.cpp, added initialization to errsum, so it became
+  clear backward products are correct, whereas forward products are not.
+  Edited random3_monomials.h, dbl3_monomials_host.h, test_dbl3_monomials.cpp.
+  New random5_monomials, dbl5_monomials_host, tested by test_dbl5_monomials.
+
+Tue 10 Nov 2020 : edited dbl2_monomials_kernels.h and defined kernels in
+  dbl4_monomials_kernels.h and dbl4_monomials_kernels.cu, with added tests
+  in test_dbl4_monomials.cpp, with updated makefiles.
+  Fixed some problems in dbl3_monomials_host.cpp, improved tests in
+  test_dbl3_monomials.cpp, edited test_dbl4_monomials.cpp.
+  Edited test_dbl2_monomials.cpp.  Added functions for complex numbers to
+  dbl4_monomials_host.h, dbl4_monomials_host.cpp, dbl4_monomials_kernels.cu,
+  with more tests in test_dbl4_monomials.cpp.
+
+Mon 9 Nov 2020 : added definitions for complex double double arithmetic 
+  in dbl2_monomials_host.cpp, dbl2_monomials_kernels.cu, with added tests
+  in test_dbl2_monomials.cpp; updated makefile_unix and makefile_windows.
+  To dbl3_monomials_host.cpp and dbl3_monomials_kernels.cu, added 
+  complex triple double functions, tested by test_dbl3_monomials.cpp.
+  In dbl*_monomials_kernels.cu, used proper == in equality test.
+  Edited dbl2_monomials_host.h.  Added dbl4_monomials_host.h and its .cpp,
+  tested in test_dbl4_monomials.cpp.  Updated makefiles.
+
+Fri 6 Nov 2020 : edited dbl2_monomials_host.h and dbl2_monomials_kernels.h.
+  New dbl3_monomials_{host,kernels}.h, dbl3_monomials_host.cpp, 
+  dbl3_monomials_kernels.cu, tested by test_dbl3_monomials.cpp.
+
+Thu 5 Nov 2020 : modified dbl_monomials_host and dbl_monomials_kernels
+  so the reverse mode works directly on a monomial with a coefficient.
+  Updated the test_dbl_monomials.cpp.
+  Edited dbl_monomials_host.h and dbl_monomials_kernels.h, to document
+  the added last spot in the work space for the forward products,
+  added for the coefficient multiplication.
+  New dbl2_monomials_host, dbl2_monomials_kernels, tested by test_dbl2_
+  monomials.cpp for monomials with double double precision coefficients.
+
+Wed 4 Nov 2020 : edited random4_series.h.  Extracted generation of random
+  power series from test_dbl8_convolutions.cpp into the new random8_series.h
+  and random8_series.cpp.  Added code for complex coefficients to
+  dbl_monomials_host and dbl_monomials_kernels, with added tests to
+  test_dbl_monomials.cpp.  Edited random5_series.h.
+  New random10_series.h, random10_series.cpp with code from
+  test_dbl10_convolutions.cpp.
+
+Tue 3 Nov 2020 : new dbl_monomials_kernels.h and .cu defines the evaluation
+  and differentiation of one product of variables at power series.
+  In dbl_monomials_host.cpp, ignored the power series coefficients.
+  Bug fix in dbl2_convolutions_kernels.cu.  Factored out the generation of
+  random power series, out of test_{dbl,dbl2,dbl3,dbl4}_convolutions.cpp
+  into new {random,random2,random3,random4}_series.{h,cpp}.
+  Edited random3_series.h.  New random5_series.h and random5_series.cpp,
+  with code from test_dbl5_convolutions.cpp.
+  
+Mon 2 Nov 2020 : new test_dbl_monomials.cpp to define the setup for the
+  evaluation and differentiation of a monomial.  Added dbl_monomials_host.h
+  and dbl_monomials_host.cpp with code to evaluate and differentiate one
+  product of variables at power series.  To dbl_monomials_host, added
+  special cases and the multiplication with the coefficient series.
+
+Fri 30 Oct 2020 : bugs fixed in test_dbl8_convolutions.cpp to ensure that
+  the code for the host is correct.  Fixed dbl8_convolutions_kernels.cu
+  and made one more correction to test_dbl8_convolutions.cpp.
+  Defined code on the host for the convolution of vectors with deca doubles
+  in dbl10_convolutions_host.{h,cpp} and test_dbl10_convolutions.cpp.
+  Updated the makefiles.
+  Edited dbl5_convolutions_host.h and dbl5_convolutions_kernels.h.
+  Added dbl10_convolutions_kernels.h and dbl10_convolutions_kernels.cu,
+  tested by test_dbl10_convolutions.cpp.
+
+Thu 29 Oct 2020 : to test_dbl3_convolutions.cpp, added missing initialization
+  and a test on gpu_cmplx3_product; edited dbl3_convolutions_kernels.h.
+  Added code to compute convolutions in penta double precision,
+  in dbl5_convolutions_{host,kernels}.h, dbl5_convolutions_host.cpp,
+  dbl5_convolutions_kernels.cu, tested by test_dbl5_convolutions.cpp.
+  Updated makefiles.
+  Edited dbl4_convolutions_host.h and dbl4_convolutions_kernels.h.
+  Added code to compute convolutions in octo double precision,
+  in dbl8_convolutions_{host,kernels}.h, dbl8_convolutions_host.cpp,
+  dbl8_convolutions_kernels.cu, tested by test_dbl8_convolutions.cpp.
+  Updated makefiles.
+
+Wed 28 Oct 2020 : added dbl_convolution_kernels.h and .cu to define kernels
+  to compute products of truncated power series, tested by
+  test_dbl_convolutions.cpp, updated makefile_unix.
+  To test_dbl_convolution_kernels, added functions for complex vectors and
+  extended the tests in test_dbl_convolutions.cpp.
+  Edited dbl_convolutions_kernels.h, added kernels for double doubles in
+  dbl2_convolutions_kernels.h and dbl2_convolutions_kernels.cu, tested
+  in test_dbl2_convolutions.cpp; updated makefiles.
+  Edited dbl2_convolutions_kernels.h and dbl2_convolutions_kernels.cu.
+  Added synchronization to dbl_convolutions_kernels.cu and
+  dbl2_convolutions_kernels.cu.  For triple and quad double precision,
+  added kernels in {dbl3,dbl4}_convolutions_kernels and {dbl3,dbl4}_
+  convolution_kernels.cu, tested by test_{dbl3,dbl4}_convolutions.cpp.
+  Updated makefiles.
+
+Mon 26 Oct 2020 : added {dbl,dbl2,dbl3}_convolutions_host.{h,cpp} with a
+  basic test in test_{dbl,dbl2,dbl3}_convolutions.cpp.  Defined makefiles.
+  Instead of double x[deg+1] used double *x = new double[deg+1] as
+  required for the microsoft windows compiler.  Defined makefile_windows.
+  Fixed bugs in {dbl,dbl2,dbl3}_convolutions_host.cpp and added better
+  tests in test_{dbl,dbl2,dbl3}_convolutions.cpp.  Updated makefile_unix.
+  Added code for quad double convolutions in dbl4_convolutions_host,
+  tested by test_dbl4_convolutions.  Updated makefiles.

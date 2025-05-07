@@ -1,0 +1,16 @@
+--
+--  Copyright (C) 2020-2022, AdaCore
+--
+--  SPDX-License-Identifier: Apache-2.0
+--
+
+project Multi is
+   for Object_Dir use "obj";
+   for Source_Dirs use ("src");
+
+   package Naming is
+      for Specification ("Pck") use "code.ada" at 1;
+      for Body ("Call") use "code.ada" at 2;
+      for Body ("Main") use "code.ada" at 3;
+   end Naming;
+end Multi;

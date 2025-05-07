@@ -1,0 +1,14 @@
+// Missing right paren; illustrates need for recursive Insert_Minimal_Complete_Actions.Length_After_Dot
+{ B = UpdateText (A }
+
+// Missing trailing '++ ;'; illustrates need for multiple actions all, all kernel items recursive in
+// Insert_Minimal_Complete_Actions
+{ UpdateText (A) }
+
+// No errors; get out of resume_active from previous error
+{ A++;}
+
+// Missing assignment value; uses minimal_complete_actions
+{ B = }
+
+// end of file

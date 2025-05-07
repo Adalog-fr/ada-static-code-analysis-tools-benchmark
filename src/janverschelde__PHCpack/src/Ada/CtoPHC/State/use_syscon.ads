@@ -1,0 +1,427 @@
+with Standard_Integer_Numbers;          use Standard_Integer_Numbers;
+with C_Integer_Arrays;                  use C_Integer_Arrays;
+with C_Double_Arrays;                   use C_Double_Arrays;
+
+function use_syscon ( job : integer32;
+                      a : C_intarrs.Pointer;
+                      b : C_intarrs.Pointer;
+                      c : C_dblarrs.Pointer;
+                      vrblvl : integer32 := 0 ) return integer32;
+
+-- DESCRIPTION :
+--   Provides a gateway to the systems container.
+
+-- ON ENTRY :
+--   job    =   0 : read polynomial system and put in container;
+--          =   1 : write the polynomial system in the container;
+--          =   2 : return in a[0] the dimension of the polynomial system;
+--          =   3 : initializes the container with the dimension in a[0];
+--          =   4 : return in a[0] the number of terms in the i-th polynomial;
+--          =   5 : return in c the coefficient (real and imaginary part),
+--                    and in b the exponent vector (i = a[1], j = a[2])
+--                  of the j-th term in the i-th polynomial;
+--          =   6 : add to the i-th polynomial the term with coefficient
+--                      in c and exponent vector in b;
+--          =   7 : the systems container is cleared;
+--          =   8 : returns in a the total degree of the system;
+--          =   9 : clears the symbol table;
+--          =  10 : creates an evaluator for the system in the container;
+--          =  11 : creates an evaluator for the Jacobian matrix.
+--          =  20 : returns in b[0] the degree of polynomial with index a[0]
+--                  stored in the standard polynomial systems container.
+--
+-- the operations in the Laurent systems container with standard doubles :
+--
+--   job    = 100 : read polynomial system and put in container;
+--          = 101 : write the polynomial system in the container;
+--          = 102 : return in a[0] the dimension of the polynomial system;
+--          = 103 : initializes the container with the dimension in a[0];
+--          = 104 : return in a[0] the number of terms in the i-th polynomial;
+--          = 105 : return in c the coefficient (real and imaginary part),
+--                    and in b the exponent vector (i = a[1], j = a[2])
+--                  of the j-th term in the i-th polynomial;
+--          = 106 : add to the i-th polynomial the term with coefficient
+--                      in c and exponent vector in b;
+--          = 107 : the systems container is cleared;
+--
+-- the operations in the Laurent systems container with double doubles :
+--
+--   job    = 110 : read polynomial system and put in container;
+--          = 111 : write the polynomial system in the container;
+--          = 112 : return in a[0] the dimension of the polynomial system;
+--          = 113 : initializes the container with the dimension in a[0];
+--          = 114 : return in a[0] the number of terms in the i-th polynomial;
+--          = 115 : return in c the coefficient (real and imaginary part),
+--                    and in b the exponent vector (i = a[1], j = a[2])
+--                  of the j-th term in the i-th polynomial;
+--          = 116 : add to the i-th polynomial the term with coefficient
+--                      in c and exponent vector in b;
+--          = 117 : the systems container is cleared;
+--          = 118 : puts a Laurent polynomial given as a string in the
+--                  container for systems with double double precision,
+--                  with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : number of variables in the Laurent polynomial,
+--                    a[2] : index of the polynomial in the system,
+--                    b : string converted to an integer array.
+--
+-- the operations in the Laurent systems container with quad doubles :
+--
+--   job    = 120 : read polynomial system and put in container;
+--          = 121 : write the polynomial system in the container;
+--          = 122 : return in a[0] the dimension of the polynomial system;
+--          = 123 : initializes the container with the dimension in a[0];
+--          = 124 : return in a[0] the number of terms in the i-th polynomial;
+--          = 125 : return in c the coefficient (real and imaginary part),
+--                  and in b the exponent vector (i = a[1], j = a[2])
+--                  of the j-th term in the i-th polynomial;
+--          = 126 : add to the i-th polynomial the term with coefficient
+--                      in c and exponent vector in b;
+--          = 127 : the systems container is cleared;
+--          = 128 : puts a Laurent polynomial given as a string in the
+--                  container for systems with quad double precision,
+--                  with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : number of variables in the Laurent polynomial, 
+--                    a[2] : index of the polynomial in the system,
+--                    b : string converted to an integer array.
+--
+-- the operations in the Laurent systems container in multiprecision :
+--
+--   job    = 130 : read polynomial system and put in container;
+--          = 131 : write the polynomial system in the container;
+--          = 132 : return in a[0] the dimension of the polynomial system;
+--          = 133 : initializes the container with the dimension in a[0];
+--          = 124 : return in a[0] the number of terms in the i-th polynomial;
+--          = 137 : the systems container is cleared;
+--          = 138 : puts a Laurent polynomial given as a string in the
+--                  container for systems with quad double precision,
+--                  with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : number of variables in the Laurent polynomial,
+--                    a[2] : index of the polynomial in the system,
+--                    a[3] : precision to evaluate the coefficients,
+--                    b : string converted to an integer array.
+--          = 139 : loads a Laurent polynomial from the multprec
+--                  systems container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 138.
+--
+-- the operations in the double double polynomial systems container :
+-- 
+--   job    = 200 : read polynomial system and put in container;
+--          = 201 : write the polynomial system in the container;
+--          = 202 : return in a[0] the dimension of the polynomial system;
+--          = 203 : initializes the container with the dimension in a[0];
+--          = 204 : return in a[0] the number of terms in the i-th polynomial;
+--          = 205 : return in c the coefficient (real and imaginary part),
+--                     and in b the exponent vector (i = a[1], j = a[2])
+--                  of the j-th term in the i-th polynomial;
+--          = 206 : add to the i-th polynomial the term with coefficient
+--                      in c and exponent vector in b;
+--          = 207 : the systems container is cleared;
+--          = 208 : puts a polynomial given as a string in the system 
+--                  container, with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : index of the polynomial in the system,
+--                    b : string converted to an integer array.
+--          = 209 : returns in b[0] the degree of polynomial with index a[0]
+--                  stored in the double double polynomial systems container.
+--
+-- the operations in the quad double polynomial systems container :
+-- 
+--   job    = 210 : read polynomial system and put in container;
+--          = 211 : write the polynomial system in the container;
+--          = 212 : return in a[0] the dimension of the polynomial system;
+--          = 213 : initializes the container with the dimension in a[0];
+--          = 214 : return in a[0] the number of terms in the i-th polynomial;
+--          = 215 : return in c the coefficient (real and imaginary part),
+--                     and in b the exponent vector (i = a[1], j = a[2])
+--                  of the j-th term in the i-th polynomial;
+--          = 216 : add to the i-th polynomial the term with coefficient
+--                      in c and exponent vector in b;
+--          = 217 : the systems container is cleared;
+--          = 218 : puts a polynomial given as a string in the system 
+--                  container, with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : index of the polynomial in the system,
+--                    b : string converted to an integer array.
+--          = 219 : returns in b[0] the degree of polynomial with index a[0]
+--                  stored in the quad double polynomial systems container.
+--
+-- the operations in the multiprecision polynomial systems container :
+-- 
+--   job    = 220 : read polynomial system and put in container;
+--          = 221 : write the polynomial system in the container;
+--          = 222 : return in a[0] the dimension of the polynomial system;
+--          = 223 : initializes the container with the dimension in a[0];
+--          = 224 : return in a[0] the number of terms in the i-th polynomial;
+--          = 227 : the systems container is cleared;
+--          = 228 : puts a polynomial given as a string in the system 
+--                  container, with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : index of the polynomial in the system,
+--                    a[2] : the number of decimal places of the numbers
+--                           to set the precision for the parsing operations,
+--                    b : string converted to an integer array.
+--          = 229 : returns in b[0] the degree of polynomial with index a[0]
+--                  stored in the multiprecision polynomial systems container.
+--
+-- the operations to pass polynomials as strings :
+--
+--   job    =  67 : loads a polynomial from the container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 76,
+--          =  68 : loads a polynomial from the double double systems
+--                  container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 208,    
+--          =  69 : loads a polynomial from the quad double systems
+--                  container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 218,    
+--          =  70 : loads a polynomial from the multiprecision systems
+--                  container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 228,    
+--          =  71 : stores a random polynomial system in the container
+--                  for systems with standard complex coefficients,
+--                  the parameters on input should be as follows:
+--                    a[0] : n, the number of variables in the system;
+--                    a[1] : neq, the number of equations in the system;
+--                    b[0] : m, the number of monomials per equations;
+--                    b[1] : d, the degree bound on the monomials;
+--                    b[2] : c, type of coefficient: 0, 1, or 2:
+--                    c = 0 : default complex coefficient on unit circle,
+--                    c = 1 : all coefficients are equal to one,
+--                    c = 2 : real coefficients in [-1,+1].
+--          =  72 : loads a Laurent polynomial from the double double
+--                  systems container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 118,    
+--          =  73 : loads a Laurent polynomial from the quad double
+--                  systems container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 128,
+--          =  74 : puts a Laurent polynomial given as a string in the system 
+--                  container, with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : number of variables in the Laurent polynomial,
+--                    a[2] : index of the polynomial in the system,
+--                    b : string converted to an integer array.
+--          =  76 : puts a polynomial given as a string in the system 
+--                  container, with the input parameters as follows:
+--                    a[0] : number of characters in the string,
+--                    a[1] : number of variables in the polynomial,
+--                    a[2] : index of the polynomial in the system,
+--                    b : string converted to an integer array,
+--                  this is the reverse of operation 67;
+--          =  77 : loads a Laurent polynomial from the standard double
+--                  systems container into a string:
+--                    a[0] : index of the polynomial k on entry,
+--                           and number of characters in the string on return,
+--                    b : characters in the string representation of
+--                        the k-th polynomial in the container,
+--                  this is the reverse of operation 74.   
+--          =  78 : stores a random polynomial system in the container
+--                  for systems with double double complex coefficients,
+--                  the parameters on input should be as follows:
+--                    a[0] : n, the number of variables in the system;
+--                    a[1] : neq, the number of equations in the system;
+--                    b[0] : m, the number of monomials per equations;
+--                    b[1] : d, the degree bound on the monomials;
+--                    b[2] : c, type of coefficient: 0, 1, or 2:
+--                    c = 0 : default complex coefficient on unit circle,
+--                    c = 1 : all coefficients are equal to one,
+--                    c = 2 : real coefficients in [-1,+1].
+--          =  79 : stores a random polynomial system in the container
+--                  for systems with quad double complex coefficients,
+--                  the parameters on input should be as follows:
+--                    a[0] : n, the number of variables in the system;
+--                    a[1] : neq, the number of equations in the system;
+--                    b[0] : m, the number of monomials per equations;
+--                    b[1] : d, the degree bound on the monomials;
+--                    b[2] : c, type of coefficient: 0, 1, or 2:
+--                    c = 0 : default complex coefficient on unit circle,
+--                    c = 1 : all coefficients are equal to one,
+--                    c = 2 : real coefficients in [-1,+1].
+--
+-- the size limit of the string representation of a polynomial :
+-- 
+--   job    =  80 : given on entry in a[0] the index k of a polynomial in
+--                  the standard systems container, returns in b
+--                  the size limit of the k-th standard polynomial;
+--          =  81 : given on entry in a[0] the index k of a polynomial in
+--                  the dobldobl systems container, returns in b
+--                  the size limit of the k-th dobldobl polynomial;
+--          =  82 : given on entry in a[0] the index k of a polynomial in
+--                  the quaddobl systems container, returns in b
+--                  the size limit of the k-th quaddobl polynomial;
+--          =  83 : given on entry in a[0] the index k of a polynomial in
+--                  the multprec systems container, returns in b
+--                  the size limit of the k-th multprec polynomial;
+--          =  84 : given on entry in a[0] the index k of a polynomial in
+--                  the standard Laurent systems container, returns in b
+--                  the size limit of the k-th standard Laurent polynomial;
+--          =  85 : given on entry in a[0] the index k of a polynomial in
+--                  the dobldobl Laurent systems container, returns in b
+--                  the size limit of the k-th dobldobl Laurent polynomial;
+--          =  86 : given on entry in a[0] the index k of a polynomial in
+--                  the quaddobl Laurent systems container, returns in b
+--                  the size limit of the k-th quaddobl Laurent polynomial;
+--          =  87 : given on entry in a[0] the index k of a polynomial in
+--                  the multprec Laurent systems container, returns in b
+--                  the size limit of the k-th multprec Laurent polynomial.
+--
+-- the operations to drop variables from a polynomial system :
+--  
+--   job    =  12 : replaces the system in the standard double container
+--                  by a system with variable of index a[0] removed;
+--          =  13 : replaces the system in the double double container
+--                  by a system with variable of index a[0] removed;
+--          =  14 : replaces the system in the quad double container
+--                  by a system with variable of index a[0] removed;
+--          =  15 : replaces the system in the standard double container
+--                  by a system with variable with name in b and
+--                  number of characters in a[0] removed;
+--          =  16 : replaces the system in the double double container
+--                  by a system with variable with name in b and
+--                  number of characters in a[0] removed;
+--          =  17 : replaces the system in the quad double container
+--                  by a system with variable with name in b and
+--                  number of characters in a[0] removed;
+--
+-- the operations to drop variables from a Laurent polynomial system :
+--  
+--   job    =  22 : replaces the Laurent system in the standard dobl container
+--                  by a Laurent system with variable of index a[0] removed;
+--          =  23 : replaces the Laurent system in the double double container
+--                  by a Laurent system with variable of index a[0] removed;
+--          =  24 : replaces the Laurent system in the quad double container
+--                  by a Laurent system with variable of index a[0] removed;
+--          =  25 : replaces the Laurent system in the standard dobl container
+--                  by a Laurent system with variable with name in b and
+--                  number of characters in a[0] removed;
+--          =  26 : replaces the Laurent system in the double double container
+--                  by a Laurent system with variable with name in b and
+--                  number of characters in a[0] removed;
+--          =  27 : replaces the Laurent system in the quad double container
+--                  by a Laurent system with variable with name in b and
+--                  number of characters in a[0] removed;
+--
+-- operations on reading systems with given file name :
+--
+--   job    = 540 : reads a standard system into the container where the
+--                  file name is given as a string of n = a[0] characters,
+--                  with the n characters are stored in given b on input;
+--   job    = 541 : reads a double double system into the container where the
+--                  file name is given as a string of n = a[0] characters,
+--                  with the n characters are stored in given b on input;
+--   job    = 542 : reads a quad double system into the container where the
+--                  file name is given as a string of n = a[0] characters,
+--                  with the n characters are stored in given b on input;
+--   job    = 543 : reads a multiprecision system into the container where the
+--                  file name is given as a string of n = a[0] characters,
+--                  with the n characters are stored in given b on input,
+--                  the value of a[1] stores the number of decimal places
+--                  as the precision for parsing the numbers;
+-- 
+--   a        memory allocated for array of integers, a = (n,i,j),
+--            where n is the dimension,
+--                  i is index to the polynomial in the system to work on;
+--                  j is index to the mononomial in the i-th polynomial;
+--   b        memory allocated for array of integers, used for exponents;
+--   c        memory allocated for array of double floating-point numbers,
+--            used for real and imaginary part of complex coefficient.
+--
+-- projective coordinate transformations :
+--
+--   job    = 891 : to the system with double precision coefficients,
+--                  applies a 1-homogeneous projective transformation,
+--                  adding a random linear equation if a[0] == 0,
+--                  or the linear equation z0 - 1 = 0 if a[0]] = 1;
+--          = 892 : to the system with double double precision coefficients,
+--                  applies a 1-homogeneous projective transformation,
+--                  adding a random linear equation if a[0] == 0,
+--                  or the linear equation z0 - 1 = 0 if a[0]] = 1;
+--          = 893 : to the system with quad double precision coefficients,
+--                  applies a 1-homogeneous projective transformation,
+--                  adding a random linear equation if a[0] == 0,
+--                  or the linear equation z0 - 1 = 0 if a[0]] = 1.
+--          = 904 : to the system with double precision coefficients,
+--                  applies a m-homogeneous projective transformation,
+--                  adding a random linear equation if a[2] == 0,
+--                  or the linear equation z0 - 1 = 0 if a[2]] = 1,
+--                  where the number n of variables is in a[0],
+--                  the value of m is in a[1], and the n values of b
+--                  define the index representation of the partition;
+--          = 905 : to the system with double double precision coefficients,
+--                  applies a m-homogeneous projective transformation,
+--                  adding a random linear equation if a[2] == 0,
+--                  or the linear equation z0 - 1 = 0 if a[2]] = 1,
+--                  where the number n of variables is in a[0],
+--                  the value of m is in a[1], and the n values of b
+--                  define the index representation of the partition;
+--          = 906 : to the system with quad double precision coefficients,
+--                  applies a m-homogeneous projective transformation,
+--                  adding a random linear equation if a[2] == 0,
+--                  or the linear equation z0 - 1 = 0 if a[2]] = 1,
+--                  where the number n of variables is in a[0],
+--                  the value of m is in a[1], and the n values of b
+--                  define the index representation of the partition.
+--
+-- adding a symbol passed as string :
+--
+--   job    = 897 : in b are the a[0] characters of the string which
+--                  defines the name of the variable to be added to
+--                  the symbol table, this name represents the variable
+--                  added as the last coordinate in the homogenization.
+--
+-- affine coordinate transformations :
+--
+--   job    = 901 : to the system with double precision coefficients,
+--                  substitutes the last variable by the value one,
+--                  and removes the last linear equation;
+--          = 902 : to the system with double double precision coefficients,
+--                  substitutes the last variable by the value one,
+--                  and removes the last linear equation;
+--          = 903 : to the system with quad double precision coefficients,
+--                  substitutes the last variable by the value one,
+--                  and removes the last linear equation;
+--          = 907 : to the system with double precision coefficients,
+--                  substitutes the last m variables by the value one,
+--                  and removes the last m linear equations,
+--                  where the value of m equals a[0] on input;
+--          = 908 : to the system with double double precision coefficients,
+--                  substitutes the last m variables by the value one,
+--                  and removes the last m linear equations,
+--                  where the value of m equals a[0] on input;
+--          = 909 : to the system with quad double precision coefficients,
+--                  substitutes the last m variables by the value one,
+--                  and removes the last m linear equations,
+--                  where the value of m equals a[0] on input;
+--
+-- ON RETURN :
+--   0 if the operation was successful, otherwise something went wrong,
+--   e.g.: indices to monomial out of range, or job not in the proper range.

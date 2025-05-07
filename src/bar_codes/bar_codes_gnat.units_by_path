@@ -1,0 +1,14 @@
+bar_codes-encode_code_128.adb
+bar_codes-encode_code_128.ads
+bar_codes-encode_qr.adb
+bar_codes-encode_qr.ads
+bar_codes-impl.adb
+bar_codes-impl.ads
+bar_codes.adb
+bar_codes.ads
+demo/bar_codes_demo.adb
+gnat/gnat_demo.ads
+gnat/gnat_test.ads
+gnat/tb_wrap.adb
+gnat/tb_wrap.ads
+test/bar_codes_test.adb

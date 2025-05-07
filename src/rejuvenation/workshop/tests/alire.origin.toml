@@ -1,0 +1,20 @@
+name = "tests_workshop"
+description = "Workshop - solutions (as test cases) to exercises"
+version = "23.0.0"
+
+authors = ["Pierre van de Laar"]
+maintainers = ["Pierre van de Laar <pierre.van.de.laar@gmail.com>"]
+maintainers-logins = ["pjljvandelaar"]
+
+executables = ["tests_workshop"]
+
+[[depends-on]]
+aunit = "^23.0.0"
+libadalang = "^23.0.0"
+rejuvenation = "^23.0.0"
+workshop = "^23.0.0"
+
+[[pins]]
+rejuvenation = { path = "../.." } 
+workshop = { path = ".." } 
+

@@ -1,0 +1,187 @@
+{
+  "Name": "Ada",
+  "Bytes": 23185,
+  "CodeBytes": 0,
+  "Lines": 901,
+  "Code": 561,
+  "Comment": 40,
+  "Blank": 300,
+  "Complexity": 18,
+  "Count": 6,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-writer.ads",
+      "Extension": "ads",
+      "Location": "../source/xml-writer.ads",
+      "Symlocation": "",
+      "Bytes": 2055,
+      "Lines": 51,
+      "Code": 38,
+      "Comment": 0,
+      "Blank": 13,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded",
+        "ada.text_io"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-writer.adb",
+      "Extension": "adb",
+      "Location": "../source/xml-writer.adb",
+      "Symlocation": "",
+      "Bytes": 4438,
+      "Lines": 212,
+      "Code": 143,
+      "Comment": 0,
+      "Blank": 69,
+      "Complexity": 5,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_deallocation"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml.ads",
+      "Extension": "ads",
+      "Location": "../source/xml.ads",
+      "Symlocation": "",
+      "Bytes": 2318,
+      "Lines": 107,
+      "Code": 42,
+      "Comment": 21,
+      "Blank": 44,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-reader.ads",
+      "Extension": "ads",
+      "Location": "../source/xml-reader.ads",
+      "Symlocation": "",
+      "Bytes": 1453,
+      "Lines": 60,
+      "Code": 31,
+      "Comment": 1,
+      "Blank": 28,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml.adb",
+      "Extension": "adb",
+      "Location": "../source/xml.adb",
+      "Symlocation": "",
+      "Bytes": 5106,
+      "Lines": 227,
+      "Code": 150,
+      "Comment": 6,
+      "Blank": 71,
+      "Complexity": 7,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.text_io",
+        "xml.reader"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "../source/xml-reader.adb",
+      "Extension": "adb",
+      "Location": "../source/xml-reader.adb",
+      "Symlocation": "",
+      "Bytes": 7815,
+      "Lines": 244,
+      "Code": 157,
+      "Comment": 12,
+      "Blank": 75,
+      "Complexity": 6,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.unchecked_conversion",
+        "ada.unchecked_deallocation",
+        "interfaces.c.strings",
+        "system.storage_elements"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers.vectors": 1,
+    "ada.strings.unbounded": 3,
+    "ada.text_io": 2,
+    "ada.unchecked_conversion": 1,
+    "ada.unchecked_deallocation": 2,
+    "interfaces.c.strings": 1,
+    "system.storage_elements": 1,
+    "xml.reader": 1
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "Name": "Ada",
+  "Bytes": 28761,
+  "CodeBytes": 0,
+  "Lines": 953,
+  "Code": 622,
+  "Comment": 202,
+  "Blank": 129,
+  "Complexity": 63,
+  "Count": 4,
+  "WeightedComplexity": 0,
+  "Files": [
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/mime.ads",
+      "Extension": "ads",
+      "Location": "src/mime.ads",
+      "Symlocation": "",
+      "Bytes": 2178,
+      "Lines": 67,
+      "Code": 30,
+      "Comment": 25,
+      "Blank": 12,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers.vectors",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uri.ads",
+      "Extension": "ads",
+      "Location": "src/uri.ads",
+      "Symlocation": "",
+      "Bytes": 6699,
+      "Lines": 158,
+      "Code": 53,
+      "Comment": 81,
+      "Blank": 24,
+      "Complexity": 0,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings.maps",
+        "ada.strings.unbounded"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/mime.adb",
+      "Extension": "adb",
+      "Location": "src/mime.adb",
+      "Symlocation": "",
+      "Bytes": 5439,
+      "Lines": 203,
+      "Code": 143,
+      "Comment": 28,
+      "Blank": 32,
+      "Complexity": 15,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.strings",
+        "ada.strings.fixed",
+        "ada.strings.maps"
+      ]
+    },
+    {
+      "Language": "Ada",
+      "PossibleLanguages": [
+        "Ada"
+      ],
+      "Filename": "src/uri.adb",
+      "Extension": "adb",
+      "Location": "src/uri.adb",
+      "Symlocation": "",
+      "Bytes": 14445,
+      "Lines": 525,
+      "Code": 396,
+      "Comment": 68,
+      "Blank": 61,
+      "Complexity": 48,
+      "WeightedComplexity": 0,
+      "Hash": null,
+      "Binary": false,
+      "Minified": false,
+      "Generated": false,
+      "EndPoint": 0,
+      "Uloc": 0,
+      "withUnit": [
+        "ada.containers",
+        "ada.containers.indefinite_vectors",
+        "ada.strings",
+        "ada.strings.fixed",
+        "ada.text_io"
+      ]
+    }
+  ],
+  "LineLength": null,
+  "unitUsage": {
+    "ada.containers": 1,
+    "ada.containers.indefinite_vectors": 1,
+    "ada.containers.vectors": 1,
+    "ada.strings": 2,
+    "ada.strings.fixed": 2,
+    "ada.strings.maps": 2,
+    "ada.strings.unbounded": 2,
+    "ada.text_io": 1
+  }
+}

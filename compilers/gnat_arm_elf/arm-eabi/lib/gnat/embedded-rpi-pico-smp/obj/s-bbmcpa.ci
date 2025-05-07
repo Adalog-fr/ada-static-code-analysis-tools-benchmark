@@ -1,0 +1,8 @@
+graph: { title: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-bbmcpa.ads"
+node: { title: "system__bb__mcu_parameters__cs_registerIP" label: "cs_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__pwr_registerIP" label: "pwr_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__fbdiv_int_registerIP" label: "fbdiv_int_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__prim_registerIP" label: "prim_registerIP\n<built-in>\n0 bytes (static)\n0 dynamic objects" }
+node: { title: "system__bb__mcu_parameters__pll_peripheralIP" label: "pll_peripheralIP\n<built-in>\n8 bytes (static)\n0 dynamic objects" }
+edge: { sourcename: "system__bb__mcu_parameters__pll_peripheralIP" targetname: "system__bb__mcu_parameters__pwr_registerIP" label: "/home/runner/work/GNAT-FSF-builds/GNAT-FSF-builds/sbx/arm-elf-linux64/embedded-runtimes/install/arm-eabi/lib/gnat/embedded-rpi-pico-smp/gnat/s-bbmcpa.ads:186:7" }
+}

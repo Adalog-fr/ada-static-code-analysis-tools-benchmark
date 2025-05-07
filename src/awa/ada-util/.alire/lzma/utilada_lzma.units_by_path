@@ -1,0 +1,5 @@
+../../src/sys/lzma/util-encoders-lzma.adb
+../../src/sys/lzma/util-encoders-lzma.ads
+../../src/sys/lzma/util-streams-buffered-lzma.adb
+../../src/sys/lzma/util-streams-buffered-lzma.ads
+../../src/sys/lzma/util-streams-lzma.ads
