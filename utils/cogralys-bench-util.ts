@@ -18,6 +18,7 @@ import * as importMetrics from "./modules/importMetrics.ts";
 import * as generateImportReport from "./modules/generateImportReport.ts";
 import * as generateCvReports from "./modules/generateCvReports.ts";
 import * as generateIssuedMessageReport from "./modules/issuedMessageReport.ts";
+import * as gprIssuedMessagesByRule from "./modules/gprIssuedMessagesByRule.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -125,5 +126,6 @@ importMetrics.initializeModule(program);
 generateImportReport.initializeModule(program);
 generateCvReports.initializeModule(program);
 generateIssuedMessageReport.initializeModule(program);
+gprIssuedMessagesByRule.initializeModule(program);
 
 program.parse(Deno.args);
