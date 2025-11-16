@@ -1,0 +1,151 @@
+-- traits_usage.aru
+--
+-- AdaControl rules to count usage of Ada language features ("traits")
+-- in a project. All controls use "count" so that AdaControl reports
+-- only aggregated statistics at the end of the run.
+--
+-- Typical use:
+--   adactl -P my_project.gpr -f traits_usage.aru
+-- then post-process the counts to build your JSON report.
+
+--------------------------------------------------
+-- 1. Basic metrics (size / structure overview)
+--------------------------------------------------
+
+"Metrics_Overview":
+   count statements (any_statement),
+   count usage (object),
+   count usage (type, used),
+   count usage (procedure, called),
+   count usage (function, called);
+
+--------------------------------------------------
+-- 2. Generic programming (polymorphisme paramétrique)
+--------------------------------------------------
+
+"Generics":
+   -- Number of generic units, and how many are instantiated
+   count usage (generic),
+   count usage (generic, instantiated),
+
+   -- Instantiations by visibility/location
+   count declarations (public  instantiation),
+   count declarations (private instantiation),
+   count declarations (local   instantiation),
+
+   -- Generics declared locally in subprograms/packages
+   count declarations (local generic);
+
+--------------------------------------------------
+-- 3. OO / type system features (tagged, dérivations, opérateurs)
+--------------------------------------------------
+
+"OO_And_Types":
+   -- Abstract / controlled / derived types
+   count declarations (abstract_type),
+   count declarations (controlled_type),
+   count declarations (derived_type),
+
+   -- Derivation depth > 0 for various categories
+   count derivations (max_depth, tagged 0),
+   count derivations (max_depth, untagged 0),
+   count derivations (max_depth, task 0),
+   count derivations (max_depth, protected 0),
+
+   -- Types with at least one parent (multiple inheritance / interfaces)
+   count derivations (max_parents, 0),
+
+   -- Tagged types with at least one primitive operation
+   count max_primitives (visible, tagged 0),
+
+   -- Discriminants and overloaded operators
+   count declarations (discriminant),
+   count declarations (operator);
+
+--------------------------------------------------
+-- 4. Exceptions (déclaration, levée, gestion)
+--------------------------------------------------
+
+"Exceptions":
+   -- Exceptions declared
+   count usage (exception),
+
+   -- Exceptions that are actually raised / handled
+   count usage (exception, raised),
+   count usage (exception, handled),
+
+   -- Raise statements and handlers with others
+   count statements (raise),
+   count statements (raise_standard),
+   count statements (exception_others),
+   count statements (exception_others_null);
+
+--------------------------------------------------
+-- 5. Concurrency (tâches, objets protégés, entrées)
+--------------------------------------------------
+
+"Concurrency":
+   -- Tasks and protected objects declared
+   count usage (task),
+   count usage (protected),
+
+   -- Tasks actually used (called / aborted)
+   count usage (task, called),
+   count usage (task, aborted),
+
+   -- Protected operations actually called
+   count usage (protected, called),
+
+   -- Tasks that can terminate
+   count terminating_tasks,
+
+   -- Tasking-related statements
+   count statements (accept),
+   count statements (selective_accept),
+   count statements (timed_entry_call),
+   count statements (conditional_entry_call),
+   count statements (entry_call),
+   count statements (delay),
+   count statements (delay_until),
+   count statements (abort),
+   count statements (requeue),
+   count statements (terminate);
+
+--------------------------------------------------
+-- 6. Aliasing, pointeurs, conversions non sûres
+--------------------------------------------------
+
+"Aliasing_And_Pointers":
+   -- Parameter aliasing (certain / possible)
+   count parameter_aliasing (certain),
+   count parameter_aliasing (possible),
+
+   -- Instantiations of Unchecked_Conversion through System.Address
+   count instantiations (ada.unchecked_conversion, system.address, access),
+   count instantiations (unchecked_conversion,     system.address, access),
+
+   -- Access-to-subprogram types
+   count declarations (access_subprogram_type),
+
+   -- Attributes related to pointers / addresses
+   count entities (all 'Access,
+                   all 'Unchecked_Access,
+                   all 'Address);
+
+--------------------------------------------------
+-- 7. Représentation bas niveau, pragmas, aspects
+--------------------------------------------------
+
+"Low_Level_Representation":
+   -- Representation clauses (record/enum representation, etc.)
+   count Representation_Clauses,
+
+   -- Pragmas: all and non-standard ones
+   count pragmas (all),
+   count pragmas (nonstandard),
+
+   -- Use of 'Pos on enumeration types
+   count Type_Usage ('Pos, ()),
+
+   -- Named numbers (numeric constants defined with "number")
+   count declarations (named_number);

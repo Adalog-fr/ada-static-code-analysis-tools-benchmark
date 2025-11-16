@@ -1,0 +1,234 @@
+-- traits_usage_detailed.aru
+--
+-- Fine-grained AdaControl rules to count usage of Ada language features
+-- ("traits") in a project. Each control has its own label so that the
+-- count reported by AdaControl corresponds to exactly one trait.
+--
+-- Typical usage:
+--   adactl -P my_project.gpr -f rules/traits_usage_detailed.aru
+-- and then parse the counts per label to build a detailed JSON report.
+
+--------------------------------------------------
+-- 1. Basic metrics (size / structure overview)
+--------------------------------------------------
+
+"Metrics_Statements_All":
+   count statements (any_statement);
+
+"Metrics_Objects_All":
+   count usage (object);
+
+"Metrics_Types_Used":
+   count usage (type, used);
+
+"Metrics_Procedures_Called":
+   count usage (procedure, called);
+
+"Metrics_Functions_Called":
+   count usage (function, called);
+
+--------------------------------------------------
+-- 2. Generic programming (polymorphisme paramétrique)
+--------------------------------------------------
+
+"Generics_Units_All":
+   count usage (generic);
+
+--"Generics_Units_Instantiated":
+--   count usage (generic, instantiated);
+
+"Generics_Inst_Public":
+   count declarations (public  instantiation);
+
+"Generics_Inst_Private":
+   count declarations (private instantiation);
+
+"Generics_Inst_Local":
+   count declarations (local   instantiation);
+
+"Generics_Decl_Local":
+   count declarations (local generic);
+
+--------------------------------------------------
+-- 3. OO / type system features (tagged, dérivations, opérateurs)
+--------------------------------------------------
+
+"Types_Abstract":
+   count declarations (abstract_type);
+
+"Types_Controlled":
+   count declarations (controlled_type);
+
+"Types_Derived":
+   count declarations (derived_type);
+
+-- Derivation depth > 0 for various categories
+"Derivations_Depth_Tagged_GT0":
+   count derivations (max_depth, tagged 0);
+
+"Derivations_Depth_Untagged_GT0":
+   count derivations (max_depth, untagged 0);
+
+"Derivations_Depth_Task_GT0":
+   count derivations (max_depth, task 0);
+
+"Derivations_Depth_Protected_GT0":
+   count derivations (max_depth, protected 0);
+
+-- Types with at least one parent (inheritance / interfaces)
+"Derivations_Parents_GT0":
+   count derivations (max_parents, 1);
+
+-- Tagged types with at least one visible primitive operation
+"Types_Tagged_With_Primitives":
+   count max_primitives (visible, tagged 0);
+
+-- Discriminants and overloaded operators
+"Types_With_Discriminants":
+   count declarations (discriminant);
+
+"Decls_Operators_Overloaded":
+   count declarations (operator);
+
+--------------------------------------------------
+-- 4. Exceptions (déclaration, levée, gestion)
+--------------------------------------------------
+
+"Exceptions_Declared":
+   count usage (exception);
+
+--"Exceptions_Raised":
+--   count usage (raised);
+
+--"Exceptions_Handled":
+--   count usage (handled);
+
+"Statements_Raise_All":
+   count statements (raise);
+
+"Statements_Raise_Standard":
+   count statements (raise_standard);
+
+"Handlers_Others_All":
+   count statements (exception_others);
+
+"Handlers_Others_Null":
+   count statements (exception_others_null);
+
+-- Statically known exceptions (data-flow based)
+-- "Known_Exceptions_All":
+--   count known_exceptions;
+
+"Known_Exceptions_Access":
+   count known_exceptions (access);
+
+"Known_Exceptions_Assignment":
+   count known_exceptions (assignment);
+
+"Known_Exceptions_Index":
+   count known_exceptions (index);
+
+"Known_Exceptions_Raise_Expression":
+   count known_exceptions (raise_expression);
+
+"Known_Exceptions_Zero_Divide":
+   count known_exceptions (zero_divide);
+
+--------------------------------------------------
+-- 5. Concurrency (tâches, objets protégés, entrées)
+--------------------------------------------------
+
+"Tasks_Declared":
+   count usage (task);
+
+--"Tasks_Called":
+--   count usage (called);
+
+--"Tasks_Aborted":
+--   count usage (aborted);
+
+"Protected_Objects_Declared":
+   count usage (protected);
+
+--"Protected_Operations_Called":
+--   count usage (called);
+
+"Tasks_Terminating":
+   count terminating_tasks;
+
+"Statements_Accept":
+   count statements (accept);
+
+"Statements_Selective_Accept":
+   count statements (selective_accept);
+
+"Statements_Timed_Entry_Call":
+   count statements (timed_entry_call);
+
+"Statements_Conditional_Entry_Call":
+   count statements (conditional_entry_call);
+
+"Statements_Entry_Call":
+   count statements (entry_call);
+
+"Statements_Delay_Relative":
+   count statements (delay);
+
+"Statements_Delay_Until":
+   count statements (delay_until);
+
+"Statements_Abort":
+   count statements (abort);
+
+"Statements_Requeue":
+   count statements (requeue);
+
+"Statements_Terminate_Alternative":
+   count statements (terminate);
+
+--------------------------------------------------
+-- 6. Aliasing, pointeurs, conversions non sûres
+--------------------------------------------------
+
+"Parameter_Aliasing_Certain":
+   count parameter_aliasing (certain);
+
+"Parameter_Aliasing_Possible":
+   count parameter_aliasing (possible);
+
+"Inst_Unchecked_Conv_Addr_To_Access_Full":
+   count instantiations (ada.unchecked_conversion, system.address, access);
+
+"Inst_Unchecked_Conv_Addr_To_Access_Short":
+   count instantiations (unchecked_conversion,     system.address, access);
+
+"Types_Access_Subprogram":
+   count declarations (access_subprogram_type);
+
+"Attr_Access_All":
+   count entities (all 'Access);
+
+"Attr_Unchecked_Access_All":
+   count entities (all 'Unchecked_Access);
+
+"Attr_Address_All":
+   count entities (all 'Address);
+
+--------------------------------------------------
+-- 7. Représentation bas niveau, pragmas, aspects
+--------------------------------------------------
+
+"Representation_Clauses_All":
+   count Representation_Clauses;
+
+"Pragmas_All":
+   count pragmas (all);
+
+"Pragmas_Nonstandard":
+   count pragmas (nonstandard);
+
+"Type_Usage_Pos_On_Enum":
+   count Type_Usage ('Pos, ());
+
+"Named_Number_Declarations":
+   count declarations (named_number);
