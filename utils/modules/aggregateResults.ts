@@ -1105,7 +1105,7 @@ export function initializeModule(program: Command): void {
                                 const languageFeaturePath = join(
                                     defaultProjectRoot,
                                     dirname(gprProject.gprPath),
-                                    basename(gprProject.gprPath, ".gpr") + "languageFeatureUsage.json",
+                                    basename(gprProject.gprPath, ".gpr") + "_languageFeatureUsage.json",
                                 );
                                 languageFeatureUsage = JSON.parse(
                                     Deno.readTextFileSync(languageFeaturePath),
