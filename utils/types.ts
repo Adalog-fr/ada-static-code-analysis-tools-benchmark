@@ -180,12 +180,76 @@ export type BenchmarkResult = {
     cogralys: CogralysResults;
 };
 
+export const LANGUAGE_FEATURE_USAGE_KEYS = [
+    "Attr_Access_All",
+    "Attr_Address_All",
+    "Attr_Unchecked_Access_All",
+    "Decls_Operators_Overloaded",
+    "Derivations_Depth_Protected_GT0",
+    "Derivations_Depth_Tagged_GT0",
+    "Derivations_Depth_Task_GT0",
+    "Derivations_Depth_Untagged_GT0",
+    "Derivations_Parents_GT0",
+    "Exceptions_Declared",
+    "Generics_Decl_Local",
+    "Generics_Inst_Local",
+    "Generics_Inst_Private",
+    "Generics_Inst_Public",
+    "Generics_Units_All",
+    "Handlers_Others_All",
+    "Handlers_Others_Null",
+    "Inst_Unchecked_Conv_Addr_To_Access_Full",
+    "Inst_Unchecked_Conv_Addr_To_Access_Short",
+    "Known_Exceptions_Access",
+    "Known_Exceptions_Assignment",
+    "Known_Exceptions_Index",
+    "Known_Exceptions_Raise_Expression",
+    "Known_Exceptions_Zero_Divide",
+    "Metrics_Functions_Called",
+    "Metrics_Objects_All",
+    "Metrics_Procedures_Called",
+    "Metrics_Statements_All",
+    "Metrics_Types_Used",
+    "Named_Number_Declarations",
+    "Parameter_Aliasing_Certain",
+    "Parameter_Aliasing_Possible",
+    "Pragmas_All",
+    "Pragmas_Nonstandard",
+    "Protected_Objects_Declared",
+    "Representation_Clauses_All",
+    "Statements_Abort",
+    "Statements_Accept",
+    "Statements_Conditional_Entry_Call",
+    "Statements_Delay_Relative",
+    "Statements_Delay_Until",
+    "Statements_Entry_Call",
+    "Statements_Raise_All",
+    "Statements_Raise_Standard",
+    "Statements_Requeue",
+    "Statements_Selective_Accept",
+    "Statements_Terminate_Alternative",
+    "Statements_Timed_Entry_Call",
+    "Tasks_Declared",
+    "Tasks_Terminating",
+    "Type_Usage_Pos_On_Enum",
+    "Types_Abstract",
+    "Types_Access_Subprogram",
+    "Types_Controlled",
+    "Types_Derived",
+    "Types_Tagged_With_Primitives",
+    "Types_With_Discriminants",
+] as const;
+
+export type LanguageFeatureUsageKey = typeof LANGUAGE_FEATURE_USAGE_KEYS[number];
+export type LanguageFeatureUsage = Record<LanguageFeatureUsageKey, number>;
+
 export interface BenchmarkResultDB {
     crateName: string;
     workDir: string;
     gprPath: string;
     benchmarkResults: BenchmarkResult;
     scc: Omit<LanguageSummary, 'Files'>;
+    languageFeatureUsage?: LanguageFeatureUsage;
 }
 
 // Computed results
@@ -216,6 +280,7 @@ export type DetailedResultType = {
         complexity: number;
         nbFiles: number;
     };
+    languageFeatureUsage?: LanguageFeatureUsage;
     results: DigestTimeResultByProject;
 };
 

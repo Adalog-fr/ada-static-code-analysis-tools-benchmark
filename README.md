@@ -166,6 +166,11 @@ To add a new Ada project to the benchmark suite, follow these steps:
    
    # Generate code metrics
    cogralys-bench-util generate-scc-metrics project.units_by_path
+
+   # Generate Ada language feature usage metrics (traits_usage_detailed)
+   cogralys-bench-util generate-language-feature-usage \
+     -w src/project_name \
+     -g src/project_name/project.gpr
    ```
    Where `project` of `project.units_by_path` is the name of the `.gpr` file.
 
@@ -192,5 +197,11 @@ To add a new Ada project to the benchmark suite, follow these steps:
    cogralys-bench-util bench-gnatcheck
    cogralys-bench-util bench-cogralys
    ```
+
+If you already have existing `languageFeatureUsage.report` files (generated manually), you can convert them to the new JSON format by running:
+
+```sh
+deno run --config /path/to/benchmark/deno.jsonc --allow-all /path/to/benchmark/utils/convertLanguageFeatureReports.ts
+```
 
 This process ensures that each project is properly integrated into the benchmark suite, with all necessary metadata and configuration to run consistent comparisons across all static analysis tools.

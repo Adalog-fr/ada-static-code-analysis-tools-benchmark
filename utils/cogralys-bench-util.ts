@@ -8,6 +8,7 @@ import * as CleanNeo4j from "./modules/clean-neo4j.ts";
 import * as CountResults from "./modules/countResults.ts";
 import * as UpdateCratesDBneo4jComplete from "./modules/update_cratesDBNeo4jComplete.ts";
 import * as GenerateSCC from "./modules/generateSCC.ts";
+import * as GenerateLanguageFeatureUsage from "./modules/generateLanguageFeatureUsage.ts";
 import * as AddProject from "./modules/addProject.ts";
 import * as convertNeo4jJsonToCypherFile from "./modules/convert-neo4j-json-to-cypher-file.ts";
 import * as aggregateResults from "./modules/aggregateResults.ts";
@@ -19,6 +20,7 @@ import * as generateImportReport from "./modules/generateImportReport.ts";
 import * as generateCvReports from "./modules/generateCvReports.ts";
 import * as generateIssuedMessageReport from "./modules/issuedMessageReport.ts";
 import * as gprIssuedMessagesByRule from "./modules/gprIssuedMessagesByRule.ts";
+import * as issuedMessageDifferences from "./modules/issuedMessageDifferences.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -115,6 +117,7 @@ CreateRunBenchmarkCommand.initializeModule(program, {
 })
 
 GenerateSCC.initializeModule(program);
+GenerateLanguageFeatureUsage.initializeModule(program);
 
 AddProject.initializeModule(program);
 convertNeo4jJsonToCypherFile.initializeModule(program);
@@ -127,5 +130,6 @@ generateImportReport.initializeModule(program);
 generateCvReports.initializeModule(program);
 generateIssuedMessageReport.initializeModule(program);
 gprIssuedMessagesByRule.initializeModule(program);
+issuedMessageDifferences.initializeModule(program);
 
 program.parse(Deno.args);

@@ -1,7 +1,7 @@
 import { join, dirname, basename } from "jsr:@std/path@^0.225.1";
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import fg from "npm:fast-glob@3.3.2";
-import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, BenchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult, DigestTimeResult, BenchResultByStep } from "../types.ts";
+import { UnifiedCrateData, TimeDataWithCommand, TimeData, TimeDataKeyNumber, BenchmarkResultDB, BenchmarkResult, AdaControlResult, CogralysResults, GNATcheckResult, StandardDeviationResult, RuleExecutionResult, DigestTimeResult, BenchResultByStep, LanguageFeatureUsage } from "../types.ts";
 import { bytes } from 'https://esm.sh/@boywithkeyboard/bytes'
 import { LanguageSummary } from "../scc-types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
@@ -1087,6 +1087,7 @@ export function initializeModule(program: Command): void {
                             if (gprProject.ignore) continue;
 
                             let sccMetrics: Omit<LanguageSummary, "Files">;
+                            let languageFeatureUsage: LanguageFeatureUsage | undefined;
                             try {
                                 const { Files: _, ...scc } = JSON.parse(
                                     Deno.readTextFileSync(
@@ -1098,6 +1099,19 @@ export function initializeModule(program: Command): void {
                             } catch (e) {
                                 console.log(`Skip ${crateName} > ${project.alireTomlPath} > ${gprProject.gprPath} (getting SCC data) due to error: `, e);
                                 continue;
+                            }
+
+                            try {
+                                const languageFeaturePath = join(
+                                    defaultProjectRoot,
+                                    dirname(gprProject.gprPath),
+                                    basename(gprProject.gprPath, ".gpr") + "languageFeatureUsage.json",
+                                );
+                                languageFeatureUsage = JSON.parse(
+                                    Deno.readTextFileSync(languageFeaturePath),
+                                ) as LanguageFeatureUsage;
+                            } catch (_e) {
+                                languageFeatureUsage = undefined;
                             }
 
                             // Detect coding rules from existing files
@@ -1115,7 +1129,8 @@ export function initializeModule(program: Command): void {
                                     workDir: project.alireTomlPath,
                                     gprPath: gprProject.gprPath,
                                     benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration, options.overheadTreashold),
-                                    scc: sccMetrics
+                                    scc: sccMetrics,
+                                    languageFeatureUsage,
                                 };
                                 resultsByRule.get('global')!.push(globalResult);
                             } catch (e) {
@@ -1133,7 +1148,8 @@ export function initializeModule(program: Command): void {
                                         workDir: project.alireTomlPath,
                                         gprPath: gprProject.gprPath,
                                         benchmarkResults: aggregateResults(project.alireTomlPath, gprProject.gprPath, options.maxIteration, options.overheadTreashold, rule),
-                                        scc: sccMetrics
+                                        scc: sccMetrics,
+                                        languageFeatureUsage,
                                     };
                                     resultsByRule.get(rule)!.push(ruleResult);
                                 } catch (e) {

@@ -186,6 +186,7 @@ class ResultProcessor {
                     complexity: result.scc.Complexity,
                     nbFiles: result.scc.Count
                 },
+                languageFeatureUsage: result.languageFeatureUsage,
                 results: {
                     adactl: { ...result.benchmarkResults.adactl.digestTime, issuedMessages: result.benchmarkResults.adactl.run.issuedMessages },
                     cogralys: { ...result.benchmarkResults.cogralys.digestTime, issuedMessages: ruleName === GLOBAL_EXECUTION_KEY ? result.benchmarkResults.cogralys.run.issuedMessages : result.benchmarkResults.cogralys.ruleResults[ruleName].issuedMessages },
