@@ -11,5 +11,10 @@
         "**/rootfs/**": true
     },
     "search.followSymlinks": false,
-    "git.enabled": false
+    "git.enabled": true,
+    "search.exclude": {
+        "**/compilers/**": true,
+        "**/githubAnalysis/repos/**": true,
+        "**/phdBenchmark/**": true,
+    }
 }
