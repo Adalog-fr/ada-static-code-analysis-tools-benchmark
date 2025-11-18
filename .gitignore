@@ -232,3 +232,5 @@ scratchpad.md
 rootfs/home/.codeium
 rootfs/home/.windsurf-server
 results
+
+node_modules
