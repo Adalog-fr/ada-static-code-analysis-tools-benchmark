@@ -1,6 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join } from "jsr:@std/path@^0.225.1";
-import { BenchmarkResultDB, ToolKeyType, toolKey } from "../types.ts";
+import { ensureDirSync } from "jsr:@std/fs@1.0.9";
+import { BenchmarkResultDB, ToolKeyType, toolKey, SimilarProjectsRawData, SimilarProjectsTarget, SimilarProjectsTargetInfo } from "../types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 import { OutputFormat, OutputFormatType, TableCell } from "../formatters/formatters-interface.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
@@ -81,7 +82,7 @@ function computeTiming(result: BenchmarkResultDB, tool: ToolKeyType): { analysis
     };
 }
 
-function findSimilarProjects(options: SimilarProjectsOptions, results: BenchmarkResultDB[]): { fast: ProjectRow[]; normal: ProjectRow[]; single: ProjectRow[]; targetInfo: { targetLoc: number; targetFiles: number; isSmall: boolean }; targetRow?: ProjectRow } {
+function findSimilarProjects(options: SimilarProjectsOptions, results: BenchmarkResultDB[]): { fast: ProjectRow[]; normal: ProjectRow[]; single: ProjectRow[]; targetInfo: SimilarProjectsTargetInfo; targetRow?: ProjectRow; targetBenchmark?: BenchmarkResultDB; matchedBenchmarks: BenchmarkResultDB[] } {
     const { targetLoc, targetFiles, targetProject } = selectTarget(options, results);
     const metricTarget = options.metric === "loc" ? targetLoc : (targetFiles || 0);
 
@@ -94,6 +95,7 @@ function findSimilarProjects(options: SimilarProjectsOptions, results: Benchmark
     const maxMetric = metricTarget * (1 + tolerance);
 
     const rows: ProjectRow[] = [];
+    const matchedBenchmarks: BenchmarkResultDB[] = [];
     let targetRow: ProjectRow | undefined;
 
     if (targetProject) {
@@ -128,12 +130,15 @@ function findSimilarProjects(options: SimilarProjectsOptions, results: Benchmark
             analysisTime: timing.analysisTime,
             executionTime: timing.executionTime,
         });
+
+        matchedBenchmarks.push(r);
     }
 
     const isSmall = targetLoc < MAX_SMALL_LOC;
+    const targetInfo: SimilarProjectsTargetInfo = { targetLoc, targetFiles, isSmall };
 
     if (!isSmall) {
-        return { fast: [], normal: [], single: rows, targetInfo: { targetLoc, targetFiles, isSmall }, targetRow };
+        return { fast: [], normal: [], single: rows, targetInfo, targetRow, targetBenchmark: targetProject, matchedBenchmarks };
     }
 
     const fast: ProjectRow[] = [];
@@ -146,8 +151,7 @@ function findSimilarProjects(options: SimilarProjectsOptions, results: Benchmark
             normal.push(row);
         }
     }
-
-    return { fast, normal, single: [], targetInfo: { targetLoc, targetFiles, isSmall }, targetRow };
+    return { fast, normal, single: [], targetInfo, targetRow, targetBenchmark: targetProject, matchedBenchmarks };
 }
 
 function formatWithDiff(exporter: DocumentExporter, value: number, target?: number): string {
@@ -255,7 +259,7 @@ export function initializeModule(program: Command): void {
                 const results = loadResults(simOptions.rootDir);
                 const exporter = new DocumentExporter(simOptions.output);
 
-                const { fast, normal, single, targetInfo, targetRow } = findSimilarProjects(simOptions, results);
+                const { fast, normal, single, targetInfo, targetRow, targetBenchmark, matchedBenchmarks } = findSimilarProjects(simOptions, results);
 
                 const toolLabel = tool;
                 const metricLabel = metric === "loc" ? "LoC" : "Nb Files";
@@ -293,6 +297,53 @@ export function initializeModule(program: Command): void {
                 }
 
                 output += exporter.documentFooter();
+
+                // Export raw subset of benchmark data (target + similar projects) as JSON
+                let rawTarget: SimilarProjectsTarget;
+
+                if (simOptions.project || simOptions.gpr) {
+                    rawTarget = {
+                        type: simOptions.project ? "project" : "gpr",
+                        value: (simOptions.project ?? simOptions.gpr) as string,
+                        benchmark: targetBenchmark ?? null,
+                    };
+                } else {
+                    rawTarget = {
+                        type: "loc",
+                        value: simOptions.loc as number,
+                    };
+                }
+
+                const rawData: SimilarProjectsRawData = {
+                    options: {
+                        metric,
+                        tolerance: simOptions.tolerance,
+                        tool: toolLabel,
+                        triggerNumber: simOptions.triggerNumber,
+                    },
+                    target: rawTarget,
+                    targetInfo,
+                    similarProjects: matchedBenchmarks,
+                };
+
+                const sanitize = (value: string): string => {
+                    return value.replace(/[^a-zA-Z0-9_-]+/g, "_").slice(0, 100);
+                };
+
+                let baseName = "similar-projects";
+                if (simOptions.project) {
+                    baseName += `_project-${sanitize(simOptions.project)}`;
+                } else if (simOptions.gpr) {
+                    baseName += `_gpr-${sanitize(simOptions.gpr)}`;
+                } else if (typeof simOptions.loc === "number") {
+                    baseName += `_loc-${simOptions.loc}`;
+                }
+
+                const resultsDir = join(simOptions.rootDir, "results");
+                ensureDirSync(resultsDir);
+                const rawJsonPath = join(resultsDir, `${baseName}.json`);
+                Deno.writeTextFileSync(rawJsonPath, JSON.stringify(rawData, null, 2));
+                console.log("Raw similar-projects data stored in:", rawJsonPath);
 
                 switch (simOptions.output) {
                     case "cli":

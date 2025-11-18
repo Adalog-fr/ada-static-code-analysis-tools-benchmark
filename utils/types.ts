@@ -337,3 +337,31 @@ export type ResultData = {
         issuedMessage: RuleSummaryData;
     }
 };
+
+export type SimilarProjectsTargetKind = "project" | "gpr" | "loc";
+
+export interface SimilarProjectsTarget {
+    type: SimilarProjectsTargetKind;
+    value: string | number;
+    benchmark?: BenchmarkResultDB | null;
+}
+
+export interface SimilarProjectsOptionsExport {
+    metric: "loc" | "files";
+    tolerance: number;
+    tool: ToolKeyType;
+    triggerNumber: number;
+}
+
+export interface SimilarProjectsTargetInfo {
+    targetLoc: number;
+    targetFiles: number;
+    isSmall: boolean;
+}
+
+export interface SimilarProjectsRawData {
+    options: SimilarProjectsOptionsExport;
+    target: SimilarProjectsTarget;
+    targetInfo: SimilarProjectsTargetInfo;
+    similarProjects: BenchmarkResultDB[];
+}
