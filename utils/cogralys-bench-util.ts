@@ -17,10 +17,12 @@ import * as compressResults from "./modules/compressResults.ts";
 import * as deleteBenchmarkLogs from "./modules/deleteBenchmarkLogs.ts";
 import * as importMetrics from "./modules/importMetrics.ts";
 import * as generateImportReport from "./modules/generateImportReport.ts";
+import * as generateLanguageFeatureReport from "./modules/generateLanguageFeatureReport.ts";
 import * as generateCvReports from "./modules/generateCvReports.ts";
 import * as generateIssuedMessageReport from "./modules/issuedMessageReport.ts";
 import * as gprIssuedMessagesByRule from "./modules/gprIssuedMessagesByRule.ts";
 import * as issuedMessageDifferences from "./modules/issuedMessageDifferences.ts";
+import * as similarProjects from "./modules/similarProjects.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 
@@ -131,5 +133,7 @@ generateCvReports.initializeModule(program);
 generateIssuedMessageReport.initializeModule(program);
 gprIssuedMessagesByRule.initializeModule(program);
 issuedMessageDifferences.initializeModule(program);
+generateLanguageFeatureReport.initializeModule(program);
+similarProjects.initializeModule(program);
 
 program.parse(Deno.args);
