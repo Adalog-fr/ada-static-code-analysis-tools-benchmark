@@ -317,6 +317,8 @@ export type ResultAggregationByProjectCategory = {
     nbProjects: number,
     totalLoC: number,
     projects: DetailedResultType[],
+    languageFeatureUsageProjects: LanguageFeatureUsage,
+    languageFeatureUsageSum: LanguageFeatureUsage,
 };
 
 export type ResultAggregation = {

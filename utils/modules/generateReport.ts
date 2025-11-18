@@ -6,7 +6,7 @@ import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { capitalCase } from "jsr:@mesqueeb/case-anything";
 import cloneJSON from "jsr:@rhy/fast-json-clone";
 import { formatDuration, formatNumber } from "../utils.ts";
-import { BenchmarkResultDB, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData, ResultAggregationByProjectCategory, SUMMARY_TABLE_KEYS, toolKey, SummaryTableKeys } from "../types.ts";
+import { BenchmarkResultDB, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData, ResultAggregationByProjectCategory, SUMMARY_TABLE_KEYS, toolKey, SummaryTableKeys, LANGUAGE_FEATURE_USAGE_KEYS, LanguageFeatureUsage } from "../types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 import { OutputFormat, OutputFormatType, TableAlignType, TableCell } from "../formatters/formatters-interface.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
@@ -104,32 +104,43 @@ class ResultProcessor {
     constructor() {
     }
 
-    processResultsWithLocCategories(benchmarkFile: string, ruleName: string): {
-        [key in ProjectCategoryType]: {
-            table: SummaryTable;
-            nbProjects: number;
-            totalLoC: number;
-            projects: DetailedResultType[];
-        }
-    } {
+    processResultsWithLocCategories(benchmarkFile: string, ruleName: string): ResultAggregation {
         const results: BenchmarkResultDB[] = JSON.parse(Deno.readTextFileSync(benchmarkFile));
         const categorizedResults = processResultsByLocRange(results);
 
-        const processCategory = (categoryResults: BenchmarkResultDB[]): {
-            table: SummaryTable;
-            nbProjects: number;
-            totalLoC: number;
-            projects: DetailedResultType[];
-        } => {
+        const processCategory = (categoryResults: BenchmarkResultDB[]): ResultAggregationByProjectCategory => {
             const listOfLoC: number[] = [];
             const projects: DetailedResultType[] = [];
             const summary = this.initializeSummary();
             const totalLoC = this.aggregateData(categoryResults, summary, listOfLoC, ruleName, projects);
+
+            const languageFeatureUsageProjects: LanguageFeatureUsage = {} as LanguageFeatureUsage;
+            const languageFeatureUsageSum: LanguageFeatureUsage = {} as LanguageFeatureUsage;
+
+            for (const key of LANGUAGE_FEATURE_USAGE_KEYS) {
+                languageFeatureUsageProjects[key] = 0;
+                languageFeatureUsageSum[key] = 0;
+            }
+
+            for (const result of categoryResults) {
+                const features = result.languageFeatureUsage;
+                if (!features) continue;
+
+                for (const key of LANGUAGE_FEATURE_USAGE_KEYS) {
+                    const value = features[key] ?? 0;
+                    if (value > 0) {
+                        languageFeatureUsageProjects[key] += 1;
+                        languageFeatureUsageSum[key] += value;
+                    }
+                }
+            }
             return {
                 table: this.createResultTable(summary),
                 nbProjects: categoryResults.length,
                 totalLoC,
-                projects: projects.sort((a, b) => a.scc.nbLoC - b.scc.nbLoC)
+                projects: projects.sort((a, b) => a.scc.nbLoC - b.scc.nbLoC),
+                languageFeatureUsageProjects,
+                languageFeatureUsageSum,
             };
         };
 
@@ -393,7 +404,9 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 },
                 nbProjects: 0,
                 totalLoC: 0,
-                projects: []
+                projects: [],
+                languageFeatureUsageProjects: {} as any,
+                languageFeatureUsageSum: {} as any,
             },
             small: {
                 table: {
@@ -410,7 +423,9 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 },
                 nbProjects: 0,
                 totalLoC: 0,
-                projects: []
+                projects: [],
+                languageFeatureUsageProjects: {} as any,
+                languageFeatureUsageSum: {} as any,
             },
             medium: {
                 table: {
@@ -427,7 +442,9 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 },
                 nbProjects: 0,
                 totalLoC: 0,
-                projects: []
+                projects: [],
+                languageFeatureUsageProjects: {} as any,
+                languageFeatureUsageSum: {} as any,
             },
             large: {
                 table: {
@@ -444,7 +461,9 @@ function handleComputeResults(options: { rootDir: string, output: OutputFormatTy
                 },
                 nbProjects: 0,
                 totalLoC: 0,
-                projects: []
+                projects: [],
+                languageFeatureUsageProjects: {} as any,
+                languageFeatureUsageSum: {} as any,
             }
         },
         rules: {} as Record<string, ResultAggregation>,
@@ -563,6 +582,33 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
                        'nbProjects' in obj &&
                        'totalLoC' in obj;
             };
+
+            const formatLanguageFeatureTable = (
+                data: LanguageFeatureUsage,
+                title: string
+            ): string => {
+                const headers: TableCell[] = [
+                    { name: "Feature", key: "feature" },
+                    { name: "Value", key: "value", align: "left" as TableAlignType },
+                ];
+
+                const rows = LANGUAGE_FEATURE_USAGE_KEYS.map((key) => {
+                    const value = data[key] ?? 0;
+                    return {
+                        feature: key,
+                        value,
+                    } as Record<string, string | number>;
+                });
+
+                for (const row of rows) {
+                    if (typeof row.value === "number") {
+                        row.value = exporter.formatNumber(row.value);
+                    }
+                }
+
+                return exporter.formatTable(headers, rows, title);
+            };
+
             if (categoryName && categoryName.length) {
                 output.push(exporter.addTitle(categoryName, sectionLevel));
             }
@@ -571,6 +617,20 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
                 output.push(formatTable(category.table, tableTitle));
                 output.push(exporter.bold("Number of projects:") + " " + exporter.formatNumber(category.nbProjects) + "\n");
                 output.push(exporter.bold("Total lines of code:") + " " + exporter.formatNumber(category.totalLoC) + "\n");
+
+                // Only show language feature usage tables for the global aggregation
+                if (rule === "Global") {
+                    output.push("");
+                    output.push(formatLanguageFeatureTable(
+                        category.languageFeatureUsageProjects,
+                        `${toTitleCase(rule)}: ${categoryName} - Language feature usage (projects count)`
+                    ));
+                    output.push("");
+                    output.push(formatLanguageFeatureTable(
+                        category.languageFeatureUsageSum,
+                        `${toTitleCase(rule)}: ${categoryName} - Language feature usage (sum of values)`
+                    ));
+                }
             } else {
                 output.push(formatTable(category, tableTitle));
             }

@@ -64,7 +64,7 @@ export class TypstFormatter implements FormatProvider {
         let table = "";
 
         if (caption && caption.length) {
-            table += "#figure(\npad(x: -2cm, table(\n"
+            table += "#breakable-figure(\npad(x: -2cm, table(\n"
         } else {
             table += '#pad(x: -2cm, table(\n';
         }

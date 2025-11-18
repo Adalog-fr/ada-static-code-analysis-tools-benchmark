@@ -1,6 +1,11 @@
 #import "@preview/hydra:0.6.0": hydra
 #import "titlepage.typ": *
 
+#let breakable-figure(..args) = {
+  show figure: set block(breakable: true)
+  figure(..args)
+}
+
 // ----- Main Template Function: `basic-report` ----------------------
 
 #let basic-report(
