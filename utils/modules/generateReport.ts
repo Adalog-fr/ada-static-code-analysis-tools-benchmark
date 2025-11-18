@@ -6,7 +6,7 @@ import { ensureDirSync, emptyDirSync, copySync } from "jsr:@std/fs@1.0.9";
 import { capitalCase } from "jsr:@mesqueeb/case-anything";
 import cloneJSON from "jsr:@rhy/fast-json-clone";
 import { formatDuration, formatNumber } from "../utils.ts";
-import { BenchmarkResultDB, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData, ResultAggregationByProjectCategory, SUMMARY_TABLE_KEYS, toolKey, SummaryTableKeys, LANGUAGE_FEATURE_USAGE_KEYS, LanguageFeatureUsage } from "../types.ts";
+import { BenchmarkResultDB, GlobalResultTime, ToolKeyType, SummaryType, DetailedResultType, SummaryTableElement, SummaryTable, projectCategory, ProjectCategoryType, RuleSummaryData, ResultAggregation, ResultData, ResultAggregationByProjectCategory, SUMMARY_TABLE_KEYS, toolKey, SummaryTableKeys, LANGUAGE_FEATURE_USAGE_KEYS, LanguageFeatureUsage, LANGUAGE_FEATURE_DESCRIPTION_MAP } from "../types.ts";
 import { PROJECT_ROOT as defaultProjectRoot } from "../../config.ts";
 import { OutputFormat, OutputFormatType, TableAlignType, TableCell } from "../formatters/formatters-interface.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
@@ -589,13 +589,15 @@ function generateReports(nbRuns: number, resultData: ResultData, outputFormat: O
             ): string => {
                 const headers: TableCell[] = [
                     { name: "Feature", key: "feature" },
+                    { name: "Description", key: "description", align: "left" as TableAlignType },
                     { name: "Value", key: "value", align: "left" as TableAlignType },
                 ];
 
                 const rows = LANGUAGE_FEATURE_USAGE_KEYS.map((key) => {
                     const value = data[key] ?? 0;
                     return {
-                        feature: key,
+                        feature: key.replaceAll("_", " ").replaceAll("GT0", ""),
+                        description: LANGUAGE_FEATURE_DESCRIPTION_MAP[key],
                         value,
                     } as Record<string, string | number>;
                 });

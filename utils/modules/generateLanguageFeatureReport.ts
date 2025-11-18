@@ -1,7 +1,7 @@
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
 import { join } from "@std/path/join";
 import { ensureDirSync, copySync } from "jsr:@std/fs@1.0.9";
-import { BenchmarkResultDB, LANGUAGE_FEATURE_USAGE_KEYS, LanguageFeatureUsage, toolKey, ToolKeyType } from "../types.ts";
+import { BenchmarkResultDB, LANGUAGE_FEATURE_USAGE_KEYS, LanguageFeatureUsage, LANGUAGE_FEATURE_DESCRIPTION_MAP, toolKey, ToolKeyType } from "../types.ts";
 import { DocumentExporter } from "../formatters/exporter.ts";
 import { OutputFormat, OutputFormatType } from "../formatters/formatters-interface.ts";
 import { formatNumber } from "../utils.ts";
@@ -63,6 +63,31 @@ export function initializeModule(program: Command): void {
                     "For each feature and each tool, we compute the correlation between:\n";
                 output += "- raw feature count (number of occurrences)\n";
                 output += "- normalized feature count (occurrences per 1k LoC)\n\n";
+
+                output += exporter.addTitle("Language Features Glossary", 1) + "\n";
+                output +=
+                    "The following table summarizes each Ada language feature (\"trait\") measured in this benchmark, " +
+                    "with a short description of what is counted for each metric.\n\n";
+
+                const glossaryRows = LANGUAGE_FEATURE_USAGE_KEYS.map((key) => {
+                    const label = key.replaceAll("_", " ").replaceAll("GT0", "");
+                    const description = LANGUAGE_FEATURE_DESCRIPTION_MAP[key];
+
+                    return {
+                        feature: label,
+                        description,
+                    } as Record<string, string>;
+                });
+
+                output += exporter.formatTable(
+                    [
+                        { name: "Feature", key: "feature", align: "left" },
+                        { name: "Description", key: "description", align: "left" },
+                    ],
+                    glossaryRows,
+                    "Language feature descriptions",
+                );
+                output += "\n\n";
 
                 // Analyze tools (skip cogralys as its analysis time is constant)
                 for (const tool of toolKey) {
@@ -257,7 +282,7 @@ class LanguageFeaturePerformanceAnalyzer {
                     { name: "Avg count (slow)", key: "avgSlow", align: "right" },
                 ],
                 rows.map((r) => ({
-                    feature: r.feature,
+                    feature: r.feature.replaceAll("_", " ").replaceAll("GT0", ""),
                     corrCount: formatNumber(r.corrCount, 3),
                     corrDensity: formatNumber(r.corrDensity, 3),
                     avgFast: formatNumber(r.avgCountFast, 2),
