@@ -22,6 +22,7 @@ import * as generateCvReports from "./modules/generateCvReports.ts";
 import * as generateIssuedMessageReport from "./modules/issuedMessageReport.ts";
 import * as gprIssuedMessagesByRule from "./modules/gprIssuedMessagesByRule.ts";
 import * as issuedMessageDifferences from "./modules/issuedMessageDifferences.ts";
+import * as issuedMessageSimilarity from "./modules/issuedMessageSimilarity.ts";
 import * as similarProjects from "./modules/similarProjects.ts";
 
 import { Command } from "https://deno.land/x/cmd@v1.2.0/mod.ts";
@@ -133,6 +134,7 @@ generateCvReports.initializeModule(program);
 generateIssuedMessageReport.initializeModule(program);
 gprIssuedMessagesByRule.initializeModule(program);
 issuedMessageDifferences.initializeModule(program);
+issuedMessageSimilarity.initializeModule(program);
 generateLanguageFeatureReport.initializeModule(program);
 similarProjects.initializeModule(program);
 
