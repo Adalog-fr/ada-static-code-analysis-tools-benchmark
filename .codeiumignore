@@ -2,7 +2,6 @@ compilers
 examples
 githubAnalysis/repos
 phdBenchmark
-src
 Storage_Error
 tmp
 utils/generateChart/venv
